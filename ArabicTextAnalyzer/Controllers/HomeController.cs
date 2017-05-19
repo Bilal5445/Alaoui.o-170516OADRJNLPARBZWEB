@@ -12,8 +12,10 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult Index()
         {
             var textSentimentAnalyzer = new TextSentimentAnalyzer();
+            var textEntityExtraction = new TextEntityExtraction();
 
             var a = textSentimentAnalyzer.GetSentiment("sdasd");
+            var b = textEntityExtraction.GetEntities("sad");
 
             return View();
         }

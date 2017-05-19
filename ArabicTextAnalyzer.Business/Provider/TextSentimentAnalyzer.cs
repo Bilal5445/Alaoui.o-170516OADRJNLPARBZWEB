@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Net;
-using System.Net.Http.Headers;
 using ArabicTextAnalyzer.Contracts;
 using ArabicTextAnalyzer.Domain;
-using ArabicTextAnalyzer.Models;
 using RestSharp;
 using RestSharp.Authenticators;
 using System.Web.Script.Serialization;
