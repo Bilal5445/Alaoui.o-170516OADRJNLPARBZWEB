@@ -1,0 +1,11 @@
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Business\bin\Debug\ArabicTextAnalyzer.Business.dll
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Business\bin\Debug\ArabicTextAnalyzer.Business.pdb
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Business\bin\Debug\ArabicTextAnalyzer.Contracts.dll
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Business\bin\Debug\ArabicTextAnalyzer.Domain.dll
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Business\bin\Debug\RestSharp.dll
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Business\bin\Debug\ArabicTextAnalyzer.Contracts.pdb
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Business\bin\Debug\ArabicTextAnalyzer.Domain.pdb
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Business\bin\Debug\RestSharp.xml
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Business\obj\Debug\ArabicTextAnalyzer.Business.csprojResolveAssemblyReference.cache
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Business\obj\Debug\ArabicTextAnalyzer.Business.dll
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Business\obj\Debug\ArabicTextAnalyzer.Business.pdb
