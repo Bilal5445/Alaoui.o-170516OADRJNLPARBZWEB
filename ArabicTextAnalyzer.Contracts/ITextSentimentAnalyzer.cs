@@ -1,5 +1,4 @@
 ﻿using ArabicTextAnalyzer.Domain;
-using ArabicTextAnalyzer.Models;
 
 namespace ArabicTextAnalyzer.Contracts
 {

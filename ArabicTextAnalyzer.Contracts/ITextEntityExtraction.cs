@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using ArabicTextAnalyzer.Models;
+using ArabicTextAnalyzer.Domain;
 
 namespace ArabicTextAnalyzer.Contracts
 {

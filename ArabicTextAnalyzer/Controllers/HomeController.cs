@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using ArabicTextAnalyzer.Business.Provider;
+using ArabicTextAnalyzer.Models;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -11,13 +10,27 @@ namespace ArabicTextAnalyzer.Controllers
     {
         public ActionResult Index()
         {
+            var textConverter = new TextConverter();
+  
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ProcessText(string text)
+        {
             var textSentimentAnalyzer = new TextSentimentAnalyzer();
             var textEntityExtraction = new TextEntityExtraction();
 
-            var a = textSentimentAnalyzer.GetSentiment("sdasd");
-            var b = textEntityExtraction.GetEntities("sad");
+            var sentiment = textSentimentAnalyzer.GetSentiment(text);
+            var entities = textEntityExtraction.GetEntities(text);
 
-            return View();
+            var result = new TextAnalyze
+            {
+                Entities = entities.ToList(),
+                Sentiment = sentiment
+            };
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult About()

@@ -26,7 +26,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             client.Authenticator = new HttpBasicAuthenticator("52cef037-89f1-4621-9def-4ab4c618d83c", "tQ57OyQgJlQ6");
 
             request.AddQueryParameter("version", "2017-02-27");
-            request.AddQueryParameter("text", "صرخة سيئة قبيح جد");
+            request.AddQueryParameter("text", source);
             request.AddQueryParameter("features", "sentiment");
 
             var response = client.Execute(request);
