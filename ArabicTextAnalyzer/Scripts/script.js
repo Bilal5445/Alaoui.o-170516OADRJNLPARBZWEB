@@ -1,26 +1,68 @@
 ﻿$(function () {
-    $("#analyzeText").click(function () {
+
+    var setSentimentResult = function(label, score) {
+        var sentimentStatus = label;
+        var sentimentScore = score;
+
+        $('#sentiment').text(sentimentStatus.toUpperCase());
+        $('#sentiment-score').text(sentimentScore);
+    }
+
+    var setEntitiesResult = function(entities) {
+        var entitiesHtml = '';
+
+        entities.forEach(function (entity) {
+            entitiesHtml += '<div class="entity">' + entity.Normalized + '</div>';
+        });
+
+        $('#entities').append(entitiesHtml);
+    }
+
+    var analyzeText = function() {
 
         var arabicText = $("#arabic-text").val();
+        $('#sentiment').text('');
+        $('#sentiment-score').text('');
+        $('#entities').html('');
 
-        alert(arabicText);
+        if (arabicText) {
 
-        // change to POST for large text
+            $('.loader').show();
 
-        $.ajax({
-            type: "GET",
-            url: "/Home/ProcessText?text=" + arabicText,
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (response) {
-               console.log(response);
-            },
-            failure: function (response) {
-                alert(response.responseText);
-            },
-            error: function (response) {
-                alert(response.responseText);
-            }
-        });
+            $.ajax({
+                type: "POST",
+                url: "/Home/ProcessText",
+                data: { text: arabicText },
+                dataType: "json",
+                success: function (response) {
+
+                    $('.loader').hide();
+
+                    var sentiment = response.Sentiment;
+                    if (sentiment) {
+                        setSentimentResult(sentiment.Label, sentiment.Score);
+                    }
+
+                    var entities = response.Entities;
+                    if (entities) {
+                        setEntitiesResult(entities);
+                    }
+                },
+                failure: function(response) {
+                    console(response);
+                },
+                error: function(response) {
+                    console(response);
+                }
+            });
+        }
+    }
+
+    $("#arabic-text").change(function () {
+        analyzeText();
+    });
+
+    $("#analyze").click(function() {
+        analyzeText();
     });
 });

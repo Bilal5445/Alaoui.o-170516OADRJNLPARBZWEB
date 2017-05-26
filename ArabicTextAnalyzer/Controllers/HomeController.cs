@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Helpers;
+using System.Web.Http;
 using System.Web.Mvc;
 using ArabicTextAnalyzer.Business.Provider;
 using ArabicTextAnalyzer.Models;
@@ -15,8 +16,8 @@ namespace ArabicTextAnalyzer.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult ProcessText(string text)
+        [System.Web.Mvc.HttpPost]
+        public ActionResult ProcessText([FromBody] string text)
         {
             var textSentimentAnalyzer = new TextSentimentAnalyzer();
             var textEntityExtraction = new TextEntityExtraction();
@@ -47,7 +48,7 @@ namespace ArabicTextAnalyzer.Controllers
             return View();
         }
 
-        [HttpPost]
+        [System.Web.Mvc.HttpPost]
         public JsonResult AjaxMethod(string name)
         {
             //PersonModel person = new PersonModel
