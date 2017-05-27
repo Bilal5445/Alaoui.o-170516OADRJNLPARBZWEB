@@ -11,22 +11,25 @@ namespace ArabicTextAnalyzer.Controllers
     {
         public ActionResult Index()
         {
-            var textConverter = new TextConverter();
-  
-            return View();
+              return View();
         }
 
         [System.Web.Mvc.HttpPost]
         public ActionResult ProcessText([FromBody] string text)
         {
+
+            var textConverter = new TextConverter();
             var textSentimentAnalyzer = new TextSentimentAnalyzer();
             var textEntityExtraction = new TextEntityExtraction();
 
-            var sentiment = textSentimentAnalyzer.GetSentiment(text);
-            var entities = textEntityExtraction.GetEntities(text);
+            var arabicText = textConverter.Convert(text);
+
+            var sentiment = textSentimentAnalyzer.GetSentiment(arabicText);
+            var entities = textEntityExtraction.GetEntities(arabicText);
 
             var result = new TextAnalyze
             {
+                ArabicText = arabicText,
                 Entities = entities.ToList(),
                 Sentiment = sentiment
             };
@@ -46,17 +49,6 @@ namespace ArabicTextAnalyzer.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
-        }
-
-        [System.Web.Mvc.HttpPost]
-        public JsonResult AjaxMethod(string name)
-        {
-            //PersonModel person = new PersonModel
-            //{
-            //    Name = name,
-            //    DateTime = DateTime.Now.ToString()
-            //};
-            return Json(new {test = "test" });
         }
     }
 }

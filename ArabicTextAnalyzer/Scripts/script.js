@@ -20,23 +20,29 @@
 
     var analyzeText = function() {
 
-        var arabicText = $("#arabic-text").val();
+        var arabiziText = $("#arabizi-text").val();
+
+        console.log(arabiziText);
+
+        $('#arabic-text').val('');
         $('#sentiment').text('');
         $('#sentiment-score').text('');
         $('#entities').html('');
 
-        if (arabicText) {
+        if (arabiziText) {
 
             $('.loader').show();
 
             $.ajax({
                 type: "POST",
                 url: "/Home/ProcessText",
-                data: { text: arabicText },
+                data: { text: arabiziText },
                 dataType: "json",
                 success: function (response) {
 
                     $('.loader').hide();
+
+                    $('#arabic-text').val(response.ArabicText);
 
                     var sentiment = response.Sentiment;
                     if (sentiment) {
@@ -58,7 +64,7 @@
         }
     }
 
-    $("#arabic-text").change(function () {
+    $("#arabizi-text").change(function () {
         analyzeText();
     });
 

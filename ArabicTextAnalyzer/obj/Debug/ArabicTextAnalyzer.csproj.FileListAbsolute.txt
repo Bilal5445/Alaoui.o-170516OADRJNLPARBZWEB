@@ -14,6 +14,9 @@ D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\ArabicTextAnalyze
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\ArabicTextAnalyzer.dll
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\ArabicTextAnalyzer.pdb
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\Antlr3.Runtime.dll
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\ArabicTextAnalyzer.Business.dll
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\ArabicTextAnalyzer.Contracts.dll
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\ArabicTextAnalyzer.Domain.dll
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\EntityFramework.dll
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\EntityFramework.SqlServer.dll
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\Microsoft.AspNet.Identity.Core.dll
@@ -43,6 +46,10 @@ D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\System.Web.WebPag
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\System.Web.WebPages.dll
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\System.Web.WebPages.Razor.dll
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\WebGrease.dll
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\RestSharp.dll
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\ArabicTextAnalyzer.Business.pdb
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\ArabicTextAnalyzer.Contracts.pdb
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\ArabicTextAnalyzer.Domain.pdb
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\System.Web.Helpers.xml
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\System.Web.Mvc.xml
@@ -70,14 +77,7 @@ D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\Microsoft.Owin.Se
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\Microsoft.Owin.Security.Google.xml
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\RestSharp.xml
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\obj\Debug\ArabicTextAnalyzer.csprojResolveAssemblyReference.cache
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\obj\Debug\ArabicTextAnalyzer.dll
 D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\obj\Debug\ArabicTextAnalyzer.pdb
-D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\ArabicTextAnalyzer.Business.dll
-D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\ArabicTextAnalyzer.Contracts.dll
-D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\ArabicTextAnalyzer.Domain.dll
-D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\RestSharp.dll
-D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\ArabicTextAnalyzer.Business.pdb
-D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\ArabicTextAnalyzer.Contracts.pdb
-D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\ArabicTextAnalyzer.Domain.pdb
-D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer\bin\RestSharp.xml
