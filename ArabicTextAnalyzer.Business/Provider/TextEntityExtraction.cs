@@ -32,9 +32,7 @@ namespace ArabicTextAnalyzer.Business.Provider
                         content = source
                     });
 
-
             request.AddParameter("application/json", content, ParameterType.RequestBody);
-
 
             var response = client.Execute(request);
 
