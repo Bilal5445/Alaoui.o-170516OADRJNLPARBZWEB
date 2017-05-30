@@ -1,6 +1,6 @@
 ﻿$(function () {
 
-    var setSentimentResult = function(label, score) {
+    var setSentimentResult = function (label, score) {
         var sentimentStatus = label;
         var sentimentScore = score;
 
@@ -8,17 +8,24 @@
         $('#sentiment-score').text(sentimentScore);
     }
 
-    var setEntitiesResult = function(entities) {
+    var setEntitiesResult = function (entities) {
         var entitiesHtml = '';
 
         entities.forEach(function (entity) {
             entitiesHtml += '<div class="entity">' + entity.Normalized + '</div>';
+
+            console.log("entity:")
+            console.log(entity.Count);
+            console.log(entity.EntityId);
+            console.log(entity.Mention);
+            console.log(entity.Normalized);
+            console.log(entity.Type);
         });
 
         $('#entities').append(entitiesHtml);
     }
 
-    var analyzeText = function() {
+    var analyzeText = function () {
 
         var arabiziText = $("#arabizi-text").val();
 
@@ -54,21 +61,21 @@
                         setEntitiesResult(entities);
                     }
                 },
-                failure: function(response) {
+                failure: function (response) {
                     console(response);
                 },
-                error: function(response) {
+                error: function (response) {
                     console(response);
                 }
             });
         }
     }
 
-    $("#arabizi-text").change(function () {
+    /*$("#arabizi-text").change(function () {
         analyzeText();
-    });
+    });*/
 
-    $("#analyze").click(function() {
+    $("#analyze").click(function () {
         analyzeText();
     });
 });
