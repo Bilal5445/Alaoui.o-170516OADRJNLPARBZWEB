@@ -50,3 +50,8 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.arabic textarea {
+    font-size: 18px;
+    direction: rtl;
+}
