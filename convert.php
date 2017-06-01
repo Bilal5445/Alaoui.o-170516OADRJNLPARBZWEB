@@ -18,6 +18,5 @@
 	$arabicOutput = fread($outputTranslFile, filesize($outputFilePath));
 	fclose($outputTranslFile);
 
-	echo $postData;
-	//echo $arabicOutput;
+	echo $arabicOutput;
  ?>
