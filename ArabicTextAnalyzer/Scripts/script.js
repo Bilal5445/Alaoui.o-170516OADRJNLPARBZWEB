@@ -12,7 +12,7 @@
         var entitiesHtml = '';
 
         entities.forEach(function (entity) {
-            entitiesHtml += '<div class="entity">' + entity.Normalized + '</div>';
+            entitiesHtml += '<div class="entity">' + entity.Type + ': ' +entity.Normalized + '</div>';
         });
 
         $('#entities').append(entitiesHtml);
@@ -21,8 +21,6 @@
     var analyzeText = function() {
 
         var arabiziText = $("#arabizi-text").val();
-
-        console.log(arabiziText);
 
         $('#arabic-text').val('');
         $('#sentiment').text('');
@@ -63,10 +61,6 @@
             });
         }
     }
-
-    $("#arabizi-text").change(function () {
-        analyzeText();
-    });
 
     $("#analyze").click(function() {
         analyzeText();
