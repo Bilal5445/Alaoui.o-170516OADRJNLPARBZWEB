@@ -1,0 +1,11 @@
+syntax: glob
+ArabicTextAnalyzer/bin
+ArabicTextAnalyzer/obj
+ArabicTextAnalyzer.Contracts/obj
+ArabicTextAnalyzer.Business/obj
+ArabicTextAnalyzer.Business/bin
+ArabicTextAnalyzer.Contracts/bin
+ArabicTextAnalyzer.Domain/obj
+.vs/ArabicTextAnalyzer/v14/.suo
+.vs/config/applicationhost.config
+ArabicTextAnalyzer.Domain/bin
