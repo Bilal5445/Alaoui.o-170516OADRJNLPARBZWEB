@@ -18,7 +18,7 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult ProcessText([FromBody] string text)
         {
 
-            var textConverter = new ApiTextConverter();
+            var textConverter = new TextConverter();
             var textSentimentAnalyzer = new TextSentimentAnalyzer();
             var textEntityExtraction = new TextEntityExtraction();
             

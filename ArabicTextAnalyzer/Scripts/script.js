@@ -53,10 +53,10 @@
                     }
                 },
                 failure: function(response) {
-                    console(response);
+                    console.log(response);
                 },
                 error: function(response) {
-                    console(response);
+                    console.log(response);
                 }
             });
         }
