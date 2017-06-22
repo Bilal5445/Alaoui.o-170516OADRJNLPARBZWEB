@@ -18,7 +18,13 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult ProcessText([FromBody] string text)
         {
 
+            // Arabizi to arabic script
+            // either direct call to perl script
             var textConverter = new TextConverter();
+            // or via a php api
+            // var textConverter = new ApiTextConverter();
+
+            // SA & Entity
             var textSentimentAnalyzer = new TextSentimentAnalyzer();
             var textEntityExtraction = new TextEntityExtraction();
             
