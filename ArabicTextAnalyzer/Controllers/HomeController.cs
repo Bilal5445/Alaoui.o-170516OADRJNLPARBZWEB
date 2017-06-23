@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Web.Helpers;
 using System.Web.Http;
 using System.Web.Mvc;
 using ArabicTextAnalyzer.Business.Provider;
@@ -17,7 +16,6 @@ namespace ArabicTextAnalyzer.Controllers
         [System.Web.Mvc.HttpPost]
         public ActionResult ProcessText([FromBody] string text)
         {
-
             // Arabizi to arabic script
             // either direct call to perl script
             var textConverter = new TextConverter();
@@ -27,7 +25,7 @@ namespace ArabicTextAnalyzer.Controllers
             // SA & Entity
             var textSentimentAnalyzer = new TextSentimentAnalyzer();
             var textEntityExtraction = new TextEntityExtraction();
-            
+
             // Arabizi to arabic from perl script
             var arabicText = textConverter.Convert(text);
 
