@@ -1,5 +1,0 @@
-D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Domain\bin\Debug\ArabicTextAnalyzer.Domain.dll
-D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Domain\bin\Debug\ArabicTextAnalyzer.Domain.pdb
-D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Domain\obj\Debug\ArabicTextAnalyzer.Domain.csprojResolveAssemblyReference.cache
-D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Domain\obj\Debug\ArabicTextAnalyzer.Domain.dll
-D:\Projects\Upwork\3\ArabicTextAnalyzer\ArabicTextAnalyzer.Domain\obj\Debug\ArabicTextAnalyzer.Domain.pdb
