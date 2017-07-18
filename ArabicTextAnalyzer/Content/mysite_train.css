@@ -35,3 +35,7 @@ tr.header {
 td.arabic-text {
     direction: rtl;
 }
+
+span.highlight {
+    background-color: #FFFF00;
+}

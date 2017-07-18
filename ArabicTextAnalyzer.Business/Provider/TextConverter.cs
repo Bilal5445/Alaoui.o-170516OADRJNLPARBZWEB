@@ -8,7 +8,8 @@ namespace ArabicTextAnalyzer.Business.Provider
     public class TextConverter : ITextConverter
     {
         // -> the output file
-        private const String pathToArabiziEnv = @"C:\script\namatedev-17028oadrjnlparbz-991d3268755f\namatedev-17028oadrjnlparbz-991d3268755f\";
+        private const String pathToArabiziEnv = @"C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\";
+        // private const String pathToArabiziEnv = @"C:\script\namatedev-17028oadrjnlparbz-991d3268755f\namatedev-17028oadrjnlparbz-991d3268755f\";
         private const String pathToExample = pathToArabiziEnv + @"example\";
         // private const string outputFileLocation = pathToExample + "small-example.7.charTransl";
         private const string outputFileLocation = pathToExample + "small-example.7.charWordTransl";

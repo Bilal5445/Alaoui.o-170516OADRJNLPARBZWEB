@@ -54,6 +54,7 @@
     <Compile Include="Provider\TextEntityExtraction.cs" />
     <Compile Include="Provider\TextPersist.cs" />
     <Compile Include="Provider\TextSentimentAnalyzer.cs" />
+    <Compile Include="Provider\TextTools.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ArabicTextAnalyzer.Contracts\ArabicTextAnalyzer.Contracts.csproj">

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfM_ARABICDARIJAENTRY xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>60c045d9-b0d4-4ea5-89ae-9f93e86c8568</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>7ed98cca-4a1e-4ed5-9f69-33f834150d0d</ID_ARABIZIENTRY>
-    <ArabicDarijaText>بتوفيق لقرد .... وصل عمالك حسبان او تلتفت الجمهور يغرد خرج سرب او يفقه شيئا في قانون المناصر waghalibiyatohom تابعين المارق و زرق ... المناصر دور تشجع فقط ولا بغا تغير ينخرط flmaktab ويترشح
+    <ID_ARABICDARIJAENTRY>bfa78923-e413-467f-a26a-45d85fabc3de</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3e72b496-7791-4903-b882-816249f26c4e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بتوفيق القرد .... وصل عملك حسبان او تلتفت الجمهور يغرد خرج سيرب او يفقه شيئا في قانون المناصر waghalibiyatohom تابعين المارقة و زارق ... المناصر دور تشجع فقط ولا بغا تغير ينخرط flmaktab ويترشح
 </ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

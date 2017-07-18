@@ -12,9 +12,6 @@ namespace ArabicTextAnalyzer.Business.Provider
     {
         public void Serialize<T>(T entry, String path)
         {
-            // Create file if not there (and close to remove lock on file)
-            // if (!System.IO.File.Exists(path)) System.IO.File.Create(path).Close();
-
             //
             List<T> entries = new List<T>();
             XmlSerializer serializer = new XmlSerializer(entries.GetType());

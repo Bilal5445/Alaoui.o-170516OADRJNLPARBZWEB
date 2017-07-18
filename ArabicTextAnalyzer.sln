@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArabicTextAnalyzer.Contract
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArabicTextAnalyzer.Domain", "ArabicTextAnalyzer.Domain\ArabicTextAnalyzer.Domain.csproj", "{F14CF097-10E2-4336-A27B-AB55903A0354}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArabicTextAnalyzerTests", "ArabicTextAnalyzerTests\ArabicTextAnalyzerTests.csproj", "{CBE6D408-DFEC-49B6-B225-38E7C69A5CE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F14CF097-10E2-4336-A27B-AB55903A0354}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F14CF097-10E2-4336-A27B-AB55903A0354}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F14CF097-10E2-4336-A27B-AB55903A0354}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBE6D408-DFEC-49B6-B225-38E7C69A5CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBE6D408-DFEC-49B6-B225-38E7C69A5CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBE6D408-DFEC-49B6-B225-38E7C69A5CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBE6D408-DFEC-49B6-B225-38E7C69A5CE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfM_ARABICDARIJAENTRY_LATINWORD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <M_ARABICDARIJAENTRY_LATINWORD>
+    <ID_ARABICDARIJAENTRY>bfa78923-e413-467f-a26a-45d85fabc3de</ID_ARABICDARIJAENTRY>
+    <LatinWord>waghalibiyatohom</LatinWord>
+  </M_ARABICDARIJAENTRY_LATINWORD>
+  <M_ARABICDARIJAENTRY_LATINWORD>
+    <ID_ARABICDARIJAENTRY>bfa78923-e413-467f-a26a-45d85fabc3de</ID_ARABICDARIJAENTRY>
+    <LatinWord>flmaktab</LatinWord>
+  </M_ARABICDARIJAENTRY_LATINWORD>
+</ArrayOfM_ARABICDARIJAENTRY_LATINWORD>
