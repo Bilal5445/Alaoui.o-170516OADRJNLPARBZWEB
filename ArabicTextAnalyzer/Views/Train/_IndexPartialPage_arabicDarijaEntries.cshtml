@@ -1,0 +1,13 @@
+﻿@model List<ArabicTextAnalyzer.Models.M_ARABICDARIJAENTRY>
+<table class="posts">
+    <tr class="header">
+        <th class="row-1 center">Posts</th>
+    </tr>
+
+    @foreach (var entry in Model)
+    {
+        <tr>
+            <td class="arabic-text">@entry.ArabicDarijaText</td>
+        </tr>
+    }
+</table>

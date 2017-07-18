@@ -1,0 +1,41 @@
+﻿@model ArabicTextAnalyzer.Models.M_ARABIZIENTRY
+@{
+    ViewBag.Title = "Train";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+    @Styles.Render("~/Content/css_train")
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/js_train")
+}
+
+<h2>Train</h2>
+
+@using (Html.BeginForm("TrainStepOne", "Train", FormMethod.Post))
+{
+    <div class="row" style="margin-top: 30px">
+        <div class="col-md-4">
+            <div class="panel panel-default active">
+                <div class="panel-heading">Arabizi</div>
+                <div class="panel-body" style="padding: 0; height: 150px">
+                    @Html.TextAreaFor(m => m.ArabiziText, new { style = "height: 100%; width: 100%", @required = "required" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-success btn-lg" type="submit" id="train">
+                Train
+            </button>
+        </div>
+    </div>
+}
+
+<!-- Place where you will insert your partial -->
+<div id="partialPlaceHolder" style="display:inline;"> </div>
+

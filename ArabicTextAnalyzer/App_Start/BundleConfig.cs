@@ -28,6 +28,16 @@ namespace ArabicTextAnalyzer
                       "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/custom").Include("~/Scripts/script.js"));
+
+            // local to train page
+            bundles.Add(new StyleBundle("~/Content/css_train").Include(
+                      "~/Content/mysite_train.css"
+                      ));
+
+            // local to train page
+            bundles.Add(new ScriptBundle("~/bundles/js_train").Include(
+                "~/Scripts/mysite_train.js"
+                ));
         }
     }
 }
