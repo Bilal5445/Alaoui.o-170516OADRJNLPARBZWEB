@@ -1,0 +1,11 @@
+syntax: glob
+ArabicTextAnalyzer.Business/bin
+ArabicTextAnalyzer.Business/obj
+ArabicTextAnalyzer.Contracts/bin
+ArabicTextAnalyzer.Contracts/obj
+ArabicTextAnalyzer.Domain/obj
+ArabicTextAnalyzer/obj
+ArabicTextAnalyzer.Domain/bin
+ArabicTextAnalyzer/bin
+ArabicTextAnalyzerTests/bin
+ArabicTextAnalyzerTests/obj
