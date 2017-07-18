@@ -52,6 +52,7 @@
     <Compile Include="Provider\RosetteEntityResponse.cs" />
     <Compile Include="Provider\TextConverter.cs" />
     <Compile Include="Provider\TextEntityExtraction.cs" />
+    <Compile Include="Provider\TextPersist.cs" />
     <Compile Include="Provider\TextSentimentAnalyzer.cs" />
   </ItemGroup>
   <ItemGroup>
