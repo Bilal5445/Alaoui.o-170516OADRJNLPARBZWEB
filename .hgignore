@@ -12,3 +12,4 @@ ArabicTextAnalyzerTests/obj
 .vs/ArabicTextAnalyzer/v14/.suo
 .vs/config/applicationhost.config
 ArabicTextAnalyzer/ArabicTextAnalyzer.csproj.user
+packages
