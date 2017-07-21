@@ -52,11 +52,16 @@
     <Compile Include="Provider\RosetteEntityResponse.cs" />
     <Compile Include="Provider\TextConverter.cs" />
     <Compile Include="Provider\TextEntityExtraction.cs" />
+    <Compile Include="Provider\TextFrequency.cs" />
     <Compile Include="Provider\TextPersist.cs" />
     <Compile Include="Provider\TextSentimentAnalyzer.cs" />
     <Compile Include="Provider\TextTools.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\170215OADRJNLPMLDC\OADRJNLPCommon\OADRJNLPCommon\OADRJNLPCommon.csproj">
+      <Project>{5b4657a7-6add-4e83-965d-c5a8b7c9b321}</Project>
+      <Name>OADRJNLPCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ArabicTextAnalyzer.Contracts\ArabicTextAnalyzer.Contracts.csproj">
       <Project>{ec49055f-5b9c-4b75-8859-f879865b3d34}</Project>
       <Name>ArabicTextAnalyzer.Contracts</Name>

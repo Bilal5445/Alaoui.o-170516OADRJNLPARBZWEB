@@ -55,6 +55,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\170215OADRJNLPMLDC\OADRJNLPCommon\OADRJNLPCommon\OADRJNLPCommon.csproj">
+      <Project>{5B4657A7-6ADD-4E83-965D-C5A8B7C9B321}</Project>
+      <Name>OADRJNLPCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ArabicTextAnalyzer.Business\ArabicTextAnalyzer.Business.csproj">
       <Project>{95e08859-199a-486a-88d5-6c1a5300f7d2}</Project>
       <Name>ArabicTextAnalyzer.Business</Name>

@@ -6,4 +6,21 @@
     <ArabicDarijaText>بتوفيق القرد .... وصل عملك حسبان او تلتفت الجمهور يغرد خرج سيرب او يفقه شيئا في قانون المناصر waghalibiyatohom تابعين المارقة و زارق ... المناصر دور تشجع فقط ولا بغا تغير ينخرط flmaktab ويترشح
 </ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>aace1df7-a923-48a1-8326-fc3baa872596</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b3603cfa-bf9e-4a88-9628-cdf9d88534df</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سر يا haz9ane الله yan3al لصاحب موك نتا و ياه
+</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2a42aad5-d7d7-462c-b992-9af2775aa2df</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f0edbd30-d362-4634-b578-9b69ccff8a0c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سر يا haz9ane الله ينعل لصاحب موك نتا و ية
+</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7bf0c6c6-59a9-4ee4-8164-1b89df781f4f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>acd109b0-0686-467c-bbb0-d48bf147bad8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سر يا حزقان الله ينعل القحبة موك نتا و يح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

@@ -4,4 +4,16 @@
     <ID_ARABIZIENTRY>3e72b496-7791-4903-b882-816249f26c4e</ID_ARABIZIENTRY>
     <ArabiziText>btawfi9 lgarido ....wasil 3amalak 7asban wala taltafit lijomhor yogharido kharija sirb wala yaf9aho chay2an fi 9anon lmonasir waghalibiyatohom tab3in lmar9a w zar9a ...lmonasir dawro tachji3 fa9at wli bgha taghyir yankharat flmaktab wytracha7</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b3603cfa-bf9e-4a88-9628-cdf9d88534df</ID_ARABIZIENTRY>
+    <ArabiziText>Sir ya haz9ane lah yan3al l9ahba mok nta o yah</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>f0edbd30-d362-4634-b578-9b69ccff8a0c</ID_ARABIZIENTRY>
+    <ArabiziText>Sir ya haz9ane lah yan3al l9ahba mok nta o yah</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>acd109b0-0686-467c-bbb0-d48bf147bad8</ID_ARABIZIENTRY>
+    <ArabiziText>Sir ya haz9ane lah yan3al l9ahba mok nta o yah</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
