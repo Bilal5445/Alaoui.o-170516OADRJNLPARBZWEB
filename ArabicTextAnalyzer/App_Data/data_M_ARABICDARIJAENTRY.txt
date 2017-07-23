@@ -23,4 +23,49 @@
     <ID_ARABIZIENTRY>acd109b0-0686-467c-bbb0-d48bf147bad8</ID_ARABIZIENTRY>
     <ArabicDarijaText>سر يا حزقان الله ينعل القحبة موك نتا و يح</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0e3d4cc5-1277-4a63-892a-858450a80f88</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d59e9164-a5cb-42c0-b4e7-bcd2a2a05f89</ID_ARABIZIENTRY>
+    <ArabicDarijaText>زان بصح راه منورة كيف دم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1f9deb44-9263-4508-898c-9b9f1f13c901</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9199fc0f-425a-4dea-b768-2ee595fff76c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خويا بذلاه بركة فرصك الله yarzakam صابر محمد حور ول منصور</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>07f07fc8-9408-4974-af21-492ab510ada6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e50e2255-fe48-44a5-9bfd-9b7c739524ec</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هاد الحكومة د ل عتمان خصها شوية ديال جبهة 3lax ماي عيطش على بنكيران</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e40e0793-31fa-4585-a30d-3a0ef060f7d2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>aab38555-fa9f-40d5-a10a-632e4c783050</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هاد الحكومة د ل عتمان خصه شوية ديال جابها علاش ماي عيطش على بنكيران</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7dfc4826-5b80-42fe-b738-a282aa4b5e61</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f1469f60-ea4d-488c-937a-0317ec026e45</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تيوت ما tonobile ما والو سمح ليا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>eb71f27f-e721-484f-9fb8-da8fc1193408</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7a97123d-f8ec-45ed-8433-bd2408328bad</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تيوتا ما tonobile ما والو سمح ليا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e6b76c46-a2af-4af6-813e-6bd45a20bd46</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>94807316-0098-4a44-9df6-09aac94a4ce3</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بغا netrecheh الراجى غير على هاد شح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d267ce6c-2380-4b51-b456-1b0dd135b349</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0b388ac8-4459-4d5a-a0fa-4d847038516c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كيتحاسب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2adaf373-23ad-4901-ba8a-96713874b5c4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>53e8887a-86e8-4acb-8024-41325f989f98</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يا ولد الخب نتا التي قذوا makatjich الواقفات و قذوا يا طرقت jradistat</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

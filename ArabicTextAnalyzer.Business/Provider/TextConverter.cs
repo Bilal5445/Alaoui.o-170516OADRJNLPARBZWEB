@@ -72,14 +72,14 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public void CatCorpusDict()
         {
-            String catCorpusProcFileLoc = pathToArabiziEnv + @"cat corpus/170426_extended_dict.txt | perl scripts/create-dictionary.pl > models/moroccan-arabic-dict";
+            string corpusProcFileLoc = pathToArabiziEnv + @"RUN_transl_cat.sh";
 
             //
             var process = new Process();
-            var processInformation = new ProcessStartInfo(catCorpusProcFileLoc)
+            var processInformation = new ProcessStartInfo(corpusProcFileLoc)
             {
                 WorkingDirectory = workingDirectoryLocation,
-                UseShellExecute = true
+                UseShellExecute = true,
             };
             process.StartInfo = processInformation;
             process.Start();
@@ -88,14 +88,14 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public void SrilmLmDict()
         {
-            String srilmLmProcFileLoc = pathToArabiziEnv + @"srilm-1.7.2/bin/cygwin64/ngram-count -text corpus/170426_extended_dict.txt -order 3 -lm lm/moroccan_arabic_corpus_01.lm";
+            String srilmLmProcFileLoc = pathToArabiziEnv + @"RUN_transl_srilm.sh";
 
             //
             var process = new Process();
             var processInformation = new ProcessStartInfo(srilmLmProcFileLoc)
             {
                 WorkingDirectory = workingDirectoryLocation,
-                UseShellExecute = true
+                UseShellExecute = true,
             };
             process.StartInfo = processInformation;
             process.Start();

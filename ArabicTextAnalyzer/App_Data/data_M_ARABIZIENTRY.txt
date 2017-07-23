@@ -16,4 +16,40 @@
     <ID_ARABIZIENTRY>acd109b0-0686-467c-bbb0-d48bf147bad8</ID_ARABIZIENTRY>
     <ArabiziText>Sir ya haz9ane lah yan3al l9ahba mok nta o yah</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d59e9164-a5cb-42c0-b4e7-bcd2a2a05f89</ID_ARABIZIENTRY>
+    <ArabiziText>Ziin bsh oraha mnoura kif dima</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>9199fc0f-425a-4dea-b768-2ee595fff76c</ID_ARABIZIENTRY>
+    <ArabiziText>Khoya abdellah baraka farasak Alah yarzakam sabar Mohamed Hourri Wal mansour</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e50e2255-fe48-44a5-9bfd-9b7c739524ec</ID_ARABIZIENTRY>
+    <ArabiziText>had lhoukouma dia al 3outmani khassha chwyoia dial jebha 3lax may 3eytouch 3la benkirane</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>aab38555-fa9f-40d5-a10a-632e4c783050</ID_ARABIZIENTRY>
+    <ArabiziText>had lhoukouma dia al 3outmani khassha chwyoia dial jebha 3lax may 3eytouch 3la benkirane</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>f1469f60-ea4d-488c-937a-0317ec026e45</ID_ARABIZIENTRY>
+    <ArabiziText>Toyota ma tonobile ma walou smeh liya</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>7a97123d-f8ec-45ed-8433-bd2408328bad</ID_ARABIZIENTRY>
+    <ArabiziText>Toyota ma tonobile ma walou smeh liya</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>94807316-0098-4a44-9df6-09aac94a4ce3</ID_ARABIZIENTRY>
+    <ArabiziText>baghi netrecheh lraja ryr 3la hed choha</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>0b388ac8-4459-4d5a-a0fa-4d847038516c</ID_ARABIZIENTRY>
+    <ArabiziText>kaythaseb </ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>53e8887a-86e8-4acb-8024-41325f989f98</ID_ARABIZIENTRY>
+    <ArabiziText>Ya wlad lkhab nta li kadwi makatjich lwa9afat w kadwi ya terikt jradistat</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

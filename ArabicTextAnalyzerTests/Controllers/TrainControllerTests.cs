@@ -146,20 +146,21 @@ namespace ArabicTextAnalyzer.Controllers.Tests
         }
 
         [TestMethod()]
-        public void ut_170721_test_recompile_corpus()
+        public void ut_170721_test_recompile_corpus_full_loop()
         {
             //
             var textConverter = new TextConverter();
             String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
             String twinglyApiKey = "246229A7-86D2-4199-8D6E-EF406E7F3728";
-            String arabiziKeyword = "haz9ane";
+            // String arabiziKeyword = "netrecheh"; // > 2000 variantes !!?
+            String arabiziKeyword = "makatjich";    // > 448 variantes !!?
 
             // assert it is not converted at start
             var arabicKeyword = textConverter.Convert(arabiziKeyword);
             Assert.AreEqual(arabiziKeyword, arabicKeyword);
 
             // 1 get all variants
-            var variants = textConverter.GetAllTranscriptions("haz9ane");
+            var variants = textConverter.GetAllTranscriptions(arabiziKeyword);
 
             // 2 get most popular keyword
             var mostPopularKeyword = OADRJNLPCommon.Business.Business.getMostPopularVariantFromFBViaTwingly(variants, twinglyApi15Url, twinglyApiKey);
@@ -177,6 +178,24 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             // assert it is now converted
             arabicKeyword = textConverter.Convert(arabiziKeyword);
             Assert.AreEqual(mostPopularKeyword, arabicKeyword);
+        }
+
+        [TestMethod()]
+        public void ut_170723_test_recompile_corpus_simple_cat_corpus()
+        {
+            var textConverter = new TextConverter();
+
+            // 5 recompile the dict
+            textConverter.CatCorpusDict();
+        }
+
+        [TestMethod()]
+        public void ut_170723_test_recompile_corpus_simple_srilm_dict()
+        {
+            var textConverter = new TextConverter();
+
+            // 5 recompile the dict
+            textConverter.SrilmLmDict();
         }
     }
 }
