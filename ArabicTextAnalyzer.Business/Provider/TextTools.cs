@@ -19,7 +19,7 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public static String HighlightExtractedLatinWords(String arabicDarijaText)
         {
-            String matchRule = @"\b[A-Za-z0-9]+\b";
+            String matchRule = @"\b[A-Za-z0-9éèàâê]+\b";
             Regex regex = new Regex(matchRule);
             var matches = regex.Matches(arabicDarijaText);
 
