@@ -56,4 +56,72 @@
     <ID_ARABIZIENTRY>cadb9504-f57a-430f-a859-7705e4d43b57</ID_ARABIZIENTRY>
     <ArabiziText>Ya wlad lkhab nta li kadwi makatjich lwa9afat w kadwi ya terikt jradistat</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5d1098ff-b669-4fa7-a30c-a089e0f3f874</ID_ARABIZIENTRY>
+    <ArabiziText>lherb li kayna ma bin IAM orange et Inwi raha mezyana lina</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>dd6fe8d6-208f-4a3b-8170-adcc1f862063</ID_ARABIZIENTRY>
+    <ArabiziText>lherb li kayna ma bin IAM orange et Inwi raha mezyana lina</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d2d5e357-0880-4e7e-882e-3a66b0ab1eb5</ID_ARABIZIENTRY>
+    <ArabiziText>lherb li kayna ma bin IAM orange et Inwi raha mezyana lina</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1354e691-83c4-4348-800b-fa6a4ddde2dd</ID_ARABIZIENTRY>
+    <ArabiziText>lherb li kayna ma bin MT orand ou Inwi raha mezyana lzoubana</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>9b5f7957-b6c3-42db-9703-b366150742fb</ID_ARABIZIENTRY>
+    <ArabiziText>lherb li kayna ma bin MT orange ou Inwi raha mezyana lzoubana</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a966a71c-8949-44fd-a4b3-45ce58186676</ID_ARABIZIENTRY>
+    <ArabiziText> hna ghadi nkat3ou had la promotion dial MT talk</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>894816db-d479-49d6-a4ba-cc170c80cd8c</ID_ARABIZIENTRY>
+    <ArabiziText>daba had la recharge wash m3aha l 4g</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b71b959a-42fb-446d-9ceb-bc1a4f2de2e6</ID_ARABIZIENTRY>
+    <ArabiziText>Krik w rwida sokor w motalat en panne w jili w dozane w bolat jdad w bido d zi</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>76d316c3-460c-4389-9e8b-11db692d2a6c</ID_ARABIZIENTRY>
+    <ArabiziText>Brit naaraf login mot de pass Bach nadkhol nchof les dossier ach ndir</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>9fcae35f-e222-4298-91ac-a842e08955ff</ID_ARABIZIENTRY>
+    <ArabiziText>ii klam me39oul ms meliina mn lhadra hta wahd mafahm ax tarii tema boudrika fiinawa db</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>8fc07222-b062-4ed4-ac41-a20f0737e5be</ID_ARABIZIENTRY>
+    <ArabiziText>Banet lia hadi sora dial derby lekher melli lwez ma kherjoch men lcarré dialhom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>6f2ee6fc-a766-4be7-91ae-16ec4b7abb2c</ID_ARABIZIENTRY>
+    <ArabiziText>Banet lia hadi sora dial derby lekher melli lwez makherjoch men lcarré dialhom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>bf15e8ee-6809-4a1b-a2bf-58110404a626</ID_ARABIZIENTRY>
+    <ArabiziText>Banet lia hadi sora dial derby lekher melli lwez makherjoch men lcarré dialhom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>8f53cc23-d7c5-4e0d-a04c-4c02780e4d24</ID_ARABIZIENTRY>
+    <ArabiziText>Banet lia hadi sora dial derby lekher melli lwez ma kherjoch men lcarré dialhom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>7734c83c-37ca-4bb9-aa06-14092ab8b01d</ID_ARABIZIENTRY>
+    <ArabiziText>Banet lia hadi sora dial derby lekher melli lwez ma kherjoch men lcarré dialhom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>0960d5a8-f1b7-48fc-9f45-288a34ca07af</ID_ARABIZIENTRY>
+    <ArabiziText>Banet lia hadi sora dial derby lekher melli lwez ma kherjoch men lcarré dialhom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>358fdd03-5e5b-4920-80b3-28bb8ccd7fdd</ID_ARABIZIENTRY>
+    <ArabiziText>ha kolchi kaysowal, wach chra 7adraf, okadiwi mamkhalach, ach kata3ni hadi ?</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

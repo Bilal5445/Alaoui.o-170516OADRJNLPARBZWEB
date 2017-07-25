@@ -73,4 +73,89 @@
     <ID_ARABIZIENTRY>cadb9504-f57a-430f-a859-7705e4d43b57</ID_ARABIZIENTRY>
     <ArabicDarijaText>يا ولد الخب نتا التي كادوا ماكتجيش الوقفات و كادوا يا طرقت jradistat</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b0b33289-ccf0-4fb3-a595-652940c1a541</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5d1098ff-b669-4fa7-a30c-a089e0f3f874</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الحرب التي كاين ما بين م orange و inwi راه مزيان لنا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c66ed3ba-7ccc-4c8e-9cf7-11dcbe913fa3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>dd6fe8d6-208f-4a3b-8170-adcc1f862063</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الحرب التي كاين ما بين م orange و inwi راه مزيان لنا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5a353f84-d11a-4617-90bb-b1158f2b8fbe</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d2d5e357-0880-4e7e-882e-3a66b0ab1eb5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الهارب التي كين مة بإن iam orange و inwi رح مزين لنا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7912755b-c912-4b79-befa-11bd13ba9a64</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1354e691-83c4-4348-800b-fa6a4ddde2dd</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الحرب التي كينى مى بإن mt غند ه inwi رح مازين الزبن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>44896bb7-5d44-4a6d-aef6-e2e4822d0611</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9b5f7957-b6c3-42db-9703-b366150742fb</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لهرب التي كينا مى بان mt orange وو inwi غه مزينا الزبن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>58d6a831-fec1-4de2-8756-083c78b36a39</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a966a71c-8949-44fd-a4b3-45ce58186676</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حنا غد نقطعه هذ ال promotion دل mt تلك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>32c3b97a-2fd1-452c-b077-6d47968d2fc8</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>894816db-d479-49d6-a4ba-cc170c80cd8c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>دبا هاد لا recharge واش معه ل 4g</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7247c7f3-1f38-43c6-adc4-421651f623f2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b71b959a-42fb-446d-9ceb-bc1a4f2de2e6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كرك و رواد صقور و motalat ان باننا و جال و دوزان و بلط جداد و بد د ز</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9adcde3f-62e6-40c6-9878-7b03d8cbbe9e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>76d316c3-460c-4389-9e8b-11db692d2a6c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بغيت نغف login mot de pass بسه ندخل نشوف les dossier اصح نذر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b68facbf-a0cc-4bc5-94bf-31edc3a429a2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9fcae35f-e222-4298-91ac-a842e08955ff</ID_ARABIZIENTRY>
+    <ArabicDarijaText>إي قلم معقول mais ملينا من الحدر حطة واحد مفاهم ش طار طمى boudrika فيانو ذب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d6faa998-e68e-4509-ba90-3d3f25964e2a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8fc07222-b062-4ed4-ac41-a20f0737e5be</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بنط لي هادى صور ضال دربي لقهر ملي الوز مة kherjoch مهن lcarré ذلهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c24ec16c-38fb-48d7-ba9f-86dc81e3c955</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6f2ee6fc-a766-4be7-91ae-16ec4b7abb2c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بانت لي هادي سهرة ضل دربي القهر ملل الوز makherjoch مهن lcarré ذلهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5a8d898e-6a0d-4dc3-ac0d-8141661f32fd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>bf15e8ee-6809-4a1b-a2bf-58110404a626</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بنط لي هذ سورى ذيل ضربى لخر مل الوز makherjoch مهن lcarré ديالهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b1badcf5-b54d-41f2-be9a-e099fd4610a4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8f53cc23-d7c5-4e0d-a04c-4c02780e4d24</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بنط لي حدا سر ضال دربى لقهر مهلا الوز makherjoch من lcarré ديالهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>520b7e64-2b77-4857-9fc3-7d9d015663a1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7734c83c-37ca-4bb9-aa06-14092ab8b01d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بنط لي حذا صغ ديال دربي الخر مللي لوز makherjoch مهن lcarré ذلهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>803ec53b-4abb-4171-8afe-9733065f9682</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0960d5a8-f1b7-48fc-9f45-288a34ca07af</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بانت لي هد سور دال دربي القهر ملي الوز ماخرجوش من lcarré ديالهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>df5b7d64-128b-4434-b9d8-c06489d47bc8</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>358fdd03-5e5b-4920-80b3-28bb8ccd7fdd</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ها كولشي كيسول , واش شرا 7adraf , كادو mamkhalach , اش قاطعني هذا ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
