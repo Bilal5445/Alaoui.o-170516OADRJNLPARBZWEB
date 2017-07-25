@@ -19,12 +19,34 @@ namespace ArabicTextAnalyzer.Business.Provider
         public void AddPhraseToCorpus(String post)
         {
             // script to add a sentence to corpus
-            File.AppendAllText(pathToDictFile, post + Environment.NewLine);
+            File.AppendAllText(pathToDictFile, post + Environment.NewLine); 
+        }
+
+        public void DropPhraseFromCorpus(String post)
+        {
+            var fileName = pathToDictFile;
+
+            var tempFile = Path.GetTempFileName();
+            var linesToKeep = File.ReadLines(fileName).Where(l => l != post);
+
+            File.WriteAllLines(tempFile, linesToKeep);
+
+            File.Delete(fileName);
+            File.Move(tempFile, fileName);
         }
 
         public int GetCorpusNumberOfLine()
         {
             return File.ReadLines(pathToDictFile).Count();
+        }
+
+        public bool CorpusContainsSentence(string domain)
+        {
+            foreach (string line in File.ReadLines(pathToDictFile))
+                if (domain == line)
+                    return true; // and stop reading lines
+
+            return false;
         }
     }
 }

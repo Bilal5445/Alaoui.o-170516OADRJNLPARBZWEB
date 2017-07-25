@@ -67,7 +67,6 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             FB_KEYWORD fbKeyword1 = OADRJNLPCommon.Business.Business.getFBKeywordInfoFromFBViaTwingly(fbKeywordKeyword1, twinglyApiKey, twinglyApi15Url);
             FB_KEYWORD fbKeyword2 = OADRJNLPCommon.Business.Business.getFBKeywordInfoFromFBViaTwingly(fbKeywordKeyword2, twinglyApiKey, twinglyApi15Url);
 
-
             //
             int occurrenceKeyword1 = fbKeyword1.matched_total_count_ma;
             int occurrenceKeyword2 = fbKeyword2.matched_total_count_ma;
@@ -196,6 +195,125 @@ namespace ArabicTextAnalyzer.Controllers.Tests
 
             // 5 recompile the dict
             textConverter.SrilmLmDict();
+        }
+
+        [TestMethod()]
+        public void ut_170725_test_convert_arabizi_to_variants()
+        {
+            String word = "katji";
+            var variants = new TextConverter().GetAllTranscriptions(word);
+
+            //
+            Assert.IsTrue(variants.Count < 100);
+        }
+
+        [TestMethod()]
+        public void ut_170725_test_extract_without_initial_ma_and_final_ch()
+        {
+            String arabiziKeyword = "makatjich";
+
+            // 3 preprocess if ma/ch
+            // String pattern = "\bma{[a-z].+}ch\b";
+            String pattern = @"\bma(.+)ch\b";
+            String miniArabiziKeyword = Regex.Replace(arabiziKeyword, pattern, "$1");
+            // String miniArabiziKeyword = Regex.Replace(arabiziKeyword, pattern, m => m.Groups[0].Captures[0].Value);
+            Assert.AreEqual("katji", miniArabiziKeyword);
+        }
+
+        [TestMethod()]
+        public void ut_170725_test_getPostBasedOnKeywordFromFBViaTwingly_no_index_was_out_of_range()
+        {
+            String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
+            String twinglyApiKey = "246229A7-86D2-4199-8D6E-EF406E7F3728";
+            var mostPopularKeyword = "كتجي";
+            var completeArabicKeyword = "ما" + mostPopularKeyword + "ش";
+            Assert.AreEqual("ماكتجيش", completeArabicKeyword);
+
+            //
+            var postText = OADRJNLPCommon.Business.Business.getPostBasedOnKeywordFromFBViaTwingly(completeArabicKeyword, twinglyApi15Url, twinglyApiKey, true);
+            Assert.IsTrue(postText.Contains(completeArabicKeyword));
+        }
+
+        [TestMethod()]
+        public void ut_170725_test_recompile_corpus_full_loop_makatjich_under_50_variants()
+        {
+            // this one is the sentence supposedely returned by twingly for keyword ماكتجيش
+            var expectedpostText = @"هاد البومب ماكتجيش عشوائية 😁 ، كتوجد ليها من الليلة ديال لبارح  ✍️
+يا بومبييناااي 💪";
+
+            // make it one line
+            var onelineexpectedpostText = expectedpostText.Replace("\r\n", " ");
+            var expectedonelineexpectedpostText = "هاد البومب ماكتجيش عشوائية 😁 ، كتوجد ليها من الليلة ديال لبارح  ✍️ يا بومبييناااي 💪";
+            Assert.AreEqual(expectedonelineexpectedpostText, onelineexpectedpostText);
+
+            // 0 drop the test pharase from the dict
+            var textFrequency = new TextFrequency();
+            textFrequency.DropPhraseFromCorpus(onelineexpectedpostText);
+
+            // 1 arabizi
+            String arabizi = "Ya wlad lkhab nta li kadwi makatjich lwa9afat w kadwi ya terikt jradistat";
+            String arabiziKeyword = "makatjich";    // > 448 variantes !!?
+
+            // 2 convert first pass
+            var textConverter = new TextConverter();
+            String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
+            String twinglyApiKey = "246229A7-86D2-4199-8D6E-EF406E7F3728";
+            var arabic = textConverter.Convert(arabizi);
+
+            // 2 latin words
+            var matches = TextTools.ExtractLatinWords(arabic);
+            Assert.AreEqual(arabiziKeyword, matches[0].Value);
+
+            // 3 preprocess if ma/ch
+            String pattern = @"\bma(.+)ch\b";
+            String miniArabiziKeyword = Regex.Replace(arabiziKeyword, pattern, "$1");
+            Assert.AreEqual("katji", miniArabiziKeyword);
+
+            // 4 get all variants
+            var variants = textConverter.GetAllTranscriptions(miniArabiziKeyword);
+            Assert.IsTrue(variants.Count < 50);
+
+            // 5 get most popular keyword
+            var mostPopularKeyword = OADRJNLPCommon.Business.Business.getMostPopularVariantFromFBViaTwingly(variants, twinglyApi15Url, twinglyApiKey);
+            var expectedmostPopularKeyword = "كتجي";
+            Assert.AreEqual(expectedmostPopularKeyword, mostPopularKeyword);
+            // 6 re-add "ma" & "ch"
+            var completeArabicKeyword = "ما" + mostPopularKeyword + "ش";
+            Assert.AreEqual("ماكتجيش", completeArabicKeyword);
+
+            // 7 get a post containing this keyword
+            var postText = OADRJNLPCommon.Business.Business.getPostBasedOnKeywordFromFBViaTwingly(completeArabicKeyword, twinglyApi15Url, twinglyApiKey, true);
+            Assert.AreEqual(onelineexpectedpostText, postText);
+
+            // 8 add this post to dict
+            textFrequency.AddPhraseToCorpus(postText);
+
+            // 9 recompile the dict
+            textConverter.CatCorpusDict();
+            textConverter.SrilmLmDict();
+
+            // 10 assert it is now converted
+            var arabicKeyword = textConverter.Convert(arabiziKeyword);
+            Assert.AreEqual(completeArabicKeyword, arabicKeyword);
+        }
+
+        [TestMethod()]
+        public void ut_170725_test_delete_sentence_from_corpus()
+        {
+            // this one is the sentence supposedely returned by twingly for keyword ماكتجيش
+            var expectedpostText = @"هاد البومب ماكتجيش عشوائية 😁 ، كتوجد ليها من الليلة ديال لبارح  ✍️ يا بومبييناااي 💪";
+
+            var textFrequency = new TextFrequency();
+            var contains = textFrequency.CorpusContainsSentence(expectedpostText);
+
+            // 0 drop the test pharase from the dict
+            textFrequency.DropPhraseFromCorpus(expectedpostText);
+
+            contains = textFrequency.CorpusContainsSentence(expectedpostText);
+            Assert.AreEqual(false, contains);
+
+            // 8 add this post to dict
+            textFrequency.AddPhraseToCorpus(expectedpostText);
         }
     }
 }

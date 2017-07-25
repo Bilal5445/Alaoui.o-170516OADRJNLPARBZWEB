@@ -3,13 +3,15 @@
 @model List<ArabicTextAnalyzer.ViewModels.Class2>
 <table class="posts">
     <tr class="header">
-        <th class="row-1 center">Posts</th>
+        <th class="center top">Arabizi</th>
+        <th class="center top">Arabic</th>
     </tr>
     @foreach (var entry in Model)
     {
         String expr = "\\b" + String.Join("\\b|\\b", entry.ArabicDarijaEntryLatinWords.ToArray(), "\\b");
         <tr>
-            <td class="arabic-text">@Html.Raw(@TextTools.HighlightExtractedLatinWords(@entry.ArabicDarijaEntry.ArabicDarijaText))</td>
+            <td class="arabizi-text top">@entry.ArabiziEntryText</td>
+            <td class="arabic-text top">@Html.Raw(@TextTools.HighlightExtractedLatinWords(@entry.ArabicDarijaEntry.ArabicDarijaText))</td>
         </tr>
     }
 </table>

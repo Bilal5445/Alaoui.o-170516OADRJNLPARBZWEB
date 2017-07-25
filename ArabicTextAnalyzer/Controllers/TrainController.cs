@@ -16,11 +16,7 @@ namespace ArabicTextAnalyzer.Controllers
         // GET: Train
         public ActionResult Index()
         {
-            /*var arabizi = new M_ARABIZIENTRY
-            {
-                ArabiziText = "fuck super cool"
-            };*/
-            return View(/*arabizi*/);
+            return View();
         }
 
         [HttpPost]
@@ -122,6 +118,15 @@ namespace ArabicTextAnalyzer.Controllers
                 latinWordsEntries = (List<M_ARABICDARIJAENTRY_LATINWORD>)serializer.Deserialize(reader);
             }
 
+            // deserialize M_ARABIZIENTRY
+            List<M_ARABIZIENTRY> arabiziEntries = new List<M_ARABIZIENTRY>();
+            path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABIZIENTRY).Name + ".txt");
+            serializer = new XmlSerializer(arabiziEntries.GetType());
+            using (var reader = new System.IO.StreamReader(path))
+            {
+                arabiziEntries = (List<M_ARABIZIENTRY>)serializer.Deserialize(reader);
+            }
+
             //
             List<Class2> xs = new List<Class2>();
             foreach(M_ARABICDARIJAENTRY arabicdarijaentry in entries)
@@ -130,7 +135,8 @@ namespace ArabicTextAnalyzer.Controllers
                 var x = new Class2
                 {
                     ArabicDarijaEntry = arabicdarijaentry,
-                    ArabicDarijaEntryLatinWords = perEntryLatinWordsEntries.Select(m => m.LatinWord).ToList()
+                    ArabicDarijaEntryLatinWords = perEntryLatinWordsEntries.Select(m => m.LatinWord).ToList(),
+                    ArabiziEntryText = arabiziEntries.Single(m => m.ID_ARABIZIENTRY == arabicdarijaentry.ID_ARABIZIENTRY).ArabiziText
                 };
                 xs.Add(x);
             }

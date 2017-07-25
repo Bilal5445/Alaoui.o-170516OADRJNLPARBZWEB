@@ -10,5 +10,6 @@ namespace ArabicTextAnalyzer.ViewModels
     {
         public M_ARABICDARIJAENTRY ArabicDarijaEntry { get; set; }
         public List<String> ArabicDarijaEntryLatinWords { get; set; }
+        public String ArabiziEntryText { get; set; }
     }
 }

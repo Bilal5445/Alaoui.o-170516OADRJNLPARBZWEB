@@ -68,4 +68,9 @@
     <ID_ARABIZIENTRY>53e8887a-86e8-4acb-8024-41325f989f98</ID_ARABIZIENTRY>
     <ArabicDarijaText>يا ولد الخب نتا التي قذوا makatjich الواقفات و قذوا يا طرقت jradistat</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>21074531-6efa-4ad6-b15f-4acd11772a9b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>cadb9504-f57a-430f-a859-7705e4d43b57</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يا ولد الخب نتا التي كادوا ماكتجيش الوقفات و كادوا يا طرقت jradistat</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

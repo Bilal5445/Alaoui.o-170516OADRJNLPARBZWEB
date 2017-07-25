@@ -36,6 +36,18 @@ td.arabic-text {
     direction: rtl;
 }
 
+td.arabizi-text {
+    direction: ltr;
+}
+
+.center {
+    text-align: center;
+}
+
+.top {
+    vertical-align: top;
+}
+
 span.highlight {
     background-color: #FFFF00;
 }
