@@ -141,6 +141,9 @@ namespace ArabicTextAnalyzer.Controllers
                 xs.Add(x);
             }
 
+            // reverse order
+            xs.Reverse();
+
             // pass entries to partial view via the model (instead of the bag for a view)
             return PartialView("_IndexPartialPage_arabicDarijaEntries", xs);
         }
