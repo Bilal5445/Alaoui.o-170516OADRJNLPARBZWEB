@@ -4,6 +4,7 @@ using System.IO;
 using ArabicTextAnalyzer.Contracts;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace ArabicTextAnalyzer.Business.Provider
 {
@@ -24,6 +25,9 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public string Convert(string source)
         {
+            // preprocess (eg: ma/ch)
+            source = Preprocess_ma_ch(source);
+
             //
             File.WriteAllText(inputFileLocation, source);
 
@@ -40,6 +44,14 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             var output = File.ReadAllText(outputFileLocation);
             return output.TrimEnd('\r', '\n'); ;
+        }
+
+        public string Preprocess_ma_ch(string arabizi)
+        {
+            String pattern = @"\bma \b(.+)ch\b";
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ma$1ch");
+
+            return miniArabiziKeyword;
         }
 
         public List<String> GetAllTranscriptions(String arabiziWord)
