@@ -19,7 +19,7 @@ namespace ArabicTextAnalyzer.Business.Provider
         public void AddPhraseToCorpus(String post)
         {
             // script to add a sentence to corpus
-            File.AppendAllText(pathToDictFile, post + Environment.NewLine); 
+            File.AppendAllText(pathToDictFile, Environment.NewLine + post); 
         }
 
         public void DropPhraseFromCorpus(String post)
