@@ -45,6 +45,9 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public bool CorpusContainsSentence(string domain)
         {
+            // make it one line
+            domain = domain.Replace("\r\n", " ");
+
             foreach (string line in File.ReadLines(pathToDictFile))
                 if (domain == line)
                     return true; // and stop reading lines
