@@ -258,4 +258,54 @@
     <ID_ARABIZIENTRY>031d0491-f800-40e5-beac-e1b7b583fbaf</ID_ARABIZIENTRY>
     <ArabicDarijaText>خالص</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3e93f0b6-d9a2-4fc2-b38f-3b53d91bd44f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>78fa3e85-421e-49fa-8407-e1d9f7dbac0b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مخلاص</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>08ff90d6-93d4-4e82-bcda-82590f91c86e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>45c8d95b-1091-46ad-9e2b-def727a45982</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ها كولشي كيسول , واش شر حدراف , وكيدو mamkhalassch , اش قطعنا هذا ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>cf9a5b38-0797-4b17-a2af-fda26bbbde6d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d04a9df5-8d62-4b9d-bb6b-1d7988b6ca76</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ها كولشي كيسول , واش سهر حدراف , كيدو ما mkhalassch , ا ش قطعنا هذا ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f9bfdd92-344d-473f-beb5-ea50443e1b07</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c0d5fe88-8fd0-42e0-9195-6e4f19ec814a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ما مخلص سه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>50e9f381-0ad1-435e-8a05-b115ba9b3e34</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>08567840-d3b7-4b5a-96d9-7161c9fe40db</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ها كولشي كيسول , واش سحرا حدراف , قيدوا ما mkhalassch , ا ش قطعنا هذا ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>abfe529e-799c-4b07-a36b-251a8c5ceaa8</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a778720e-2c96-4e3c-b19c-d3378eced3ea</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ها كولشي كيسول , واش صهرا حدراف , وكيدو ما مخلاص ش , اش قطعنا هذا ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5c2b92eb-681a-42dc-a161-97ec9c58f8d3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e13e50b5-5a0a-49fe-861e-6fa85259b01c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>صحافتكم ما الحته ش تصور ديال entrainment</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b5f7416e-4000-4030-82e4-a5f4870715b4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>72e0e9e1-c2ab-4c46-a509-e70d3ddfd008</ID_ARABIZIENTRY>
+    <ArabicDarijaText>راه سحبان ماشي هو الارض قد لفرق</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c02ec472-44f3-44e2-b6d8-36402cfd3ed1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b0aead8a-bdc2-4bf1-94fd-3934bbb82383</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فين هم تضرب سحبان maxna ولو واش ما rtbdaw ش تضرب حتى بديت موسم و الى كذك علينا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a757aef7-e598-41e6-94ee-1c5b0a9b699f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>61e1662c-3443-4334-b839-71c79e25d589</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فين هم تضرب سحبان مشنا ولو واش ما rtbdaw ش تضرب حتى بديت موسم و الى كذك علينا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

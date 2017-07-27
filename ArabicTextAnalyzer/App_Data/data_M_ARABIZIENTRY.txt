@@ -204,4 +204,44 @@
     <ID_ARABIZIENTRY>031d0491-f800-40e5-beac-e1b7b583fbaf</ID_ARABIZIENTRY>
     <ArabiziText>khalass</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>78fa3e85-421e-49fa-8407-e1d9f7dbac0b</ID_ARABIZIENTRY>
+    <ArabiziText>mkhalass</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>45c8d95b-1091-46ad-9e2b-def727a45982</ID_ARABIZIENTRY>
+    <ArabiziText>ha kolchi kaysowal, wach chra 7adraf, okaydwi mamkhalassch, ach kata3ni hadi ?</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d04a9df5-8d62-4b9d-bb6b-1d7988b6ca76</ID_ARABIZIENTRY>
+    <ArabiziText>ha kolchi kaysowal, wach chra 7adraf, okaydwi mamkhalassch, ach kata3ni hadi ?</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c0d5fe88-8fd0-42e0-9195-6e4f19ec814a</ID_ARABIZIENTRY>
+    <ArabiziText>mamkhalassch</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>08567840-d3b7-4b5a-96d9-7161c9fe40db</ID_ARABIZIENTRY>
+    <ArabiziText>ha kolchi kaysowal, wach chra 7adraf, okaydwi mamkhalassch, ach kata3ni hadi ?</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a778720e-2c96-4e3c-b19c-d3378eced3ea</ID_ARABIZIENTRY>
+    <ArabiziText>ha kolchi kaysowal, wach chra 7adraf, okaydwi mamkhalassch, ach kata3ni hadi ?</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e13e50b5-5a0a-49fe-861e-6fa85259b01c</ID_ARABIZIENTRY>
+    <ArabiziText>Chaftkom malhtoch tsawer dyal entrainment</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>72e0e9e1-c2ab-4c46-a509-e70d3ddfd008</ID_ARABIZIENTRY>
+    <ArabiziText>Rah sahbane maxi howa liradi igade lfar9a</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b0aead8a-bdc2-4bf1-94fd-3934bbb82383</ID_ARABIZIENTRY>
+    <ArabiziText>fin homa tadarib asahbane maxna walo wach martbdawx tadrib hta bidyat mawsim aw la kadhko 3lina</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>61e1662c-3443-4334-b839-71c79e25d589</ID_ARABIZIENTRY>
+    <ArabiziText>fin homa tadarib asahbane maxna walo wach martbdawx tadrib hta bidyat mawsim aw la kadhko 3lina</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
