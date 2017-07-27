@@ -376,26 +376,40 @@ namespace ArabicTextAnalyzer.Controllers.Tests
         }
 
         [TestMethod()]
-        public void ut_170725_test_recompile_corpus_full_loop_kherjo_under_35_variants()
+        public void ut_170727_test_Preprocess_al_wa()
         {
-            // TODO
+            var textConverter = new TextConverter();
 
-            // this one is the sentence supposedely returned by twingly for keyword ماكتجيش
-            /*var expectedpostText = @"تلقا واحد كيكلاشي فيها حينت متلات واليوم فالعشيةتلقاه كيقلب على ختها فالحقيقة..... الله يلطف";
+            String arabizi = "al 3adala wa atanmia";
+            String arabizi2 = textConverter.Preprocess_al_wa(arabizi);
 
-            // make it one line
-            var onelineexpectedpostText = expectedpostText.Replace("\r\n", " ");
-            var expectedonelineexpectedpostText = "تلقا واحد كيكلاشي فيها حينت متلات واليوم فالعشيةتلقاه كيقلب على ختها فالحقيقة..... الله يلطف";
-            Assert.AreEqual(expectedonelineexpectedpostText, onelineexpectedpostText);
+            String expected = "al3adala wa alatanmia";
+            Assert.AreEqual(expected, arabizi2);
+        }
 
-            // 0 drop the test pharase from the dict */
+        [TestMethod()]
+        public void ut_170727_test_make_sure_hazka_variants_are_less_than_35()
+        {
+            String word = "hazka";
+            var variants = new TextConverter().GetAllTranscriptions(word);
+
+            //
+            Assert.IsTrue(variants.Count < 35, "nbr variants : " + variants.Count);
+        }
+
+        [TestMethod()]
+        public void ut_170727_test_recompile_corpus_full_loop_hazka_under_35_variants()
+        {
+            // this one is the sentence supposedely returned by twingly for keyword : suposoefely one line
+            var expectedpostText = @"انا القوة الخارقة لي عندي هي فاش كندوز من حدا شي سعاي و تيقولي شي درهم الله يرحم الواليدين الله ينجحك الله يطول فعمرك .. تنقول امين فنفسي و تنزطم .. بحال الى خديت دعوة فابور .. و متنعطيهش درهم حيت تنكون حازق و يلا كانت عندي 2 دراهم تنصرفها و تنعطي لواحد درهم حتى كيدعي معايا و تنعطي لشي واحد اخر .. ليكونومي";
+
+            // 0 drop the test pharase from the dict
             var textFrequency = new TextFrequency();
-            /*textFrequency.DropPhraseFromCorpus(onelineexpectedpostText);
-            */
+            textFrequency.DropPhraseFromCorpus(expectedpostText);
 
             // 1 arabizi
-            String arabizi = "Krik w rwida sokor w motalat en panne w jili w dozane w bolat jdad w bidon d zit";
-            String arabiziKeyword = "kherjo";
+            String arabizi = "Al houb wa al hazka";
+            String arabiziKeyword = "hazka";
 
             // 2 convert first pass
             var textConverter = new TextConverter();
@@ -427,7 +441,7 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             // 7 get a post containing this keyword
             // var postText = OADRJNLPCommon.Business.Business.getPostBasedOnKeywordFromFBViaTwingly(completeArabicKeyword, twinglyApi15Url, twinglyApiKey, true);
             var postText = OADRJNLPCommon.Business.Business.getPostBasedOnKeywordFromFBViaTwingly(mostPopularKeyword, twinglyApi15Url, twinglyApiKey, true);
-            // Assert.AreEqual(onelineexpectedpostText, postText);
+            Assert.AreEqual(expectedpostText, postText);
 
             // 8 add this post to dict
             textFrequency.AddPhraseToCorpus(postText);
@@ -440,6 +454,16 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             var arabicKeyword = textConverter.Convert(arabiziKeyword);
             // Assert.AreEqual(completeArabicKeyword, arabicKeyword);
             Assert.AreEqual(mostPopularKeyword, arabicKeyword);
+        }
+
+        [TestMethod()]
+        public void ut_170727_test_make_sure_dsara_variants_are_less_than_100()
+        {
+            String word = "dsara";
+            var variants = new TextConverter().GetAllTranscriptions(word);
+
+            //
+            Assert.IsTrue(variants.Count < 100, "nbr variants : " + variants.Count);
         }
     }
 }

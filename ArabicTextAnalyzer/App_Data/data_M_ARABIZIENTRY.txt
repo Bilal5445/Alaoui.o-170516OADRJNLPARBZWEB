@@ -124,4 +124,76 @@
     <ID_ARABIZIENTRY>358fdd03-5e5b-4920-80b3-28bb8ccd7fdd</ID_ARABIZIENTRY>
     <ArabiziText>ha kolchi kaysowal, wach chra 7adraf, okadiwi mamkhalach, ach kata3ni hadi ?</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3faab998-8167-4a7e-962e-61850bb2f425</ID_ARABIZIENTRY>
+    <ArabiziText>al 3adala wa atanmia</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>17bf98f6-beae-439b-9af5-55b9baeece8b</ID_ARABIZIENTRY>
+    <ArabiziText>al 3adala wa atanmia</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2bdf6648-d91c-4c5e-87bf-6d25313a6fb6</ID_ARABIZIENTRY>
+    <ArabiziText>Al houb wa al hazka</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>de8103bc-a683-433b-a691-4c85d6b22993</ID_ARABIZIENTRY>
+    <ArabiziText>Al hmak ou dsara</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>bba357a9-f5a5-4e45-8c1a-21eb930f8cb0</ID_ARABIZIENTRY>
+    <ArabiziText>Al houb wa al hazka</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>45dff87a-e64e-4397-9576-65702917ae24</ID_ARABIZIENTRY>
+    <ArabiziText>Al houb wa al hazka</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e02436e1-3961-41a5-98ec-3fd6eb90608a</ID_ARABIZIENTRY>
+    <ArabiziText>Al hmak ou dsara</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3b8280d0-37f4-4eb4-91b1-c7368a791b3d</ID_ARABIZIENTRY>
+    <ArabiziText>Al houb wa al hazka</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>bb5be276-5f60-4f28-84bd-01b8ccac77db</ID_ARABIZIENTRY>
+    <ArabiziText>al 3adala wa atanmia</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>62ff9a38-29fd-43e5-afad-68cf7eabadbe</ID_ARABIZIENTRY>
+    <ArabiziText>Al hmak ou dsara</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>48181851-6342-499d-bdbc-9484b1713225</ID_ARABIZIENTRY>
+    <ArabiziText>al 3adala wa atanmia</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e33147fc-b887-414b-8d2a-0cfc9943329a</ID_ARABIZIENTRY>
+    <ArabiziText>Al houb wa al hazka</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>08ec9580-4be8-44a1-987d-cd1749cd172e</ID_ARABIZIENTRY>
+    <ArabiziText>Al houb wa al hazka</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>601c39ff-d839-4d41-8387-28b11538fc0a</ID_ARABIZIENTRY>
+    <ArabiziText>al 3adala wa atanmia</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>51bfc598-935d-4e34-981c-727d9d7871cd</ID_ARABIZIENTRY>
+    <ArabiziText>Al hmak ou dsara</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ac19e019-4cef-431b-8f6f-b5dfe6a96ce3</ID_ARABIZIENTRY>
+    <ArabiziText>al 3adala wa atanmia</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>9962090e-e31e-4bdd-a4ee-2341a12167e0</ID_ARABIZIENTRY>
+    <ArabiziText>Al houb wa al hazka</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a2d0debf-6116-4776-9c49-b56e1fdfe6f8</ID_ARABIZIENTRY>
+    <ArabiziText>Al hmak ou dsara</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

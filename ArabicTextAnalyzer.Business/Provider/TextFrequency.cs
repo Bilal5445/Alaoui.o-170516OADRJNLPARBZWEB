@@ -18,6 +18,9 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public void AddPhraseToCorpus(String post)
         {
+            // make it one line
+            post = post.Replace("\r\n", " ");
+
             // script to add a sentence to corpus
             File.AppendAllText(pathToDictFile, Environment.NewLine + post); 
         }
