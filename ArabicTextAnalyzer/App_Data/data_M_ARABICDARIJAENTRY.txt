@@ -308,4 +308,9 @@
     <ID_ARABIZIENTRY>61e1662c-3443-4334-b839-71c79e25d589</ID_ARABIZIENTRY>
     <ArabicDarijaText>فين هم تضرب سحبان مشنا ولو واش ما rtbdaw ش تضرب حتى بديت موسم و الى كذك علينا</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0c37d58e-2250-49f3-8934-9ba65b2dffb3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e00aa6eb-8736-42d2-b2a4-fd89233e9446</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فين هم تضرب سحبان مشنا والو واش ما غتبداو ش تضرب حتى بديت موسم و الى كذك علينا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

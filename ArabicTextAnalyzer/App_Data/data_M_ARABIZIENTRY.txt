@@ -244,4 +244,8 @@
     <ID_ARABIZIENTRY>61e1662c-3443-4334-b839-71c79e25d589</ID_ARABIZIENTRY>
     <ArabiziText>fin homa tadarib asahbane maxna walo wach martbdawx tadrib hta bidyat mawsim aw la kadhko 3lina</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e00aa6eb-8736-42d2-b2a4-fd89233e9446</ID_ARABIZIENTRY>
+    <ArabiziText>fin homa tadarib asahbane maxna walo wach martbdawx tadrib hta bidyat mawsim aw la kadhko 3lina	</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
