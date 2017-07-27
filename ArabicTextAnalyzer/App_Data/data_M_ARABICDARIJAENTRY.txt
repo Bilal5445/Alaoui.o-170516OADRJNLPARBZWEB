@@ -248,4 +248,14 @@
     <ID_ARABIZIENTRY>a2d0debf-6116-4776-9c49-b56e1fdfe6f8</ID_ARABIZIENTRY>
     <ArabicDarijaText>الحمق والضسارة</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>61e4ddcd-8907-47d9-8a41-61e4968fe99f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3d5d15d2-20aa-44d2-9a37-8e5721441ec8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ها كولشي كيسول , واش شرى حدراف , كيدو mamkhalassch , اش قاطعني هذا ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0c6314d6-c8af-4969-9f6c-772e0923caaa</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>031d0491-f800-40e5-beac-e1b7b583fbaf</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خالص</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

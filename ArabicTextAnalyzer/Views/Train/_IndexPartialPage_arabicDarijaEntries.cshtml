@@ -11,7 +11,7 @@
         String expr = "\\b" + String.Join("\\b|\\b", entry.ArabicDarijaEntryLatinWords.ToArray(), "\\b");
         <tr>
             <td class="arabizi-text top">@entry.ArabiziEntryText</td>
-            <td class="arabic-text top">@Html.Raw(@TextTools.HighlightExtractedLatinWords(@entry.ArabicDarijaEntry.ArabicDarijaText))</td>
+            <td class="arabic-text top">@Html.Raw(@TextTools.HighlightExtractedLatinWords(@entry.ArabicDarijaEntry.ArabicDarijaText, @entry.ArabicDarijaEntryLatinWords))</td>
         </tr>
     }
 </table>

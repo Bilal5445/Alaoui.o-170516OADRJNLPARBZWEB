@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArabicTextAnalyzer.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,15 +20,47 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public static String HighlightExtractedLatinWords(String arabicDarijaText)
         {
+            // Highlith and add label of counts of variantes
+
             String matchRule = @"\b[A-Za-z0-9éèàâê]+\b";
             Regex regex = new Regex(matchRule);
             var matches = regex.Matches(arabicDarijaText);
 
+            //
             foreach (Match match in matches)
             {
                 arabicDarijaText = arabicDarijaText.Replace(match.Value, "<b><mark>" + match.Value + "</mark></b>");
             }
+
+            //
             return arabicDarijaText;
+        }
+
+        public static String HighlightExtractedLatinWords(String arabicDarijaText, List<M_ARABICDARIJAENTRY_LATINWORD> ArabicDarijaEntryLatinWords)
+        {
+            // Highlith and add label of counts of variantes
+
+            String matchRule = @"\b[A-Za-z0-9éèàâê]+\b";
+            Regex regex = new Regex(matchRule);
+            var matches = regex.Matches(arabicDarijaText);
+
+            //
+            foreach (Match match in matches)
+            {
+                var found = ArabicDarijaEntryLatinWords.Find(m => m.LatinWord == match.Value);
+                var count = 0;
+                if (found != null)
+                    count = found.VariantsCount;
+                if (count > 0)
+                    arabicDarijaText = arabicDarijaText.Replace(match.Value, "<b><mark>" + match.Value + "</mark></b><span class='badge'>" + count + "</span>");
+                    // arabicDarijaText = arabicDarijaText.Replace(match.Value, "<b><mark>" + match.Value + "</mark></b>");
+                else
+                    arabicDarijaText = arabicDarijaText.Replace(match.Value, "<b><mark>" + match.Value + "</mark></b>");
+            }
+
+            //
+            return arabicDarijaText;
+            // return "hello";
         }
     }
 }

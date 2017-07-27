@@ -196,4 +196,12 @@
     <ID_ARABIZIENTRY>a2d0debf-6116-4776-9c49-b56e1fdfe6f8</ID_ARABIZIENTRY>
     <ArabiziText>Al hmak ou dsara</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3d5d15d2-20aa-44d2-9a37-8e5721441ec8</ID_ARABIZIENTRY>
+    <ArabiziText>ha kolchi kaysowal, wach chra 7adraf, okaydwi mamkhalassch, ach kata3ni hadi ?</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>031d0491-f800-40e5-beac-e1b7b583fbaf</ID_ARABIZIENTRY>
+    <ArabiziText>khalass</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

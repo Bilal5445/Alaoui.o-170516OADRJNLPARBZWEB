@@ -1,4 +1,5 @@
 ﻿using ArabicTextAnalyzer.Business.Provider;
+using ArabicTextAnalyzer.Domain.Models;
 using ArabicTextAnalyzer.Models;
 using ArabicTextAnalyzer.ViewModels;
 using System;
@@ -52,12 +53,17 @@ namespace ArabicTextAnalyzer.Controllers
                 MatchCollection matches = TextTools.ExtractLatinWords(arabicDarijaEntry.ArabicDarijaText);
 
                 // save every match
+                // also calculate on the fly the number of varaiants
                 foreach (Match match in matches)
                 {
+                    String arabiziWord = match.Value;
+                    int variantsCount = new TextConverter().GetAllTranscriptions(arabiziWord).Count;
+
                     var latinWord = new M_ARABICDARIJAENTRY_LATINWORD
                     {
                         ID_ARABICDARIJAENTRY = arabicDarijaEntry.ID_ARABICDARIJAENTRY,
-                        LatinWord = match.Value
+                        LatinWord = arabiziWord,
+                        VariantsCount = variantsCount
                     };
 
                     // Save to Serialization
@@ -135,7 +141,8 @@ namespace ArabicTextAnalyzer.Controllers
                 var x = new Class2
                 {
                     ArabicDarijaEntry = arabicdarijaentry,
-                    ArabicDarijaEntryLatinWords = perEntryLatinWordsEntries.Select(m => m.LatinWord).ToList(),
+                    // ArabicDarijaEntryLatinWords = perEntryLatinWordsEntries.Select(m => m.LatinWord).ToList(),
+                    ArabicDarijaEntryLatinWords = perEntryLatinWordsEntries,
                     ArabiziEntryText = arabiziEntries.Single(m => m.ID_ARABIZIENTRY == arabicdarijaentry.ID_ARABIZIENTRY).ArabiziText
                 };
                 xs.Add(x);
