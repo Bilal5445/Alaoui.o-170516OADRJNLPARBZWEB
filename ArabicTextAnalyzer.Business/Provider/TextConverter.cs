@@ -50,8 +50,14 @@ namespace ArabicTextAnalyzer.Business.Provider
         public string Preprocess_ma_ch(string arabizi)
         {
             // this step re-assemble "ma VERBch" => "maVERBmc"
-            String pattern = @"\bma \b(.+)ch\b";
-            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ma$1ch");
+            /*String pattern = @"\bma \b(.+)ch\b";
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ma$1ch");*/
+
+            // on the contrary, we need to separate
+            // String pattern = @"\bma *(.+?)ch\b";    // ? => not-greedy
+            String pattern = @"\bma *([A-Za-z0-9éèàâê]+?)(ch|sh|x)\b";    // ? => not-greedy + warning . can be also space
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ma $1 ch", RegexOptions.IgnoreCase);
+            // String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "$1", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
         }
