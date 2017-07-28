@@ -248,4 +248,93 @@
     <ID_ARABIZIENTRY>e00aa6eb-8736-42d2-b2a4-fd89233e9446</ID_ARABIZIENTRY>
     <ArabiziText>fin homa tadarib asahbane maxna walo wach martbdawx tadrib hta bidyat mawsim aw la kadhko 3lina	</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>bba65961-434a-436d-8fcb-2ad7f9ece2a4</ID_ARABIZIENTRY>
+    <ArabiziText>hahahahahahaha nta houwa cristiano rajel ga3ma kay dwi bzzzf 7 minutes wakha tkoune jay man Manchester a zabi , rajel houwa li kay lbase tenue ou tay 7rate tirane khalina man l9ar9ouri ;) thalla</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ee3fa812-4a0c-473e-a42b-4f71d3ca5972</ID_ARABIZIENTRY>
+    <ArabiziText>hahahahahahaha hta houwa cristiano rajel ga3ma kay dwi bzzzf 7 minutes wakha tkoune jay man Manchester a zabi , rajel houwa li kay lbasse tenue ou tay 7rate tirane khalina man l9ar9ouri ;) thalla</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>f21714f0-d14a-41d7-be75-a26d1a2d3c3a</ID_ARABIZIENTRY>
+    <ArabiziText>hahahahahahaha hta houwa cristiano rajel ga3ma kay dwi bzzzf 7 minutes wakha tkoune jay man Manchester a zabi , rajel houwa li kay lbasse tenue ou tay 7rate tirane khalina man l9ar9ouri ;) thalla	</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2703dc15-782d-4866-b974-0d98421fbdbf</ID_ARABIZIENTRY>
+    <ArabiziText>ahahahaha</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>195f287c-ce4f-4542-aedf-7ddc18bd2ed7</ID_ARABIZIENTRY>
+    <ArabiziText>ahahahahaahahahaha</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>913a1e46-8bcf-49d8-90b3-6ddb5890845d</ID_ARABIZIENTRY>
+    <ArabiziText>hahahaha</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>122024e6-1c68-4888-ad65-386a74a04231</ID_ARABIZIENTRY>
+    <ArabiziText>hahahahahahaha hta houwa cristiano rajel ga3ma kay dwi bzzzf 7 minutes wakha tkoune jay man Manchester a zabi , rajel houwa li kay lbasse tenue ou tay 7rate tirane khalina man l9ar9ouri ;) thalla	</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>9ea6e412-d44f-418d-acd8-827b43dd777d</ID_ARABIZIENTRY>
+    <ArabiziText>Ok asi mestafa m3ak fdakchi ali galti kamlo mais hdraff la 3ala9a bhadchi ali galti al3ab jay nawi m3ana khir l3ab khalo9 wa khatr wa kayna tjriba abati donc khali khona yallah ja bl 3aks khasna nsandoh hit nawii m3ana khir aba stoff wa sima dima raja wa3acha al malik
+Hasbane ma dirch hta nta promo w demissiona lyoum 9bel ghadda ?</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>db23aec6-884a-447c-80ab-7a3b16cfd110</ID_ARABIZIENTRY>
+    <ArabiziText>Ok asi mestafa m3ak fdakchi ali galti kamlo mais hdraff la 3ala9a bhadchi ali galti l3ab jay nawi m3ana khir l3ab khalo9 wa khatr wa kayna tjriba abati donc khali khona yallah ja bl 3aks khasna nsandoh hit nawii m3ana khir aba stoff wa sima dima raja wa3acha al malik Hasbane ma dirch hta nta promo w demissiona lyoum 9bel ghadda ?</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>9eb376c9-be05-4013-bd77-2faa1aed886f</ID_ARABIZIENTRY>
+    <ArabiziText>ma dirch</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>97122f25-5b3a-406a-9d7e-e8f1b50340c1</ID_ARABIZIENTRY>
+    <ArabiziText>Ok asi mestafa m3ak fdakchi ali galti kamlo mais hdraff la 3ala9a bhadchi ali galti l3ab jay nawi m3ana khir l3ab khalo9 wa khatr wa kayna tjriba abati donc khali khona yallah ja bl 3aks khasna nsandoh hit nawii m3ana khir aba stoff wa sima dima raja wa3acha al malik Hasbane ma dirch hta nta promo w demissiona lyoum 9bel ghadda ?</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ca04baf1-2eae-4c86-a129-20e4f44bb534</ID_ARABIZIENTRY>
+    <ArabiziText>Ok asi mestafa m3ak fdakchi ali galti kamlo mais hdraff la 3ala9a bhadchi ali galti l3ab jay nawi m3ana khir l3ab khalo9 wa khatr wa kayna tjriba abati donc khali khona yallah ja bl 3aks khasna nsandoh hit nawii m3ana khir aba stoff wa sima dima raja wa3acha al malik Hasbane ma dirch hta nta promo w demissiona lyoum 9bel ghadda ?	</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b308af11-b418-44ab-acfb-2f1883ff8034</ID_ARABIZIENTRY>
+    <ArabiziText>Ok asi mestafa m3ak fdakchi ali galti kamlo mais hdraff la 3ala9a bhadchi ali galti l3ab jay nawi m3ana khir l3ab khalo9 wa khatr wa kayna tjriba abati donc khali khona yallah ja bl 3aks khasna nsandoh hit nawii m3ana khir aba stoff wa sima dima raja wa3acha al malik Hasbane ma dirch hta nta promo w demissiona lyoum 9bel ghadda ?	</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e2b23f41-a46d-4b60-9c7f-6d119b1dcf7d</ID_ARABIZIENTRY>
+    <ArabiziText>Khass chi société hia li tchad raja Ana moul chakara kimchi o kiji kidir mabgha Ana boudrika ghayji ghi 3la massla7to</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>fd46eb6b-6a57-43da-a0bd-432eb78f0981</ID_ARABIZIENTRY>
+    <ArabiziText>inshallah</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>4b338813-6baa-4f8f-9470-a02e4183ac6f</ID_ARABIZIENTRY>
+    <ArabiziText> khassna hadak l9anon itbadal, wach a3ibad Allah li 3ta maloyoun ihkam oib9a irba7. raja machi dyal 10 nass, 7na ra cha3b lkhadra. wach had wlad l97ab mabghawch ifar9ona, b9atlihom akher war9a kila3boha. walakin fhamna kolchi.khassna hadak l9anon itbadal, wach a3ibad Allah li 3ta maloyoun ihkam oib9a irba7. raja machi dyal 10 nass, 7na ra cha3b lkhadra. wach had wlad l97ab mabghawch ifar9ona, b9atlihom akher war9a kila3boha. walakin fhamna kolchi.khassna hadak l9anon itbadal, wach a3ibad Allah li 3ta maloyoun ihkam oib9a irba7. raja machi dyal 10 nass, 7na ra cha3b lkhadra. wach had wlad l97ab mabghawch ifar9ona, b9atlihom akher war9a kila3boha. walakin fhamna kolchi</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5456e208-6713-48f9-90fb-4ea4e6aa33cb</ID_ARABIZIENTRY>
+    <ArabiziText>khassna hadak l9anon itbadal, wach a3ibad Allah li 3ta maloyoun ihkam oib9a irba7. raja machi dyal 10 nass, 7na ra cha3b lkhadra. wach had wlad l97ab mabghawch ifar9ona, b9atlihom akher war9a kila3boha. walakin fhamna kolchi.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>dbd11d72-2f62-4a5a-833b-334f83c58c7d</ID_ARABIZIENTRY>
+    <ArabiziText>khassna hadak l9anon itbadal, wach a3ibad Allah li 3ta maloyoun ihkam oib9a irba7. raja machi dyal 10 nass, 7na ra cha3b lkhadra. wach had wlad l97ab mabghawch ifar9ona, b9atlihom akher war9a kila3boha. walakin fhamna kolchi.	</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1e3418f5-ddb5-4452-8fa3-ca64411e53de</ID_ARABIZIENTRY>
+    <ArabiziText>khassna hadak l9anon itbadal, wach a3ibad Allah li 3ta maloyoun ihkam oib9a irba7. raja machi dyal 10 nass, 7na ra cha3b lkhadra. wach had wlad l97ab mabghawch ifar9ona, b9atlihom akher war9a kila3boha. walakin fhamna kolchi.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>f034e540-6dd5-4e2e-b993-c2bd79295eff</ID_ARABIZIENTRY>
+    <ArabiziText>hchouma </ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d66ef900-537e-469a-b9f6-4df977e56573</ID_ARABIZIENTRY>
+    <ArabiziText>hadchi hchich hchem</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>671e4b39-0738-47b3-ad3f-e4edecf02356</ID_ARABIZIENTRY>
+    <ArabiziText>7chich </ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

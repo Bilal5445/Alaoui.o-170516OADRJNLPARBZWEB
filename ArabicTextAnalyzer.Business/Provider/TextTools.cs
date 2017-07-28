@@ -29,6 +29,11 @@ namespace ArabicTextAnalyzer.Business.Provider
             //
             foreach (Match match in matches)
             {
+                // exclude digits only
+                int value;
+                if (int.TryParse(match.Value, out value))
+                    continue;
+
                 arabicDarijaText = arabicDarijaText.Replace(match.Value, "<b><mark>" + match.Value + "</mark></b>");
             }
 
@@ -47,13 +52,17 @@ namespace ArabicTextAnalyzer.Business.Provider
             //
             foreach (Match match in matches)
             {
+                // exclude digits only
+                int value;
+                if (int.TryParse(match.Value, out value))
+                    continue;
+
                 var found = ArabicDarijaEntryLatinWords.Find(m => m.LatinWord == match.Value);
                 var count = 0;
                 if (found != null)
                     count = found.VariantsCount;
                 if (count > 0)
                     arabicDarijaText = arabicDarijaText.Replace(match.Value, "<b><mark>" + match.Value + "</mark></b><span class='badge'>" + count + "</span>");
-                    // arabicDarijaText = arabicDarijaText.Replace(match.Value, "<b><mark>" + match.Value + "</mark></b>");
                 else
                     arabicDarijaText = arabicDarijaText.Replace(match.Value, "<b><mark>" + match.Value + "</mark></b>");
             }

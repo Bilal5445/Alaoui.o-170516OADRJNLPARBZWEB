@@ -313,4 +313,115 @@
     <ID_ARABIZIENTRY>e00aa6eb-8736-42d2-b2a4-fd89233e9446</ID_ARABIZIENTRY>
     <ArabicDarijaText>فين هم تضرب سحبان مشنا والو واش ما غتبداو ش تضرب حتى بديت موسم و الى كذك علينا</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>cb2b13f2-d472-4b2a-b767-56d6bfdf49a1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>bba65961-434a-436d-8fcb-2ad7f9ece2a4</ID_ARABIZIENTRY>
+    <ArabicDarijaText>hahahahahahaha نطة حوا كريستيانو راجل ga3ma كي ذو bzzzf ح دقائق واخا ثكنة جي مان منشستر ة زب , راجل حوا التي كي البص تهن و ثى حرات تيرن كحلانى مان القرقوري ;) ثلى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>409c06de-00ff-4cad-8046-722c81d0a27f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ee3fa812-4a0c-473e-a42b-4f71d3ca5972</ID_ARABIZIENTRY>
+    <ArabicDarijaText>hahahahahahaha حثة هو كريستيان راجل ga3ma قاي ذوى بزاف ح دقائق واخ ثكن جى مان منشستر ا زاب , راجل هو التي قاي البس تنه و ثاى حرثة تيران خالينا مان القرقوري ;) ظلل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>138e1d72-af5e-43e4-9210-32d3e24e5587</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f21714f0-d14a-41d7-be75-a26d1a2d3c3a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>hahahahahahaha هتا هو كرستين رجل قاعما قاى دو بزاف ح دقائق وخ ثكنه جاي ما منشستر ى زاب , رجل هو التي قاى البسة تنه و ثى حرث تران خلينى ما القرقوري ;) ثل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b32e5455-273c-4a8c-bc80-4b435282cc0a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2703dc15-782d-4866-b974-0d98421fbdbf</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هههه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>37860d2c-00d4-4ca6-a70b-d8287c9ff1f0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>195f287c-ce4f-4542-aedf-7ddc18bd2ed7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ahahahahaahahahaha</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>82b57d9e-7c3a-4149-bfcd-b62d4f598e79</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>913a1e46-8bcf-49d8-90b3-6ddb5890845d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هههه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b7450628-872f-4dc4-8a35-0c0ee2d97740</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>122024e6-1c68-4888-ad65-386a74a04231</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ههه حت هوى كريستان راجل قاعما قاى ذو بزاف ح دقائق وقه تكونة جاى ما منشستر ا زاب , راجل هوى التي قاى الباسه ثن و طي حراثة تران خلنا ما القرقوري ;) ظل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>227334b5-3959-4075-9ca5-16147f96d2f1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9ea6e412-d44f-418d-acd8-827b43dd777d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ok سى مصطفة معق fdakchi ل غلت كامل mais hdraff الة علقة bhadchi ل غلت al3ab جاي nawi معانى خير العاب خالق وى خطر وى كاين تجريب ابات donc خل خونى يلاه جا بل عاكس خصنا نسانده حاط نواي معانى خير اب stoff وى سيمى دم الرجاء وعاشا al ملق
+حسبانه مة دير كح حطى نتا برم w demissiona اليهم قبل غدد ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3af516ad-3b3f-457f-bbaa-e5a2764bbb71</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>db23aec6-884a-447c-80ab-7a3b16cfd110</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ok اسا مصطفى معك fdakchi الإ غلت قمل mais حدراف لة علقة bhadchi الإ غلت العاب جاي ناوي معانا خير العاب خلوق وا خاطر وا كاينة تجريبى ابط donc كحال خنا يله ج بل عكس قحصنة نسانده حاط نواي معانا خير با ستف وا سيمى ديما الرجاء وعاشا الملك حسبانه م دار صح هطة نتا برم و demissiona ليم قبل غدد ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ef0be967-3f4b-4adf-b9bb-f321f6763eae</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9eb376c9-be05-4013-bd77-2faa1aed886f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ما دار ش</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ccfc09ed-23f7-47f4-b54f-cfa76c046975</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>97122f25-5b3a-406a-9d7e-e8f1b50340c1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ok سى مصطفى معاق fdakchi الإ غلطا كمله mais حدراف لة علاقة bhadchi الإ غلطا العب جاي ناوا معان خار العب خالق و خطر و كينى تجربة ابت donc خالى خنا ياله جا بل عاكس قحصنة نسانده حيط نواي معان خار ابى ستف و صم ذمة الرجاء وعش الملك حسبن م ذر صح هتا نطة promo و demissiona اليوم قبل غضة ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>eb1a9b69-ca97-4850-afdb-86a6f3c7f904</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ca04baf1-2eae-4c86-a129-20e4f44bb534</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ok اسى مصطفى معك فهذشي الا جلت كامله mais حدراف لة عالقا بهذشي الا جلت العاب جي nawi معن خير العاب خالق و خاطر و كينا تجريب ابتي donc كحلى خونة ياله جا بل عكس خصنا نسانده حيط نويي معن خير ابا ستف و صام ذمة الرجاء وعش الملك حسبن مى ذر كه حث نتة promo و demissiona ليوم قبل غضا ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e949690d-f0a8-4e1d-830d-e9c0c91cc23b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b308af11-b418-44ab-acfb-2f1883ff8034</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ok سا مصطفة معق فهذشي الإ قالتي قمل mais حدراف الة علق بهذشي الإ قالتي العب جاي nawi معن خار العب خلوق وى خطر وى كاينة تجرب بت donc خل كهون يله ج بل عكس كحصن نسانده حت ناوى معن خار اب ستف وى سمة دما الرجاء وعاشا الملك حسبان ما ضر صح حطة نتة promo و demissiona اليوم قبل جهادا ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>85929aec-657e-4f48-8a8a-e820de93c468</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e2b23f41-a46d-4b60-9c7f-6d119b1dcf7d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خاص كح société هية لي تشذ الرجاء نة مول شاكارا قامش و كاجا كادار مبغ نة boudrika غيج جهي على مصلحته</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>dea0c1f0-2270-4827-9851-caaf7ed73b99</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fd46eb6b-6a57-43da-a0bd-432eb78f0981</ID_ARABIZIENTRY>
+    <ArabicDarijaText>إن شاء الله</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9d53788b-f359-468c-bde1-f2a46881ce2d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4b338813-6baa-4f8f-9470-a02e4183ac6f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كحصن حادق القنون يتبادل , وصح اعبد لاح لي عطا مالوين هكام يبقة ارباح . الرجاء مسحا ذيل 10 نس , حنا ر شعب لخضر . وصح هاذ ولد al97ab م بغاو صح فارقنا , بقتلهم قهر ورقة kila3boha . والاكن فهمن قلش . كحصن حادق القنون يتبادل , وصح اعبد لاح لي عطا مالوين هكام يبقة ارباح . الرجاء مسحا ذيل 10 نس , حنا ر شعب لخضر . وصح هاذ ولد al97ab م بغاو صح فارقنا , بقتلهم قهر ورقة kila3boha . والاكن فهمن قلش . كحصن حادق القنون يتبادل , وصح اعبد لاح لي عطا مالوين هكام يبقة ارباح . الرجاء مسحا ذيل 10 نس , حنا ر شعب لخضر . وصح هاذ ولد al97ab م بغاو صح فارقنا , بقتلهم قهر ورقة kila3boha . والاكن فهمن قلش</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>85343bbf-3d7c-4d86-854c-f10b3a18ae6c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5456e208-6713-48f9-90fb-4ea4e6aa33cb</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خصنا هاذاك القانون يتبدل , وصح عباد للة الي عطى ملوين حكم بقا رباح . الرجاء ماسه ذيل 10 نس , حن را شعب لخدر . وصح حاض ولاذ al97ab م بغاو كح يفرقون , بقتلهم اخر ورق kila3boha . ولكان فهمنى كولشي .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6f1e2d0e-5e1c-4a84-9685-e7d97a0efbcd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>dbd11d72-2f62-4a5a-833b-334f83c58c7d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>قحصنة هداك لقانون اتبادل , وكه عباد الله الى عطا ملهين احكام يبقى ربح . الرجاء ماصه ذيل 10 نص , حنى را شعب الخاضغ . وكه حاد ولد القحاب مة بغاو كح فرقنا , بقتلهم قهر ورقا kila3boha . ولاكن فهمنى كولشي .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d1c7e191-975f-476a-909e-58985817bc23</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1e3418f5-ddb5-4452-8fa3-ca64411e53de</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خصصنا هاذاك لقانون تبادل , واش عبد الله لي عت مليون يحكم بق رباح . الرجاء ماش ضيال 10 ناص , حنى غا شعب الخدر . واش هذ ولاذ القحاب مة بغو كه يفرقون , بقتلهم اخر ورقى كيلعبوها . ولكن فهمن قلش .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>de7ffbc4-8003-49a0-9217-7fdcbece509b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f034e540-6dd5-4e2e-b993-c2bd79295eff</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حشومة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ea9a0f1c-e8cf-4184-84da-6ce57b5d9ab0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d66ef900-537e-469a-b9f6-4df977e56573</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هادشي حشيش حسهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c40d259c-f437-415a-8db2-950ced229c03</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>671e4b39-0738-47b3-ad3f-e4edecf02356</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حشاش</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

@@ -28,6 +28,9 @@ namespace ArabicTextAnalyzer.Business.Provider
             // preprocess (eg: ma/ch)
             source = Preprocess_ma_ch(source);
             source = Preprocess_al_wa(source);
+            source = Preprocess_al(source);
+            source = Preprocess_bezzaf(source);
+            source = Preprocess_ahaha(source);
 
             //
             File.WriteAllText(inputFileLocation, source);
@@ -80,6 +83,44 @@ namespace ArabicTextAnalyzer.Business.Provider
             // String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "al$2 wa al$4", RegexOptions.IgnoreCase);
             // String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "al$2 wa al$6", RegexOptions.IgnoreCase);
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "al$2 wal$6", RegexOptions.IgnoreCase);
+
+            return miniArabiziKeyword;
+        }
+
+        public string Preprocess_al(string arabizi)
+        {
+            // wa3acha al malik => wa3acha almalik
+            String pattern = @"\b(al|l|el) *([A-Za-z0-9éèàâê]+\b)";
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "al$2", RegexOptions.IgnoreCase);
+
+            return miniArabiziKeyword;
+        }
+
+        public string Preprocess_bezzaf(string arabizi)
+        {
+            //bzf
+            //bezzaf
+            //bezzaaaaaaaaaaaaf
+            //beeeeezzaf
+            //bezzzzzzzzzaf
+            //beeeeeezzzzzzzzzzaaaaaaaaaf
+            
+            String pattern = @"\bbe*z+a*f\b";
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "bzf", RegexOptions.IgnoreCase);
+
+            return miniArabiziKeyword;
+        }
+
+        public string Preprocess_ahaha(string arabizi)
+        {
+            //hahahahahahaha
+            //ahahahaha
+            //ahahahahahahahahaha
+            //hahahaha
+            //ahahah
+
+            String pattern = @"\b(a|h){0,1}(ha|ha){3,}(h|a){0,1}\b";
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ههه", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
         }
