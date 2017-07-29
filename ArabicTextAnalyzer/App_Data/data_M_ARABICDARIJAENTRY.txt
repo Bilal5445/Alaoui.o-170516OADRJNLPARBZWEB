@@ -539,4 +539,19 @@
     <ID_ARABIZIENTRY>7a180704-b0fa-43d5-ad91-23ae52563dda</ID_ARABIZIENTRY>
     <ArabicDarijaText>الآن خاس فخير يرجع و يتحيد ذاك غاص لحمر ذيل حسبن لفرق مقعدا نضر ة سهى 3 نتدابات mzyaniin و ترجع الرجاء إن شاء الله للقمة .. راجعين نحكم ثن</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>cd311aca-09b0-41f5-b303-5b1a4a680b14</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6f5682c5-6f7f-4330-aa9c-a4d3a22a6231</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خاس yami9 ما يمشي ش باش mayal9a باش يخلص فاخر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>832e2980-a0d5-4dca-a807-7c5494e5d57b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>314e2ec2-e08c-4f10-9bf9-d0e1872bcbd9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خاص yami9 ما يمشي ش باش مايلقى باش يخلص فخر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>02a0da7b-688a-41cf-8280-0b9e7e3e8eb0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d10b52b9-75c8-42bf-ae80-2a5bcaea3d6a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نتمنو يترجل معا الجمهور walmykhliwch حسبانه يضير البغة فرج غة دخل نافخ كرش من رزاق ضيال الرجاء الله يخد الحاق فاه msl7t الرجاء نى حض لمكتب بق قلص مضار والو kytsna صادقة من الجماع والحياد فخار الى صبر هتقتل fdorouf صعبة مكنش العب kytkhlso okyl3bo ويربح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

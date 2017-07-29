@@ -564,5 +564,19 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             //
             Assert.IsTrue(nbr == 1);
         }
+
+        [TestMethod()]
+        public void ut_170729_test_make_sure_msl7t_variants_contains_مصلحة()
+        {
+            // Something wrong with the taa marbouta final ? they are somehow dropped ?
+
+            String word = "msl7t";
+            var variants = new TextConverter().GetAllTranscriptions(word);
+
+            var nbr = variants.FindAll(m => m.Contains("مصلحة")).Count;
+
+            //
+            Assert.IsTrue(nbr >= 1);
+        }
     }
 }
