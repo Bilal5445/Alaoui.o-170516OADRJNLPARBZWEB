@@ -337,4 +337,85 @@ Hasbane ma dirch hta nta promo w demissiona lyoum 9bel ghadda ?</ArabiziText>
     <ID_ARABIZIENTRY>671e4b39-0738-47b3-ad3f-e4edecf02356</ID_ARABIZIENTRY>
     <ArabiziText>7chich </ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a96ccd4a-9e5d-4f15-8abf-192316fb3085</ID_ARABIZIENTRY>
+    <ArabiziText>Slm Maroc telecom ntmnaw likom kol lkhir bghit nghayr Ra9m dyali mn orange l maroc telecom ax ndir jawboni 3afakom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>4ab1c326-e832-4ec0-b945-d641380dc537</ID_ARABIZIENTRY>
+    <ArabiziText>Slm Maroc telecom ntmnaw likom kol lkhir bghit nghayr Ra9m dyali mn orange l maroc telecom ax ndir jawboni 3afakom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>756011b3-e03c-42f0-b700-36134b9b1bc5</ID_ARABIZIENTRY>
+    <ArabiziText>Slm Maroc telecom ntmnaw likom kol lkhir bghit nghayr Ra9m dyali mn orange l maroc telecom ax ndir jawboni 3afakom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d9f9618b-7908-490d-811c-129b0a004b6f</ID_ARABIZIENTRY>
+    <ArabiziText>ta wzza 3ndkom hadchi ana 3andi inwi</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>62387751-cb04-43c6-9f40-cb78045d77b7</ID_ARABIZIENTRY>
+    <ArabiziText>Wach dayrin ch had kay3ayt l nas w y9ololihom rbahti 2 mlyon</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>62154fb4-293e-4a85-b8f9-f631b2b0a780</ID_ARABIZIENTRY>
+    <ArabiziText>Hhhhh bayna radi iglo likom dire j'aime safha o paratger fi 10 groupât o khask tajm3 no9at li tarbh m3ana</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2685888d-1795-4f15-8637-4201de3b344b</ID_ARABIZIENTRY>
+    <ArabiziText>Hhhhh bayna radi igol likom dire j'aime safha o partager fi 10 groupât o khask tajm3 no9at li tarbh m3ana
+</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>72a13bd7-28e1-45fa-826b-9ad44c8f0ae7</ID_ARABIZIENTRY>
+    <ArabiziText>Lkarta ila kant bla kountra kyhar9ouha ila ma3abatich 3a mouda moumkin tjawbouni</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ee8fd1fc-9758-4c99-9764-8aa426352991</ID_ARABIZIENTRY>
+    <ArabiziText>Lkarta ila kant bla kountra kyhar9ouha ila ma3aba2tich 3la mouda moumkin tjawbouni</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3e5a1682-ef60-49d0-b7fe-b52e5df138d8</ID_ARABIZIENTRY>
+    <ArabiziText>Chhal swlnak atisalat majawbtix</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d8078833-472d-400e-a97b-8ac286256e25</ID_ARABIZIENTRY>
+    <ArabiziText>Salut pardoun imta ljawla fmdinat agadir</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5d8b02fb-fcd2-4528-9152-738523f76c49</ID_ARABIZIENTRY>
+    <ArabiziText>tbarklah 3lik khoya Inshalah boudrika</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>259094f0-de38-4e10-ab35-32be907e9173</ID_ARABIZIENTRY>
+    <ArabiziText>tbarklah 3lik khoya Inshalah boudrika</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a9c90ea4-90f1-4785-8e8b-ad41d7d4bfae</ID_ARABIZIENTRY>
+    <ArabiziText>tbarklah 3lik khoya Inshalah boudrika</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>76f6bb89-02db-415a-beba-b25f380a7482</ID_ARABIZIENTRY>
+    <ArabiziText>inchallah</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>689a903e-3ac4-407e-a958-f5fd09c15054</ID_ARABIZIENTRY>
+    <ArabiziText>db khaas fakhiir yrjaa3 w yt7ayaaad daak ras lhmaar dyal housbaan lfar9a m9aada ndiiro a chi 3 ntidabaat mzyaniin w trjaa3 raja incha2 laah lil9iimaaa .. raj3in nhakmo tani</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>7f0e1f95-3336-43ac-b3ef-b2255009b7a2</ID_ARABIZIENTRY>
+    <ArabiziText>db khaas fakhiir yrjaa3 w yt7ayaaad daak ras lhmaar dyal housbaan lfar9a m9aada ndiiro a chi 3 ntidabaat mzyaniin w trjaa3 raja incha2 laah lil9iimaaa .. raj3in nhakmo tani	</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>fa7d41b8-1992-40b6-97f5-6dacc0c42fbc</ID_ARABIZIENTRY>
+    <ArabiziText>db khaas fakhiir yrjaa3 w yt7ayaaad daak ras lhmaar dyal housbaan lfar9a m9aada ndiiro a chi 3 ntidabaat mzyaniin w trjaa3 raja incha2 laah lil9iimaaa .. raj3in nhakmo tani	</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>4828dc64-ca6b-4125-802d-b443f85562f1</ID_ARABIZIENTRY>
+    <ArabiziText>db khaas fakhiir yrjaa3 w yt7ayaaad daak ras lhmaar dyal housbaan lfar9a m9aada ndiiro a chi 3 ntidabaat mzyaniin w trjaa3 raja incha2 laah lil9iimaaa .. raj3in nhakmo tani	</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>0e8ae222-4a81-4e9b-a23b-1e1ebde3e56a</ID_ARABIZIENTRY>
+    <ArabiziText>db khaas fakhiir yrjaa3 w yt7ayaaad daak ras lhmaar dyal housbaan lfar9a m9aada ndiiro a chi 3 ntidabaat mzyaniin w trjaa3 raja incha2 laah lil9iimaaa .. raj3in nhakmo tani	</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

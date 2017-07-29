@@ -424,4 +424,104 @@
     <ID_ARABIZIENTRY>671e4b39-0738-47b3-ad3f-e4edecf02356</ID_ARABIZIENTRY>
     <ArabicDarijaText>حشاش</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c773a4a2-ce2a-479f-a186-2478c7abe2b3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a96ccd4a-9e5d-4f15-8abf-192316fb3085</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام المغرب telecom نتمنو لكوم قول لخير بغيت نغير رقم ديالى من orange المارس telecom اش نذير جاوبني عافاكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2887c922-78dd-4fcb-b841-a6fd5fe43eef</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4ab1c326-e832-4ec0-b945-d641380dc537</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام المغرب تلكوم نتمنو ليقوم قول لقهر بجهات نغير رقم ذيلا من orange المارس تلكوم اش نذير جاوبني عافاكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e375ab80-adf5-4440-90b9-7347025db09a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>756011b3-e03c-42f0-b700-36134b9b1bc5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام المغرب تلكم نتمنو لكوم كل القهار بغيت نغير رقم ضيلا من orange لمارك تلكم اش نضار جاوبني عافاكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>10986022-ab25-4637-a3df-291bea5faea6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d9f9618b-7908-490d-811c-129b0a004b6f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تا وز عندكم حدسه نا عندي inwi</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f5d35646-2feb-4e6d-9f1b-8b3b8114b58f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>62387751-cb04-43c6-9f40-cb78045d77b7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>وصح دايرين سه حاد kay3ayt لنس و يقوللهم ربحتي ء مليون</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c5442e24-12e8-408d-83b2-42223c1c03c8</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>62154fb4-293e-4a85-b8f9-f631b2b0a780</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هه بين غادي اجل لكم دار ج آ م صفحة و paratger في 10 groupât و خصك تجمع نقط لا تربح معانا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>55ee314e-4173-40a5-a9c9-29f7eedae2d0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2685888d-1795-4f15-8637-4201de3b344b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هه بين غادي يقول لكم دار ج آ م صفحة و partager في 10 groupât و خصك تجمع نقات لا تربه معانا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3e9d896c-a89e-4606-b84c-0153abb007ca</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>72a13bd7-28e1-45fa-826b-9ad44c8f0ae7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الكارثة إذا كانت بلا قنطرة kyhar9ouha إذا مى عبثي كه عة موود ممكن تجاوبني</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>92684352-d784-47ef-afea-5c9a2b83b8d6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ee8fd1fc-9758-4c99-9764-8aa426352991</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الكارثى إذا كانت بلا قنطرة kyhar9ouha إذا مى عابث سه عل مد ممكن تجوبون</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d2f3bc85-4126-4d29-a3b6-d1ee919e0ae6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3e5a1682-ef60-49d0-b7fe-b52e5df138d8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شحال swlnak اتصالات ما جاوبت كه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>102de696-5fbf-448f-8f1f-bbac58285a12</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d8078833-472d-400e-a97b-8ac286256e25</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سالت باردن امتى لجولا fmdinat جدار</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>64fd5e61-01ba-4f95-94ad-6edf7dfdcf3c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5d8b02fb-fcd2-4528-9152-738523f76c49</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تباركله علق خويا انشالة boudrika</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0310deeb-f331-4444-81b7-4c67da9f1108</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>259094f0-de38-4e10-ab35-32be907e9173</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تبارك الله علك خويا انشالة boudrika</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>76c5f047-d3f5-4d61-8e64-b0bdd0456415</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a9c90ea4-90f1-4785-8e8b-ad41d7d4bfae</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تبارك الله علاك خويا إن شاء الله boudrika</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7af36b66-53c1-401c-9558-1e8c2fadbb24</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>76f6bb89-02db-415a-beba-b25f380a7482</ID_ARABIZIENTRY>
+    <ArabicDarijaText>إن شاء الله</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>89559569-b76a-4ad2-b0ed-0501f80e1aca</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>689a903e-3ac4-407e-a958-f5fd09c15054</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ذب خس فخار يرجع و yt7ayaaad ذاق غاس الحمار ديل حسبان الفارقة مقاضة ندار ا شي ع ntidabaat mzyaniin و ترجع الرجاء انشأ لاه للقمة .. راجعين نحكم طان</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b8fe7b19-4454-49b9-8dca-51b7a5b6f97e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7f0e1f95-3336-43ac-b3ef-b2255009b7a2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>دب خاص فاخر يرجع و yt7ayaaad ذق غص لحمر ذيل حسبان الفرقى مقد ندر ى شي ع ntidabaat mzyaniin و ترجع الرجاء انكه له للقيم .. راجعين نحاكم تانا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1b9a7a56-4996-4c36-97c0-4189a0d08202</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fa7d41b8-1992-40b6-97f5-6dacc0c42fbc</ID_ARABIZIENTRY>
+    <ArabicDarijaText>دب خص فخر يرجع و yt7ayaaad ضاق غس الحمر ضيال حسبن لفارق مقعدى نذر ى ش ع نتدابات mzyaniin و ترجع الرجاء انشق الاح للقمع .. راجعين نحاكمه ثنى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>eaee9c2c-aaaa-4e6a-91d7-7b09f1631dec</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4828dc64-ca6b-4125-802d-b443f85562f1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ذب خاص فاخر يرجع و yt7ayaaad ذق غس لحمر ضيال حسبا الفرقة مقاضة نضيره ى ش 3 نتدابات mzyaniin و ترجع الرجاء نسحق الاه للقيام .. راجعين نحاكم تنا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4fa96b59-5fe1-42a4-b00c-a02ef7a4edcf</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0e8ae222-4a81-4e9b-a23b-1e1ebde3e56a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الآن خص فخير يرجع و yt7ayaaad دق غاص الحمار ذيل حسبان لفرق مقدى ندير ة شي 3 نتدابات mzyaniin و ترجع الرجاء إن شاء الله للقامة .. راجعين نحاكمه تان</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
