@@ -25,6 +25,18 @@
                 </div>
             </div>
         </div>
+        @if (String.IsNullOrEmpty(ViewBag.MostPopularVariant) == false)
+        {
+            <div class="col-md-4">
+                <div class="panel panel-default active arabic ">
+                    <div class="panel-heading">Most Popular Variant : @ViewBag.MostPopularVariant</div>
+                    <div class="panel-body" style="padding: 0; height: 150px; position:relative;">
+                        <div class="loader"></div>
+                        <textarea style="height: 100%; width: 100%" id="arabic-text">@ViewBag.Post</textarea>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 
     <div class="row">

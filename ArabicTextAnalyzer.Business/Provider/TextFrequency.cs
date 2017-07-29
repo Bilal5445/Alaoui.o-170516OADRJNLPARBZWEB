@@ -54,5 +54,17 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             return false;
         }
+
+        public bool CorpusContainsWord(string domain)
+        {
+            // make it one line
+            domain = domain.Replace("\r\n", " ");
+
+            foreach (string line in File.ReadLines(pathToDictFile))
+                if (line.Contains(domain))
+                    return true; // and stop reading lines
+
+            return false;
+        }
     }
 }

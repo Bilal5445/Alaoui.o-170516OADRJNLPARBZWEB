@@ -12,7 +12,8 @@ namespace ArabicTextAnalyzer.Business.Provider
     {
         public static MatchCollection ExtractLatinWords(String arabicDarijaText)
         {
-            String matchRule = @"\b[A-Za-z0-9]+\b";
+            // String matchRule = @"\b[A-Za-z0-9éèàâê]+\b";
+            String matchRule = @"\b\d*[a-zA-Zéèàâê][a-zA-Zéèàâê\d]*\b"; // exclude digits only
             Regex regex = new Regex(matchRule);
             var matches = regex.Matches(arabicDarijaText);
             return matches;
@@ -22,7 +23,8 @@ namespace ArabicTextAnalyzer.Business.Provider
         {
             // Highlith and add label of counts of variantes
 
-            String matchRule = @"\b[A-Za-z0-9éèàâê]+\b";
+            // String matchRule = @"\b[A-Za-z0-9éèàâê]+\b";
+            String matchRule = @"\b\d*[a-zA-Zéèàâê][a-zA-Zéèàâê\d]*\b"; // exclude digits only
             Regex regex = new Regex(matchRule);
             var matches = regex.Matches(arabicDarijaText);
 
@@ -45,7 +47,8 @@ namespace ArabicTextAnalyzer.Business.Provider
         {
             // Highlith and add label of counts of variantes
 
-            String matchRule = @"\b[A-Za-z0-9éèàâê]+\b";
+            // String matchRule = @"\b[A-Za-z0-9éèàâê]+\b";
+            String matchRule = @"\b\d*[a-zA-Zéèàâê][a-zA-Zéèàâê\d]*\b"; // exclude digits only
             Regex regex = new Regex(matchRule);
             var matches = regex.Matches(arabicDarijaText);
 
@@ -59,10 +62,25 @@ namespace ArabicTextAnalyzer.Business.Provider
 
                 var found = ArabicDarijaEntryLatinWords.Find(m => m.LatinWord == match.Value);
                 var count = 0;
+                Guid guid = Guid.Empty;
+                var mostPopularVariant = String.Empty;
                 if (found != null)
+                {
                     count = found.VariantsCount;
+                    guid = found.ID_ARABICDARIJAENTRY_LATINWORD;
+                    mostPopularVariant = found.MostPopularVariant;
+                }
+
+                //
                 if (count > 0)
-                    arabicDarijaText = arabicDarijaText.Replace(match.Value, "<b><mark>" + match.Value + "</mark></b><span class='badge'>" + count + "</span>");
+                {
+                    string newhtml = $@"<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{match.Value}</mark></b>
+                                        <a href='/Train/X/?arabiziWord={match.Value}&arabiziWordGuid={guid}'>
+                                            <span class='badge'>{count}</span>
+                                        </a>";
+                    // arabicDarijaText = arabicDarijaText.Replace(match.Value, "<b><mark>" + match.Value + "</mark></b><a href='/Train/X/?arabiziWord=" + match.Value + "&arabiziWordGuid=" + guid + "'><span class='badge'>" + count + "</span></a>");
+                    arabicDarijaText = arabicDarijaText.Replace(match.Value, newhtml);
+                }
                 else
                     arabicDarijaText = arabicDarijaText.Replace(match.Value, "<b><mark>" + match.Value + "</mark></b>");
             }

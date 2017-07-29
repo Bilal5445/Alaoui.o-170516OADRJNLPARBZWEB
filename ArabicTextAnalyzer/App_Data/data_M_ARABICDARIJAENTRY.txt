@@ -524,4 +524,19 @@
     <ID_ARABIZIENTRY>0e8ae222-4a81-4e9b-a23b-1e1ebde3e56a</ID_ARABIZIENTRY>
     <ArabicDarijaText>الآن خص فخير يرجع و yt7ayaaad دق غاص الحمار ذيل حسبان لفرق مقدى ندير ة شي 3 نتدابات mzyaniin و ترجع الرجاء إن شاء الله للقامة .. راجعين نحاكمه تان</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>263fe4e0-454b-4d99-84f6-79e3dbc2a714</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8f28ff0e-93b3-432f-ad11-555ea4e2a308</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الآن خص فخير يرجع و يتحيد ضاق غس الحمر ديل حسبا الفارقة مقعدا نضيره ا صح 3 نتدابات mzyaniin و ترجع الرجاء إن شاء الله للقيام .. راجعين نحكم تان</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c1b388d4-be69-496e-b8f7-b1bc9fb2708e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2d704fa7-6660-4ff9-b08c-344ddf9f9db4</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الآن خاس فخر يرجع و يتحيد ذاك رص الحمار ديال حسبن لفارق مقد ندير ة سها 3 نتدابات mzyaniin و ترجع الرجاء إن شاء الله للقيم .. راجعين نحاكمه طان</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>95ce2cfa-0410-4bfc-9a91-ab299abbf091</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7a180704-b0fa-43d5-ad91-23ae52563dda</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الآن خاس فخير يرجع و يتحيد ذاك غاص لحمر ذيل حسبن لفرق مقعدا نضر ة سهى 3 نتدابات mzyaniin و ترجع الرجاء إن شاء الله للقمة .. راجعين نحكم ثن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

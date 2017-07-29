@@ -61,6 +61,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                     var latinWord = new M_ARABICDARIJAENTRY_LATINWORD
                     {
+                        ID_ARABICDARIJAENTRY_LATINWORD = Guid.NewGuid(),
                         ID_ARABICDARIJAENTRY = arabicDarijaEntry.ID_ARABICDARIJAENTRY,
                         LatinWord = arabiziWord,
                         VariantsCount = variantsCount
@@ -76,7 +77,7 @@ namespace ArabicTextAnalyzer.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public ActionResult TrainStepTwo_Tag_LatinWords(M_ARABICDARIJAENTRY arabicDarijaEntry)
         {
             {
@@ -101,7 +102,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             //
             return RedirectToAction("Index");
-        }
+        }*/
 
         [HttpPost]
         public ActionResult ArabicDarijaEntryPartialView()
@@ -135,7 +136,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             //
             List<Class2> xs = new List<Class2>();
-            foreach(M_ARABICDARIJAENTRY arabicdarijaentry in entries)
+            foreach (M_ARABICDARIJAENTRY arabicdarijaentry in entries)
             {
                 var perEntryLatinWordsEntries = latinWordsEntries.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY).ToList();
                 var x = new Class2
@@ -153,6 +154,106 @@ namespace ArabicTextAnalyzer.Controllers
 
             // pass entries to partial view via the model (instead of the bag for a view)
             return PartialView("_IndexPartialPage_arabicDarijaEntries", xs);
+        }
+
+        [HttpGet]
+        public ActionResult X(String arabiziWord, Guid arabiziWordGuid)
+        {
+            var textConverter = new TextConverter();
+            String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
+            String twinglyApiKey = "246229A7-86D2-4199-8D6E-EF406E7F3728";
+
+            // deserialize M_ARABICDARIJAENTRY_LATINWORD to check if most popular already found
+            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = new List<M_ARABICDARIJAENTRY_LATINWORD>();
+            var path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_LATINWORD).Name + ".txt");
+            var serializer = new XmlSerializer(latinWordsEntries.GetType());
+            using (var reader = new System.IO.StreamReader(path))
+            {
+                latinWordsEntries = (List<M_ARABICDARIJAENTRY_LATINWORD>)serializer.Deserialize(reader);
+            }
+            var latinWordsEntry = latinWordsEntries.Find(m => m.ID_ARABICDARIJAENTRY_LATINWORD == arabiziWordGuid);
+            if (latinWordsEntry == null)
+            {
+                ViewBag.MostPopularVariant = "No M_ARABICDARIJAENTRY_LATINWORD found";
+                return View("Index");
+            }
+            if (String.IsNullOrEmpty(latinWordsEntry.MostPopularVariant) == false)
+            {
+                // ViewBag.MostPopularVariant = "MostPopularVariant already found";
+                // return View("Index");
+                // we already have the most popular
+                // if not in corpus let us add it via twningly
+                if (new TextFrequency().CorpusContainsWord(latinWordsEntry.MostPopularVariant))
+                {
+                    ViewBag.MostPopularVariant = "MostPopularVariant already found attached to latin word, and already in corpus. Try to convert again";
+                    return View("Index");
+                }
+                else
+                {
+                    // lets look for a post via twigly to add to corpus
+                    // 7 get a post containing this keyword
+                    var postText = OADRJNLPCommon.Business.Business.getPostBasedOnKeywordFromFBViaTwingly(latinWordsEntry.MostPopularVariant, twinglyApi15Url, twinglyApiKey, true);
+                    if (postText == String.Empty) // if no results, look everywhere
+                        postText = OADRJNLPCommon.Business.Business.getPostBasedOnKeywordFromFBViaTwingly(latinWordsEntry.MostPopularVariant, twinglyApi15Url, twinglyApiKey, false);
+                    if (String.IsNullOrEmpty(postText))
+                    {
+                        ViewBag.MostPopularVariant = "No post found containing the most popular variant";
+                        return View("Index");
+                    }
+                    else
+                    {
+                        // 8 add this post to dict
+                        var textFrequency = new TextFrequency();
+                        if (textFrequency.CorpusContainsSentence(postText) == false)
+                            textFrequency.AddPhraseToCorpus(postText);
+
+                        // 9 recompile the dict
+                        textConverter.CatCorpusDict();
+                        textConverter.SrilmLmDict();
+
+                        ViewBag.MostPopularVariant = "New post added into corpus with the most popular variant. Try to convert again";
+                        ViewBag.Post = postText;
+                        return View("Index");
+                    }
+                }
+            }
+
+            // standard behaviour when we are about to finf the right variant
+            var variants = textConverter.GetAllTranscriptions(arabiziWord);
+
+            if (variants.Count > 50)
+            {
+                ViewBag.MostPopularVariant = "More than 50 variants";
+                return View("Index");
+            }
+            else
+            {
+                // 5 get most popular keyword
+                var mostPopularKeyword = OADRJNLPCommon.Business.Business.getMostPopularVariantFromFBViaTwingly(variants, twinglyApi15Url, twinglyApiKey);
+                if (String.IsNullOrEmpty(mostPopularKeyword))
+                {
+                    ViewBag.MostPopularVariant = "No Most Popular Keyword";
+                    return View("Index");
+                }
+                else
+                {
+                    if (arabiziWordGuid != Guid.Empty)
+                    {
+                        // save mostPopularKeyword
+                        path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_LATINWORD.txt");
+                        new TextPersist().Serialize_Update_M_ARABICDARIJAENTRY_LATINWORD_MostPopularVariant(arabiziWordGuid, mostPopularKeyword, path);
+                    }
+
+                    //
+                    ViewBag.MostPopularVariant = mostPopularKeyword;
+                    return View("Index");
+
+                    // 
+                }
+            }
+
+            //
+
         }
     }
 }

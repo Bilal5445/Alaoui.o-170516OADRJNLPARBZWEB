@@ -552,5 +552,17 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             // Assert.AreEqual(completeArabicKeyword, arabicKeyword);
             Assert.AreEqual(mostPopularKeyword, arabicKeyword);
         }
+
+        [TestMethod()]
+        public void ut_170729_test_make_sure_mzyaniin_variants_contains_no_duplicate()
+        {
+            String word = "mzyaniin";
+            var variants = new TextConverter().GetAllTranscriptions(word);
+
+            var nbr = variants.FindAll(m => m.Contains("مزيانين")).Count;
+            
+            //
+            Assert.IsTrue(nbr == 1);
+        }
     }
 }
