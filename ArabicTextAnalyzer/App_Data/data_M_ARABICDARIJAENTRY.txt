@@ -554,4 +554,34 @@
     <ID_ARABIZIENTRY>d10b52b9-75c8-42bf-ae80-2a5bcaea3d6a</ID_ARABIZIENTRY>
     <ArabicDarijaText>نتمنو يترجل معا الجمهور walmykhliwch حسبانه يضير البغة فرج غة دخل نافخ كرش من رزاق ضيال الرجاء الله يخد الحاق فاه msl7t الرجاء نى حض لمكتب بق قلص مضار والو kytsna صادقة من الجماع والحياد فخار الى صبر هتقتل fdorouf صعبة مكنش العب kytkhlso okyl3bo ويربح</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2104c83b-40d0-48c9-a193-227d3d06f685</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>049384f0-319f-414f-b42b-4e1e67aa90bc</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نتمنو يترجل معى لجمهور walmykhliwch حسبن يضار البغة فرجة راح داخل نفخ كرسه من رزق ديل الرجاء الله يخد لحق فإه مسلحة الرجاء نا حاض لمكتب بق قلص مدر وال kytsna صادقى من لجماعة والحياد فخير ل صباغ تقتل fdorouf صعيب مكنش لعاب kytkhlso okyl3bo وربه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>62f11a2e-c34a-453d-a2c0-fddaf4c71f99</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>555693e1-95ac-4708-8eff-c7a917696006</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نتمنو يترجل معى الجمهور walmykhliwch حسبان يدير البغى فرجا راه دخل نافخ كرشه من رزاق ديل الرجاء الله يخض الحاق فاه مسلحة الرجاء ان حاض المكتب بقى جالس مدر وله kytsna صداقة من لجامعة والحياد فخر لي سبر تقتل fdorouf صعب مكنوش لعبة kytkhlso okyl3bo وربح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9bc9ed13-e7ff-462d-a6c7-98da0b899be7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>191d9251-1158-464c-b47d-67c486bbe1ab</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نتمنو يترجل معى الجمهور walmykhliwch حسبن يضر البغى فراجا غة داخل نفخ كرسه من رزق ذيل الرجاء الله يخد لحاق فيه مصلحة الرجاء نى هاد المكتب بق قلص مضر وال kytsna صدقى من الجامعى والحياد فخر لا صباغ وتقتل fdorouf صعبة مكنوش العبة kytkhlso كيلعب وربح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>92b43102-dd27-46ee-8869-90791e90ec72</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>75ec63be-2d56-4242-8b21-6d983dd907a8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الآن خاص فخار يرجع و يتحيد دق رس لحمر ضيال حسبا الفرقة مقعد ندار ا صحي 3 نتدابات mzyaniin و ترجع الرجاء إن شاء الله اللقيام .. راجعين نحكم ثن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4e8e6f78-7065-4bca-85aa-c9898874bff0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>867033e9-752d-4b37-b2bd-f11b614bf8ee</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الآن خس فخر يرجع و يتحيد دعك غص لحمر ذيل حسبا الفارق مقد ندير ى صحي 3 نتدابات مزيانين و ترجع الرجاء إن شاء الله للقيمة .. راجعين نحاكم ثان</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ee856543-b1ef-4f7d-87f1-520d9d73f0ce</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>71bfb899-eb42-4e91-abc9-a76d2fa5a53a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نتمنو يترجل معا لجمهور walmykhliwch حسبان يضر البغى فرجة غة داخل نافخ كرشه من رزاق ديال الرجاء الله يخوض لحاق فاه مصلحة الرجاء انة حض لمكتب بق قلص مذر ول kytsna صادقة من لجمع والحياد فخير ال صبر وتقاتل fdorouf سعبة مكنوش لعب kytkhlso كيلعب وربح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

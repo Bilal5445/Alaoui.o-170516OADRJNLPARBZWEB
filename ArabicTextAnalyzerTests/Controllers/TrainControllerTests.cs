@@ -578,5 +578,15 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             //
             Assert.IsTrue(nbr >= 1);
         }
+
+        [TestMethod()]
+        public void ut_170729_test_make_sure_okyl3bo_variants_are_less_than_15()
+        {
+            String word = "okyl3bo";
+            var variants = new TextConverter().GetAllTranscriptions(word);
+
+            //
+            Assert.IsTrue(variants.Count < 15, "nbr variants : " + variants.Count);
+        }
     }
 }

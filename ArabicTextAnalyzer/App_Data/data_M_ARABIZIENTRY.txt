@@ -442,4 +442,28 @@ Hasbane ma dirch hta nta promo w demissiona lyoum 9bel ghadda ?</ArabiziText>
     <ID_ARABIZIENTRY>d10b52b9-75c8-42bf-ae80-2a5bcaea3d6a</ID_ARABIZIENTRY>
     <ArabiziText>ntmnaw ytrjlo m3a ljomhour omykhliwch hsbane ydir libgha fraja rah dakhl nafkh krcho mn rza9 dyal raja lah ykhod lha9 fih msl7t raja ana had lmktab b9a gals mdar walo kytsna sada9a mn ljami3a ohyad fakhir li sbar ot9atl fdorouf s3iba mknoch l3aba kytkhlso okyl3bo wirabho</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>049384f0-319f-414f-b42b-4e1e67aa90bc</ID_ARABIZIENTRY>
+    <ArabiziText>ntmnaw ytrjlo m3a ljomhour omykhliwch hsbane ydir libgha fraja rah dakhl nafkh krcho mn rza9 dyal raja lah ykhod lha9 fih msl7t raja ana had lmktab b9a gals mdar walo kytsna sada9a mn ljami3a ohyad fakhir li sbar ot9atl fdorouf s3iba mknoch l3aba kytkhlso okyl3bo wirabho</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>555693e1-95ac-4708-8eff-c7a917696006</ID_ARABIZIENTRY>
+    <ArabiziText>ntmnaw ytrjlo m3a ljomhour omykhliwch hsbane ydir libgha fraja rah dakhl nafkh krcho mn rza9 dyal raja lah ykhod lha9 fih msl7t raja ana had lmktab b9a gals mdar walo kytsna sada9a mn ljami3a ohyad fakhir li sbar ot9atl fdorouf s3iba mknoch l3aba kytkhlso okyl3bo wirabho</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>191d9251-1158-464c-b47d-67c486bbe1ab</ID_ARABIZIENTRY>
+    <ArabiziText>ntmnaw ytrjlo m3a ljomhour omykhliwch hsbane ydir libgha fraja rah dakhl nafkh krcho mn rza9 dyal raja lah ykhod lha9 fih msl7t raja ana had lmktab b9a gals mdar walo kytsna sada9a mn ljami3a ohyad fakhir li sbar ot9atl fdorouf s3iba mknoch l3aba kytkhlso okyl3bo wirabho</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>75ec63be-2d56-4242-8b21-6d983dd907a8</ID_ARABIZIENTRY>
+    <ArabiziText>db khaas fakhiir yrjaa3 w yt7ayaaad daak ras lhmaar dyal housbaan lfar9a m9aada ndiiro a chi 3 ntidabaat mzyaniin w trjaa3 raja incha2 laah lil9iimaaa .. raj3in nhakmo tani</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>867033e9-752d-4b37-b2bd-f11b614bf8ee</ID_ARABIZIENTRY>
+    <ArabiziText>db khaas fakhiir yrjaa3 w yt7ayaaad daak ras lhmaar dyal housbaan lfar9a m9aada ndiiro a chi 3 ntidabaat mzyaniin w trjaa3 raja incha2 laah lil9iimaaa .. raj3in nhakmo tani</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>71bfb899-eb42-4e91-abc9-a76d2fa5a53a</ID_ARABIZIENTRY>
+    <ArabiziText>ntmnaw ytrjlo m3a ljomhour omykhliwch hsbane ydir libgha fraja rah dakhl nafkh krcho mn rza9 dyal raja lah ykhod lha9 fih msl7t raja ana had lmktab b9a gals mdar walo kytsna sada9a mn ljami3a ohyad fakhir li sbar ot9atl fdorouf s3iba mknoch l3aba kytkhlso okyl3bo wirabho</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
