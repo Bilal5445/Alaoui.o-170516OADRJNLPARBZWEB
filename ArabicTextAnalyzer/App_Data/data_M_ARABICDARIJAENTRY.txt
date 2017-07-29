@@ -584,4 +584,19 @@
     <ID_ARABIZIENTRY>71bfb899-eb42-4e91-abc9-a76d2fa5a53a</ID_ARABIZIENTRY>
     <ArabicDarijaText>نتمنو يترجل معا لجمهور walmykhliwch حسبان يضر البغى فرجة غة داخل نافخ كرشه من رزاق ديال الرجاء الله يخوض لحاق فاه مصلحة الرجاء انة حض لمكتب بق قلص مذر ول kytsna صادقة من لجمع والحياد فخير ال صبر وتقاتل fdorouf سعبة مكنوش لعب kytkhlso كيلعب وربح</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>45bd1462-c8ce-4f81-a90b-456d0573e346</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>12e149df-3094-4850-9d35-0bd877ebb814</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نتمنو يترجل مع لجمهور walmykhliwch حسبان يضار البغى فراجا غه داخل نافخ كرسه من رزق ذيل الرجاء الله يخض الحق فه مسلحة الرجاء انة حد لمكتب بق غلس مدار واله kytsna صدقا من الجماعى والحياد فخر ال صبغ وتقاتل فضرف صعبة مكنوش لعبا kytkhlso كيلعب واربح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c81c36e6-1883-49bf-9cee-367bd20427d9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1b90cfe6-bb80-4021-a7b4-b51132616283</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شحال swlnak اتصالات ما جاوبت كه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c17aec17-2b82-46b4-a58e-43fe69a67ac6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>44d4b140-e1bf-44eb-aea1-11fbb9b88ce8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شحال سولناك اتصالات ما جاوبت ش</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

@@ -161,7 +161,7 @@ namespace ArabicTextAnalyzer.Controllers
         {
             var textConverter = new TextConverter();
             String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
-            String twinglyApiKey = "246229A7-86D2-4199-8D6E-EF406E7F3728";
+            String twinglyApiKey = "2A4CF6A4-4968-46EF-862F-2881EF597A55";
 
             // deserialize M_ARABICDARIJAENTRY_LATINWORD to check if most popular already found
             List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = new List<M_ARABICDARIJAENTRY_LATINWORD>();

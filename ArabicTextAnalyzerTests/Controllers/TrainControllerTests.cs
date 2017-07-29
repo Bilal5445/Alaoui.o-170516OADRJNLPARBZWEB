@@ -60,7 +60,7 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             String fbKeywordKeyword1 = "ينعل";
             String fbKeywordKeyword2 = "ينعآل";
 
-            String twinglyApiKey = "246229A7-86D2-4199-8D6E-EF406E7F3728";
+            String twinglyApiKey = "2A4CF6A4-4968-46EF-862F-2881EF597A55";
             String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
 
             //
@@ -102,7 +102,7 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             var variants = new TextConverter().GetAllTranscriptions("yan3al");
 
             String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
-            String twinglyApiKey = "246229A7-86D2-4199-8D6E-EF406E7F3728";
+            String twinglyApiKey = "2A4CF6A4-4968-46EF-862F-2881EF597A55";
 
             //
             var mostPopularKeyword = OADRJNLPCommon.Business.Business.getMostPopularVariantFromFBViaTwingly(variants, twinglyApi15Url, twinglyApiKey);
@@ -115,7 +115,7 @@ namespace ArabicTextAnalyzer.Controllers.Tests
         {
             String keyword = "ينعل";
 
-            String twinglyApiKey = "246229A7-86D2-4199-8D6E-EF406E7F3728";
+            String twinglyApiKey = "2A4CF6A4-4968-46EF-862F-2881EF597A55";
             String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
 
             var postText = OADRJNLPCommon.Business.Business.getPostBasedOnKeywordFromFBViaTwingly(keyword, twinglyApi15Url, twinglyApiKey, true);
@@ -150,7 +150,7 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             //
             var textConverter = new TextConverter();
             String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
-            String twinglyApiKey = "246229A7-86D2-4199-8D6E-EF406E7F3728";
+            String twinglyApiKey = "2A4CF6A4-4968-46EF-862F-2881EF597A55";
             // String arabiziKeyword = "netrecheh"; // > 2000 variantes !!?
             String arabiziKeyword = "makatjich";    // > 448 variantes !!?
 
@@ -224,7 +224,7 @@ namespace ArabicTextAnalyzer.Controllers.Tests
         public void ut_170725_test_getPostBasedOnKeywordFromFBViaTwingly_no_index_was_out_of_range()
         {
             String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
-            String twinglyApiKey = "246229A7-86D2-4199-8D6E-EF406E7F3728";
+            String twinglyApiKey = "2A4CF6A4-4968-46EF-862F-2881EF597A55";
             var mostPopularKeyword = "كتجي";
             var completeArabicKeyword = "ما" + mostPopularKeyword + "ش";
             Assert.AreEqual("ماكتجيش", completeArabicKeyword);
@@ -257,7 +257,7 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             // 2 convert first pass
             var textConverter = new TextConverter();
             String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
-            String twinglyApiKey = "246229A7-86D2-4199-8D6E-EF406E7F3728";
+            String twinglyApiKey = "2A4CF6A4-4968-46EF-862F-2881EF597A55";
             var arabic = textConverter.Convert(arabizi);
 
             // 2 latin words
@@ -414,7 +414,7 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             // 2 convert first pass
             var textConverter = new TextConverter();
             String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
-            String twinglyApiKey = "246229A7-86D2-4199-8D6E-EF406E7F3728";
+            String twinglyApiKey = "2A4CF6A4-4968-46EF-862F-2881EF597A55";
             var arabic = textConverter.Convert(arabizi);
 
             // 2 latin words
@@ -486,7 +486,7 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             // 2 convert first pass
             var textConverter = new TextConverter();
             String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
-            String twinglyApiKey = "246229A7-86D2-4199-8D6E-EF406E7F3728";
+            String twinglyApiKey = "2A4CF6A4-4968-46EF-862F-2881EF597A55";
 
             // 4 get all variants
             var variants = textConverter.GetAllTranscriptions(/*miniA*/arabiziKeyword);
@@ -522,7 +522,7 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             // 2 convert first pass
             var textConverter = new TextConverter();
             String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
-            String twinglyApiKey = "246229A7-86D2-4199-8D6E-EF406E7F3728";
+            String twinglyApiKey = "2A4CF6A4-4968-46EF-862F-2881EF597A55";
 
             // 4 get all variants
             var variants = textConverter.GetAllTranscriptions(/*miniA*/arabiziKeyword);
@@ -587,6 +587,16 @@ namespace ArabicTextAnalyzer.Controllers.Tests
 
             //
             Assert.IsTrue(variants.Count < 15, "nbr variants : " + variants.Count);
+        }
+
+        [TestMethod()]
+        public void ut_170729_test_make_sure_swlnak_variants_are_less_than_10()
+        {
+            String word = "swlnak";
+            var variants = new TextConverter().GetAllTranscriptions(word);
+
+            //
+            Assert.IsTrue(variants.Count < 10, "nbr variants : " + variants.Count);
         }
     }
 }

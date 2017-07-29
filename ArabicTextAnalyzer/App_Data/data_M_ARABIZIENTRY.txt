@@ -466,4 +466,16 @@ Hasbane ma dirch hta nta promo w demissiona lyoum 9bel ghadda ?</ArabiziText>
     <ID_ARABIZIENTRY>71bfb899-eb42-4e91-abc9-a76d2fa5a53a</ID_ARABIZIENTRY>
     <ArabiziText>ntmnaw ytrjlo m3a ljomhour omykhliwch hsbane ydir libgha fraja rah dakhl nafkh krcho mn rza9 dyal raja lah ykhod lha9 fih msl7t raja ana had lmktab b9a gals mdar walo kytsna sada9a mn ljami3a ohyad fakhir li sbar ot9atl fdorouf s3iba mknoch l3aba kytkhlso okyl3bo wirabho</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>12e149df-3094-4850-9d35-0bd877ebb814</ID_ARABIZIENTRY>
+    <ArabiziText>ntmnaw ytrjlo m3a ljomhour omykhliwch hsbane ydir libgha fraja rah dakhl nafkh krcho mn rza9 dyal raja lah ykhod lha9 fih msl7t raja ana had lmktab b9a gals mdar walo kytsna sada9a mn ljami3a ohyad fakhir li sbar ot9atl fdorouf s3iba mknoch l3aba kytkhlso okyl3bo wirabho</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1b90cfe6-bb80-4021-a7b4-b51132616283</ID_ARABIZIENTRY>
+    <ArabiziText>Chhal swlnak atisalat majawbtix</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>44d4b140-e1bf-44eb-aea1-11fbb9b88ce8</ID_ARABIZIENTRY>
+    <ArabiziText>Chhal swlnak atisalat majawbtix</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
