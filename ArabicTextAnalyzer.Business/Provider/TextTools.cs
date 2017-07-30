@@ -74,11 +74,15 @@ namespace ArabicTextAnalyzer.Business.Provider
                 //
                 if (count > 0)
                 {
-                    string newhtml = $@"<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{match.Value}</mark></b>
-                                        <a href='/Train/X/?arabiziWord={match.Value}&arabiziWordGuid={guid}'>
-                                            <span class='badge'>{count}</span>
-                                        </a>";
-                    // arabicDarijaText = arabicDarijaText.Replace(match.Value, "<b><mark>" + match.Value + "</mark></b><a href='/Train/X/?arabiziWord=" + match.Value + "&arabiziWordGuid=" + guid + "'><span class='badge'>" + count + "</span></a>");
+                    string newhtml;
+                    if (guid != Guid.Empty)
+                        newhtml = $@"<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{match.Value}</mark></b>
+                                    <a href='/Train/X/?arabiziWord={match.Value}&arabiziWordGuid={guid}'>
+                                        <span class='badge'>{count}</span>
+                                    </a>";
+                    else
+                        newhtml = $@"<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{match.Value}</mark></b>
+                                    <span class='badge'>{count}</span>";
                     arabicDarijaText = arabicDarijaText.Replace(match.Value, newhtml);
                 }
                 else

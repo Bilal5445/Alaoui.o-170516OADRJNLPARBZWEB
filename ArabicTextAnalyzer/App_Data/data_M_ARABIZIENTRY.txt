@@ -478,4 +478,24 @@ Hasbane ma dirch hta nta promo w demissiona lyoum 9bel ghadda ?</ArabiziText>
     <ID_ARABIZIENTRY>44d4b140-e1bf-44eb-aea1-11fbb9b88ce8</ID_ARABIZIENTRY>
     <ArabiziText>Chhal swlnak atisalat majawbtix</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>428add54-b5a8-438a-bea1-5257750c538c</ID_ARABIZIENTRY>
+    <ArabiziText>Wach dayrin ch had kay3ayt l nas w y9ololihom rbahti 2 mlyon</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>9e63520c-baf6-436e-a524-75fbe6e230e5</ID_ARABIZIENTRY>
+    <ArabiziText>Wach dayrin ch had kay3ayt l nas w y9ololihom rbahti 2 mlyon</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>4c8f6a82-167e-4795-8139-d1ba31fbb922</ID_ARABIZIENTRY>
+    <ArabiziText>Salut pardon imta ljawla fmdinat agadir</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5629a5de-9998-4b74-837e-bcadba4c26c1</ID_ARABIZIENTRY>
+    <ArabiziText>Lkarta ila kant bla kountra kyhar9ouha ila ma3aba2tich 3la mouda moumkin tjawbouni</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c58c012a-20ac-43cc-aa5f-b61290e95281</ID_ARABIZIENTRY>
+    <ArabiziText>Lkarta ila kant bla kountra kyhar9ouha ila ma3aba2tich 3la mouda moumkin tjawbouni</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

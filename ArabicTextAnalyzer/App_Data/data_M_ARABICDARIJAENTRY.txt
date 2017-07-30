@@ -599,4 +599,29 @@
     <ID_ARABIZIENTRY>44d4b140-e1bf-44eb-aea1-11fbb9b88ce8</ID_ARABIZIENTRY>
     <ArabicDarijaText>شحال سولناك اتصالات ما جاوبت ش</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9300e2fe-edb9-4256-9e88-fe9762b78a82</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>428add54-b5a8-438a-bea1-5257750c538c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>وصح ديرن كه حاض kay3ayt الناس و يقوللهم ربحت 2 ملين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>85bb8bb4-8e54-4a76-af43-e8fa34400407</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9e63520c-baf6-436e-a524-75fbe6e230e5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هل ديغن شي حض كايعيط النص و يقوللهم ربحت 2 مليون</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>44a1a1b9-758c-4dd7-8724-56ca5a5d7bcd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4c8f6a82-167e-4795-8139-d1ba31fbb922</ID_ARABIZIENTRY>
+    <ArabicDarijaText>salut pardon مط لجولا فمدينة أكادير</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f032c886-3eb8-40ae-93bb-4585cc081a45</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5629a5de-9998-4b74-837e-bcadba4c26c1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لكارثة إذا قانة بلا قنطرة kyhar9ouha إذا ما عبتا شي علا موود ممكن تجوبون</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ac51b538-c9fc-4579-b211-d8f00a20aded</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c58c012a-20ac-43cc-aa5f-b61290e95281</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الكارت إذا قنت بلا كونتر كيحرقوها إذا مى عبط شي علة مض ممكن تجوبون</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
