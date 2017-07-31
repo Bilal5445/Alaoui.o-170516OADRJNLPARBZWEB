@@ -614,4 +614,24 @@ Hasbane ma dirch hta nta promo w demissiona lyoum 9bel ghadda ?</ArabiziText>
     <ID_ARABIZIENTRY>a3bf98c3-1032-4f39-841a-2921c6c2ed03</ID_ARABIZIENTRY>
     <ArabiziText>hadchi 3adi, 3lach nta Raïssa, o3lach jiti yawold alkahba, Bach tafdahna, ola t7al lmachakil, ratamchi 3and lbarnoussi tahya t7ssab tkhl3ak. nod ghma9 3la chi wa7ad ya wold chafar</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>7fbfa736-c8d5-475b-afa2-f3bb8576e534</ID_ARABIZIENTRY>
+    <ArabiziText>hadchi 3adi, 3lach nta Raïssa, o3lach jiti yawold alkahba, Bach tafdahna, ola t7al lmachakil, ratamchi 3and lbarnoussi tahya t7ssab tkhl3ak. nod ghma9 3la chi wa7ad ya wold chafar</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a9544724-1909-4b79-9004-984c67c3b349</ID_ARABIZIENTRY>
+    <ArabiziText>hadchi 3adi, 3lach nta Raïssa, o3lach jiti yawold alkahba, Bach tafdahna, ola t7al lmachakil, ratamchi 3and lbarnoussi tahya t7ssab tkhl3ak. nod ghma9 3la chi wa7ad ya wold chafar</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e0156209-8661-4662-ad03-922518ddfda2</ID_ARABIZIENTRY>
+    <ArabiziText>yaistou</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>8678ecbd-76e5-46b5-84ca-4491def110ac</ID_ARABIZIENTRY>
+    <ArabiziText>yaistou mina al hayat</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ce009cc3-87f3-45c1-9700-5a094601700a</ID_ARABIZIENTRY>
+    <ArabiziText>yaiistou mina al hayat	</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

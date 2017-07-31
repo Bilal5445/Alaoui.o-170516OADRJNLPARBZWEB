@@ -769,4 +769,29 @@
     <ID_ARABIZIENTRY>a3bf98c3-1032-4f39-841a-2921c6c2ed03</ID_ARABIZIENTRY>
     <ArabicDarijaText>هادشي عاد , علاش نتا raïssa , علاش جات ياولد القهبة , باش tafdahna , او تحال المشكل , غاتمشي عند البرنس تحية تحسب tkhl3ak . نوض غمق على شي واحد يا ولد شافر</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>48671d6a-b6a9-4cff-9697-ad8f86f27a13</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7fbfa736-c8d5-475b-afa2-f3bb8576e534</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هادشي عاد , علاش نتا raïssa , علاش جات يولد القحبة , باش tafdahna , او تحال المشكل , غاتمشي عند البرنس تحية تحسب tkhl3ak . نوض غمق على شي واحد يا ولد شفر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6bf598c2-0845-4e78-ba7b-305e664d99d8</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a9544724-1909-4b79-9004-984c67c3b349</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هادشي عاد , علاش نتا raïssa , علاش جات ياولد القهبة , باش tafdahna , او تحل المشكل , غاتمشي عند البرنس تحية تحسب tkhl3ak . نوض غمق على شي واحد يا ولد شافر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4162337b-cea4-4c9f-bbdb-5664eca4153e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e0156209-8661-4662-ad03-922518ddfda2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يست</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b823a292-74ed-4598-ba34-37db48f638e0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8678ecbd-76e5-46b5-84ca-4491def110ac</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يسطو من الحيط</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7d67489f-68ec-4886-9180-843184be4106</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ce009cc3-87f3-45c1-9700-5a094601700a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يسطو من لحيث</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
