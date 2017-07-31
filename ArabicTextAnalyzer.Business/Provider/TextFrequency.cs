@@ -44,6 +44,11 @@ namespace ArabicTextAnalyzer.Business.Provider
             return File.ReadLines(pathToDictFile).Count();
         }
 
+        public int GetCorpusWordCount()
+        {
+            return File.ReadAllText(pathToDictFile).Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length;
+        }
+
         public bool CorpusContainsSentence(string domain)
         {
             // make it one line

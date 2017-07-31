@@ -12,7 +12,7 @@
     @Scripts.Render("~/bundles/js_train")
 }
 
-<h2>Train</h2>
+<h2>Training (v0.177.31.1)</h2>
 
 @using (Html.BeginForm("TrainStepOne", "Train", FormMethod.Post))
 {
@@ -25,9 +25,9 @@
                 </div>
             </div>
         </div>
-        @if (String.IsNullOrEmpty(ViewBag.MostPopularVariant) == false)
-        {
-            <div class="col-md-4">
+        <div class="col-md-4">
+            @if (String.IsNullOrEmpty(ViewBag.MostPopularVariant) == false)
+            {
                 <div class="panel panel-default active arabic ">
                     <div class="panel-heading">Most Popular Variant : @ViewBag.MostPopularVariant</div>
                     <div class="panel-body" style="padding: 0; height: 150px; position:relative;">
@@ -35,8 +35,24 @@
                         <textarea style="height: 100%; width: 100%" id="arabic-text">@ViewBag.Post</textarea>
                     </div>
                 </div>
+            }
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default active arabic ">
+                <div class="panel-heading">Corpus Info</div>
+                <div class="panel-body" style="padding: 0; height: 150px; position:relative;">
+                    <div class="loader"></div>
+                    <div class="row" style="padding:10px;">
+                        <div class="col-md-2">Lines:</div>
+                        <div class="col-md-10">@String.Format("{0:n0}", @ViewBag.CorpusSize)</div>
+                    </div>
+                    @*<div class="row" style="padding:10px;">
+                            <div class="col-md-2">Words:</div>
+                            <div class="col-md-10">@String.Format("{0:n0}", @ViewBag.CorpusWordCount)</div>
+                        </div>*@
+                </div>
             </div>
-        }
+        </div>
     </div>
 
     <div class="row">

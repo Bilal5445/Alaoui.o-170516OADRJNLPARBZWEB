@@ -17,6 +17,11 @@ namespace ArabicTextAnalyzer.Controllers
         // GET: Train
         public ActionResult Index()
         {
+            // send size of corupus
+            @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
+            @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
+
+            //
             return View();
         }
 
@@ -175,6 +180,11 @@ namespace ArabicTextAnalyzer.Controllers
             if (latinWordsEntry == null)
             {
                 ViewBag.MostPopularVariant = "No M_ARABICDARIJAENTRY_LATINWORD found";
+
+                // send size of corupus
+                @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
+                @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
+
                 return View("Index");
             }
             if (String.IsNullOrEmpty(latinWordsEntry.MostPopularVariant) == false)
@@ -186,6 +196,11 @@ namespace ArabicTextAnalyzer.Controllers
                 if (new TextFrequency().CorpusContainsWord(latinWordsEntry.MostPopularVariant))
                 {
                     ViewBag.MostPopularVariant = "MostPopularVariant already found attached to latin word, and already in corpus. Try to convert again";
+
+                    // send size of corupus
+                    @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
+                    @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
+
                     return View("Index");
                 }
                 else
@@ -198,6 +213,11 @@ namespace ArabicTextAnalyzer.Controllers
                     if (String.IsNullOrEmpty(postText))
                     {
                         ViewBag.MostPopularVariant = "No post found containing the most popular variant";
+
+                        // send size of corupus
+                        @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
+                        @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
+
                         return View("Index");
                     }
                     else
@@ -213,6 +233,11 @@ namespace ArabicTextAnalyzer.Controllers
 
                         ViewBag.MostPopularVariant = "New post added into corpus with the most popular variant. Try to convert again";
                         ViewBag.Post = postText;
+
+                        // send size of corupus
+                        @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
+                        @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
+
                         return View("Index");
                     }
                 }
@@ -224,6 +249,11 @@ namespace ArabicTextAnalyzer.Controllers
             if (variants.Count > 50)
             {
                 ViewBag.MostPopularVariant = "More than 50 variants";
+
+                // send size of corupus
+                @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
+                @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
+
                 return View("Index");
             }
             else
@@ -233,6 +263,11 @@ namespace ArabicTextAnalyzer.Controllers
                 if (String.IsNullOrEmpty(mostPopularKeyword))
                 {
                     ViewBag.MostPopularVariant = "No Most Popular Keyword";
+
+                    // send size of corupus
+                    @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
+                    @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
+
                     return View("Index");
                 }
                 else
@@ -246,14 +281,14 @@ namespace ArabicTextAnalyzer.Controllers
 
                     //
                     ViewBag.MostPopularVariant = mostPopularKeyword;
-                    return View("Index");
 
-                    // 
+                    // send size of corupus
+                    @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
+                    @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
+
+                    return View("Index");
                 }
             }
-
-            //
-
         }
     }
 }
