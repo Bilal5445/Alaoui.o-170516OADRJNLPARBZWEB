@@ -764,4 +764,9 @@
     <ID_ARABIZIENTRY>39f91d29-3e7a-4d4a-ac59-da3deb55ccbc</ID_ARABIZIENTRY>
     <ArabicDarijaText>حدش عد , 3lach نتا raïssa , علاش جيتا ياولد القحبة , بش tafdahna , او تحل لمشاكل , غاتمشي عنذ البرنوصي تحية تحسب tkhl3ak . نوض غمق عل ش واحد ية وولد شافر</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f4269161-407a-421d-a852-249944ca66db</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a3bf98c3-1032-4f39-841a-2921c6c2ed03</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هادشي عاد , علاش نتا raïssa , علاش جات ياولد القهبة , باش tafdahna , او تحال المشكل , غاتمشي عند البرنس تحية تحسب tkhl3ak . نوض غمق على شي واحد يا ولد شافر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

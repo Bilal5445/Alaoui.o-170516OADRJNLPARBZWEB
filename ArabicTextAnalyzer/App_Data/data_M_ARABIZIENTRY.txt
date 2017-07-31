@@ -610,4 +610,8 @@ Hasbane ma dirch hta nta promo w demissiona lyoum 9bel ghadda ?</ArabiziText>
     <ID_ARABIZIENTRY>39f91d29-3e7a-4d4a-ac59-da3deb55ccbc</ID_ARABIZIENTRY>
     <ArabiziText>hadchi 3adi, 3lach nta Raïssa, o3lach jiti yawold alkahba, Bach tafdahna, ola t7al lmachakil, ratamchi 3and lbarnoussi tahya t7ssab tkhl3ak. nod ghma9 3la chi wa7ad ya wold chafar</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a3bf98c3-1032-4f39-841a-2921c6c2ed03</ID_ARABIZIENTRY>
+    <ArabiziText>hadchi 3adi, 3lach nta Raïssa, o3lach jiti yawold alkahba, Bach tafdahna, ola t7al lmachakil, ratamchi 3and lbarnoussi tahya t7ssab tkhl3ak. nod ghma9 3la chi wa7ad ya wold chafar</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
