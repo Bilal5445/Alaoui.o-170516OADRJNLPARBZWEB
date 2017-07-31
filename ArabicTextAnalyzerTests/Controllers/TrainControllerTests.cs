@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using ArabicTextAnalyzer.Business.Provider;
 using OADRJNLPCommon.Models;
+using OADRJNLPCommon.Business;
 
 namespace ArabicTextAnalyzer.Controllers.Tests
 {
@@ -213,10 +214,8 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             String arabiziKeyword = "makatjich";
 
             // 3 preprocess if ma/ch
-            // String pattern = "\bma{[a-z].+}ch\b";
-            String pattern = @"\bma(.+)ch\b";
+            String pattern = RegexConstant.maChRule;
             String miniArabiziKeyword = Regex.Replace(arabiziKeyword, pattern, "$1");
-            // String miniArabiziKeyword = Regex.Replace(arabiziKeyword, pattern, m => m.Groups[0].Captures[0].Value);
             Assert.AreEqual("katji", miniArabiziKeyword);
         }
 

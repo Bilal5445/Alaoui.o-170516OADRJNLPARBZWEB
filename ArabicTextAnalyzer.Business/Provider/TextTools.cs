@@ -1,4 +1,5 @@
 ﻿using ArabicTextAnalyzer.Domain.Models;
+using OADRJNLPCommon.Business;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,7 @@ namespace ArabicTextAnalyzer.Business.Provider
     {
         public static MatchCollection ExtractLatinWords(String arabicDarijaText)
         {
-            // String matchRule = @"\b[A-Za-z0-9éèàâê]+\b";
-            String matchRule = @"\b\d*[a-zA-Zéèàâê][a-zA-Zéèàâê\d]*\b"; // exclude digits only
+            String matchRule = RegexConstant.ExtractLatinWordsAndExcludeNumOnlyRule; // exclude digits only
             Regex regex = new Regex(matchRule);
             var matches = regex.Matches(arabicDarijaText);
             return matches;
@@ -23,10 +23,7 @@ namespace ArabicTextAnalyzer.Business.Provider
         {
             // Highlith and add label of counts of variantes
 
-            // String matchRule = @"\b[A-Za-z0-9éèàâê]+\b";
-            String matchRule = @"\b\d*[a-zA-Zéèàâê][a-zA-Zéèàâê\d]*\b"; // exclude digits only
-            Regex regex = new Regex(matchRule);
-            var matches = regex.Matches(arabicDarijaText);
+            var matches = ExtractLatinWords(arabicDarijaText);
 
             //
             foreach (Match match in matches)
@@ -47,10 +44,7 @@ namespace ArabicTextAnalyzer.Business.Provider
         {
             // Highlith and add label of counts of variantes
 
-            // String matchRule = @"\b[A-Za-z0-9éèàâê]+\b";
-            String matchRule = @"\b\d*[a-zA-Zéèàâê][a-zA-Zéèàâê\d]*\b"; // exclude digits only
-            Regex regex = new Regex(matchRule);
-            var matches = regex.Matches(arabicDarijaText);
+            var matches = ExtractLatinWords(arabicDarijaText);
 
             //
             foreach (Match match in matches)

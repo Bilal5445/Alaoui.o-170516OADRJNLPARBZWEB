@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ArabicTextAnalyzer.Business.Provider
@@ -22,7 +23,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             post = post.Replace("\r\n", " ");
 
             // script to add a sentence to corpus
-            File.AppendAllText(pathToDictFile, Environment.NewLine + post); 
+            File.AppendAllText(pathToDictFile, Environment.NewLine + post);
         }
 
         public void DropPhraseFromCorpus(String post)
@@ -61,7 +62,8 @@ namespace ArabicTextAnalyzer.Business.Provider
             domain = domain.Replace("\r\n", " ");
 
             foreach (string line in File.ReadLines(pathToDictFile))
-                if (line.Contains(domain))
+                // if (line.Contains(domain))
+                if (Regex.IsMatch(line, @"\bdomain\b"))
                     return true; // and stop reading lines
 
             return false;

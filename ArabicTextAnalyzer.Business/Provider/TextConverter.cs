@@ -5,6 +5,7 @@ using ArabicTextAnalyzer.Contracts;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using OADRJNLPCommon.Business;
 
 namespace ArabicTextAnalyzer.Business.Provider
 {
@@ -57,10 +58,8 @@ namespace ArabicTextAnalyzer.Business.Provider
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ma$1ch");*/
 
             // on the contrary, we need to separate
-            // String pattern = @"\bma *(.+?)ch\b";    // ? => not-greedy
-            String pattern = @"\bma *([A-Za-z0-9éèàâê]+?)(ch|sh|x)\b";    // ? => not-greedy + warning . can be also space
+            String pattern = RegexConstant.maChRule;
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ma $1 ch", RegexOptions.IgnoreCase);
-            // String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "$1", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
         }
@@ -78,10 +77,9 @@ namespace ArabicTextAnalyzer.Business.Provider
             // Al houb wa al hazka
             // Al hmak ou dsara
             // Al houb wa el hazka
-            // String pattern = @"\b(al|l|el) *([A-Za-z0-9éèàâê]+\b) (wou|wal|wel|wl|ou|o|wa) *([A-Za-z0-9éèàâê]+\b)";
-            String pattern = @"\b(al|l|el) *([A-Za-z0-9éèàâê]+\b) ((wou|wal|wel|wl|ou|o|wa) *(al|l|el|)) *([A-Za-z0-9éèàâê]+\b)";
-            // String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "al$2 wa al$4", RegexOptions.IgnoreCase);
-            // String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "al$2 wa al$6", RegexOptions.IgnoreCase);
+
+            //
+            String pattern = RegexConstant.alWaRule;
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "al$2 wal$6", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
@@ -90,7 +88,7 @@ namespace ArabicTextAnalyzer.Business.Provider
         public string Preprocess_al(string arabizi)
         {
             // wa3acha al malik => wa3acha almalik
-            String pattern = @"\b(al|l|el) *([A-Za-z0-9éèàâê]+\b)";
+            String pattern = RegexConstant.alRule;
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "al$2", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
