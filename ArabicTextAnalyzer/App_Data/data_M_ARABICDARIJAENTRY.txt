@@ -794,4 +794,159 @@
     <ID_ARABIZIENTRY>ce009cc3-87f3-45c1-9700-5a094601700a</ID_ARABIZIENTRY>
     <ArabicDarijaText>يسطو من لحيث</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d60a64df-a005-4c7c-94d4-2270b4503d96</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>08b0e236-6a73-4842-ac7a-6499068dc7e4</ID_ARABIZIENTRY>
+    <ArabicDarijaText>صراحة عجبنا عطى لكل وحد ذاك شي لخص لوبش السياسين تبة بنحو كيفكر mz1 مشا متهور عجبنا بصح واخا كتبن فيه مريض بزاف الله يخليه لينا هو جا من شعب راه جهد داير القلب الله راه لديغن به ما كيسواو شي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3b973077-670c-4333-aff7-a95f333adfef</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4286f4df-8d16-4d3c-863b-c805c63907ba</ID_ARABIZIENTRY>
+    <ArabicDarijaText>صراحة عجبنا عت لكل وحد ذاك شي لخص لوبش لسياسين طبت بنه كيفكر mz1 مشا متهور عجبنا بصح واخا كتبن فيه مرد بزاف الله يخله لينا هو جا من شعب راه جهد داير القلب الله راه لديغن به ما كيسواو شي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b9e3082f-20ca-4bfd-950f-5aeb516d4d95</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>24c14170-7dd7-4c4d-9208-e8d8eda2849f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>صراحة عجبنا عت لكل وحد ذاك شي الخس لوبش السياسين ثبث بانه كيفكر مزيان مشا متهور عجبنا بصح واخا كتبن فيه مريض بزاف الله يخليه لينا هو جا من شعب راه جهد داير القلب الله راه لديغن به ما كيسواو شي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b54ea9b6-6f4f-48c0-80bf-c2e585fc31bf</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>cc61dfcc-eff4-4180-80b5-bb739fcde9eb</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ود هير slogiya سف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a2d0bedc-43c2-4966-b70d-179d3f6d8a20</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e1d00e2b-b873-4790-a649-4fa86d4187e6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فين هو tadbi9 بقات بلا بلا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f48fc344-90d0-4f64-9491-5bb345856d5e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a16b71f8-ecd4-45c7-af1f-3cfa3a4ac1ea</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مغدي يكون والو , شفار غادي تبقا , غادي يكون شي تبدل وراه , كولشي غادي يبقى على هل , شعب taymoute ف فقس و قاهرة ...... , كحصن محاسبة جميع , محسب صارم ,, ما يشبع مليارد و يقدمه ستقل , و لا , ن بلوس ytkhaylsso حياتهم كامل , هه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b636023d-3384-42c0-8d55-1531d4056b2e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>48b6cbf5-73c4-4aac-9a92-f8f35238db3f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نتمنى ان يتم i3ti9alol راهبا ابن كيران وعصابات حزب العدالة والتنمية الرحب دسه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>fa3c0a84-a6a1-4ed4-9405-7edd768eae3b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>db734536-4c58-4946-8514-456e569e20a4</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نثمن ان يتم اعتقال ابن كيران وعصاباته حزب العدالة والتنمية</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>cb827743-9d73-46ea-95e5-a3e93e94781e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b64133dc-f8d8-4063-8ea9-045d7bc4246f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لا شي سيتغير ساطبق دار لقمان على حاله</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c833e003-40c5-495b-9017-6796ff5d4c52</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8a9df9d5-7c89-4bb7-a327-8315b6941469</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لهاس بزاف و algarga3 قليل .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b61b38a4-d8d9-4f38-97c3-784f0b452948</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3dbbe037-89cb-4f3f-8b47-a3f8b4c121ea</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خبار ا attabrid .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a5c4a7dc-9a06-460a-a50e-4c80c946ec3b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>17b7e7aa-8b9e-48fb-9cc5-d35e691c356b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>محلل سياسي ولا شوف ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ac38adb6-acab-4922-b522-3bdee36cd393</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>842e8cf7-acfd-47b1-96b4-c66cf0048d20</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هذا دارها زوين بعد هاد يستحق ماشي بحال دوك شاخت لا kighaniw</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2ed38d4f-c826-4c7d-980d-3be6e940ca41</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c816548b-1a11-4c89-9515-8e8834f8a087</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الحس بزاف و algarga3 قليل .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>34f334db-68e2-41c0-b70e-24778d213930</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6b19fd79-2cfd-44af-afa8-4ec1edace921</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خبار ا تبرد .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>225aa69f-c96b-4b22-a474-f6bd29a5497a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4f485975-7f78-4bd6-926c-f41f90e5cdfe</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هذا دارها زوين بعد هاد يستحق ماشي بحال دوك شيخة لا kighaniw</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>660299d7-da5a-4aa3-b749-94b1e5c00042</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>acf9266a-8e83-489e-b6a6-c96609c4bb5b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حاط هاد زمل وله إذا بقا غادي غير خرج على الرجاء غادي طوال تسمع شي لا عب عمرنا سمعناهم جاو لا عب في الرجاء</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0caf3a4f-d8aa-461f-a020-07071f257857</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>60999ae5-62bd-4ef1-8f4e-090e4ba9de57</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لا هاد زاد فيه قحصنة نهدر معاه ب شي لوجه والحد خرا !!! كلشي تال لعبة لي مزيان ما تسمح شي فيهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>70588620-2267-43ce-be3a-aa92ba3b41b6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6a1b9402-b07b-4bbd-9b11-0f0049167f5a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا مع لاعب walhasban يمشي yit9awad</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4ce30f76-eb98-4889-a339-dfdc28375d45</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>51ce697e-146d-4846-97e0-02e5b1e482ff</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا مع لاعب walhasban يمشي يقود</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0d92f7b2-192a-4021-bc8c-2e4d46c7933e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>25d1756f-2cd9-4fde-b92f-df53357e4430</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يق almounkharitin فات 50 % , 4 مليار اش داخل فيه هو ? , الرجاء ديال به . ما فهمت شي ان هذا علاش تا ضور</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e732fc0b-3d3a-40a4-852f-1f7a7e4a89ae</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ed6275d2-0c67-4d24-b65b-57db89a85490</ID_ARABIZIENTRY>
+    <ArabicDarijaText>قالك رجع فخر . لاش صراحة ماكان الخرج على ولد مدرسة قد فخر . ما كيعرف شي صنع ala3avba . makay3tii فرس ولد مدرسة كيبغي غير العيبان جاهزين . فخر غير مناصب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>90ebc18a-f9b3-4f5e-b2a4-d944dfdef296</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>24a5f73b-ac20-4805-b1d8-086452203a4e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>قالك رجع فاخر . لاش صراحة مقا الاخراج على ولد مدرسة قد فاخر . ما كيعرف شي صنع لاعب . makay3tii فرس ولد مدرسة كيبغي غير لاعبين جاهزين . فاخر غير مناسب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d7edb0f2-0d5b-41fa-848c-58ec6a68a2fe</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b00c6cba-e09a-4d30-b4c0-b9c05c6d5782</ID_ARABIZIENTRY>
+    <ArabicDarijaText>را هم khasshom يجيو المارس كيف ما ك دار ناس</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4a1e6ada-c068-4a6f-ab6a-4ff8f71f15ca</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7bc8b029-21a9-40fd-a0cf-83fbc73b355d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>را هم khasshom يجو المارس كيف ما ك دار ناس</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2a44bc1e-fcf1-47d4-b3be-5b157ef7284b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d5f37f75-4c1c-4d66-a477-736ca2dfccf6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>را هم khasshom يجو المارك كيف ما ك دار ناس</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b9bd8521-09b3-4125-b951-cef398c7c83d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>795ea158-c7fd-47de-bfac-1d1df33dca0b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>غدي يطلب و شوف تشوف إذا chiwa7ed بغا يعطيه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>eab6034a-cd5d-4cd9-9c27-8d370c134b70</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3ef8e7d9-df2c-4655-b220-d0a64cc40ebb</ID_ARABIZIENTRY>
+    <ArabicDarijaText>غدي يطلب و شوف تشف إذا شي واحد بغا يعطه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b1f8bf93-2bec-4649-9010-624c91ba9dfc</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f0782c56-c4c9-4707-96f3-5e49bc5031fb</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تا هاد شماتة خاص لي ? راك عارف , هاد دبر على خدمة مبغاش اتفق , خاص تقاعد وتعويض , عاد باغي مشا .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>38c7042b-644b-4908-a552-d3af90d06cc4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>dcd821f0-a70e-489d-be5a-5ea5278dde57</ID_ARABIZIENTRY>
+    <ArabicDarijaText>درب لي على رجل لي داير ndader هه حرب لا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>97f66988-45d0-463e-8ba3-aa5ab820cd0a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5d27258b-388f-4f14-b12e-8a5c241adc78</ID_ARABIZIENTRY>
+    <ArabicDarijaText>درب لي على رجل لي داير نضاضر هه حرب لا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
