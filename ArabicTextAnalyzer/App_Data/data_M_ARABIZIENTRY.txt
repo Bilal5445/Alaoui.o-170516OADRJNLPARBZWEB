@@ -759,4 +759,16 @@ Hasbane ma dirch hta nta promo w demissiona lyoum 9bel ghadda ?</ArabiziText>
     <ID_ARABIZIENTRY>5d27258b-388f-4f14-b12e-8a5c241adc78</ID_ARABIZIENTRY>
     <ArabiziText>Dreb lia 3la rajel li dayr ndader hhhhhhhhhh herbo lia</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>6dd6d719-4d8f-4242-af6e-5155f0cbbe3a</ID_ARABIZIENTRY>
+    <ArabiziText>inwi jabt lina lehna</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ae8fbbde-6d96-4612-8d11-670c28c1fdee</ID_ARABIZIENTRY>
+    <ArabiziText>Maroc Telecom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>889edb6b-0914-45aa-b19a-9c147aa4d98a</ID_ARABIZIENTRY>
+    <ArabiziText>Maroc</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
