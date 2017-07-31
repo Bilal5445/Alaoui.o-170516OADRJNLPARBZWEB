@@ -498,4 +498,116 @@ Hasbane ma dirch hta nta promo w demissiona lyoum 9bel ghadda ?</ArabiziText>
     <ID_ARABIZIENTRY>c58c012a-20ac-43cc-aa5f-b61290e95281</ID_ARABIZIENTRY>
     <ArabiziText>Lkarta ila kant bla kountra kyhar9ouha ila ma3aba2tich 3la mouda moumkin tjawbouni</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>4d247397-8816-45f1-9a6a-0803aa947aa3</ID_ARABIZIENTRY>
+    <ArabiziText>ntmnaw ytrjlo m3a ljomhour omykhliwch hsbane ydir libgha fraja rah dakhl nafkh krcho mn rza9 dyal raja lah ykhod lha9 fih msl7t raja ana had lmktab b9a gals mdar walo kytsna sada9a mn ljami3a ohyad fakhir li sbar ot9atl fdorouf s3iba mknoch l3aba kytkhlso okyl3bo wirabho</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c68bfe00-a5b7-4e96-890d-4345336e31c4</ID_ARABIZIENTRY>
+    <ArabiziText>ntmnaw ytrjlo m3a ljomhour omykhliwch hsbane ydir libgha fraja rah dakhl nafkh krcho mn rza9 dyal raja lah ykhod lha9 fih msl7t raja ana had lmktab b9a gals mdar walo kytsna sada9a mn ljami3a ohyad fakhir li sbar ot9atl fdorouf s3iba mknoch l3aba kytkhlso okyl3bo wirabho</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>0459c3ef-d38a-474a-b0c1-d071c99257c5</ID_ARABIZIENTRY>
+    <ArabiziText>Khoya abdellah baraka farasak Alah yarzakam sabar Mohamed Hourri Wal mansour</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d55fc972-bfc0-4420-8890-d7dddfa580be</ID_ARABIZIENTRY>
+    <ArabiziText>btawfi9 lgarido ....wasil 3amalak 7asban wala taltafit lijomhor yogharido kharija sirb wala yaf9aho chay2an fi 9anon lmonasir waghalibiyatohom tab3in lmar9a w zar9a ...lmonasir dawro tachji3 fa9at wli bgha taghyir yankharat flmaktab wytracha7</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ba4e767f-5d25-45ac-bfbe-5b0bcb47951c</ID_ARABIZIENTRY>
+    <ArabiziText>btawfi9 lgarido ....wasil 3amalak 7asban wala taltafit lijomhor yogharido kharija sirb wala yaf9aho chay2an fi 9anon lmonasir waghalibiyatohom tab3in lmar9a w zar9a ...lmonasir dawro tachji3 fa9at wli bgha taghyir yankharat flmaktab wytracha7</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>8273bc49-0bb7-4a10-afb4-7f576a7a6020</ID_ARABIZIENTRY>
+    <ArabiziText>Khoya abdellah baraka farasak Alah yarzakam sabar Mohamed Hourri Wal mansour</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d31bb96c-103a-429a-9aaf-a9e484f1c56d</ID_ARABIZIENTRY>
+    <ArabiziText>lb b9a 7sban l3am jay rani marajawi nmxi nxj3 chi widad fas ola hilal nador hhhh</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5ef01638-da35-4b1d-94a1-87e415faf68f</ID_ARABIZIENTRY>
+    <ArabiziText>Incha allah</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>db1da707-2747-4add-8c27-a59eb11778d1</ID_ARABIZIENTRY>
+    <ArabiziText>Gal sah kon kano rajawiin wlh matbat fi raja nta ohadak zaml dyal hz9an</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>00cd8093-1171-4cec-83b0-9273f904a5c6</ID_ARABIZIENTRY>
+    <ArabiziText>Gal sah kon kano rajawiin wlh matbat fi raja nta ohadak zaml dyal hz9an</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>bf502c82-8123-4205-9942-84c053ddd329</ID_ARABIZIENTRY>
+    <ArabiziText>tbarklah 3lik khoya Inshalah boudrika</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>be7ebd1e-113e-46ab-b808-2322fbe47e46</ID_ARABIZIENTRY>
+    <ArabiziText>hsban zndi9 nasib wa7asab lkotob chr3iya ibn l9a...</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a7c498bb-8948-4f31-9dcc-d9c21bd4e10d</ID_ARABIZIENTRY>
+    <ArabiziText>hsban zndi9 nasib wa7asab lkotob chr3iya ibn l9a...</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2157becb-fd9a-427b-9066-f42cb3410500</ID_ARABIZIENTRY>
+    <ArabiziText>hsban zndi9 nasib wa7asab lkotob chr3iya ibn l9a...</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>0e9fee38-4382-4847-aa66-7afc5ee4d936</ID_ARABIZIENTRY>
+    <ArabiziText>Wa 9ala hana machi rajaouiyn hana 3alamiyn sir 9ade 3ir nedaderk rak machafeti nachi</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>75496505-5c37-4355-9e37-68f4142b8b9d</ID_ARABIZIENTRY>
+    <ArabiziText>Ghir balati walah tan9atlo dilmo ghir sbar</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c20f3292-2b79-4e83-84e6-02f2ca903084</ID_ARABIZIENTRY>
+    <ArabiziText>Ghir balati walah tan9atlo dinmo ghir sbar</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>6fe99179-2077-4376-a3bb-a71759a1d25b</ID_ARABIZIENTRY>
+    <ArabiziText>chouf hwwa kidayr be3da bayna fih gha chffar</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>77b7dcbb-311d-457b-baa0-9de87a4c94dc</ID_ARABIZIENTRY>
+    <ArabiziText>chouf hwwa kidayr be3da bayna fih gha chffar</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>203c2436-c4ab-4581-9f80-fb500001a455</ID_ARABIZIENTRY>
+    <ArabiziText>hada 3mro glas fl virage asi snini likadwi khawi bhalk bhal lklab litab3in hasbane</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c17b3fa5-45c9-428b-84ec-60c2e9347c8e</ID_ARABIZIENTRY>
+    <ArabiziText>wjah danjala mnin khrajti lina.....?</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e5916375-1ec5-46bf-8b93-2de53437bf1a</ID_ARABIZIENTRY>
+    <ArabiziText>bravo khouya anas testahel ou ntmnawe tzide tekhdem mezyane ou massira mowafa9a</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>162c504d-59f6-481c-97e5-7f1243f3d773</ID_ARABIZIENTRY>
+    <ArabiziText>bravo khouya anas testahel ou ntmnawe tzide tekhdem mezyane ou massira mowafa9a</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>770731b6-f1eb-4a50-b841-bbbaf2ddd41c</ID_ARABIZIENTRY>
+    <ArabiziText>Hemare ta3ebohe rajawiine 3ela mo za..... ta3ebohe</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>f26a1515-0c58-4fa1-a84f-9ad31985f487</ID_ARABIZIENTRY>
+    <ArabiziText>Wadir nafes mali ban lik tiran dayar bi jomhor okisabo fikom ya kelob baredin</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ee0b40ba-fbc1-4771-b889-2204e49e1718</ID_ARABIZIENTRY>
+    <ArabiziText>hsban a9seh sentiha 3erfha Lmghreb mn mora zefzafi wach taydoukh hada w la malo ta wahd ma7aml d jed bouh che3ra w ba9ii gals..nta si zakaria Mrehba bik f dar lkbira</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>8f89906c-10ab-42e3-9ab1-5eb17651a8bb</ID_ARABIZIENTRY>
+    <ArabiziText>hadchi 3adi, 3lach nta Raïssa, o3lach jiti yawold alkahba, Bach tafdahna, ola t7al lmachakil, ratamchi 3and lbarnoussi tahya t7ssab tkhl3ak. nod ghma9 3la chi wa7ad ya wold chafar</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>39f91d29-3e7a-4d4a-ac59-da3deb55ccbc</ID_ARABIZIENTRY>
+    <ArabiziText>hadchi 3adi, 3lach nta Raïssa, o3lach jiti yawold alkahba, Bach tafdahna, ola t7al lmachakil, ratamchi 3and lbarnoussi tahya t7ssab tkhl3ak. nod ghma9 3la chi wa7ad ya wold chafar</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
