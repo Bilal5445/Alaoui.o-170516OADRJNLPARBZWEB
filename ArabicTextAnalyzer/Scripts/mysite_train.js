@@ -6,6 +6,12 @@
         data: null,
         success: (function (result) {
             $('#partialPlaceHolder').html(result);
-        })
+        }),
+        failure: function (response) {
+            console.log(response);
+        },
+        error: function (response) {
+            console.log(response);
+        }
     });
 });

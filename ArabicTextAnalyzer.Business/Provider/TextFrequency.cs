@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OADRJNLPCommon.Business;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,11 +12,9 @@ namespace ArabicTextAnalyzer.Business.Provider
     public class TextFrequency
     {
         //
-        const String pathToArabiziEnv = @"C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\";
-        const String pathToCorpus = pathToArabiziEnv + @"corpus\";
+        // const String pathToArabiziEnv = @"C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\";
+        const String pathToCorpus = PathConstant.pathToArabiziEnv + @"corpus\";
         const String pathToDictFile = pathToCorpus + @"170426_extended_dict.txt";
-
-        // FB_KEYWORD getFBKeywordInfoFromFBViaTwingly(String fbKeywordKeyword)
 
         public void AddPhraseToCorpus(String post)
         {

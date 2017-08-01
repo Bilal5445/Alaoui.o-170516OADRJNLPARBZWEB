@@ -25,7 +25,6 @@ namespace ArabicTextAnalyzer.Controllers
             // SA & Entity
             var textSentimentAnalyzer = new TextSentimentAnalyzer();
             var textEntityExtraction = new TextEntityExtraction();
-
             // Arabizi to arabic from perl script
             var arabicText = textConverter.Convert(text);
 
