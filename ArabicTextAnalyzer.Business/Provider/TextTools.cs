@@ -44,10 +44,10 @@ namespace ArabicTextAnalyzer.Business.Provider
         {
             // Highlith and add label of counts of variantes
 
-            var matches = ExtractLatinWords(arabicDarijaText);
+            // var matches = ExtractLatinWords(arabicDarijaText);
 
             //
-            foreach (Match match in matches)
+            /*foreach (Match match in matches)
             {
                 // exclude digits only
                 int value;
@@ -81,11 +81,35 @@ namespace ArabicTextAnalyzer.Business.Provider
                 }
                 else
                     arabicDarijaText = arabicDarijaText.Replace(match.Value, "<b><mark>" + match.Value + "</mark></b>");
+            }*/
+
+            foreach (var arabicDarijaEntryLatinWord in ArabicDarijaEntryLatinWords)
+            {
+                var mostPopularVariant = arabicDarijaEntryLatinWord.MostPopularVariant;
+                var latinWord = arabicDarijaEntryLatinWord.LatinWord;
+                var count = arabicDarijaEntryLatinWord.VariantsCount;
+                var guid = arabicDarijaEntryLatinWord.ID_ARABICDARIJAENTRY_LATINWORD;
+                String newhtml;
+                if (count > 0)
+                {
+                    if (guid != Guid.Empty)
+                        newhtml = $@"<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{latinWord}</mark></b>
+                                    <a href='/Train/X/?arabiziWord={latinWord}&arabiziWordGuid={guid}'>
+                                        <span class='badge'>{count}</span>
+                                    </a>";
+                    else
+                        newhtml = $@"<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{latinWord}</mark></b>
+                                    <span class='badge'>{count}</span>";
+                }
+                else
+                    newhtml = $@"<b><mark>" + latinWord + "</mark></b>";
+                var regex = new Regex(RegexConstant.notPreceededByMark + latinWord, RegexOptions.IgnoreCase);
+                arabicDarijaText = regex.Replace(arabicDarijaText, newhtml, 1);
+                // arabicDarijaText = arabicDarijaText.Replace(latinWord, newhtml);
             }
 
             //
             return arabicDarijaText;
-            // return "hello";
         }
     }
 }
