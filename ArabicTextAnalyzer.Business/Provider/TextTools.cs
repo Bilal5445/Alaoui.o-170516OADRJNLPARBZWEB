@@ -44,45 +44,6 @@ namespace ArabicTextAnalyzer.Business.Provider
         {
             // Highlith and add label of counts of variantes
 
-            // var matches = ExtractLatinWords(arabicDarijaText);
-
-            //
-            /*foreach (Match match in matches)
-            {
-                // exclude digits only
-                int value;
-                if (int.TryParse(match.Value, out value))
-                    continue;
-
-                var found = ArabicDarijaEntryLatinWords.Find(m => m.LatinWord == match.Value);
-                var count = 0;
-                Guid guid = Guid.Empty;
-                var mostPopularVariant = String.Empty;
-                if (found != null)
-                {
-                    count = found.VariantsCount;
-                    guid = found.ID_ARABICDARIJAENTRY_LATINWORD;
-                    mostPopularVariant = found.MostPopularVariant;
-                }
-
-                //
-                if (count > 0)
-                {
-                    string newhtml;
-                    if (guid != Guid.Empty)
-                        newhtml = $@"<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{match.Value}</mark></b>
-                                    <a href='/Train/X/?arabiziWord={match.Value}&arabiziWordGuid={guid}'>
-                                        <span class='badge'>{count}</span>
-                                    </a>";
-                    else
-                        newhtml = $@"<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{match.Value}</mark></b>
-                                    <span class='badge'>{count}</span>";
-                    arabicDarijaText = arabicDarijaText.Replace(match.Value, newhtml);
-                }
-                else
-                    arabicDarijaText = arabicDarijaText.Replace(match.Value, "<b><mark>" + match.Value + "</mark></b>");
-            }*/
-
             foreach (var arabicDarijaEntryLatinWord in ArabicDarijaEntryLatinWords)
             {
                 var mostPopularVariant = arabicDarijaEntryLatinWord.MostPopularVariant;
@@ -105,7 +66,6 @@ namespace ArabicTextAnalyzer.Business.Provider
                     newhtml = $@"<b><mark>" + latinWord + "</mark></b>";
                 var regex = new Regex(RegexConstant.notPreceededByMark + latinWord, RegexOptions.IgnoreCase);
                 arabicDarijaText = regex.Replace(arabicDarijaText, newhtml, 1);
-                // arabicDarijaText = arabicDarijaText.Replace(latinWord, newhtml);
             }
 
             //
