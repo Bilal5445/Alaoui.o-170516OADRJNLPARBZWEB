@@ -54,16 +54,16 @@ namespace ArabicTextAnalyzer.Business.Provider
                 if (count > 0)
                 {
                     if (guid != Guid.Empty)
-                        newhtml = $@"<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{latinWord}</mark></b>
+                        newhtml = $@"&rlm;<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{latinWord}</mark></b>
                                     <a href='/Train/X/?arabiziWord={latinWord}&arabiziWordGuid={guid}'>
                                         <span class='badge'>{count}</span>
                                     </a>";
                     else
-                        newhtml = $@"<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{latinWord}</mark></b>
+                        newhtml = $@"&rlm;<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{latinWord}</mark></b>
                                     <span class='badge'>{count}</span>";
                 }
                 else
-                    newhtml = $@"<b><mark>" + latinWord + "</mark></b>";
+                    newhtml = $@"&rlm;<b><mark>" + latinWord + "</mark></b>";
                 var regex = new Regex(RegexConstant.notPreceededByMark + latinWord, RegexOptions.IgnoreCase);
                 arabicDarijaText = regex.Replace(arabicDarijaText, newhtml, 1);
             }
