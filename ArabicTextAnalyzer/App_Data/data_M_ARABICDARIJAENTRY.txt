@@ -1405,4 +1405,24 @@ inwi tatchkarkoum على خلص ديالكم .</ArabicDarijaText>
     <ID_ARABIZIENTRY>6e039a18-c64a-433e-9a91-433e72be598f</ID_ARABIZIENTRY>
     <ArabicDarijaText>السلام inwi ان عند واحد المشكل فلبس كي نعمر يبقى normal mais من تكمل كاتمشي 3g و kinsoni الشي شخص kaygololi لقد نتحث صلاحيته حسابكم</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>568992a5-4826-434f-bfc3-9e04790a4e67</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>416aac04-80fd-47b4-aa70-bf7c40fc55d2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فضل برقم الهاتف والسم الكامل ف " مساقة privé " باش نشوفو هل katweffer فيكم شورط الاستفاضة من كلوب inwi</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8825a1f6-2fd3-41f1-aad9-05ca0135ff1a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e7d55dbd-afd5-4f9f-ab79-49cf632f0ea5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فضل برقم الهاتف والسمة الكامل ف " مسج privé " باش نشوفو هل كتوفر فيكم شروط الاستفاضة من صلب inwi</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d1a6e456-766a-4d34-8498-3e18bfe90272</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4a30adb8-6c32-4fbe-bc37-886a68481fcc</ID_ARABIZIENTRY>
+    <ArabicDarijaText>باش تشغل pass فسبق &amp; whatsapp tat9oumou ب تعب عاد , و تتضر * 120 * قق # مطبعة ب زر تصل , و بنصب الس pass almou9tara7ine عندكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ff3f8fce-6b71-406d-b24f-7669394cefe4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>454ed56d-099d-4cc3-a9ad-e9138bc2cb15</ID_ARABIZIENTRY>
+    <ArabicDarijaText>باش تشغل pass facebook &amp; whatsapp tat9oumou ب تعبيئة عاد , و تتضر * 120 * قق # مطبعة ب زر تصل , و بنصب الس pass almou9tara7ine عندكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

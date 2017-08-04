@@ -1126,4 +1126,20 @@ inwi tatchkarkoum 3la ikhlas dialkoum.</ArabiziText>
     <ID_ARABIZIENTRY>6e039a18-c64a-433e-9a91-433e72be598f</ID_ARABIZIENTRY>
     <ArabiziText>Salam inwi ana 3ndi wahd lmochkil flpuse ki n3amar yab9a normal ms min takmal katamchi 3g o kinsoni lchi chakhs kaygololi la9ad intahat salahiyato hisabikom</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>416aac04-80fd-47b4-aa70-bf7c40fc55d2</ID_ARABIZIENTRY>
+    <ArabiziText> fedlou bra9em el hatif wel isme el kamil f "message privé" bach nchoufou wach katweffer fikom chorout el istifada men Club inwi</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e7d55dbd-afd5-4f9f-ab79-49cf632f0ea5</ID_ARABIZIENTRY>
+    <ArabiziText>fedlou bra9em el hatif wel isme el kamil f "message privé" bach nchoufou wach katweffer fikom chorout el istifada men Club inwi</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>4a30adb8-6c32-4fbe-bc37-886a68481fcc</ID_ARABIZIENTRY>
+    <ArabiziText>Bach tcheghlou pass Facebook &amp; Whatsapp tat9oumou b ta3bi2a 3adia, w tatdirou *120*99# metbou3a b zir ittisal, w bnesba les pass el mou9tara7ine 3endkoum</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>454ed56d-099d-4cc3-a9ad-e9138bc2cb15</ID_ARABIZIENTRY>
+    <ArabiziText>Bach tcheghlou pass Facebook &amp; Whatsapp tat9oumou b ta3bi2a 3adia, w tatdirou *120*99# metbou3a b zir ittisal, w bnesba les pass el mou9tara7ine 3endkoum</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
