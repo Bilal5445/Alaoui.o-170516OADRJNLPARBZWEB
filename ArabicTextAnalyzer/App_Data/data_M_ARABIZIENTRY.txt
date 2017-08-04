@@ -1142,4 +1142,104 @@ inwi tatchkarkoum 3la ikhlas dialkoum.</ArabiziText>
     <ID_ARABIZIENTRY>454ed56d-099d-4cc3-a9ad-e9138bc2cb15</ID_ARABIZIENTRY>
     <ArabiziText>Bach tcheghlou pass Facebook &amp; Whatsapp tat9oumou b ta3bi2a 3adia, w tatdirou *120*99# metbou3a b zir ittisal, w bnesba les pass el mou9tara7ine 3endkoum</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>74e3b71e-d89a-4d8a-a272-1ab31a951e7d</ID_ARABIZIENTRY>
+    <ArabiziText>Tfedlou bra9em w naw3iyat el hatif li katwefrou 3lih f rissala khassa bach nbe3to likom barmajat Facebook</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>6b238785-25e2-4b59-9c32-adc64763aa4d</ID_ARABIZIENTRY>
+    <ArabiziText>Tfedlo b sou2al dialkoum, fach yemken lina nsa3doukoum?..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>9d2b3b35-7d09-43c3-ae19-a84b47ed69f9</ID_ARABIZIENTRY>
+    <ArabiziText>Salam labas 3likom
+ana xarjit db walakin mawsalni lacadou la walo ?</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c8a8b873-0564-45ae-bf1a-fc395fece7e4</ID_ARABIZIENTRY>
+    <ArabiziText>makaykhdemx l cadou li kat3tiw</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2d85c938-d599-44a2-aeee-3608be224f4c</ID_ARABIZIENTRY>
+    <ArabiziText>makaykhdemx l cadou li kat3tiw</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>fe84a3d0-ae82-4f93-a14c-110f2e2481b4</ID_ARABIZIENTRY>
+    <ArabiziText>makaykhdemx l cadou li kat3tiw</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>8bfa3bb6-ed55-488c-8eea-5acfa38622fc</ID_ARABIZIENTRY>
+    <ArabiziText>bakabor masda9tich mni drti rask mra okmltiha bilmakyaj inwi zmlatk</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>73eb0ddb-ffdf-466b-a8a5-e026d9838b8c</ID_ARABIZIENTRY>
+    <ArabiziText>bakabor masda9tich mni drti rask mra okmltiha bilmakyaj inwi zmlatk</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>40135b12-0ddc-46fe-9cf2-518cc6ded600</ID_ARABIZIENTRY>
+    <ArabiziText>Mkan la cadeaux lawalo charjit osftoli msg fih lcado omli swalt ml9it walo dawha ylh 45 lkyna</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>09f64bd6-7870-41f4-8311-1d4fbab9780c</ID_ARABIZIENTRY>
+    <ArabiziText>Mkan la cadeaux lawalo charjit osftoli msg fih lcado omli swalt ml9it walo dawha ylh 45 lkyna</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3d0e6a6c-77ef-4415-904d-2e08c4b572d6</ID_ARABIZIENTRY>
+    <ArabiziText>ana charjit omajani walo</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>bc866853-145b-4a01-8958-f25bcc916176</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Hà Mza, inwi fi khidmatikoum.
+3tewna men fadlkoum rakem lhatef ou nou3ya dialou bach nba3tou likoum 3lihe risalat al barmaja.
+Inwi tatchkarkoum 3la ikhlas dialkoum</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>6f27c21f-2815-4a29-a125-f11c4a5ca157</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Hà Mza, inwi fi khidmatikoum. 3tewna men fadlkoum rakem lhatef ou nou3ya dialou bach nba3tou likoum 3lihe risalat al barmaja. Inwi tatchkaourkoum 3la ikhlas dialkoum</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1c31e41a-23cb-4e84-9c0e-9fdedaf6af5d</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Hà Mza, inwi fi khidmatikoum. 3tewna men fadlkoum rakem lhatef ou nou3ya dialou bach nba3tou likoum 3lihe risalat al barmaja. Inwi tatchkorkoum 3la ikhlas dialkoum</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d4ab4a90-870f-41ce-acf3-eb120bd4bffe</ID_ARABIZIENTRY>
+    <ArabiziText>Bach nat2akdo man khatkom, ba3to lina fi message privé issamekom el-kamil, numéro dyalkom wa tarikh li 3aba2to fih khatkom....</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b12f56f3-9df2-4f35-84ce-7d38d76b54e0</ID_ARABIZIENTRY>
+    <ArabiziText>Rocharge 50dh ch7al fih dyal intrnit wch7al MN jour</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>44e7f586-4a98-4bb1-a1c4-4d99e9307220</ID_ARABIZIENTRY>
+    <ArabiziText>Fi3lan men ba3ed ma tedirou ta3bi2a ghadi tcharkou moubacharatan be Tombola, li anakoum ghadi twaslou be risla tatkhbarkoum be al moucharaka.
+inwi tatchkarkoum 3la ikhlas dialkoum</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2a6041c4-b898-485c-b50c-2e629cdbcb31</ID_ARABIZIENTRY>
+    <ArabiziText>Dart 10dh om3twni wlo ach had tkhrbi9 tani inwi</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e0aba107-fb0d-4253-96d0-656cf4349c66</ID_ARABIZIENTRY>
+    <ArabiziText>Dart 10dh om3twni wlo ach had tkhrbi9 tani inwi</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>f76658ed-e4b4-4fa0-bd31-5fb1469bef43</ID_ARABIZIENTRY>
+    <ArabiziText>bach nat2akdo man khatkom, ba3to lina fi message privé issamekom el-kamil, numéro dyalkom wa tarikh li 3aba2to fih khatkom..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>011fd44f-a2eb-4435-954f-8f686e60ccc6</ID_ARABIZIENTRY>
+    <ArabiziText>Bnisba li recharge 50Dh katmne7koum rassid 5Go men el internet sali7a li moddat 30 yawm</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>405d87c9-e17c-4b3c-aca5-73e35e4b0cb0</ID_ARABIZIENTRY>
+    <ArabiziText>Bnisba li recharge 50Dh katmne7koum rassid 5Go men el internet sali7a li moddat 30 yawm</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d2d8604a-6bfb-4372-b131-6a16b7cb212e</ID_ARABIZIENTRY>
+    <ArabiziText>Bach tgheyrou ra9m el mofadal dyalkoum, ma3likoum ghir tasslou b 120 w teb3ou te3limat, awla tasslou moubachara b masla7at zobanae 3la 220 w houma y9oumo likoum b teghyir.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>cea1158e-0261-4ddd-9b93-7d375c1cee2e</ID_ARABIZIENTRY>
+    <ArabiziText>Bach tgheyrou ra9m el mofadal dyalkoum, ma3likoum ghir tasslou b 120 w teb3ou te3limat, awla tasslou moubachara b masla7at zobanae 3la 220 w houma y9oumo likoum b teghyir.</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
