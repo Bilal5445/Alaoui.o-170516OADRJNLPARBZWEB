@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfM_ARABICDARIJAENTRY xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ArrayOfM_ARABICDARIJAENTRY xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>bfa78923-e413-467f-a26a-45d85fabc3de</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>3e72b496-7791-4903-b882-816249f26c4e</ID_ARABIZIENTRY>
@@ -1374,5 +1374,35 @@ inwi tatchkarkoum على خلص ديالكم .</ArabicDarijaText>
     <ID_ARABICDARIJAENTRY>499f5478-270a-4ee0-961f-818f51602e2c</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>5a556e56-d0c9-427b-bd0d-c1a4c68e816b</ID_ARABIZIENTRY>
     <ArabicDarijaText>كيفاش ما غادي شي جاب ليا شي تيليفون سامسونج</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8436038b-630b-4b07-9b49-a4537483e3a4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6cbacf5b-cb3d-4187-9366-d96e63012bea</ID_ARABIZIENTRY>
+    <ArabicDarijaText>إذا بغيت تعبأ لخط ديالكم و tchargiw , ma3likoum غير تبعو طريق التالي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3c314a64-bb48-4521-b212-1f34ea44544c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>308a71fa-9b4b-4a3d-b31d-18142e982119</ID_ARABIZIENTRY>
+    <ArabicDarijaText>إذا بغيت تعبئ الخطة ديالكم و tchargiw , ماعليكم غير تبعو طريقة التالي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1315e447-70cb-4fb6-81ab-95c6e6d9330e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0b0dda73-6aa1-4300-9fe6-a22400a7fac0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام inwi ان عند واحد المشكل فلبس كي نعمر يبقى نورمل مس من تكمل قطامش عق و kinsoni الشي شخص kaygololi لقد انتهات صلاحيته حسابكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6ced8c9c-e905-4fc8-b946-47f8e2b48458</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d0c186a0-2ecf-42fd-95c9-6d6fed83f9ce</ID_ARABIZIENTRY>
+    <ArabicDarijaText />
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3e1533ed-e9e2-435b-b82f-7a6a4481f7d2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>aa78f83e-de65-4b2b-a675-8e3baf2cca8b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام inwi ان عند واحد المشكل فلبس كي نعمر يبقى نورمل mais من تكمل كاتمشي 3g 1 kinsoni الشي شخص kaygololi لقد إنتهت صلاحيته حسابكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9a5bd615-c74b-4ba3-bd87-dd4902aa34c2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6e039a18-c64a-433e-9a91-433e72be598f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام inwi ان عند واحد المشكل فلبس كي نعمر يبقى normal mais من تكمل كاتمشي 3g و kinsoni الشي شخص kaygololi لقد نتحث صلاحيته حسابكم</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
