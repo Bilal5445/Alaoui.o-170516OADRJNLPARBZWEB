@@ -1549,4 +1549,24 @@ inwi tatchkarkoum على خلص ديالكم</ArabicDarijaText>
     <ID_ARABIZIENTRY>cea1158e-0261-4ddd-9b93-7d375c1cee2e</ID_ARABIZIENTRY>
     <ArabicDarijaText>باش تغير رقم المفضل ديالكم , ماعليكم غير تصل ب 120 و تبع تعلمت , ولا تصل مباشر ب مصلحة زبن على 220 و هما يقوم لكم ب تغير .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>fb2e9964-95ca-4d20-a9ce-344caa9001a6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>71c213fa-78bf-45c7-8ddb-189b8e00f596</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام . داير forfit inwi . بغيت نبادل هادوك 3 نم فضل لي عطيني شنو هي طريقة ???</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8455b683-07f5-4652-b5b2-7e6d4d187154</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8dcb853e-6bdf-419a-a0be-2be404831928</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لباس whatsapp / facebook ديال 10dh فيه واحد الكيمية محدودة ديال 300mo سلاح لي مددت 7 ايام ولكن نتوما katstehlekou هاديك الكيمية قبل ماتسالي المدة ديال صلاحية ديالها داكشي علاش kaytwe9ef لكم له pass . .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f87571c9-c412-451d-ab26-6553b06cdd59</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>939b882e-7d8e-4087-b852-2f0e5b16ccec</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لباس whatsapp / facebook ديال 10dh فيه واحد لكمية محدودة ديال 300mo سلاح لي مددت 7 ايام ولكن نتوما katstehlekou هاديك لكمية قبل متصلا المدة ديال صلاحية ديالها داكشي علاش كيتوقف لكم له pass . .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9ebde421-0e1c-4473-8efd-414c6ab3d503</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f125ba18-10d5-42ff-9ff2-eaba5ca45c58</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لباس whatsapp / facebook ديال 10dh فيه واحد الكيمية محدودة ديال 300mo سلاح لي مددت 7 ايام ولكن نتوما كتستهلكو هاديك الكيمية قبل متصلا المدى ديال سلاح ديالها داكشي علاش كيتوقف لكم له pass . .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

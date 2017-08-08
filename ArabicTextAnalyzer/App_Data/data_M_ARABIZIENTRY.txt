@@ -1242,4 +1242,20 @@ inwi tatchkarkoum 3la ikhlas dialkoum</ArabiziText>
     <ID_ARABIZIENTRY>cea1158e-0261-4ddd-9b93-7d375c1cee2e</ID_ARABIZIENTRY>
     <ArabiziText>Bach tgheyrou ra9m el mofadal dyalkoum, ma3likoum ghir tasslou b 120 w teb3ou te3limat, awla tasslou moubachara b masla7at zobanae 3la 220 w houma y9oumo likoum b teghyir.</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>71c213fa-78bf-45c7-8ddb-189b8e00f596</ID_ARABIZIENTRY>
+    <ArabiziText>slm .dayr forfit inwi.bghit nbadl hadouk 3 num fedil li 3atyini chno hiya tari9a ???</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>8dcb853e-6bdf-419a-a0be-2be404831928</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>939b882e-7d8e-4087-b852-2f0e5b16ccec</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>f125ba18-10d5-42ff-9ff2-eaba5ca45c58</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
