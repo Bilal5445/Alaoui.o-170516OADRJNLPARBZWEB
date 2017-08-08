@@ -27,6 +27,7 @@ namespace ArabicTextAnalyzer.Business.Provider
         {
             // preprocess (eg: ma/ch)
             source = Preprocess_ma_ch(source);
+            source = Preprocess_le(source);
             source = Preprocess_al_wa(source);
             source = Preprocess_al(source);
             source = Preprocess_bezzaf(source);
@@ -59,6 +60,15 @@ namespace ArabicTextAnalyzer.Business.Provider
             // on the contrary, we need to separate
             String pattern = RegexConstant.maChRule;
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ma $1 ch", RegexOptions.IgnoreCase);
+
+            return miniArabiziKeyword;
+        }
+
+        public string Preprocess_le(string arabizi)
+        {
+            // wa3acha al malik => wa3acha almalik
+            String pattern = RegexConstant.leRule;
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "al", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
         }
