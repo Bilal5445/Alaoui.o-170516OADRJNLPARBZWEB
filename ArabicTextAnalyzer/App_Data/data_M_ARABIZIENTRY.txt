@@ -1243,19 +1243,777 @@ inwi tatchkarkoum 3la ikhlas dialkoum</ArabiziText>
     <ArabiziText>Bach tgheyrou ra9m el mofadal dyalkoum, ma3likoum ghir tasslou b 120 w teb3ou te3limat, awla tasslou moubachara b masla7at zobanae 3la 220 w houma y9oumo likoum b teghyir.</ArabiziText>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>71c213fa-78bf-45c7-8ddb-189b8e00f596</ID_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c2043f49-0b73-4144-b732-8ecd1a65ab23</ID_ARABIZIENTRY>
     <ArabiziText>slm .dayr forfit inwi.bghit nbadl hadouk 3 num fedil li 3atyini chno hiya tari9a ???</ArabiziText>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>8dcb853e-6bdf-419a-a0be-2be404831928</ID_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2eeb3f09-2107-4f41-aece-de636e56b2dc</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass...</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a15585a1-905b-4ef8-83d0-6742ab184df0</ID_ARABIZIENTRY>
+    <ArabiziText>charjit 10 nhar 3/7/2017 odrt f+wtssap salih lmodat 7j mais ntoma ditoha liya ftlt liyam chhal mn mra w93at liya wah</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>df9e55e3-4a42-433b-aa1b-ca0c8d56cd83</ID_ARABIZIENTRY>
+    <ArabiziText>Bach testafdou men hadia, kat9oumo b ta3bi2a 3adia, w men be3d katweslou b sms fih le cadeau li rbe7tou ima : jawaz internet aw sms aw facebook &amp; whatsapp, bedel sotek, sme3ni</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d37ee356-86c4-4d7d-9f6f-de29904414cd</ID_ARABIZIENTRY>
+    <ArabiziText>Tfedlou b ra9m dyalkoum f message privé w 2ekdou lina naw3 el hatif li katwefrou 3lih bach nchoufou likoum el ichkal</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>abba6c8d-2d2b-4daa-8d88-3508e92e7e30</ID_ARABIZIENTRY>
+    <ArabiziText>Slm 3afak ana drte forfait dial 49dhs o gatlia l'agence dialkom matkhlsi 7tal 15 fchher 7 o db kantfaj2e bmessage bila lyouma lkher flkhlas wach db ghaykhsni n3awed tasjil mn lwle rah machi khdma hadi rah hchouma</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b0f92e5b-bf15-426f-b22d-70c8dabc7cd0</ID_ARABIZIENTRY>
+    <ArabiziText>Ila xarjit 10 dh 3diya odakhalt manha fisbok owatsab anstafad xihaja</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>f45f9109-39f8-4d97-b456-900c180e40b3</ID_ARABIZIENTRY>
+    <ArabiziText>Bach yemken lina nsa3doukom ?</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>554f32ae-74a2-4951-895c-752bb14d0bd8</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Rashīd Imzīne, inwi fi khidmatikoum.
+
+Tfedlou b ra9m dyalkoum f message privé w 2ekdou lina el madina li katwajdou fiha w el ichkal dyal réseau wach 3la mostawa el moukalamat aw internet ?.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>94af9966-ad5f-4c0b-b7b9-e23caacba208</ID_ARABIZIENTRY>
+    <ArabiziText>Tfedlou b ra9m dyalkoum w naw3 el hatif li katwefrou 3lih f message privé bach ncheghlou likoum khidmat facebook.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>93603ee0-814d-4bc9-a26c-876ceb1704de</ID_ARABIZIENTRY>
+    <ArabiziText>Tfedlou b ra9m dyalkoum w 2ekdou lina el madina li katwajdou fiha w el ichkal dyal réseau wach 3la mostawa el moukalamat aw internet</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>61346933-9c89-4a0a-94dc-4feaad9647f6</ID_ARABIZIENTRY>
+    <ArabiziText>Yemken likoum tghiyrou el bita9a el 7alia l bita9a 4G, m3a el i7tifad b nefs erra9m, yekfi annakoum tetwejhou lel a9rab wakala mes7oubine b el bita9a inwi w b el bita9a el watania dialkoum w tghiyrouha fel7ine b 30Dh la kentou tatwefrou 3la bita9at daf3 mousba9</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d625c080-8b9c-4704-8d87-89083b2e3c7d</ID_ARABIZIENTRY>
+    <ArabiziText>ma3raft 3lax 9t3o liya alconnexion</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1ccc23e5-a034-4cdf-a699-551d122c44f1</ID_ARABIZIENTRY>
+    <ArabiziText>7na rselna likom el jawab 3la el khass.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3d5dce71-e870-4834-b86f-df99a35a201e</ID_ARABIZIENTRY>
+    <ArabiziText>Hhhhhh makyen manchroukou me3a hed makyna la 3G wala 4G. Makyn ghir E</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>26c08c81-cb33-4272-96d2-cf6707538fac</ID_ARABIZIENTRY>
+    <ArabiziText>Hhhhhh makyen manchrkou me3a hed makyna la 3G wala 4G. Makyn ghir E</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d4577ae0-325f-4d46-bbb4-fc9397c14ff2</ID_ARABIZIENTRY>
+    <ArabiziText>Kan3tadro 3la ichekal internet li katwajho 7aliyan, bach nat2akdo man khatkom, ba3to lina fi message privé issamekom el-kamil, numéro dyalkom wa el-madina li katwajdo fiha</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>403155b3-f726-4a7b-a9eb-3981c2330c5e</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Moustapha Belayachi, inwi fi khidmatikoum.
+
+El ichtirak dial 49Dh l cheher fih 2H dial el moukalamat dakhil w kharij el watane zone1 + 2Go dial internet + rasa2il 9asira ghayr ma7douda dakhil el watane + 10H toujah 3 ar9am moufdala inwi + Whatsapp &amp; Facebook melli ytsala likoum rasid 7isat el internet f 7oudoud 1Go.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>74cc116a-0309-45cf-9a71-6a77cd0afd54</ID_ARABIZIENTRY>
+    <ArabiziText>salam ana chargét 50dh ×17=850 fiha internet ou mokalamat ou lyouma mabatx tkhdam lya internet m3a l3ilm ba9i 3endi f solde 678dh kifax had la9ta</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2f3a694d-844f-4fe9-972f-2e5dedfde391</ID_ARABIZIENTRY>
+    <ArabiziText>alam ana chargét 50dh ×17=850 fiha internet ou mokalamat ou lyouma mabatx tkhdam lya internet m3a l3ilm ba9i 3endi f solde 678dh kifax had la9ta</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>779c7694-486e-4186-92e6-7bfbc48df8bd</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Marwane Hassabi, inwi fi khidmatikoum.
+inwi tat7awel t7asan chabaka dial moukalamat ou internet fe baki nawa7i ou dawa7i al moudoun al koubra, 9ariban ghadi tkoun al khidma dial chabaka jayida.
+inwi tatchkarkoum 3la tafahoum dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3a32f85d-efe4-4ed4-b226-dd1fa89ca445</ID_ARABIZIENTRY>
+    <ArabiziText>Xmn site li ymklk tkhtar tele dyalk mn khilal les note dyalk bla matmxii n lwikala</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>f2afb483-42ab-4b02-84b1-18a33bb78ffa</ID_ARABIZIENTRY>
+    <ArabiziText>Salam, inwi fi khidmatikoum.
+Had l3ared khas be jawazat les Vidéo dial Youtube.
+inwi tatchkarkoum 3la ikhlas dilakoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>886cd2d5-194d-47a8-a5f1-145065780179</ID_ARABIZIENTRY>
+    <ArabiziText>Salam, inwi fi khidmatikoum.
+
+Tfedlo f risala khassa b ismkoum el kamil, ra9m el hatif, tarikh w mablagh te3bi2a w el 3ard elli chegheletou w el hatif elli tatste3mlou bach nchoufou m3akoum el ichkal elli tatwajhouh.
+
+inwi tatchkerkoum 3la el tawasol dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3e928973-3748-4cdc-90ee-737a0f9c2010</ID_ARABIZIENTRY>
+    <ArabiziText>Salam, inwi fi khidmatikoum.
+
+Tfedlo f risala khassa b ismkoum el kamil, ra9m el hatif, tarikh w mablagh te3bi2a w el 3ard elli chegheletou w el hatif elli tatste3mlou bach nchoufou m3akoum el ichkal elli tatwajhouh.
+
+inwi tatchkerkoum 3la el tawasol dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1441e89a-2c7b-4bf9-a092-e50926c23c73</ID_ARABIZIENTRY>
+    <ArabiziText>salam ana chargét 50dh ×17=850 fiha internet ou mokalamat ou lyouma mabatx tkhdam lya internet m3a l3ilm ba9i 3endi f solde 678dh kifax had la9ta</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>68fc894d-dcba-41e1-84b2-ca44ad1f5429</ID_ARABIZIENTRY>
+    <ArabiziText>Brina dir iddik tji l kenitra, makrahtch ncharek m3akoum, ana dima m3a dir iddik walakin lghaleb llah ta7iati l inwi w ta7itai l rachid elouali</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>21c3f82f-204a-4514-a1ab-65f868dce942</ID_ARABIZIENTRY>
+    <ArabiziText>La rizo la conx mayta la 3orod la ta waza daba baryna ri na3rafo 10 fb ao watasab chahal fiha😕😕</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c3213f0b-587e-47ad-a6df-8df45ec2ca0a</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Youssaf Morchid, inwi fi khidmatikoum.
+Ljawazat dial Whatsapp ou Facebook li kaynin homa katali: 
+Jawaz salih « 3 ayam » fih 100Mo b 5 Dh TTC
+Jawaz salih « 7 yawm » fih 300Mo b 10 Dh TTC
+Jawaz salih « 15 yawm » fih 1Go b 20 Dh TTC
+Jawaz salih « 30 yawm » fih 2Go b 30 Dh TTC
+inwi tatchkarkoum 3la ikhlas dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>263192e9-75a7-4e2d-bf1b-e0e839a9e276</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Youssaf Morchid, inwi fi khidmatikoum.
+Ljawazat dial Whatsapp ou Facebook li kaynin homa katali: 
+Jawaz salih « 3 ayam » fih 100Mo b 5 Dh TTC
+Jawaz salih « 7 yawm » fih 300Mo b 10 Dh TTC
+Jawaz salih « 15 yawm » fih 1Go b 20 Dh TTC
+Jawaz salih « 30 yawm » fih 2Go b 30 Dh TTC
+inwi tatchkarkoum 3la ikhlas dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>df22f636-3993-4593-873a-d709ebf6b85f</ID_ARABIZIENTRY>
+    <ArabiziText>Bghit ghir n3raf fo9ax ghadi trj3o pass 10 dh 15jour hadi 7xhor bax haydtoh odb mab9atx kadwzo hta 2jour</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>113605c0-e93c-4d37-ba72-e0671d646862</ID_ARABIZIENTRY>
+    <ArabiziText>Salam عامر لعريش, inwi fi khidmatikoum.
+Hna bhatena fe rakem dialkoum l9ina be ana ta3ta likoum KDO m3a ta3bi2a fihe 15mn moukalamat nahwa arkam inwi, saleh hata le 26 Juillet tayamken likoulm testa3mlouha nhar sabet ou lhad.
+inwi tatchkarkoum 3la ikhlas dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>dddf2977-914a-4aa8-a0ad-46dd8d7d3166</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Fouad Ouakki , inwi fi khidmatikoum.
+
+kan3tadrou 3la el ichkal elli katwajhou bkhossous chabakat. 
+
+Tfedlo b el ma3loumat elli telbna menkoum bach ndirou m3akoum ellazem b khousous el ichkal elli tatwajhouh m3a do3f chabaka. w 7awlou tjawbouna 3la jmi3 no9at ida sme7tou. 
+
+W b ism inwi, kanchekroukoum 3la el tawassol w tafahoum dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>4b0b7a3f-73a4-4e72-a356-dd34a8514756</ID_ARABIZIENTRY>
+    <ArabiziText>Ana bghit na3rf 3lach kayamchili solde wana aslan rani m3amra conixion bwahdo wa solde bwahdo ach had chafra kayamchili solde fal conixion</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d8701ecd-f1dd-4973-98ed-4468868d1853</ID_ARABIZIENTRY>
+    <ArabiziText> Salam Khàoùla Brune, inwi fi khidmatikoum.
+Had l3ared khas be zoubana2 li 3andhoum ichtirak mnin yetsala lihoum raside dial internet tayamken yebakw yestafdou men Facebook ou Whatsapp.
+inwi tatchkarkoum 3la ikhlas dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>7923df25-7f26-4073-8b28-fe0a8ced84f5</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Driss Sara, inwi fi khidmatikoum.
+3tena men fadlkoum rakem lhatef ou isemkoum al kamel, bach nchoufou likoum lhatef li tayamken likoum takhdou be noukat al wafa2 dialkoum.
+inwi tatchkarkoum 3la ikhlas dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>78f2b0d6-e390-404f-b3c1-c812e6b9e0cb</ID_ARABIZIENTRY>
+    <ArabiziText>Daba , ana , f la , zone , phosphatte la région de ville , khouribga , , résaeu , 100% , mais f chi , zone , m3a , 7adrine , wa , résaeu , ga3 ma ta yeb9a , ma3a , ta7iyati , likom ,</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>cf029597-c27c-4bc3-89b9-3271f3059118</ID_ARABIZIENTRY>
+    <ArabiziText>Daba , ana , f la , zone , phosphatte la région de ville , khouribga , , résaeu , 100% , mais f chi , zone , m3a , 7adrine , wa , résaeu , ga3 ma ta yeb9a , ma3a , ta7iyati , likom ,</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d563b439-52d9-47ca-99b7-7fbe5c1eb9c4</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Nabil Mouhoub, inwi fi khidmatikoum.
+inwi tat7awel t7asan chabaka dial moukalamat ou internet fe baki nawa7i ou dawa7i al moudoun al koubra, 9ariban ghadi tkoun al khidma dial chabaka jayida.
+inwi tatchkarkoum 3la tafahoum dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>556f71f2-3d49-4d40-89d0-9bce2d4ebfb4</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Basmat Alhayat, inwi fi khidmatikoum.
+Tfedlo b el ma3loumat men fadlkoum, elli ghantelbouha menkoum bach ndirou m3akoum ellazem b khousous el ichkal elli tatwajhouh m3a do3f chabaka.
+-El ism el kamil
+-Ra9m elli fih el ichkal
+-Ra9m hatif akhar n9dro ntwaslo m3akoum fih (wakha machi inwi)
+-Tefsir da9i9 lel ichkalia elli tatwajhouha
+-Men imta 3endkoum el ichkal
+-El makane lli tatwajdou fih el ichkal : dakhil aw kharij el bayt
+-Marque el hatif elli tatwefrou 3lih w jerbou f hatif akhar w marque dial el hatif elli jerrebtou fih
+-B khousous el internet : ramz elli taytle3 likoum 7da réseau
+-B khousous chabaka : 3adad el khoutout dial chabaka elli taytel3o likoum
+-el ichkal wach dial taghtiya awla dial el jawda 
+-el 3ounwane el kamil w da9i9 :</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e68de3a2-b9a0-4817-b769-fc7517bf3c68</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Basmat Alhayat, inwi fi khidmatikoum.
+Tfedlo b el ma3loumat men fadlkoum, elli ghantelbouha menkoum bach ndirou m3akoum ellazem b khousous el ichkal elli tatwajhouh m3a do3f chabaka.
+-El ism el kamil
+-Ra9m elli fih el ichkal
+-Ra9m hatif akhar n9dro ntwaslo m3akoum fih (wakha machi inwi)
+-Tefsir da9i9 lel ichkalia elli tatwajhouha
+-Men imta 3endkoum el ichkal
+-El makane lli tatwajdou fih el ichkal : dakhil aw kharij el bayt
+-Marque el hatif elli tatwefrou 3lih w jerbou f hatif akhar w marque dial el hatif elli jerrebtou fih
+-B khousous el internet : ramz elli taytle3 likoum 7da réseau
+-B khousous chabaka : 3adad el khoutout dial chabaka elli taytel3o likoum
+-el ichkal wach dial taghtiya awla dial el jawda 
+-el 3ounwane el kamil w da9i9 :</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2428ca76-6fbb-40c7-aff4-dfc94bac3a17</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Houditta Houda, inwi fi khidmatikoum.
+
+Bach telghiw techghil l automatiqui dyal bedel sotek, ma3likoum ghir tresslou STOP f sms l ra9m 789.
+
+inwi katchkerkoum 3la tawasol dyalkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3b2dfd3a-1625-439f-bc68-f4f60123cfe6</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Houditta Houda, inwi fi khidmatikoum.
+
+Bach telghiw techghil l automatiqui dyal bedel sotek, ma3likoum ghir tresslou STOP f sms l ra9m 789.
+
+inwi katchkerkoum 3la tawasol dyalkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>bb43b411-6303-4ed1-b2cf-1cb6c9020c31</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Houditta Houda, inwi fi khidmatikoum.
+
+Bach telghiw techghil l automatiqui dyal bedel sotek, ma3likoum ghir tresslou STOP f sms l ra9m 789.
+</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>76443fa5-5644-4a1c-9e5d-19fded443d5b</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Houditta Houda, inwi fi khidmatikoum.
+
+Bach telghiw techghil l automatiqui dyal bedel sotek, ma3likoum ghir tresslou STOP f sms l ra9m 789.
+</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b8717007-7168-40aa-866d-656d8c9bd5fb</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Abdo, inwi fi khidmatikoum. 
+
+Tfedlou b ra9m dyalkoum f message privé bach nchoufou likoum el ichkal dyal el istifada men club inwi.
+
+inwi katchkerkoum 3la tafahom dyalkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e24947be-581d-473f-b829-ffb3485871c1</ID_ARABIZIENTRY>
+    <ArabiziText>kan3tadrou 3la el ichkal elli katwajhou bkhossous chabakat. 
+
+Tfedlo b el ma3loumat elli telbna menkoum bach ndirou m3akoum ellazem b khousous el ichkal elli tatwajhouh m3a do3f chabaka. w 7awlou tjawbouna 3la jmi3 no9at ida sme7tou. 
+
+W b ism inwi, kanchekroukoum 3la el tawassol w tafahoum dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d8a7e947-807a-4143-94fa-c150f57cdc6a</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Amjad Belqady, inwi fi khidmatikoum. 
+
+Tfedlou b ra9m dyalkoum f rissala khassa bach nchoufou likoum el ichkal li katwajhou m3a internet bla pass.
+
+inwi katchkerkoum 3la tafahom dyalkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c6f531e9-e877-4cf3-a705-3d5ee4560a2c</ID_ARABIZIENTRY>
+    <ArabiziText>slm inwi ana hicham zarghil kanskon f madinat chefchaouen hadi 4 ans mchark flabounmo mli kanmxi nkhod telefone kay9ololi ma3dnach telefoune bghit n3raf faykayn mochkil</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>430aae6a-7ea7-4c71-9bef-a0c5f992575b</ID_ARABIZIENTRY>
+    <ArabiziText>alam Mohamed Zarghil, inwi fi khidmatikoum.
+3tena men fadlkoum had al ma3loumat talya bach ndirou likoum chikaya:</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>260b3fd5-6b91-4118-8817-82e8936b8a8c</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Wadie Elbahrami, inwi fi khidmatikoum.
+La tonalité d'accueil ghadi bouhadeha désactiva men ba3ed chaher.
+inwi tatchkarkoum 3la ikhlas dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>65faefcb-2204-47cb-8426-f8885602a131</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Jâwãd Hmdaoui, inwi fi khidmatikoum.
+Ila kan 3andkoum l3ared dial TicTac, bach testafed men 60s dial dépannage mnin yetkada likoum raside, khasekoum mnin yallah tedirou ta3bi2a taselou be *1010# appel bach mnin yetkada likoum rside tkaderou testafdou manou.
+inwi tatchkarkoum 3la ikhlas dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>7af744a0-04c6-4800-a298-5223d73a30a0</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Safae Aouich, inwi fi khidmatikoum.
+
+Tfedlo f risala khassa b ismkoum el kamil w erra9m dialkoum w tarikh te3bi2a w el mablagh dialha bach nchoufou likoum el hadiya elli matwesseltouch biha m3a 3ard 'Lucky recharge'.
+
+W b khousous khidmat 'Dépannage' khass ykoun 3endkoum 3ard TicTac, w melli ytsala likoum errasid dirou *1010# bach testafdou men el khidma.
+
+inwi tatchkerkoum 3la el wafae dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>9b517392-9442-42c5-b586-7cc2d676e55d</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Abd Elali Elaasri, inwi fi khidmatikoum.
+
+Tfedlo f risala khassa b erra9m dialkoum, mablagh w tarikh te3bi2a w el 3ard elli chegheltou bach nchoufou m3akoum el ichkal elli wajehtouh.
+
+inwi tatchkerkoum 3la el tawasol dialkoum.
+</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>de610c2b-9ce7-40e4-b9d7-770015d48429</ID_ARABIZIENTRY>
+    <ArabiziText>Bghena rizo mzn kema tessalat mn tema7ez9e dyal walo 3ay9eto 3lina bzaf ga3</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>8ad95094-7d1f-425e-8efe-45ed33510f52</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Marwane, inwi fi khidematikom.
+
+Kan3tadro 3la ichekal réseau li katwajho 7aliyan, b3atna likom jawab fi message privé.
+
+inwi tachekorokom 3la tafahomikom.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ebda7daa-89dc-49f0-9b47-810bef63a959</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Zouhair Banaiga, inwi fi khidmatikoum.
+
+Erra9m elli 3tetona rah mamcheghelch, 7awlou trej3ou lel chakhs elli ba3ou likoum, w ila kant bita9a 3adia rah tamane dialha 30Dh, kayna el bita9a DATA only elli tamane dialha 50Dh.
+
+inwi tatchkerkoum 3la el ikhlass dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>17c3e673-d77a-4bc7-9fdd-a18accf86671</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Fatima Elassali, inwi fi khidmatikoum.
+
+Yekfi annakoum tkounou katwefrou 3la barmajat khidmat el internet bach testat3ou tcheghlou CKDO elli stafdtou menou dial internet wakha m3a 3ard Koulchi.
+
+inwi tatchkerkoum 3la el tawasol dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>f5707b5c-4896-4326-a3fa-776261f3cfcd</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Otman Elharrami, inwi fi khidmatikoum.
+inwi tat7awel t7asan chabaka dial moukalamat ou internet fe baki nawa7i ou dawa7i al moudoun al koubra, 9ariban ghadi tkoun al khidma dial chabaka jayida.
+inwi tatchkarkoum 3la tafahoum dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>28a2959d-c9af-429a-8a6d-9a4b0756cecb</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Abdelilah El Hafidi, inwi fi khidmatikoum.
+Bach takhdem likoum la 4G awalan khasekoum tkounou tatwajdou be madina fiha taghtya dial la 4G ou lhatef dialekoum khas tekoun fihe lkhidma dial la 4G metwafra ou akhiran khase tkoun 3andkoum albitaka SIM fiha hata hya lkhidma dial la 4G, bach tghayerou lbitaka dial inwi le 4G twajhou men fadlkoum lwakala dial inwi, taghyire be 30dh, ila kan 3andkoum ichtirak taghyire al bitaka majani.
+inwi tatchkarkoum 3la ikhlas dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2231f4ba-7c24-49c1-b80a-934fb108d847</ID_ARABIZIENTRY>
+    <ArabiziText> ana brit koun 3ndi au lieu de 2 gega 4 gega wach mfhom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>809497ae-da1b-44b4-a594-36ab465c5bdb</ID_ARABIZIENTRY>
+    <ArabiziText> Salam Yassine Zouitine, inwi fi khidmatikoum. 
+
+Tfedlou b ra9m dyalkoum f message privé w 2ekdou lina naw3 el hatif li katwefrou 3lih bach nchoufou likoum el ichkal.
+
+inwi katchkerkoum 3la tafahom dyalkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>56fc2161-0024-4571-8142-fbe39d0652cd</ID_ARABIZIENTRY>
+    <ArabiziText>Bach njawbokom 3la talabkom, wad7o lina akter ichekalkom, ba3to lina aydan issamekom el-kamil wa numéro dyalkom fi message privé. 
+
+inwi tachekorokom 3la wafa2ikom.
+</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b6b7e32c-3442-49b5-9864-7fcb3dc68ebc</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Nàjlae Mii , inwi fi khidmatikoum.
+
+Tfedlo bhad el ma3loumat li rantelbou menkom fi "message privé" bach n9dro nsa3dokom: 
+-ra9em el hatife :
+-el ism el kamil :
+-el 9ima dyal la recharge :
+-tari9a li dkheltou biha la recharge :
+-tarikh li dertou fih la recharge : 
+
+inwi tatchkerkoum 3la el wafae dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>163a1dd6-420c-4b9e-8c3a-d812b52e6fe7</ID_ARABIZIENTRY>
+    <ArabiziText>Slm inwi dart 5dh lbrh 3tatni 30min mhdrtch biha mcht 19min inhr khor mcht kamla mchi m39ol hadchi wchokran</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>54a603de-6782-4166-9af7-c17d2a02e8f7</ID_ARABIZIENTRY>
+    <ArabiziText>Slm inwi dart 5dh lbrh 3tatni 30min mhdrtch biha mcht 19min inhr khor mcht kamla mchi m39ol hadchi wchokran</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1c312f98-9c74-4f51-9498-836001925d95</ID_ARABIZIENTRY>
+    <ArabiziText>Mkan la cadeaux lawalo charjit osftoli msg fih lcado omli swalt ml9it walo dawha ylh 45 lkyna</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1c2d60ec-9eab-46f5-bfdd-090e0c1b99ff</ID_ARABIZIENTRY>
+    <ArabiziText>Ila xarjit 10 dh 3diya odakhalt manha fisbok owatsab anstafad xihaja</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>7c122ad2-5a06-4f87-8332-9c43efda44eb</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Mounir Mojtahid, inwi fi khidmatikoum. 
+
+Bach testafdou men hadia, kat9oumo b ta3bi2a 3adia, w men be3d katweslou b sms fih le cadeau li rbe7tou ima : jawaz internet aw sms aw facebook &amp; whatsapp, bedel sotek, sme3ni ....
+
+Kanchekroukom 3la el ihtimam dyalkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d2eba5b9-e2fa-461b-9f0c-989bc09ed87d</ID_ARABIZIENTRY>
+    <ArabiziText>charjit 10 nhar 3/7/2017 odrt f+wtssap salih lmodat 7j mais ntoma ditoha liya ftlt liyam chhal mn mra w93at liya wah</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>80a627b2-e670-47de-a9f7-8b44e17d9695</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass.
+
+inwi tatchkerkoum 3la el wafae dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1c659caf-15f6-4689-a268-b485d82e40a2</ID_ARABIZIENTRY>
+    <ArabiziText>slm .dayr forfit inwi.bghit nbadl hadouk 3 num fedil li 3atyini chno hiya tari9a ???</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b19b9717-d2b8-437e-9222-08974e6a8e6d</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Houssine Walid, inwi fi khidmatikoum.
+
+Bach tgheyrou ra9m el mofadal dyalkoum, ma3likoum ghir tasslou b 120 w teb3ou te3limat, awla tasslou moubachara b masla7at zobanae 3la 220 w houma y9oumo likoum b teghyir.
+
+inwi katchkerkoum 3la el wafaa dyalkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>fdc34c1c-047c-41dc-a264-857fe0edc51e</ID_ARABIZIENTRY>
+    <ArabiziText>Salam labas 3likom 
+ana xarjit db walakin mawsalni lacadou la walo ?</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>05419554-d2ea-46a2-85eb-2fc968b122d8</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Saaid Oubrahim, inwi fi khidmatikoum.
+
+Wach ntouma msejline f club inwi?
+
+Tfedlo b erra9m dialkoum f risala khassa mes7oub b ismkoum el kamil bach nchoufou likoum el ichkal elli tatwajhouh m3a club inwi.
+
+inwi tatchkerkoum 3la el ihtimam dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5583b032-784e-4c03-90c1-0ebf752e9f3e</ID_ARABIZIENTRY>
+    <ArabiziText>Rocharge 50dh ch7al fih dyal intrnit wch7al MN jour</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a47e0c81-ddf3-4157-a25f-1723aa475336</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Mohamed Bouslham , inwi fi khidmatikoum.
+
+Bnisba li recharge 50Dh katmne7koum rassid 5Go men el internet sali7a li moddat 30 yawm. 
+
+inwi katmenna likoum nhar mabrouk.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c5e9c099-dcd5-4374-aea5-f8130d5a177d</ID_ARABIZIENTRY>
+    <ArabiziText>Salam, inwi fi khidmatikoum.
+Fi3lan men ba3ed ma tedirou ta3bi2a ghadi tcharkou moubacharatan be Tombola, li anakoum ghadi twaslou be risla tatkhbarkoum be al moucharaka.
+inwi tatchkarkoum 3la ikhlas dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>6cdfac62-a263-4581-bda4-ef8e23f21c3f</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Kamal, inwi fi khidematikom. 
+
+Bach nat2akdo man khatkom, ba3to lina fi message privé issamekom el-kamil, numéro dyalkom wa tarikh li 3aba2to fih khatkom.
+
+inwi tachekorokom 3la wafa2ikom.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>0a515628-b722-486c-b146-7b98b923cb23</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Hà Mza, inwi fi khidmatikoum.
+3tewna men fadlkoum rakem lhatef ou nou3ya dialou bach nba3tou likoum 3lihe risalat al barmaja.
+Inwi tatchkarkoum 3la ikhlas dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c932a5b4-5518-4697-8b18-29810922a855</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Hamza Mizo , inwi fi khidmatikoum.
+
+7na rselna likom el jawab 3la el khass. 
+
+inwi tatchkerkoum 3la el wafae dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>94daa0e7-34f9-442a-bc13-4a3682b95736</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Firdaous, inwi fi khidematikom. 
+
+Ila katwajho da2iman nafesse ichekal, ba3to lina fi message privé issamekom el-kamil, numéro dyalkom wa tarikh li 3aba2to fih khatkom.
+
+inwi tachekorokom 3la wafa2ikom.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a175db7f-ab84-4bf2-b4cb-c92e76ebd70b</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Hàfiid Chaanoun, inwi fi khidmatikoum. 
+
+Kankhebroukom ana had el 3ard khass b zobanae bidoun ichtirak.
+
+inwi katchkerkoum 3la el ihtimam dyalkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>0a802d19-7171-45da-b3bd-da488192a82b</ID_ARABIZIENTRY>
+    <ArabiziText>Slm sm3t bwahd lkhdma jdida "convert in" dyl tahwil sway3 ila conexion .3afak wach kayna fga3 la forfaits.ola ghar chi forfait khas</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>6d6f7e4c-84f9-4235-a468-6081db3a7553</ID_ARABIZIENTRY>
+    <ArabiziText>3Ya9To wlh fwal knat xwaya dcnx db wlo ga3 wx shblikom ktsd9O 3Lina wala tl9Ona lcnx ila mbghitox goloha nbdalo lkart onthnaw mnkom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ee4cae7c-4b5e-44f1-93d3-c397a6217477</ID_ARABIZIENTRY>
+    <ArabiziText>Inwi 3lach walito tadahko 3lina ??????????
+Inwi baybay kayn mahsan</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5072ef0b-186d-493a-aab8-4df762221fe0</ID_ARABIZIENTRY>
+    <ArabiziText>salam 50dh xhal kat3ti mn miga</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>85973da0-2517-4a52-91fb-e0532792f858</ID_ARABIZIENTRY>
+    <ArabiziText> bakabor masda9tich mni drti rask mra okmltiha bilmakyaj inwi zmlatk</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a19fd8f5-03ff-4e16-a015-7686c1e440f9</ID_ARABIZIENTRY>
+    <ArabiziText>Ana 3tawni 30H ms fach kanbghi ntasl makaydozch lkhat</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>682039f9-3d5d-460d-bf03-41a036435b11</ID_ARABIZIENTRY>
+    <ArabiziText>kan3tadrou 3la el ichkal li katwajhou.
+
+Tfedlou b ra9m dyalkoum f message privé w 2ekdou lina el minta9a b debt li katwajdou fiha bach nchoufou m3akoum el ichkal.
+
+inwi katchkerkoum 3la tafahom dyalkoum</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a1c0f98a-fccb-47a3-b075-f317a027848c</ID_ARABIZIENTRY>
+    <ArabiziText>Tfedlo b el ijaba 3la el khass.
+
+inwi tatchkerkoum 3la el tafahoum dialkoum.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1b797836-8861-4e7d-8488-34d69cf180e6</ID_ARABIZIENTRY>
+    <ArabiziText>alo blli zado sa3a w blli nhar twal db</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e6f6e7cf-1492-4007-b043-ee4b89241069</ID_ARABIZIENTRY>
+    <ArabiziText> b4it chi ma3lomat 3la les cartes sim dial IAM ,prix ,b4it ndir wahda Itisalat ?</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>bf5a1772-53ae-4928-9ff9-abaf9ff3ecd3</ID_ARABIZIENTRY>
+    <ArabiziText>7choma 3liko itesalat wllah kdabto 3lina f 3ard mt-talk ..qolto 10 fiha 15 dawzat ghir 6 ayam m3a l 3ilm tan5adm ghir 2G w Facebook lite omatanchof video.. mohim dart 5 dh 3la asaa 5 jr wa ma 5dat 7ta 2 jr omachi ghir ana bzaf dyal nas.. za3ma kon chi dawla ajnabiya 7ta nd3iwkom lakin 3ndna ma kaynch li hayhtam ya3ndi 3adi ghir 10 dh aw 5 dh.. lmochkil machi lflos rah bqat fl mesdaqia. Hna rah zobanae mn awl ma bant charika ya3ni 7tarmona o y7awlo masoouli chariqa ytfahmo amr 3la aqal ydiro lina wifi b 100 dh l moi bla telelophone ghir net cable ..ta7iyati</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1a020e80-1bc7-4212-9add-32894b58656e</ID_ARABIZIENTRY>
+    <ArabiziText>Slm 3afakom 3ndi problem flfix mli kanbghi ntasl makadozch l'appel wli kaytasal kayl9ah occuppé 3afakom chno l7al</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>98d3c323-dfaa-478f-89d9-98b2d1733742</ID_ARABIZIENTRY>
+    <ArabiziText>Salut @Maroc Telecom ana dayr fourfi 7ourya obghit nrj3ou fourfi mout7akim fih Mom chiu Mosa3da</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c8ffa907-59db-4aaa-aff0-f219fb0ec1f4</ID_ARABIZIENTRY>
+    <ArabiziText>wa ana li 3ndi annif z3ma machi nta! 😒😒😒😑😑</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a258d14c-bf5a-4d3a-b2cd-4ebaa24ef6c5</ID_ARABIZIENTRY>
+    <ArabiziText>3afak bit code puk lhad num 0643398987</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2a5609fe-64d8-4d9b-9a84-bc5a1df3d532</ID_ARABIZIENTRY>
+    <ArabiziText>ana dart pass mt-talk wmabghach ykhdam axno lhal lah yrham lwalidin</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>35247ee2-66f9-4637-9d8b-22f1f833767b</ID_ARABIZIENTRY>
+    <ArabiziText> iwa ghir modon dyal chamal okaza nsutoha ma3a l3lm ahsan mdina flmaghrib</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a17a691c-1f45-4405-9e33-e03a1c497699</ID_ARABIZIENTRY>
+    <ArabiziText>pccchhh had Yassine hwa li tal3alou... ayjiboulou l7mam tal darou! 😂😂😂</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3668265d-a4fd-43da-955c-ddc41340e208</ID_ARABIZIENTRY>
+    <ArabiziText> Bghit n3raaaf wax passe 15jour 10dh sala wla ba9ii pliiiz almarjo rad</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>03a0d0c4-813d-4519-b831-9a3588725c4c</ID_ARABIZIENTRY>
+    <ArabiziText> Bghit n3raaaf wax passe 15jour 10dh sala wla ba9ii pliiiz almarjo rad</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c608423b-d551-4199-884b-a9291dd47ff6</ID_ARABIZIENTRY>
+    <ArabiziText>Khoti mafhatx ana kandir conx 15 youm wtsalati fnhar</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>6869243d-67f0-4c61-96ee-ed0fc72664ee</ID_ARABIZIENTRY>
+    <ArabiziText>salamo 3Likum 3andi mochkila f adsl kibda ikhdam 5min wla 15mint okt9ta3 conexion oana mkhlas chehar</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a88d8a67-3c2c-49f9-b5f5-f477df35a80b</ID_ARABIZIENTRY>
+    <ArabiziText>salam o3alikom 3ndi wa7ed Lmochkila hiya : 7iit kanbghi nsoni 3la chiwa7ed kay9ololiya </ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1392b547-cda6-42a7-a9ea-1e5973d17997</ID_ARABIZIENTRY>
+    <ArabiziText>salam momkin mosa3ada.... ana d5alt ta3bi2a wmadrtch *2 wach kayn chi tari9a bach nrj3ha d9ay9 et merc</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e84eda90-4801-4c68-ab40-99249c6a8bd1</ID_ARABIZIENTRY>
+    <ArabiziText>dart forfi l7oriya nta3 59 dh 3h o 3gb internet
+walakin min nsoni l 665 ygolil 3andek ghi 2 swaye3</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ac34abf3-dabc-44db-9f28-6019c742e4b7</ID_ARABIZIENTRY>
+    <ArabiziText>Slm iam.rah sokkan hay lalla meriem madinat benslimane tayl9aw mochkil fi reseau dialkom.rah libgha yahdar khasso yokhroj man dar walla tla3 sta7 .svp.ila ma diro chi reseau maziane.et merci</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3dd93238-edc2-4195-8f59-37c43d911ec9</ID_ARABIZIENTRY>
+    <ArabiziText>Salam 3alaykom khoya nmra dyali 9at3oha liya ma3raftch 3lach w 3andi lkontra</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d7016658-3b93-4aca-b5b2-56e1e5b9f7f8</ID_ARABIZIENTRY>
+    <ArabiziText>Wach katkhadmo lyom samedi bghina nkhalso wahd forfait 3ankachtona!?</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>23aadc66-a021-4c94-9e66-def01c691c6b</ID_ARABIZIENTRY>
+    <ArabiziText>Salam wach momkin mosa3ada lmochkil li 3andi tasra9li tele o mchatli 7ta namra ms fach bghit nradha talblo akhir 3 d nwamer hdart m3ahom ms mab9itch 3a9l 3lihom had num bla chtirak wach kayn chi 7al et merci</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>286a1eee-ee81-4019-aed7-f5e16026f0c2</ID_ARABIZIENTRY>
+    <ArabiziText>Slm IAM ana karta dyali Kant khadama Nixan mli chrita db ki9olo khasam soni 3la wikala mahowa ra9m lwikala</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>de200a2d-b458-4622-b350-c8f62ab9a407</ID_ARABIZIENTRY>
+    <ArabiziText>Hhhhhhhhhhhh tefroh ri fi Tanja ba3eda rizo deyalkom de3ife bezaf khatikom fih Machakile</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>16c7cc48-5969-4241-bd0c-e6d8e7f2f068</ID_ARABIZIENTRY>
+    <ArabiziText>lah inazal alik lai''ana a lkalab</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1d3c8224-a5ca-461d-b8bf-3171fcd63208</ID_ARABIZIENTRY>
+    <ArabiziText>Ntoma homa rjal ana m3akom machi zwaml dyal tiznit ghir lhwa blil olfm m3a zata daf3kbir hhjjjj chmayt</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5e62cab2-c5fc-4ed8-99d7-4ead89e5e60e</ID_ARABIZIENTRY>
+    <ArabiziText>Medina fm tantoma wlito gha katkhwro 
+Khliw lraskom 9ima chwia</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>84d1c812-2d0a-45c7-9fda-dd5b9a41d462</ID_ARABIZIENTRY>
+    <ArabiziText>Khot chkon 3ndo frecance f settat</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>80479936-d5dd-43f0-8cda-e1ebd02ad628</ID_ARABIZIENTRY>
+    <ArabiziText>Lemen tebghiw tahdiwh daba</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>32930da6-1868-4f18-8652-ac83cd58a342</ID_ARABIZIENTRY>
+    <ArabiziText>Makayn la aghani la wlo tekharbi9 olem3ani bbhal derayrat.</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3243ef8d-df40-44eb-9a4b-987b73c93025</ID_ARABIZIENTRY>
+    <ArabiziText>Lhma9 ou tsetya</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>f4e8d83c-e77a-41d4-b335-77cccb492c0d</ID_ARABIZIENTRY>
+    <ArabiziText> Hadi bla chk khtk mnwra</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3300df36-a83f-46da-9bae-df23bfbf6e87</ID_ARABIZIENTRY>
+    <ArabiziText>afakom jib lina khtiti hiya Admine Mafia Maghribiya 100/100 .fiha khitati bazaf O kadjib bazaf sujets li kanastafdou maahom O hiya aandha réponse fi ayh commentaire dal page</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>14d7f777-5f5c-4edf-981a-64a61ca2b044</ID_ARABIZIENTRY>
+    <ArabiziText>bark alah khoia tarek salm lia 3la mart al mastapha mahatach al kas kdamha hhhhhh</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>81184a5f-db00-4f73-b7b9-f87a2c89a901</ID_ARABIZIENTRY>
+    <ArabiziText>Hadik li 7dak ma saymach</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>56edcb17-60bd-427b-945f-2100ced3218b</ID_ARABIZIENTRY>
+    <ArabiziText>Rak mnawar asi marwan lah ihafdak okhlas</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>cfd0311f-1d82-4985-a0be-92f632ad6998</ID_ARABIZIENTRY>
+    <ArabiziText>Hhhh dir dakchi li galt lik Sanoa Sabbar</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>9abc4f09-2e7a-493a-803e-3f9a0d354623</ID_ARABIZIENTRY>
+    <ArabiziText>kifach daba fyoumayen el 3othmani gal ghadi idimissioni ou lbareh el 3omari darha.... chi haja hadi </ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>49960793-4018-4922-93a5-433479199830</ID_ARABIZIENTRY>
     <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>939b882e-7d8e-4087-b852-2f0e5b16ccec</ID_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>eaf30ded-0168-43fd-9263-a2574a7eca87</ID_ARABIZIENTRY>
+    <ArabiziText>kifach daba fyoumayen el 3othmani gal ghadi idimissioni ou lbareh el 3omari darha.... chi haja hadi</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ed94ec0d-55e2-4ce3-aa2d-9080ebe86265</ID_ARABIZIENTRY>
     <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>f125ba18-10d5-42ff-9ff2-eaba5ca45c58</ID_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d2be501e-83cc-4ab3-88cf-827e1f2bb571</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>45fdcd36-192d-449c-bfe0-9580b599eea5</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>cd1b84d3-456d-4345-90e9-314b96cf41d2</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c3b7f7ce-a9ef-4566-8f34-b1ae659380d7</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>0b327a73-faf8-48d2-8c85-8d1929b120bf</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>be16d729-fda0-4a0a-939d-c917aa6d17bd</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>38fc1365-0ead-4d8a-be97-9ae0900d0dd0</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5aab1398-fb82-4531-b3a7-8655ac8be5e0</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e2178c40-7e2e-4552-8ca4-cd0e21c65ff8</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>45a6e04e-e0fe-49b0-9123-4cde397ceb92</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>837b12b6-9d83-4d95-927f-c6c77b1183ce</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>cfd4fea2-8c48-4c82-94c0-85940c47e6d2</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ae024250-56f8-416a-90ee-e15023e57f35</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e96ad611-51c7-47e8-9d1e-ecce0dd57ea9</ID_ARABIZIENTRY>
+    <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>f2fcc29f-3d12-4101-a95b-7047800a864b</ID_ARABIZIENTRY>
     <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
   </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
