@@ -228,8 +228,8 @@ namespace ArabicTextAnalyzer.Controllers
                             textFrequency.AddPhraseToCorpus(postText);
 
                         // 9 recompile the dict
-                        textConverter.CatCorpusDict();
-                        textConverter.SrilmLmDict();
+                        textConverter.CatCorpusDict();  // 5s
+                        textConverter.SrilmLmDict();    // 1mn25s => 55s
 
                         ViewBag.MostPopularVariant = "New post added into corpus with the most popular variant. Try to convert again";
                         ViewBag.Post = postText;
