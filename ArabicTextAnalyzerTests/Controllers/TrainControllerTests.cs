@@ -9,6 +9,8 @@ using System.Text.RegularExpressions;
 using ArabicTextAnalyzer.Business.Provider;
 using OADRJNLPCommon.Models;
 using OADRJNLPCommon.Business;
+using ArabicTextAnalyzer.Domain.Models;
+using System.Xml.Serialization;
 
 namespace ArabicTextAnalyzer.Controllers.Tests
 {
@@ -596,6 +598,31 @@ namespace ArabicTextAnalyzer.Controllers.Tests
 
             //
             Assert.IsTrue(variants.Count < 10, "nbr variants : " + variants.Count);
+        }
+
+        [TestMethod()]
+        public void ut_170809_test_getTwinglyAccountInfo_calls_free()
+        {
+            // String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
+            String twinglyApiUrl = "https://data.twingly.net/socialfeed/a/api/";
+
+            // obtain current twingly key
+            // String twinglyApiKey = "2A4CF6A4-4968-46EF-862F-2881EF597A55";
+            List<M_TWINGLYACCOUNT> twinglyAccounts = new List<M_TWINGLYACCOUNT>();
+            // var path = Server.MapPath("~/App_Data/data_" + typeof(M_TWINGLYACCOUNT).Name + ".txt");
+            var path = @"C:\Users\Yahia Alaoui\Desktop\DEV\170516OADRJNLPARBZWEB\ArabicTextAnalyzer\App_Data\data_M_TWINGLYACCOUNT.txt";
+            var serializer = new XmlSerializer(twinglyAccounts.GetType());
+            using (var reader = new System.IO.StreamReader(path))
+            {
+                twinglyAccounts = (List<M_TWINGLYACCOUNT>)serializer.Deserialize(reader);
+            }
+            String twinglyApiKey = twinglyAccounts.Find(m => m.CurrentActive == "active").ID_TWINGLYACCOUNT_API_KEY.ToString();
+
+            var calls_free = OADRJNLPCommon.Business.Business.getTwinglyAccountInfo_calls_free(twinglyApiUrl, twinglyApiKey);
+            // new TwinglyTools().upddateCountTwinglyAccount(twinglyApi15Url, twinglyApiKey, Server.MapPath("~/App_Data/data_M_TWINGLYACCOUNT.txt"));
+
+            //
+            Assert.IsTrue(calls_free < 1000);
         }
     }
 }

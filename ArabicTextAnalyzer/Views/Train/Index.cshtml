@@ -17,7 +17,7 @@
 @using (Html.BeginForm("TrainStepOne", "Train", FormMethod.Post))
 {
     <div class="row" style="margin-top: 30px">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="panel panel-default active">
                 <div class="panel-heading">Arabizi</div>
                 <div class="panel-body" style="padding: 0; height: 150px">
@@ -25,26 +25,44 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-        @if (String.IsNullOrEmpty(ViewBag.MostPopularVariant) == false)
-        {
+        <div class="col-md-3">
+            @if (String.IsNullOrEmpty(ViewBag.MostPopularVariant) == false)
+            {
+                <div class="panel panel-default active arabic ">
+                    <div class="panel-heading">Most Popular Variant : @ViewBag.MostPopularVariant</div>
+                    <div class="panel-body" style="padding: 0; height: 150px; position:relative;">
+                        <div class="loader"></div>
+                        <textarea style="height: 100%; width: 100%" id="arabic-text">@ViewBag.Post</textarea>
+                    </div>
+                </div>
+            }
+        </div>
+        <!-- column 3 : corpus info -->
+        <div class="col-md-2">
             <div class="panel panel-default active arabic ">
-                <div class="panel-heading">Most Popular Variant : @ViewBag.MostPopularVariant</div>
-                <div class="panel-body" style="padding: 0; height: 150px; position:relative;">
-                    <div class="loader"></div>
-                    <textarea style="height: 100%; width: 100%" id="arabic-text">@ViewBag.Post</textarea>
+                <div class="panel-heading">Corpus Info</div>
+                <div class="panel-body" style="height: 150px; position:relative;">
+                    <div class="row">
+                        <div class="col-md-3"><small>Lines:</small></div>
+                        <div class="col-md-9"><small>@String.Format("{0:n0}", @ViewBag.CorpusSize)</small></div>
+                    </div>
                 </div>
             </div>
-        }
         </div>
         <div class="col-md-4">
             <div class="panel panel-default active arabic ">
-                <div class="panel-heading">Corpus Info</div>
-                <div class="panel-body" style="padding: 0; height: 150px; position:relative;">
-                    <div class="loader"></div>
-                    <div class="row" style="padding:10px;">
-                        <div class="col-md-2">Lines:</div>
-                        <div class="col-md-10">@String.Format("{0:n0}", @ViewBag.CorpusSize)</div>
+                <div class="panel-heading">Twingly</div>
+                <div class="panel-body" style="height: 150px; position:relative;">
+                    <div class="form-group">
+                        <div class="btn-group-vertical btn-group-sm" data-toggle="buttons">
+                            @foreach (var twinglyAccount in @ViewBag.TwinglyAccounts)
+                            {
+                                <label class="btn btn-primary @twinglyAccount.CurrentActive" data-toggle='tooltip' title='@twinglyAccount.UserName'>
+                                    @Html.RadioButton("gender", "Male", true, new { id = "IsMale" }) @twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper()
+                                    <span class='badge'>@twinglyAccount.calls_free</span>
+                                </label>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

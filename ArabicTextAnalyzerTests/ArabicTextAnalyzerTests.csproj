@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -62,6 +63,10 @@
     <ProjectReference Include="..\ArabicTextAnalyzer.Business\ArabicTextAnalyzer.Business.csproj">
       <Project>{95e08859-199a-486a-88d5-6c1a5300f7d2}</Project>
       <Name>ArabicTextAnalyzer.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArabicTextAnalyzer.Domain\ArabicTextAnalyzer.Domain.csproj">
+      <Project>{f14cf097-10e2-4336-a27b-ab55903a0354}</Project>
+      <Name>ArabicTextAnalyzer.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\ArabicTextAnalyzer\ArabicTextAnalyzer.csproj">
       <Project>{FA7C2570-1669-45DB-9B5B-31056379891A}</Project>
