@@ -2730,4 +2730,24 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ID_ARABIZIENTRY>08f68f01-ae9e-4abd-8b5e-30e06b313189</ID_ARABIZIENTRY>
     <ArabicDarijaText>الحزقة هيا لي تنقص الاعمار</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0e62019e-5c9d-4bc5-b8e6-5183bd0c2f7d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>27858e8b-9ac2-4319-b15c-665a4a606ade</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بينا على صباح جاين فحالهم kimdaw غير ف بعضيتهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>65f5e683-0186-4300-bee2-dde3278a3102</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7478ea71-3b18-4ead-af95-421f474dc47a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بينة على صباح جاين فحالهم كمدو غير ف بعضيتهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>38c06474-d109-4b23-927f-827a5d2c41c6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>791aeee2-e32f-4d7f-90eb-ff625f35e227</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام douzim كي دايرين حول طيب لمهم انا عندي لكم ولحد تنقنق سكنة صانك تقدر douwzouha ف برنامج اختر المجرمين لواحد شخص ملقب ب ة / ة طبيب كان kaystdrej ضحايا ديال المكان خلي و kayt3eda عليهم حتى اليوم 4 غوشت 2017 واحد ضاحية kherjjat عن سكة ديالها و فضحته ف واحد لمجموعة كان kaystaghel المهنة شارف ديالو و kaystaghl فتيات و kaywa3dhoum ب زواج ان 3titkoum ب خلص و albghito tchriw من عند مزيد من المعلومة rasslouni فل خاص و نتفاهمو على تما و ديك ساعة نعطيكم لي detay parsko kan3rf وحدة من ضحايا ديال دمتم متألقين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6dbb16ef-058b-4175-8b61-8deaf9850b34</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0590fe49-32eb-40bc-bf68-9481f3520c6d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام douzim كي دايرين حول طيب لمهم انا عندي لكم والحض تنقنق سكنت سانك تقدر douwzouha ف برنامج اختر لمجرمين لواحد شخص ملقب ب ا / ا طبيب كان kaystdrej ضحايا ديال المكان خلي و kayt3eda عليهم حتى اليوم 4 غوشة 2017 واحد دحي kherjjat عن سقط ديالها و فضحت ف واحد المجموع كان kaystaghel المهنة شارف ديالو و kaystaghl فتيات و kaywa3dhoum ب زواج انا 3titkoum ب خلص و albghito tchriw من عند مازد من المعلومة rasslouni فل خاص و نتفاهمو على تما و ديك ساعة نعطيكم لي detay parsko كنعرف وحدة من ضحايا ديال دمتم متألقين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

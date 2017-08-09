@@ -2280,4 +2280,20 @@ inshallah khir ya rab</ArabiziText>
     <ID_ARABIZIENTRY>08f68f01-ae9e-4abd-8b5e-30e06b313189</ID_ARABIZIENTRY>
     <ArabiziText>Lhaz9a hya li tna9as la3mar</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>27858e8b-9ac2-4319-b15c-665a4a606ade</ID_ARABIZIENTRY>
+    <ArabiziText>Byna 3la sbah jayn fhalhom kimdaw rir fi b3dythom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>7478ea71-3b18-4ead-af95-421f474dc47a</ID_ARABIZIENTRY>
+    <ArabiziText>Byna 3la sbah jayn fhalhom kimdaw rir fi b3dythom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>791aeee2-e32f-4d7f-90eb-ff625f35e227</ID_ARABIZIENTRY>
+    <ArabiziText>salam douzim ki dayrin a7wal tayiba lmouhim ana 3ndi likom wahd tn9ni9a sikont sank t9dro douwzouha f barnamaj akhtar lmojrimin l wahd chakhs mola9ab b A/A tbib kan kaystdrej da7aya dialo l makan khali w kayt3eda 3lihom 7ta l yawm 4 ghocht 2017 wa7ed da7iya kherjjat 3an soukout dialha w fd7ato f wahd lmjmou3a kan kaystaghel l mihna charifa dialo w kaystaghl fatayat w kaywa3dhoum b zwaj ana 3titkoum b khoulasssa wa la bghito tchriw mn 3ndi mazid mn lm3loumat rasslouni fl khass w ntfahmo 3la taman w dik sa3a n3tikom li detay parsko kan3rf whda mn da7aya dialo domtom mota2ali9in</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>0590fe49-32eb-40bc-bf68-9481f3520c6d</ID_ARABIZIENTRY>
+    <ArabiziText>salam douzim ki dayrin a7wal tayiba lmouhim ana 3ndi likom wahd tn9ni9a sikont sank t9dro douwzouha f barnamaj akhtar lmojrimin l wahd chakhs mola9ab b A/A tbib kan kaystdrej da7aya dialo l makan khali w kayt3eda 3lihom 7ta l yawm 4 ghocht 2017 wa7ed da7iya kherjjat 3an soukout dialha w fd7ato f wahd lmjmou3a kan kaystaghel l mihna charifa dialo w kaystaghl fatayat w kaywa3dhoum b zwaj ana 3titkoum b khoulasssa wa la bghito tchriw mn 3ndi mazid mn lm3loumat rasslouni fl khass w ntfahmo 3la taman w dik sa3a n3tikom li detay parsko kan3rf whda mn da7aya dialo domtom mota2ali9in</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
