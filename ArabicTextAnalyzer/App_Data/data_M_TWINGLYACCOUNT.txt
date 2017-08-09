@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfM_TWINGLYACCOUNT xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <M_TWINGLYACCOUNT>
+    <ID_TWINGLYACCOUNT_API_KEY>e8e23c4e-f19e-4675-9fcb-d69b16ecb7ae</ID_TWINGLYACCOUNT_API_KEY>
+    <UserName>contact@allpecmedia.com</UserName>
+    <calls_free>1000</calls_free>
+  </M_TWINGLYACCOUNT>
+  <M_TWINGLYACCOUNT>
+    <ID_TWINGLYACCOUNT_API_KEY>0910880b-2d6a-47c2-8e5a-af5365d062ce</ID_TWINGLYACCOUNT_API_KEY>
+    <UserName>alaoui.o@gmail.com</UserName>
+    <calls_free>926</calls_free>
+    <CurrentActive>active</CurrentActive>
+  </M_TWINGLYACCOUNT>
+</ArrayOfM_TWINGLYACCOUNT>

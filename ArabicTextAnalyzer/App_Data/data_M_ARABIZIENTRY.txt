@@ -2016,4 +2016,268 @@ Khliw lraskom 9ima chwia</ArabiziText>
     <ID_ARABIZIENTRY>f2fcc29f-3d12-4101-a95b-7047800a864b</ID_ARABIZIENTRY>
     <ArabiziText>El pass Whatsapp/ Facebook dial 10Dh fih wa7ed el kimiya ma7douda dial 300Mo sali7a li moddat 7 ayam walakin ntouma katstehlekou hadik el kimiya 9bel matsali el modda dial sala7ia dialha dakechi 3lach kaytwe9ef likoum le pass..</ArabiziText>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ed542804-ea5e-48fd-b734-974e5b6c31a6</ID_ARABIZIENTRY>
+    <ArabiziText>kounou rjal ou goulou lina wash hadchi dial zmagria kay fid leblad</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>34ef8cea-1d8b-4bcb-9228-b7c063d20d51</ID_ARABIZIENTRY>
+    <ArabiziText>an chrit itro dial lehlib b 10 dhs ou sahebti chratou fmerjane b 9 dhs</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>347eaa7b-cc30-4aa2-9220-ad206e50ecfe</ID_ARABIZIENTRY>
+    <ArabiziText>Rajol bi ma3na lkalima.machi lassa9 fa lkorssi.b7al wa7ad galik wilaya talita???</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>0ecf2d42-50d0-40f0-bf7a-4f43d6f0120a</ID_ARABIZIENTRY>
+    <ArabiziText>Ewa c shemas ghadi yeblasih hadshi ma3rouf ou hadi hia siasa she kai jib remla ou lakhour kai ye3jen ou lakhour kayebni ............☺☺☺☺</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>651ac8c4-23e3-40db-b9b8-b34697cbfcc9</ID_ARABIZIENTRY>
+    <ArabiziText>Mabrouk lfawaz incha allah limala 3oumdat tetwan aw tetouan kadalika tanja</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>08c4c4c3-75b9-4c6e-a77f-b04e17461fb6</ID_ARABIZIENTRY>
+    <ArabiziText>ha ghayda knigh ha l balagh tb3at nadwa 😂 tzret ilyas 7fdakht w j espère qu ils vont refuser sa démission</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>6daf38b9-780d-4639-8387-7b09b2226961</ID_ARABIZIENTRY>
+    <ArabiziText>أجدادهن أشاعوا فينا "ربطة العنق" حتى صار اللباس الرسمي لا يستقيم من دونها..حتى عدنا نستقبلهن مقجوجين وهن بالتنورة...
+والله لو كنت مكانك مسيو إلياس لإستقبلتهما بالسروال القندريسي رمز الأصالة وسوفيطما دالسماطي رمز المعاصرة ...
+خصوصا وأن الأمر يتعلق فقط بزيارة ود ومجاملة ..</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ed1d16a9-eba4-4920-9ffc-c44cded5f8d6</ID_ARABIZIENTRY>
+    <ArabiziText>hram 3lihoum....Allah yssouweb
+inshallah khir ya rab</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>772ce3ac-49ff-41b2-9cc8-7da6cfe8f7fb</ID_ARABIZIENTRY>
+    <ArabiziText>Lit3ada hododo wohayid 3alam dlmgrib yantahi wojodo</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>89aeca7b-28d6-4d67-85f8-77c414973374</ID_ARABIZIENTRY>
+    <ArabiziText>wwili wili ta chouf chno tra , tsdamete</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5daac14a-a4b9-40c6-a608-744d8c95de96</ID_ARABIZIENTRY>
+    <ArabiziText>Gha gol lina chhal jma3ti b roojolaa</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>6e016d28-689d-44d3-b654-73b7d01ef605</ID_ARABIZIENTRY>
+    <ArabiziText>Had l3am naymar l3am jay messi wisdou lhanout hhhv</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>4fc356fe-99c8-4bc2-a000-30954b2bf85b</ID_ARABIZIENTRY>
+    <ArabiziText>Hhhhhhhh wax il3b m3aha bzz mabrax ya2 wahada 9anon khrjato oroba</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>74e04974-9ea8-44aa-b316-87a3295e2d7c</ID_ARABIZIENTRY>
+    <ArabiziText>Had 2M kdam bezaffffff</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d7a14dc0-efd5-4de7-b229-b5924908ff62</ID_ARABIZIENTRY>
+    <ArabiziText>Hhhhhh hdar H owaa Lyom 3iiid miladiii 8/8</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>501e3aed-6fc5-4548-8234-5b821860506c</ID_ARABIZIENTRY>
+    <ArabiziText>waxa3b mayfokn rir bharrrr lyom ta9ss harrr</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>cdcaa6a1-bf2d-489c-b9b3-6008100a35cf</ID_ARABIZIENTRY>
+    <ArabiziText>Ybarklah ba9a tal3a tanger fo9 xwaya</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>9d5a264d-e982-480f-acf7-90df5b6a6154</ID_ARABIZIENTRY>
+    <ArabiziText>Hchoma aalih rad l9raya htta lwahda mantghaddawch</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>8cbac966-c73a-4329-9c70-a2e027c00d14</ID_ARABIZIENTRY>
+    <ArabiziText>Iwa abnt sidi kacem nti horra bghiti t3tazli choghkak hadak bghiti tkemli nti t3arfi</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>79f6be7b-963e-439e-bb40-abe0c343e49f</ID_ARABIZIENTRY>
+    <ArabiziText>lmallych fre9 lcombryssouratte ttaba9aa lkadyha massttafdattech machary3 khawya mafyha nfe3</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>35b6c1f5-4a5c-477d-9d95-2cc40743be01</ID_ARABIZIENTRY>
+    <ArabiziText>hhhh 9Arya f akhawayn b 100 000 dh fal3am hhhh chno atsa3do fiha . balha9 ri li 3ando floss howa li katsa3doh bach yzid lafloss hhh 0000000 3amarna nzido l9Adam</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>12ddd5b4-9028-4577-ad1e-dd9a1e690029</ID_ARABIZIENTRY>
+    <ArabiziText>Ana ma3jbatnch had oghnya kon b9at ghir f styl dyalha</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>85649ef0-8b84-4f5b-86fb-2545eff37aa9</ID_ARABIZIENTRY>
+    <ArabiziText>Mcha lfes 7it fasa homa li hakmin lblad wlad cha3b kano i7arbo sti3mar wlad fasa kay9raw mkhapin pfff wlad cha3b talat bihom ayam owlad fasa hakmo lblad osayroha kif hapo dakch 3lach chafar ta3 bnkiran mcha adhom pf</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d7bb9b8f-7597-4b6a-b534-e42bd9e06dc4</ID_ARABIZIENTRY>
+    <ArabiziText>hta hado kaydiro bhal mosalsal torki samhini kaymot chiwahd 3awtani kayban, 5asna ljadid baraka matmtlo 3lina
+</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a0f0be63-23b7-44d3-9232-b8fa82da86f0</ID_ARABIZIENTRY>
+    <ArabiziText>hta hado kaydiro bhal mosalsal torki samhini kaymot chiwahd 3awtani kayban, 5asna ljadid baraka matmtlo 3lina
+</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e8ae7d81-70ee-4784-a40a-397fb4219212</ID_ARABIZIENTRY>
+    <ArabiziText>hanta stafed tb9a dirha rassek 😂😂</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d9310dc0-b301-4d2a-8316-1f8c1cb4abe3</ID_ARABIZIENTRY>
+    <ArabiziText>Nari kanhema9 3liha😘😘😘
+</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>4c0a1080-84a1-4de4-824c-2f21dd2d0133</ID_ARABIZIENTRY>
+    <ArabiziText> Lah yeghar9likop che9af ntoma wdik l9a7ba nta3 manar limabghatech tessam7 dak zamel wyehaniwna mn kmamerhom lidayerin kizebi la3waj</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2c466170-2c2a-4732-aaf8-8b9e83a36e23</ID_ARABIZIENTRY>
+    <ArabiziText>Had ljarima 9am biha chab bohadi 5o sadi9a li bi hay Salam kan taht tatir l9ar9obi howa Aslan mo5tal 3a9liyan tantmanaw lah igfar lih ontmanaw lih chifa man lah ta3ala lada3i tab9aw d3iw fih rabi howa litayhasab kol wahad oroh 3ziza 3ad lah ojadah lah yarhalha
+</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>34cfc794-8f4a-406d-b856-367cb9406c88</ID_ARABIZIENTRY>
+    <ArabiziText>alah omayarabi ikharajna man dar l3ib blaaaaaaa 3iiiiiib</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1cf290c9-d673-43a1-b330-e478c3866758</ID_ARABIZIENTRY>
+    <ArabiziText>Twhxnaak saad 3la slamtk khoya الله ykml 3lik blkhir, o ana matchaw9a ljadid dyalk bayna atkon chihaja tooop إنشاء الله</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1991fc77-751b-46b6-9ee3-7625132699d1</ID_ARABIZIENTRY>
+    <ArabiziText>Tw7chnah bzaaaaaf rah howa maf5irt lma4rib</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>699187fb-e328-48fb-809c-43cfe245292e</ID_ARABIZIENTRY>
+    <ArabiziText> 3Andna bhar gadach w wkanachriw b 150 dh l kg wlad la7ram chfarto kolchi makhalitiw walo</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>19f48e79-7b49-4da6-93b4-57a4c1597882</ID_ARABIZIENTRY>
+    <ArabiziText> Hadouma homa li tssawarti m3ahom f sa7ra 😂😂😂
+</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>39b51910-8617-4eef-9b26-aee220e4b91e</ID_ARABIZIENTRY>
+    <ArabiziText>Sero chofo a les cafe azwaml chabab day3 fhad blad wkibri idir ra chi mjhod Wla machro3 tayt3kso maah wmbkat 3echa fhad blad lharba</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>601fe814-a362-49a5-ba91-c2856ff7cb66</ID_ARABIZIENTRY>
+    <ArabiziText>Oulah ita mzyan tantmnaw idiro madaris wa koliyat watanawiyat khasa li lfatayat wa madaris khasa li lfityan</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>00bdfd0e-30de-4229-8ea6-1a0e495ac991</ID_ARABIZIENTRY>
+    <ArabiziText>pétrol taah hta 27 dolars l3alam na9sso fih taman wantoma makayn9ass 3andkom walo .dayrin ki tom &amp; jerry</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>8e343caf-5dab-43eb-9395-67200f480598</ID_ARABIZIENTRY>
+    <ArabiziText>ahyata hiya bitina nwaliw panachi ahhhhh</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d05b0462-f81f-4714-88b7-5714ce29f75e</ID_ARABIZIENTRY>
+    <ArabiziText>lmouryttane nayda 3ndhoum wall9watte ll9am3ya ttdrouss</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>72e5fe79-de7b-4145-8b57-9291baf6f3b3</ID_ARABIZIENTRY>
+    <ArabiziText>3andk zhar atbi hhhh koun dazti fi 2m</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e3b371e3-7e3b-4e3a-b95e-5160b0e84560</ID_ARABIZIENTRY>
+    <ArabiziText>Hado kaystah9o lwisam lah ihftk yasidna oynsrak</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>584efc3b-8f5e-43ee-adb6-f9b62c615762</ID_ARABIZIENTRY>
+    <ArabiziText>Asmit lfilm li badi db f 2m plllz</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>f9fb6966-7af3-4c70-91f0-4cf575a8081a</ID_ARABIZIENTRY>
+    <ArabiziText>Machi galo 9tel khtou db wla khouh</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>f1459944-2c02-459e-946b-3ef9661e1bea</ID_ARABIZIENTRY>
+    <ArabiziText>Jib chi haja man3ndk wadhak biha nas ama dak xi lmojod rah mafokaha mawlo</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>20538748-5dd9-4c2f-8558-651485fba109</ID_ARABIZIENTRY>
+    <ArabiziText> hmad had zbi walah hta raxid rafi9 hsan mno obzaf ja amlwr odar blasto</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>8a5285ff-2ae0-47eb-b2ed-5c75f8d95aeb</ID_ARABIZIENTRY>
+    <ArabiziText>ntooooma kolo whna nmoto bjo3</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b83bd8be-8713-4ea7-bc3b-f07f192d002e</ID_ARABIZIENTRY>
+    <ArabiziText> hhh kanchofih db 3adi bgha it9arab liha marabana i9di fiha gharado hhh</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ad02a74e-f190-4120-82d9-a8811fa45c14</ID_ARABIZIENTRY>
+    <ArabiziText>Nhar 7 chotanbir ratji nhar lkhmis</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b3901222-2dbe-4eaa-a3fc-0923049e31b0</ID_ARABIZIENTRY>
+    <ArabiziText>iwa lah ychafih o jami3 almoslimine ajma3ine wa5a m3ta walo ldwla hna 3aichine hamdolah</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>71410850-98e2-4795-8857-448433754ad0</ID_ARABIZIENTRY>
+    <ArabiziText>Meskin chitan</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>cb4ea855-d862-4391-a301-f6bda2628303</ID_ARABIZIENTRY>
+    <ArabiziText>Hnaya la3rab kolchi yamchi ljahanam mani wajbad</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a7ed5fae-db1c-43cc-ac99-baa1aa54448d</ID_ARABIZIENTRY>
+    <ArabiziText>salam douzim ki dayrin a7wal tayiba lmouhim ana 3ndi likom wahd tn9ni9a sikont sank t9dro douwzouha f barnamaj akhtar lmojrimin l wahd chakhs mola9ab b A/A tbib kan kaystdrej da7aya dialo l makan khali w kayt3eda 3lihom 7ta l yawm 4 ghocht 2017 wa7ed da7iya kherjjat 3an soukout dialha w fd7ato f wahd lmjmou3a kan kaystaghel l mihna charifa dialo w kaystaghl fatayat w kaywa3dhoum b zwaj ana 3titkoum b khoulasssa wa la bghito tchriw mn 3ndi mazid mn lm3loumat rasslouni fl khass w ntfahmo 3la taman w dik sa3a n3tikom li detay parsko kan3rf whda mn da7aya dialo domtom mota2ali9in</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5cd1a1f5-e8fd-4d57-80d3-1819339601b1</ID_ARABIZIENTRY>
+    <ArabiziText>salam douzim ki dayrin a7wal tayiba lmouhim ana 3ndi likom wahd tn9ni9a sikont sank t9dro douwzouha f barnamaj akhtar lmojrimin l wahd chakhs mola9ab b A/A tbib kan kaystdrej da7aya dialo l makan khali w kayt3eda 3lihom 7ta l yawm 4 ghocht 2017 wa7ed da7iya kherjjat 3an soukout dialha w fd7ato f wahd lmjmou3a kan kaystaghel l mihna charifa dialo w kaystaghl fatayat w kaywa3dhoum b zwaj ana 3titkoum b khoulasssa wa la bghito tchriw mn 3ndi mazid mn lm3loumat rasslouni fl khass w ntfahmo 3la taman w dik sa3a n3tikom li detay parsko kan3rf whda mn da7aya dialo domtom mota2ali9in</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>443a49c5-9a2c-4e2d-ab64-6c95f82b72df</ID_ARABIZIENTRY>
+    <ArabiziText>mouhallach wach kayne lly kareh n3ass lmouhim rafay moubrzytte teujeur khdam</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1f9582f6-9367-453a-8b16-28de4f9a6a90</ID_ARABIZIENTRY>
+    <ArabiziText>lah..yahfadhom..atamana..lahom..ddahabb..oi..al.fadda..oi.ihraz..ala..botola..alamiya..in..cha.allahe</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>8ef03219-8a5a-4519-a76b-1abbd46d7ddd</ID_ARABIZIENTRY>
+    <ArabiziText>bariss ssanjyrman ssarahatte by anaha lmabllagh allady dafa3tthou lly nymar ssattajnyhy fy moubara wahyda</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>6ac1808a-4150-47e5-a6eb-475439763833</ID_ARABIZIENTRY>
+    <ArabiziText>alah ysahl w3goba lmo3a9in tchofo mnhalhom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>05e404fa-b9c8-4d48-a4a0-cb72fcec1191</ID_ARABIZIENTRY>
+    <ArabiziText>Allh yan3al almoukom al walidin</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d276f8aa-48ff-440e-8454-a958f705db9c</ID_ARABIZIENTRY>
+    <ArabiziText>Byna 3la sbah jayn fhalhom kimdaw rir fi b3dythom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>99dd1f83-8b78-4bad-88e8-e1697503c112</ID_ARABIZIENTRY>
+    <ArabiziText>Iwa lfhama lkhawya safi la ghadi y9at3o tadkhin y9at3ouh fmarra mach y3qwdoh bl iliktroni</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>128014f1-d71d-4e91-ab00-774da4da6d2a</ID_ARABIZIENTRY>
+    <ArabiziText>Lhaz9a hya li tna9as la3mar</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3207c0bd-a71e-4dd8-a5a5-48926c002ec8</ID_ARABIZIENTRY>
+    <ArabiziText>ssttandaly3ou ttawra 9ablla ttawassoull lly holloll</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b93f33ad-b716-4ea4-b00a-1ed39a7d91a6</ID_ARABIZIENTRY>
+    <ArabiziText>Byna 3la sbah jayn fhalhom kimdaw rir fi b3dythom</ArabiziText>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>08f68f01-ae9e-4abd-8b5e-30e06b313189</ID_ARABIZIENTRY>
+    <ArabiziText>Lhaz9a hya li tna9as la3mar</ArabiziText>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
