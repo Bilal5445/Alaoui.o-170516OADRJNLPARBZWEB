@@ -251,9 +251,9 @@ namespace ArabicTextAnalyzer.Controllers
 
             // standard behaviour when we are about to find the right variant
             var variants = textConverter.GetAllTranscriptions(arabiziWord);
-            if (variants.Count > 50)
+            if (variants.Count > 100)
             {
-                ViewBag.MostPopularVariant = "More than 50 variants";
+                ViewBag.MostPopularVariant = "More than 100 variants";
 
                 // send size of corupus
                 @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
