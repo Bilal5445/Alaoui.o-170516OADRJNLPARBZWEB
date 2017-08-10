@@ -55,7 +55,7 @@ namespace ArabicTextAnalyzer.Business.Provider
                 {
                     if (guid != Guid.Empty)
                         newhtml = $@"&rlm;<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{latinWord}</mark></b>
-                                    <a href='/Train/X/?arabiziWord={latinWord}&arabiziWordGuid={guid}'>
+                                    <a href='/Train/Train_AddToCorpus/?arabiziWord={latinWord}&arabiziWordGuid={guid}'>
                                         <span class='badge'>{count}</span>
                                     </a>";
                     else

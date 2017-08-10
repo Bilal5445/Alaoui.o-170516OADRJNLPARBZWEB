@@ -1,8 +1,13 @@
 ﻿using ArabicTextAnalyzer.Domain.Models;
+using Microsoft.CSharp.RuntimeBinder;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
@@ -38,14 +43,29 @@ namespace ArabicTextAnalyzer.Business.Provider
             }
         }
 
+        public void SerializeBack_dataPath<T>(List<T> entries, String dataPath)
+        {
+            //
+            XmlSerializer serializer = new XmlSerializer(entries.GetType());
+
+            //
+            var path = dataPath + "/data_" + typeof(T).Name + ".txt";
+
+            // write back
+            using (var writer = new StreamWriter(path))
+            {
+                serializer.Serialize(writer, entries);
+                writer.Flush();
+            }
+        }
+
         public List<T> Deserialize<T>(String dataPath)
         {
             List<T> entries = new List<T>();
 
-            // var path = Server.MapPath("~/App_Data/data_" + typeof(T).Name + ".txt");
             var path = dataPath + "/data_" + typeof(T).Name + ".txt";
             var serializer = new XmlSerializer(entries.GetType());
-            using (var reader = new System.IO.StreamReader(path))
+            using (var reader = new StreamReader(path))
             {
                 entries = (List<T>)serializer.Deserialize(reader);
             }
@@ -106,5 +126,107 @@ namespace ArabicTextAnalyzer.Business.Provider
                 writer.Flush();
             }
         }
+
+        /*public void Serialize_Delete_Entry<T>(Guid id_entry, String path)
+        {
+            // deserialize / serialize entries : read / del / write back
+
+            //
+            List<T> entries = Deserialize2<T>(path);
+
+            //
+            RemoveItemFromList(entries, id_entry);
+
+            // write back
+            XmlSerializer serializer = new XmlSerializer(entries.GetType());
+            using (var writer = new StreamWriter(path))
+            {
+                serializer.Serialize(writer, entries);
+                writer.Flush();
+            }
+        }*/
+
+        public void Serialize_Delete_M_ARABIZIENTRY_Cascading(Guid id_arabizientry, String dataPath)
+        {
+            // load/deserialize M_ARABICDARIJAENTRY
+            List<M_ARABICDARIJAENTRY> arabicdarijaentries = Deserialize<M_ARABICDARIJAENTRY>(dataPath);
+
+            // filter on the one linked to current arabizi entry
+            var arabicdarijaentry = arabicdarijaentries.Single(m => m.ID_ARABIZIENTRY == id_arabizientry);
+
+            // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
+            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordEntries = Deserialize<M_ARABICDARIJAENTRY_LATINWORD>(dataPath);
+
+            // filter on the ones linked to current arabic darija entry
+            var linkedlatinWordEntries = latinWordEntries.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY).ToList();
+
+            // remove latin words
+            foreach (var latinWordEntry in linkedlatinWordEntries)
+            {
+                RemoveItemFromList(latinWordEntries, latinWordEntry.ID_ARABICDARIJAENTRY_LATINWORD);
+            }
+
+            // remove arabic darija
+            RemoveItemFromList(arabicdarijaentries, arabicdarijaentry.ID_ARABICDARIJAENTRY);
+
+            // remove arabizi
+            List<M_ARABIZIENTRY> arabizientries = Deserialize<M_ARABIZIENTRY>(dataPath);
+            RemoveItemFromList(arabizientries, id_arabizientry);
+
+            // serialize back
+            SerializeBack_dataPath<M_ARABICDARIJAENTRY_LATINWORD>(latinWordEntries, dataPath);
+            SerializeBack_dataPath<M_ARABICDARIJAENTRY>(arabicdarijaentries, dataPath);
+            SerializeBack_dataPath<M_ARABIZIENTRY>(arabizientries, dataPath);
+        }
+
+        #region BACK YARD BO
+        public void RemoveItemFromList<T>(List<T> entries, Guid id_entry)
+        {
+            // find PK field name
+            var member = "ID_" + typeof(T).Name.Substring(2);   // skip "M_"
+
+            // remove
+            entries.RemoveAll(m => id_entry == (Guid)GetProperty(m, member));
+        }
+
+        /*public List<T> Deserialize2<T>(String path)
+        {
+            List<T> entries = new List<T>();
+
+            var serializer = new XmlSerializer(entries.GetType());
+            using (var reader = new StreamReader(path))
+            {
+                entries = (List<T>)serializer.Deserialize(reader);
+            }
+
+            return entries;
+        }*/
+
+        public static object GetProperty(object o, string member)
+        {
+            if (o == null) throw new ArgumentNullException("o");
+            if (member == null) throw new ArgumentNullException("member");
+            Type scope = o.GetType();
+            IDynamicMetaObjectProvider provider = o as IDynamicMetaObjectProvider;
+            if (provider != null)
+            {
+                ParameterExpression param = Expression.Parameter(typeof(object));
+                DynamicMetaObject mobj = provider.GetMetaObject(param);
+                GetMemberBinder binder = (GetMemberBinder)Microsoft.CSharp.RuntimeBinder.Binder.GetMember(0, member, scope, new CSharpArgumentInfo[] { CSharpArgumentInfo.Create(0, null) });
+                DynamicMetaObject ret = mobj.BindGetMember(binder);
+                BlockExpression final = Expression.Block(
+                    Expression.Label(CallSiteBinder.UpdateLabel),
+                    ret.Expression
+                );
+                LambdaExpression lambda = Expression.Lambda(final, param);
+                Delegate del = lambda.Compile();
+                return del.DynamicInvoke(o);
+            }
+            else
+            {
+                return o.GetType().GetProperty(member, BindingFlags.Public | BindingFlags.Instance).GetValue(o, null);
+            }
+        }
+        #endregion
     }
 }

@@ -11,6 +11,7 @@ using OADRJNLPCommon.Models;
 using OADRJNLPCommon.Business;
 using ArabicTextAnalyzer.Domain.Models;
 using System.Xml.Serialization;
+using ArabicTextAnalyzer.Models;
 
 namespace ArabicTextAnalyzer.Controllers.Tests
 {
@@ -623,6 +624,54 @@ namespace ArabicTextAnalyzer.Controllers.Tests
 
             //
             Assert.IsTrue(calls_free < 1000);
+        }
+
+        [TestMethod()]
+        public void ut_170809_test_remove_dynamic_data()
+        {
+            Guid id_entry = new Guid("a04291d8-60b0-4179-bc4b-c755c34a1fac");
+            // var path = @"C:\Users\Yahia Alaoui\Desktop\DEV\170516OADRJNLPARBZWEB\ArabicTextAnalyzer\App_Data\data_M_ARABIZIENTRY.txt";
+            var path = @"C:\Users\Yahia Alaoui\Desktop\DEV\170516OADRJNLPARBZWEB\ArabicTextAnalyzer\App_Data\";
+            // List<M_ARABIZIENTRY> entries = new TextPersist().Deserialize2<M_ARABIZIENTRY>(path);
+            List<M_ARABIZIENTRY> entries = new TextPersist().Deserialize<M_ARABIZIENTRY>(path);
+            Assert.IsTrue(entries.SingleOrDefault(m => m.ID_ARABIZIENTRY == id_entry) != null);
+            var size = entries.Count;
+
+            new TextPersist().RemoveItemFromList(entries, id_entry);
+            Assert.IsTrue(entries.SingleOrDefault(m => m.ID_ARABIZIENTRY == id_entry) == null);
+            var newsize = entries.Count;
+            Assert.IsTrue(size == newsize + 1);
+        }
+
+        [TestMethod()]
+        public void ut_170809_test_remove_dynamic_linked_data()
+        {
+            var dataPath = @"C:\Users\Yahia Alaoui\Desktop\DEV\170516OADRJNLPARBZWEB\ArabicTextAnalyzer\App_Data\";
+
+            List<M_ARABIZIENTRY> arabizientries = new TextPersist().Deserialize<M_ARABIZIENTRY>(dataPath);
+            List<M_ARABICDARIJAENTRY> arabicdarijaentries = new TextPersist().Deserialize<M_ARABICDARIJAENTRY>(dataPath);
+            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordEntries = new TextPersist().Deserialize<M_ARABICDARIJAENTRY_LATINWORD>(dataPath);
+
+            var size10 = arabizientries.Count;
+            var size20 = arabicdarijaentries.Count;
+            var size30 = latinWordEntries.Count;
+
+            Guid id_arabizi = new Guid("3e72b496-7791-4903-b882-816249f26c4e");
+            new TextPersist().Serialize_Delete_M_ARABIZIENTRY_Cascading(id_arabizi, dataPath);
+
+            arabizientries = new TextPersist().Deserialize<M_ARABIZIENTRY>(dataPath);
+            arabicdarijaentries = new TextPersist().Deserialize<M_ARABICDARIJAENTRY>(dataPath);
+            latinWordEntries = new TextPersist().Deserialize<M_ARABICDARIJAENTRY_LATINWORD>(dataPath);
+
+            var size11 = arabizientries.Count;
+            var size21 = arabicdarijaentries.Count;
+            var size31 = latinWordEntries.Count;
+
+            Assert.IsTrue(size11 == size10 - 1);
+            Assert.AreEqual(size10, size20);
+            Assert.AreEqual(size11, size21);
+            Assert.IsTrue(size21 == size20 - 1);
+            Assert.IsTrue(size31 == size30 - 2);
         }
     }
 }

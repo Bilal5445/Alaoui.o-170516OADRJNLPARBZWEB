@@ -85,33 +85,6 @@ namespace ArabicTextAnalyzer.Controllers
             return RedirectToAction("Index");
         }
 
-        /*[HttpPost]
-        public ActionResult TrainStepTwo_Tag_LatinWords(M_ARABICDARIJAENTRY arabicDarijaEntry)
-        {
-            {
-                // latin words
-                Regex regex = new Regex(@"\p{IsBasicLatin}");
-                var matches = regex.Matches(arabicDarijaEntry.ArabicDarijaText);
-
-                // 
-                foreach (var match in matches)
-                {
-                    var latinWord = new M_ARABICDARIJAENTRY_LATINWORD
-                    {
-                        ID_ARABICDARIJAENTRY = arabicDarijaEntry.ID_ARABICDARIJAENTRY,
-                        LatinWord = (String)match
-                    };
-
-                    // Save to Serialization
-                    String path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_LATINWORD.txt");
-                    new TextPersist().Serialize<M_ARABICDARIJAENTRY_LATINWORD>(latinWord, path);
-                }
-            }
-
-            //
-            return RedirectToAction("Index");
-        }*/
-
         [HttpPost]
         public ActionResult ArabicDarijaEntryPartialView()
         {
@@ -167,7 +140,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [HttpGet]
-        public ActionResult X(String arabiziWord, Guid arabiziWordGuid)
+        public ActionResult Train_AddToCorpus(String arabiziWord, Guid arabiziWordGuid)
         {
             var textConverter = new TextConverter();
             String twinglyApi15Url = "https://data.twingly.net/socialfeed/a/api/v1.5/";
@@ -336,6 +309,14 @@ namespace ArabicTextAnalyzer.Controllers
                     return View("Index");
                 }
             }
+        }
+
+        [HttpGet]
+        public ActionResult Train_DeleteEntry(Guid arabiziWordGuid)
+        {
+
+
+            return View("Index");
         }
 
         [HttpGet]
