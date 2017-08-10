@@ -12,9 +12,17 @@ namespace ArabicTextAnalyzer.Business.Provider
     public class TextFrequency
     {
         //
-        // const String pathToArabiziEnv = @"C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\";
-        const String pathToCorpus = PathConstant.pathToArabiziEnv + @"corpus\";
-        const String pathToDictFile = pathToCorpus + @"170426_extended_dict.txt";
+        // const String pathToCorpus = PathConstant.pathToArabiziEnv + @"corpus\";
+        // const String pathToDictFile = pathToCorpus + @"170426_extended_dict.txt";
+
+        public String pathToCorpus { get; }
+        public String pathToDictFile { get; }
+
+        public TextFrequency ()
+        {
+            pathToCorpus = PathConstant.pathToArabiziEnv + @"corpus\";
+            pathToDictFile = pathToCorpus + @"170426_extended_dict.txt";
+        }
 
         public void AddPhraseToCorpus(String post)
         {

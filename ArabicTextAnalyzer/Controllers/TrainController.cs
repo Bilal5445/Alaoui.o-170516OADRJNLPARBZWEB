@@ -37,7 +37,7 @@ namespace ArabicTextAnalyzer.Controllers
             // Arabizi to arabic from perl script
             if (arabiziEntry.ArabiziText != null)
             {
-                // complete arabizi
+                // complete arabizi entry
                 arabiziEntry.ID_ARABIZIENTRY = Guid.NewGuid();
 
                 // prepare darija from perl script
@@ -115,7 +115,9 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpPost]
         public ActionResult ArabicDarijaEntryPartialView()
         {
-            // deserialize M_ARABICDARIJAENTRY
+            // This action is called at each reload of train main view, via Ajax to fill the partial view of the grid arabizi/arabic
+
+            // load/deserialize M_ARABICDARIJAENTRY
             List<M_ARABICDARIJAENTRY> entries = new List<M_ARABICDARIJAENTRY>();
             String path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY).Name + ".txt");
             XmlSerializer serializer = new XmlSerializer(entries.GetType());
@@ -124,7 +126,7 @@ namespace ArabicTextAnalyzer.Controllers
                 entries = (List<M_ARABICDARIJAENTRY>)serializer.Deserialize(reader);
             }
 
-            // deserialize M_ARABICDARIJAENTRY_LATINWORD
+            // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
             List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = new List<M_ARABICDARIJAENTRY_LATINWORD>();
             path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_LATINWORD).Name + ".txt");
             serializer = new XmlSerializer(latinWordsEntries.GetType());
@@ -133,7 +135,7 @@ namespace ArabicTextAnalyzer.Controllers
                 latinWordsEntries = (List<M_ARABICDARIJAENTRY_LATINWORD>)serializer.Deserialize(reader);
             }
 
-            // deserialize M_ARABIZIENTRY
+            // load/deserialize M_ARABIZIENTRY
             List<M_ARABIZIENTRY> arabiziEntries = new List<M_ARABIZIENTRY>();
             path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABIZIENTRY).Name + ".txt");
             serializer = new XmlSerializer(arabiziEntries.GetType());
@@ -150,9 +152,9 @@ namespace ArabicTextAnalyzer.Controllers
                 var x = new Class2
                 {
                     ArabicDarijaEntry = arabicdarijaentry,
-                    // ArabicDarijaEntryLatinWords = perEntryLatinWordsEntries.Select(m => m.LatinWord).ToList(),
                     ArabicDarijaEntryLatinWords = perEntryLatinWordsEntries,
-                    ArabiziEntryText = arabiziEntries.Single(m => m.ID_ARABIZIENTRY == arabicdarijaentry.ID_ARABIZIENTRY).ArabiziText
+                    // ArabiziEntryText = arabiziEntries.Single(m => m.ID_ARABIZIENTRY == arabicdarijaentry.ID_ARABIZIENTRY).ArabiziText
+                    ArabiziEntry = arabiziEntries.Single(m => m.ID_ARABIZIENTRY == arabicdarijaentry.ID_ARABIZIENTRY)
                 };
                 xs.Add(x);
             }

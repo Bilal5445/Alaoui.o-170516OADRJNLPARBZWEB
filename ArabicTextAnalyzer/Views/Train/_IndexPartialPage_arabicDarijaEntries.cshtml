@@ -3,14 +3,19 @@
 @model List<ArabicTextAnalyzer.ViewModels.Class2>
 <table class="posts">
     <tr class="header">
-        <th class="center top">Arabizi</th>
-        <th class="center top">Arabic</th>
+        <th class="center top col120px">Date</th>
+        <th class="center top col50prc">Arabizi</th>
+        <th class="center top col50prc">Arabic</th>
+        <th class="center top col20px"></th>
     </tr>
     @foreach (var entry in Model)
     {
         <tr>
-            <td class="arabizi-text top">@entry.ArabiziEntryText</td>
+            <td>@entry.ArabiziEntry.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm")</td>
+            @*<td class="arabizi-text top">@entry.ArabiziEntryText</td>*@
+            <td class="arabizi-text top">@entry.ArabiziEntry.ArabiziText</td>
             <td class="arabic-text top">@Html.Raw(@TextTools.HighlightExtractedLatinWords(@entry.ArabicDarijaEntry.ArabicDarijaText, @entry.ArabicDarijaEntryLatinWords))</td>
+            <td></td>
         </tr>
     }
 </table>

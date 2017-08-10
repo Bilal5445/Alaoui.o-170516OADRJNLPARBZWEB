@@ -22,6 +22,7 @@
                 <div class="panel-heading">Arabizi</div>
                 <div class="panel-body" style="padding: 0; height: 150px">
                     @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "height: 100%; width: 100%", @required = "required" })
+                    @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
                 </div>
             </div>
         </div>
@@ -49,6 +50,7 @@
                 </div>
             </div>
         </div>
+        <!-- column 4 : twingly accounts -->
         <div class="col-md-4">
             <div class="panel panel-default active arabic ">
                 <div class="panel-heading">Twingly</div>

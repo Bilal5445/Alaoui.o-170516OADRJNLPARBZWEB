@@ -32,6 +32,16 @@ tr.header {
     padding-right: 2px;
 }
 
+.posts th.col50prc {
+    width: 50%;
+}
+.posts th.col20px {
+    width: 20px;
+}
+.posts th.col120px {
+    width: 120px;
+}
+
 td.arabic-text {
     direction: rtl;
 }
