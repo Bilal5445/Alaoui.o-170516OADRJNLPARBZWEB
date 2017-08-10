@@ -2750,4 +2750,9 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ID_ARABIZIENTRY>0590fe49-32eb-40bc-bf68-9481f3520c6d</ID_ARABIZIENTRY>
     <ArabicDarijaText>السلام douzim كي دايرين حول طيب لمهم انا عندي لكم والحض تنقنق سكنت سانك تقدر douwzouha ف برنامج اختر لمجرمين لواحد شخص ملقب ب ا / ا طبيب كان kaystdrej ضحايا ديال المكان خلي و kayt3eda عليهم حتى اليوم 4 غوشة 2017 واحد دحي kherjjat عن سقط ديالها و فضحت ف واحد المجموع كان kaystaghel المهنة شارف ديالو و kaystaghl فتيات و kaywa3dhoum ب زواج انا 3titkoum ب خلص و albghito tchriw من عند مازد من المعلومة rasslouni فل خاص و نتفاهمو على تما و ديك ساعة نعطيكم لي detay parsko كنعرف وحدة من ضحايا ديال دمتم متألقين</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>30ebbb81-c970-4357-a78d-207bc3301f9a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a04291d8-60b0-4179-bc4b-c755c34a1fac</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تجريبى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
