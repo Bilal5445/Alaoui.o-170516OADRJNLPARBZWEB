@@ -66,7 +66,7 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public string Preprocess_le(string arabizi)
         {
-            // wa3acha al malik => wa3acha almalik
+            // ex : on mix le fr avec l'arabe : 'le' dans le sens 'al'
             String pattern = RegexConstant.leRule;
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "al", RegexOptions.IgnoreCase);
 
