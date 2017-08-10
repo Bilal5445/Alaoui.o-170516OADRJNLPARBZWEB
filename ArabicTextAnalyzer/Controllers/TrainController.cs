@@ -126,13 +126,12 @@ namespace ArabicTextAnalyzer.Controllers
                 {
                     ArabicDarijaEntry = arabicdarijaentry,
                     ArabicDarijaEntryLatinWords = perEntryLatinWordsEntries,
-                    // ArabiziEntryText = arabiziEntries.Single(m => m.ID_ARABIZIENTRY == arabicdarijaentry.ID_ARABIZIENTRY).ArabiziText
                     ArabiziEntry = arabiziEntries.Single(m => m.ID_ARABIZIENTRY == arabicdarijaentry.ID_ARABIZIENTRY)
                 };
                 xs.Add(x);
             }
 
-            // reverse order
+            // reverse order to latest entry in top
             xs.Reverse();
 
             // pass entries to partial view via the model (instead of the bag for a view)
@@ -314,9 +313,12 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public ActionResult Train_DeleteEntry(Guid arabiziWordGuid)
         {
+            var dataPath = Server.MapPath("~/App_Data/");
+            new TextPersist().Serialize_Delete_M_ARABIZIENTRY_Cascading(arabiziWordGuid, dataPath);
 
-
-            return View("Index");
+            //
+            // return View("Index");
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -348,7 +350,8 @@ namespace ArabicTextAnalyzer.Controllers
             new TextPersist().Serialize<M_TWINGLYACCOUNT>(alaouiDOToATgmailDOTcom, path);
 
             //
-            return View("Index");
+            // return View("Index");
+            return RedirectToAction("Index");
         }
     }
 }
