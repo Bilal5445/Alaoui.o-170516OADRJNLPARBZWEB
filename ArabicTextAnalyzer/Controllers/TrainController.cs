@@ -146,7 +146,6 @@ namespace ArabicTextAnalyzer.Controllers
             String twinglyApiUrl = "https://data.twingly.net/socialfeed/a/api/";
 
             // obtain current twingly key
-            // String twinglyApiKey = "2A4CF6A4-4968-46EF-862F-2881EF597A55";
             List<M_TWINGLYACCOUNT> twinglyAccounts = new List<M_TWINGLYACCOUNT>();
             var path = Server.MapPath("~/App_Data/data_" + typeof(M_TWINGLYACCOUNT).Name + ".txt");
             var serializer = new XmlSerializer(twinglyAccounts.GetType());
@@ -351,6 +350,50 @@ namespace ArabicTextAnalyzer.Controllers
 
             //
             // return View("Index");
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult TwinglySetup_changeActiveAccount(Guid newlyActive_id_twinglyaccount_api_key)
+        {
+            // deserialize & send twingly accounts
+            var twinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
+
+            // disable active one
+            twinglyAccounts.Find(m => m.CurrentActive == "active").CurrentActive = String.Empty;
+
+            // active the selected one
+            twinglyAccounts.Find(m => m.ID_TWINGLYACCOUNT_API_KEY == newlyActive_id_twinglyaccount_api_key).CurrentActive = "active";
+
+            // Save back to Serialization
+            new TextPersist().SerializeBack_dataPath<M_TWINGLYACCOUNT>(twinglyAccounts, Server.MapPath("~/App_Data"));
+
+            //
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult TwinglySetup_AddNewActiveAccount(Guid newlyActive_id_twinglyaccount_api_key)
+        {
+            // deserialize & send twingly accounts
+            var twinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
+
+            // disable active one
+            twinglyAccounts.Find(m => m.CurrentActive == "active").CurrentActive = String.Empty;
+
+            //
+            twinglyAccounts.Add(new M_TWINGLYACCOUNT
+            {
+                ID_TWINGLYACCOUNT_API_KEY = newlyActive_id_twinglyaccount_api_key,
+                UserName = "",
+                calls_free = 1000,
+                CurrentActive = "active"
+            });
+
+            // Save back to Serialization
+            new TextPersist().SerializeBack_dataPath<M_TWINGLYACCOUNT>(twinglyAccounts, Server.MapPath("~/App_Data"));
+
+            //
             return RedirectToAction("Index");
         }
     }

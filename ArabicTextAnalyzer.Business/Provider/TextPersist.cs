@@ -43,6 +43,19 @@ namespace ArabicTextAnalyzer.Business.Provider
             }
         }
 
+        /*public void SerializeBack_path<T>(List<T> entries, String path)
+        {
+            //
+            XmlSerializer serializer = new XmlSerializer(entries.GetType());
+
+            // write back
+            using (var writer = new StreamWriter(path))
+            {
+                serializer.Serialize(writer, entries);
+                writer.Flush();
+            }
+        }*/
+
         public void SerializeBack_dataPath<T>(List<T> entries, String dataPath)
         {
             //
@@ -126,6 +139,33 @@ namespace ArabicTextAnalyzer.Business.Provider
                 writer.Flush();
             }
         }
+
+        /*public void Serialize_Update_M_TWINGLYACCOUNT_CurrentActive(Guid id_twinglyaccount_api_key, String currentActive, String path)
+        {
+            //
+            List<M_TWINGLYACCOUNT> entries = new List<M_TWINGLYACCOUNT>();
+            XmlSerializer serializer = new XmlSerializer(entries.GetType());
+
+            //
+            if (File.Exists(path) && new FileInfo(path).Length > 0)
+            {
+                // deserialize / serialize entries : read / add / write back
+                using (var reader = new StreamReader(path))
+                {
+                    entries = (List<M_TWINGLYACCOUNT>)serializer.Deserialize(reader);
+                }
+            }
+
+            // add
+            entries.Find(m => m.ID_TWINGLYACCOUNT_API_KEY == id_twinglyaccount_api_key).CurrentActive = currentActive;
+
+            // write back
+            using (var writer = new StreamWriter(path))
+            {
+                serializer.Serialize(writer, entries);
+                writer.Flush();
+            }
+        }*/
 
         /*public void Serialize_Delete_Entry<T>(Guid id_entry, String path)
         {

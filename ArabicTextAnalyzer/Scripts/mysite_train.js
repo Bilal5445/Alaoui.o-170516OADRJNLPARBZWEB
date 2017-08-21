@@ -15,3 +15,44 @@
         }
     });
 });
+
+// event when we switch between twingly accounts radio buttons
+$("#myButtons :input").change(function () {
+
+    console.log($(this).parent().text().split(/\ +/)[1]);
+
+    $.ajax({
+        type: 'POST',
+        url: "/Train/TwinglySetup_changeActiveAccount",
+        data: { "newlyActive_id_twinglyaccount_api_key": $(this).parent().text().split(/\ +/)[1] },
+        failure: function (response) {
+            console.log(response);
+        },
+        error: function (response) {
+            console.log(response);
+        }
+    });
+});
+
+// event when we enter a new twingly account
+$('#txtNewTwinglyAccount').keydown(function (e) {
+    var key = e.which;
+    if (key == 13)  // the enter key code
+    {
+        console.log($(this).val());
+        $.ajax({
+            type: 'POST',
+            url: "/Train/TwinglySetup_AddNewActiveAccount",
+            data: { "newlyActive_id_twinglyaccount_api_key": $(this).val() },
+            success: function() {
+                location.reload();
+            },
+            failure: function (response) {
+                console.log(response);
+            },
+            error: function (response) {
+                console.log(response);
+            }
+        });
+    }
+});
