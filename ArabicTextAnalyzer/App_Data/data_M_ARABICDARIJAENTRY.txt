@@ -1780,11 +1780,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>مومو دشي حاجة زوينة فضوة kdimmmm ... ?</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>43461e58-b506-4a7f-9f88-ba24ebfcd10d</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>f778fbfc-5bb1-4bf2-a84b-3b71d770a82a</ID_ARABIZIENTRY>
-    <ArabicDarijaText>9diiiimm ب مم mais كمك</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>f3fe6fbd-69ad-492e-833f-d3a72dfca4d3</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>8c9117d7-b8e1-4051-a7c0-356cfc869a3b</ID_ARABIZIENTRY>
     <ArabicDarijaText>مومه توحشناك صباح بلا بيك والو من نهار مشيت mb9ina kanfi9o هتز 12 مم رجع لينا دغيا توحشناك</ArabicDarijaText>
@@ -1958,11 +1953,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ID_ARABICDARIJAENTRY>278fb389-8cae-40c7-8c26-2c538bc5770e</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>93a5d53a-2976-4cc1-96e4-96f5c8ed92ed</ID_ARABIZIENTRY>
     <ArabicDarijaText>انا كنقل را تعي و الى ما عجب شي سوق هذاك 😁 و ن plus را لقنت كتقرا مزيان را قلت بل تا انا kat3jebni ك صوت à ستاذ .. .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>ef57b1b7-2298-4219-b5e4-12097a3c1622</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>ed1976c9-0be3-4cfa-b132-d9179f234ae5</ID_ARABIZIENTRY>
-    <ArabicDarijaText>الله 1 ن ترس بل فيش mais ن فاشيون 0 katlabss شي tkachat trop chargé من شيمة و فصلتهم لا علاقة + bcp بيجوش قبا vraiment بلدي بحال احلام</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>3b4bd317-326f-4ce8-9035-534c302fc1ac</ID_ARABICDARIJAENTRY>
@@ -2230,11 +2220,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>بصحتكم ولكن خشم تفكر ناس لي خدامين مع ث سلطان ف فرانس</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>55bb7a0b-19f7-441a-8f1d-c3dd665c29e0</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>06dc851f-ad07-4dfe-918d-6975c94b70e7</ID_ARABIZIENTRY>
-    <ArabicDarijaText>سلام ختي واحد سيد فيه مرد سرطان وبرث مساعدة ... من الى fa9lobhom رحم هي طلب ليوقف معاه بواحد العملية ديال جلالة ... في عينها ..... البر ها نوم ديال مش هو خلص هي بغت را l'opération ها نوم ديال 06.74.02.29.03 سميتها جميلة</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>e81d2d5c-d347-4d93-88b6-7331ad99987b</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>50497005-3bd3-4d52-8584-c16a7c029331</ID_ARABIZIENTRY>
     <ArabicDarijaText>السلام khàoùla برون , inwi في خدماتكم . هاد العرض خاص ب زبناء لي عندهم يشترك منين يتسلى ليهم رصد ديال إنترنت ثيمكن يبقو يستفض من فيس بوك و واتساب . inwi تتشكركم على خلص ديالكم .</ArabicDarijaText>
@@ -2300,11 +2285,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>بصحتكم حبيبة سلم على كنز وله حتى توحشتكم</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>e87d051d-97f5-4049-9a58-7c710fb8f0a7</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>60a07ed7-1ce6-4228-913f-f05e7a4f6daa</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام هل ممكن مساعدة المشكل لي عندي tasra9li طل و مشاتل حتى نمرا ولكن فاش بغيت نردح talblo خير 3 د nwamer حضارة معاهم ولكن ما بقيت شي عاقل عليهم هاد نم بلا شتراك هل كان شي حال و مغص</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>74bd84f2-fdb6-48a1-9667-1a61d1037f53</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>0a774c0b-bf4d-4ba9-93e8-e42bbcf875bc</ID_ARABIZIENTRY>
     <ArabicDarijaText>تباركله عليك ا دنيا ربي حفظك وكمل عليك ب الغر إنشالله تفرحي و و و هاد زارت من الله يفرحك نتي مغربية 100f al100 البر الي بغا لي كهه جبهة فرص بن كنحب بزاف الط بطم كنمط عليكم</ArabicDarijaText>
@@ -2315,13 +2295,38 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>السلام jâwãd حمداوي , inwi في خدماتكم . إذا كان عندكم العرض ديال tictac , باش تستفد من 60 ثواني ديال dépannage منين يتقضى لكم رصده , خاصكم منين الله تدير تعبق تصل ب * 1010 # appel باش منين يتقضى لكم رصده تقدر تستفد من . inwi تتشكركم على خلص ديالكم .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>2e0df6d5-6d40-4586-9032-b79ff2b4fbeb</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>f096951c-d98b-488d-8f10-e4b257d3db47</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام عبدالله لحفض , inwi في خدماتكم . باش تخدم لكم لا 4g ولا خاصكم تكون تتوجد ب مدينة فيه تغطية ديال لا 4g و الهاتف ديالكم خاص تكون فيه الخدمة ديال لا 4g متوافرة و اخيرا خاص تكون عندكم لبتك sim فيه حتى هي الخدمة ديال لا 4g , باش تغير لبتك ديال inwi al4g تواجه من فضلكم الوكالة ديال inwi , تغير ب 30 درهم , إذا كان عندكم يشترك تغير لبتك ماجان . inwi تتشكركم على خلص ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>cb6c3da2-754e-42d3-b11c-929589bde2e8</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>a04128f6-5619-4cb3-b221-c1d7977f0f11</ID_ARABIZIENTRY>
     <ArabicDarijaText>هه و كي حول دير شي حاجة جديد نتوما غي كتنقلو ف كلشي و بزاف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>50a45821-42ea-4dd9-80db-ea50dc8ae7e7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>713e9246-3172-48f9-8901-96177c774157</ID_ARABIZIENTRY>
+    <ArabicDarijaText>9diiiimm ب مم ولكن قومك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>aa027abf-ab6d-4c93-a098-6fb27234eaf5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5feb7854-9e80-424c-989e-4f9e5d320709</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ما قال لينا والو ... غير تسنطح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6e1a8d24-5905-4bdb-85ec-dda1b08338d4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8424b8c3-6753-4071-954b-83d20cd67110</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سلام ختي واحد سيد فيه مرد صاغتا وبرات مساعدة ... من الى فقلوبهم رحم هي طلب لوقف معاه بواحد العملية ديال جلالة ... في عينها ..... ليبر ها نوم ديال مش هو خالص هي برات را l'opération ها نوم ديال 06.74.02.29.03 سميتها جميلة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4938c5e1-cae4-4976-a7a5-93dcbfa66cd5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3dd9d54a-a61d-4c2c-bee0-80edc6095ace</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام هل ممكن مساعدة المشكل لي عندي tasra9li طل و مشاتل حتى نمر ولكن فاش بغيت نردها طلب خير 3 د نوامر هدرت معاهم ولكن ما بقيت شي عاقل عليهم هاد نوم بلا شتراك هل كان شي حال و مرك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c4b33be6-dc8e-4937-929f-27370ece9fbd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>045f654c-c398-4f29-898c-79c2e61e48f5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الله ا ن ترس بل فوش ولكن ن فاشيون 0 كتلبس شي tkachat trop chargé من شيمة و فصلتهم لا علاقة + bcp بجوش كابا vraiment بلدي بحال حلم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8f6c0178-1880-410d-a53d-7bee4f5466a1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c66e7165-b1f9-42b0-882a-9c591e282eaa</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام عبدالله الحفظ , inwi في خدمتكم . باش تخدم لكم لا 4g ولا خاصكم تكون تتواجد ب مدينة فيه تغطي ديال لا 4g و الهاتف ديالكم خاص تكون فيه الخدمة ديال لا 4g متوافر و اخيرا خاص تكون عندكم لبطاقة sim فيه حتى هي الخدمة ديال لا 4g , باش تغير لبطاقة ديال inwi al4g تواجه من فضلكم الوكالة ديال inwi , تغير ب 30 درهم , إذا كان عندكم يشترك تغير لبطاقة ماجنى . inwi تتشكركم على خلص ديالكم .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

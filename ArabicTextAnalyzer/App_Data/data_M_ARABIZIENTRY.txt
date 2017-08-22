@@ -1840,11 +1840,6 @@ fin knti b3da ghbertiiiiiiii😕</ArabiziText>
     <ArabiziEntryDate>2017-08-11T09:01:21</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>f778fbfc-5bb1-4bf2-a84b-3b71d770a82a</ID_ARABIZIENTRY>
-    <ArabiziText>9diiiimm aba momo ms komik</ArabiziText>
-    <ArabiziEntryDate>2017-08-11T09:01:40</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>8c9117d7-b8e1-4051-a7c0-356cfc869a3b</ID_ARABIZIENTRY>
     <ArabiziText>momo tewhchnak sbah bla bik walo mn nhar mxiti mb9ina kanfi9o htz 12 momo rej3 lina deghya tewhchnak</ArabiziText>
     <ArabiziEntryDate>2017-08-11T09:01:58</ArabiziEntryDate>
@@ -2018,11 +2013,6 @@ fin knti b3da ghbertiiiiiiii😕</ArabiziText>
     <ID_ARABIZIENTRY>93a5d53a-2976-4cc1-96e4-96f5c8ed92ed</ID_ARABIZIENTRY>
     <ArabiziText>Ana kangoul ra2y ta3i ou li ma3ejbouch so9o hadak 😁 et en plus ra lakenti kat9ray mezyan ra gelt bli ta ana kat3jebni ka sawt à oustada ...</ArabiziText>
     <ArabiziEntryDate>2017-08-11T09:27:39</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>ed1976c9-0be3-4cfa-b132-d9179f234ae5</ID_ARABIZIENTRY>
-    <ArabiziText>elle a une tres belle voix mais en fashion 0 katlabss chi tkachat trop chargé men chaimaa o fsalthom la 3ala9a+bcp bijoux kaban vraiment baldia bhal a7lam</ArabiziText>
-    <ArabiziEntryDate>2017-08-11T09:29:51</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>925e66b4-e2f8-4599-9c14-5f9b45fb0ace</ID_ARABIZIENTRY>
@@ -2290,11 +2280,6 @@ fin knti b3da ghbertiiiiiiii😕</ArabiziText>
     <ArabiziEntryDate>2017-08-12T18:38:48</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>06dc851f-ad07-4dfe-918d-6975c94b70e7</ID_ARABIZIENTRY>
-    <ArabiziText>SLAM akhoti wa7ad sayda fiha mard saratan obrat mosa3ada ...man li fa9lobhom ra7ma ohiya talba liw9af m3aha bwa7ad l3amaliya dial jlala...fi 3ayniha .....libra ha num diala imchi Howa ikhalas hiya brat ra l'opération ha num diala 06.74.02.29.03 smitha jamila	</ArabiziText>
-    <ArabiziEntryDate>2017-08-12T18:40:04</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>50497005-3bd3-4d52-8584-c16a7c029331</ID_ARABIZIENTRY>
     <ArabiziText>Salam Khàoùla Brune, inwi fi khidmatikoum. Had l3ared khas be zoubana2 li 3andhoum ichtirak mnin yetsala lihoum raside dial internet tayamken yebakw yestafdou men Facebook ou Whatsapp. inwi tatchkarkoum 3la ikhlas dialkoum.</ArabiziText>
     <ArabiziEntryDate>2017-08-12T18:41:41</ArabiziEntryDate>
@@ -2360,11 +2345,6 @@ fin knti b3da ghbertiiiiiiii😕</ArabiziText>
     <ArabiziEntryDate>2017-08-12T19:07:12</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>60a07ed7-1ce6-4228-913f-f05e7a4f6daa</ID_ARABIZIENTRY>
-    <ArabiziText>Salam wach momkin mosa3ada lmochkil li 3andi tasra9li tele o mchatli 7ta namra ms fach bghit nradha talblo akhir 3 d nwamer hdart m3ahom ms mab9itch 3a9l 3lihom had num bla chtirak wach kayn chi 7al et merci</ArabiziText>
-    <ArabiziEntryDate>2017-08-12T19:14:26</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>0a774c0b-bf4d-4ba9-93e8-e42bbcf875bc</ID_ARABIZIENTRY>
     <ArabiziText>tbarkllah 3lik a dounia rabi Y7fdkk wykml 3lik b lrer inchallh tfr7i you you you hadi zarrouta mni allah ifr7k inti maghribiyya 100f l100 libra li bra li kkkhh ijibha frasou bana kan7bb bzaf ailat batma kanmout 3likoum</ArabiziText>
     <ArabiziEntryDate>2017-08-12T19:20:29</ArabiziEntryDate>
@@ -2375,13 +2355,38 @@ fin knti b3da ghbertiiiiiiii😕</ArabiziText>
     <ArabiziEntryDate>2017-08-12T19:25:11</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>f096951c-d98b-488d-8f10-e4b257d3db47</ID_ARABIZIENTRY>
-    <ArabiziText>Salam Abdelilah El Hafidi, inwi fi khidmatikoum. Bach takhdem likoum la 4G awalan khasekoum tkounou tatwajdou be madina fiha taghtya dial la 4G ou lhatef dialekoum khas tekoun fihe lkhidma dial la 4G metwafra ou akhiran khase tkoun 3andkoum albitaka SIM fiha hata hya lkhidma dial la 4G, bach tghayerou lbitaka dial inwi le 4G twajhou men fadlkoum lwakala dial inwi, taghyire be 30dh, ila kan 3andkoum ichtirak taghyire al bitaka majani. inwi tatchkarkoum 3la ikhlas dialkoum.</ArabiziText>
-    <ArabiziEntryDate>2017-08-12T19:28:47</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>a04128f6-5619-4cb3-b221-c1d7977f0f11</ID_ARABIZIENTRY>
     <ArabiziText>Hhh wa kouya 7awlo diro chi 7aja jdiida ntouma ghi katnou9lo f kolchi wa bzzzf </ArabiziText>
     <ArabiziEntryDate>2017-08-12T19:32:35</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>713e9246-3172-48f9-8901-96177c774157</ID_ARABIZIENTRY>
+    <ArabiziText>9diiiimm aba momo ms komik	</ArabiziText>
+    <ArabiziEntryDate>2017-08-12T18:10:08</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5feb7854-9e80-424c-989e-4f9e5d320709</ID_ARABIZIENTRY>
+    <ArabiziText>ma galou lina walo... ghir tsentih</ArabiziText>
+    <ArabiziEntryDate>2017-08-12T21:23:51</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>8424b8c3-6753-4071-954b-83d20cd67110</ID_ARABIZIENTRY>
+    <ArabiziText>SLAM akhoti wa7ad sayda fiha mard saratan obrat mosa3ada ...man li fa9lobhom ra7ma ohiya talba liw9af m3aha bwa7ad l3amaliya dial jlala...fi 3ayniha .....libra ha num diala imchi Howa ikhalas hiya brat ra l'opération ha num diala 06.74.02.29.03 smitha jamila	</ArabiziText>
+    <ArabiziEntryDate>2017-08-12T21:37:18</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3dd9d54a-a61d-4c2c-bee0-80edc6095ace</ID_ARABIZIENTRY>
+    <ArabiziText>Salam wach momkin mosa3ada lmochkil li 3andi tasra9li tele o mchatli 7ta namra ms fach bghit nradha talbo akhir 3 d nwamer hdart m3ahom ms mab9itch 3a9l 3lihom had num bla chtirak wach kayn chi 7al et merci</ArabiziText>
+    <ArabiziEntryDate>2017-08-12T22:18:53</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>045f654c-c398-4f29-898c-79c2e61e48f5</ID_ARABIZIENTRY>
+    <ArabiziText>elle a une tres belle voix mais en fashion 0 katlabss chi tkachat trop chargé men chaimaa o fsalthom la 3ala9a+bcp bijoux kaban vraiment baldia bhal a7lam</ArabiziText>
+    <ArabiziEntryDate>2017-08-12T22:28:44</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c66e7165-b1f9-42b0-882a-9c591e282eaa</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Abdelilah El Hafidi, inwi fi khidmatikoum. Bach takhdem likoum la 4G awalan khasekoum tkounou tatwajdou be madina fiha taghtya dial la 4G ou lhatef dialekoum khas tekoun fihe lkhidma dial la 4G metwafra ou akhiran khase tkoun 3andkoum albitaka SIM fiha hata hya lkhidma dial la 4G, bach tghayerou lbitaka dial inwi le 4G twajhou men fadlkoum lwakala dial inwi, taghyire be 30dh, ila kan 3andkoum ichtirak taghyire al bitaka majani. inwi tatchkarkoum 3la ikhlas dialkoum.</ArabiziText>
+    <ArabiziEntryDate>2017-08-21T23:41:37</ArabiziEntryDate>
   </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
