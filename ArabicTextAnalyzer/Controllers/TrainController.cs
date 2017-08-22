@@ -64,6 +64,10 @@ namespace ArabicTextAnalyzer.Controllers
                 // also calculate on the fly the number of varaiants
                 foreach (Match match in matches)
                 {
+                    // do not consider words in the bidict as latin words
+                    if (new TextFrequency().BidictContainsWord(match.Value))
+                        continue;
+
                     String arabiziWord = match.Value;
                     int variantsCount = new TextConverter().GetAllTranscriptions(arabiziWord).Count;
 

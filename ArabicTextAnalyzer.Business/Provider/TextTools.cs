@@ -14,8 +14,11 @@ namespace ArabicTextAnalyzer.Business.Provider
         public static MatchCollection ExtractLatinWords(String arabicDarijaText)
         {
             String matchRule = RegexConstant.ExtractLatinWordsAndExcludeNumOnlyRule; // exclude digits only
+
+            //
             Regex regex = new Regex(matchRule);
-            var matches = regex.Matches(arabicDarijaText);
+            var matches = regex.Matches(arabicDarijaText);               
+
             return matches;
         }
 
@@ -28,6 +31,10 @@ namespace ArabicTextAnalyzer.Business.Provider
             //
             foreach (Match match in matches)
             {
+                // do not consider words in the bidict as latin words
+                if (new TextFrequency().BidictContainsWord(match.Value))
+                    continue;
+
                 // exclude digits only
                 int value;
                 if (int.TryParse(match.Value, out value))

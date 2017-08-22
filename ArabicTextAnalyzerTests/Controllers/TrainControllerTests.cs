@@ -673,5 +673,13 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             Assert.IsTrue(size21 == size20 - 1);
             Assert.IsTrue(size31 == size30 - 2);
         }
+
+        [TestMethod()]
+        public void ut_170821_test_bidictContainsWord()
+        {
+            var contains = new TextFrequency().BidictContainsWord("inwi");
+
+            Assert.AreEqual(true, contains);
+        }
     }
 }

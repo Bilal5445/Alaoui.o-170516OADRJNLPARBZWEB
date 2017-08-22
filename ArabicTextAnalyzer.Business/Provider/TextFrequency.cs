@@ -11,17 +11,17 @@ namespace ArabicTextAnalyzer.Business.Provider
 {
     public class TextFrequency
     {
-        //
-        // const String pathToCorpus = PathConstant.pathToArabiziEnv + @"corpus\";
-        // const String pathToDictFile = pathToCorpus + @"170426_extended_dict.txt";
-
         public String pathToCorpus { get; }
         public String pathToDictFile { get; }
+        private String pathToBidict;
+        private String pathToBidictFile;
 
         public TextFrequency ()
         {
             pathToCorpus = PathConstant.pathToArabiziEnv + @"corpus\";
             pathToDictFile = pathToCorpus + @"170426_extended_dict.txt";
+            pathToBidict = PathConstant.pathToArabiziEnv + @"arabizi-arabic-bitext\";
+            pathToBidictFile = pathToBidict + @"arabizi-arabic-bitext.arz";
         }
 
         public void AddPhraseToCorpus(String post)
@@ -74,8 +74,19 @@ namespace ArabicTextAnalyzer.Business.Provider
             domain = domain.Replace("\r\n", " ");
 
             foreach (string line in File.ReadLines(pathToDictFile))
-                // if (line.Contains(domain))
-                if (Regex.IsMatch(line, @"\bdomain\b"))
+                if (Regex.IsMatch(line, @"\b" + domain + @"\b", RegexOptions.IgnoreCase))
+                    return true; // and stop reading lines
+
+            return false;
+        }
+
+        public bool BidictContainsWord(string domain)
+        {
+            // make it one line
+            domain = domain.Replace("\r\n", " ");
+
+            foreach (string line in File.ReadLines(pathToBidictFile))
+                if (Regex.IsMatch(line, @"\b" + domain + @"\b", RegexOptions.IgnoreCase))
                     return true; // and stop reading lines
 
             return false;
