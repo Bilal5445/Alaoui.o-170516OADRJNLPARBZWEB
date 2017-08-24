@@ -3,8 +3,8 @@
   <M_TWINGLYACCOUNT>
     <ID_TWINGLYACCOUNT_API_KEY>e8e23c4e-f19e-4675-9fcb-d69b16ecb7ae</ID_TWINGLYACCOUNT_API_KEY>
     <UserName>contact@allpecmedia.com</UserName>
-    <calls_free>4</calls_free>
-    <CurrentActive />
+    <calls_free>3</calls_free>
+    <CurrentActive>active</CurrentActive>
   </M_TWINGLYACCOUNT>
   <M_TWINGLYACCOUNT>
     <ID_TWINGLYACCOUNT_API_KEY>0910880b-2d6a-47c2-8e5a-af5365d062ce</ID_TWINGLYACCOUNT_API_KEY>
@@ -15,13 +15,7 @@
   <M_TWINGLYACCOUNT>
     <ID_TWINGLYACCOUNT_API_KEY>4a268fec-8461-4f28-8167-32864f6f6a5d</ID_TWINGLYACCOUNT_API_KEY>
     <UserName />
-    <calls_free>8</calls_free>
+    <calls_free>4</calls_free>
     <CurrentActive />
-  </M_TWINGLYACCOUNT>
-  <M_TWINGLYACCOUNT>
-    <ID_TWINGLYACCOUNT_API_KEY>0910880b-2d6a-47c2-8e5a-af5365d062ce</ID_TWINGLYACCOUNT_API_KEY>
-    <UserName />
-    <calls_free>1000</calls_free>
-    <CurrentActive>active</CurrentActive>
   </M_TWINGLYACCOUNT>
 </ArrayOfM_TWINGLYACCOUNT>

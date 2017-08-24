@@ -923,25 +923,9 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-08-11T08:59:42</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>8be22549-a258-400d-a030-44a77e392977</ID_ARABIZIENTRY>
-    <ArabiziText>dakchi li kayen lah idina fdow😢 
-fin knti b3da ghbertiiiiiiii😕</ArabiziText>
-    <ArabiziEntryDate>2017-08-11T09:00:23</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>d0d89b53-be29-41d3-9b97-4a270be19267</ID_ARABIZIENTRY>
-    <ArabiziText>Momo dichii haja zwinaa veduoe kdimmmm...?</ArabiziText>
-    <ArabiziEntryDate>2017-08-11T09:01:21</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>8c9117d7-b8e1-4051-a7c0-356cfc869a3b</ID_ARABIZIENTRY>
     <ArabiziText>momo tewhchnak sbah bla bik walo mn nhar mxiti mb9ina kanfi9o htz 12 momo rej3 lina deghya tewhchnak</ArabiziText>
     <ArabiziEntryDate>2017-08-11T09:01:58</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>c9ae87a8-957b-4e4c-9ac1-69a9e57a067e</ID_ARABIZIENTRY>
-    <ArabiziText>rja3t tani adak ezzzzaaaaml</ArabiziText>
-    <ArabiziEntryDate>2017-08-11T09:02:35</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>961d274e-d0ca-4541-a556-877ecfeef9a7</ID_ARABIZIENTRY>
@@ -1364,11 +1348,6 @@ fin knti b3da ghbertiiiiiiii😕</ArabiziText>
     <ArabiziEntryDate>2017-08-12T19:32:35</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>713e9246-3172-48f9-8901-96177c774157</ID_ARABIZIENTRY>
-    <ArabiziText>9diiiimm aba momo ms komik	</ArabiziText>
-    <ArabiziEntryDate>2017-08-12T18:10:08</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>5feb7854-9e80-424c-989e-4f9e5d320709</ID_ARABIZIENTRY>
     <ArabiziText>ma galou lina walo... ghir tsentih</ArabiziText>
     <ArabiziEntryDate>2017-08-12T21:23:51</ArabiziEntryDate>
@@ -1402,11 +1381,6 @@ fin knti b3da ghbertiiiiiiii😕</ArabiziText>
     <ID_ARABIZIENTRY>69d8bd70-75d0-4525-8f01-242f2b2e80ce</ID_ARABIZIENTRY>
     <ArabiziText>ma 3endi man goul had inwi khatar ghadi ikdiw 3la orange ou MT</ArabiziText>
     <ArabiziEntryDate>2017-08-22T11:05:03</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>b53e5706-0f2a-4472-83df-7b74353a9f70</ID_ARABIZIENTRY>
-    <ArabiziText>Fi3lan men ba3ed ma tedirou ta3bi2a ghadi tcharkou moubacharatan be Tombola, li anakoum ghadi twaslou be risla tatkhbarkoum be al moucharaka. inwi tatchkarkoum 3la ikhlas dialkoum</ArabiziText>
-    <ArabiziEntryDate>2017-08-22T11:06:09</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>9dac29e7-672a-482a-869c-96a5d87a2a68</ID_ARABIZIENTRY>
@@ -1457,11 +1431,6 @@ fin knti b3da ghbertiiiiiiii😕</ArabiziText>
     <ID_ARABIZIENTRY>7010f491-8901-4cfa-8f91-c5e6d41d33d4</ID_ARABIZIENTRY>
     <ArabiziText>Salam Marwane Hassabi, inwi fi khidmatikoum. inwi tat7awel t7asan chabaka dial moukalamat ou internet fe baki nawa7i ou dawa7i al moudoun al koubra, 9ariban ghadi tkoun al khidma dial chabaka jayida. inwi tatchkarkoum 3la tafahoum dialkoum.</ArabiziText>
     <ArabiziEntryDate>2017-08-22T12:15:10</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>7e3b7d17-b2b2-40e8-bba5-45113e1d015f</ID_ARABIZIENTRY>
-    <ArabiziText>Hadi darha zwina ba3da hada ysta7a9 machi b7al dok chikhat li kighaniw</ArabiziText>
-    <ArabiziEntryDate>2017-08-22T12:24:07</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>81a17a97-7cba-48ba-ba2b-d754bc46b64d</ID_ARABIZIENTRY>
@@ -1924,11 +1893,6 @@ fin knti b3da ghbertiiiiiiii😕</ArabiziText>
     <ArabiziEntryDate>2017-08-23T10:23:42</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>964c08fa-4f40-48fa-a642-9f7f482bcd6b</ID_ARABIZIENTRY>
-    <ArabiziText>Bghit n3raaaf wax passe 15jour 10dh sala wla ba9ii pliiiz almarjo rad</ArabiziText>
-    <ArabiziEntryDate>2017-08-23T10:30:21</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>72cb16eb-d540-40a1-b8af-9e7eefbed971</ID_ARABIZIENTRY>
     <ArabiziText>Hhhh dir dakchi li galt lik Sanoa Sabbar</ArabiziText>
     <ArabiziEntryDate>2017-08-23T10:32:06</ArabiziEntryDate>
@@ -2134,11 +2098,6 @@ fin knti b3da ghbertiiiiiiii😕</ArabiziText>
     <ArabiziEntryDate>2017-08-23T16:07:50</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>7e155b61-de87-483c-8cbd-91f3897ef018</ID_ARABIZIENTRY>
-    <ArabiziText>3lax momo mab9ax kayji f hit radio m3a sbah??? Ijawbni xi wahd pliiiz😯😯</ArabiziText>
-    <ArabiziEntryDate>2017-08-23T16:15:46</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>abb62fb1-7c53-4f7a-aad3-192a7d2f9710</ID_ARABIZIENTRY>
     <ArabiziText>Bsaha. Ou baraka man congé twahachna Momo Morning show 3la hit radio.</ArabiziText>
     <ArabiziEntryDate>2017-08-23T16:23:09</ArabiziEntryDate>
@@ -2199,13 +2158,53 @@ fin knti b3da ghbertiiiiiiii😕</ArabiziText>
     <ArabiziEntryDate>2017-08-23T17:31:29</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>f8f06437-22fc-4453-a883-081f2c0cef39</ID_ARABIZIENTRY>
-    <ArabiziText>Tina mchi james cordon pfffff kay3jbkom te9aldo 3mlo chi haja dialekommm walo</ArabiziText>
-    <ArabiziEntryDate>2017-08-23T17:41:56</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>bb926075-9e1e-490d-ac5f-abf5c7d88c50</ID_ARABIZIENTRY>
     <ArabiziText>waghalibiyatohoum</ArabiziText>
     <ArabiziEntryDate>2017-08-24T10:45:06</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>88dd2b9e-6469-47ca-b265-c9da8983df80</ID_ARABIZIENTRY>
+    <ArabiziText>Momo dichii haja zwinaa veduoe kdimmmm...?</ArabiziText>
+    <ArabiziEntryDate>2017-08-24T12:43:50</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>94d6f27e-53a3-4c93-9e8b-91f0481e83f5</ID_ARABIZIENTRY>
+    <ArabiziText>dakchi li kayen lah idina fdow 😢 fin knti b3da ghbertiiiiiiii 😕	</ArabiziText>
+    <ArabiziEntryDate>2017-08-24T12:44:52</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5d75dc04-eabf-448e-8209-e3f7bf6cb6b7</ID_ARABIZIENTRY>
+    <ArabiziText>Tina mchi james cordon pfffff kay3jbkom te9aldo 3mlo chi haja dialekommm walo</ArabiziText>
+    <ArabiziEntryDate>2017-08-24T12:54:04</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>cc32547f-ba81-4bcd-af11-de5782159ed0</ID_ARABIZIENTRY>
+    <ArabiziText>Bghit n3raaaf wax passe 15jour 10dh sala wla ba9ii pliiiz almarjo rad</ArabiziText>
+    <ArabiziEntryDate>2017-08-24T12:57:40</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>52318663-07e1-469c-a3d7-894b40593039</ID_ARABIZIENTRY>
+    <ArabiziText>3lax momo mab9ax kayji f hit radio m3a sbah??? Ijawbni xi wahd pliiiz😯😯</ArabiziText>
+    <ArabiziEntryDate>2017-08-24T12:58:40</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>50c9d648-ca3d-4d20-be24-55d8d169f586</ID_ARABIZIENTRY>
+    <ArabiziText>Hadi darha zwina ba3da hada ysta7a9 machi b7al dok chikhat li kighaniw</ArabiziText>
+    <ArabiziEntryDate>2017-08-24T13:01:02</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>61897696-b9d0-43cc-912b-b692da67770e</ID_ARABIZIENTRY>
+    <ArabiziText>9diiiimm aba momo ms komik	</ArabiziText>
+    <ArabiziEntryDate>2017-08-24T13:03:34</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d4421ee9-af4e-4b92-b512-950fad9e66f9</ID_ARABIZIENTRY>
+    <ArabiziText>rja3t tani adak ezzzzaaaaml</ArabiziText>
+    <ArabiziEntryDate>2017-08-24T13:06:59</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>13903ae9-d08d-4a65-b1e9-b49b04aeb677</ID_ARABIZIENTRY>
+    <ArabiziText>Fi3lan men ba3ed ma tedirou ta3bi2a ghadi tcharkou moubacharatan be Tombola, li anakoum ghadi twaslou be risla tatkhbarkoum be al moucharaka. inwi tatchkarkoum 3la ikhlas dialkoum</ArabiziText>
+    <ArabiziEntryDate>2017-08-24T13:11:29</ArabiziEntryDate>
   </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
