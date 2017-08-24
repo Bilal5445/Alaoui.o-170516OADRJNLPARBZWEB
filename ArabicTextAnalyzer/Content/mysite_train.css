@@ -38,11 +38,20 @@ tr.header {
 .posts th.col20px {
     width: 20px;
 }
+.posts th.col40px {
+    width: 40px;
+}
 .posts th.col50px {
     width: 50px;
 }
 .posts th.col75px {
     width: 75px;
+}
+.posts th.col100px {
+    width: 100px;
+}
+.posts th.col110px {
+    width: 110px;
 }
 .posts th.col120px {
     width: 120px;
