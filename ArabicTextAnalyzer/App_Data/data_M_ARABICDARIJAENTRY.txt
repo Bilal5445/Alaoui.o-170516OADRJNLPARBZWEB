@@ -41,11 +41,6 @@
     <ArabicDarijaText>حنا غد نقطعه هذ ال promotion دل mt تلك</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>32c3b97a-2fd1-452c-b077-6d47968d2fc8</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>894816db-d479-49d6-a4ba-cc170c80cd8c</ID_ARABIZIENTRY>
-    <ArabicDarijaText>دبا هاد لا recharge واش معه ل 4g</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>9adcde3f-62e6-40c6-9878-7b03d8cbbe9e</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>76d316c3-460c-4389-9e8b-11db692d2a6c</ID_ARABIZIENTRY>
     <ArabicDarijaText>بغيت نغف login mot de pass بسه ندخل نشوف les dossier اصح نذر</ArabicDarijaText>
@@ -191,11 +186,6 @@
     <ArabicDarijaText>إن شاء الله</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>832e2980-a0d5-4dca-a807-7c5494e5d57b</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>314e2ec2-e08c-4f10-9bf9-d0e1872bcbd9</ID_ARABIZIENTRY>
-    <ArabicDarijaText>خاص yami9 ما يمشي ش باش مايلقى باش يخلص فخر</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>4e8e6f78-7065-4bca-85aa-c9898874bff0</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>867033e9-752d-4b37-b2bd-f11b614bf8ee</ID_ARABIZIENTRY>
     <ArabicDarijaText>الآن خس فخر يرجع و يتحيد دعك غص لحمر ذيل حسبا الفارق مقد ندير ى صحي 3 نتدابات مزيانين و ترجع الرجاء إن شاء الله للقيمة .. راجعين نحاكم ثان</ArabicDarijaText>
@@ -211,24 +201,9 @@
     <ArabicDarijaText>هل ديغن شي حض كايعيط النص و يقوللهم ربحت 2 مليون</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>44a1a1b9-758c-4dd7-8724-56ca5a5d7bcd</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>4c8f6a82-167e-4795-8139-d1ba31fbb922</ID_ARABIZIENTRY>
-    <ArabicDarijaText>salut pardon مط لجولا فمدينة أكادير</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>ac51b538-c9fc-4579-b211-d8f00a20aded</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>c58c012a-20ac-43cc-aa5f-b61290e95281</ID_ARABIZIENTRY>
     <ArabicDarijaText>الكارت إذا قنت بلا كونتر كيحرقوها إذا مى عبط شي علة مض ممكن تجوبون</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>7438cc19-0b0e-4075-bf91-36b401b62684</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>c68bfe00-a5b7-4e96-890d-4345336e31c4</ID_ARABIZIENTRY>
-    <ArabicDarijaText>نتمنو يترجل معا الجمهور walmykhliwch حسبن يضر البغى فراجا رح داخل نفخ كرشه من رزاق ديل الرجاء الله يخض الحق فاه مصلحة الرجاء نا حد لمكتب بقى قلص مدار وال كيتسنى صدق من لجامعة والحياد فخار الا سبر تقتل فضرف صعبة مكنوش العبة kytkhlso كيلعب واربح</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>46bb2ee7-415d-487f-8a35-9a30bddbc173</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>ba4e767f-5d25-45ac-bfbe-5b0bcb47951c</ID_ARABIZIENTRY>
-    <ArabicDarijaText>بتوفيق القرد .... واصل عمالك حسبا او تلتفت لجمهور يغرد خريج سيرب او يفقه شاين فى قنون المنصر walghalibiyatohom طابعان المارقة و زرقة ... المنصر ضور تشجيع فقط ولي بقها تغير ينخرط فلمكتب ويترشح</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>7aebcc43-d74c-40df-b336-45ad561232f0</ID_ARABICDARIJAENTRY>
@@ -261,16 +236,6 @@
     <ArabicDarijaText>حسبان زنديق نصب وحصب الكتب شرعية بن القى .. .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>87fd7e18-3fbe-4298-8e2b-b911538a7b2a</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>0e9fee38-4382-4847-aa66-7afc5ee4d936</ID_ARABIZIENTRY>
-    <ArabicDarijaText>و قل حنا ماشي راجين هنا عالمين سير قد عر nedaderk راك machafeti ناسها</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>4fc12a6b-3204-444e-8f00-e2089cb31523</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>c20f3292-2b79-4e83-84e6-02f2ca903084</ID_ARABIZIENTRY>
-    <ArabicDarijaText>غير بلطى والله tan9atlo دنم غير صبار</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>8cb3bc10-00b9-4284-87bf-274bbd0a7185</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>77b7dcbb-311d-457b-baa0-9de87a4c94dc</ID_ARABIZIENTRY>
     <ArabicDarijaText>شوف هو قادير بعد بين فيه جهة شفر</ArabicDarijaText>
@@ -281,16 +246,6 @@
     <ArabicDarijaText>هذا عمر جلس فل فرق س سنين ليقضوا خوي بحالك بحال القلب التابعان حسبن</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>8f03a63d-0b0f-4e81-9954-5cc4e9c6bce8</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>c17b3fa5-45c9-428b-84ec-60c2e9347c8e</ID_ARABIZIENTRY>
-    <ArabicDarijaText>وجة danjala منين خرجت لينا ..... ?</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>69cd0e6d-fa3c-4da2-8966-e1927f4c8618</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>162c504d-59f6-481c-97e5-7f1243f3d773</ID_ARABIZIENTRY>
-    <ArabicDarijaText>bravo خوي نص تستاهل و نتمنو تزد تخدم مزيانة و مسار موفق</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>f3d6e511-96e5-4e93-a2c5-eeb26a797539</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>770731b6-f1eb-4a50-b841-bbbaf2ddd41c</ID_ARABIZIENTRY>
     <ArabicDarijaText>حمرة تاعبه رجاوين على م ز ..... تاعبه</ArabicDarijaText>
@@ -299,16 +254,6 @@
     <ID_ARABICDARIJAENTRY>22991388-c1b6-4e13-8bc2-47dec7ca8f1f</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>f26a1515-0c58-4fa1-a84f-9ad31985f487</ID_ARABIZIENTRY>
     <ArabicDarijaText>ودار نفس ملي بن ليك طرا داير ب جمهور كسب فقوم يا قلب باردان</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>3715f46c-fa93-4098-be65-8a6ed7096aa3</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>ee0b40ba-fbc1-4771-b889-2204e49e1718</ID_ARABIZIENTRY>
-    <ArabicDarijaText>حسبان قصه صنته عرفه لمغرب من مرا الزفزافي هل taydoukh حاد و الى مال طى واحد محمل ذ جد بوح شعر و باقيا جالس .. نتا سي زاكري مرحبا بك ف ضار لقبر</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>6bf598c2-0845-4e78-ba7b-305e664d99d8</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>a9544724-1909-4b79-9004-984c67c3b349</ID_ARABIZIENTRY>
-    <ArabicDarijaText>هادشي عاد , علاش نتا raïssa , علاش جات ياولد القهبة , باش tafdahna , او تحل المشكل , غاتمشي عند البرنس تحية تحسب tkhl3ak . نوض غمق على شي واحد يا ولد شافر</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>b823a292-74ed-4598-ba34-37db48f638e0</ID_ARABICDARIJAENTRY>
@@ -326,26 +271,6 @@
     <ArabicDarijaText>صراحة عجبنا عت لكل وحد ذاك شي الخس لوبش السياسين ثبث بانه كيفكر مزيان مشا متهور عجبنا بصح واخا كتبن فيه مريض بزاف الله يخليه لينا هو جا من شعب راه جهد داير القلب الله راه لديغن به ما كيسواو شي</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>b54ea9b6-6f4f-48c0-80bf-c2e585fc31bf</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>cc61dfcc-eff4-4180-80b5-bb739fcde9eb</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ود هير slogiya سف</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>a2d0bedc-43c2-4966-b70d-179d3f6d8a20</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>e1d00e2b-b873-4790-a649-4fa86d4187e6</ID_ARABIZIENTRY>
-    <ArabicDarijaText>فين هو tadbi9 بقات بلا بلا</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>f48fc344-90d0-4f64-9491-5bb345856d5e</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>a16b71f8-ecd4-45c7-af1f-3cfa3a4ac1ea</ID_ARABIZIENTRY>
-    <ArabicDarijaText>مغدي يكون والو , شفار غادي تبقا , غادي يكون شي تبدل وراه , كولشي غادي يبقى على هل , شعب taymoute ف فقس و قاهرة ...... , كحصن محاسبة جميع , محسب صارم ,, ما يشبع مليارد و يقدمه ستقل , و لا , ن بلوس ytkhaylsso حياتهم كامل , هه</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>b636023d-3384-42c0-8d55-1531d4056b2e</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>48b6cbf5-73c4-4aac-9a92-f8f35238db3f</ID_ARABIZIENTRY>
-    <ArabicDarijaText>نتمنى ان يتم i3ti9alol راهبا ابن كيران وعصابات حزب العدالة والتنمية الرحب دسه</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>fa3c0a84-a6a1-4ed4-9405-7edd768eae3b</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>db734536-4c58-4946-8514-456e569e20a4</ID_ARABIZIENTRY>
     <ArabicDarijaText>نثمن ان يتم اعتقال ابن كيران وعصاباته حزب العدالة والتنمية</ArabicDarijaText>
@@ -361,24 +286,9 @@
     <ArabicDarijaText>محلل سياسي ولا شوف ?</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>ac38adb6-acab-4922-b522-3bdee36cd393</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>842e8cf7-acfd-47b1-96b4-c66cf0048d20</ID_ARABIZIENTRY>
-    <ArabicDarijaText>هذا دارها زوين بعد هاد يستحق ماشي بحال دوك شاخت لا kighaniw</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>2ed38d4f-c826-4c7d-980d-3be6e940ca41</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>c816548b-1a11-4c89-9515-8e8834f8a087</ID_ARABIZIENTRY>
-    <ArabicDarijaText>الحس بزاف و algarga3 قليل .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>34f334db-68e2-41c0-b70e-24778d213930</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>6b19fd79-2cfd-44af-afa8-4ec1edace921</ID_ARABIZIENTRY>
     <ArabicDarijaText>خبار ا تبرد .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>225aa69f-c96b-4b22-a474-f6bd29a5497a</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>4f485975-7f78-4bd6-926c-f41f90e5cdfe</ID_ARABIZIENTRY>
-    <ArabicDarijaText>هذا دارها زوين بعد هاد يستحق ماشي بحال دوك شيخة لا kighaniw</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>660299d7-da5a-4aa3-b749-94b1e5c00042</ID_ARABICDARIJAENTRY>
@@ -396,21 +306,6 @@
     <ArabicDarijaText>انا مع لاعب walhasban يمشي يقود</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>0d92f7b2-192a-4021-bc8c-2e4d46c7933e</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>25d1756f-2cd9-4fde-b92f-df53357e4430</ID_ARABIZIENTRY>
-    <ArabicDarijaText>يق almounkharitin فات 50 % , 4 مليار اش داخل فيه هو ? , الرجاء ديال به . ما فهمت شي ان هذا علاش تا ضور</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>90ebc18a-f9b3-4f5e-b2a4-d944dfdef296</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>24a5f73b-ac20-4805-b1d8-086452203a4e</ID_ARABIZIENTRY>
-    <ArabicDarijaText>قالك رجع فاخر . لاش صراحة مقا الاخراج على ولد مدرسة قد فاخر . ما كيعرف شي صنع لاعب . makay3tii فرس ولد مدرسة كيبغي غير لاعبين جاهزين . فاخر غير مناسب</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>2a44bc1e-fcf1-47d4-b3be-5b157ef7284b</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>d5f37f75-4c1c-4d66-a477-736ca2dfccf6</ID_ARABIZIENTRY>
-    <ArabicDarijaText>را هم khasshom يجو المارك كيف ما ك دار ناس</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>eab6034a-cd5d-4cd9-9c27-8d370c134b70</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>3ef8e7d9-df2c-4655-b220-d0a64cc40ebb</ID_ARABIZIENTRY>
     <ArabicDarijaText>غدي يطلب و شوف تشف إذا شي واحد بغا يعطه</ArabicDarijaText>
@@ -426,11 +321,6 @@
     <ArabicDarijaText>درب لي على رجل لي داير نضاضر هه حرب لا</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>533ab9e8-1d15-4461-a9a8-202243f22fe5</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>6dd6d719-4d8f-4242-af6e-5155f0cbbe3a</ID_ARABIZIENTRY>
-    <ArabicDarijaText>inwi جبت لينا لحنا</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>53ccbe7b-629f-45c5-8aeb-bce84deb8a64</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>ae8fbbde-6d96-4612-8d11-670c28c1fdee</ID_ARABIZIENTRY>
     <ArabicDarijaText>المغرب تلكم</ArabicDarijaText>
@@ -439,11 +329,6 @@
     <ID_ARABICDARIJAENTRY>b2b3d3fc-ecb0-45e1-8d27-4fbe1ce5ef39</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>889edb6b-0914-45aa-b19a-9c147aa4d98a</ID_ARABIZIENTRY>
     <ArabicDarijaText>المغرب</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>3dfdcea6-08c1-49ba-a967-a96da664c77b</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>2ddaee9a-4b43-47f8-876d-ebb656097d76</ID_ARABIZIENTRY>
-    <ArabicDarijaText>inwi</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>6d71ad7c-768a-494e-86b2-ae8d7eb7adab</ID_ARABICDARIJAENTRY>
@@ -491,11 +376,6 @@
     <ArabicDarijaText>و خاص alyami9 يقول هاد الهضرة تخرج من فمو و حتى président ديال nantes يكتب داكشي ف لا بج فكل ديال لصلب والدك ساعة هاد شفار غادي لقاو منين دوز له</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>d1c60072-c5ba-4768-bea1-d42d76b256aa</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>8b4eb0ae-8e6e-4a84-9ac7-6bf1ee27a53f</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ماشي همك راه شفار خوا ديك 7 milliards و زيدون هذاك غير كذب باش توحد مايزعم يترشح باش يكون président هاد ولد القلب ilamamchalihch الجمهور walsakhskho قدام دار ما غادي شي يمشي</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>d3b684d5-4d51-4e96-a776-8a8f2154848c</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>ad4e532a-1867-4fe2-9a61-c83849d0ed1b</ID_ARABIZIENTRY>
     <ArabicDarijaText>اه دار البت ديال بنعبيشة راه هو لا صل ديالكم هه . ....... كامل معانا متى كامل معانا متى . .. .</ArabicDarijaText>
@@ -516,11 +396,6 @@
     <ArabicDarijaText>خويا ان رجوي مس زكريا ما بقا شي كيلعب بصفة رسمية إذا من الحسن قلب على راسو بلوس دار ما كاين شي لي تحمى لعب من بحال هاد الانتقالة خصوصا الغرام وص و déja وقعن فاخت بحال هادوك بار exemple صبحا</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>0fde7cba-64dd-4cd1-941d-e933b04d3b8c</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>7333343a-6364-4e72-b56a-abe40d3701d8</ID_ARABIZIENTRY>
-    <ArabicDarijaText>وخا هكذا مزال خاص جمهور راجو يخرج fhtijaj على هاد chafrane wl3isaba ديال هاد المرا قدام دار باش يتحيد هاد المكتب الفاشل</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>85b84c9e-fd79-4110-821d-cf8ccb37bcb6</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>6d66e11a-250d-4b8f-90d0-1462673d5681</ID_ARABIZIENTRY>
     <ArabicDarijaText>دبا هاد الحكومة ك طفل علينا</ArabicDarijaText>
@@ -536,26 +411,6 @@
     <ArabicDarijaText>ذ ناس alikaytalbo ف حسبان يمشي بحال هوما لكن ما باريا شي بودريقة يبقى هاهو بودريقة مشا بحال وكهف الرجاء فين وصلت باش كان هو كان كيجاب لعبة من المال ديال الخاص و الرجاء كنت مزيان واخا كان كيدير بعد الخطأ ولكن كان قيمة على لفرق</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>980cd627-822e-498d-8494-b4f9773ab1c8</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>78737d0b-6a14-4f27-8f97-a3b798132fe6</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ا خويا kanahdar معاك نتا الا ما كاتجاوبني شي و سف ا خويا رشيد .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>c8770d01-4e2c-45fe-8518-5ec744dbdd56</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>99a1f5c5-3f08-48d1-8b18-22bd06f858aa</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ونتا ما سمعت شي جمعي الحلب لي قال شول katsam3oo غير لي بغيتو</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>75edfaa2-8f14-4004-9521-6dd6dbaf7070</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>d2a48741-75c6-46df-907e-d48f194b0b66</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ربيز : كرش مشا الجيش والجبار فطريق لحاج مشا الهشيم مشا مبيدا ما غادي شي يرجع alyamik مشا الرجاء في المزاد العلني قولو لي اش بقا حزقان شطط الفرق خاص الجمهور يند ktak منهك الرجاء رحمه الله</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>9c38bbba-da97-4633-8f2c-78efa1a930a5</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>7211457d-4c93-433c-b730-ad00f5aa40c2</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ربيز : ان ويداد ولكن صراحة الله هاد حسبان شفار ما ysrahel شي الرجاء</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>ffa82e79-ea20-4e64-ab98-8b2f509e383b</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>69de6490-b1c8-4e3e-a8ce-448ecaaa9179</ID_ARABIZIENTRY>
     <ArabicDarijaText>انا ويداد ولكن صراحة الله هاد حسبان شفار ما يصلح شي الراج</ArabicDarijaText>
@@ -566,49 +421,9 @@
     <ArabicDarijaText>رجل تباركله عليكم</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>6b4920dd-0485-4adf-8df6-1fb3d912f746</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>c35dba83-9f68-4f65-b218-538273591a52</ID_ARABIZIENTRY>
-    <ArabicDarijaText>و ملي ما بقا لا جمهور لا ولتر راه رئيس لا غادي يجي غادي يدير الرجاء حيت قصر و غادي يدير كيف دار حسبان اش غادي يصوره غادي يغلق فين هو جمهور 2009 2010 2011 ما كان تا واحد يقدر يدوي على الرجاء خائب معار من كنت katsma3ha دابا ولا لعب لي جا kayseket جمهور ... و يتواجه معاه حيت مشاو رجال .. .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>c7a2486f-ad6d-4d2c-93d3-2cf86eb2960e</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>b6f0a495-493c-4a59-ba02-d3a6c9eab286</ID_ARABIZIENTRY>
-    <ArabicDarijaText>درتو ليه حملة ديال انتخابات 9hartouna بل بلابل ف فاس ... حاضرة كاتجيب جع الله يعز ل ك خدم ذاق و سقت ... كيف دار هو خدام ك فرتك ف فرق و سقت ... و جمهور عاطيها بلبلة م هنا تعرف راه ما كين لا جمهور لا لترى عند رج</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>26bdbf43-2d0d-4b3a-9ea4-dc4d2c782060</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>ddbb54f0-b145-48ef-86d0-f8b16d4df263</ID_ARABIZIENTRY>
     <ArabicDarijaText>نس لي تا دار استجوبت ولو تقصح الحضرى , ما تبقاو شي طلب فيه إ مشا , داكشي ما خدام شي , لي إ حضر فشي منبر لم إ قاصح لحاضر شوية , خاص توصل لخلع .. .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>70aa0e57-8017-48bc-8ba1-7068de3e5aea</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>c39c9421-ca3d-4cb9-8a79-74a0008880dd</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ونتا ملك بغا شهر وقال نتا من جبت حد selogaya بارك متكذب عليا زعما نتا ب عقلك هه</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>0b9d2511-cd13-4149-a97d-856972a0658b</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>972afb54-f94b-4769-afbb-a6ae4771d792</ID_ARABIZIENTRY>
-    <ArabicDarijaText>سا mustapha , هل سمعت هاد almkéllkhine ف غادي مرقة ??? كيفاش كيدويو على حسبان , قال ليك هو اللي wssél الرجاء 3ème بلاص . كون ما فخر ولله تا nttclassaw 14</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>f58405df-3612-4930-a267-7f583e878e19</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>b3e80b92-6420-4696-b702-188da408a738</ID_ARABIZIENTRY>
-    <ArabicDarijaText>خاص بزاف ديال لوقفاته باش يمشي حزقان ما نصب لكنني ديال almonkharitine داكشي غير موناوار و رابح ديال الوقت وليكم وياكم خاص يكون لوقفاته بزاف</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>9a9c6bb5-f836-4057-8a12-2acc63967eef</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>b2e15598-9032-45dc-9ccf-716d7fad548f</ID_ARABIZIENTRY>
-    <ArabicDarijaText>صراحة را albankat كلحوم moukhelwidin</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>b4b23b85-9216-4b2d-9224-bbd4fcafad77</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>201d1e83-c23c-4b60-964d-540d3a2744b3</ID_ARABIZIENTRY>
-    <ArabicDarijaText>عندك هندا و toyota ما تي khesrouch</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>aec00ebd-1c7c-4996-a0f1-ac247ce094e0</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>29b6a31e-d1f2-40ff-a5fa-c1de2100fa13</ID_ARABIZIENTRY>
-    <ArabicDarijaText>كان قلب على سيارة 2012 تكون diesel و ما تفوت شي 60 000 درهم</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>c93cddb8-8135-42db-b5d9-3d1e7b021551</ID_ARABICDARIJAENTRY>
@@ -641,19 +456,9 @@
     <ArabicDarijaText>ما كي جاوبش</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>368fbbdc-909c-4ef3-9e99-dbfa24e5fce0</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>368495b8-c59e-456c-bc8b-cfd2f5c240fc</ID_ARABIZIENTRY>
-    <ArabicDarijaText>kanshofek</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>3d88b558-0dbd-476d-ada8-1fe0b8dc5026</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>71a81d76-4994-4cc6-b574-c813d61f52e9</ID_ARABIZIENTRY>
     <ArabicDarijaText>تباركله على حبب ديالنا</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>9ddaf733-748f-42ef-8535-3d71d67c5901</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>b7ded306-eaea-4696-be00-4a6e222fbd42</ID_ARABIZIENTRY>
-    <ArabicDarijaText>اختي kn3mr الستمر kygololi كين مشكل مفهمتش</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>3974f8da-d56b-4863-9635-cdbd5f74e3eb</ID_ARABICDARIJAENTRY>
@@ -661,19 +466,9 @@
     <ArabicDarijaText>اختي كنعمر الستمر كيقول كين مشكل مفهمتش</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>eec5a467-8f0d-428a-b1c6-f232127291d1</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>dfd05b3d-e74d-4fed-a8e8-4b0d693abd9b</ID_ARABIZIENTRY>
-    <ArabicDarijaText>kan3tadro على شكل réseau لي كتوجه حاليا , بعثنا لكم جاوب في مسج privé .. .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>b90b678d-4683-4e4c-9732-ba6eaee272d0</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>078f731c-0213-452b-a31b-fd602964d803</ID_ARABIZIENTRY>
     <ArabicDarijaText>مشكيل ديل راسيل القصيرة مازال كنوجه شي هل و شقرا</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>c2ab0880-4151-4581-9432-3f22316d67f6</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>ef92c17a-b2e8-4fa2-8297-41f5faacc32d</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام , inwi في خدماتكم . إذا كان عندكم لعرض ديال تصطك , باش تدير لجواز ديال انترنت ثيمكن لكم تدير من فضلكم هاد طريقة تاليا :* 120 * 20 * كود de recharge * 3 # appel</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>912b074e-471d-4391-909e-f93b89128041</ID_ARABICDARIJAENTRY>
@@ -682,25 +477,9 @@
 عطنة من فضلكم رقم الهاتف walisemkoum الكامل باش نبهت لكم ف القحط ديالكم على شكل لي عندكم .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>025aa03a-5fd2-4a20-8f4f-f24448b48112</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>b226fbce-ee25-4b24-9333-d24d0f194af9</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام inwi ان عند واحد المشكل فلبس كي نعمر يبقى نورمل مص من تكمل قطامش عج 1 kinsoni الشي شخص kaygololi لقد انتهت صلاحيته حسابكم</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>fd34e007-8d8b-410b-9ff1-5405d2007628</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>5c77ed96-9e04-4e50-89e7-a2198cbd8a50</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام naïma الخضار , inwi في خدماتكم .
-باش تخدم لكم لا 4g ولا خاصكم تكون تتوجد ب مدان فيه تغطية ديال لا 4g و الهاتف ديالكم خاص تكون فيه الخدمة ديال لا 4g متوافرة و اخيرا خاص تكون عندكم البطاقة سيم فيه</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>499f5478-270a-4ee0-961f-818f51602e2c</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>5a556e56-d0c9-427b-bd0d-c1a4c68e816b</ID_ARABIZIENTRY>
     <ArabicDarijaText>كيفاش ما غادي شي جاب ليا شي تيليفون سامسونج</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>8436038b-630b-4b07-9b49-a4537483e3a4</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>6cbacf5b-cb3d-4187-9366-d96e63012bea</ID_ARABIZIENTRY>
-    <ArabicDarijaText>إذا بغيت تعبأ لخط ديالكم و tchargiw , ma3likoum غير تبعو طريق التالي</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>3c314a64-bb48-4521-b212-1f34ea44544c</ID_ARABICDARIJAENTRY>
@@ -708,44 +487,9 @@
     <ArabicDarijaText>إذا بغيت تعبئ الخطة ديالكم و tchargiw , ماعليكم غير تبعو طريقة التالي</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>1315e447-70cb-4fb6-81ab-95c6e6d9330e</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>0b0dda73-6aa1-4300-9fe6-a22400a7fac0</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام inwi ان عند واحد المشكل فلبس كي نعمر يبقى نورمل مس من تكمل قطامش عق و kinsoni الشي شخص kaygololi لقد انتهات صلاحيته حسابكم</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>6ced8c9c-e905-4fc8-b946-47f8e2b48458</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>d0c186a0-2ecf-42fd-95c9-6d6fed83f9ce</ID_ARABIZIENTRY>
-    <ArabicDarijaText />
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>9a5bd615-c74b-4ba3-bd87-dd4902aa34c2</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>6e039a18-c64a-433e-9a91-433e72be598f</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام inwi ان عند واحد المشكل فلبس كي نعمر يبقى normal mais من تكمل كاتمشي 3g و kinsoni الشي شخص kaygololi لقد نتحث صلاحيته حسابكم</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>568992a5-4826-434f-bfc3-9e04790a4e67</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>416aac04-80fd-47b4-aa70-bf7c40fc55d2</ID_ARABIZIENTRY>
-    <ArabicDarijaText>فضل برقم الهاتف والسم الكامل ف " مساقة privé " باش نشوفو هل katweffer فيكم شورط الاستفاضة من كلوب inwi</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>8825a1f6-2fd3-41f1-aad9-05ca0135ff1a</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>e7d55dbd-afd5-4f9f-ab79-49cf632f0ea5</ID_ARABIZIENTRY>
-    <ArabicDarijaText>فضل برقم الهاتف والسمة الكامل ف " مسج privé " باش نشوفو هل كتوفر فيكم شروط الاستفاضة من صلب inwi</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>ff3f8fce-6b71-406d-b24f-7669394cefe4</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>454ed56d-099d-4cc3-a9ad-e9138bc2cb15</ID_ARABIZIENTRY>
-    <ArabicDarijaText>باش تشغل pass facebook &amp; whatsapp tat9oumou ب تعبيئة عاد , و تتضر * 120 * قق # مطبعة ب زر تصل , و بنصب الس pass almou9tara7ine عندكم</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>fc154677-acba-47c3-8963-0ce4b0e3a893</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>74e3b71e-d89a-4d8a-a272-1ab31a951e7d</ID_ARABIZIENTRY>
     <ArabicDarijaText>تفضلو برقم و نوعية الهاتف لي كتوفر عليه ف رسالة خاص باش نبعته لكم برمجت facebook</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>f4eb9c7e-5ab6-419b-9b2f-6aee9619b35d</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>6b238785-25e2-4b59-9c32-adc64763aa4d</ID_ARABIZIENTRY>
-    <ArabicDarijaText>تفضلو ب سول ديالكم , فاش يمكن لينا nsa3doukoum ? . .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>8b673584-18e9-405e-999c-d897762d4d8a</ID_ARABICDARIJAENTRY>
@@ -754,19 +498,9 @@
 انا شرجية الآن ولكن ماوصلنا الصد لا والو ?</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>f2ec5e0f-dda1-4cea-b327-dbe3746f1d07</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>fe84a3d0-ae82-4f93-a14c-110f2e2481b4</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ما kaykhdem شي الهدية لي قطعتو</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>d9c8b03f-d3b5-4292-9f35-1c14b9cd722a</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>73eb0ddb-ffdf-466b-a8a5-e026d9838b8c</ID_ARABIZIENTRY>
     <ArabicDarijaText>بكبر ما صدقت شي من درت راسك مرة كملتها بالمكياج inwi زملاتك</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>3010df33-80e7-44b6-bd48-af049697e576</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>09f64bd6-7870-41f4-8311-1d4fbab9780c</ID_ARABIZIENTRY>
-    <ArabicDarijaText>مكن لا كادش الاول شارجيت osftoli رسالة فيه الهدية ولملى سولت ملقاة والو داوه يالله 45 لقين</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>695126f1-e0e1-41e4-be26-ab0d86ef328c</ID_ARABICDARIJAENTRY>
@@ -774,34 +508,9 @@
     <ArabicDarijaText>انا صهرجت مجانا والو</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>e6d42847-c17e-4443-8fb8-350c0885fe68</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>1c31e41a-23cb-4e84-9c0e-9fdedaf6af5d</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام hà مزة , inwi في خدماتكم . عطونى من فضلكم رقم الهاتف والنوعية ديال باش نبعث لكم عليه رسالة لبرمجة . inwi tatchkorkoum على خلص ديالكم</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>aa39afc9-6c32-4342-8aaa-a3aa449a4d3e</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>d4ab4a90-870f-41ce-acf3-eb120bd4bffe</ID_ARABIZIENTRY>
-    <ArabicDarijaText>باش نتاكدو من ختكوم , بعت لينا في مساج privé اسمكم ل   كامل , numéro ديالكم و تاريخ لي عبث فيه ختكوم ... .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>bd3a9e20-b885-4aed-93f3-fb36db8b67cd</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>b12f56f3-9df2-4f35-84ce-7d38d76b54e0</ID_ARABIZIENTRY>
-    <ArabicDarijaText>rocharge 50 درهم شحال فيه ديال انترنت وشحال من جووغ</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>1bc792c7-0486-4003-8827-eced7bc1ae68</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>e0aba107-fb0d-4253-96d0-656cf4349c66</ID_ARABIZIENTRY>
-    <ArabicDarijaText>دارت 10 درهم معطون ولو اش هاد تخربيق تاني inwi</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>81aee655-e51e-4652-a77e-d8ebfebea451</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>f76658ed-e4b4-4fa0-bd31-5fb1469bef43</ID_ARABIZIENTRY>
     <ArabicDarijaText>باش نتاكدو من ختكوم , بعت لينا في مساج privé سمكوم ل   كامل , numéro ديالكم و تاريخ لي عبط فيه ختكوم . .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>65bc2710-f5a8-4a6a-ac7c-040f7ce16108</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>405d87c9-e17c-4b3c-aca5-73e35e4b0cb0</ID_ARABIZIENTRY>
-    <ArabicDarijaText>بنسب لي recharge 50dh katmne7koum رصيد 5go من الانترنت سلاح لي مددت 30 يوم</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>9c612d0a-eef2-4c7a-a712-6af38e56681a</ID_ARABICDARIJAENTRY>
@@ -809,45 +518,14 @@
     <ArabicDarijaText>باش تغير رقم المفضل ديالكم , ماعليكم غير تصل ب 120 و تبع تعلمت , ولا تصل مباشر ب مصلحة زبن على 220 و هما يقوم لكم ب تغير .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>da04e213-d807-4e8b-aec0-fc5b2de4941c</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>c2043f49-0b73-4144-b732-8ecd1a65ab23</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام . داير forfit inwi . بغيت نبدل هادوك 3 نوم فضل لي عطيني شنو هي طريقة ???</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>08fc16a7-0798-4d0e-832b-9d1a782ec0a5</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>a15585a1-905b-4ef8-83d0-6742ab184df0</ID_ARABIZIENTRY>
-    <ArabicDarijaText>شارجيت 10 نهار 3 / 7 / 2017 درت ف + وتصب سلاح المدة حج mais نتوما ديتها لي فتلت الايام شحال من مرة وقعت لي وله</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>b8475311-5e10-499d-9f29-949278fe493b</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>df9e55e3-4a42-433b-aa1b-ca0c8d56cd83</ID_ARABIZIENTRY>
-    <ArabicDarijaText>باش تستفد من هذا , kat9oumo ب تاعبة عاد , و من بعد كتوصلو ب سمس فيه له كذا لي ربحت ما : جاوز انترنت و سمس و facebook &amp; whatsapp , بدل ستك , سمعنا</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>49dd5e29-2f98-4679-8282-59e53a3dd7d3</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>d37ee356-86c4-4d7d-9f6f-de29904414cd</ID_ARABIZIENTRY>
     <ArabicDarijaText>تفضلو ب رقم ديالكم ف مسج privé و قد لينا نوع الهاتف لي كتوفر عليه باش نشوفو لكم الاشكال</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>c8ac02b4-9813-44a1-85a0-4305e22620b6</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>abba6c8d-2d2b-4daa-8d88-3508e92e7e30</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام عافك ان درت forfait ديال 49dhs و قتل الجنس ديالكم ماتخلص 7tal 15 فشهر 7 و الآن kantfaj2e بمسج بلا اليوم لخر flkhlas هل الآن ghaykhsni نعاود تسجيل من الوله راه ماشي خدمة هادي راه حشومة</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>1d00d671-c9e4-4cb3-8162-48d17c242ae5</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>b0f92e5b-bf15-426f-b22d-70c8dabc7cd0</ID_ARABIZIENTRY>
     <ArabicDarijaText>إذا شرجية 10 درهم عدي دخلت منها فيسبق وتصاب نستفاد شيحاجا</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>b24d37f1-9894-41b1-9727-2503bb2de411</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>f45f9109-39f8-4d97-b456-900c180e40b3</ID_ARABIZIENTRY>
-    <ArabicDarijaText>باش يمكن لينا nsa3doukom ?</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>c6e554da-3f13-464d-9d1e-82ff933fbaa9</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>554f32ae-74a2-4951-895c-752bb14d0bd8</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام rashīd imzīne , inwi في خدماتكم .
-تفضلو ب رقم ديالكم ف مسج privé و قد لينا المدن لي كتوجد فيه و لشكل ديال réseau هل على مستو المكالمات و انترنت ? .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>a4ada1b0-a2dd-4d78-bbd9-e96fb1b279aa</ID_ARABICDARIJAENTRY>
@@ -860,57 +538,9 @@
     <ArabicDarijaText>تفضلو ب رقم ديالكم و قد لينا المدن لي كتوجد فيه و لاشكال ديال réseau هل على مستوا المكالمات و انترنت</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>c515610a-ff3c-48be-a3cf-a7aa9788a81c</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>61346933-9c89-4a0a-94dc-4feaad9647f6</ID_ARABIZIENTRY>
-    <ArabicDarijaText>يمكن لكم تغير البطاقة الحالة البطاقة 4g , مع ali7tifad ب نفس رقم , يكف annakoum تتوجه الل قرب وكالة مصحوبين ب البطاقة inwi و ب البطاقة الوطني ديالكم و تغيره فلحن ب 30dh لا كنت تتوفر على بتقاة دفع مسبق</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>da170035-a744-489b-a5dc-3bfa2c910b0c</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>d625c080-8b9c-4704-8d87-89083b2e3c7d</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ماعرفت علاش قطع لي alconnexion</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>1c78e1b8-91d1-4762-b3f3-e9c66a33c1fe</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>1ccc23e5-a034-4cdf-a699-551d122c44f1</ID_ARABIZIENTRY>
     <ArabicDarijaText>حنا غسلنا لكم الجواب على الخاص .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>45dc1d07-e0a2-4bab-88fd-b50296dd56de</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>3d5dce71-e870-4834-b86f-df99a35a201e</ID_ARABIZIENTRY>
-    <ArabicDarijaText>هه مكين manchroukou مع حد مكين لا 3g او 4g . مكين غير ة</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>413e1ff7-46f8-4fbf-9ed1-40ad9f07c573</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>26c08c81-cb33-4272-96d2-cf6707538fac</ID_ARABIZIENTRY>
-    <ArabicDarijaText>هه مكين manchrkou مع حد مكين لا 3g او 4g . مكين غير ه</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>26e6fba7-1b37-478d-966e-053a06cc8554</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>d4577ae0-325f-4d46-bbb4-fc9397c14ff2</ID_ARABIZIENTRY>
-    <ArabicDarijaText>kan3tadro على شكل انترنت لي كتوجه حاليا , باش نتاكدو من ختكوم , بعت لينا في مسج privé اسمكم ل   كامل , numéro ديالكم و ل   مدان لي كتوجد فيه</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>e647ff33-b650-4972-815a-6ad1916c65e4</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>403155b3-f726-4a7b-a9eb-3981c2330c5e</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام moustapha بليش , inwi في خدمتكم .
-لاشتراك ديال 49dh الشهر فيه ه ديال المكالمات داخل و خرج لوطنه zone1 + ج ديال إنترنت + راسل قصيرة غير محدودة داخل لوطنه + 10h توجة 3 رقم مفدال inwi + whatsapp &amp; facebook ملي يتسلى لكم رصد حصة الانترنت ف حدود 1go .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>11eda7ac-d5cd-4075-bf26-3cccf36c591b</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>74cc116a-0309-45cf-9a71-6a77cd0afd54</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام ان chargét 50 درهم ×17 = 850 فيه إنترنت و مكلمة و اليوم ما بات شي تخدم لي إنترنت مع العلم بقا عندي ف سولد 678 درهم كيفاش هاد لاقطا</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>9e7028fd-f373-461e-87ce-3e1ade58108e</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>3a32f85d-efe4-4ed4-b226-dd1fa89ca445</ID_ARABIZIENTRY>
-    <ArabicDarijaText>xmn ست لي ymklk تخطر طل ديالك من خلال الس نت ديالك بلا متمشيا ن الوكالى</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>3e5bbf70-cb09-4ae5-a3bd-9ef15b0d2962</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>3e928973-3748-4cdc-90ee-737a0f9c2010</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام , inwi في خدماتكم .
-تفضلو ف رسالة خاص ب اسمكم الكامل , رقم الهاتف , تاريخ و مبلغ تعبئ و لعرض لي شغلت و الهاتف لي tatste3mlou باش نشوفو معكم ليشكل لي tatwajhouh .
-inwi tatchkerkoum على التواصل ديالكم .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>3f324f18-0e0f-4689-a81b-adf0701075d4</ID_ARABICDARIJAENTRY>
@@ -923,158 +553,10 @@ inwi tatchkerkoum على التواصل ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>بغين دار ديك تجي القنيطرة , ما كرهت شي نشرك معكم , ان ديما مع دار ديك ولكن الغالب الله تحت النوي و تحت الرشاد الوالي</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>8cf03b43-1995-4cbb-8aad-473724e15ee0</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>21c3f82f-204a-4514-a1ab-65f868dce942</ID_ARABIZIENTRY>
-    <ArabicDarijaText>لا غاز لا كنش مايثا لا عرض لا تا وزة دابا بغينا غا نعرف 10 فب 1 وتصاب شحال fiha😕😕</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>0922cd68-6db5-4427-83d2-e5bd4b0181f2</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>df22f636-3993-4593-873a-d709ebf6b85f</ID_ARABIZIENTRY>
-    <ArabicDarijaText>بغيت غير نعرف fo9ax غادي ترجعه pass 10 درهم 15jour هاد 7xhor باش حيدته دب ما بقات شي kadwzo حتى اجر</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>217bb232-39a6-4c52-8049-bc8b5e92668f</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>dddf2977-914a-4aa8-a0ad-46dd8d7d3166</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام فوض ككا , inwi في خدمتكم .
-kan3tadrou على الشكل لي كتوجه بخصوص شبكة .
-تفضلو ب المعلومة لي طلبنة منكم باش ندير معكم لازم ب خصص الشكل لي tatwajhouh مع ضعف شبكة . و حول تجوبون على جميع نقاط د سمحت .
-و ب اسم inwi , kanchekroukoum على التواصل و تفهم ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>f71c73d2-03cf-44e9-85e1-8ded58e2410d</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>4b0b7a3f-73a4-4e72-a356-dd34a8514756</ID_ARABIZIENTRY>
-    <ArabicDarijaText>انا بغيت نعرف علاش kayamchili سولد وانا اصلا غني معمرة سنشن بواحد و سولد بواحد اش هاد شافر kayamchili سولد فال سنشن</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>6a402e51-c0f3-4434-8dd1-b8bb5413cd70</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>cf029597-c27c-4bc3-89b9-3271f3059118</ID_ARABIZIENTRY>
-    <ArabicDarijaText>دابا , ان , ف لا , زن , phosphatte لا région de فالله , khouribga , , résaeu , 100 % , mais ف شي , زن , مع , حضرن , و , résaeu , قاع ما تا يبقى , مع , تحياتي , لكم ,</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>d972db4c-5860-4f93-b629-f504549059e9</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>e68de3a2-b9a0-4817-b769-fc7517bf3c68</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام بصمات الحياة , inwi في خدماتكم .
-تفضلو ب المعلومة من فضلكم , لي ghantelbouha منكم باش ندير معكم لزم ب خصص الاشكال لي tatwajhouh مع ضعف شبكة .
-  لاسم لكاميل
-  رقم لي فيه الاشكال
-  رقم هاتف اخر نقدر نتواصل معكم فيه ( واخا ماشي inwi )
-  تفسير دقق الل شكل لي tatwajhouha
-  من إمتى عندكم الاشكال
-  المكان لي تتوجد فيه الاشكال : دخل و خرج البيت
-  مرق الهاتف لي تتوفر عليه و جرب ف هاتف اخر و مرق ديال الهاتف لي جربت فيه
-  ب خصص الانترنت : غمز لي taytle3 لكم حد réseau
-  ب خصص شبكة : عدد الخطوة ديال شبكة لي taytel3o ليكوم
-  الاشكال والش ديال تغطية ولا ديال لجودة
-  العنوان الكامل و دقق :</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>83a9d788-93d8-421a-8d5f-4ca8850d1df9</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>76443fa5-5644-4a1c-9e5d-19fded443d5b</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام حذت هذا , inwi في خدماتكم .
-باش telghiw تشغيل alautomatiqui ديال بدل ستك , ماعليكم غير تغسل ستب ف سمس الرقم حقق .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>380aa0b0-aea2-4bc2-bbf8-bc0eab86aec4</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>b8717007-7168-40aa-866d-656d8c9bd5fb</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام بد , inwi في خدماتكم .
-تفضلو ب رقم ديالكم ف مسقة privé باش نشوفو لكم الشكل ديال لاستفادة من كلوب inwi .
-inwi katchkerkoum على تفهم ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>c0a3378a-d4df-4fd4-9a87-162623c74d15</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>e24947be-581d-473f-b829-ffb3485871c1</ID_ARABIZIENTRY>
-    <ArabicDarijaText>kan3tadrou على الشكل لي كتوجه بخصوص شبكة .
-تفضلو ب المعلومة لي طلبنة منكم باش ندير معكم لزم ب خصص الشكل لي tatwajhouh مع ضعف شبكة . و حول تجوبون على جميع نقت د سمحت .
-و ب اسم inwi , kanchekroukoum على التواصل و تفهم ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>31ba3675-fb33-4a33-8668-5e0e31904392</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>d8a7e947-807a-4143-94fa-c150f57cdc6a</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام امجد بلقاضي , inwi في خدماتكم .
-تفضلو ب رقم ديالكم ف رسالة خاص باش نشوفو لكم الاشكال لي كتوجه مع انترنت بلا pass .
-inwi katchkerkoum على تفهم ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>9ee4b479-4d94-423c-b44f-4059c674813d</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>c6f531e9-e877-4cf3-a705-3d5ee4560a2c</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام inwi ان حشام zarghil kanskon ف مدينة شفشاون هاد 4 نص مشارق flabounmo ملي كانمشي نخوض تلفون kay9ololi ما عدنا شي تلفون بغيت نعرف فايقين مشكيل</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>d85dc083-c517-47cc-a92d-e052fda596d2</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>430aae6a-7ea7-4c71-9bef-a0c5f992575b</ID_ARABIZIENTRY>
     <ArabicDarijaText>لم محمد zarghil , inwi في خدماتكم .
 عطنة من فضلكم هاد المعلومة طلي باش ندير لكم شاكي :</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>0317a700-6556-441c-91c5-1cebd89dbec2</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>7af744a0-04c6-4800-a298-5223d73a30a0</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام صفة واش , inwi في خدمتكم .
-تفضلو ف رسالة خاص ب اسمكم الكامل و رقم ديالكم و تاريخ تعبأ و المبلغ ديالها باش نشوفو لكم الهدية الا ما توصلت شي به مع عرض آ لسقي recharge آ .
-و ب خصص خدمة آ dépannage آ خاص يكون عندكم عرض tictac , و ملي يتصل لكم راساد دار * 1010 # باش تستفد من الخدمة .
-inwi tatchkerkoum على لوفا ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>395f4355-1915-46b8-9e1b-c76c67bbcbe4</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>9b517392-9442-42c5-b586-7cc2d676e55d</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام بد اللي السري , inwi في خدماتكم .
-تفضلو ف رسالة خاص ب رقم ديالكم , مبلغ و تاريخ تعبيئة و العارض لي شغلت باش نشوفو معكم ليشكل لي waljehtouh .
-inwi tatchkerkoum على التواصل ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>cd02d51f-2971-4bb5-8d19-1ea181028f57</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>de610c2b-9ce7-40e4-b9d7-770015d48429</ID_ARABIZIENTRY>
-    <ArabicDarijaText>بغنى رز مزيان كما تسلط من tema7ez9e ديال والو 3ay9eto علينا بزاف قاع</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>8d579e7a-05b0-42ef-b5ff-718900bbf8e3</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>8ad95094-7d1f-425e-8efe-45ed33510f52</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام مروان , inwi في خدمتكم .
-kan3tadro على شكل réseau لي كتوجه حاليا , بعثنا لكم جاوب في مساج privé .
-inwi تشكركم على تفهمكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>6b0cc12a-22bc-4d5a-8a58-13e32615ea09</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>ebda7daa-89dc-49f0-9b47-810bef63a959</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام زهر بنج , inwi في خدمتكم .
-رقم لي 3tetona راه ما مشغل شي , حول ترجع لل شخص لي بع لكم , و إذا كنت بتق عاد راه طمان ديالها 30dh , كاين البطاقة دات only لي طمان ديالها 50dh .
-inwi tatchkerkoum على الاخلاص ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>739d19dd-24b7-45c3-9f3a-c7b5d48208ff</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>17c3e673-d77a-4bc7-9fdd-a18accf86671</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام فاطمة الاصل , inwi في خدماتكم .
-يكف annakoum تكون كتوفر على برمجت خدمة الانترنت باش تستطع تشغل ckdo لي ستافدت من ديال انترنت واخا مع عرض كلشي .
-inwi tatchkerkoum على التواصل ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>fe4dd168-a78a-4328-bc7a-2dedf96643b4</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>2231f4ba-7c24-49c1-b80a-934fb108d847</ID_ARABIZIENTRY>
-    <ArabicDarijaText>انا بغيت كون عندي 1 لي de 2 جج 4 جج هل مفهم</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>d90be389-954a-46c4-b742-1020256e4039</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>809497ae-da1b-44b4-a594-36ab465c5bdb</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام ياسين zouitine , inwi في خدمتكم .
-تفضلو ب رقم ديالكم ف مسقة privé و قد لينا نوع الهاتف لي كتوفر عليه باش نشوفو لكم لاشكال .
-inwi katchkerkoum على تفهم ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>6d4d5362-b9b9-4275-81fc-b06f7b9b0902</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>56fc2161-0024-4571-8142-fbe39d0652cd</ID_ARABIZIENTRY>
-    <ArabicDarijaText>باش نجاوبكم على طلبكم , واضحه لينا كثر ichekalkom , بعت لينا يدا سمكوم ل   كامل و numéro ديالكم في مساج privé .
-inwi تشكركم على وفاقم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>e08128bf-6ee1-4177-9589-f729db2a3093</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>b6b7e32c-3442-49b5-9864-7fcb3dc68ebc</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام nàjlae ما , inwi في خدمتكم .
-تفضلو بهاد المعلومة لي rantelbou منكم في " مسج privé " باش نقدر nsa3dokom :
-  رقم الهاتف :
-  الصم الكامل :
-  لقمة ديال لا recharge :
-  طريق لي دخلت به لا recharge :
-  تاريخ لي درت فيه لا recharge :
-inwi tatchkerkoum على الوفا ديالكم .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>8b96741e-4246-4c4b-8ed2-c56357d6c243</ID_ARABICDARIJAENTRY>
@@ -1082,102 +564,15 @@ inwi tatchkerkoum على الوفا ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>السلام inwi درت 5 درهم لبره عطاتني 30 دقائق مهضرتش بها مشت 19 دقائق انهر خور مشت كامل مشي معقول هادشي وشكرا</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>5f4c7f44-7097-4c3c-aa4b-9845a9ba97ec</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>1c312f98-9c74-4f51-9498-836001925d95</ID_ARABIZIENTRY>
-    <ArabicDarijaText>مكن لا كادش الاول شرجية osftoli رسالة فيه الهدية ولملى سولت ملقاة والو داوه يالله 45 القين</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>334c92b1-f792-454f-84c2-58eb957760f2</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>1c2d60ec-9eab-46f5-bfdd-090e0c1b99ff</ID_ARABIZIENTRY>
     <ArabicDarijaText>إذا شرجية 10 درهم عدي دخلت منها فسبق وتصاب نستفاد شيحاجا</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>e73c7bb0-4c53-45a6-94c8-d080a1698b27</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>7c122ad2-5a06-4f87-8332-9c43efda44eb</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام منيغ مجتهد , inwi في خدماتكم .
-باش تستفد من هذا , kat9oumo ب تعبئ عاد , و من بعد كتوصلو ب سمس فيه له كدا لي ربحت ما : جاوز انترنت و سمس و facebook &amp; whatsapp , بدل ستك , سمعني ... .
-kanchekroukom على لاهتمام ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>48335288-b39a-46a5-83ac-f2e96d6958fb</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>d2eba5b9-e2fa-461b-9f0c-989bc09ed87d</ID_ARABIZIENTRY>
-    <ArabicDarijaText>شارجيت 10 نهار 3 / 7 / 2017 درت ف + وتصب سلاح المدة حج mais نتوما ديتها لي فتلت الايام شحال من مرة وقعت لي وله</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>b55c599d-ee20-4a29-b39c-5dadd8d7fecb</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>1c659caf-15f6-4689-a268-b485d82e40a2</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام . دير forfit inwi . بغيت نبادل هادوك 3 نوم فضل لي عطيني شنو هي طريق ???</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>8dce0fcb-8cef-4699-855f-c1793e9e1391</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>b19b9717-d2b8-437e-9222-08974e6a8e6d</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام حسن ولد , inwi في خدماتكم .
-باش تغير رقم المفدال ديالكم , ماعليكم غير تصل ب 120 و تبعو تعلمت , ولا تصل مباشر ب مسلحة زوبان على 220 و هوما يقوم لكم ب تغير .
-inwi katchkerkoum على الوفاة ديالكم .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>927840ca-d199-4778-b6ac-96cfb8beddd3</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>fdc34c1c-047c-41dc-a264-857fe0edc51e</ID_ARABIZIENTRY>
     <ArabicDarijaText>السلام لاباس عليكم
 انا شرجية الآن ولكن ماوصلنا الساد لا والو ?</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>1b7d2e64-9d56-4e14-a516-59caaf5feeb0</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>05419554-d2ea-46a2-85eb-2fc968b122d8</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام سعيد براهيم , inwi في خدمتكم .
-هل نتوما مسجلين ف صلب inwi ?
-تفضلو ب رقم ديالكم ف رسالة خاص مصحوب ب اسمكم الكامل باش نشوفو لكم لاشكال لي tatwajhouh مع صلب inwi .
-inwi tatchkerkoum على لاهتمام ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>7c693fbd-ca03-42a3-aa72-115b60c72e37</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>5583b032-784e-4c03-90c1-0ebf752e9f3e</ID_ARABIZIENTRY>
-    <ArabicDarijaText>rocharge 50 درهم شحال فيه ديال إنترنت وشحال من جوغ</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>a0105594-eac0-41b5-8cf6-39bc397cfef3</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>a47e0c81-ddf3-4157-a25f-1723aa475336</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام محمد bouslham , inwi في خدماتكم .
-بنصب لي recharge 50dh katmne7koum رصد 5go من الانترنت سلاح لي مددت 30 يوم .
-inwi katmenna لكم نهار مبروك .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>203b1d0a-1099-4707-b5d9-d7a37a78302f</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>6cdfac62-a263-4581-bda4-ef8e23f21c3f</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام كامل , inwi في خدمتكم .
-باش نتاكدو من ختكوم , بعت لينا في مسقة privé اسمكم ل   كامل , numéro ديالكم و تاريخ لي عبئت فيه ختكوم .
-inwi تشكركم على وفاقم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>81e36c31-8dcd-416e-b3f3-a03e7e0dca94</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>c932a5b4-5518-4697-8b18-29810922a855</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام همزة مزو , inwi في خدمتكم .
-حنا غسلنا لكم الجواب على الخاص .
-inwi tatchkerkoum على لوف ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>dd23b65d-3677-4394-869d-3182aee0a4a3</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>94daa0e7-34f9-442a-bc13-4a3682b95736</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام فردوس , inwi في خدماتكم .
-إذا كتوجه ديما نفسه شكل , بعت لينا في مساج privé سمكوم ل   كامل , numéro ديالكم و تاريخ لي عبأت فيه ختكوم .
-inwi تشكركم على وفقكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>e1fc8af8-92c5-4e1b-9acf-c3e45cc9153d</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>a175db7f-ab84-4bf2-b4cb-c92e76ebd70b</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام hàfiid شانون , inwi في خدماتكم .
-kankhebroukom ان هاد العارض خاص ب زبن بدون اشتراك .
-inwi katchkerkoum على لاهتمام ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>c8bfe400-8923-4d26-92d6-0ecdaa012e88</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>0a802d19-7171-45da-b3bd-da488192a82b</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام سمعت بواحد الخدمة جديد " صنفرة ان " ديل تحول sway3 إذا كونشان .3afak هل كاين فقع لا forfaits . او غاغ شي forfait خاس</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>12bc04c1-d5e3-439a-9c8d-e596307ee2fd</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>6d6f7e4c-84f9-4235-a468-6081db3a7553</ID_ARABIZIENTRY>
-    <ArabicDarijaText>3ya9to والله فول كنت شوية dcnx الآن ولو قاع وش shblikom ktsd9o علينا او طلقونى alcnx إذا مبغاتش قلها نبذل الكرة walnthnaw منكم</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>e5f7101f-bad2-4e32-8de5-79ec7e90d738</ID_ARABICDARIJAENTRY>
@@ -1196,47 +591,9 @@ inwi بايباي كاين محسن</ArabicDarijaText>
     <ArabicDarijaText>بقبر ما صدقت شي من درت راسك مرة كملتها بالمكياج inwi زملاتك</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>4b30fa52-9e4a-4b3f-a859-dcca44755faf</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>a19fd8f5-03ff-4e16-a015-7686c1e440f9</ID_ARABIZIENTRY>
-    <ArabicDarijaText>انا عطونى 30h mais فاش kanbghi نتصل ما كيدز شي الكحة</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>f092b003-18e3-41e1-959e-cb870b61640f</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>682039f9-3d5d-460d-bf03-41a036435b11</ID_ARABIZIENTRY>
-    <ArabicDarijaText>kan3tadrou على ليشكل لي كتوجه .
-تفضلو ب رقم ديالكم ف مساقة privé و قد لينا المنطقة ب دبة لي كتوجد فيه باش نشوفو معكم ليشكل .
-inwi katchkerkoum على تفهم ديالكم</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>27fc1ca2-bf11-444f-99f1-b67213f32078</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>a1c0f98a-fccb-47a3-b075-f317a027848c</ID_ARABIZIENTRY>
-    <ArabicDarijaText>تفضلو ب الاجابة على الخاص .
-inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>f789c0ba-2768-4a55-a703-bbcff328db90</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>1b797836-8861-4e7d-8488-34d69cf180e6</ID_ARABIZIENTRY>
     <ArabicDarijaText>لو بلا زاد ساعة و بلا نهار طوال الآن</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>e6bdc6d0-a966-4dab-b950-15dc3f4900b8</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>e6f6e7cf-1492-4007-b043-ee4b89241069</ID_ARABIZIENTRY>
-    <ArabicDarijaText>b4it شي معلومة على الس cartes sim ديال iam , بغش , b4it ندير واحد اتصالات ?</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>c317124a-7bcd-4638-8a11-162f9c00eeae</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>bf5a1772-53ae-4928-9ff9-abaf9ff3ecd3</ID_ARABIZIENTRY>
-    <ArabicDarijaText>حشومة عليك اتصالات ولله كذبت علينا ف عرض mt   تلك .. قلت 10 فيه 15 دوزت غير 6 ايام مع العلم tan5adm غير 2g و facebook الط walmatanchof فيد .. المهم درت 5 درهم على س 5 جر و ما خضات حتى 2 جر ماشي غير انا بزاف ديال ناس .. زعما كن شي دولة اجنبيا حتى ندعوكم لكن عندنا ما كاين شي لي حيهتم ya3ndi عاد غير 10 درهم و 5 درهم .. المشكل ماشي لفلوس راه بقات فل مصداقية . حنا راه زبانة من اول ما بنت شركة يعني 7tarmona و يحاول مصلا شرق يتفهم مر على قال يدير لينا وفي ب 100 درهم لم بلا telelophone غير نة كابل .. تحياتى</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>238ed4e1-6a36-4997-8a79-19de1bc21714</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>1a020e80-1bc7-4212-9add-32894b58656e</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام عافاكم عندي problem flfix ملي kanbghi نتصل ما kadoz شي l'appel ولا kaytasal kayl9ah occuppé عافاكم شنو الحل</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>0b2d2af7-6c85-4999-860a-8965a668355d</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>98d3c323-dfaa-478f-89d9-98b2d1733742</ID_ARABIZIENTRY>
-    <ArabicDarijaText>wa ان ali 3ndi annif z3ma machi nta ! 😒😒😒😑😑</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>87b56208-92ef-4f79-b8fa-e6785b29454a</ID_ARABICDARIJAENTRY>
@@ -1249,60 +606,14 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>عفاك بات كود بوك لهاد نم 0643398987</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>b3e51dd8-305f-42a1-91ed-4246dae2580f</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>2a5609fe-64d8-4d9b-9a84-bc5a1df3d532</ID_ARABIZIENTRY>
-    <ArabicDarijaText>انا درت pass mt   تلك wmabghach يخدم شنو الحال الله يرحم الواليدين</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>03f368cc-604b-4526-8e0c-513ea717cf49</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>35247ee2-66f9-4637-9d8b-22f1f833767b</ID_ARABIZIENTRY>
     <ArabicDarijaText>و غير مضن ديال شمال كازا نسته مع العلم حسن مدان فلمغرب</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>eb8a0a52-1994-48f6-9491-8ce8616a66e8</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>a17a691c-1f45-4405-9e33-e03a1c497699</ID_ARABIZIENTRY>
-    <ArabicDarijaText>pccchhh هاد ياسين هو لا tal3alou ... ayjiboulou الحمام تال دار ! 😂😂😂</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>fc6da665-71b7-4b99-b7c8-9641520168c2</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>03a0d0c4-813d-4519-b831-9a3588725c4c</ID_ARABIZIENTRY>
-    <ArabicDarijaText>بغيت نعرف واش بس 15jour 10 درهم سالا ولا بقا بليز المرجو غاد</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>99fb0eb4-8d8e-4471-a2bf-bc79c58c9819</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>6869243d-67f0-4c61-96ee-ed0fc72664ee</ID_ARABIZIENTRY>
-    <ArabicDarijaText>سلم عليكم عندي مشكل ف adsl كبدة خدام 5 دقائق ولا 15mint okt9ta3 كونشان ان مخلص شهر</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>7d3401bc-6c38-4a26-a620-49609dd8c4e9</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>a88d8a67-3c2c-49f9-b5f5-f477df35a80b</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام عليكم عند واحد المشكل هي : حيت kanbghi نصن على chiwa7ed kay9ololiya</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>353848de-c43b-4f12-b09e-58b54d45c667</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>1392b547-cda6-42a7-a9ea-1e5973d17997</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام ممكن مساعدة .... ان دخلت تعبئ wmadrtch * 2 هل كاين شي طريق باش نرجعها دقايق و مغص</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>3858ecf2-60da-451d-8161-39369553498c</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>e84eda90-4801-4c68-ab40-99249c6a8bd1</ID_ARABIZIENTRY>
-    <ArabicDarijaText>دارت فغف الحرية نتاع 59 درهم عه و عقب انترنت
-ولكن من نصن al665 يجلل عندك غا 2 swaye3</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>faa425a0-5317-4860-b1a1-f722cb3fe942</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>ac34abf3-dabc-44db-9f28-6019c742e4b7</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام iam . راه sokkan هي لالا مرام مدينة benslimane tayl9aw مشكل في غسو ديالكم . راه البغى يحضر خاص يخرج من دار ولا طلع سطح . svp . إذا ما دار شي غسو مزيان . و مغص</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>0977f0cf-eaf6-4972-9d8f-149a491da077</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>3dd93238-edc2-4195-8f59-37c43d911ec9</ID_ARABIZIENTRY>
     <ArabicDarijaText>السلام عليكم خويا نمرا ديال قطعها لي ما عرفة شي علاش و عندي الكونتر</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>524e5e4c-0bef-4eac-8ad2-1a62ebcdedfa</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>d7016658-3b93-4aca-b5b2-56e1e5b9f7f8</ID_ARABIZIENTRY>
-    <ArabicDarijaText>هل katkhadmo اليوم صامد بغينا نخلصه واحد forfait 3ankachtona ! ?</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>414bca2b-6d22-45b9-ad7f-88861c43c9a4</ID_ARABICDARIJAENTRY>
@@ -1320,30 +631,9 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>الله نزال ليك لي آ ان ا لكلب</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>45318e75-559e-450e-a366-7c6034a40eb6</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>1d3c8224-a5ca-461d-b8bf-3171fcd63208</ID_ARABIZIENTRY>
-    <ArabicDarijaText>نتوما هوما رجل ان معكم ماشي zwaml ديال تيزنيت غير الهوى بليل olfm مع زات daf3kbir hhjjjj شميت</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>dbcf8dec-ae08-4160-afb5-c097ed0805f4</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>5e62cab2-c5fc-4ed8-99d7-4ead89e5e60e</ID_ARABIZIENTRY>
-    <ArabicDarijaText>مدينة فم تنتمى وليت غا katkhwro
-خليو alraskom قيمة صحوى</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>7e71efd7-84ff-4c47-90c4-1b6df3d1d8be</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>84d1c812-2d0a-45c7-9fda-dd5b9a41d462</ID_ARABIZIENTRY>
     <ArabicDarijaText>قحط شكون عند frecance ف سطات</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>2ba42af3-82a2-4f13-be03-c73a34ba4ddc</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>80479936-d5dd-43f0-8cda-e1ebd02ad628</ID_ARABIZIENTRY>
-    <ArabicDarijaText>لمن tebghiw تحدوه دابا</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>7f40beb7-d81a-40c5-8302-edab55c03fdc</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>32930da6-1868-4f18-8652-ac83cd58a342</ID_ARABIZIENTRY>
-    <ArabicDarijaText>مكين لا غني لا والو تخربيق لمعاني bbhal ضغيرة .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>9c2af394-bda7-4be4-95b5-2063f2ea4fea</ID_ARABICDARIJAENTRY>
@@ -1356,11 +646,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>هاد بلا شق خطك منور</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>e92e61aa-3b51-4918-8b76-44df7f03cc9f</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>3300df36-a83f-46da-9bae-df23bfbf6e87</ID_ARABIZIENTRY>
-    <ArabicDarijaText>فقم جاب لينا خطتى هي ضمن مافي مغربي 100 / 100 . فيه خطتى بزاف و kadjib بزاف sujets لي kanastafdou مهم و هي عندها réponse في يه commentaire ضل بغ</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>f6513845-3cf5-4637-a8a6-73d4b9c1da8a</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>14d7f777-5f5c-4edf-981a-64a61ca2b044</ID_ARABIZIENTRY>
     <ArabicDarijaText>برق الله خويا ترك سلم لي على مرة almastapha ما حتى شي الكاس قدامها هه</ArabicDarijaText>
@@ -1369,16 +654,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ID_ARABICDARIJAENTRY>a5e0dfe5-c479-476c-af24-9c184dbf0045</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>81184a5f-db00-4f73-b7b9-f87a2c89a901</ID_ARABIZIENTRY>
     <ArabicDarijaText>حداك لي حداك ما سيمة شي</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>8bf52eeb-8262-48ea-8cc4-69aaa6019dca</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>56edcb17-60bd-427b-945f-2100ced3218b</ID_ARABIZIENTRY>
-    <ArabicDarijaText>رق مناور اسي مروان الله ihafdak وخلص</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>bf7ade2c-a9bb-4dd7-9604-63b90c239425</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>cfd0311f-1d82-4985-a0be-92f632ad6998</ID_ARABIZIENTRY>
-    <ArabicDarijaText>هه دار داكشي لي قالت ليك سنة sabbar</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>59b41aca-40ba-4099-9cd1-91bb644e20c7</ID_ARABICDARIJAENTRY>
@@ -1391,19 +666,9 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>كون رجل و قولو لنا والش هادشي ديال zmagria كي فيض البلاد</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>a9bf5ef5-d7d4-486f-b49a-989f045b3afb</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>34ef8cea-1d8b-4bcb-9228-b7c063d20d51</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ان شريت تر ديال لحلب ب 10 دهس و صاحبتي سحرت fmerjane ب 9 دهس</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>384937e3-58b6-4b79-b0a8-35d0fdefd328</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>347eaa7b-cc30-4aa2-9220-ad206e50ecfe</ID_ARABIZIENTRY>
     <ArabicDarijaText>رجل ب معنا الكلمة . ماشي الصاق ف الكورس . بحال واحد قالك ولي تالت ???</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>e4ed87cd-d129-4f3c-8536-7ed7db524ab5</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>0ecf2d42-50d0-40f0-bf7a-4f43d6f0120a</ID_ARABIZIENTRY>
-    <ArabicDarijaText>و ك شمص غادي yeblasih هادشي معروف و هاد هي سياسة صح كي جيب رملى و لخر كي ye3jen و لخر kayebni ............ ☺☺☺☺</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>d85057e1-9624-490f-9930-70fa8d81c887</ID_ARABICDARIJAENTRY>
@@ -1432,11 +697,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ID_ARABICDARIJAENTRY>497cc827-2197-4705-afdf-0b176eec4409</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>772ce3ac-49ff-41b2-9cc8-7da6cfe8f7fb</ID_ARABIZIENTRY>
     <ArabicDarijaText>التعدى هدد ووحيد علم dlmgrib ينتهي ووجود</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>33561616-a750-4dcd-994c-3d9b8ff0891d</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>89aeca7b-28d6-4d67-85f8-77c414973374</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ولي ولي تا شوف شنو ترى , tsdamete</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>fd6dbf1b-0017-4b86-9929-d835275cf7ab</ID_ARABICDARIJAENTRY>
@@ -1469,39 +729,9 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>وشعب mayfokn غير بهار اليوم طقس حر</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>4f88f005-9a2a-428a-b26e-f9e7f723b54a</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>cdcaa6a1-bf2d-489c-b9b3-6008100a35cf</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ybarklah بقا طالع طنجة فوق شوي</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>e768d5ad-2206-45f9-b687-67b79cba15c3</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>9d5a264d-e982-480f-acf7-90df5b6a6154</ID_ARABIZIENTRY>
-    <ArabicDarijaText>حشومة عليه رد القراية حتى لواحد ما ntghaddaw شي</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>00534cf6-cb19-4a2e-8e35-24c437b6b149</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>8cbac966-c73a-4329-9c70-a2e027c00d14</ID_ARABIZIENTRY>
-    <ArabicDarijaText>و بنت سيد قاصم نتي حرر بغيت تعتزل choghkak هذاك بغيت تكمل نتي تعرف</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>7d81a79d-10e9-4c8e-bf0e-6a57efb2e14c</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>79f6be7b-963e-439e-bb40-abe0c343e49f</ID_ARABIZIENTRY>
     <ArabicDarijaText>almallych فرق alcombryssouratte تبقا القضيه ما ستافدت شي مشاريع خويا مافيها نفع</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>43a4986f-d9af-422a-9764-26d24cf791da</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>35b6c1f5-4a5c-477d-9d95-2cc40743be01</ID_ARABIZIENTRY>
-    <ArabicDarijaText>هه قاري ف akhawayn ب 100 000 درهم فالعام هه شنو تصاعده فيه . بالحق غي لي عندو فلوس هو لي katsa3doh باش يزيد لفلوس هه 0000000 عمرنا نزيد القدم</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>4426ad1f-d4a3-4fc9-bf7a-ee07ad71ff4d</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>12ddd5b4-9028-4577-ad1e-dd9a1e690029</ID_ARABIZIENTRY>
-    <ArabicDarijaText>انا ما 3jbatn شي حد غني كون بقات غير ف ستيل ذيله</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>fbefb4eb-1090-4efa-80ca-a35ac32e67e6</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>85649ef0-8b84-4f5b-86fb-2545eff37aa9</ID_ARABIZIENTRY>
-    <ArabicDarijaText>مشة الفص حيت فاس هم لي حاكمين البلاد ولد شعب كان حرب sti3mar ولد فاس kay9raw mkhapin pfff ولد شعب ثلاث بيهم ايام ولد فاس حكم البلاد walsayroha كيف hapo دقش علاش شفار طاع بنكيران مشا ادهم pf</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>b37ad42e-35f5-4d96-bda0-1482597794d7</ID_ARABICDARIJAENTRY>
@@ -1512,21 +742,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ID_ARABICDARIJAENTRY>1378206d-2162-4059-acbe-eca21f5a9e7b</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>e8ae7d81-70ee-4784-a40a-397fb4219212</ID_ARABIZIENTRY>
     <ArabicDarijaText>هانت ستفد طبق ضرها راسك 😂😂</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>f0c99b5b-53ca-4621-aaad-c5d21cf1af88</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>d9310dc0-b301-4d2a-8316-1f8c1cb4abe3</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ناري kanhema9 3liha😘😘😘</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>05573728-4e8d-4aa2-8696-59b011716fe1</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>4c0a1080-84a1-4de4-824c-2f21dd2d0133</ID_ARABIZIENTRY>
-    <ArabicDarijaText>الله yeghar9likop che9af نتوما وديك القحبة نتاع مانغ alimabghatech تسمح ذاك زمل ويهانون من kmamerhom لديغن kizebi ala3waj</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>d49c021b-640d-4351-8629-d689070dcb2a</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>2c466170-2c2a-4732-aaf8-8b9e83a36e23</ID_ARABIZIENTRY>
-    <ArabicDarijaText>هاد لجرم قام به شاب بهاد خو صادق لي ب هي السلام كان تحت تاطير al9ar9obi هو اصلا مختل عاقلين tantmanaw الله يغفر ليه walntmanaw ليه صحيفة من الله تعل لاذع تبقاو دعو فيه ربي هو alitayhasab كل واحد وروه عزيز عاد الله والجادة الله yarhalha</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>84d5ebb0-e817-4217-ab4f-d5b81b086293</ID_ARABICDARIJAENTRY>
@@ -1549,19 +764,9 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>هضم هم لي تصورت معاهم ف سحر 😂😂😂</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>0eb57887-ef25-41e0-bdce-f3d10e7c88a3</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>39b51910-8617-4eef-9b26-aee220e4b91e</ID_ARABIZIENTRY>
-    <ArabicDarijaText>سر شوفو ة الس كافة azwaml شباب ضيع فهاد بلد وكبر دير را شي مجهود ولا مشروع tayt3kso معه wmbkat عش فهاد بلد لهربة</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>a54f80ef-8fa8-4f32-8789-fdae03a8a705</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>00bdfd0e-30de-4229-8ea6-1a0e495ac991</ID_ARABIZIENTRY>
     <ArabicDarijaText>pétrol طاح حتى ح dolars العالم نقص فيه تما ونتمى makayn9ass عندكم والو . دايرين كي تم &amp; جرى</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>4bb25b5a-aca2-4b69-a676-079a72056c6d</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>8e343caf-5dab-43eb-9395-67200f480598</ID_ARABIZIENTRY>
-    <ArabicDarijaText>احيت هي بيتنا nwaliw panachi احح</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>870d9c43-6a3a-4b57-b6c8-e77d613b048c</ID_ARABICDARIJAENTRY>
@@ -1584,24 +789,9 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>ماشي قال قتل خط الآن ولا خوه</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>5e4cfde8-7e52-4302-9fe8-ce56ebad3924</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>20538748-5dd9-4c2f-8558-651485fba109</ID_ARABIZIENTRY>
-    <ArabicDarijaText>حمض هاد زب والله حتى رشيد رفيق حسن من بزاف جا amlwr دار بلاست</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>6b62ffd3-2781-4c06-85cd-4edc0a5bc04c</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>8a5285ff-2ae0-47eb-b2ed-5c75f8d95aeb</ID_ARABIZIENTRY>
     <ArabicDarijaText>نتوما كل وحنا نمط بجع</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>6fd877f8-8d7e-4e79-972e-55fe5449b61d</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>b83bd8be-8713-4ea7-bc3b-f07f192d002e</ID_ARABIZIENTRY>
-    <ArabicDarijaText>هه kanchofih الآن عاد بغا تقارب ليه مارابانا قد فيه غرض هه</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>e0952a06-5649-4c8f-b454-1d946929e08e</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>ad02a74e-f190-4120-82d9-a8811fa45c14</ID_ARABIZIENTRY>
-    <ArabicDarijaText>نهار 7 chotanbir ratji نهار الخمس</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>6e1171e0-97dc-4024-8eea-debd35efb65d</ID_ARABICDARIJAENTRY>
@@ -1632,11 +822,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ID_ARABICDARIJAENTRY>d9a312fd-783b-460b-89c4-4770ecfbf05e</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>99dd1f83-8b78-4bad-88e8-e1697503c112</ID_ARABIZIENTRY>
     <ArabicDarijaText>و الفهم الخاوي صافي لغد يقطع تدخين يقاطعه فمر مش y3qwdoh بل إلكترون</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>99411d61-cece-4fdc-9225-86e2341efc7e</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>3207c0bd-a71e-4dd8-a5a5-48926c002ec8</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ssttandaly3ou تطور قبل توصل لي هلل</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>0bce2f92-1c75-42b5-be26-153e83985fd7</ID_ARABICDARIJAENTRY>
@@ -1709,44 +894,14 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>هاد بلا كحك خطك منور</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>e82babdc-80c8-46d4-ae52-f91c82bdc928</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>87868de1-22cf-459c-90fc-05ea877cffe4</ID_ARABIZIENTRY>
-    <ArabicDarijaText>لا مش خطي ولكن kan3rafha</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>f6a5f9d9-63f4-428a-97d3-db12ba80f411</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>399425ce-1d0b-4414-96b7-234e25aa58f2</ID_ARABIZIENTRY>
-    <ArabicDarijaText>سارة سمايرة فاقم جيب لينا خططي هي ضمن مافي مغربي 100 / 100 . فيه خطاط بزاف و kadjib بزاف sujets لي kanastafdou مهم و هي عندها réponse في اه commentaire ظل page</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>b7cd4583-f233-4aa7-b9b7-7ffdd734da3d</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>87195022-04d4-4791-a2c4-f8a5ebde8c0e</ID_ARABIZIENTRY>
     <ArabicDarijaText>تبارك الله خويا ترك سلم لي على مرة almastapha ما حتى شي القص قدامها هه</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>a630e7d5-4f86-4d3e-9e9e-ecac4c466f51</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>8f7ae7b1-4b70-4605-b961-9f0230085fad</ID_ARABIZIENTRY>
-    <ArabicDarijaText>راه تخلص عليك كما ف début de لا فظ</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>9849bd7b-b0ed-482d-a8b9-9e1c0185c2b7</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>d52499ab-6463-4f6a-803d-be80e78990df</ID_ARABIZIENTRY>
-    <ArabicDarijaText>علاش مم ما بقا شي كيجي ف حيت غادي مع صباح ??? يجاوبني شي واحد pliiiz😯😯</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>ec5ad6a7-c76b-403f-b852-b40cd2617b2c</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>4f3c08aa-bb85-4cbd-a5d9-b1c0c75cf0d3</ID_ARABIZIENTRY>
-    <ArabicDarijaText>على سلامتك ا ست ! واسهب خلتنا بلا غادي حكهما عليك هه بن ا صاحب twahachna alblanade ديالك تيتيز فرضه نقص صاحب نفا طاح نتا لي كاين yam3allim</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>b525eebd-8fd2-497a-b0d1-fbccd63ef79f</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>b2b29c4d-3135-4fe1-850c-ba37b11be7be</ID_ARABIZIENTRY>
     <ArabicDarijaText>خويا مساج زوين بزاف الله يهدينى على ريسنا و نكونو نشاله من طيبين</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>070b0d39-3049-4bb6-9489-70b3bf4fdb93</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>34fddf8b-d8d1-485b-95b0-1094d1f7be2d</ID_ARABIZIENTRY>
-    <ArabicDarijaText>فضه فيه عبر كبيرة</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>f1fa6b7c-7ecc-490e-b705-887040ef422d</ID_ARABICDARIJAENTRY>
@@ -1762,11 +917,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ID_ARABICDARIJAENTRY>a1482975-6e16-4cb6-88c8-d1e4607dd4d9</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>8b044361-df81-4f42-8944-3487c6717be4</ID_ARABIZIENTRY>
     <ArabicDarijaText>هه إمتى ترجع الخدمة ??? موم</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>cd11da5c-451e-4a35-a688-8a0b77989f27</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>2763970b-80aa-41c4-8ba9-af976edf0bb9</ID_ARABIZIENTRY>
-    <ArabicDarijaText>نعم مم وقع المر مم w9tach ratirja3 توحشناك اصاحبي</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>d00491ea-bdd9-4687-b4da-83963da727ff</ID_ARABICDARIJAENTRY>
@@ -1788,11 +938,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ID_ARABICDARIJAENTRY>ace264ad-bd49-4177-99fc-50eb9dda4f93</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>c9ae87a8-957b-4e4c-9ac1-69a9e57a067e</ID_ARABIZIENTRY>
     <ArabicDarijaText>رجعت تاني داك ezzzzaaaaml</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>409fd457-0154-402c-b48b-5243fcec9e3c</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>d8188af3-e31e-4f8e-af50-656691333072</ID_ARABIZIENTRY>
-    <ArabicDarijaText>بسها . و بركة من congé twahachna مم مورننج صحو على حيت غادي .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>66c3ce64-f0ad-4c4f-a6dc-858b870e8668</ID_ARABICDARIJAENTRY>
@@ -1830,11 +975,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>الله حفظكم albaadiyatkom و الواليدة حتى هي الله يحفظ لك و قوليها ثالة ف هاد almoutchou إذا ما كنت شي ف دار , بين زيز ليه بزاف</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>9d32c9dc-9b4b-466e-bbca-cc9167f769b4</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>428f7736-b5e7-4ff3-9ac9-ededd2579e50</ID_ARABIZIENTRY>
-    <ArabicDarijaText>شنها الحجل katchofha خايبة ف هاد الميدان</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>e6aafdfb-b043-4b1e-b5f4-42e33c3f5a3d</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>fcbbd929-a6af-482b-a8f2-cc8b195a8a44</ID_ARABIZIENTRY>
     <ArabicDarijaText>سى مم لبجث tehe9e9eli مي ديال هي كما دخل طلق دسك ديال مسلم رسالة 5:00</ArabicDarijaText>
@@ -1868,11 +1008,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ID_ARABICDARIJAENTRY>5d16b199-5faa-4253-a31f-2dd4e20d0f97</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>3a12f6e0-a70e-4c73-b006-887f0a71c5f4</ID_ARABIZIENTRY>
     <ArabicDarijaText>العار لا مجيب شي حاجة جديد من عندكم صح po pk خاصكم دير داكشي لي كادير الخرين</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>68112f8e-d92e-494e-827b-0dd130195395</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>1cb013bb-45bb-47d6-804d-008ee4de9d79</ID_ARABIZIENTRY>
-    <ArabicDarijaText>طن مشى جامس كوردون pfffff kay3jbkom تقلده عمل شي حاجة dialekommm والو</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>449a3038-0b94-4937-b149-3c7856c98a28</ID_ARABICDARIJAENTRY>
@@ -1915,19 +1050,9 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>بنط بلدي ليخلق ديما alfo99 راه عندك almhsadinnnnn بزاف حبى</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>00ef92d8-0d8d-4b34-96c1-aed9fb50d368</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>f9d89a2a-8d14-4887-8f60-2c728c1ff88e</ID_ARABIZIENTRY>
-    <ArabicDarijaText>بنط بلد الله يحفظك نتي غزالة جبت غزال . kat3ajbini هت إنسان واثق من نفسها معل بالهاش بهم !!!</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>ea9f873b-fcbc-4e43-8892-d75f54727c2a</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>815bf956-156c-4078-96f5-f6f001ded028</ID_ARABIZIENTRY>
     <ArabicDarijaText>طفو كلبى طفو ما kanhamlak شي البت انداك الفم دول بات انداك نف بحال رضعة</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>22d5ccb6-37f8-4ad5-87be-b0f39c240b81</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>e7a7e857-d3d1-49ae-8e03-6571968d0b6b</ID_ARABIZIENTRY>
-    <ArabicDarijaText>تباركله عليك 😻 حنا معاك ا بنت بلد المغرب مشرفانا ب ستك و حذرك و الباقي ما هم شي يا fennana عيلتك تا واحد مسوقو فيه و هدشي العلي ما نخلته شي مع alfenn 😘 خلق متألقا</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>be4f5d0a-6b3d-47f6-8339-8a5548daf118</ID_ARABICDARIJAENTRY>
@@ -1950,11 +1075,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>دبا بنطق ما عرفة شي هل غادي تخرج بحالك ملي درت مص ا جر و لا غادي تخرج كتشبه لا فرسين القدم ديالك</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>278fb389-8cae-40c7-8c26-2c538bc5770e</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>93a5d53a-2976-4cc1-96e4-96f5c8ed92ed</ID_ARABIZIENTRY>
-    <ArabicDarijaText>انا كنقل را تعي و الى ما عجب شي سوق هذاك 😁 و ن plus را لقنت كتقرا مزيان را قلت بل تا انا kat3jebni ك صوت à ستاذ .. .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>3b4bd317-326f-4ce8-9035-534c302fc1ac</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>925e66b4-e2f8-4599-9c14-5f9b45fb0ace</ID_ARABIZIENTRY>
     <ArabicDarijaText>kandakhlo الصفحتها باش نقولله بل راك hachamtina بهاد لاباس دالق وحد المسخ</ArabicDarijaText>
@@ -1968,11 +1088,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ID_ARABICDARIJAENTRY>f4c5156e-b6d1-4cc4-94d2-e0c12416dd2f</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>a5917091-a156-49da-bbac-c0a13e19b5cc</ID_ARABIZIENTRY>
     <ArabicDarijaText>انا ولد ضربكم سبقا ف المشروع بغيت نتقيد ف شي مسبقة ديال الغنا فين غادي نمشي</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>cf296767-0367-4951-becd-1c89f27f393d</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>f3ca5b0a-7e2e-404b-b33c-9334cd8243b4</ID_ARABIZIENTRY>
-    <ArabicDarijaText>dyalach rochrg هل inwi ?</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>bace981a-4e3b-4b55-b1e6-3e60c7546581</ID_ARABICDARIJAENTRY>
@@ -2015,11 +1130,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>تا سلطان هو تا زمان</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>70d9e993-27e9-4b39-8274-5f8f51655a1c</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>0d15024e-a493-4ca9-a463-9e38ef9d32e6</ID_ARABIZIENTRY>
-    <ArabicDarijaText>رقم 1 فلمغرب الحمد لله ما kayhchmna شي مع alkliyan</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>230a0ecd-50ad-4e28-bcb3-1d2630183e89</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>69629fa7-52c0-4735-80a0-120df3bdd0a7</ID_ARABIZIENTRY>
     <ArabicDarijaText>وشح غادي ذره هاد العام بكري</ArabicDarijaText>
@@ -2045,24 +1155,9 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>هل هذ شي ف ما راك شي</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>9399ebdc-d2e5-493c-a28a-586eff0a6495</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>57b7c25e-5bcd-490f-bc87-fe6da6432312</ID_ARABIZIENTRY>
-    <ArabicDarijaText>inwi</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>10a94dde-3e09-452f-80b7-a71d3cc6ab2d</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>d6249c6b-24c0-4a03-9cbe-a8acc5f9e627</ID_ARABIZIENTRY>
     <ArabicDarijaText>انا جاي فطريق</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>1a126579-9f59-4950-8d8e-6a00ef5f9b51</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>7e2070ae-3afa-45b5-8edd-4572944cd470</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ما عند من قول هاد inwi خطر غادي قدو على orange و mt</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>ad356761-73bb-4921-9b56-5378dd361467</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>7dbdc0b3-9ecb-44e7-9145-1062e4a20ea5</ID_ARABIZIENTRY>
-    <ArabicDarijaText>جامع لبنت almaghribiyat تا بغي الفلوس</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>0bef2c8d-10f0-4bbd-a2d9-18dc86719b97</ID_ARABICDARIJAENTRY>
@@ -2170,11 +1265,6 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>مكينش نعناع , مكانش عنبر , مكانش 1936 , مكانش لجملة aliltahte فقلب كل واحد . هه عطيوني cadeaux</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>08147897-bf67-4116-bfbc-aca2b7bd31e0</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>06a31755-92cb-4644-81d7-565e2b535fee</ID_ARABIZIENTRY>
-    <ArabicDarijaText>وو فت مريكان ف نيفا ديال شهرة bravo عليكم</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>5e326a8b-0b9d-475d-bc86-7e196dbe49fd</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>b96d44e1-d03d-4674-ab0f-ea0ff78c88b1</ID_ARABIZIENTRY>
     <ArabicDarijaText>مصطى فلو حسن rappeur ف علم هه ولد هم</ArabicDarijaText>
@@ -2230,19 +1320,9 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>السلام hà مز , inwi في خدماتكم . عطونى من فضلكم رقم الهاتف والنوعية ديال باش نبعث لكم عليه رسالة لبرمجة . inwi تتشكركم على خلص ديالكم .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>5aafc559-1fad-42d2-8e0f-4a3fb259fa90</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>9baa4f7d-84ff-4f4b-ae8a-956f2841c94e</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام تما الحرام , inwi في خدماتكم . inwi تتحول تحسن شبكة ديال مكلمة و إنترنت ف باقي نواحى و ضواحي المدن الكبرى , قريبا غادي تكون الخدمة ديال شبكة جيدة . inwi تتشكركم على تفهم ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>0ed2c28e-0ac0-43e7-ad23-151be60b3e62</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>13fc5a8d-b3cc-4556-9a38-9faaa4cc12b2</ID_ARABIZIENTRY>
     <ArabicDarijaText>السلام naïma الخضار , inwi في خدماتكم . عطنة من فضلكم رقم الهاتف والنوعية ديال , باش نبعت لكم عليه رسالة لبرمجة ديال خدمة إنترنت . inwi تتشكركم على خلص ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>59531f1c-d24f-4861-a1e9-a2871e8f4c1e</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>25eb9eec-a0e6-4712-af54-4f5507e46038</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام مروان حساب , inwi في خدماتكم . inwi تتحول تحسن شبكة ديال مكلمة و إنترنت ف باقي نواح و ضواحى المدن الكبرى , قريبا غادي تكون الخدمة ديال شبكة جيدى . inwi تتشكركم على تفهم ديالكم .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>7a51cb89-cec8-49ad-ba3f-5c58c650f179</ID_ARABICDARIJAENTRY>
@@ -2250,34 +1330,14 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>السلام , inwi في خدماتكم . هاد العرض خاص ب جاوزت alvidéo ديال يثب . inwi تتشكركم على خلص ذلكم .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>094335be-6ec2-4a6c-a538-2f739f437d5c</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>b80bdc12-1cf0-49fe-8473-8538e9d0766c</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام يوسف مرشد , inwi في خدماتكم . لجوازات ديال واتساب و فيس بوك لي كينين هوما قتل : جواز صالح « 3 ايام » فيه 100 ميغا ب 5 درهم تك جواز صالح « 7 يوم » فيه 300 ميغا ب 10 درهم تك جواز صالح « 15 يوم » فيه 1 جقا ب 20 درهم تك جواز صالح « 30 يوم » فيه 2 جقا ب 30 درهم تك inwi تتشكركم على خلص ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>1a175fe8-8102-44d2-8b8f-0287c3f6162b</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>215eeaa8-845d-44cc-ab65-ca1e1646254e</ID_ARABIZIENTRY>
     <ArabicDarijaText>السلام دريس سر , inwi في خدمتكم . عطنة من فضلكم رقم الهاتف walisemkoum الكامل , باش نشوف لكم الهاتف لي ثيمكن لكم تاخد ب نقات الوفا ديالكم . inwi تتشكركم على خلص ديالكم .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>74383269-d874-4751-829e-60152d0848da</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>bf1d1a2c-5b3d-4fcf-ad2e-373e8efedefd</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام نبيل مهوب , inwi في خدماتكم . inwi تتحول تحسن شبكة ديال مقلمة و إنترنت ف باقي نواحى و ضواح المدن الكبرى , قريبا غادي تكون الخدمة ديال شبكة جيدة . inwi تتشكركم على تفهم ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>d05e4024-315a-450c-b314-06258fe983b1</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>bb2b8527-fd7c-4fe2-8223-883b36e10654</ID_ARABIZIENTRY>
     <ArabicDarijaText>السلام ودية albahrami , inwi في خدمتكم . لا tonalité d'accueil غادي بهذه désactiva من بعد شهر . inwi تتشكركم على خلص ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>9bbde413-9289-4761-809d-0df6fe8c61d8</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>b00f372f-da5d-4f70-be16-d8ec2d554bc0</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام عامر لعريش , inwi في خدماتكم . حنا بحثنا ف رقم ديالكم لقينا ب انا تعطا لكم قد مع تعبئ فيه 15 دقائق مكالمات نحو رقم inwi , صالح حتى الط جولة ثيمكن القلم تستعمله نهار سبط و لحد . inwi تتشكركم على خلص ديالكم .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>40da4d88-ae2c-4215-a5aa-8b2d6d593b0e</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>9f5d81cf-e709-4ec4-a5c5-38f53d0c8ff9</ID_ARABIZIENTRY>
-    <ArabicDarijaText>فعلا من بعد ما تدير تعبئة غادي تشارك moubacharatan ب تومبلى , لي انكم غادي توصل ب غسل تتخبركم ب المشاركة . inwi تتشكركم على خلص ديالكم</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>4e3233bc-5a94-4491-ba88-4643588d92e3</ID_ARABICDARIJAENTRY>
@@ -2320,13 +1380,828 @@ inwi tatchkerkoum على لتفهم ديالكم .</ArabicDarijaText>
     <ArabicDarijaText>السلام هل ممكن مساعدة المشكل لي عندي tasra9li طل و مشاتل حتى نمر ولكن فاش بغيت نردها طلب خير 3 د نوامر هدرت معاهم ولكن ما بقيت شي عاقل عليهم هاد نوم بلا شتراك هل كان شي حال و مرك</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>c4b33be6-dc8e-4937-929f-27370ece9fbd</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>045f654c-c398-4f29-898c-79c2e61e48f5</ID_ARABIZIENTRY>
-    <ArabicDarijaText>الله ا ن ترس بل فوش ولكن ن فاشيون 0 كتلبس شي tkachat trop chargé من شيمة و فصلتهم لا علاقة + bcp بجوش كابا vraiment بلدي بحال حلم</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>8f6c0178-1880-410d-a53d-7bee4f5466a1</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>c66e7165-b1f9-42b0-882a-9c591e282eaa</ID_ARABIZIENTRY>
     <ArabicDarijaText>السلام عبدالله الحفظ , inwi في خدمتكم . باش تخدم لكم لا 4g ولا خاصكم تكون تتواجد ب مدينة فيه تغطي ديال لا 4g و الهاتف ديالكم خاص تكون فيه الخدمة ديال لا 4g متوافر و اخيرا خاص تكون عندكم لبطاقة sim فيه حتى هي الخدمة ديال لا 4g , باش تغير لبطاقة ديال inwi al4g تواجه من فضلكم الوكالة ديال inwi , تغير ب 30 درهم , إذا كان عندكم يشترك تغير لبطاقة ماجنى . inwi تتشكركم على خلص ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6b5d2ebd-f255-4306-9f56-ca80972e2d3e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>905c93db-b216-44dd-9e63-2f255dabb334</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الله ى ن تغص بل فيش ولكن ن فاشيون 0 كتلبس شي tkachat trop chargé من شاما و فصلتهم لا علاقة + bcp بجوش كيبان vraiment بلدي بحال احلم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>87eed446-24e2-425f-bf08-c3d01a3a4a8e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>22938667-489f-4e81-bac1-35a9e9f1f20b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام عامر لعريش , inwi في خدمتكم . حنا بحثنا ف رقم ديالكم لقينا ب انا تعط لكم قد مع تعبق فيه 15 دقائق مكالمة نحو رقم inwi , صالح حتى الط جولة ثيمكن القلم تستعمله نهار صبط و لحد . inwi تتشكركم على خلص ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3825bb59-ac95-4c2c-b144-212688ec1452</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>69d8bd70-75d0-4525-8f01-242f2b2e80ce</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ما عند من قول هاد inwi خطر غادي قدو على orange و mt</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7e732772-7efa-43e4-9e1c-0a5fc3a3eb17</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b53e5706-0f2a-4472-83df-7b74353a9f70</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فعلا من بعد ما تدير تعبيئة غادي تشارك moubacharatan ب تومبلى , لي انكم غادي توصل ب رسلا تتخبركم ب المشاركة . inwi تتشكركم على خلص ديالكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1d6297ab-1743-420b-8157-24cafd915ae9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9dac29e7-672a-482a-869c-96a5d87a2a68</ID_ARABIZIENTRY>
+    <ArabicDarijaText>جامع لبنت المغربية تا بغي الفلوس</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e259a345-a4a6-446f-9d61-de0eb63e27a7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>27f849da-0fed-44d0-8800-c4b0fe7867b1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ستندلع تطور قبل توصل لي حلول</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>29454a81-e9e3-42e7-b104-8c2453bca1c0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d862b816-ec2f-48b8-9029-9773465b06bd</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و ك شمس غادي يبلاصيه هادشي معروف و هاد هي سياسة ش كي جيب رمل و لخر كي يعجن و لخر كايبني ............ ☺☺☺☺</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d13dd5f7-8cd5-4c51-af43-1a3cc2977a62</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4c1d74d2-528b-4260-beb5-cca44a14dc3f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام moustapha بليش , inwi في خدماتكم . ليشترك ديال 49 درهم الشهر فيه اه ديال المكالمات دخل و خرج لوطنه zone1 + 2 قجة ديال إنترنت + رسائل قصيرة غير محدودة دخل لوطنه + 10h تجاه 3 رقم مفضلا inwi + واتساب &amp; فيس بوك ملي تصل لكم رصيد حصة alinternet ف حدد 1 قجة .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>bf862969-4f05-4159-a4fd-76ced5334f80</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>867db05c-f819-4133-a622-85d5cae91a7d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هاد لجرم قام به شاب بهاد خه صدقة لي ب هي السلام كان تحت تاثر al9ar9obi هو اصلا مختل عقليا تانتمناو الله يغفر ليه walntmanaw ليه صحيفة ما الله تعالى الداعي تبقاو دعو فيه ربي هو alitayhasab كل واحد ورح عزيز عاد الله والجادة الله ارحلها</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a92a6e4b-00a5-4deb-b40d-26278202b2a0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d165890c-d196-4ef3-b61b-a0576da0e85e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام inwi انا عند واحد المشكل flpuse كي نعمر يبقى normal ولكن من تكمل قطامش 3g و kinsoni لشي شخص kaygololi لقد إنتهت صلاحيته حسابكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>699b4ed6-b414-49fb-8a3a-3a1894536d2f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f78a2736-8e06-4d5b-8767-adcfd0202e01</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نهار 7 chotanbir غتجي نهار الخمس</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7b5dd2bb-277c-4a96-bd0b-f3e0201b74ea</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b87ebb3f-0cb9-4bc6-ad83-564aefaccd90</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تفضلو ب لجاب على الخاص . inwi تتشكركم على التفهم ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f28b4e07-d9b4-4801-87ea-0ce5140637c9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0e859dcf-016b-4f44-b6eb-e0db2dd87dc9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كنعتذرو على لشكل لي كتوجه . تفضل ب رقم ديالكم ف مساج privé و أكد لينا المنطقة ب ذبت لي كتوجد فيه باش نشوف معكم لشكل . inwi كتشكركوم على تفهم ديالكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b7dce120-dea1-42d3-8958-ceffd4de8928</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7010f491-8901-4cfa-8f91-c5e6d41d33d4</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام مروان حساب , inwi في خدماتكم . inwi تتحول تحسن شبكة ديال مقلمة و إنترنت ف باقي نوحى و دوح المدن الكبرى , قريبا غادي تكون الخدمة ديال شبكة جيدى . inwi تتشكركم على تفهم ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>cc54e58d-520e-4617-afdf-b12bc85c354e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7e3b7d17-b2b2-40e8-bba5-45113e1d015f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هاد دارها زوينة بعد هاد يستحق ماشي بحال دوك شخط لي kighaniw</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7984024c-c848-4543-b8fa-d6397cfa7845</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>81a17a97-7cba-48ba-ba2b-d754bc46b64d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام حسن ولد , inwi في خدماتكم . باش تغير رقم المفضل ديالكم , ماعليكم غير تصل ب 120 و تبعو تعلمت , ولا تصل مباشرة ب مصلحة زبانة على 220 و هوما يقوم لكم ب تغير . inwi كتشكركوم على لوفاة ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>96b2407f-f606-4ca1-9570-b9283575e595</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b2941d89-1929-45d3-b1aa-6fc021c23720</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام امجد بلقاضي , inwi في خدماتكم . تفضل ب رقم ديالكم ف رسالة خاص باش نشوف لكم ليشكل لي كتوجه مع إنترنت بلا جواز . inwi كتشكركوم على تفهم ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f34d8bc5-2a5f-4518-b9b3-203e56f5647c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c5bfa22a-f8a4-4377-92af-9ef0cf93c44d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام ياسين zouitine , inwi في خدماتكم . تفضل ب رقم ديالكم ف مساج privé و أكد لينا نوع الهاتف لي كتوفر عليه باش نشوف لكم الشكل . inwi كتشكركوم على تفهم ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8e27c84e-6001-460e-9511-4880f2b4dc6b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fdf99072-2be5-4a81-af83-d43f50649e35</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام حمزة ميز , inwi في خدماتكم . حنا غسلنا لكم الجواب على الخاص . inwi تتشكركم على لوفه ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>58a4d155-23a4-4d56-8a25-3b4649d981f2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f629949e-2c22-4211-99a5-ef9759231677</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام فاطمة الاصل , inwi في خدمتكم . يكف انكم تكون كتوفر على برمجة خدمة alinternet باش تستطع تشغل ckdo لي ستافدت من ديال إنترنت واخا مع عارض كلشي . inwi تتشكركم على التواصل ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ec963097-9dff-44b8-81fb-21b5d931a434</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>275b9f6c-c3f2-4125-9afd-a9a8160efb5e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يق المنخرطين فات 50 % , 4 مليار اش دخل فيها هو ? , الرجاء ديال به . ما فهمت شي انا هذا علاش ت ضر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5a825ad6-f128-43ba-af6f-90f67574cde7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>86afda82-3862-4537-a7d0-404557cbf0d8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>دبا هاد لا تعبئة واش معاه al4g</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>02fe82dd-504b-49b1-b441-ddc60b110034</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3a668d7b-d585-4493-a8cb-e38f46ec316e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خاص ياميق ما يمسح شي باش ميلقا باش خالص فخير</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>af019808-cdc3-408a-a097-186f7d88b45b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8567a1d6-b3c8-4d10-a745-4ec4c80de649</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نتمنو ترجل مع الجمهور walmykhliwch حسبان دير البغى فرج راه دخل نفخ كرش من رزق ديال الرجاء الله يخود الحق فيه مصلحة الرجاء انا هاد المكتب بقا جالس مضار والو كيتسنا صدقة من الجمعة والحياد فخر لي صبر وتقاتل فظروف صعيب مكنش لعبة كيتخلصو كلعب ويربح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>660eaeab-7bb1-49e2-877d-841d8aab2a10</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>40437471-60c8-4b5b-8593-0cea0a7813e5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>bravo خويا ناس تستاهل و نتمنو تزيد تخدم مزيان و مسيرة موفق</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1b441b28-8900-4bf7-a4fc-765ad77b722a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7f991ac3-b19f-4497-8560-024d16afd45e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>وو فت مركا ف نفا ديال شهرت bravo عليكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>94ff21d0-8a90-4e1f-8577-82aa92f1ed18</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3ca9c269-b400-45b0-ad86-d8fca7d1d744</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و قل حنا ماشي رجاوين هنا علمين سير قد عر نظاظرك راك ماشفتي ناسه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a74c1ae8-6077-4de4-84f8-8eca76d27ccd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e564dd5d-62ed-45a8-819f-ee5e9abc122f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>وجه دنجال منين خرجت لينا ..... ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f3f50937-c487-4403-950e-7d9c8925a287</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9d477b28-b8ab-4888-a27f-20ed1dc8e364</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هادشي عاد , علاش نتا raïssa , علاش جيت اولد القحبة , باش تفضحنا , او تحال المشكل , غتمشي عند البرنوصي تحية تحسب تخلعك . نوض غمق على شي واحد يا ولد شافر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1c91733d-2314-4dc0-bf0c-f80b1c034570</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>59cc29c8-d152-4c54-8bc3-1a796f6b79aa</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حسبان قصة سنته عرفه المغرب من مرة الزفزافي هل تيدوخ هاد و لا مال تا واحد محامل د جد به شعرة و باقي جالس .. نتا سي زكريا مرحبا بيك ف دار القبر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b70e4f62-f23d-4dca-b443-869572d8eb9f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>143440d6-f05f-42de-9c8b-b0926923efdd</ID_ARABIZIENTRY>
+    <ArabicDarijaText>وض حر سلوقية وصف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>016c6fdc-3999-4f4c-8716-7bde29810ac7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>697ab508-ce7c-436c-a7e8-8d17a1d00c72</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فين هو تطبيق بقات بلا بلا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f5adeb63-8b39-494d-9487-d661fe528771</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d3092a58-22e2-4029-a087-806081bfd0f7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مغدي يكون والو , شفار غادي تبقى , غادي يكون شي تبديل وارة , كولشي غادي بقا على هل , شعب تيموت ف فقس و قهرى ...... , خصنا محاسبة جميع , محاسبى صارما ,, ما يشبع مليارد و قدم ستقل , و لا , ن plus يتخلص هيثم كامل , هه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>983880b0-7aea-445e-b1a3-ff438c3bdb31</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c629d76c-209b-4b32-b6f0-dfdb848ba61e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نتمنا ان يتم إعتقاله رحبى بن كيران وعصابته حزب العدالة والتنمية الرحب ديش</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3adbd62b-7483-4f52-bd3c-a0b51b9077bd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>58d8028b-1f4f-480d-9467-1a6b5a709f19</ID_ARABIZIENTRY>
+    <ArabicDarijaText>غليك رجع فخير . لاش صراحة مكان الخراج على ولد مدرسة قد فخير . ما كيعرف شي صنع لاعب . ماكيعطي فرس ولد مدرسة كيبغي غير لعبن جاهزين . فخير غير مناسب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9a310d86-7dc5-490f-9b17-722e90acba0a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>430339ca-d9be-404b-b97f-9424d229b3f1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لهاس بزاف و الكركاع قليل .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f24c1693-6550-434d-9228-c37907ef2077</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>38324ff7-106c-4e08-82fa-55c510ee333f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>را هوما خصهم يجيو لمارك كيف ما كي دير ناس</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4217c157-d7ac-461e-945b-531fa90c337e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>420a63c0-a1cd-4c8b-9441-ae590a10a4b4</ID_ARABIZIENTRY>
+    <ArabicDarijaText>inwi جبت لينا لحنا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a3c2eb75-da96-47d6-946d-30a574efc9e0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a5ecf839-11ff-4084-a2ed-99cb8dc2d3cd</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يا خويا كنهضر معاك نتا الى ما كاتجاوبني شي و سف يا خويا رشيد .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8fe5806a-80f1-4566-8d3e-cdcfdbe7ec29</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>13d82f33-b58c-4945-88ff-dfe3b2a0ef23</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ونتا ما سمعت شي جمعية الحالب لي قال شولي كتسمعو غير لي بغيتو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>326a178f-6dd6-42d6-a0d7-e506ced72466</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>357848b5-6303-465b-89c4-f033e51e9fc1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>قرشي مش الجيش waljbira فطريق لهج مش الهشيم مش مبيد ما غادي شي يرجع لاميك مش الرجاء في لمزاد العلني كل لي اش بقا حزقان شتات الفرق خاص الجمهور نوض ktak منهكة الرجاء رحمه الله</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2add0557-4d8f-45c7-9cd3-bf549ed3b608</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ae8d4969-1fa7-488b-8e60-3888b7c867b5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خاص بزاف ديال الواقفات باش امشي حزقان ما نصب لكنني ديال المنخرطين داكشي غير مناور و ربه ديال الوقت وليكم ويقوم خاص يكون الواقفات بزاف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f6d9914d-5ba7-490e-af50-0dea9ecb8006</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>37783d64-cfcf-417d-890c-4f6c42279e7d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ونتا ملك بقه شهر وقلة نتا من جبت حد سلوكي بارك متكذب عليا زعما نتا ب عقلك هه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d4db55e9-1376-44cc-87f8-799587b4fa7c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9786c6c7-0d46-4919-86ce-c296112b1dfb</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سئ mustapha , هل سمعت هاد almkéllkhine ف غادي مارقة ??? كيفاش كيدويو على حسبان , كل ليك هو اللي wssél الرجاء 3ème place . كون ما فخر ولله تا nttclassaw 14</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>104485db-a932-43aa-83fa-928e1b8389fa</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>74065d23-adb4-4828-8cb4-41900e842f6a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>salut @maroc تلكم انا دار فغف حورة بغيت نرجع فغف متحكم فيه مم شي مسعدة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>61f1429f-9afa-4caa-9c9a-4d0ae552953d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b73766cc-462c-44cd-a9c1-0f0370e7ddae</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام بد اللي الآسر , inwi في خدمتكم . تفضل ف رسالة خاص ب رقم ديالكم , مبلغ و تاريخ تعبق و العرض لي شغلت باش نشوف معكم الشكل لي waljehtouh . inwi تتشكركم على التواصل ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>63f965d5-3c1b-405b-8f07-192d0f21466e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>81ad2f2c-419b-4cb1-aee6-f77def8b66a9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام hà مزا , inwi في خدمتكم . عطونى من فضلكم راكم الهاتف والنوعي ديال باش نبعث لكم عليه رسالة البرمجة . inwi تتشكركم على خلص ديالكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>fd99f0e4-071a-489c-9a7f-4b8bda031f61</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>12ac8cfa-88fd-4614-aeba-eeb4bb6b8007</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خوتي كنعمر الستمر كيقولولي كن مشكل مفهمتش</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7a08ff6f-222e-4bb3-9275-da12c6ba321b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>760eea20-d8e3-4dea-8155-b28705613cbe</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كان قلب على سيارة 2012 تكون diesel و ما طفت شي 60 000 درهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>fdc142f8-40db-4058-a9ac-e3874e4e7ca1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a63448d0-08b5-4dbb-a825-f5c26789df45</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تعبئة 50 درهم شحال فيه ديال إنترنت وشحال من جور</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>beec20c7-cb72-43f8-a22f-67aaa7957386</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c4a42a01-ca1e-4bef-8355-a9978781b0cd</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام naïma الخضار , inwi في خدمتكم . باش تخدم لكم لا 4g ولا خاصكم تكون تتواجد ب مدينة فيه تغطى ديال لا 4g و الهاتف ديالكم خاص تكون فيه الخدمة ديال لا 4g متوفرا و اخيرا خاص تكون عندكم لبتك sim فيه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f8cfc893-a309-41b8-8ed4-188330ecddb0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>48ca8be5-7b30-4899-b1df-de79da80863c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>دارت 10 درهم معطون ولو اش هاد تخربيق تاني inwi</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>886524a0-9a8d-4e60-a141-434c4882c9a7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>82833027-3434-403d-a08f-3a318df0a0e5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يمكن لكم تغير البطاقة الحالة البطاقة 4g , مع ليحتفظ ب نفس رقم , يكفي انكم تتوجه لل قرب وكل مسحوبين ب البطاقة inwi و ب البطاقة الوطني ديالكم و تغيرها فلحين ب 30 درهم لا كنت تتوفر على بثقة دفع مسبق</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9f12c436-8a6f-4f7e-ab93-f1b49734e49d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ea216768-fd4f-46c2-b6b4-4ed46b27f745</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شمن ست لي مقلق تختار طل ديالك من خلال النوت ديالك بلا ماتمشي ن الوكالى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9a448dff-9b00-4b67-9c07-72d95bf6b5be</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3f5e321e-6d8d-49fe-a791-da33e2b0f554</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بغيت غير نعرف فوقاش غادي ترجع جواز 10 درهم 15 نهار هاد 7 شهر باش حيدته دب ما بقات شي كدوز حتى 2 نهار</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9fa6f848-c4cb-4883-9778-28a2d7330b5c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5e518d43-14a5-4f58-b7c4-a811b4b5766b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام تما الحرام , inwi في خدماتكم . inwi تتحول تحسن شبكة ديال مقلمة و إنترنت ف باقي نوحى و ضواحى المدن الكبرى , قريبا غادي تكون الخدمة ديال شبكة جايد . inwi تتشكركم على تفهم ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>05f35ed0-5c57-4959-92fc-ce89530e4cea</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>27266069-c943-4d19-aaae-f5af6fd6f987</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا درت جواز mt   talk و ما بغا شي خدام شنو الحال الله يرحم الواليدين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f6142bc0-acda-43df-b6c4-490dec4b46fa</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d1c38cbf-8dee-4139-986a-abbce1d606c2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام صفة وش , inwi في خدماتكم . تفضل ف رسالة خاص ب سمكوم الكامل و رقم ديالكم و تاريخ تعبأ و المبلغ ديالها باش نشوف لكم الهدية اللي ما توصلت شي به مع عارض أ لسك تعبئة أ . و ب خصص خدمة 1 dépannage أ خاص يكون عندكم عارض tictac , و ملي تصل لكم رصيد دير * 1010 # باش تستفد من الخدمة . inwi تتشكركم على لوفه ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>edab5f18-ef30-4572-b306-40369c960647</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6ba96f0e-7411-4d44-a5b2-654e254c7fa6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا بغيت نعرف علاش كيمشيلي رصيد وانا اصلا راني معمر connexion بواحد و رصيد بواحد اش هاد شفرة كيمشيلي رصيد فل connexion</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1179022f-0179-421c-ae2b-110f1cc784a9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5b9bac1d-3c7d-49bd-8341-96877be99e34</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ديالش تعبئة هل inwi ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>70cf9747-2be8-42b5-9ed9-361d534d3eac</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>69f0b1e5-0b7e-49c4-8652-25f8e5d6d921</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام بصمات الحياة , inwi في خدماتكم . تفضل ب المعلومات من فضلكم , اللي غنطلبوها منكم باش ندير معكم لازم ب خصص لشكل اللي تتوجهوه مع ضعف شبكة .   السم الكامل   رقم لي فيه لشكل   رقم هاتف اخر نقدر نتواصل معكم فيه ( واخا ماشي inwi )   تفسير دقق لل إشكالا اللي تتوجهوه   من إمتى عندكم لشكل   المكان لي تتوجد فيه لشكل : دخل و خرج البيت   مارقة الهاتف لي تتوفر عليه و جرب ف هاتف اخر و مارقة ديال الهاتف لي جربت فيه   ب خصص alinternet : غمز لي تيطلع لكم حد réseau   ب خصص شبكة : عدد لخطط ديال شبكة لي تيطلع لكم   لشكل والش ديال تغطي ولا ديال الجودة   العنوان الكامل و دقق :</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ed1259f1-d685-424f-a554-7ef03d7b9cfc</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5ecd2cc4-c3b4-49de-a4f6-d5e48c1b6124</ID_ARABIZIENTRY>
+    <ArabicDarijaText>باش تشغل جواز فيس بوك و واتساب تتقومو ب تعبأ عادي , و تتضر * 120 * 99 # مطبوع ب زر تصل , و بنصب الجواز المقترحين عندكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a0edfa1f-e699-42d1-afb6-357d8a3ddfa5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>bf39aee8-7802-4e0d-a792-b75e710ce2e5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و ملي ما بقا لا جمهور لا ultra راه رئيس لي غادي يجي غادي دير الرجاء حيت قصر و غادي دير كيف دار حسبان اش غادي صوره غادي غلق فين هو جمهور 2009 2010 2011 ما كان تا واحد يقدر يدوي على الرجاء خايب معيور من كنت كتسمعها دابا ولا لعب لي جا كيسكت جمهور ... و تواجه معاه حيت مشاو رجل .. .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>98254904-7039-4ce9-8951-d04ce2feda86</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c5a13c06-34da-438b-84f4-d86e03725e77</ID_ARABIZIENTRY>
+    <ArabicDarijaText>درتو ليه حملة ديال نتخابات قهرتونا بل بلبلة ف فاس ... حاضرة كاتجيب جوع الله عز ل ك كهدم ذق و سكت ... كيف دار هو خدام كي فرتك ف فرق و سكت ... و جمهور عاطيها بلبلة م هنا تعرف راه ما كان لا جمهور لا ultra عند رج</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>43941c58-c0ec-437c-a2d6-4cc32d6a4b8f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7b7297c8-5745-4106-b078-7707d964c24c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>صراحة را البنكات كلحوم مخلوضين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3395fc54-041c-4fb8-812b-96ec7502520a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>aada0932-21fa-4fe8-bea7-3fca3ef889e1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عندك honda و toyota ما تا خسروش</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2cde2c88-506c-422c-ba4e-21a13c815c23</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c3293da5-241a-42e8-b04a-6124371212fe</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كنشوفك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>bc02ed5d-9b7e-4a88-bd36-071ab932ba7d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>47cdff8c-2b2b-4816-92bf-000c44f7b155</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كنعتذرو على شكل réseau لي كتوجه حاليا , بعتنا لكم جاوب في مساج privé .. .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f5fb5746-d615-4d79-9543-066162418103</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5787e0c1-b1d0-4a92-8201-1c66752f41f2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام مروان , inwi في خدمتكم . كنعتذرو على شكل réseau لي كتوجه حاليا , بعثنا لكم جاوب في مساج privé . inwi تشكركم على تفهمكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c7191baa-9eee-4898-a6f5-fbe17caf41ce</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8fb4ea6f-a3ea-413f-9c3a-980dc51993ba</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كنعتذرو على شكل إنترنت لي كتوجه حاليا , باش نتاكدو من ختكوم , بعت لينا في مساج privé سمكوم ل   كامل , numéro ديالكم و ل   مدينة لي كتوجد فيها</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8f5b405a-d2fd-42d7-8a6e-b3601b47a33a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>11af9584-b70e-4117-a806-37f08faa5fe7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام , inwi في خدمتكم . إذا كان عندكم العرض ديال tictac , باش تدير الجواز ديال إنترنت ثيمكن لكم تدير من فضلكم هاد طريقة ثالة :* 120 * 20 * كده de تعبئة * 3 # appel</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a1d0d7a6-2846-4ff1-8e64-10176910609b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>cdd2d925-3981-44c7-a6b1-d4dd8d311bf8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تفضلو ب سؤال ديالكم , فاش يمكن لينا نساعدوكوم ? . .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>094cdcb4-aecc-4ce2-beca-d62c8f569c2e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fc629943-506a-4507-9fec-f72d8bfd1108</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ما كيخدم شي الهدية لي كتعطو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0921c597-85c7-4e33-8aaa-6aa80b139243</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>cf20a926-0b44-4549-91c2-90e73eaeae81</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام . دار forfait inwi . بغيت نبادل هادوك 3 نم فضل لي عطيني شنو هي طريقة ???</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b0d1e30f-2e2c-4664-b0ee-0230bff02365</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f750cfb9-6e56-40e4-a786-04ade212c1f9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شارجيت 10 نهار 3 / 7 / 2017 درت ف + واتساب صالح المدة 7 نهار ولكن نتوما ديتها لي فتلت ليام شحال من مرة وقعت لي واله</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f8d8836f-a7fd-4736-a629-b80f3c2a37ad</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c08bcd4a-77da-4afb-9576-4a9f02d0f107</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام عافاك انا درت forfait ديال 49 دراهم و كتلة l'agence ديالكم ماتخلص حتال 15 فشهر 7 و الآن كنتفاجئ بمسج بلا اليوم لخر فلخلاص هل الآن غيخصني نعاود تسجل من الولة راه ماشي خدمة هاد راه حشومة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d069c229-ff25-4be8-874c-0a1fbed019f5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>88baab0c-f8ec-4c38-80fd-f0a3a6476529</ID_ARABIZIENTRY>
+    <ArabicDarijaText>باش يمكن لينا نساعدوكوم ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>093b58a2-596d-47a5-a538-473139c47210</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5554556c-d58c-4a5c-9831-a19af856b497</ID_ARABIZIENTRY>
+    <ArabicDarijaText>معرفت علاش قطع لي la connexion</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e4ff15e4-04cc-4b1d-9a51-7924f526da70</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1c6b53d4-37e7-465a-b914-d43373bc8836</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هه مكين مانشركو مع حد مكين لا 3g او 4g . مكين غير e</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e859d34c-059e-4c73-a9e4-a6c7d3349377</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7e8d4079-e2d7-4fe5-8b67-3ff4f83adddd</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هه مكين مانشركو مع حد مكين لا 3g او 4g . مكين غير e</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>91c4e493-7bbc-4cb4-938b-8c5371290913</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9c3617f8-b843-4d0a-818c-0c2ad3485874</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام سمح لي إمتى لجولة فمدينة أكادير</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ccb74f2a-10cb-4b95-abcf-a8fbeb5d0456</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b6925c02-1d8c-4a1e-b76b-f27d8cb08a38</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لا ريزه لا connexion مات لا عرض لا تا وز دابا بغينا غي نعرف 10 فب او وتساب شحال فيه 😕😕</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>652ba5a8-e852-4688-b209-3a1529d37b5d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2d4f098b-c750-4fb1-a94a-f3c46f348976</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام حدت هذا , inwi في خدمتكم . باش تلغو تشغيل alautomatiqui ديال بدل ستك , ماعليكم غير ترسل stop ف سمس الرقم حقق .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>38a42d86-acea-4c81-967f-0d736dfa3324</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e39b43e3-c1ad-4813-9e9d-5db5205429da</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام inwi انا حشام zarghil كنسكن ف مدينة شفشاون هاد 4 نص مشارك flabounmo ملي كنمشي نخوض تلفون كيقولولي ما عدنا شي تلفون بغيت نعرف فيكان مشكيل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4c507f33-2b18-4c7c-965d-927b9403515e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ee11fa97-3236-4789-bc88-3583912b90d0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>دابا , انا , ف لا , زن , phosphatte لا région de فل , خريبكة , , الشبكة , 100 % , ولكن ف شي , زن , مع , حضرنة , و , الشبكة , قاع ما تا يبقى , مع , تحياتي , لكم ,</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d58c9810-c18d-485b-ba32-cc25cd822990</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>31118786-025b-4b06-a16f-bd5e202e7c3a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بغنى الشبكة مزيان كما اتصالات المغرب من tema7ez9e ديال والو عاقت علينا بزاف قاع</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>81e24272-6be6-4be3-b6d8-c0e384521fc9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6263fce7-ab75-47d7-945c-2bdcb676d87d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا بغيت كون عندي و ليو de 2 جيجا 4 جيجا هل مفهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f99ffb77-b16d-4fef-b321-3ee29e80b6ec</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>879b2f93-4b1e-495b-90b4-4fd94926f104</ID_ARABIZIENTRY>
+    <ArabicDarijaText>باش نجاوبكم على طلبكم , واضحه لينا كثر اشكالكم , بعت لينا اذا سمكوم ل   كامل و numéro ديالكم في مساج privé . inwi تشكركم على وفقكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>cca19544-af48-434d-9781-846d7b9afabd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>82b62190-f544-4f3d-afdb-4f7379672d97</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام سمعت بواحد الخدمة جديد " صنفرة ان " ظل تحول سوايع إذا connexion . عافاك هل كان في قاع لا forfaits . او غر شي forfait خس</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>de1841ed-36ca-4275-8ead-57bfede72797</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>cca6e91d-5133-4897-8309-0c405d71498e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا عطونا 30 ساعات ولكن فاش كنبغي نتصل ما كيدز شي لخط</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>23c16623-3e6f-49d1-801b-bca7a561b07c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>86449304-a609-4b19-81bf-3f093dc180d2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بغيت شي معلومات على alcartes sim ديال ام , prix , بغيت ندير واحد اتصالات المغرب ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>00371d35-35a3-40f5-9690-69a96ae5558f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9f0f437c-f5f4-4ce3-adfa-d3d6fd892a33</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام عافاكم عندي problem flfix ملي كنبغي نتصل ما كدوز شي l'appel ولا كيتصل قالقة occuppé عافاكم شنو الحل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>900ab717-a8db-4fbd-bf47-c378bf77f0c5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8f67ab7e-8a2b-40ea-b33c-07c7df59270d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>pccchhh هاد ياسين هو لي طلعلو ... يجيبلو لحمام تال دار ! 😂😂😂</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>85c15042-b6c2-4395-9610-ff2934383aa1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>967da000-2d4e-4a57-8bfd-a4cb3f1e112a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سلام عليكم عندي مشكل ف adsl كيبدا خدام 5 دقائق ولا 15 دقائق وكتقطع connexion انا مخلص شهر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1757dc16-14dc-4d74-8f34-65f469f57c88</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>25bdfb9a-ca0b-4205-977d-146085e76f1b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام عليكم عند واحد المشكل هي : حيت كنبغي نصن على شي واحد كيقولولي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>85976896-3e15-494d-a6bc-b6aac6729ebf</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f3a0d831-51c1-4b30-baaf-6ebd5dc4d7c2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام عليكم عند واحد المشكل هي : حيت كنبغي نصون على شيواحد كيقولولي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>33b57f2b-7bbc-428e-9a11-2bc3d8836616</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>63e69e4c-9000-42be-92c3-76a6973c719a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام ممكن مساعدة .... انا دخلت تعبق و ما درت شي * 2 هل كان شي طريقة باش نرجعه دقايق و شكرا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d27d8fce-5e5b-4ac1-8288-a6c69ce0ef1b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d3350fe5-8832-4f8d-a5f6-2969cc7678df</ID_ARABIZIENTRY>
+    <ArabicDarijaText>دارت فغف الحرية نتع 59 درهم 3 ساعات و عجب إنترنت ولكن من نصون al665 قليل عندك غي 2 سوايع</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>24397704-670a-49c1-a0ee-00404a084d59</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2324e410-60d2-4586-af73-14b6c46b4084</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام ام . راه سكان هي لالا مريم مدينة بنسليمان تايلقاو مشكل في الشبكة ديالكم . راه البغة يحضر خاص يخرج من دار ولا طلع سطح . عافك . إذا ما دار شي الشبكة مزيان . و شكرا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>511adaa4-4822-422e-93a2-020e756a27b8</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>be813d3a-624c-4286-81b3-e13ddcdcc072</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هل كتخدمو اليوم السبت بغينا نخلصه واحد forfait عنكشتونا ! ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9b704f62-92aa-40d8-92af-c4eea4ace422</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>93fbaa0f-dcfa-474c-9b2c-aafa9356bd60</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نتوما هوما رجل انا معكم ماشي زوامل ديال تيزنيت غير الهوى بليل لفم مع زات دفع كبير hhjjjj شمية</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6877e53d-539f-452a-a71d-d1e9ca99d43c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f2aa1f40-a176-4cbc-b251-872a88806177</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مدينة فم تنتمى وليت غا كتخورو خليو alraskom قيمة شويى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3158d3e4-8fc7-4236-93b6-0ece442e1c9f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>62ba49d7-45de-45b3-8d8c-b15bd4b0da08</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لمن تبغيو تحدوه الآن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d80c6ed1-2dc0-4318-8d78-a48fd46e9960</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a0445c21-9ca5-4345-aed0-1f72ab1544c2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مكين لا غني لا والو تخربيق ولمعان بحال ضغيرة .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>84b4d4cd-1e32-4db5-8cd8-df1e9aa98f54</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fea33103-7e43-469c-b7ee-05ae2695f5f2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فاقم جاب لينا خطتي هي ضمن مافي مغربي 100 / 100 . فيه خطتي بزاف و كاتجيب بزاف sujets لي كنستفدو مهم و هي عندها réponse ف ي commentaire ديال page</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3902310e-ce36-43f6-ab79-5a728a40721b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5b9be8d2-c6b5-4a0a-8d8d-8c1f07ba8675</ID_ARABIZIENTRY>
+    <ArabicDarijaText>غك مناور اسي مروان الله حفظك وخلاص</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>42f416ae-e47b-4e23-ac7e-9ba57f955266</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>88b8dde1-1162-42f0-8a2d-22fcb9442dce</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مشة الفص حيت فاس هم لي حاكمان البلاد ولد شعب كان حرب ستعمار ولد فاس كيقراو مخبين pfff ولد شعب ثلاث بهم ايام ولد فاس حكم البلاد walsayroha كيف حب دقش علاش شفار تاع بنكيران مشا نظم pff</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>dec65d4b-736b-4f54-9d89-9bf3ba1d9e98</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>964c08fa-4f40-48fa-a642-9f7f482bcd6b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بغيت نعراف واش جواز 15 نهار 10 درهم سالا ولا بقا pliiiz المرجو غاد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>34301d1b-33c8-49d3-bb77-a8b8b559efa2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>72cb16eb-d540-40a1-b8af-9e7eefbed971</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هه دار داكشي لي قالت ليك سنة صبار</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7c436972-0939-43b9-be5a-533d80110428</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5def3627-4c92-4bd5-8135-a4d676c55d53</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ان شريط إثره ديال الحليب ب 10 دراهم و صاحبتي شرط فمرجان ب 9 دراهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>35decc2e-ff8c-4265-8406-dc7f5ce33c8a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1c7b130f-4979-4f2a-8d51-f519b5932eb3</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ولي ولا تا شوف شنو طرا , تصدمت</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4deca00e-f5b7-4cd0-9aff-fb9e267c5075</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1ef2376d-9d97-440b-bcab-3a918321f3b7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يبارك الله بقا طلع طنجة فوق شواى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>196dc12c-4725-491b-8e07-d0d4f003662a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ea5b71fb-2116-46ca-9ed8-655c67ce8ebc</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حشومة عليه رد القراية حتى لواحد ما نتغدو شي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7c960cf6-668a-49bd-a33a-b0f6380754a5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>744e347a-8f7c-4da6-819c-b4e72fc05ab6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و بنت سيد قسم نتا حرر بغيت تعتزل شغلك هذاك بغيت تكمل نتا تعرفى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d423c9df-0c26-4242-adca-2326e6edb771</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4f15e2f2-330c-47b0-a73a-75e9c0f5b778</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا ما عجبتن شي حد غني كون بقات غير ف سطل ديالها</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8786fb00-f9a6-41c4-8d98-3073605b8ee8</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f0ca2c81-322c-4d1f-841e-8143ab7b6d72</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نرى كنحماق عليه 😘😘😘</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b0e9fa83-d502-464f-9a9f-d3dd885f2f19</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>592596b7-899d-42e2-9da1-100c03363156</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الله يغرقلكم شقف نتوما وديك القحبة نتع منغ الى ما بغتة شي تسامح ذاك زمل ويهانون من كمامرهم لديغن كزبي العوج</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>aefd7988-c029-4e39-b2a9-8f986e4be8f4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>27fc45df-b01a-4457-84ce-78aa6dc0a9cd</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سغه شوف يا الصف زوامل شباب ضاع فهاد بلد وقبر دار را شي مجهود ولا مشروع تايتعكسو معه ومبقات عشا فهاد بلد لهربة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e0d3a0ef-d0b3-42dd-94fe-64215b8f4606</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0ad0cc37-5f62-4138-ac79-46842d5437d0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هه قرا ف خوان ب 100 000 درهم فالعام هه شنو اتسعت فيه . بالحق غي لي عندو فلوس هو لي كتساعدوه باش زاد لفلوس هه 0000000 عمرنا نزيد القدم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3c06b2de-037e-47d4-b843-595518b3a5a9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>947ce4a6-f554-4e39-a45e-5f574c3c870f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لا مش خطي ولكن كنعرفها</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e736bd85-a819-4d12-b471-d29f8cd353d4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>78ddbfff-1d32-4ae3-ba08-79c56e2afed0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عاقت والله فوال كنت شوية de connexion الآن ولو قاع وش سحبلكم كتصدقو علينا او تلقن la connexion إذا مبغاتش كلها نبذل الكرة walnthnaw منكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0244090e-4ce1-4318-9052-6d8155d78078</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>450caa12-a6be-48a2-bad4-ac4695d72a46</ID_ARABIZIENTRY>
+    <ArabicDarijaText>احاطة هي بيتان نوليو panachi احح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a38e4cce-67e5-4211-9880-27836393d940</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6a93272a-e8b7-47d4-be69-bc4d13da206f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حمض هاد زب والله حتى رشيد رفيق حسن من بزاف جا amlwr دار بلاصته</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>19af8bd0-340c-4e70-88ce-5999536262cf</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8d95b968-265e-4681-b419-b7002dcfacd5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام فيرتوس , inwi في خدمتكم . إذا كتوجه دائما نفس شكل , بعت لينا في مساج privé سمكوم ل   كامل , numéro ديالكم و تاريخ لي عباءته فيه ختكوم . inwi تشكركم على وفقكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>00e20604-771c-49b4-b0e1-e0a04b48a7cd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>16cba7f6-c1ee-4c83-8c04-aa16b2868739</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام كامل , inwi في خدماتكم . باش نتاكدو من ختكوم , بعت لينا في مساج privé اسمكم ل   كامل , numéro ديالكم و تاريخ لي عبئت فيه ختكوم . inwi تشكركم على وفقكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>21417ecf-1ecd-4378-aea1-cd0a53c7a34a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8f251811-b362-4cc0-a4d4-3887b7d6354f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بتوفيق الجراد .... وصل عملاق حسبان او تلتفت الجمهور وغرت خرج سارب او يفقه شيئا في قانون المنصر walghalibiyatohom تابعين المارق و زرقة ... المنصر دور تشجع فقط ولا بغا تغير ينخرط فلمكتب ويترشح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>478bb213-fdf7-4469-959a-6ebd78a378dd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b03c6a60-034e-4cf0-b4a5-b47c3d9fc286</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام نبيل موهوب , inwi في خدماتكم . inwi تتحول تحسن شبكة ديال مقلمة و انترنت ف بقا نواحى و توح المدن الكبرى , قريبا غادي تكون الخدمة ديال شبكة جيت . inwi تتشكركم على تفهم ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>988a3ac4-d75f-4b6e-b0a3-6ccaba94a9f5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>df864ab3-8f97-404e-ae15-91aac973788e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام يوسف مرشد , inwi في خدمتكم . الجوزات ديال واتساب و فيس بوك لي كينين هوما قتل : جواز صالح « 3 ايام » فيه 100 ميغا ب 5 درهم طك جواز صالح « 7 يوم » فيه 300 ميغا ب 10 درهم طك جواز صالح « 15 يوم » فيه 1 جيجا ب 20 درهم طك جواز صالح « 30 يوم » فيه 2 جيجا ب 30 درهم طك inwi تتشكركم على خلص ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4d5bee6e-0e61-40ac-ab1a-c5ea1980c6c9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3a4be280-8d9b-4bf7-bc15-b9d4cd3a669d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام nàjlae ما , inwi في خدمتكم . تفضل بهاد المعلومات لي غنطلب منكم في " مساج privé " باش نقدر نساعدوكوم :   رقم الهاتف :   لسم الكامل :   لقمة ديال لا تعبئة :   طريقة لي دخلت بيها لا تعبئة :   تاريخ لي درت فيه لا تعبئة : inwi تتشكركم على الوفاة ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>eb65bc9e-3bfd-441e-ba5f-97678dd4db16</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a3c4aa9e-fc17-4430-8229-4bc7b7100696</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام rashīd imzīne , inwi في خدمتكم . تفضل ب رقم ديالكم ف مساج privé و أكد لينا المدينة لي كتوجد فيها و لشكل ديال الشبكة هل على مستوى المكالمات و انترنت ? .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9ac6c4d3-b635-4e61-9c7f-870d77259fcf</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e0fc1732-c97b-4d7f-b14c-7a6abaf594fa</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فتل برقم الهاتف والسمة الكامل ف " مساج privé " باش نشوف هل كتوفر فيكم شورط الاستفادة من نادي inwi</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4b540e75-fbb8-4854-a640-c7a1d3cc1b3b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>96be8b0d-6ee1-40f2-ac66-9a7f94d9260a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام سعيد وبرهم , inwi في خدماتكم . هل نتوما مسجلين ف نادي inwi ? تفضل ب رقم ديالكم ف رسالة خاص مسحوب ب سمكوم الكامل باش نشوفو لكم لاشكال اللي تتوجهوه مع نادي inwi . inwi تتشكركم على الاهتمام ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3e9a3af6-0919-4d8f-b636-7b22cebc3f69</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5a8280d4-5ceb-47f3-a5f4-e11ab6bccd63</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام منير مجتهد , inwi في خدمتكم . باش تستفد من حدا , كتقومو ب تعبأ عادي , و من بعد كتوصلو ب سمس فيه الكذا لي ربحت ما : جواز انترنت و سمس و فيس بوك و واتساب , بدل صوتك , سمعني .... كنشكركم على الاهتمام ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>01b1ad9a-c38c-456a-9660-7a935dc812cd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8040d401-f338-4b47-9aa5-6250561f59e7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>وخة هكذا مازال خاص جمهور رجاوي خرج فحتجاج على هاد شفران ولعصابة ديال هاد المرة قدام دار باش تحت هاد المكتب الفشل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f6f3c31a-c25d-4649-88a8-827c7e2dfa29</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f522e5ee-12d6-46f7-9874-f86c52c90838</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام عبدو , inwi في خدمتكم . تفضل ب رقم ديالكم ف مساج privé باش نشوف لكم الشكل ديال الاستفادة من نادي inwi . inwi كتشكركوم على تفهم ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1a2f8e4b-e95b-4df6-b26e-190579385c10</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2da019f2-17b0-4acb-be7a-4d7a8d230c3b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ماشي حماك راه شفار قهوا ديك 7 ملاير و زيتون هذاك غير كتب باش توهت مايزعم يترشح باش يكون président هاد ولد القلب إذا ما مشاليه شي الجمهور walsakhskho قدام دار ما غدا شي يمسح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>dc19e660-4700-46b3-a280-9582c98957ec</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c7ece87f-be60-4c08-a0be-2f18a779489f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>غير بلاتي والله تنقتلو تنم غير سبر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c2ecb8c9-a3cb-45d7-9819-f1e95c17498f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6b6e4bbe-241c-41ad-b76f-6d81658215d5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام , inwi في خدمتكم . تفضل ف رسالة خاص ب سمكوم الكامل , رقم الهاتف , تاريخ و مبلغ تعبق و العرض لي شغلت و الهاتف لي تتستعملو باش نشوفو معكم لشكل اللي تتوجهوه . inwi تتشكركم على التواصل ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ee60ee87-4709-41d5-b4c0-5a680a9694a0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>142f0dd1-8ef8-49c6-81d0-d2e87204ef8f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام فؤاد وكي , inwi في خدماتكم . كنعتذرو على الاشكال لي كتوجه بخصوص شبكات . تفضل ب المعلومات لي طلبنى منكم باش ندير معكم لازم ب خصص الاشكال اللي تتوجهوه مع ضعف صحابك . و حول تجوبون على جميع نقت تا سمحت . و ب اسم inwi , كنشكركم على التواصل و تفهم ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>60e85e2c-d8c3-432d-8100-7bcdb0f9c165</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4a573103-a1af-4368-9b56-b37705b6e5f1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام زهير بانك , inwi في خدماتكم . رقم لي عطيتن راه ما مشغل شي , حول ترجع ليل شخص لي بعو لكم , و إذا كنت بتق عادي راه ثمن ديالها 30 درهم , كان البطاقة دات نل لي ثمن ديالها 50 درهم . inwi تتشكركم على ليخلص ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9296ea88-6a45-4e41-b6d0-c511c36d359d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>50b0ecaa-aa89-43d8-b526-6b3fa52c3828</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حشومة عليك اتصالات ولله كتبت علينا ف عارض mt   talk .. قلت 10 فيه 15 دوزت غير 6 ايام مع العلم تنخدم غير 2g و فيس بوك التي walmatanchof فيديو .. المهم درت 5 درهم على صى 5 جر و ما خضات حتى 2 جر ماشي غير ان بزاف ديال ناس .. زعما كون شي دولة جنبي حتى ندعوكم لكن عندنا ما كاين شي لي حيهتم اعنت عاد غير 10 درهم و 5 درهم .. المشكل ماشي لفلوس راه بقات فل مصداقية . حنا راه زبانة من اول ما بنت شركة يعني حترمنا و حول مسوول شرق تفهم مر على قال دار لينا وفي ب 100 درهم لما بلا telelophone غير نيت كابل .. تحيتي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d57159b4-d46b-4955-9d2b-d6695700f9c6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e18c052a-c80f-45e7-aa5d-deb3f4beaa4a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مكان لا هداية الاول شرجية وصفطولي رسالة فيه الهدية والملا سولت ملقية والو داوه يالله 45 لكن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3103fbdf-0699-48b5-b350-c56e27182c9b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a0e81587-0c9c-408f-adf8-2b14407b5396</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام hàfiid شعنون , inwi في خدمتكم . كنخبروكم انا هاد العرض خاص ب زبانة بدون اشترك . inwi كتشكركوم على الاهتمام ديالكم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3be2f4ac-3079-4f7b-a075-d20149b82abc</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1de43419-dc59-453c-bfe0-6e0e1908e024</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا كنقول را تاع و الا ما عجب شي سوق هذاك 😁 و ن plus را لاكنتي كتقرا مزيان را قلت بلا تا انا كتعجبني ك صوت à ستد .. .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b86aa755-8f7b-4d90-93f7-672e72664035</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a88c697c-9762-48ab-bc8b-7c9db0b24f80</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بنط بلاتي الله حفظك نتا غزالة جبت غزل . كتعجبني هت إنسان وثقا من نفسه معل بالهاش بيهم !!!</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9d1510fe-d68f-4521-b784-1e6160c3b921</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e16c45a8-89ad-4d41-b064-21181786d304</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شنها الحاجة لي كتشوفها خايبة ف هاد المادا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3d3b2f2f-c69b-49be-a2ac-99c9c1164de4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>be60f809-a457-4b34-b78c-d4669ecb3c79</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كوني هانية العالم يتسنى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a6c191a8-3a61-4189-8d61-1b659be29112</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3d2a5059-7e76-4a43-a633-4b29c44867a4</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام محمد بوسلهام , inwi في خدمتكم . بنسبة لي تعبئة 50 درهم كتمنحكم غاصت 5 جيجا من الانترنت صالح لي مدة 30 يوم . inwi كتمنى ليكم نهار مبروك .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8d7efd40-d1e4-4839-a79d-4c547903248e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>447677bd-3705-4c0e-9b88-1af449d98d76</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تباركله عليك 😻 حنا معاك يا بنت بلاتي المغرب مشرفانا ب صوتك و حضورك و الباقي ما هم شي يا فنان عايلتك تا واحد مسوقو فيه و هدشي العلي ما نخلته شي مع الفن 😘 خلق مطالقة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>708d54d6-27bc-42fd-a473-62c7c68cd9dc</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7e155b61-de87-483c-8cbd-91f3897ef018</ID_ARABIZIENTRY>
+    <ArabicDarijaText>علاش مم ما بقا شي كيجي ف hit radio مع صباح ??? يجاوبني شي واحد pliiiz😯😯</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5c628011-b2ed-4ad9-bfc1-5ee193e5ff96</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>abb62fb1-7c53-4f7a-aad3-192a7d2f9710</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بصحة . و باراكا من congé توحشنى مومو مورنينغ شو على hit radio .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>371e400a-f0f2-4714-8650-71c7902a211b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>797987af-3236-43cd-9bca-6079b1637418</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نعم مومو وقع المر مومو وقتاش غترجع توحشناك اصاحبي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>05145c3a-0a6d-454c-8fb0-244452dad9e3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f53f4b2f-01f8-476c-b963-afbf4dabcdc2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فيديو فيه عبر كبيرة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ae3f18e2-7642-41c3-b124-49f727c1812c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>91999fc8-32de-4c1f-ada9-cc9066cf53c2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>راه تخلص عليك كما ف début de لا فيديو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f6883d5d-8e61-4228-bb34-71449c0ec025</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a27b3ebf-9bff-47b2-8562-270e89717ba3</ID_ARABIZIENTRY>
+    <ArabicDarijaText>على سلمتك يا ست ! وصاحب خليتين بلا radio حشومة عليك هه بن يا صاحب توحشنى alblanade ديالك تيتيز فردا نقص صاحب نيفا طاح نتا لي كاين يامعلم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>660b6cde-f8e0-4c79-b011-5b5e87d250a1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b73bbdb3-ee8f-4011-b766-93efaed8ecd4</ID_ARABIZIENTRY>
+    <ArabicDarijaText>رقم 1 فلمغرب الحمد لله ما كايحشمنا شي مع alkliyan</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3e3dcf97-af13-45b7-9f41-2748bffa4cf2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f9ea473a-bee3-43ac-a030-90783bfd7a41</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هه كانشوفيه الآن عاد بغا تقارب ليها مارابانا قد فيه غرض هه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c98ac6e2-cf1a-4e05-a123-d3ad7dfe1899</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>799e8089-1692-4133-b8e1-057012fbaf14</ID_ARABIZIENTRY>
+    <ArabicDarijaText>إن شاء الله خويا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e643b546-e16a-49d2-bc56-82004c7e18db</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1a49b2dc-eec7-4fb3-8158-99dd9099f3b7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>البس de hit radio واش بقا ف الجديدة ! ?</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>55022cb5-7615-4a75-8478-c0896da3ebdc</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1be24ff4-5f2f-4f7c-a838-8ff7975396b5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>pffff كرهتوني فيه نتا و møslïmã añå د من كون نقراو واخا كانكرها خلق 😂😂😂😂😂😂😂😂</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>95757455-b1da-43d0-9d44-acfd4f349270</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>98a4bc08-1d0d-4abb-8f39-28d2974483e3</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام انا كنبيع تعبئة inwi و كنسيفطها rabild و غلط الواحد الول بغيت نصفة ليه 5 درهم صفات ليه 50 درهم و بغيت نراجعه كيفاش جاوبني عافاكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2293a13e-7401-43a3-b034-962ab37b2052</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9d371b91-c7cf-4661-a622-e3699bf676a1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>العار لا مجيب شي حاجة الجديدة من عندكم شي po لماذا خاصكم دار داكشي لي كيدير الخرين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>cfd09edb-14b3-4c4b-81d8-0e87286e149c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f8f06437-22fc-4453-a883-081f2c0cef39</ID_ARABIZIENTRY>
+    <ArabicDarijaText>طينة مشا جميس كورتن pfffff kay3jbkom تقلت عمل شي حاجة ديالكم والو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>cbc8592c-de59-4b94-a9db-b51f3405d836</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>bb926075-9e1e-490d-ac5f-abf5c7d88c50</ID_ARABIZIENTRY>
+    <ArabicDarijaText>وغالبيتهم</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
