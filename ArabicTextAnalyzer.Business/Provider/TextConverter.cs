@@ -34,7 +34,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_al(source);
             source = Preprocess_bezzaf(source);
             source = Preprocess_ahaha(source);
-            source = Preprocess_3_m(source);
+            source = Preprocess_3_m_i_f_z_a(source);
 
             //
             File.WriteAllText(inputFileLocation, source);
@@ -135,7 +135,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             return miniArabiziKeyword;
         }
 
-        public string Preprocess_3_m(string arabizi)
+        public string Preprocess_3_m_i_f_z_a(string arabizi)
         {
             //bzf
             //bezzaf
@@ -146,6 +146,18 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             String pattern = @"m{3,}";
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "mm", RegexOptions.IgnoreCase);
+
+            pattern = @"i{3,}";
+            miniArabiziKeyword = Regex.Replace(miniArabiziKeyword, pattern, "ii", RegexOptions.IgnoreCase);
+
+            pattern = @"f{3,}";
+            miniArabiziKeyword = Regex.Replace(miniArabiziKeyword, pattern, "ff", RegexOptions.IgnoreCase);
+
+            pattern = @"z{3,}";
+            miniArabiziKeyword = Regex.Replace(miniArabiziKeyword, pattern, "zz", RegexOptions.IgnoreCase);
+
+            pattern = @"a{3,}";
+            miniArabiziKeyword = Regex.Replace(miniArabiziKeyword, pattern, "aa", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
         }
