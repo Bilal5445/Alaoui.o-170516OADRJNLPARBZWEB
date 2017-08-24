@@ -36,7 +36,7 @@
                 </div>
         }
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
         @if (String.IsNullOrEmpty(ViewBag.MostPopularVariant) == false)
             {
             <div class="panel panel-default active arabic ">
@@ -49,13 +49,25 @@
             }
     </div>
     <!-- column 3 : corpus info -->
-    <div class="col-md-2">
+    <div class="col-md-3">
         <div class="panel panel-default active arabic ">
-            <div class="panel-heading">Corpus Info</div>
+            <div class="panel-heading">Corpus/Bidict Info</div>
             <div class="panel-body" style="height: 150px; position:relative;">
                 <div class="row">
-                    <div class="col-md-3"><small>Lines:</small></div>
-                    <div class="col-md-9"><small>@String.Format("{0:n0}", @ViewBag.CorpusSize)</small></div>
+                    <div class="col-md-6"><small>Corpus Lines:</small></div>
+                    <div class="col-md-6"><small>@String.Format("{0:n0}", @ViewBag.CorpusSize)</small></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><small>Bidict Lines:</small></div>
+                    <div class="col-md-6"><small>@String.Format("{0:n0}", @ViewBag.BidictSize)</small></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><small>Arabizi Entries:</small></div>
+                    <div class="col-md-6"><small>@String.Format("{0:n0}", @ViewBag.ArabiziEntriesCount)</small></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"><small>Ratio Latin:</small></div>
+                    <div class="col-md-6"><small>@String.Format("{0:n2}", @ViewBag.RatioLatinWordsOnEntries)</small></div>
                 </div>
             </div>
         </div>

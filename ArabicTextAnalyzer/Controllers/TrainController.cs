@@ -17,12 +17,17 @@ namespace ArabicTextAnalyzer.Controllers
         // GET: Train
         public ActionResult Index()
         {
+            String dataPath = Server.MapPath("~/App_Data");
+
             // send size of corpus
             @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
             @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
+            @ViewBag.BidictSize = new TextFrequency().GetBidictNumberOfLine();
+            @ViewBag.ArabiziEntriesCount = new TextFrequency().GetArabiziEntriesCount(dataPath);
+            @ViewBag.RatioLatinWordsOnEntries = new TextFrequency().GetRatioLatinWordsOnEntries(dataPath);
 
             // deserialize & send twingly accounts
-            @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
+            @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(dataPath);
 
             //
             return View();
@@ -172,14 +177,7 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 ViewBag.MostPopularVariant = "No M_ARABICDARIJAENTRY_LATINWORD found";
 
-                // send size of corpus
-                @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
-                @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
-
-                // deserialize & send twingly accounts
-                @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
-
-                return View("Index");
+                return RedirectToAction("Index");
             }
             if (String.IsNullOrEmpty(latinWordsEntry.MostPopularVariant) == false)
             {
@@ -191,14 +189,7 @@ namespace ArabicTextAnalyzer.Controllers
                 {
                     ViewBag.MostPopularVariant = "MostPopularVariant already found attached to latin word, and already in corpus. Try to convert again";
 
-                    // send size of corpus
-                    @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
-                    @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
-
-                    // deserialize & send twingly accounts
-                    @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
-
-                    return View("Index");
+                    return RedirectToAction("Index");
                 }
                 else
                 {
@@ -217,14 +208,7 @@ namespace ArabicTextAnalyzer.Controllers
                     {
                         ViewBag.MostPopularVariant = "No post found containing the most popular variant";
 
-                        // send size of corupus
-                        @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
-                        @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
-
-                        // deserialize & send twingly accounts
-                        @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
-
-                        return View("Index");
+                        return RedirectToAction("Index");
                     }
                     else
                     {
@@ -240,14 +224,7 @@ namespace ArabicTextAnalyzer.Controllers
                         ViewBag.MostPopularVariant = "New post added into corpus with the most popular variant. Try to convert again";
                         ViewBag.Post = postText;
 
-                        // send size of corupus
-                        @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
-                        @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
-
-                        // deserialize & send twingly accounts
-                        @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
-
-                        return View("Index");
+                        return RedirectToAction("Index");
                     }
                 }
             }
@@ -258,14 +235,7 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 ViewBag.MostPopularVariant = "More than 100 variants";
 
-                // send size of corupus
-                @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
-                @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
-
-                // deserialize & send twingly accounts
-                @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
-
-                return View("Index");
+                return RedirectToAction("Index");
             }
             else
             {
@@ -280,14 +250,7 @@ namespace ArabicTextAnalyzer.Controllers
                 {
                     ViewBag.MostPopularVariant = "No Most Popular Keyword";
 
-                    // send size of corupus
-                    @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
-                    @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
-
-                    // deserialize & send twingly accounts
-                    @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
-
-                    return View("Index");
+                    return RedirectToAction("Index");
                 }
                 else
                 {
@@ -301,14 +264,7 @@ namespace ArabicTextAnalyzer.Controllers
                     //
                     ViewBag.MostPopularVariant = mostPopularKeyword;
 
-                    // send size of corupus
-                    @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
-                    @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
-
-                    // deserialize & send twingly accounts
-                    @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
-
-                    return View("Index");
+                    return RedirectToAction("Index");
                 }
             }
         }
@@ -320,7 +276,6 @@ namespace ArabicTextAnalyzer.Controllers
             new TextPersist().Serialize_Delete_M_ARABIZIENTRY_Cascading(arabiziWordGuid, dataPath);
 
             //
-            // return View("Index");
             return RedirectToAction("Index");
         }
 

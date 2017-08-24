@@ -1,4 +1,5 @@
-﻿using OADRJNLPCommon.Business;
+﻿using ArabicTextAnalyzer.Domain.Models;
+using OADRJNLPCommon.Business;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -80,6 +81,11 @@ namespace ArabicTextAnalyzer.Business.Provider
             return false;
         }
 
+        public int GetBidictNumberOfLine()
+        {
+            return File.ReadLines(pathToBidictFile).Count();
+        }
+
         public bool BidictContainsWord(string domain)
         {
             // make it one line
@@ -90,6 +96,28 @@ namespace ArabicTextAnalyzer.Business.Provider
                     return true; // and stop reading lines
 
             return false;
+        }
+
+        public int GetArabiziEntriesCount(String dataPath)
+        {
+            List<M_ARABIZIENTRY> arabiziEntries = new TextPersist().Deserialize<M_ARABIZIENTRY>(dataPath);
+
+            return arabiziEntries.Count;
+        }
+
+        public int GetLatinEntriesCount(String dataPath)
+        {
+            // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
+            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordEntries = new TextPersist().Deserialize<M_ARABICDARIJAENTRY_LATINWORD>(dataPath);
+
+            return latinWordEntries.Count;
+        }
+
+        public double GetRatioLatinWordsOnEntries(String dataPath)
+        {
+            double ratio = GetLatinEntriesCount(dataPath) / (double)GetArabiziEntriesCount(dataPath);
+
+            return ratio;
         }
     }
 }
