@@ -26,12 +26,15 @@ namespace ArabicTextAnalyzer.Business.Provider
         public string Convert(string source)
         {
             // preprocess (eg: ma/ch)
+            source = Preprocess_wa_ma_ch(source);
+            source = Preprocess_li_ma_ch(source);
             source = Preprocess_ma_ch(source);
             source = Preprocess_le(source);
             source = Preprocess_al_wa(source);
             source = Preprocess_al(source);
             source = Preprocess_bezzaf(source);
             source = Preprocess_ahaha(source);
+            source = Preprocess_3_m(source);
 
             //
             File.WriteAllText(inputFileLocation, source);
@@ -51,12 +54,26 @@ namespace ArabicTextAnalyzer.Business.Provider
             return output.TrimEnd('\r', '\n');
         }
 
+        public string Preprocess_wa_ma_ch(string arabizi)
+        {
+            // on the contrary, we need to separate
+            String pattern = RegexConstant.waMaChRule;
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "wa ma$2ch", RegexOptions.IgnoreCase);
+
+            return miniArabiziKeyword;
+        }
+
+        public string Preprocess_li_ma_ch(string arabizi)
+        {
+            // on the contrary, we need to separate
+            String pattern = RegexConstant.liMaChRule;
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "li ma$2ch", RegexOptions.IgnoreCase);
+
+            return miniArabiziKeyword;
+        }
+
         public string Preprocess_ma_ch(string arabizi)
         {
-            // this step re-assemble "ma VERBch" => "maVERBmc"
-            /*String pattern = @"\bma \b(.+)ch\b";
-            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ma$1ch");*/
-
             // on the contrary, we need to separate
             String pattern = RegexConstant.maChRule;
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ma $1 ch", RegexOptions.IgnoreCase);
@@ -66,7 +83,7 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public string Preprocess_le(string arabizi)
         {
-            // ex : on mix le fr avec l'arabe : 'le' dans le sens 'al'
+            // ex : on mix le fr avec l'arabe : 'le' dans le sens l'article 'al'
             String pattern = RegexConstant.leRule;
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "al", RegexOptions.IgnoreCase);
 
@@ -114,6 +131,21 @@ namespace ArabicTextAnalyzer.Business.Provider
             
             String pattern = @"\bbe*z+a*f\b";
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "bzf", RegexOptions.IgnoreCase);
+
+            return miniArabiziKeyword;
+        }
+
+        public string Preprocess_3_m(string arabizi)
+        {
+            //bzf
+            //bezzaf
+            //bezzaaaaaaaaaaaaf
+            //beeeeezzaf
+            //bezzzzzzzzzaf
+            //beeeeeezzzzzzzzzzaaaaaaaaaf
+
+            String pattern = @"m{3,}";
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "mm", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
         }
