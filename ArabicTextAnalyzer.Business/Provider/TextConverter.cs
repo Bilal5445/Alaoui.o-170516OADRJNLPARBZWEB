@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using OADRJNLPCommon.Business;
+using System.Text;
+using System.Globalization;
 
 namespace ArabicTextAnalyzer.Business.Provider
 {
@@ -35,6 +37,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_bezzaf(source);
             source = Preprocess_ahaha(source);
             source = Preprocess_3_m_i_f_z_a_j_l_etc(source);
+            source = Preprocess_emoticons(source);
 
             // to arabizi file
             File.WriteAllText(inputFileLocation, source);
@@ -186,6 +189,41 @@ namespace ArabicTextAnalyzer.Business.Provider
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ههه", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
+        }
+
+        public string Preprocess_emoticons(string arabizi)
+        {
+            // string text = "a\u2705b\U0001f52ec\u26f1d\U0001F602e\U00010000";
+            string cleansed = RemoveOtherSymbols(arabizi);
+            // Console.WriteLine(cleansed);
+
+            return cleansed;
+        }
+
+        static string RemoveOtherSymbols(string text)
+        {
+            // TODO: Handle malformed strings (e.g. those
+            // with mismatched surrogate pairs)
+            StringBuilder builder = new StringBuilder();
+            int index = 0;
+            while (index < text.Length)
+            {
+                // Full Unicode character
+                int units = char.IsSurrogate(text, index) ? 2 : 1;
+                UnicodeCategory category = char.GetUnicodeCategory(text, index);
+                int ch = char.ConvertToUtf32(text, index);
+                if (category == UnicodeCategory.OtherSymbol)
+                {
+                    Console.WriteLine($"Skipping U+{ch:x} {category}");
+                }
+                else
+                {
+                    Console.WriteLine($"Keeping U+{ch:x} {category}");
+                    builder.Append(text, index, units);
+                }
+                index += units;
+            }
+            return builder.ToString();
         }
 
         public List<String> GetAllTranscriptions(String arabiziWord)

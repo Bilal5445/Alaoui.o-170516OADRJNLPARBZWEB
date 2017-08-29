@@ -681,5 +681,41 @@ namespace ArabicTextAnalyzer.Controllers.Tests
 
             Assert.AreEqual(true, contains);
         }
+
+        [TestMethod()]
+        public void ut_170822_test_make_sure_la_4G_does_not_get_preprocessed_to_al4g()
+        {
+            // TODO : Still KO
+
+            //
+            String arabizi = "Salam Abdelilah El Hafidi, inwi fi khidmatikoum. Bach takhdem likoum la 4G awalan khasekoum tkounou tatwajdou be madina fiha taghtya dial la 4G ou lhatef dialekoum khas tekoun fihe lkhidma dial la 4G metwafra ou akhiran khase tkoun 3andkoum albitaka SIM fiha hata hya lkhidma dial la 4G, bach tghayerou lbitaka dial inwi le 4G twajhou men fadlkoum lwakala dial inwi, taghyire be 30dh, ila kan 3andkoum ichtirak taghyire al bitaka majani. inwi tatchkarkoum 3la ikhlas dialkoum.";
+            String nottarget = "al4g";
+
+            //
+            var textConverter = new TextConverter();
+            arabizi = textConverter.Preprocess_ma_ch(arabizi);
+            arabizi = textConverter.Preprocess_le(arabizi);
+            arabizi = textConverter.Preprocess_al_wa(arabizi);
+            arabizi = textConverter.Preprocess_al(arabizi);
+            arabizi = textConverter.Preprocess_bezzaf(arabizi);
+            arabizi = textConverter.Preprocess_ahaha(arabizi);
+            String miniArabiziKeyword = textConverter.Preprocess_al(arabizi);
+
+            //
+            Assert.IsFalse(miniArabiziKeyword.Contains(nottarget));
+        }
+
+        [TestMethod()]
+        public void ut_170829_test_Preprocess_emoticons()
+        {
+            String arabizi = "kangololkom😂😂😂😂😂";
+            String expected = "kangololkom";
+
+            //
+            var textConverter = new TextConverter();
+            var cleansed = textConverter.Preprocess_emoticons(arabizi);
+
+            Assert.AreEqual(expected, cleansed);
+        }
     }
 }
