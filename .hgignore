@@ -13,3 +13,5 @@ ArabicTextAnalyzerTests/obj
 .vs/config/applicationhost.config
 ArabicTextAnalyzer/ArabicTextAnalyzer.csproj.user
 packages
+ArabiziWebAPI/bin
+ArabiziWebAPI/obj
