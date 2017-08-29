@@ -36,7 +36,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_ahaha(source);
             source = Preprocess_3_m_i_f_z_a_j_l_etc(source);
 
-            //
+            // to arabizi file
             File.WriteAllText(inputFileLocation, source);
 
             //
@@ -203,10 +203,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             {
                 WorkingDirectory = workingDirectoryLocation,
                 UseShellExecute = true,
-                // CreateNoWindow = false,
-                // WindowStyle = ProcessWindowStyle.Hidden
             };
-            // processInformation.Arguments = arabiziWord;
             process.StartInfo = processInformation;
             process.Start();
             process.WaitForExit();
