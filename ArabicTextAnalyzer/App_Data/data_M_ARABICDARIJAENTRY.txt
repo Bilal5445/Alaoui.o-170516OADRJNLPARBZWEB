@@ -641,11 +641,6 @@
 إن شاء الله خير يا راب</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>497cc827-2197-4705-afdf-0b176eec4409</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>772ce3ac-49ff-41b2-9cc8-7da6cfe8f7fb</ID_ARABIZIENTRY>
-    <ArabicDarijaText>التعدى هدد ووحيد علم dlmgrib ينتهي ووجود</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>fd6dbf1b-0017-4b86-9929-d835275cf7ab</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>5daac14a-a4b9-40c6-a608-744d8c95de96</ID_ARABIZIENTRY>
     <ArabicDarijaText>جهة قول لينا شحال جمعت ب رجلى</ArabicDarijaText>
@@ -729,11 +724,6 @@
     <ID_ARABICDARIJAENTRY>ee885844-7c58-44bb-9058-a4f43c43b861</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>443a49c5-9a2c-4e2d-ab64-6c95f82b72df</ID_ARABIZIENTRY>
     <ArabicDarijaText>mouhallach هل كاين لي كرة نعاس لمهم رفاي moubrzytte teujeur خضم</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>b01819a3-3698-4423-8165-5b86158d08d9</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>1f9582f6-9367-453a-8b16-28de4f9a6a90</ID_ARABIZIENTRY>
-    <ArabicDarijaText>الله .. yahfadhom .. اتمنى .. لهم .. ddahabb .. و .. al. فض .. و . حرز .. لا .. بتول .. المية .. إن .. صح . الله</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>45b81963-57fb-49c1-bc5c-83b98c3d25e3</ID_ARABICDARIJAENTRY>
@@ -2236,13 +2226,23 @@
     <ArabicDarijaText>carpool caraoke زعما ?</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>a3687ccd-e425-44ef-a13e-62100feb730c</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>3f2834d4-202c-4dc8-83c5-6bbe21bd2414</ID_ARABIZIENTRY>
-    <ArabicDarijaText>درتي بحال carpool karaoké</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>7c9c9ce1-7495-4f35-8b90-3c3e8a182078</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>3ffe94a1-2a9b-4714-b505-6eec07c85f35</ID_ARABIZIENTRY>
     <ArabicDarijaText>س مومو لبكت تحققلي مي ديال هي كما دخل طلق ديسك ديال مسلم رسالة 5:00</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c3046225-7e95-4b0f-8e60-a3add67389ee</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6f58b849-dcc7-404b-803b-988e03091ae3</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الله .. حفظهم .. اتمنى .. لهم .. تذهب .. و .. الفادة .. و . احراز .. لا .. بتول .. المية .. ان .. شاء . الله</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a100d53b-4317-487b-82b6-2c0358282594</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>cd2afb6c-c8f6-4f6b-aedd-45165646075b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>درتي بحال carpool karaoke</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>955912f4-9207-4396-a8bd-c5e635855a6c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fb972f2c-7d6b-40da-a32c-b0fde7183624</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لتعد حظوظه وحيت علم دلمغرب ينتهي وجدو</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

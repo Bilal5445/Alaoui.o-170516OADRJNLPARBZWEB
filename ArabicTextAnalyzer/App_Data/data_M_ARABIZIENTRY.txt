@@ -643,11 +643,6 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>0001-01-01T00:00:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>772ce3ac-49ff-41b2-9cc8-7da6cfe8f7fb</ID_ARABIZIENTRY>
-    <ArabiziText>Lit3ada hododo wohayid 3alam dlmgrib yantahi wojodo</ArabiziText>
-    <ArabiziEntryDate>0001-01-01T00:00:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>5daac14a-a4b9-40c6-a608-744d8c95de96</ID_ARABIZIENTRY>
     <ArabiziText>Gha gol lina chhal jma3ti b roojolaa</ArabiziText>
     <ArabiziEntryDate>0001-01-01T00:00:00</ArabiziEntryDate>
@@ -732,11 +727,6 @@ inshallah khir ya rab</ArabiziText>
   <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>443a49c5-9a2c-4e2d-ab64-6c95f82b72df</ID_ARABIZIENTRY>
     <ArabiziText>mouhallach wach kayne lly kareh n3ass lmouhim rafay moubrzytte teujeur khdam</ArabiziText>
-    <ArabiziEntryDate>0001-01-01T00:00:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>1f9582f6-9367-453a-8b16-28de4f9a6a90</ID_ARABIZIENTRY>
-    <ArabiziText>lah..yahfadhom..atamana..lahom..ddahabb..oi..al.fadda..oi.ihraz..ala..botola..alamiya..in..cha.allahe</ArabiziText>
     <ArabiziEntryDate>0001-01-01T00:00:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
@@ -2240,13 +2230,23 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-08-26T21:03:40</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>3f2834d4-202c-4dc8-83c5-6bbe21bd2414</ID_ARABIZIENTRY>
-    <ArabiziText>Darti b7al carpool karaoké</ArabiziText>
-    <ArabiziEntryDate>2017-08-26T21:04:09</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>3ffe94a1-2a9b-4714-b505-6eec07c85f35</ID_ARABIZIENTRY>
     <ArabiziText>Asi momo labgiti tehe9e9eli omiya deyali hiya kima dekheelo tel9o deseke deyal mouslim risala 5:00	</ArabiziText>
     <ArabiziEntryDate>2017-08-26T21:29:03</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>6f58b849-dcc7-404b-803b-988e03091ae3</ID_ARABIZIENTRY>
+    <ArabiziText>lah..yahfadhom..atamana..lahom..ddahabb..oi..al.fadda..oi.ihraz..ala..botola.. alamiya..in.. cha.allahe	</ArabiziText>
+    <ArabiziEntryDate>2017-08-26T22:00:47</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>cd2afb6c-c8f6-4f6b-aedd-45165646075b</ID_ARABIZIENTRY>
+    <ArabiziText>Darti b7al carpool karaoké</ArabiziText>
+    <ArabiziEntryDate>2017-08-26T22:01:15</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>fb972f2c-7d6b-40da-a32c-b0fde7183624</ID_ARABIZIENTRY>
+    <ArabiziText>Lit3ada hododo wohayid 3alam dlmghrib yantahi wojodo	</ArabiziText>
+    <ArabiziEntryDate>2017-08-26T22:03:40</ArabiziEntryDate>
   </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
