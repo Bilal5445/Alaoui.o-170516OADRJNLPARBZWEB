@@ -14,6 +14,8 @@ namespace ArabicTextAnalyzer.Controllers
 {
     public class TrainController : Controller
     {
+        private static Object thisLock = new Object();
+
         // GET: Train
         public ActionResult Index()
         {
@@ -42,51 +44,54 @@ namespace ArabicTextAnalyzer.Controllers
             // Arabizi to arabic from perl script
             if (arabiziEntry.ArabiziText != null)
             {
-                // complete arabizi entry
-                arabiziEntry.ID_ARABIZIENTRY = Guid.NewGuid();
-
-                // prepare darija from perl script
-                var arabicText = textConverter.Convert(arabiziEntry.ArabiziText);
-                var arabicDarijaEntry = new M_ARABICDARIJAENTRY
+                lock (thisLock)
                 {
-                    ID_ARABICDARIJAENTRY = Guid.NewGuid(),
-                    ID_ARABIZIENTRY = arabiziEntry.ID_ARABIZIENTRY,
-                    ArabicDarijaText = arabicText
-                };
+                    // complete arabizi entry
+                    arabiziEntry.ID_ARABIZIENTRY = Guid.NewGuid();
 
-                // Save arabiziEntry to Serialization
-                String path = Server.MapPath("~/App_Data/data_M_ARABIZIENTRY.txt");
-                new TextPersist().Serialize<M_ARABIZIENTRY>(arabiziEntry, path);
-
-                // Save arabicDarijaEntry to Serialization
-                path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY.txt");
-                new TextPersist().Serialize<M_ARABICDARIJAENTRY>(arabicDarijaEntry, path);
-
-                // latin words
-                MatchCollection matches = TextTools.ExtractLatinWords(arabicDarijaEntry.ArabicDarijaText);
-
-                // save every match
-                // also calculate on the fly the number of varaiants
-                foreach (Match match in matches)
-                {
-                    // do not consider words in the bidict as latin words
-                    if (new TextFrequency().BidictContainsWord(match.Value))
-                        continue;
-
-                    String arabiziWord = match.Value;
-                    int variantsCount = new TextConverter().GetAllTranscriptions(arabiziWord).Count;
-
-                    var latinWord = new M_ARABICDARIJAENTRY_LATINWORD
+                    // prepare darija from perl script
+                    var arabicText = textConverter.Convert(arabiziEntry.ArabiziText);
+                    var arabicDarijaEntry = new M_ARABICDARIJAENTRY
                     {
-                        ID_ARABICDARIJAENTRY_LATINWORD = Guid.NewGuid(),
-                        ID_ARABICDARIJAENTRY = arabicDarijaEntry.ID_ARABICDARIJAENTRY,
-                        LatinWord = arabiziWord,
-                        VariantsCount = variantsCount
+                        ID_ARABICDARIJAENTRY = Guid.NewGuid(),
+                        ID_ARABIZIENTRY = arabiziEntry.ID_ARABIZIENTRY,
+                        ArabicDarijaText = arabicText
                     };
 
-                    // Save to Serialization
-                    path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_LATINWORD.txt");
-                    new TextPersist().Serialize<M_ARABICDARIJAENTRY_LATINWORD>(latinWord, path);
+                    // Save arabiziEntry to Serialization
+                    String path = Server.MapPath("~/App_Data/data_M_ARABIZIENTRY.txt");
+                    new TextPersist().Serialize<M_ARABIZIENTRY>(arabiziEntry, path);
+
+                    // Save arabicDarijaEntry to Serialization
+                    path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY.txt");
+                    new TextPersist().Serialize<M_ARABICDARIJAENTRY>(arabicDarijaEntry, path);
+
+                    // latin words
+                    MatchCollection matches = TextTools.ExtractLatinWords(arabicDarijaEntry.ArabicDarijaText);
+
+                    // save every match
+                    // also calculate on the fly the number of varaiants
+                    foreach (Match match in matches)
+                    {
+                        // do not consider words in the bidict as latin words
+                        if (new TextFrequency().BidictContainsWord(match.Value))
+                            continue;
+
+                        String arabiziWord = match.Value;
+                        int variantsCount = new TextConverter().GetAllTranscriptions(arabiziWord).Count;
+
+                        var latinWord = new M_ARABICDARIJAENTRY_LATINWORD
+                        {
+                            ID_ARABICDARIJAENTRY_LATINWORD = Guid.NewGuid(),
+                            ID_ARABICDARIJAENTRY = arabicDarijaEntry.ID_ARABICDARIJAENTRY,
+                            LatinWord = arabiziWord,
+                            VariantsCount = variantsCount
+                        };
+
+                        // Save to Serialization
+                        path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_LATINWORD.txt");
+                        new TextPersist().Serialize<M_ARABICDARIJAENTRY_LATINWORD>(latinWord, path);
+                    }
                 }
             }
 
