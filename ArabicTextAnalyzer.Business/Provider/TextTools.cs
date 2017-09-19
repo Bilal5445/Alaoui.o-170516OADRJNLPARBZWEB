@@ -78,5 +78,21 @@ namespace ArabicTextAnalyzer.Business.Provider
             //
             return arabicDarijaText;
         }
+
+        public static String DisplayEntities(List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities)
+        {
+            String entitiesString = String.Empty;
+            foreach (var textEntity in TextEntities)
+            {
+                if (TextEntities.IndexOf(textEntity) % 3 == 0)
+                    entitiesString += "<span class=\"label label-primary\">" + textEntity.TextEntity.Mention + "</span> ";
+                else if (TextEntities.IndexOf(textEntity) % 3 == 1)
+                    entitiesString += "<span class=\"label label-warning\">" + textEntity.TextEntity.Mention + "</span> ";
+                else
+                    entitiesString += "<span class=\"label label-success\">" + textEntity.TextEntity.Mention + "</span> ";
+            }
+
+            return entitiesString;
+        }
     }
 }

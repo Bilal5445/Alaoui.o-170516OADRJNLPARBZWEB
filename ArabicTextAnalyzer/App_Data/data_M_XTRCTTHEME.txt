@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfM_XTRCTTHEME xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>fc9536b1-9dc6-4f4a-bc3b-96fea8ecbfab</ID_XTRCTTHEME>
+    <ThemeName>INWI</ThemeName>
+	<CurrentActive>active</CurrentActive>
+  </M_XTRCTTHEME>
+</ArrayOfM_XTRCTTHEME>

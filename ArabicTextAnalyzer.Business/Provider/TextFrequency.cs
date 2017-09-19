@@ -16,6 +16,8 @@ namespace ArabicTextAnalyzer.Business.Provider
         public String pathToDictFile { get; }
         private String pathToBidict;
         private String pathToBidictFile;
+        private String pathToNER;
+        private String pathToNERFile_brands;
 
         public TextFrequency ()
         {
@@ -23,6 +25,8 @@ namespace ArabicTextAnalyzer.Business.Provider
             pathToDictFile = pathToCorpus + @"170426_extended_dict.txt";
             pathToBidict = PathConstant.pathToArabiziEnv + @"arabizi-arabic-bitext\";
             pathToBidictFile = pathToBidict + @"arabizi-arabic-bitext.arz";
+            pathToNER = PathConstant.pathToArabiziEnv + @"ner\";
+            pathToNERFile_brands = pathToNER + @"entities-brand.txt";
         }
 
         public void AddPhraseToCorpus(String post)
@@ -95,6 +99,34 @@ namespace ArabicTextAnalyzer.Business.Provider
                 if (Regex.IsMatch(line, @"\b" + domain + @"\b", RegexOptions.IgnoreCase))
                     return true; // and stop reading lines
 
+            return false;
+        }
+
+        public bool NERContainsWord_brands(string domain)
+        {
+            // make it one line
+            domain = domain.Replace("\r\n", " ");
+
+            foreach (string line in File.ReadLines(pathToNERFile_brands))
+                if (Regex.IsMatch(line, @"\b" + domain + @"\b", RegexOptions.IgnoreCase))
+                    return true; // and stop reading lines
+
+            return false;
+        }
+
+        public bool NERStartsWithWord_brands(string domain, out String type)
+        {
+            // make it one line
+            domain = domain.Replace("\r\n", " ");
+
+            foreach (string line in File.ReadLines(pathToNERFile_brands))
+                if (line.StartsWith(domain, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    type = line.Split(new char[] { '\t' })[1];
+                    return true; // and stop reading lines
+                }
+
+            type = String.Empty;
             return false;
         }
 

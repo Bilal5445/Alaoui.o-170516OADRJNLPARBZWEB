@@ -1,4 +1,5 @@
 ﻿using ArabicTextAnalyzer.Business.Provider;
+using ArabicTextAnalyzer.Domain;
 using ArabicTextAnalyzer.Domain.Models;
 using ArabicTextAnalyzer.Models;
 using ArabicTextAnalyzer.ViewModels;
@@ -21,15 +22,20 @@ namespace ArabicTextAnalyzer.Controllers
         {
             String dataPath = Server.MapPath("~/App_Data");
 
-            // send size of corpus
+            // send size of corpus & co data
             @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
             @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
             @ViewBag.BidictSize = new TextFrequency().GetBidictNumberOfLine();
             @ViewBag.ArabiziEntriesCount = new TextFrequency().GetArabiziEntriesCount(dataPath);
             @ViewBag.RatioLatinWordsOnEntries = new TextFrequency().GetRatioLatinWordsOnEntries(dataPath);
 
-            // deserialize & send twingly accounts
+            // deserialize/send twingly accounts
             @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(dataPath);
+
+            // theme : deserialize/send list plus send active one
+            var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
+            @ViewBag.XtrctThemes = xtrctThemes;
+            @ViewBag.ActiveXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
 
             //
             return View();
@@ -60,11 +66,11 @@ namespace ArabicTextAnalyzer.Controllers
 
                     // Save arabiziEntry to Serialization
                     String path = Server.MapPath("~/App_Data/data_M_ARABIZIENTRY.txt");
-                    new TextPersist().Serialize<M_ARABIZIENTRY>(arabiziEntry, path);
+                    new TextPersist().Serialize(arabiziEntry, path);
 
                     // Save arabicDarijaEntry to Serialization
                     path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY.txt");
-                    new TextPersist().Serialize<M_ARABICDARIJAENTRY>(arabicDarijaEntry, path);
+                    new TextPersist().Serialize(arabicDarijaEntry, path);
 
                     // latin words
                     MatchCollection matches = TextTools.ExtractLatinWords(arabicDarijaEntry.ArabicDarijaText);
@@ -90,7 +96,48 @@ namespace ArabicTextAnalyzer.Controllers
 
                         // Save to Serialization
                         path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_LATINWORD.txt");
-                        new TextPersist().Serialize<M_ARABICDARIJAENTRY_LATINWORD>(latinWord, path);
+                        new TextPersist().Serialize(latinWord, path);
+                    }
+
+                    // Sentiment analysis from watson https://gateway.watsonplatform.net/";
+                    var textSentimentAnalyzer = new TextSentimentAnalyzer();
+                    var sentiment = textSentimentAnalyzer.GetSentiment(arabicText);
+                    // Save to Serialization
+                    path = Server.MapPath("~/App_Data/data_TextSentiment.txt");
+                    new TextPersist().Serialize(sentiment, path);
+
+                    // Entity extraction from rosette (https://api.rosette.com/rest/v1/)
+                    var textEntityExtraction = new TextEntityExtraction();
+                    var entities = textEntityExtraction.GetEntities(arabicText);
+
+                    // NER manual extraction
+                    foreach (var word in arabicText.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
+                    {
+                        // if (new TextFrequency().NERContainsWord_brands(word))
+                        String typeEntity;
+                        if (new TextFrequency().NERStartsWithWord_brands(word, out typeEntity))
+                        {
+                            entities = entities.Concat(new[] { new TextEntity
+                            {
+                                Count = 1,
+                                Mention = word,
+                                // Type = "Brand"
+                                Type = typeEntity
+                            } });
+                        }
+                    }
+                    foreach (var entity in entities)
+                    {
+                        var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
+                        {
+                            ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
+                            ID_ARABICDARIJAENTRY = arabicDarijaEntry.ID_ARABICDARIJAENTRY,
+                            TextEntity = entity
+                        };
+
+                        // Save to Serialization
+                        path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_TEXTENTITY.txt");
+                        new TextPersist().Serialize(textEntity, path);
                     }
                 }
             }
@@ -131,16 +178,30 @@ namespace ArabicTextAnalyzer.Controllers
                 arabiziEntries = (List<M_ARABIZIENTRY>)serializer.Deserialize(reader);
             }
 
+            // load/deserialize list of M_ARABICDARIJAENTRY_TEXTENTITY
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
+            path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_TEXTENTITY).Name + ".txt");
+            serializer = new XmlSerializer(textEntities.GetType());
+            if (System.IO.File.Exists(path))
+            {
+                using (var reader = new System.IO.StreamReader(path))
+                {
+                    textEntities = (List<M_ARABICDARIJAENTRY_TEXTENTITY>)serializer.Deserialize(reader);
+                }
+            }
+
             //
             List<Class2> xs = new List<Class2>();
             foreach (M_ARABICDARIJAENTRY arabicdarijaentry in entries)
             {
                 var perEntryLatinWordsEntries = latinWordsEntries.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY).ToList();
+                var perEntryTextEntities = textEntities.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY).ToList();
                 var x = new Class2
                 {
                     ArabicDarijaEntry = arabicdarijaentry,
                     ArabicDarijaEntryLatinWords = perEntryLatinWordsEntries,
-                    ArabiziEntry = arabiziEntries.Single(m => m.ID_ARABIZIENTRY == arabicdarijaentry.ID_ARABIZIENTRY)
+                    ArabiziEntry = arabiziEntries.Single(m => m.ID_ARABIZIENTRY == arabicdarijaentry.ID_ARABIZIENTRY),
+                    TextEntities = perEntryTextEntities
                 };
                 xs.Add(x);
             }
@@ -357,6 +418,23 @@ namespace ArabicTextAnalyzer.Controllers
             // Save back to Serialization
             new TextPersist().SerializeBack_dataPath<M_TWINGLYACCOUNT>(twinglyAccounts, Server.MapPath("~/App_Data"));
 
+            //
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult XtrctTheme_AddNew(String themename)
+        {
+            var newXtrctTheme = new M_XTRCTTHEME
+            {
+                ID_XTRCTTHEME = Guid.NewGuid(),
+                ThemeName = themename
+            };
+
+            // Save to Serialization
+            var path = Server.MapPath("~/App_Data/data_M_XTRCTTHEME.txt");
+            new TextPersist().Serialize(newXtrctTheme, path);
+            
             //
             return RedirectToAction("Index");
         }

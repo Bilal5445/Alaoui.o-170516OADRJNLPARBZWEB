@@ -12,7 +12,6 @@ namespace ArabicTextAnalyzer.ViewModels
         public M_ARABICDARIJAENTRY ArabicDarijaEntry { get; set; }
         public List<M_ARABICDARIJAENTRY_LATINWORD> ArabicDarijaEntryLatinWords { get; set; }
         public M_ARABIZIENTRY ArabiziEntry { get; set; }
-        // public String ArabiziEntryText { get; set; }
-        // public DateTime ArabiziEntryDate { get; set; }
+        public List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities { get; set; }
     }
 }

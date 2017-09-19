@@ -31,12 +31,25 @@ namespace ArabicTextAnalyzer
 
             // local to train page
             bundles.Add(new StyleBundle("~/Content/css_train").Include(
-                      "~/Content/mysite_train.css"
+                      "~/Content/mysite_train.css",
+                      "~/Content/mysite_train_themepanel.css",
+                      "~/Content/mysite_train_keywordfiltering.css"
                       ));
+
+            // related to mark in tables
+            bundles.Add(new ScriptBundle("~/bundles/js_train_mark").Include(
+                "~/bower_components/datatables.net/js/jquery.dataTables.min.js",
+                "~/bower_components/datatables/media/js/dataTables.bootstrap.min.js",
+                "~/bower_components/mark.js/dist/jquery.mark.min.js",
+                "~/bower_components/datatables.mark.js/dist/datatables.mark.js", // needed before mysite_train_keywordfiltering
+                "~/Scripts/mysite_train.js",
+                "~/Scripts/mysite_train_keywordfiltering.js"
+                ));
 
             // local to train page
             bundles.Add(new ScriptBundle("~/bundles/js_train").Include(
-                "~/Scripts/mysite_train.js"
+                "~/Scripts/mysite_train.js",
+                "~/Scripts/mysite_train_keywordfiltering.js"
                 ));
         }
     }

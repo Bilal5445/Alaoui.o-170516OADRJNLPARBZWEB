@@ -43,6 +43,28 @@ namespace ArabicTextAnalyzer.Business.Provider
             }
         }
 
+        public void Serialize_Touch<T>(String path)
+        {
+            //
+            List<T> entries = new List<T>();
+            XmlSerializer serializer = new XmlSerializer(entries.GetType());
+
+            //
+            if (File.Exists(path) && new FileInfo(path).Length > 0)
+            {
+                ;
+            }
+            else
+            {
+                // write schema only
+                using (var writer = new StreamWriter(path))
+                {
+                    serializer.Serialize(writer, entries);
+                    writer.Flush();
+                }
+            }
+        }
+
         /*public void SerializeBack_path<T>(List<T> entries, String path)
         {
             //
@@ -74,9 +96,15 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public List<T> Deserialize<T>(String dataPath)
         {
-            List<T> entries = new List<T>();
-
             var path = dataPath + "/data_" + typeof(T).Name + ".txt";
+            
+            // if not previous existing, create
+            if (File.Exists(path) && new FileInfo(path).Length > 0)
+                ;
+            else
+                Serialize_Touch<T>(path);
+
+            List<T> entries = new List<T>();
             var serializer = new XmlSerializer(entries.GetType());
             using (var reader = new StreamReader(path))
             {
@@ -194,13 +222,21 @@ namespace ArabicTextAnalyzer.Business.Provider
             // filter on the one linked to current arabizi entry
             var arabicdarijaentry = arabicdarijaentries.Single(m => m.ID_ARABIZIENTRY == id_arabizientry);
 
-            // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
-            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordEntries = Deserialize<M_ARABICDARIJAENTRY_LATINWORD>(dataPath);
-
+            // load/deserialize data_M_ARABICDARIJAENTRY_TEXTENTITY
             // filter on the ones linked to current arabic darija entry
-            var linkedlatinWordEntries = latinWordEntries.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY).ToList();
-
             // remove latin words
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = Deserialize<M_ARABICDARIJAENTRY_TEXTENTITY>(dataPath);
+            var linkedtextEntities = textEntities.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY).ToList();
+            foreach (var textEntity in linkedtextEntities)
+            {
+                RemoveItemFromList(textEntities, textEntity.ID_ARABICDARIJAENTRY_TEXTENTITY);
+            }
+
+            // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
+            // filter on the ones linked to current arabic darija entry
+            // remove latin words
+            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordEntries = Deserialize<M_ARABICDARIJAENTRY_LATINWORD>(dataPath);
+            var linkedlatinWordEntries = latinWordEntries.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY).ToList();
             foreach (var latinWordEntry in linkedlatinWordEntries)
             {
                 RemoveItemFromList(latinWordEntries, latinWordEntry.ID_ARABICDARIJAENTRY_LATINWORD);
@@ -214,6 +250,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             RemoveItemFromList(arabizientries, id_arabizientry);
 
             // serialize back
+            SerializeBack_dataPath<M_ARABICDARIJAENTRY_TEXTENTITY>(textEntities, dataPath);
             SerializeBack_dataPath<M_ARABICDARIJAENTRY_LATINWORD>(latinWordEntries, dataPath);
             SerializeBack_dataPath<M_ARABICDARIJAENTRY>(arabicdarijaentries, dataPath);
             SerializeBack_dataPath<M_ARABIZIENTRY>(arabizientries, dataPath);

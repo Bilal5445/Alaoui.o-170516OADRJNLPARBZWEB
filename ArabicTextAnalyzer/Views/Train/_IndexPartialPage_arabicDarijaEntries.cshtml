@@ -1,21 +1,38 @@
 ﻿@using ArabicTextAnalyzer.Business.Provider
 @model List<ArabicTextAnalyzer.ViewModels.Class2>
-<table class="posts">
-    <tr class="header">
+
+<table class="posts datatables-table table table-striped table-hover table-bordered">
+    <thead>
+        <tr class="header">
+            <th class="center top col50px">#</th>
+            <th class="center top col110px">Date</th>
+            <th class="center top col50prc">Arabizi</th>
+            <th class="center top col50prc">Arabic</th>
+            <th class="center top col75px">Entities</th>
+            <th class="center top col75px"></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr class="header">
         <th class="center top col50px">#</th>
         <th class="center top col110px">Date</th>
         <th class="center top col50prc">Arabizi</th>
         <th class="center top col50prc">Arabic</th>
+        <th class="center top col75px">Entities</th>
         <th class="center top col75px"></th>
-    </tr>
-    @foreach (var entry in Model)
-    {
-        <tr>
-            <td class="center top">@(Model.Count - Model.IndexOf(entry))</td>
-            <td class="arabizi-text top">@entry.ArabiziEntry.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm")</td>
-            <td class="arabizi-text top">@entry.ArabiziEntry.ArabiziText</td>
-            <td class="arabic-text top">@Html.Raw(@TextTools.HighlightExtractedLatinWords(@entry.ArabicDarijaEntry.ArabicDarijaText, @entry.ArabicDarijaEntryLatinWords))</td>
-            <td class="center top"><a href="@Url.Action("Train_DeleteEntry", new { arabiziWordGuid = @entry.ArabiziEntry.ID_ARABIZIENTRY })" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove</a></td>
         </tr>
-    }
+    </tfoot>
+    <tbody>
+        @foreach (var entry in Model)
+        {
+            <tr>
+                <td class="center top">@(Model.Count - Model.IndexOf(entry))</td>
+                <td class="arabizi-text top">@entry.ArabiziEntry.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm")</td>
+                <td class="arabizi-text top">@entry.ArabiziEntry.ArabiziText</td>
+                <td class="arabic-text top">@Html.Raw(@TextTools.HighlightExtractedLatinWords(@entry.ArabicDarijaEntry.ArabicDarijaText, @entry.ArabicDarijaEntryLatinWords))</td>
+                <td class="arabic-text top entities">@Html.Raw(@TextTools.DisplayEntities(@entry.TextEntities))</td>
+                <td class="center top"><a href="@Url.Action("Train_DeleteEntry", new { arabiziWordGuid = @entry.ArabiziEntry.ID_ARABIZIENTRY })" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove</a></td>
+            </tr>
+        }
+    </tbody>
 </table>

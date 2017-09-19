@@ -54,9 +54,15 @@ namespace ArabicTextAnalyzer.Business.Provider
             process.WaitForExit();
 
             var output = File.ReadAllText(outputFileLocation);
-            return output.TrimEnd('\r', '\n');
+
+            // post-process (eg : hna => nahnou)
+            output = Postprocess_slash_r_slash_n(output);
+            output = Postprocess_حنا_to_نحن(output);
+
+            return output;
         }
 
+        #region BACK YARD Preprocess
         public string Preprocess_wa_ma_ch(string arabizi)
         {
             // on the contrary, we need to separate
@@ -199,6 +205,20 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             return cleansed;
         }
+        #endregion
+
+        #region BACK YARD Postprocess
+        public string Postprocess_slash_r_slash_n(string arabic)
+        {
+            return arabic.TrimEnd('\r', '\n');
+        }
+
+        public string Postprocess_حنا_to_نحن(string arabic)
+        {
+            return arabic.Replace("حنا", "نحن");
+        }
+        
+        #endregion
 
         static string RemoveOtherSymbols(string text)
         {
