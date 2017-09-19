@@ -1,12 +1,13 @@
-﻿window.onload = function () {
+﻿function InitializeDataTables() {
     $(function () {
 
         // Initialize DataTables
         $('.datatables-table').DataTable({
             // Enable mark.js search term highlighting
-            mark: true,
-            "drawCallback": function( settings ) {
-                alert( 'DataTables has redrawn the table' );
+            // mark: true,
+            mark: {
+                element: 'span',
+                className: 'highlight'
             }
         });
     });

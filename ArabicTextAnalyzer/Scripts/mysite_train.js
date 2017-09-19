@@ -6,6 +6,9 @@
         data: null,
         success: (function (result) {
             $('#partialPlaceHolder').html(result);
+
+            // fct to attach table with search highlight keywords
+            InitializeDataTables();
         }),
         failure: function (response) {
             console.log(response);
