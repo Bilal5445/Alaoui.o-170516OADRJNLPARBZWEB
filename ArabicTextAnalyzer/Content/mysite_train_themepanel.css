@@ -1,3 +1,10 @@
 ﻿.div-inline{
     display:inline-block;
 }
+
+span.label.themekeywords {
+    font-size: 13px;
+    font-weight: 400;
+    padding: 3px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

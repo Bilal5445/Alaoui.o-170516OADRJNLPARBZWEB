@@ -6,6 +6,8 @@
 
 @section styles {
     @Styles.Render("~/Content/css_train")
+
+    @Styles.Render("~/Content/js_train_tagsinput")
 }
 
 @section scripts {
@@ -20,6 +22,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/datatables.mark.js/2.0.0/datatables.mark.min.js"></script>
 
     @Scripts.Render("~/bundles/js_train")
+    @Scripts.Render("~/bundles/js_train_keywordfiltering");
+    @Scripts.Render("~/bundles/js_train_tagsinput");
 }
 
 <h2>Training (v0.178.29.7)</h2>
@@ -63,6 +67,10 @@
                         <label for="themename">Theme Name</label>
                         @Html.TextBox("themename", "", new { @class="form-control", placeholder = "Enter new theme name", @required = "required", id= "themename" })
                     </div>
+                    <div class="form-group">
+                        <label for="themetags">Theme Tags</label>
+                        @Html.TextBox("themetags", "", new { @class = "form-control", @required = "required", id = "themetags", data_role = "tagsinput" })
+                    </div>
                     <button type="submit" class="btn btn-default btn-success">Add</button>
                 }           
             </div>
@@ -72,6 +80,17 @@
 
 <!-- Theme & keywords -->
 <h3><span class="label label-info">@ViewBag.ActiveXtrctTheme.ThemeName</span></h3>
+@foreach (var tag in ViewBag.ActiveXtrctThemeTags)
+{
+    if (ViewBag.ActiveXtrctThemeTags.IndexOf(tag) % 2 == 0) { 
+        <span class="label label-primary themekeywords">@tag.Keyword</span>
+    }
+    else
+    {
+        <span class="label label-success themekeywords">@tag.Keyword</span>
+    }
+}
+
 
 <!-- arabizi keying & corpus info & co -->
 <div id="row-arabizi-input" class="row" style="margin-top: 30px">

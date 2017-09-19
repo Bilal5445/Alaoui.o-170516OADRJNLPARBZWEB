@@ -9,6 +9,5 @@
                 alert( 'DataTables has redrawn the table' );
             }
         });
-
     });
 }

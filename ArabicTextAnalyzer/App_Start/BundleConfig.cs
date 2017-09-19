@@ -37,20 +37,29 @@ namespace ArabicTextAnalyzer
                       ));
 
             // related to mark in tables
-            bundles.Add(new ScriptBundle("~/bundles/js_train_mark").Include(
+            /*bundles.Add(new ScriptBundle("~/bundles/js_train_mark").Include(
                 "~/bower_components/datatables.net/js/jquery.dataTables.min.js",
                 "~/bower_components/datatables/media/js/dataTables.bootstrap.min.js",
                 "~/bower_components/mark.js/dist/jquery.mark.min.js",
-                "~/bower_components/datatables.mark.js/dist/datatables.mark.js", // needed before mysite_train_keywordfiltering
-                "~/Scripts/mysite_train.js",
-                "~/Scripts/mysite_train_keywordfiltering.js"
-                ));
+                "~/bower_components/datatables.mark.js/dist/datatables.mark.js" // needed before mysite_train_keywordfiltering
+                ));*/
 
             // local to train page
             bundles.Add(new ScriptBundle("~/bundles/js_train").Include(
-                "~/Scripts/mysite_train.js",
+                "~/Scripts/mysite_train.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/js_train_keywordfiltering").Include(
                 "~/Scripts/mysite_train_keywordfiltering.js"
                 ));
+
+            // related to tags input
+            bundles.Add(new ScriptBundle("~/bundles/js_train_tagsinput").Include(
+                "~/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"
+                ));
+            bundles.Add(new StyleBundle("~/Content/js_train_tagsinput").Include(
+                     "~/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css"
+                     ));
         }
     }
 }

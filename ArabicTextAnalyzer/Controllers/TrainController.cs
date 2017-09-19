@@ -32,10 +32,13 @@ namespace ArabicTextAnalyzer.Controllers
             // deserialize/send twingly accounts
             @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(dataPath);
 
-            // theme : deserialize/send list plus send active one
+            // theme : deserialize/send list, plus send active one, plus send list of tags/keywords
             var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
+            var xtrctThemesKeywords = new TextPersist().Deserialize<M_XTRCTTHEME_KEYWORD>(dataPath);
             @ViewBag.XtrctThemes = xtrctThemes;
-            @ViewBag.ActiveXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
+            var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
+            @ViewBag.ActiveXtrctTheme = activeXtrctTheme;
+            @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).ToList();
 
             //
             return View();
@@ -423,8 +426,9 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [HttpPost]
-        public ActionResult XtrctTheme_AddNew(String themename)
+        public ActionResult XtrctTheme_AddNew(String themename, String themetags)
         {
+            // create the theme
             var newXtrctTheme = new M_XTRCTTHEME
             {
                 ID_XTRCTTHEME = Guid.NewGuid(),
@@ -434,7 +438,22 @@ namespace ArabicTextAnalyzer.Controllers
             // Save to Serialization
             var path = Server.MapPath("~/App_Data/data_M_XTRCTTHEME.txt");
             new TextPersist().Serialize(newXtrctTheme, path);
-            
+
+            // create the associated tags
+            foreach (var themetag in themetags.Split(new char[] { ',' }))
+            {
+                var newXrtctThemeKeyword = new M_XTRCTTHEME_KEYWORD
+                {
+                    ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
+                    ID_XTRCTTHEME = newXtrctTheme.ID_XTRCTTHEME,
+                    Keyword = themetag
+                };
+
+                // Save to Serialization
+                path = Server.MapPath("~/App_Data/data_M_XTRCTTHEME_KEYWORD.txt");
+                new TextPersist().Serialize(newXrtctThemeKeyword, path);
+            }
+
             //
             return RedirectToAction("Index");
         }
