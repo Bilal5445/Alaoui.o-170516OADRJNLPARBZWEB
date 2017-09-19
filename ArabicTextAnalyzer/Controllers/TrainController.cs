@@ -22,7 +22,7 @@ namespace ArabicTextAnalyzer.Controllers
         {
             String dataPath = Server.MapPath("~/App_Data");
 
-            // send size of corpus & co data
+            // send size of corpus & co-data
             @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
             @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
             @ViewBag.BidictSize = new TextFrequency().GetBidictNumberOfLine();
@@ -35,8 +35,8 @@ namespace ArabicTextAnalyzer.Controllers
             // theme : deserialize/send list, plus send active one, plus send list of tags/keywords
             var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
             var xtrctThemesKeywords = new TextPersist().Deserialize<M_XTRCTTHEME_KEYWORD>(dataPath);
-            @ViewBag.XtrctThemes = xtrctThemes;
             var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
+            @ViewBag.XtrctThemes = xtrctThemes;
             @ViewBag.ActiveXtrctTheme = activeXtrctTheme;
             @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).ToList();
 
