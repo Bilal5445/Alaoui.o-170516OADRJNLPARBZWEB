@@ -8,7 +8,8 @@
             mark: {
                 element: 'span',
                 className: 'highlight'
-            }
+            },
+            aaSorting: []   // just use the sorting from the server
         });
     });
 }
