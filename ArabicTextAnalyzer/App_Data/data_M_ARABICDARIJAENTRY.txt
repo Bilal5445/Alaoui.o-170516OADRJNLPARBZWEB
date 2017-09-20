@@ -2546,39 +2546,14 @@
     <ArabicDarijaText>السلام شنو ندير باش نربح الله يخليكم</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>1bb5d9a6-b5b4-44b7-8e28-ad172554815e</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>734a44f0-1dfd-4b89-88be-fe9feaaa45e8</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ديما شي سلطن</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>f7bf155a-c6d3-40d0-a008-0380c63e9694</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>52c139eb-976b-43fe-b44d-695bab47fa62</ID_ARABIZIENTRY>
     <ArabicDarijaText>شنو شورط المسبق</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>940fe4a4-b225-47a1-93ea-b659a3fe1a46</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>9e28ca3f-2a40-4273-8d8c-3ce5c5e8dfa0</ID_ARABIZIENTRY>
-    <ArabicDarijaText>katakhdi تا ب 17 دراهم كتلقى تعبئة فيه 5 دقائق هطل عام ديال حاضرة ولا كتلقى connexion هاد القضية ديال عام نتا ozahrak هاد المسابقة را بصح كان ماشي كذب</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>ac6ad76b-ee73-4574-9aff-74800167f224</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>43e0c297-fe76-4159-838d-5924ee1e7c84</ID_ARABIZIENTRY>
     <ArabicDarijaText>هه قالك الهدية قط دخت تا 17 درهم وقت تلقى 50 مك وتم صير</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>db951c86-3d8b-4eda-8989-4a442dd5e64c</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>d9e2ce4c-a1fc-454f-8792-6c0ec3a93aa9</ID_ARABIZIENTRY>
-    <ArabicDarijaText>فعلا راني كنت فهاد المهرجان ديال tafrawt شفت كلشي شحال من واحد ربح فيه تبارك الله عليكم وصافي</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>cb1dd692-4884-4146-be1f-d918ec704f37</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>dc4acdd3-42f5-49f0-81e0-1e92b0263a61</ID_ARABIZIENTRY>
-    <ArabicDarijaText>بصحتكم هل tafrawt katstah9o كل خير bravo سلتا</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>01cc17e1-1804-4e5c-8eca-99c0db5f8149</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>408ed04a-8715-4331-bb3b-26bfbeca6f3f</ID_ARABIZIENTRY>
-    <ArabicDarijaText>تبارك الله عليكم داز top لله بين organiser بن continuation</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>750add10-a1b7-4b6d-acfd-8839afb28e34</ID_ARABICDARIJAENTRY>
@@ -2681,8 +2656,33 @@
     <ArabicDarijaText>شحال ديال تعبئة عطوك</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>c0eccafa-4a0f-43fc-938f-53bb4a99096d</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>40b9d5ad-503e-4ba8-8fa3-096effc37a5b</ID_ARABIZIENTRY>
-    <ArabicDarijaText>واش ديال iam هاد alpromo</ArabicDarijaText>
+    <ID_ARABICDARIJAENTRY>c4d4d37c-f036-4f82-a2df-bd473a8717b7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>785b9377-3b40-4faf-86fe-3ca5f11bc865</ID_ARABIZIENTRY>
+    <ArabicDarijaText>واش ديال iam هاد العرض</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4a1c8b3d-45fd-4643-85fc-593c31e66eeb</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0c4c34ae-df07-4802-af3b-c8d9df1ad003</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تبارك الله عليكم داز top والله بين organiser بن continuation</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5db25bbc-8545-42cf-9c0f-5ad90559d6c3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>640de6f0-4c89-4156-be86-60a465223f60</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فعلا راني كنت فهاد المهراجا ديال تافراوت شفت كلشي شحال من واحد ربح فيه تبارك الله عليكم وصافى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8fdcaf6a-d5cd-4287-a1ee-aa4ec5265806</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>dd47b65a-c7f1-4633-ab5f-1a35fb87804a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ديما شي سلطان‎‎</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4637a78f-fd84-4808-ba5d-8f004d33128d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>408c371c-ede3-4e9e-8577-16b6fec8ddac</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بصحتكم هل تافراوت كتستحقو كل خير bravo سلطان‎‎</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d743fca1-516b-4b9f-8a05-39a50e5e2b6e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>92912809-1ea9-4ab6-9d97-27a6cd2e7bff</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كتخدي تا ب 17 دراهم كتلقى تعبئة فيه 5 دقائق هطل عام ديال حاضر ولا كتلقى connexion هاد القضية ديال عام نتا وزهرك هاد لمسابقة را بصح كان ماشي كتب</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

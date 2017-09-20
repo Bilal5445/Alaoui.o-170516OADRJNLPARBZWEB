@@ -2550,39 +2550,14 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-09-20T16:47:30.1504319+01:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>734a44f0-1dfd-4b89-88be-fe9feaaa45e8</ID_ARABIZIENTRY>
-    <ArabiziText>dima chay soltn</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T16:47:37.855872+01:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>52c139eb-976b-43fe-b44d-695bab47fa62</ID_ARABIZIENTRY>
     <ArabiziText>Ashno chorot lmosaba9a</ArabiziText>
     <ArabiziEntryDate>2017-09-20T16:47:45.9844847+01:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>9e28ca3f-2a40-4273-8d8c-3ce5c5e8dfa0</ID_ARABIZIENTRY>
-    <ArabiziText>Katakhdi atay b 17dhs okatl9a recharge fiha 5min htal 3am dyal hadra awla katl9a connexion had l9adya dyal 3am nta ozahrak ohad lmossaba9a ra bessah kayna machi kdoub</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T16:47:53.9303841+01:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>43e0c297-fe76-4159-838d-5924ee1e7c84</ID_ARABIZIENTRY>
     <ArabiziText>Hhhhh galik lhadiya kaaat dakht atay 17 dh okaat tl9a 50 miga watomo siiiiiro</ArabiziText>
     <ArabiziEntryDate>2017-09-20T16:48:05.6824045+01:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>d9e2ce4c-a1fc-454f-8792-6c0ec3a93aa9</ID_ARABIZIENTRY>
-    <ArabiziText>Fi3lan rani knt fhad lmihrajan dyal Tafrawt chft kolchi chhal mn wahd rbh fih Tbark lah 3likom osafi</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T16:48:13.9434938+01:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>dc4acdd3-42f5-49f0-81e0-1e92b0263a61</ID_ARABIZIENTRY>
-    <ArabiziText>Bsahtkom ahl tafrawt katstah9o kol khir bravo soltan</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T16:48:24.5787242+01:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>408ed04a-8715-4331-bb3b-26bfbeca6f3f</ID_ARABIZIENTRY>
-    <ArabiziText>Tbarklah 3likom daz top ollah bien organiser bn continuation</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T16:48:36.246773+01:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>9a0f2c57-c6c7-4df8-8285-468a471ad515</ID_ARABIZIENTRY>
@@ -2685,8 +2660,33 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-09-20T19:30:06</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>40b9d5ad-503e-4ba8-8fa3-096effc37a5b</ID_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>785b9377-3b40-4faf-86fe-3ca5f11bc865</ID_ARABIZIENTRY>
     <ArabiziText>wax dyal tisalat had lpromo	</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T19:38:05</ArabiziEntryDate>
+    <ArabiziEntryDate>2017-09-20T19:45:22</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>0c4c34ae-df07-4802-af3b-c8d9df1ad003</ID_ARABIZIENTRY>
+    <ArabiziText>Tbarklah 3likom daz top ollah bien organiser bn continuation	</ArabiziText>
+    <ArabiziEntryDate>2017-09-20T19:48:43</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>640de6f0-4c89-4156-be86-60a465223f60</ID_ARABIZIENTRY>
+    <ArabiziText>Fi3lan rani knt fhad lmihrajan dyal Tafrawt chft kolchi chhal mn wahd rbh fih Tbark lah 3likom osafi	</ArabiziText>
+    <ArabiziEntryDate>2017-09-20T20:01:22</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>dd47b65a-c7f1-4633-ab5f-1a35fb87804a</ID_ARABIZIENTRY>
+    <ArabiziText>dima chay soltn	</ArabiziText>
+    <ArabiziEntryDate>2017-09-20T20:13:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>408c371c-ede3-4e9e-8577-16b6fec8ddac</ID_ARABIZIENTRY>
+    <ArabiziText>Bsahtkom ahl tafrawt katstah9o kol khir bravo soltan	</ArabiziText>
+    <ArabiziEntryDate>2017-09-20T20:15:08</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>92912809-1ea9-4ab6-9d97-27a6cd2e7bff</ID_ARABIZIENTRY>
+    <ArabiziText>Katakhdi atay b 17dhs okatl9a recharge fiha 5min htal 3am dyal hadra awla katl9a connexion had l9adya dyal 3am nta ozahrak ohad lmossaba9a ra bessah kayna machi kdoub	</ArabiziText>
+    <ArabiziEntryDate>2017-09-20T20:18:41</ArabiziEntryDate>
   </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
