@@ -2671,11 +2671,6 @@
     <ArabicDarijaText>رقم 1 فلمغرب الحمد لله ما كايحشمنا شي مع alkliyan</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>59449120-d5ae-4827-8f1d-9e9fdb8080e8</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>6ec70f93-4423-4fea-b204-d41ae0076e1a</ID_ARABIZIENTRY>
-    <ArabicDarijaText>رقم 1 فلمغرب الحمد لله ما كايحشمنا شي مع alkliyan</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>7b9c8471-cf87-4412-b0dc-c2296a63107f</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>e4f9a18b-3683-4a36-b81d-0e84b653f74b</ID_ARABIZIENTRY>
     <ArabicDarijaText>عواشر مبروك نتمنا نكون مال ناس لي غادي رابح إن شاء الله</ArabicDarijaText>
@@ -2684,5 +2679,10 @@
     <ID_ARABICDARIJAENTRY>1cc9d06e-786c-4155-afc8-ef68e7694f99</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>fafc140f-8fca-4d36-8f8c-27339db62c16</ID_ARABIZIENTRY>
     <ArabicDarijaText>مبروك نسمة ازل و خرج al3chouuuur ه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b18bf3cd-411e-4dda-91fe-73b175657022</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5610e92a-c373-4d40-9bfc-16526a71b602</ID_ARABIZIENTRY>
+    <ArabicDarijaText>طبقه تشير غا سلطان ههه راه زوين بزيف ههه و s8 ههه اصلا هنا kanstahlko تا بزيف فاهه</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
