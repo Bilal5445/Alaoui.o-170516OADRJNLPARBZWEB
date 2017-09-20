@@ -41,14 +41,13 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.ActiveXtrctTheme = activeXtrctTheme;
             @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).ToList();
 
-            if (TempData["row_bulk_empty_input_alert_visibility"] != null)
-            {
-                // from tempdata (session ?) to view bag
-                ViewBag.row_bulk_empty_input_alert_visibility = TempData["row_bulk_empty_input_alert_visibility"].ToString();
-
-                // clean tempdata for future usage
-                TempData.Remove("row_bulk_empty_input_alert_visibility");
-            }
+            // file updload communication
+            @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
+            @ViewBag.showAlertSuccess = TempData["showAlertSuccess"] != null ? TempData["showAlertSuccess"] : false;
+            @ViewBag.msgAlert = TempData["msgAlert"] != null ? TempData["msgAlert"] : String.Empty;
+            TempData.Remove("showAlertWarning");
+            TempData.Remove("showAlertSuccess");
+            TempData.Remove("msgAlert");
 
             //
             return View();
@@ -477,7 +476,8 @@ namespace ArabicTextAnalyzer.Controllers
             if (file == null || file.ContentLength == 0)
             {
                 // we use tempdata instead of viewbag because viewbag can't be passed over to a controller
-                TempData["row_bulk_empty_input_alert_visibility"] = "visible";
+                TempData["showAlertWarning"] = true;
+                TempData["msgAlert"] = "No file has been chosen.";
                 return RedirectToAction("Index");
             }
 
@@ -488,7 +488,8 @@ namespace ArabicTextAnalyzer.Controllers
             file.SaveAs(path);
 
             // loop and process each one
-            foreach (string line in System.IO.File.ReadLines(path))
+            var lines = System.IO.File.ReadLines(path).ToList();
+            foreach (string line in lines)
             {
                 train(new M_ARABIZIENTRY
                 {
@@ -496,6 +497,13 @@ namespace ArabicTextAnalyzer.Controllers
                     ArabiziEntryDate = DateTime.Now
                 });
             }
+
+            // mark how many rows been translated
+            TempData["showAlertSuccess"] = true;
+            TempData["msgAlert"] = lines.Count.ToString() + " rows has been imported.";
+
+            // delete file
+            System.IO.File.Delete(path);
 
             // redirect back to the index action to show the form once again
             return RedirectToAction("Index");

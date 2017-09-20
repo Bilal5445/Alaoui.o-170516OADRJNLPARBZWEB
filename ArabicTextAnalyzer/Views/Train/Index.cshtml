@@ -177,11 +177,9 @@
 </div>
 
 @{
-    var row_bulk_empty_input_alert_visibility = "hidden";
-    if (ViewContext.Controller.ViewBag.row_bulk_empty_input_alert_visibility != null)
-    {
-        row_bulk_empty_input_alert_visibility = ViewBag.row_bulk_empty_input_alert_visibility;
-    }
+    bool showAlertWarning = ViewBag.showAlertWarning;
+    bool showAlertSuccess = ViewBag.showAlertSuccess;
+    String msgAlert = ViewBag.msgAlert;
 }
 
 <!-- upload large file of posts -->
@@ -195,9 +193,13 @@
         <button class="btn btn-success btn-md" type="submit" id="import_posts">
             Import Posts
         </button>
-        <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="visibility: @row_bulk_empty_input_alert_visibility;">
+        <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Warning!</strong> No file has been chosen.
+            <strong>Warning!</strong> @msgAlert
+        </div>
+        <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> @msgAlert
         </div>
     }
 </div>
