@@ -41,6 +41,15 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.ActiveXtrctTheme = activeXtrctTheme;
             @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).ToList();
 
+            if (TempData["row_bulk_empty_input_alert_visibility"] != null)
+            {
+                // from tempdata (session ?) to view bag
+                ViewBag.row_bulk_empty_input_alert_visibility = TempData["row_bulk_empty_input_alert_visibility"].ToString();
+
+                // clean tempdata for future usage
+                TempData.Remove("row_bulk_empty_input_alert_visibility");
+            }
+
             //
             return View();
         }
@@ -49,7 +58,7 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult TrainStepOne(M_ARABIZIENTRY arabiziEntry)
         {
             // Arabizi to arabic script via direct call to perl script
-            var textConverter = new TextConverter();
+            /*var textConverter = new TextConverter();
 
             // Arabizi to arabic from perl script
             if (arabiziEntry.ArabiziText != null)
@@ -144,7 +153,8 @@ namespace ArabicTextAnalyzer.Controllers
                         new TextPersist().Serialize(textEntity, path);
                     }
                 }
-            }
+            }*/
+            train(arabiziEntry);
 
             //
             return RedirectToAction("Index");
@@ -464,17 +474,134 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult Data_Upload(HttpPostedFileBase file)
         {
             // Verify that the user selected a file
-            if (file != null && file.ContentLength > 0)
+            if (file == null || file.ContentLength == 0)
             {
-                // extract only the filename
-                var fileName = Path.GetFileName(file.FileName);
-                // store the file inside ~/App_Data/uploads folder
-                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
-                file.SaveAs(path);
+                // we use tempdata instead of viewbag because viewbag can't be passed over to a controller
+                TempData["row_bulk_empty_input_alert_visibility"] = "visible";
+                return RedirectToAction("Index");
+            }
+
+            // extract only the filename
+            var fileName = Path.GetFileName(file.FileName);
+            // store the file inside ~/App_Data/uploads folder
+            var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+            file.SaveAs(path);
+
+            // loop and process each one
+            foreach (string line in System.IO.File.ReadLines(path))
+            {
+                train(new M_ARABIZIENTRY
+                {
+                    ArabiziText = line,
+                    ArabiziEntryDate = DateTime.Now
+                });
             }
 
             // redirect back to the index action to show the form once again
             return RedirectToAction("Index");
         }
+
+        #region BACK YARD BO
+        private void train(M_ARABIZIENTRY arabiziEntry)
+        {
+            // Arabizi to arabic script via direct call to perl script
+            var textConverter = new TextConverter();
+
+            // Arabizi to arabic from perl script
+            if (arabiziEntry.ArabiziText != null)
+            {
+                lock (thisLock)
+                {
+                    // complete arabizi entry
+                    arabiziEntry.ID_ARABIZIENTRY = Guid.NewGuid();
+
+                    // prepare darija from perl script
+                    var arabicText = textConverter.Convert(arabiziEntry.ArabiziText);
+                    var arabicDarijaEntry = new M_ARABICDARIJAENTRY
+                    {
+                        ID_ARABICDARIJAENTRY = Guid.NewGuid(),
+                        ID_ARABIZIENTRY = arabiziEntry.ID_ARABIZIENTRY,
+                        ArabicDarijaText = arabicText
+                    };
+
+                    // Save arabiziEntry to Serialization
+                    String path = Server.MapPath("~/App_Data/data_M_ARABIZIENTRY.txt");
+                    new TextPersist().Serialize(arabiziEntry, path);
+
+                    // Save arabicDarijaEntry to Serialization
+                    path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY.txt");
+                    new TextPersist().Serialize(arabicDarijaEntry, path);
+
+                    // latin words
+                    MatchCollection matches = TextTools.ExtractLatinWords(arabicDarijaEntry.ArabicDarijaText);
+
+                    // save every match
+                    // also calculate on the fly the number of varaiants
+                    foreach (Match match in matches)
+                    {
+                        // do not consider words in the bidict as latin words
+                        if (new TextFrequency().BidictContainsWord(match.Value))
+                            continue;
+
+                        String arabiziWord = match.Value;
+                        int variantsCount = new TextConverter().GetAllTranscriptions(arabiziWord).Count;
+
+                        var latinWord = new M_ARABICDARIJAENTRY_LATINWORD
+                        {
+                            ID_ARABICDARIJAENTRY_LATINWORD = Guid.NewGuid(),
+                            ID_ARABICDARIJAENTRY = arabicDarijaEntry.ID_ARABICDARIJAENTRY,
+                            LatinWord = arabiziWord,
+                            VariantsCount = variantsCount
+                        };
+
+                        // Save to Serialization
+                        path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_LATINWORD.txt");
+                        new TextPersist().Serialize(latinWord, path);
+                    }
+
+                    // Sentiment analysis from watson https://gateway.watsonplatform.net/";
+                    var textSentimentAnalyzer = new TextSentimentAnalyzer();
+                    var sentiment = textSentimentAnalyzer.GetSentiment(arabicText);
+                    // Save to Serialization
+                    path = Server.MapPath("~/App_Data/data_TextSentiment.txt");
+                    new TextPersist().Serialize(sentiment, path);
+
+                    // Entity extraction from rosette (https://api.rosette.com/rest/v1/)
+                    var textEntityExtraction = new TextEntityExtraction();
+                    var entities = textEntityExtraction.GetEntities(arabicText);
+
+                    // NER manual extraction
+                    foreach (var word in arabicText.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
+                    {
+                        // if (new TextFrequency().NERContainsWord_brands(word))
+                        String typeEntity;
+                        if (new TextFrequency().NERStartsWithWord_brands(word, out typeEntity))
+                        {
+                            entities = entities.Concat(new[] { new TextEntity
+                            {
+                                Count = 1,
+                                Mention = word,
+                                // Type = "Brand"
+                                Type = typeEntity
+                            } });
+                        }
+                    }
+                    foreach (var entity in entities)
+                    {
+                        var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
+                        {
+                            ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
+                            ID_ARABICDARIJAENTRY = arabicDarijaEntry.ID_ARABICDARIJAENTRY,
+                            TextEntity = entity
+                        };
+
+                        // Save to Serialization
+                        path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_TEXTENTITY.txt");
+                        new TextPersist().Serialize(textEntity, path);
+                    }
+                }
+            }
+        }
+        #endregion
     }
 }

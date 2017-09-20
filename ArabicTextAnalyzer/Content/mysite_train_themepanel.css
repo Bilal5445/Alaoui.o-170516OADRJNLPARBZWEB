@@ -1,5 +1,11 @@
-﻿.div-inline{
+﻿/* initially for theme panel, but also for upload file panel*/
+.div-inline{
     display:inline-block;
+}
+
+/* actually not for theme panel, but rather for upload file panel*/
+.margin-bottom-0 {
+    margin-bottom: 0px;
 }
 
 span.label.themekeywords {

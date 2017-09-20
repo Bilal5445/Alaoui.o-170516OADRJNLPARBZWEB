@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    // bring new data
+    // bring new data into the partial view (table of posts)
     $.ajax({
         type: 'POST',
         url: "/Train/ArabicDarijaEntryPartialView",

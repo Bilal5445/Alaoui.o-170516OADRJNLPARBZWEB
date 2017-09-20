@@ -176,5 +176,31 @@
     </div>
 </div>
 
+@{
+    var row_bulk_empty_input_alert_visibility = "hidden";
+    if (ViewContext.Controller.ViewBag.row_bulk_empty_input_alert_visibility != null)
+    {
+        row_bulk_empty_input_alert_visibility = ViewBag.row_bulk_empty_input_alert_visibility;
+    }
+}
+
+<!-- upload large file of posts -->
+<div id="row-bulk-input" class="row" style="margin-top: 15px">
+    @using (Html.BeginForm("Data_Upload", "Train", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline" }))
+    {
+        <div class="form-group">
+            <label for="importposts">Bulk Import:</label>
+            <input type="file" name="file" class="form-control" id="importposts" />
+        </div>
+        <button class="btn btn-success btn-md" type="submit" id="import_posts">
+            Import Posts
+        </button>
+        <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="visibility: @row_bulk_empty_input_alert_visibility;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong> No file has been chosen.
+        </div>
+    }
+</div>
+
 <!-- Place where you will insert your partial -->
 <div id="partialPlaceHolder" style="display:inline;"> </div>

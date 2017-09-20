@@ -2445,4 +2445,244 @@
     <ID_ARABIZIENTRY>5451f8ca-fa34-42be-b4e8-c79c3b958dad</ID_ARABIZIENTRY>
     <ArabicDarijaText>سلام عليكم عندي مشكل ف adsl كيبدا خدام 5 دقائق ولا 15 دقائق وكتقطع connexion انا مخلص شهار</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d1802856-b638-4950-8612-3c1512fd4a75</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>335fd9ec-ee78-4c76-be39-8a245f0d1e19</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هه شريط 2 من مرجا واحد فيه 50 م و واحد فيه 100 م . مع العلم رحم دايرين بل كان حاضر حتى العام .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c83a309b-036a-42ab-a004-310129ff2a9d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d95dae57-7608-467f-b647-a0e9d8bb9994</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حتى انا خويا دخلت 2 فيهم 50 ميغا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9af29d03-772f-4c4b-aa98-2976f2971ee7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>337be586-8ede-4f52-b4ad-890566f09529</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مفهمش مسابقة واتي سلطان العنبر مقطوع وجبولنا اتاي وزعوه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1bfba24f-a3bf-4952-b990-5d7c5f09beab</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>465523a9-a2f2-4814-bd85-03f029d8d45f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ووزعونا اتاي فحوانت بعدا عاد ديرو مسابقة هادي قبل لعيد وهو مكينش اتاي عنبر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2f35d25c-d333-4073-a0da-1712349d8929</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f5c61efb-200b-44e0-afe6-9f09f8d3071b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لم سلطان عواشر مبروك كندخل لهاد الموقع بش نشارك ف لمسابقة مقلق فيه والو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b817e1cc-b4e8-4949-8d06-57740b65c997</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>db586b7f-bb0f-4143-ad35-1a719bfd8528</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سلم لقيت نفترق زاغورا نشاله</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a22681cd-e3e2-40f8-9f9f-a3a44ba58fb6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d93d8fed-f982-41ec-a2b4-4cdc7f079652</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ممكن شي حد يقول ليك إسم هاد ولد القادر اسهار</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f6e5b920-ba82-4d72-a721-fd25ff577b21</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b873c20a-bf91-4122-8459-8809e0b026ea</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام بغيت نشرك فالمسابقة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2d8a3fa5-cfb2-4b41-86bf-edaa7e719f2c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>48388061-7a99-4c16-b6ff-521343edfdc9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لا بغا يربح شي تيليفون كي غادر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8b141272-4dc9-4d6c-87c4-471ca1cea672</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>77facf51-d76a-4e26-b040-19e003397716</ID_ARABIZIENTRY>
+    <ArabicDarijaText>غاذي تربه زمار ه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b09b22a0-0b2f-4ba5-bccd-b1ca8c3c777f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4dbebf38-e408-422b-a572-c7ea069b7480</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كبر كتبين ثف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>00091440-8b1d-4437-baa1-c4cb0d433585</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6635010b-e2e0-4919-a90a-c55e043b8589</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كنتكى على ربط ولكن والو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5b41c2b7-8283-40d8-a1ac-f79713424cbe</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e0e67312-7dc9-4fad-9726-16a56cf22f0c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>واش العثماني هاداك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>31be52fa-0ee0-4652-aa72-5fab7f380672</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9129eccb-1437-4b55-9324-687ffba4ca23</ID_ARABIZIENTRY>
+    <ArabicDarijaText>اتاي سلطان top</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f532bacb-0102-4885-8036-947ef61fae89</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>38770000-a0f1-47e4-bb47-21ce0542ee4c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الآن او شريط سلطان غدي نلقى فيه تعبة ممكن تجاوبه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6216a642-5845-4498-8479-e054312c6129</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>91bd27e3-28e3-4d11-9f2c-f94376e871d0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>اه ترث دخلت 3 مرة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>22d81549-8b98-4d6f-894b-e9e7b757d90a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0d87cdf6-3295-42d1-8d63-8050eb588fa9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كيفاش دير باش تشرق فالمسابقة ديال كلاش</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>032ce672-a034-4ede-b8ac-d9ca3b36eacf</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>56d8d01d-1e00-4623-bea4-507a5c42e586</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شحال فيه واش 10 درهم 20 درهم 30 درهم ?????</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>db15f6df-a105-4fdb-9c34-c4ad7996c7dc</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>77e2838c-a480-4c10-951a-73fc79f83f94</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام كيف نشرك الله يخليكم شكرا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ae980d24-9e19-489a-9d20-3475bc1769b3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d1c29524-5d5f-4d7a-95f1-0536ea80c49b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام شنو ندير باش نربح الله يخليكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1bb5d9a6-b5b4-44b7-8e28-ad172554815e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>734a44f0-1dfd-4b89-88be-fe9feaaa45e8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ديما شي سلطن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f7bf155a-c6d3-40d0-a008-0380c63e9694</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>52c139eb-976b-43fe-b44d-695bab47fa62</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شنو شورط المسبق</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>940fe4a4-b225-47a1-93ea-b659a3fe1a46</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9e28ca3f-2a40-4273-8d8c-3ce5c5e8dfa0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>katakhdi تا ب 17 دراهم كتلقى تعبئة فيه 5 دقائق هطل عام ديال حاضرة ولا كتلقى connexion هاد القضية ديال عام نتا ozahrak هاد المسابقة را بصح كان ماشي كذب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ac6ad76b-ee73-4574-9aff-74800167f224</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>43e0c297-fe76-4159-838d-5924ee1e7c84</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هه قالك الهدية قط دخت تا 17 درهم وقت تلقى 50 مك وتم صير</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>db951c86-3d8b-4eda-8989-4a442dd5e64c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d9e2ce4c-a1fc-454f-8792-6c0ec3a93aa9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فعلا راني كنت فهاد المهرجان ديال tafrawt شفت كلشي شحال من واحد ربح فيه تبارك الله عليكم وصافي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>cb1dd692-4884-4146-be1f-d918ec704f37</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>dc4acdd3-42f5-49f0-81e0-1e92b0263a61</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بصحتكم هل tafrawt katstah9o كل خير bravo سلتا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>01cc17e1-1804-4e5c-8eca-99c0db5f8149</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>408ed04a-8715-4331-bb3b-26bfbeca6f3f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تبارك الله عليكم داز top لله بين organiser بن continuation</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>750add10-a1b7-4b6d-acfd-8839afb28e34</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9a0f2c57-c6c7-4df8-8285-468a471ad515</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بتوفيق ساهرة موفق</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c4d180b8-9aee-490a-838a-7761f82f599d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>87748abd-ae0d-44da-8774-a72b85bde53c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>واش ديال تسلط هاد alpromo</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>dcc198d6-ed2b-484b-a70b-a579c78aa855</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>28820de9-4e80-411b-9569-ec0b81b569b6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خذته غير قبل هه inwi</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d5b83f01-173b-4470-85e6-e82d18e91e47</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>747ae00b-8434-4e12-9a4d-685fe92267f6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شحال ديال recharj 3tawk</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4e53d8aa-be4e-44d6-98fd-70ce8f7a8e97</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>30048271-cdcf-4264-b70c-2d28b9206588</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عم ظل حادرة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7fe1497c-c17f-48dd-a0cf-a32fcd29a33d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9104e820-bee3-4a11-ab0e-26401054ab89</ID_ARABIZIENTRY>
+    <ArabicDarijaText>وش بالصحة ??</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5ce0cbb8-eced-444e-afe9-a28a0333482b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4725c3fd-1a04-4ac8-8b69-bb369577ed9e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و جرب شرى تا و شوف ه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9a1d46c2-0774-4eb9-a76e-bc772ed34821</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>62eab041-9f76-4b8f-b668-15e05528135e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>اشمن reseaux باش ندخل تعبئة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>47e03936-fe9a-4623-b3a6-c9a5de409f77</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a3931b60-4731-434a-a520-6696b7b7962d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>س بصح تصهر تا وتلقى الصوت وتخل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>848d240c-c0e9-4b82-93a9-b657ffe5120c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0a72e964-e252-42b9-9890-fb85016e66f5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام هل كل بقا شريطه كتلقى فيه تبقى inwi</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>476cd183-da02-400e-99c7-74afcc76ac51</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c1a491b4-adda-4c5e-b7d3-bb3f194dd6ba</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كيفاش عام dlhdraa فابور واش بصح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0f50e8dc-2de7-41a1-b4ef-fa1e01c7a259</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a698e243-fb81-4c37-b12a-9c82fa3cd621</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ولكن هناك فرق في المذاق بين كل نوع من نوع شي حتى ولو كنت من نفس نبتة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>031becb9-12c6-495d-94a3-a94db4ee48df</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>bf23b742-f7de-4432-8849-d7c584a04ba9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مكينش نعناع , مكانش عنبر , مكانش 1936 , مكانش لجملة aliltahte فقلب كل واحد . هه عطيوني هداية</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a3312d0b-a338-4f0e-8ff3-d409b1725bb6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f131d82c-5faa-4de5-a6df-70917d3c5267</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شكرا بزاف تا سلتا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9f1dd293-79ef-47dd-9dff-0367e0256fb5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d7df910d-8a0d-48b9-a717-12163be2e11a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مبروك حبيبات</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>90fdfa28-9a96-4fbf-85ff-9b55bf05fe0c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>19a21bff-c9d3-45cc-97ec-653c3a143697</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مبروك عليك نسمة زلة خصنا نتوق ذاك تا ه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>76e7a04d-7c87-4f4f-a9ea-f0dc8dcf00bb</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9feefe2e-c0ac-4e19-a055-b607b9e99d49</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بصحتكم ولكن خشم تفكر ناس لي خدامين مع the سلطان ف فرنك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7194c9c5-3858-4096-ac4a-f0488284c8a5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>47dd3c2e-2908-49f2-9cbf-0a746abe1e60</ID_ARABIZIENTRY>
+    <ArabicDarijaText>رقم 1 فلمغرب الحمد لله ما كايحشمنا شي مع alkliyan</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>59449120-d5ae-4827-8f1d-9e9fdb8080e8</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6ec70f93-4423-4fea-b204-d41ae0076e1a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>رقم 1 فلمغرب الحمد لله ما كايحشمنا شي مع alkliyan</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7b9c8471-cf87-4412-b0dc-c2296a63107f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e4f9a18b-3683-4a36-b81d-0e84b653f74b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عواشر مبروك نتمنا نكون مال ناس لي غادي رابح إن شاء الله</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1cc9d06e-786c-4155-afc8-ef68e7694f99</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fafc140f-8fca-4d36-8f8c-27339db62c16</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مبروك نسمة ازل و خرج al3chouuuur ه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

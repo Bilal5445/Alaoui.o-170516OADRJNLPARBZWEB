@@ -1,20 +1,6 @@
 ﻿@using ArabicTextAnalyzer.Business.Provider
 @model List<ArabicTextAnalyzer.ViewModels.Class2>
 
-<!-- upload large file of posts -->
-<div id="row-bulk-input" class="row" style="margin-top: 15px">
-    @using (Html.BeginForm("Data_Upload", "Train", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline" }))
-    {
-        <div class="form-group">
-            <label for="importposts">Bulk Import:</label>
-            <input type="file" name="file" class="form-control" id="importposts" />
-        </div>
-        <button class="btn btn-success btn-md" type="submit" id="import_posts">
-            Import Posts
-        </button>
-    }
-</div>
-
 <!-- table of posts -->
 <table class="posts datatables-table table table-striped table-hover table-bordered">
     <thead>
