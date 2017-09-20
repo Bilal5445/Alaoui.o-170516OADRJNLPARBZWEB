@@ -37,7 +37,7 @@
     <ul class="dropdown-menu">
         @foreach(var xtrctTheme in ViewBag.XtrctThemes)
         {
-            <li class="@xtrctTheme.CurrentActive"><a href="#">@xtrctTheme.ThemeName</a></li>
+        <li class="@xtrctTheme.CurrentActive"><a href="#">@xtrctTheme.ThemeName</a></li>
         }
     </ul>
 </div>
@@ -63,16 +63,16 @@
             <div class="modal-body">
                 @using (Html.BeginForm("XtrctTheme_AddNew", "Train", FormMethod.Post))
                 {
-                    <div class="form-group">
-                        <label for="themename">Theme Name</label>
-                        @Html.TextBox("themename", "", new { @class="form-control", placeholder = "Enter new theme name", @required = "required", id= "themename" })
-                    </div>
-                    <div class="form-group">
-                        <label for="themetags">Theme Tags</label>
-                        @Html.TextBox("themetags", "", new { @class = "form-control", @required = "required", id = "themetags", data_role = "tagsinput" })
-                    </div>
-                    <button type="submit" class="btn btn-default btn-success">Add</button>
-                }           
+                <div class="form-group">
+                    <label for="themename">Theme Name</label>
+                    @Html.TextBox("themename", "", new { @class="form-control", placeholder = "Enter new theme name", @required = "required", id= "themename" })
+                </div>
+                <div class="form-group">
+                    <label for="themetags">Theme Tags</label>
+                    @Html.TextBox("themetags", "", new { @class = "form-control", @required = "required", id = "themetags", data_role = "tagsinput" })
+                </div>
+                <button type="submit" class="btn btn-default btn-success">Add</button>
+                }
             </div>
         </div>
     </div>
@@ -82,7 +82,8 @@
 <h3><span class="label label-info">@ViewBag.ActiveXtrctTheme.ThemeName</span></h3>
 @foreach (var tag in ViewBag.ActiveXtrctThemeTags)
 {
-    if (ViewBag.ActiveXtrctThemeTags.IndexOf(tag) % 2 == 0) { 
+    if (ViewBag.ActiveXtrctThemeTags.IndexOf(tag) % 2 == 0)
+    {
         <span class="label label-primary themekeywords">@tag.Keyword</span>
     }
     else
@@ -90,7 +91,6 @@
         <span class="label label-success themekeywords">@tag.Keyword</span>
     }
 }
-
 
 <!-- arabizi keying & corpus info & co -->
 <div id="row-arabizi-input" class="row" style="margin-top: 30px">
@@ -163,12 +163,12 @@
                 <div class="form-group">
                     <div id="myButtons" class="btn-group-vertical btn-group-sm" data-toggle="buttons">
                         @foreach (var twinglyAccount in @ViewBag.TwinglyAccounts)
-                            {
-                        <label class="btn btn-primary @twinglyAccount.CurrentActive" data-toggle='tooltip' title='@twinglyAccount.UserName'>
-                            @Html.RadioButton("name", "value", true, new { id = "id" }) @twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper()
-                            <span class='badge'>@twinglyAccount.calls_free</span>
-                        </label>
-                            }
+                        {
+                            <label class="btn btn-primary @twinglyAccount.CurrentActive" data-toggle='tooltip' title='@twinglyAccount.UserName'>
+                                @Html.RadioButton("name", "value", true, new { id = "id" }) @twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper()
+                                <span class='badge'>@twinglyAccount.calls_free</span>
+                            </label>
+                        }
                     </div>
                 </div>
             </div>
