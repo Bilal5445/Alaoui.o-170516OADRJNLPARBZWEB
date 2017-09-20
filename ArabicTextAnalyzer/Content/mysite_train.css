@@ -96,3 +96,16 @@ span.highlight {
     padding-top: 15px;
     padding-bottom: 15px;
 }
+
+#row-bulk-input {
+    background-color:#e1e0e1;
+    border-radius: 4px;
+    margin-left:0px; 
+    margin-right:0px; 
+    margin-bottom:15px; 
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+

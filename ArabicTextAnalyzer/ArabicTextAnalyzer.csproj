@@ -522,6 +522,7 @@
     <Content Include="Views\Train\_IndexPartialPage_arabicDarijaEntries.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\uploads\" />
     <Folder Include="BusinessContracts\" />
     <Folder Include="Business\" />
     <Folder Include="Content\Images\" />
