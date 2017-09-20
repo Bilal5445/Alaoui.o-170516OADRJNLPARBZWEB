@@ -2656,16 +2656,6 @@
     <ArabicDarijaText>مبروك حبيبات</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>90fdfa28-9a96-4fbf-85ff-9b55bf05fe0c</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>19a21bff-c9d3-45cc-97ec-653c3a143697</ID_ARABIZIENTRY>
-    <ArabicDarijaText>مبروك عليك نسمة زلة خصنا نتوق ذاك تا ه</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>76e7a04d-7c87-4f4f-a9ea-f0dc8dcf00bb</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>9feefe2e-c0ac-4e19-a055-b607b9e99d49</ID_ARABIZIENTRY>
-    <ArabicDarijaText>بصحتكم ولكن خشم تفكر ناس لي خدامين مع the سلطان ف فرنك</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>7194c9c5-3858-4096-ac4a-f0488284c8a5</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>47dd3c2e-2908-49f2-9cbf-0a746abe1e60</ID_ARABIZIENTRY>
     <ArabicDarijaText>رقم 1 فلمغرب الحمد لله ما كايحشمنا شي مع alkliyan</ArabicDarijaText>
@@ -2676,13 +2666,23 @@
     <ArabicDarijaText>عواشر مبروك نتمنا نكون مال ناس لي غادي رابح إن شاء الله</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>1cc9d06e-786c-4155-afc8-ef68e7694f99</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>fafc140f-8fca-4d36-8f8c-27339db62c16</ID_ARABIZIENTRY>
-    <ArabicDarijaText>مبروك نسمة ازل و خرج al3chouuuur ه</ArabicDarijaText>
+    <ID_ARABICDARIJAENTRY>09489e42-b9ef-401b-b056-a9cbf875898b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>188502b4-1377-4e78-aa9c-fe10840c4e3b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>طبقه تشير غا سلطان ههه راه زوين بزيف ههه و s8 ههه اصلا هنا كنستهلكو تا بزيف فهه</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>b18bf3cd-411e-4dda-91fe-73b175657022</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>5610e92a-c373-4d40-9bfc-16526a71b602</ID_ARABIZIENTRY>
-    <ArabicDarijaText>طبقه تشير غا سلطان ههه راه زوين بزيف ههه و s8 ههه اصلا هنا kanstahlko تا بزيف فاهه</ArabicDarijaText>
+    <ID_ARABICDARIJAENTRY>97c9e52b-3d40-4607-80a3-7467bba6e348</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4284604e-2642-4a2c-9a79-82d1b8d1167b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مبروك نسمة ازيل و خرجي العشور ههه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d8c427d0-0963-4644-8466-3fbf3d9faa73</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>23bd3604-8dd5-4f47-8248-c1f062fafeca</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مبروك عليك نسمة ازل خصنا نتوق ذاك تا ههه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1c2d3356-4cf3-4be0-8a80-91dd929a1a6d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9d02b58a-ece0-4602-a7e3-4b53c7e2acf6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بصحتكم ولكن خشم تفكر ناس لي خدامين مع the سلطان ف فرنسا</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

@@ -2660,16 +2660,6 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-09-20T16:50:55.0159115+01:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>19a21bff-c9d3-45cc-97ec-653c3a143697</ID_ARABIZIENTRY>
-    <ArabiziText>Mbrouk 3lik Nassima Azile khasna ndo9o dak atay hhhhh</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T16:51:03.1845182+01:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>9feefe2e-c0ac-4e19-a055-b607b9e99d49</ID_ARABIZIENTRY>
-    <ArabiziText>bsahtkom mais khashom ytfakro nass li khdamin m3a the sultan f france</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T17:00:34.9365248+01:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>47dd3c2e-2908-49f2-9cbf-0a746abe1e60</ID_ARABIZIENTRY>
     <ArabiziText>Ra9m 1 flmghrib hmd makayhchmnach m3a lkliyan</ArabiziText>
     <ArabiziEntryDate>2017-09-20T17:00:45.3714034+01:00</ArabiziEntryDate>
@@ -2680,13 +2670,23 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-09-20T17:05:19</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>fafc140f-8fca-4d36-8f8c-27339db62c16</ID_ARABIZIENTRY>
-    <ArabiziText>Mbrouk Nassima Azile ewa kherji l3chouuuur hhhh</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T17:12:40</ArabiziEntryDate>
+    <ID_ARABIZIENTRY>188502b4-1377-4e78-aa9c-fe10840c4e3b</ID_ARABIZIENTRY>
+    <ArabiziText>tb9ah tcheri gha soltan ahhahahahhahaha rah zwin bzef hahahaha o s8 hhhhhhh aslan hna kanstahlko atay bzef vahaha	</ArabiziText>
+    <ArabiziEntryDate>2017-09-20T18:48:03</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>5610e92a-c373-4d40-9bfc-16526a71b602</ID_ARABIZIENTRY>
-    <ArabiziText>tb9ah tcheri gha soltan ahhahahahhahaha rah zwin bzef hahahaha o s8 hhhhhhh aslan hna kanstahlko atay bzef vahaha	</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T18:40:30</ArabiziEntryDate>
+    <ID_ARABIZIENTRY>4284604e-2642-4a2c-9a79-82d1b8d1167b</ID_ARABIZIENTRY>
+    <ArabiziText>Mbrouk Nassima Azile ewa kherji l3chouuuur hhhh	</ArabiziText>
+    <ArabiziEntryDate>2017-09-20T19:01:16</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>23bd3604-8dd5-4f47-8248-c1f062fafeca</ID_ARABIZIENTRY>
+    <ArabiziText>Mbrouk 3lik Nassima Azile khasna ndo9o dak atay hhhhh	</ArabiziText>
+    <ArabiziEntryDate>2017-09-20T19:02:19</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>9d02b58a-ece0-4602-a7e3-4b53c7e2acf6</ID_ARABIZIENTRY>
+    <ArabiziText>bsahtkom mais khashom ytfakro nass li khdamin m3a the sultan f france	</ArabiziText>
+    <ArabiziEntryDate>2017-09-20T19:03:11</ArabiziEntryDate>
   </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
