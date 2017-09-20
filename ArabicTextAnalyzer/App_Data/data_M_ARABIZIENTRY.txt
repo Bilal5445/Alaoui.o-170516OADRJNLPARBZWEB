@@ -2590,19 +2590,9 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-09-20T16:48:49.6364714+01:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>87748abd-ae0d-44da-8774-a72b85bde53c</ID_ARABIZIENTRY>
-    <ArabiziText>wax dyal tisalat had lpromo</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T16:48:58.0125323+01:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>28820de9-4e80-411b-9569-ec0b81b569b6</ID_ARABIZIENTRY>
     <ArabiziText>khditha ghir 9bila hhhhhhhhh inwi</ArabiziText>
     <ArabiziEntryDate>2017-09-20T16:49:06.9031557+01:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>747ae00b-8434-4e12-9a4d-685fe92267f6</ID_ARABIZIENTRY>
-    <ArabiziText>Ch7al dyal recharj 3tawk</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T16:49:15.1632283+01:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>30048271-cdcf-4264-b70c-2d28b9206588</ID_ARABIZIENTRY>
@@ -2618,11 +2608,6 @@ inshallah khir ya rab</ArabiziText>
     <ID_ARABIZIENTRY>4725c3fd-1a04-4ac8-8b69-bb369577ed9e</ID_ARABIZIENTRY>
     <ArabiziText>ouii jarbi chri atay w chofi hhh</ArabiziText>
     <ArabiziEntryDate>2017-09-20T16:49:44.5673303+01:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>62eab041-9f76-4b8f-b668-15e05528135e</ID_ARABIZIENTRY>
-    <ArabiziText>Achmen reseaux bach ndakhlo recharge</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T16:49:52.7324702+01:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>a3931b60-4731-434a-a520-6696b7b7962d</ID_ARABIZIENTRY>
@@ -2688,5 +2673,20 @@ inshallah khir ya rab</ArabiziText>
     <ID_ARABIZIENTRY>9373dd41-2e38-4bfc-af3f-54c901623894</ID_ARABIZIENTRY>
     <ArabiziText>kiiiiiiifaaaaaaach 3aaaaaaaaaaaaam dlhdraaaaaaaaaaa faaaaaaaaaboooooooor waaaaach bsah	</ArabiziText>
     <ArabiziEntryDate>2017-09-20T19:23:46</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>442b7917-9030-41cd-9217-e29388669b1b</ID_ARABIZIENTRY>
+    <ArabiziText>Achmen reseaux bach ndakhlo recharge	</ArabiziText>
+    <ArabiziEntryDate>2017-09-20T19:24:32</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>161966f0-8a5c-427f-b1cf-6dff6bb26f5a</ID_ARABIZIENTRY>
+    <ArabiziText>Ch7al dyal recharj 3tawk	</ArabiziText>
+    <ArabiziEntryDate>2017-09-20T19:30:06</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>40b9d5ad-503e-4ba8-8fa3-096effc37a5b</ID_ARABIZIENTRY>
+    <ArabiziText>wax dyal tisalat had lpromo	</ArabiziText>
+    <ArabiziEntryDate>2017-09-20T19:38:05</ArabiziEntryDate>
   </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

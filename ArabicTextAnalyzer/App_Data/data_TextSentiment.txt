@@ -101,4 +101,9 @@
   <TextSentiment xsi:nil="true" />
   <TextSentiment xsi:nil="true" />
   <TextSentiment xsi:nil="true" />
+  <TextSentiment xsi:nil="true" />
+  <TextSentiment xsi:nil="true" />
+  <TextSentiment xsi:nil="true" />
+  <TextSentiment xsi:nil="true" />
+  <TextSentiment xsi:nil="true" />
 </ArrayOfTextSentiment>
