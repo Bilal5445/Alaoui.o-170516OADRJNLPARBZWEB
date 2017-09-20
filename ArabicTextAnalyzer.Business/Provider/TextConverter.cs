@@ -190,8 +190,10 @@ namespace ArabicTextAnalyzer.Business.Provider
             //ahahahahahahahahaha
             //hahahaha
             //ahahah
+            //ahhahahahhahaha
 
-            String pattern = @"\b(a|h){0,1}(ha|ha){3,}(h|a){0,1}\b";
+            // String pattern = @"\b(a|h){0,1}(ha|ha){3,}(h|a){0,1}\b";
+            String pattern = @"\b(a|h){0,1}(h|a){3,}(h|a){0,1}\b";
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ههه", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
