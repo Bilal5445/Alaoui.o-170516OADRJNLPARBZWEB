@@ -177,6 +177,9 @@ namespace ArabicTextAnalyzer.Business.Provider
             pattern = @"o{3,}";
             miniArabiziKeyword = Regex.Replace(miniArabiziKeyword, pattern, "oo", RegexOptions.IgnoreCase);
 
+            pattern = @"u{3,}";
+            miniArabiziKeyword = Regex.Replace(miniArabiziKeyword, pattern, "uu", RegexOptions.IgnoreCase);
+
             pattern = @"n{3,}";
             miniArabiziKeyword = Regex.Replace(miniArabiziKeyword, pattern, "nn", RegexOptions.IgnoreCase);
 
