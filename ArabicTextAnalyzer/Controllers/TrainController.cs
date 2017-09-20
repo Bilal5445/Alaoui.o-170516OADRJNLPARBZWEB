@@ -581,7 +581,6 @@ namespace ArabicTextAnalyzer.Controllers
                     // NER manual extraction
                     foreach (var word in arabicText.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
                     {
-                        // if (new TextFrequency().NERContainsWord_brands(word))
                         String typeEntity;
                         if (new TextFrequency().NERStartsWithWord_brands(word, out typeEntity))
                         {
@@ -589,7 +588,6 @@ namespace ArabicTextAnalyzer.Controllers
                             {
                                 Count = 1,
                                 Mention = word,
-                                // Type = "Brand"
                                 Type = typeEntity
                             } });
                         }
