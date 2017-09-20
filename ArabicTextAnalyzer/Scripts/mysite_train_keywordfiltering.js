@@ -9,7 +9,8 @@
                 element: 'span',
                 className: 'highlight'
             },
-            aaSorting: []   // just use the sorting from the server
+            aaSorting: [],   // just use the sorting from the server
+            "pageLength": 100
         });
     });
 }
