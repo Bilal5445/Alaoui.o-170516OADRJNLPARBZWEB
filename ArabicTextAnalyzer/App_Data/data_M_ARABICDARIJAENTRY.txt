@@ -2631,11 +2631,6 @@
     <ArabicDarijaText>السلام هل كل بقا شريطه كتلقى فيه تبقى inwi</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>476cd183-da02-400e-99c7-74afcc76ac51</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>c1a491b4-adda-4c5e-b7d3-bb3f194dd6ba</ID_ARABIZIENTRY>
-    <ArabicDarijaText>كيفاش عام dlhdraa فابور واش بصح</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>0f50e8dc-2de7-41a1-b4ef-fa1e01c7a259</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>a698e243-fb81-4c37-b12a-9c82fa3cd621</ID_ARABIZIENTRY>
     <ArabicDarijaText>ولكن هناك فرق في المذاق بين كل نوع من نوع شي حتى ولو كنت من نفس نبتة</ArabicDarijaText>
@@ -2684,5 +2679,10 @@
     <ID_ARABICDARIJAENTRY>1c2d3356-4cf3-4be0-8a80-91dd929a1a6d</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>9d02b58a-ece0-4602-a7e3-4b53c7e2acf6</ID_ARABIZIENTRY>
     <ArabicDarijaText>بصحتكم ولكن خشم تفكر ناس لي خدامين مع the سلطان ف فرنسا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>749eaad5-4b15-475e-9372-a7b050af166b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9373dd41-2e38-4bfc-af3f-54c901623894</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كيفاش عام ديال الهضرة فابور واش بصح</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

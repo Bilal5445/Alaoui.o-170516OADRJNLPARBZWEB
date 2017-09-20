@@ -34,6 +34,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_le(source);
             source = Preprocess_al_wa(source);
             source = Preprocess_al(source);
+            source = Preprocess_dl(source);
             source = Preprocess_bezzaf(source);
             source = Preprocess_ahaha(source);
             source = Preprocess_3_m_i_f_z_a_j_l_etc(source);
@@ -125,6 +126,15 @@ namespace ArabicTextAnalyzer.Business.Provider
             // wa3acha al malik => wa3acha almalik
             String pattern = RegexConstant.alRule;
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "al$2", RegexOptions.IgnoreCase);
+
+            return miniArabiziKeyword;
+        }
+
+        public string Preprocess_dl(string arabizi)
+        {
+            // wa3acha al malik => wa3acha almalik
+            String pattern = RegexConstant.dlRule;
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "dyal al$2", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
         }

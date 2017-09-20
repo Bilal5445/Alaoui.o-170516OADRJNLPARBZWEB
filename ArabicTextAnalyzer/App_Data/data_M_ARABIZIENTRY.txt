@@ -2635,11 +2635,6 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-09-20T16:50:09.9221773+01:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>c1a491b4-adda-4c5e-b7d3-bb3f194dd6ba</ID_ARABIZIENTRY>
-    <ArabiziText>kiiiiiiifaaaaaaach 3aaaaaaaaaaaaam dlhdraaaaaaaaaaa faaaaaaaaaboooooooor waaaaach bsah</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T16:50:18.6128727+01:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>a698e243-fb81-4c37-b12a-9c82fa3cd621</ID_ARABIZIENTRY>
     <ArabiziText>Walakin honak far9 fi lmada9 bayna kol naw3 min anwa3 chay hata walaw kanat min nafs nabta</ArabiziText>
     <ArabiziEntryDate>2017-09-20T16:50:27.938985+01:00</ArabiziEntryDate>
@@ -2688,5 +2683,10 @@ inshallah khir ya rab</ArabiziText>
     <ID_ARABIZIENTRY>9d02b58a-ece0-4602-a7e3-4b53c7e2acf6</ID_ARABIZIENTRY>
     <ArabiziText>bsahtkom mais khashom ytfakro nass li khdamin m3a the sultan f france	</ArabiziText>
     <ArabiziEntryDate>2017-09-20T19:03:11</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>9373dd41-2e38-4bfc-af3f-54c901623894</ID_ARABIZIENTRY>
+    <ArabiziText>kiiiiiiifaaaaaaach 3aaaaaaaaaaaaam dlhdraaaaaaaaaaa faaaaaaaaaboooooooor waaaaach bsah	</ArabiziText>
+    <ArabiziEntryDate>2017-09-20T19:23:46</ArabiziEntryDate>
   </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
