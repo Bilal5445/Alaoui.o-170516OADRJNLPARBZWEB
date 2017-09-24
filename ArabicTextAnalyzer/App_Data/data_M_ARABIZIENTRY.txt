@@ -2739,4 +2739,19 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziText>Walidina o walidik khoya zin mohim ila bghit consommation na9sa o piece mojod chof golf 2 wala Renault 19 diesel wala zid chwiya o chof Dacia logan hado mlah f consommation o piece mojod	</ArabiziText>
     <ArabiziEntryDate>2017-09-24T20:28:47</ArabiziEntryDate>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ca6b58ba-9763-4ef0-a2e5-a4aa55f4df6b</ID_ARABIZIENTRY>
+    <ArabiziText>casablanca</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T20:50:20</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2bda8cd6-03ce-4bbd-b577-b4640b43f735</ID_ARABIZIENTRY>
+    <ArabiziText>bkol saraha mchit man casa l bologna italia m3a royal maroc kanat f mostawa	</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T20:51:42</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2ca69cf9-a239-4726-921f-26e936b65ae7</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Houditta Houda, inwi fi khidmatikoum. Bach telghiw techghil l automatiqui dyal bedel sotek, ma3likoum ghir tresslou STOP f sms l ra9m 789.	</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T20:55:29</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

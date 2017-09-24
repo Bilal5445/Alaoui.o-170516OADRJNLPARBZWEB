@@ -2735,4 +2735,19 @@
     <ID_ARABIZIENTRY>38f0ec8f-6d78-4225-a359-267532c3bfe5</ID_ARABIZIENTRY>
     <ArabicDarijaText>والدينا و والديك خويا الزين المهم إذا بغيت الاستهلاك ناقصة و قطع الغيار موجود شوف جولف 2 او renault 19 diesel او زيد شوية و شوف dacia لكن هؤلاء ملاح ف الاستهلاك و قطع الغيار موجود</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>abb0b9e4-8d0a-499e-b37e-dc5c2845f761</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ca6b58ba-9763-4ef0-a2e5-a4aa55f4df6b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الدار البيضاء</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>16f3d56a-6cc3-4e20-9390-fe0b807a4b85</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2bda8cd6-03ce-4bbd-b577-b4640b43f735</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بقل ساره مشيت ما الدار البيضاء لبلقنة إيطاليا مع ريال المغرب كنت ف مستوا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>094c85a2-419e-470f-b402-776262707d99</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2ca69cf9-a239-4726-921f-26e936b65ae7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام هتت هدى , inwi في خدمتكم . باش تلغو تشغيل alautomatiqui ديال بدل صوتك , ماعليكم غير ترسل stop ف سمس لرقم 789 .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

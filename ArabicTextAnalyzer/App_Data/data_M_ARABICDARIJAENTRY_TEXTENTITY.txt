@@ -1119,4 +1119,35 @@
       <Type>CAR BRAND</Type>
     </TextEntity>
   </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>cc4f701f-38bb-4060-9a0a-20705a56ec3e</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>abb0b9e4-8d0a-499e-b37e-dc5c2845f761</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <EntityId>T0</EntityId>
+      <Mention>الدار البيضاء</Mention>
+      <Normalized>الدار البيضاء</Normalized>
+      <Type>LOCATION</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>9450e827-3a18-4473-a668-35a8145dd194</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>16f3d56a-6cc3-4e20-9390-fe0b807a4b85</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <EntityId>T0</EntityId>
+      <Mention>إيطاليا</Mention>
+      <Normalized>إيطاليا</Normalized>
+      <Type>LOCATION</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>d7182f0c-52eb-43d0-aea6-edf776004d60</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>094c85a2-419e-470f-b402-776262707d99</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <Mention>inwi</Mention>
+      <Type>BRAND</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
 </ArrayOfM_ARABICDARIJAENTRY_TEXTENTITY>
