@@ -17,7 +17,7 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             //
             Regex regex = new Regex(matchRule);
-            var matches = regex.Matches(arabicDarijaText);               
+            var matches = regex.Matches(arabicDarijaText);
 
             return matches;
         }
@@ -55,22 +55,35 @@ namespace ArabicTextAnalyzer.Business.Provider
             {
                 var mostPopularVariant = arabicDarijaEntryLatinWord.MostPopularVariant;
                 var latinWord = arabicDarijaEntryLatinWord.LatinWord;
+                var translation = arabicDarijaEntryLatinWord.Translation;
                 var count = arabicDarijaEntryLatinWord.VariantsCount;
                 var guid = arabicDarijaEntryLatinWord.ID_ARABICDARIJAENTRY_LATINWORD;
                 String newhtml;
                 if (count > 0)
                 {
-                    if (guid != Guid.Empty)
-                        newhtml = $@"&rlm;<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{latinWord}</mark></b>
+                    if (String.IsNullOrEmpty(translation) == false)
+                    {
+                        newhtml = $@"&rlm;<b><mark>" + translation + "</mark></b>";
+                    }
+                    else
+                    {
+                        if (guid != Guid.Empty)
+                            newhtml = $@"&rlm;<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{latinWord}</mark></b>
                                     <a href='/Train/Train_AddToCorpus/?arabiziWord={latinWord}&arabiziWordGuid={guid}'>
                                         <span class='badge'>{count}</span>
                                     </a>";
-                    else
-                        newhtml = $@"&rlm;<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{latinWord}</mark></b>
+                        else
+                            newhtml = $@"&rlm;<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{latinWord}</mark></b>
                                     <span class='badge'>{count}</span>";
+                    }
                 }
                 else
-                    newhtml = $@"&rlm;<b><mark>" + latinWord + "</mark></b>";
+                {
+                    if (String.IsNullOrEmpty(translation) == false)
+                        newhtml = $@"&rlm;<b><mark>" + translation + "</mark></b>";
+                    else
+                        newhtml = $@"&rlm;<b><mark>" + latinWord + "</mark></b>";
+                }
                 var regex = new Regex(RegexConstant.notPreceededByMark + latinWord, RegexOptions.IgnoreCase);
                 arabicDarijaText = regex.Replace(arabicDarijaText, newhtml, 1);
             }

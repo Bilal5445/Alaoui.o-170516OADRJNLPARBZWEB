@@ -447,8 +447,8 @@ namespace ArabicTextAnalyzer.Controllers
                     // latin words
                     MatchCollection matches = TextTools.ExtractLatinWords(arabicDarijaEntry.ArabicDarijaText);
 
-                    // save every match
-                    // also calculate on the fly the number of varaiants
+                    // save every match of latin words
+                    // also calculate on the fly the number of variants
                     foreach (Match match in matches)
                     {
                         // do not consider words in the bidict as latin words
@@ -465,6 +465,13 @@ namespace ArabicTextAnalyzer.Controllers
                             LatinWord = arabiziWord,
                             VariantsCount = variantsCount
                         };
+
+                        // See if we can further correct/translate any latin words
+                        var translatedLatinWord = new TranslationTools().CorrectTranslate(arabiziWord, Server);
+                        latinWord.Translation = translatedLatinWord;
+
+                        // if any replacein arabic text (TODO : use match to replace the match and not search/replace to better handle duplicate)
+                        arabicText = arabicText.Replace(match.Value, translatedLatinWord);
 
                         // Save to Serialization
                         path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_LATINWORD.txt");

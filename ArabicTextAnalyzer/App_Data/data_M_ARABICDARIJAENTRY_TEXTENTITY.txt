@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfM_ARABICDARIJAENTRY_TEXTENTITY xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <M_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY_TEXTENTITY>19ed9384-76fb-4e0a-ba99-6ca7134f50a1</ID_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY>dd6ea5bb-10ac-4bf5-aff2-ec058fdfb487</ID_ARABICDARIJAENTRY>
-    <TextEntity>
-      <Count>1</Count>
-      <EntityId>T0</EntityId>
-      <Mention>كمال</Mention>
-      <Normalized>كمال</Normalized>
-      <Type>PERSON</Type>
-    </TextEntity>
-  </M_ARABICDARIJAENTRY_TEXTENTITY>
-  <M_ARABICDARIJAENTRY_TEXTENTITY>
     <ID_ARABICDARIJAENTRY_TEXTENTITY>56c96a95-8c7d-4270-ba97-e8abfbde849c</ID_ARABICDARIJAENTRY_TEXTENTITY>
     <ID_ARABICDARIJAENTRY>f980c268-a63a-4873-a68b-0bf9ac19fe02</ID_ARABICDARIJAENTRY>
     <TextEntity>
@@ -74,61 +63,6 @@
       <EntityId>T1</EntityId>
       <Mention>بن آدم</Mention>
       <Normalized>بن آدم</Normalized>
-      <Type>PERSON</Type>
-    </TextEntity>
-  </M_ARABICDARIJAENTRY_TEXTENTITY>
-  <M_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY_TEXTENTITY>9327a740-bd74-4c83-b6c6-639269048c2a</ID_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY>412515b0-be9c-4c10-86fb-30672698f595</ID_ARABICDARIJAENTRY>
-    <TextEntity>
-      <Count>2</Count>
-      <EntityId>T3</EntityId>
-      <Mention>خدام</Mention>
-      <Normalized>دبا خدام</Normalized>
-      <Type>PERSON</Type>
-    </TextEntity>
-  </M_ARABICDARIJAENTRY_TEXTENTITY>
-  <M_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY_TEXTENTITY>82e78208-42f2-4860-946e-022cf75a73bd</ID_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY>412515b0-be9c-4c10-86fb-30672698f595</ID_ARABICDARIJAENTRY>
-    <TextEntity>
-      <Count>1</Count>
-      <EntityId>T0</EntityId>
-      <Mention>بند ضرار</Mention>
-      <Normalized>بند ضرار</Normalized>
-      <Type>PERSON</Type>
-    </TextEntity>
-  </M_ARABICDARIJAENTRY_TEXTENTITY>
-  <M_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY_TEXTENTITY>e52ccf8d-2f90-48c0-90c0-dd830f6d684f</ID_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY>412515b0-be9c-4c10-86fb-30672698f595</ID_ARABICDARIJAENTRY>
-    <TextEntity>
-      <Count>1</Count>
-      <EntityId>T1</EntityId>
-      <Mention>وجدة‎‎</Mention>
-      <Normalized>جدة‎‎</Normalized>
-      <Type>LOCATION</Type>
-    </TextEntity>
-  </M_ARABICDARIJAENTRY_TEXTENTITY>
-  <M_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY_TEXTENTITY>eb88d0ce-bf21-4c52-8f20-f2cafc86ad74</ID_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY>412515b0-be9c-4c10-86fb-30672698f595</ID_ARABICDARIJAENTRY>
-    <TextEntity>
-      <Count>1</Count>
-      <EntityId>T4</EntityId>
-      <Mention>ضرار كيوقع هاد</Mention>
-      <Normalized>ضرار كيوقع هاد</Normalized>
-      <Type>PERSON</Type>
-    </TextEntity>
-  </M_ARABICDARIJAENTRY_TEXTENTITY>
-  <M_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY_TEXTENTITY>7d215974-bd8a-497a-b5d9-0c039275e35d</ID_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY>412515b0-be9c-4c10-86fb-30672698f595</ID_ARABICDARIJAENTRY>
-    <TextEntity>
-      <Count>1</Count>
-      <EntityId>T5</EntityId>
-      <Mention>الله</Mention>
-      <Normalized>الله</Normalized>
       <Type>PERSON</Type>
     </TextEntity>
   </M_ARABICDARIJAENTRY_TEXTENTITY>
@@ -680,39 +614,6 @@
     </TextEntity>
   </M_ARABICDARIJAENTRY_TEXTENTITY>
   <M_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY_TEXTENTITY>fa0d708f-95c1-4cb5-9d2e-a84ab7f5ae5f</ID_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY>4a1c8b3d-45fd-4643-85fc-593c31e66eeb</ID_ARABICDARIJAENTRY>
-    <TextEntity>
-      <Count>1</Count>
-      <EntityId>T0</EntityId>
-      <Mention>تبارك الله</Mention>
-      <Normalized>تبارك الله</Normalized>
-      <Type>PERSON</Type>
-    </TextEntity>
-  </M_ARABICDARIJAENTRY_TEXTENTITY>
-  <M_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY_TEXTENTITY>a8f842e9-0b4e-4511-8d7f-9d31a5a01c5a</ID_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY>4a1c8b3d-45fd-4643-85fc-593c31e66eeb</ID_ARABICDARIJAENTRY>
-    <TextEntity>
-      <Count>1</Count>
-      <EntityId>T1</EntityId>
-      <Mention>والله</Mention>
-      <Normalized>والله</Normalized>
-      <Type>PERSON</Type>
-    </TextEntity>
-  </M_ARABICDARIJAENTRY_TEXTENTITY>
-  <M_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY_TEXTENTITY>977ac37e-ef31-4793-9f67-84c514e0ecdf</ID_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY>4a1c8b3d-45fd-4643-85fc-593c31e66eeb</ID_ARABICDARIJAENTRY>
-    <TextEntity>
-      <Count>1</Count>
-      <EntityId>T2</EntityId>
-      <Mention>organiser بن continuation</Mention>
-      <Normalized>organiser بن continuation</Normalized>
-      <Type>PERSON</Type>
-    </TextEntity>
-  </M_ARABICDARIJAENTRY_TEXTENTITY>
-  <M_ARABICDARIJAENTRY_TEXTENTITY>
     <ID_ARABICDARIJAENTRY_TEXTENTITY>125cd01f-b746-42b0-8eed-215b902f0d94</ID_ARABICDARIJAENTRY_TEXTENTITY>
     <ID_ARABICDARIJAENTRY>8fdcaf6a-d5cd-4287-a1ee-aa4ec5265806</ID_ARABICDARIJAENTRY>
     <TextEntity>
@@ -862,24 +763,6 @@
     </TextEntity>
   </M_ARABICDARIJAENTRY_TEXTENTITY>
   <M_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY_TEXTENTITY>e13aae8c-8b9b-4b4a-8250-18cdfbbb1bd0</ID_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY>4ba7753e-f746-4665-bf9a-3be87058e008</ID_ARABICDARIJAENTRY>
-    <TextEntity>
-      <Count>1</Count>
-      <Mention>tom</Mention>
-      <Type>PERSON</Type>
-    </TextEntity>
-  </M_ARABICDARIJAENTRY_TEXTENTITY>
-  <M_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY_TEXTENTITY>d393ea63-9616-463c-9dac-42ef14e81f4b</ID_ARABICDARIJAENTRY_TEXTENTITY>
-    <ID_ARABICDARIJAENTRY>4ba7753e-f746-4665-bf9a-3be87058e008</ID_ARABICDARIJAENTRY>
-    <TextEntity>
-      <Count>1</Count>
-      <Mention>jerry</Mention>
-      <Type>PERSON</Type>
-    </TextEntity>
-  </M_ARABICDARIJAENTRY_TEXTENTITY>
-  <M_ARABICDARIJAENTRY_TEXTENTITY>
     <ID_ARABICDARIJAENTRY_TEXTENTITY>3a61c99c-039c-454f-b889-d1391b9db51e</ID_ARABICDARIJAENTRY_TEXTENTITY>
     <ID_ARABICDARIJAENTRY>c5603a53-1be4-4cbb-9373-7a832ada979b</ID_ARABICDARIJAENTRY>
     <TextEntity>
@@ -957,6 +840,225 @@
       <Mention>شي كتفعلو معنة</Mention>
       <Normalized>شي كتفعلو معنة</Normalized>
       <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>5fd23cb5-0a69-4483-893e-146909a5939b</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>768c8db7-f18f-4899-a0e1-d3abf9a98638</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <Mention>tom</Mention>
+      <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>ddc56b9e-cec0-41bc-8f06-4f800c08a49a</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>768c8db7-f18f-4899-a0e1-d3abf9a98638</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <Mention>jerry</Mention>
+      <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>c10a51c6-3e9a-42b6-9476-02487f822ec9</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>28a91232-9904-4870-a086-301cce6e3bf0</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>2</Count>
+      <EntityId>T0</EntityId>
+      <Mention>والله</Mention>
+      <Normalized>تبارك الله</Normalized>
+      <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>0e45ae2d-6e46-4dee-8278-076b4ceb6878</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>4eb3d1b2-ec98-443c-b601-2a58c2f2836f</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <EntityId>T0</EntityId>
+      <Mention>ضرار نوح</Mention>
+      <Normalized>ضرار نوح</Normalized>
+      <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>99d17978-d8c2-4dde-8c99-e002077f7e07</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>4eb3d1b2-ec98-443c-b601-2a58c2f2836f</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <EntityId>T1</EntityId>
+      <Mention>كاجي الجذ خدام</Mention>
+      <Normalized>كاجي الجذ خدام</Normalized>
+      <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>6f1e20d8-3956-405e-bb37-8ef6cf730711</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>4eb3d1b2-ec98-443c-b601-2a58c2f2836f</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <EntityId>T2</EntityId>
+      <Mention>دبا خدام</Mention>
+      <Normalized>دبا خدام</Normalized>
+      <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>e60be9f2-4918-40af-a3ef-2b891460a41f</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>4eb3d1b2-ec98-443c-b601-2a58c2f2836f</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <EntityId>T3</EntityId>
+      <Mention>لبنى ضرار كيوقع هاد</Mention>
+      <Normalized>لبنى ضرار كيوقع هاد</Normalized>
+      <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>7e7c9198-4eea-4df4-9d52-1e0412a72436</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>4eb3d1b2-ec98-443c-b601-2a58c2f2836f</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <EntityId>T4</EntityId>
+      <Mention>الله</Mention>
+      <Normalized>الله</Normalized>
+      <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>2531039c-a930-4fbc-a405-7b5e0f34c4df</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>22c10654-626f-44cb-a8e4-000fabe5b9d0</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <EntityId>T0</EntityId>
+      <Mention>كمال</Mention>
+      <Normalized>كمال</Normalized>
+      <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>6bdfd41d-3c17-452a-adad-0903c3742be2</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>22c10654-626f-44cb-a8e4-000fabe5b9d0</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <Mention>inwi</Mention>
+      <Type>BRAND</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>cc8e2b08-9932-45b7-8bef-48b39ac2d215</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>22c10654-626f-44cb-a8e4-000fabe5b9d0</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <Mention>inwi</Mention>
+      <Type>BRAND</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>bca2c2d3-592f-41d5-92fc-25629d3df74e</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>2cac111a-00e9-4b7c-8c7a-b1da07e95ef1</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <EntityId>T0</EntityId>
+      <Mention>خمسة عشر يوما</Mention>
+      <Normalized>خمسة عشر يوما</Normalized>
+      <Type>TEMPORAL:TIME</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>0845ce4a-ed1c-4efe-b5cd-82fd9d966f1c</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>83c24ac7-92a5-490a-8d36-475ee2a0be2d</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>2</Count>
+      <EntityId>T4</EntityId>
+      <Mention>تبارك الله</Mention>
+      <Normalized>تبارك الله</Normalized>
+      <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>c58b6be7-fae4-4f5f-b9ab-2a3f965b0250</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>83c24ac7-92a5-490a-8d36-475ee2a0be2d</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <EntityId>T0</EntityId>
+      <Mention>حسن فنان ف</Mention>
+      <Normalized>حسن فنان ف</Normalized>
+      <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>ccd19ee2-b7b5-4e5c-8133-5adde0068c1e</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>83c24ac7-92a5-490a-8d36-475ee2a0be2d</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <EntityId>T1</EntityId>
+      <Mention>كندوز</Mention>
+      <Normalized>كندوز</Normalized>
+      <Type>LOCATION</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>a74bd9b6-5483-4d48-8818-b6bce7f10a6d</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>83c24ac7-92a5-490a-8d36-475ee2a0be2d</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <EntityId>T2</EntityId>
+      <Mention>ال ديالو</Mention>
+      <Normalized>ال ديالو</Normalized>
+      <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>fb685c1b-6597-43a0-b0de-b74abd45fdf4</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>83c24ac7-92a5-490a-8d36-475ee2a0be2d</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <EntityId>T3</EntityId>
+      <Mention>واعر و كولشي</Mention>
+      <Normalized>اعر و كولشي</Normalized>
+      <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>5f8eb7e6-360b-4fdb-9707-eb81d0392ae4</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>83c24ac7-92a5-490a-8d36-475ee2a0be2d</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <Mention>ال</Mention>
+      <Type>SOCCER CLUB</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>fd490bbc-110f-4933-b699-22642bae8ea8</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>e4ddd126-4355-4d82-8074-220fef01486a</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>2</Count>
+      <EntityId>T0</EntityId>
+      <Mention>دينا الحبيب الله كامل ليك</Mention>
+      <Normalized>دينا الحبيب الله كامل ليك</Normalized>
+      <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>b909f07f-736c-4dba-a3a5-c90fc452c830</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>e4ddd126-4355-4d82-8074-220fef01486a</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <EntityId>T1</EntityId>
+      <Mention>عارف</Mention>
+      <Normalized>عارف</Normalized>
+      <Type>PERSON</Type>
+    </TextEntity>
+  </M_ARABICDARIJAENTRY_TEXTENTITY>
+  <M_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY_TEXTENTITY>28729b77-9490-402a-97ef-9bdc59465670</ID_ARABICDARIJAENTRY_TEXTENTITY>
+    <ID_ARABICDARIJAENTRY>024d1d97-1d49-4986-9868-a83bccca6d5f</ID_ARABICDARIJAENTRY>
+    <TextEntity>
+      <Count>1</Count>
+      <Mention>ال</Mention>
+      <Type>SOCCER CLUB</Type>
     </TextEntity>
   </M_ARABICDARIJAENTRY_TEXTENTITY>
 </ArrayOfM_ARABICDARIJAENTRY_TEXTENTITY>
