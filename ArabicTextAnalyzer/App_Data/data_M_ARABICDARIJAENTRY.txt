@@ -681,11 +681,6 @@
     <ArabicDarijaText>هضم هم لي تصورت معاهم ف سحر 😂😂😂</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>a54f80ef-8fa8-4f32-8789-fdae03a8a705</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>00bdfd0e-30de-4229-8ea6-1a0e495ac991</ID_ARABIZIENTRY>
-    <ArabicDarijaText>pétrol طاح حتى ح dolars العالم نقص فيه تما ونتمى makayn9ass عندكم والو . دايرين كي تم &amp; جرى</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>870d9c43-6a3a-4b57-b6c8-e77d613b048c</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>d05b0462-f81f-4714-88b7-5714ce29f75e</ID_ARABIZIENTRY>
     <ArabicDarijaText>almouryttane نايض عندهم ولقوات القمعية تدرس</ArabicDarijaText>
@@ -1439,11 +1434,6 @@
     <ID_ARABICDARIJAENTRY>ccb74f2a-10cb-4b95-abcf-a8fbeb5d0456</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>b6925c02-1d8c-4a1e-b76b-f27d8cb08a38</ID_ARABIZIENTRY>
     <ArabicDarijaText>لا ريزه لا connexion مات لا عرض لا تا وز دابا بغينا غي نعرف 10 فب او وتساب شحال فيه 😕😕</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>652ba5a8-e852-4688-b209-3a1529d37b5d</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>2d4f098b-c750-4fb1-a94a-f3c46f348976</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام حدت هذا , inwi في خدمتكم . باش تلغو تشغيل alautomatiqui ديال بدل ستك , ماعليكم غير ترسل stop ف سمس الرقم حقق .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>38a42d86-acea-4c81-967f-0d736dfa3324</ID_ARABICDARIJAENTRY>
@@ -2436,11 +2426,6 @@
     <ArabicDarijaText>انا عند الهاتف 4g و ما كطلعلي شي 4g كطلعلي 3g</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>4946d9ea-9023-4cb3-a45f-fec6cd9e9386</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>e4097883-83ec-45e6-bcba-c5f0e3f39a64</ID_ARABIZIENTRY>
-    <ArabicDarijaText>و ملي ما بقا لا جمهور لا ultra راه رئيس لي غادي يجي غادي دير الرجاء حيت قصير و غادي دير كيف دار حسبان اش غادي صوره غادي غلق فين هو جمهور 2009 2010 2011 ما كان تا واحد يقدر يدوي على الرجاء خاب معيور من كنت كتسمعها الآن ولا لعب لي جا كيسكت جمهور ... و تواجه معاه hit مشاو رجل .. .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>ca5297a7-e9c5-495d-bc40-5d231b6adfca</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>5451f8ca-fa34-42be-b4e8-c79c3b958dad</ID_ARABIZIENTRY>
     <ArabicDarijaText>سلام عليكم عندي مشكل ف adsl كيبدا خدام 5 دقائق ولا 15 دقائق وكتقطع connexion انا مخلص شهار</ArabicDarijaText>
@@ -2666,11 +2651,6 @@
     <ArabicDarijaText>تبارك الله عليكم داز top والله بين organiser بن continuation</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>5db25bbc-8545-42cf-9c0f-5ad90559d6c3</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>640de6f0-4c89-4156-be86-60a465223f60</ID_ARABIZIENTRY>
-    <ArabicDarijaText>فعلا راني كنت فهاد المهراجا ديال تافراوت شفت كلشي شحال من واحد ربح فيه تبارك الله عليكم وصافى</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>8fdcaf6a-d5cd-4287-a1ee-aa4ec5265806</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>dd47b65a-c7f1-4633-ab5f-1a35fb87804a</ID_ARABIZIENTRY>
     <ArabicDarijaText>ديما شي سلطان‎‎</ArabicDarijaText>
@@ -2684,5 +2664,60 @@
     <ID_ARABICDARIJAENTRY>d743fca1-516b-4b9f-8a05-39a50e5e2b6e</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>92912809-1ea9-4ab6-9d97-27a6cd2e7bff</ID_ARABIZIENTRY>
     <ArabicDarijaText>كتخدي تا ب 17 دراهم كتلقى تعبئة فيه 5 دقائق هطل عام ديال حاضر ولا كتلقى connexion هاد القضية ديال عام نتا وزهرك هاد لمسابقة را بصح كان ماشي كتب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c1f299cf-f8e6-487c-b792-9fb12d9376f0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5092ed15-441c-4fa5-94ac-7c741947b2df</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حتى انتم ما فاهمين شي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b7946ebf-1471-4c7f-9c8e-25cbdd190d34</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d075abea-3215-4503-85ab-a88ed25ae641</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فعلا را كنت فهاد المهرجان ديال تافراوت شفت كلشي شحال من واحد ربح فيه تبارك الله عليكم ساف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e4d4fc78-c86e-41ba-bca3-f17e66315adf</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5be8dc92-a3c1-4912-a444-e2ed325ee774</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ثمن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>73b9f1d7-4dcc-4e20-bbf0-8dce746d97d9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b5e965a5-81f8-4e08-84e6-d56a7d0451e9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فيه ثمن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9adb5037-de4b-4cb1-831c-592682966881</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>51b82cf1-ab02-4c54-b387-1a61e8b8e04d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نقصو فيه ثمن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f194e178-6b9b-4a92-89f2-2d9cb53c9473</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3d3631c7-7808-4924-aee3-fc6ffebf1d9c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ثمن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4ba7753e-f746-4665-bf9a-3be87058e008</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>cba571d1-54a3-4e8f-bb64-8708510df13c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>pétrol طاح حتى 27 dolars العالم نقصو فيه ثمن وانتم ماكينقص عندكم والو . دايرين كي tom و jerry</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c5603a53-1be4-4cbb-9373-7a832ada979b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ff75a1eb-9944-4870-bf84-49e8d7e81341</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام حودت هدى , inwi في خدمتكم . باش تلغو تشغيل alautomatiqui ديال بدل صوتك , ماعليكم غير تغسل stop ف سمس لرقم 789 .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2c555a96-839c-4a9b-b99b-a38be878f9ad</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>94212813-0028-49dd-b3e0-163fbbdca37a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و ملي ما بقا لا جمهور لا ultra راه رئيس لي غادي يجي غادي دير الرجاء حيت قسر و غادي دير كيف دار حسبان اش غادي صوره غادي غلق فين هو جمهور 2009 2010 2011 ما كان حتى واحد يقدر يدو على الرجاء خاب معيور من كنت كتسمعها الآن ولا لعب لي جا كيسكت جمهور ... و تواجه معاه hit مشاو رجل .. .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a3770e12-ee0b-4dc4-b4af-9f098f5f1f45</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fb0a9740-7f44-4ff7-b115-9e1465281533</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الهدية</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8aae2fb3-15f4-43cc-bf0d-5bac6779e5e1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>282609ad-e2bd-4903-bd81-180e74cda4ef</ID_ARABIZIENTRY>
+    <ArabicDarijaText>العشران صحافتكم ما بقيت شي كتفعلو معنة</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

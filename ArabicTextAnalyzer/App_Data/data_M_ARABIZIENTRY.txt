@@ -685,11 +685,6 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>0001-01-01T00:00:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>00bdfd0e-30de-4229-8ea6-1a0e495ac991</ID_ARABIZIENTRY>
-    <ArabiziText>pétrol taah hta 27 dolars l3alam na9sso fih taman wantoma makayn9ass 3andkom walo .dayrin ki tom &amp; jerry</ArabiziText>
-    <ArabiziEntryDate>0001-01-01T00:00:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>d05b0462-f81f-4714-88b7-5714ce29f75e</ID_ARABIZIENTRY>
     <ArabiziText>lmouryttane nayda 3ndhoum wall9watte ll9am3ya ttdrouss</ArabiziText>
     <ArabiziEntryDate>0001-01-01T00:00:00</ArabiziEntryDate>
@@ -1443,11 +1438,6 @@ inshallah khir ya rab</ArabiziText>
     <ID_ARABIZIENTRY>b6925c02-1d8c-4a1e-b76b-f27d8cb08a38</ID_ARABIZIENTRY>
     <ArabiziText>La rizo la conx mayta la 3orod la ta waza daba baryna ri na3rafo 10 fb ao watasab chahal fiha 😕😕</ArabiziText>
     <ArabiziEntryDate>2017-08-22T22:34:03</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>2d4f098b-c750-4fb1-a94a-f3c46f348976</ID_ARABIZIENTRY>
-    <ArabiziText>Salam Houditta Houda, inwi fi khidmatikoum. Bach telghiw techghil l automatiqui dyal bedel sotek, ma3likoum ghir tresslou STOP f sms l ra9m 789.</ArabiziText>
-    <ArabiziEntryDate>2017-08-22T22:45:31</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>e39b43e3-c1ad-4813-9e9d-5db5205429da</ID_ARABIZIENTRY>
@@ -2440,11 +2430,6 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-09-11T19:48:41</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>e4097883-83ec-45e6-bcba-c5f0e3f39a64</ID_ARABIZIENTRY>
-    <ArabiziText>w meli Ma b9a la joumhor la ultra rah ra2is Li ghadi yji ghadi ydir raja 7ait 9ssir w ghadi ydir kif dar hasbane ash ghadi ysawro ghadi ygholik fin hwa joumhor 2009 2010 2011 ma kan ta wahed y9dar ydwi 3la raja khaib me3iora men kenti katsma3ha daba wela le3ab Li ja kayseket joumhor ... w ytwajeh m3ah hit mchaw rejala...	</ArabiziText>
-    <ArabiziEntryDate>2017-09-11T19:56:05</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>5451f8ca-fa34-42be-b4e8-c79c3b958dad</ID_ARABIZIENTRY>
     <ArabiziText>salamo 3Likum 3andi mochkila f adsl kibda ikhdam 5min wla 15min okt9ta3 conexion oana mkhlas chehar	</ArabiziText>
     <ArabiziEntryDate>2017-09-11T20:00:08</ArabiziEntryDate>
@@ -2670,11 +2655,6 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-09-20T19:48:43</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>640de6f0-4c89-4156-be86-60a465223f60</ID_ARABIZIENTRY>
-    <ArabiziText>Fi3lan rani knt fhad lmihrajan dyal Tafrawt chft kolchi chhal mn wahd rbh fih Tbark lah 3likom osafi	</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T20:01:22</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>dd47b65a-c7f1-4633-ab5f-1a35fb87804a</ID_ARABIZIENTRY>
     <ArabiziText>dima chay soltn	</ArabiziText>
     <ArabiziEntryDate>2017-09-20T20:13:00</ArabiziEntryDate>
@@ -2688,5 +2668,60 @@ inshallah khir ya rab</ArabiziText>
     <ID_ARABIZIENTRY>92912809-1ea9-4ab6-9d97-27a6cd2e7bff</ID_ARABIZIENTRY>
     <ArabiziText>Katakhdi atay b 17dhs okatl9a recharge fiha 5min htal 3am dyal hadra awla katl9a connexion had l9adya dyal 3am nta ozahrak ohad lmossaba9a ra bessah kayna machi kdoub	</ArabiziText>
     <ArabiziEntryDate>2017-09-20T20:18:41</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5092ed15-441c-4fa5-94ac-7c741947b2df</ID_ARABIZIENTRY>
+    <ArabiziText>hta ntouma ma fahminch</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T13:26:41</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d075abea-3215-4503-85ab-a88ed25ae641</ID_ARABIZIENTRY>
+    <ArabiziText>Fi3lan rani knt fhad lmihrajan dyal Tafrawt chft kolchi chhal mn wahd rbh fih Tbark lah 3likom osafi	</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T13:42:40</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5be8dc92-a3c1-4912-a444-e2ed325ee774</ID_ARABIZIENTRY>
+    <ArabiziText>taman</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T14:30:02</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b5e965a5-81f8-4e08-84e6-d56a7d0451e9</ID_ARABIZIENTRY>
+    <ArabiziText>fih taman	</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T14:32:44</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>51b82cf1-ab02-4c54-b387-1a61e8b8e04d</ID_ARABIZIENTRY>
+    <ArabiziText>na9sso fih taman	</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T14:36:17</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3d3631c7-7808-4924-aee3-fc6ffebf1d9c</ID_ARABIZIENTRY>
+    <ArabiziText>taman</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T14:36:40</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>cba571d1-54a3-4e8f-bb64-8708510df13c</ID_ARABIZIENTRY>
+    <ArabiziText>pétrol taah hta 27 dolars l3alam na9sso fih taman wantoma makayn9ass 3andkom walo .dayrin ki tom &amp; jerry	</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T14:36:59</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ff75a1eb-9944-4870-bf84-49e8d7e81341</ID_ARABIZIENTRY>
+    <ArabiziText>Salam Houditta Houda, inwi fi khidmatikoum. Bach telghiw techghil l automatiqui dyal bedel sotek, ma3likoum ghir tresslou STOP f sms l ra9m 789.	</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T14:39:23</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>94212813-0028-49dd-b3e0-163fbbdca37a</ID_ARABIZIENTRY>
+    <ArabiziText>w meli Ma b9a la joumhor la ultra rah ra2is Li ghadi yji ghadi ydir raja 7ait 9ssir w ghadi ydir kif dar hasbane ash ghadi ysawro ghadi ygholik fin hwa joumhor 2009 2010 2011 ma kan ta wahed y9dar ydwi 3la raja khaib me3iora men kenti katsma3ha daba wela le3ab Li ja kayseket joumhor ... w ytwajeh m3ah hit mchaw rejala...	</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T14:49:41</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>fb0a9740-7f44-4ff7-b115-9e1465281533</ID_ARABIZIENTRY>
+    <ArabiziText>lacadou</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T14:54:47</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>282609ad-e2bd-4903-bd81-180e74cda4ef</ID_ARABIZIENTRY>
+    <ArabiziText>l3achran chaftkom mab9itoch katfa3lo m3ana	</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T15:43:09</ArabiziEntryDate>
   </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
