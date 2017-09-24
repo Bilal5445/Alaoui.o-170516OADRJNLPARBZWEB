@@ -2725,4 +2725,14 @@
     <ID_ARABIZIENTRY>e9d2cf23-d224-412c-a7e5-98f1abae8b41</ID_ARABIZIENTRY>
     <ArabicDarijaText>ملك يا صاحب كتقلد the لغة لغة شو ... جيب شي حاجة originale عطينها غير لتقليد</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ac6333bc-f2d3-4014-b8d7-48009d5d9dc6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>bb4ccb68-bf6d-4d92-b7cd-c3eaa086ccba</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تا reperé سر لا ثف , بالصحة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b5af54f1-3b87-4407-9ea4-ab9055b3c5a4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>38f0ec8f-6d78-4225-a359-267532c3bfe5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>والدينا و والديك خويا الزين المهم إذا بغيت الاستهلاك ناقصة و قطع الغيار موجود شوف جولف 2 او renault 19 diesel او زيد شوية و شوف dacia لكن هؤلاء ملاح ف الاستهلاك و قطع الغيار موجود</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

@@ -2729,4 +2729,14 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziText>malk a sahbi kat9eld the light light show...jibo chi 7aja originale 3atinha ghir lta9lid	</ArabiziText>
     <ArabiziEntryDate>2017-09-24T19:49:01</ArabiziEntryDate>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>bb4ccb68-bf6d-4d92-b7cd-c3eaa086ccba</ID_ARABIZIENTRY>
+    <ArabiziText>tai reperé sur la tof , bsse7aaaa</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T20:26:43</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>38f0ec8f-6d78-4225-a359-267532c3bfe5</ID_ARABIZIENTRY>
+    <ArabiziText>Walidina o walidik khoya zin mohim ila bghit consommation na9sa o piece mojod chof golf 2 wala Renault 19 diesel wala zid chwiya o chof Dacia logan hado mlah f consommation o piece mojod	</ArabiziText>
+    <ArabiziEntryDate>2017-09-24T20:28:47</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

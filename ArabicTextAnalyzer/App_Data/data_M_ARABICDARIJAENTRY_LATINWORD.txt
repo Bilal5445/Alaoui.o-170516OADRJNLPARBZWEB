@@ -1175,4 +1175,11 @@
     <VariantsCount>1152</VariantsCount>
     <Translation>أصلي</Translation>
   </M_ARABICDARIJAENTRY_LATINWORD>
+  <M_ARABICDARIJAENTRY_LATINWORD>
+    <ID_ARABICDARIJAENTRY_LATINWORD>b01c1b68-28da-4fca-99ac-1480d8c8e674</ID_ARABICDARIJAENTRY_LATINWORD>
+    <ID_ARABICDARIJAENTRY>ac6333bc-f2d3-4014-b8d7-48009d5d9dc6</ID_ARABICDARIJAENTRY>
+    <LatinWord>reperé</LatinWord>
+    <VariantsCount>0</VariantsCount>
+    <Translation>معلم</Translation>
+  </M_ARABICDARIJAENTRY_LATINWORD>
 </ArrayOfM_ARABICDARIJAENTRY_LATINWORD>
