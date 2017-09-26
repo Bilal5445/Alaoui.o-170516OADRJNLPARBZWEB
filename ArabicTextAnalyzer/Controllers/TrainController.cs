@@ -126,8 +126,55 @@ namespace ArabicTextAnalyzer.Controllers
             // reverse order to latest entry in top
             xs.Reverse();
 
+            // themes / main entities : send list of main tags
+            // load/deserialize list of M_ARABICDARIJAENTRY_TEXTENTITY
+            /*List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
+            var path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_TEXTENTITY).Name + ".txt");
+            var serializer = new XmlSerializer(textEntities.GetType());
+            if (System.IO.File.Exists(path))
+            {
+                using (var reader = new System.IO.StreamReader(path))
+                {
+                    textEntities = (List<M_ARABICDARIJAENTRY_TEXTENTITY>)serializer.Deserialize(reader);
+                }
+            }*/
+            var mainEntities = textEntities.Where(m => m.TextEntity.Type == "MAIN ENTITY");
+            mainEntities = DistinctBy(mainEntities, m => m.TextEntity.Mention);
+
+            // 
+            var class1 = new Class1
+            {
+                Classes2 = xs,
+                MainEntities = mainEntities
+            };
+
             // pass entries to partial view via the model (instead of the bag for a view)
-            return PartialView("_IndexPartialPage_arabicDarijaEntries", xs);
+            return PartialView("_IndexPartialPage_arabicDarijaEntries", /*xs*/class1);
+        }
+
+        /*public static IEnumerable<TSource> DistinctBy<TSource, TKey>
+    (this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
+        {
+            HashSet<TKey> seenKeys = new HashSet<TKey>();
+            foreach (TSource element in source)
+            {
+                if (seenKeys.Add(keySelector(element)))
+                {
+                    yield return element;
+                }
+            }
+        }*/
+
+        public static IEnumerable<TSource> DistinctBy<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
+        {
+            HashSet<TKey> seenKeys = new HashSet<TKey>();
+            foreach (TSource element in source)
+            {
+                if (seenKeys.Add(keySelector(element)))
+                {
+                    yield return element;
+                }
+            }
         }
 
         [HttpGet]

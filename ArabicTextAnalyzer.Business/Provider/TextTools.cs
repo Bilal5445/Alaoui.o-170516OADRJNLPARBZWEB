@@ -97,12 +97,14 @@ namespace ArabicTextAnalyzer.Business.Provider
             String entitiesString = String.Empty;
             foreach (var textEntity in TextEntities)
             {
-                if (TextEntities.IndexOf(textEntity) % 3 == 0)
+                if (TextEntities.IndexOf(textEntity) % 4 == 0)
                     entitiesString += "<span class=\"label label-primary\">" + textEntity.TextEntity.Mention + "</span> ";
-                else if (TextEntities.IndexOf(textEntity) % 3 == 1)
-                    entitiesString += "<span class=\"label label-warning\">" + textEntity.TextEntity.Mention + "</span> ";
-                else
+                else if (TextEntities.IndexOf(textEntity) % 4 == 1)
+                    entitiesString += "<span class=\"label label-default\">" + textEntity.TextEntity.Mention + "</span> ";
+                else if (TextEntities.IndexOf(textEntity) % 4 == 2)
                     entitiesString += "<span class=\"label label-success\">" + textEntity.TextEntity.Mention + "</span> ";
+                else
+                    entitiesString += "<span class=\"label label-info\">" + textEntity.TextEntity.Mention + "</span> ";
             }
 
             return entitiesString;
@@ -113,12 +115,14 @@ namespace ArabicTextAnalyzer.Business.Provider
             String entitiesString = String.Empty;
             foreach (var textEntity in TextEntities)
             {
-                if (TextEntities.IndexOf(textEntity) % 3 == 0)
+                if (TextEntities.IndexOf(textEntity) % 4 == 0)
                     entitiesString += "<span class=\"label label-primary\">" + textEntity.TextEntity.Type + "</span> ";
-                else if (TextEntities.IndexOf(textEntity) % 3 == 1)
-                    entitiesString += "<span class=\"label label-warning\">" + textEntity.TextEntity.Type + "</span> ";
-                else
+                else if (TextEntities.IndexOf(textEntity) % 4 == 1)
+                    entitiesString += "<span class=\"label label-default\">" + textEntity.TextEntity.Type + "</span> ";
+                else if (TextEntities.IndexOf(textEntity) % 4 == 2)
                     entitiesString += "<span class=\"label label-success\">" + textEntity.TextEntity.Type + "</span> ";
+                else
+                    entitiesString += "<span class=\"label label-info\">" + textEntity.TextEntity.Type + "</span> ";
             }
 
             return entitiesString;
