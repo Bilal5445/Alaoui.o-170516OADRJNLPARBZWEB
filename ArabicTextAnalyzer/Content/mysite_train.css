@@ -77,6 +77,15 @@ tr.header {
     display: block;
 }
 
+.posts td.entitiestype span.label {
+    font-size: 12px;
+    margin: 2px;
+    line-height:14px;
+    font-weight: lighter;
+    letter-spacing: -0.5px;
+    display: block;
+}
+
 td.arabic-text {
     direction: rtl;
 }

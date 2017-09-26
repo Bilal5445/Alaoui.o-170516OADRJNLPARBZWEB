@@ -9,6 +9,7 @@
             <th class="center top col110px">Date</th>
             <th class="center top col50prc">Arabizi</th>
             <th class="center top col50prc">Arabic</th>
+            <th class="center top col100px">NER Types</th>
             <th class="center top col130px">Entities</th>
             <th class="center top col75px"></th>
         </tr>
@@ -19,6 +20,7 @@
             <th class="center top">Date</th>
             <th class="center top">Arabizi</th>
             <th class="center top">Arabic</th>
+            <th class="center top">NER Types</th>
             <th class="center top">Entities</th>
             <th class="center top"></th>
         </tr>
@@ -31,6 +33,7 @@
                 <td class="arabizi-text top">@entry.ArabiziEntry.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm")</td>
                 <td class="arabizi-text top">@entry.ArabiziEntry.ArabiziText</td>
                 <td class="arabic-text top">@Html.Raw(@TextTools.HighlightExtractedLatinWords(@entry.ArabicDarijaEntry.ArabicDarijaText, @entry.ArabicDarijaEntryLatinWords))</td>
+                <td class="arabic-text top entitiestype">@Html.Raw(@TextTools.DisplayEntitiesType(@entry.TextEntities))</td>
                 <td class="arabic-text top entities">@Html.Raw(@TextTools.DisplayEntities(@entry.TextEntities))</td>
                 <td class="center top"><a href="@Url.Action("Train_DeleteEntry", new { arabiziWordGuid = @entry.ArabiziEntry.ID_ARABIZIENTRY })" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove</a></td>
             </tr>
