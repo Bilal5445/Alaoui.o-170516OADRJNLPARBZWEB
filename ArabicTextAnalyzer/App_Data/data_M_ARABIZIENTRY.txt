@@ -3235,8 +3235,8 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-09-26T18:02:30.0556441+01:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>96ffa837-b7e3-4b8f-94a5-d5dda9a4e498</ID_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>cb71e71a-0684-4c26-9c62-d03135b30d95</ID_ARABIZIENTRY>
     <ArabiziText>matate3jebkomch saraha tatsebbo fih, ana machi m3a benky ola pjd mais je trouve lhadra dyalo bessah. saraha mati bghiha had. râ galikom rani machi za3im rani ta ana mowaddaf 3ind malik. nass li ti fahmou fi dostour 3arfine qu'on a une monarchie exécutive ça veut dire que c'est le roi qui dirige le pays machi monarchie symbolique ola parlementaire, ewa sla 3la nbi malkom tatsebbo fi benkirane hit galikom saraha	</ArabiziText>
-    <ArabiziEntryDate>2017-09-26T18:56:03</ArabiziEntryDate>
+    <ArabiziEntryDate>2017-09-26T20:00:12</ArabiziEntryDate>
   </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

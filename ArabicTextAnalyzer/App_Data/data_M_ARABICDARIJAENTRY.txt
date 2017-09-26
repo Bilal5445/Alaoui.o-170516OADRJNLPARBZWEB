@@ -3231,8 +3231,8 @@
     <ArabicDarijaText>هاديك ماشي الكلام ديال كلمة ديال ورقة و ستيلو</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>92d3c066-b86e-467f-a23e-140a4a7c0db4</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>96ffa837-b7e3-4b8f-94a5-d5dda9a4e498</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ما تتعجبكم شي صراحة تتسبب فيه , انا مش مع بينقي او pjd ولكن جي طرف الهضرة ديال بصح . صراحة مات بغيها هاد . râ كلكم را ماشي زعم را حتى انا موظف عند مالك . ناس لي ت فهم في دستور عارفين qu'on يا ن monarchie exécutive ça فية دير قوة ك 1 ست الملك قوى ترك alpays ماشي monarchie symbolique او parlementaire , و سلا على نب مالكم تتسبب في بنكيران hit كلكم صاغه</ArabicDarijaText>
+    <ID_ARABICDARIJAENTRY>5e0371bc-2171-4e50-b8ff-41af8cbed904</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>cb71e71a-0684-4c26-9c62-d03135b30d95</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ما تتعجبكم شي صراحة تتسبب فيه , انا مش مع بينقي او pjd ولكن جي طرف الهضرة ديال بصح . صراحة مات بغيها هاد . râ كلكم را ماشي زعم را حتى انا موظف عند مالك . ناس لي ت فهم في دستور عارفين qu'on يا ن monarchie exécutive ça فيوث دير قوة ك آ ست الملك قوى ترك البلاد ماشي monarchie symbolique او parlementaire , و سلا على نبي مالكم تتسبب في بنكيران hit كلكم صاغه</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
