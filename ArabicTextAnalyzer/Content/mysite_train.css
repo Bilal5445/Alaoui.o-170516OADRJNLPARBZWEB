@@ -13,8 +13,8 @@
 
 /* MC092617 to make sure table takes 100% width */
 @media (min-width: 1200px) {
-    .container {
-        width: 100%;
+    #body > .container {
+        width: 95%;
     }
 }
 
@@ -64,6 +64,9 @@ tr.header {
 }
 .posts th.col120px {
     width: 120px;
+}
+.posts th.col130px {
+    width: 130px;
 }
 
 .posts td.entities span.label {
