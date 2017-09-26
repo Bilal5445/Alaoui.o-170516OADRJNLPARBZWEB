@@ -5,6 +5,9 @@ using System.Web.Script.Serialization;
 using ArabicTextAnalyzer.Contracts;
 using ArabicTextAnalyzer.Domain;
 using RestSharp;
+using ArabicTextAnalyzer.Domain.Models;
+using System.Linq;
+using System.Web;
 
 namespace ArabicTextAnalyzer.Business.Provider
 {
@@ -60,6 +63,37 @@ namespace ArabicTextAnalyzer.Business.Provider
             }
 
             return returnValue;
+        }
+
+        public void NerManualExtraction(String arabicText, ref IEnumerable<TextEntity> entities, Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY, HttpServerUtilityBase Server)
+        {
+            // NER manual extraction
+            foreach (var word in arabicText.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                String typeEntity;
+                if (new TextFrequency().NERStartsWithWord_brands(word, out typeEntity))
+                {
+                    entities = entities.Concat(new[] { new TextEntity
+                            {
+                                Count = 1,
+                                Mention = word,
+                                Type = typeEntity
+                            } });
+                }
+            }
+            foreach (var entity in entities)
+            {
+                var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
+                {
+                    ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
+                    ID_ARABICDARIJAENTRY = arabicDarijaEntry_ID_ARABICDARIJAENTRY,
+                    TextEntity = entity
+                };
+
+                // Save to Serialization
+                var path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_TEXTENTITY.txt");
+                new TextPersist().Serialize(textEntity, path);
+            }
         }
     }
 }
