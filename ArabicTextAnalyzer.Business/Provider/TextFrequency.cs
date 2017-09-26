@@ -142,7 +142,8 @@ namespace ArabicTextAnalyzer.Business.Provider
             // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
             List<M_ARABICDARIJAENTRY_LATINWORD> latinWordEntries = new TextPersist().Deserialize<M_ARABICDARIJAENTRY_LATINWORD>(dataPath);
 
-            return latinWordEntries.Count;
+            // MC092617 do not count latin word that google has translated
+            return latinWordEntries.Where(m => String.IsNullOrWhiteSpace(m.Translation) == true).ToList().Count;
         }
 
         public double GetRatioLatinWordsOnEntries(String dataPath)
