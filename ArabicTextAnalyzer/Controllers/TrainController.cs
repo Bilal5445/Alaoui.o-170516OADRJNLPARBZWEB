@@ -374,9 +374,9 @@ namespace ArabicTextAnalyzer.Controllers
 
         // This action handles the form POST and the upload
         [HttpPost]
-        public ActionResult Data_Upload(HttpPostedFileBase file)
+        public ActionResult Data_Upload(HttpPostedFileBase file, String mainEntity)
         {
-            // Verify that the user selected a file
+            // check before if the user selected a file
             if (file == null || file.ContentLength == 0)
             {
                 // we use tempdata instead of viewbag because viewbag can't be passed over to a controller
@@ -385,8 +385,18 @@ namespace ArabicTextAnalyzer.Controllers
                 return RedirectToAction("Index");
             }
 
+            // check before if mainEntity is not empty
+            if (String.IsNullOrWhiteSpace(mainEntity))
+            {
+                // we use tempdata instead of viewbag because viewbag can't be passed over to a controller
+                TempData["showAlertWarning"] = true;
+                TempData["msgAlert"] = "No main entity has been entered.";
+                return RedirectToAction("Index");
+            }
+
             // extract only the filename
             var fileName = Path.GetFileName(file.FileName);
+
             // store the file inside ~/App_Data/uploads folder
             var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
             file.SaveAs(path);
@@ -395,18 +405,33 @@ namespace ArabicTextAnalyzer.Controllers
             var lines = System.IO.File.ReadLines(path).ToList();
             foreach (string line in lines)
             {
-                train(new M_ARABIZIENTRY
+                var idArabicDarijaEntry = train(new M_ARABIZIENTRY
                 {
                     ArabiziText = line,
                     ArabiziEntryDate = DateTime.Now
                 });
+
+                // add main entity & Save to Serialization
+                var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
+                {
+                    ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
+                    ID_ARABICDARIJAENTRY = idArabicDarijaEntry,
+                    TextEntity = new TextEntity
+                    {
+                        Count = 1,
+                        Mention = mainEntity,
+                        Type = "MAIN ENTITY"
+                    }
+                };
+                var pathtextentity = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_TEXTENTITY.txt");
+                new TextPersist().Serialize(textEntity, pathtextentity);
             }
 
             // mark how many rows been translated
             TempData["showAlertSuccess"] = true;
             TempData["msgAlert"] = lines.Count.ToString() + " rows has been imported.";
 
-            // delete file
+            // delete just uploaded file in uploads
             System.IO.File.Delete(path);
 
             // redirect back to the index action to show the form once again
@@ -414,7 +439,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         #region BACK YARD BO
-        private void train(M_ARABIZIENTRY arabiziEntry)
+        private /*void*/ Guid train(M_ARABIZIENTRY arabiziEntry)
         {
             // Arabizi to arabic script via direct call to perl script
             var textConverter = new TextConverter();
@@ -422,6 +447,8 @@ namespace ArabicTextAnalyzer.Controllers
             // Arabizi to arabic from perl script
             if (arabiziEntry.ArabiziText != null)
             {
+                var id_ARABICDARIJAENTRY = Guid.NewGuid();
+
                 lock (thisLock)
                 {
                     // complete arabizi entry
@@ -431,7 +458,8 @@ namespace ArabicTextAnalyzer.Controllers
                     var arabicText = textConverter.Convert(arabiziEntry.ArabiziText);
                     var arabicDarijaEntry = new M_ARABICDARIJAENTRY
                     {
-                        ID_ARABICDARIJAENTRY = Guid.NewGuid(),
+                        // ID_ARABICDARIJAENTRY = Guid.NewGuid(),
+                        ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
                         ID_ARABIZIENTRY = arabiziEntry.ID_ARABIZIENTRY,
                         ArabicDarijaText = arabicText
                     };
@@ -517,7 +545,12 @@ namespace ArabicTextAnalyzer.Controllers
                         new TextPersist().Serialize(textEntity, path);
                     }
                 }
+
+                //
+                return id_ARABICDARIJAENTRY;
             }
+
+            return Guid.Empty;
         }
         #endregion
     }
