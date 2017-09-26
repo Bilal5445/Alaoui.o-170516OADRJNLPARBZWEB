@@ -120,11 +120,15 @@ namespace ArabicTextAnalyzer.Business.Provider
             domain = domain.Replace("\r\n", " ");
 
             foreach (string line in File.ReadLines(pathToNERFile_brands))
-                if (line.StartsWith(domain, StringComparison.InvariantCultureIgnoreCase))
+            {
+                // if (line.StartsWith(domain, StringComparison.InvariantCultureIgnoreCase))
+                var wordSlashType = line.Split(new char[] { '\t' });
+                if (wordSlashType[0].Equals(domain, StringComparison.InvariantCultureIgnoreCase))
                 {
                     type = line.Split(new char[] { '\t' })[1];
                     return true; // and stop reading lines
                 }
+            }
 
             type = String.Empty;
             return false;
