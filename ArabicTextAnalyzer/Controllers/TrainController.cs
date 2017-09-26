@@ -519,32 +519,6 @@ namespace ArabicTextAnalyzer.Controllers
 
                     // NER manual extraction
                     new TextEntityExtraction().NerManualExtraction(arabicText, ref entities, arabicDarijaEntry.ID_ARABICDARIJAENTRY, Server);
-                    /*foreach (var word in arabicText.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
-                    {
-                        String typeEntity;
-                        if (new TextFrequency().NERStartsWithWord_brands(word, out typeEntity))
-                        {
-                            entities = entities.Concat(new[] { new TextEntity
-                            {
-                                Count = 1,
-                                Mention = word,
-                                Type = typeEntity
-                            } });
-                        }
-                    }
-                    foreach (var entity in entities)
-                    {
-                        var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
-                        {
-                            ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
-                            ID_ARABICDARIJAENTRY = arabicDarijaEntry.ID_ARABICDARIJAENTRY,
-                            TextEntity = entity
-                        };
-
-                        // Save to Serialization
-                        path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_TEXTENTITY.txt");
-                        new TextPersist().Serialize(textEntity, path);
-                    }*/
                 }
 
                 //
