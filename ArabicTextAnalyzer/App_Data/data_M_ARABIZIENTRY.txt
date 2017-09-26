@@ -1050,11 +1050,6 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-08-12T18:04:57</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>ec198325-4626-42dd-a309-c45ce6fee44c</ID_ARABIZIENTRY>
-    <ArabiziText>Tfooo mrarba tjr ibrio itayhoo b bnat bladhom mais batma rf3at rayat maghrib osawtha rai333 tbarkalah 3liha li hssadha i3ma talahaw f chi haja dyal slah ouba3do manha acha3b lrdar tfoooo 3la blad</ArabiziText>
-    <ArabiziEntryDate>2017-08-12T18:11:33</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>96967511-ed55-45bc-9afb-fdd3ed95d4a9</ID_ARABIZIENTRY>
     <ArabiziText>Hhhh ntouuama gheeer hdiwha hiya lmanda dyalha tal3a tal3a ntuma li kathr9o dmkoum</ArabiziText>
     <ArabiziEntryDate>2017-08-12T18:18:14</ArabiziEntryDate>
@@ -2425,11 +2420,6 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-09-20T16:45:08.8079018+01:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>db586b7f-bb0f-4143-ad35-1a719bfd8528</ID_ARABIZIENTRY>
-    <ArabiziText>salm lket anftrig zagora inchalH</ArabiziText>
-    <ArabiziEntryDate>2017-09-20T16:45:27.6962194+01:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>d93d8fed-f982-41ec-a2b4-4cdc7f079652</ID_ARABIZIENTRY>
     <ArabiziText>Momkin chi had yegol lik issm had wald likaydir ichhar</ArabiziText>
     <ArabiziEntryDate>2017-09-20T16:45:35.7400443+01:00</ArabiziEntryDate>
@@ -2660,11 +2650,6 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-09-24T14:36:40</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>ff75a1eb-9944-4870-bf84-49e8d7e81341</ID_ARABIZIENTRY>
-    <ArabiziText>Salam Houditta Houda, inwi fi khidmatikoum. Bach telghiw techghil l automatiqui dyal bedel sotek, ma3likoum ghir tresslou STOP f sms l ra9m 789.	</ArabiziText>
-    <ArabiziEntryDate>2017-09-24T14:39:23</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>94212813-0028-49dd-b3e0-163fbbdca37a</ID_ARABIZIENTRY>
     <ArabiziText>w meli Ma b9a la joumhor la ultra rah ra2is Li ghadi yji ghadi ydir raja 7ait 9ssir w ghadi ydir kif dar hasbane ash ghadi ysawro ghadi ygholik fin hwa joumhor 2009 2010 2011 ma kan ta wahed y9dar ydwi 3la raja khaib me3iora men kenti katsma3ha daba wela le3ab Li ja kayseket joumhor ... w ytwajeh m3ah hit mchaw rejala...	</ArabiziText>
     <ArabiziEntryDate>2017-09-24T14:49:41</ArabiziEntryDate>
@@ -2753,5 +2738,145 @@ inshallah khir ya rab</ArabiziText>
     <ID_ARABIZIENTRY>2ca69cf9-a239-4726-921f-26e936b65ae7</ID_ARABIZIENTRY>
     <ArabiziText>Salam Houditta Houda, inwi fi khidmatikoum. Bach telghiw techghil l automatiqui dyal bedel sotek, ma3likoum ghir tresslou STOP f sms l ra9m 789.	</ArabiziText>
     <ArabiziEntryDate>2017-09-24T20:55:29</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>8593b0b4-bd36-48c2-aa8d-ba1b34b663af</ID_ARABIZIENTRY>
+    <ArabiziText>salm lket anftrig zagora inchalH	</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:13:33</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>cffbdb6e-dac3-43a6-8cca-f629d5375476</ID_ARABIZIENTRY>
+    <ArabiziText>bladi zina wkol youm t7la .......zine dyalha machi 3adi</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:23:25.2854793+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>c3b197bf-6cad-4a3d-a5b7-23804afcdbe0</ID_ARABIZIENTRY>
+    <ArabiziText>dima dima dima .... magherib, lah yi7afdo lina w yikhali lina sidna MOHAMED VI</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:23:33.703549+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>f86f3de3-3338-45a6-b056-ed2d220784cf</ID_ARABIZIENTRY>
+    <ArabiziText>3ziz 3lina lmaghrib ou lmalik walikin 3lach had lpropanganda bhal dial lkadafi.</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:23:42.5656346+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b6fc43c6-b935-44bb-a1dd-e7aa440511ee</ID_ARABIZIENTRY>
+    <ArabiziText>sarah oughnia 3alamia yassalm ou dima mghrib ou tahia l2osra l3alwia ou raia lmghribia ou shra lmghribia</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:23:51.5862966+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>598e7058-1cd1-4679-a213-c54d79bd3d9f</ID_ARABIZIENTRY>
+    <ArabiziText>alah 3la bladiiiiii zinaaaaaaa ou nmout fe bladi</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:23:59.401401+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>91984b12-d0a6-49b8-95ff-95348d08424e</ID_ARABIZIENTRY>
+    <ArabiziText>hadi rah mzbala machi malhama hhhhhhhhh allez vous faire foutre</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:24:07.4973134+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e21d3e77-2d93-4d71-a204-a9dbd1126ce1</ID_ARABIZIENTRY>
+    <ArabiziText>maliki nta hiba mn 3and lah .lhamdo lilah.</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:24:15.445387+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>dc8a9cd7-1400-4af2-8a4f-eb75defd8b62</ID_ARABIZIENTRY>
+    <ArabiziText>Malhama waara allah yeatihom saha</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:24:33.0614977+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>70f52df2-d55f-4c8d-80bd-4b422754b23c</ID_ARABIZIENTRY>
+    <ArabiziText>malhama wa3ra ou mekhdouma tbarkellah alikom ou tantmenna nkemlo lmalhamat bhal haka</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:24:48.3091244+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>538606eb-33db-4fc5-aaac-93e6552d9cad</ID_ARABIZIENTRY>
+    <ArabiziText>lay hfad lina malikna lghaliy we tWal lina F3amro amin yarbi l3alamin</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:24:56.5605812+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a72fae34-051e-4a89-b11e-eb138acf73cc</ID_ARABIZIENTRY>
+    <ArabiziText>slm sawt kain 3andi mais soura makainach</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:25:11.4702589+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>fe65a70b-1f20-4ef0-bf26-cb27cd7c3493</ID_ARABIZIENTRY>
+    <ArabiziText>bi asma2ika alhoussna ya hay ya 9ayum ya dou ljalali wa l ikram ya nour ya samad ya 9oudouss ya allah .</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:25:19.9138865+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>acb615a8-6ed0-4007-a28d-986bf9ea3fe0</ID_ARABIZIENTRY>
+    <ArabiziText>hda2 li bidawa o lmaghariba .</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:25:27.5805532+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>505b0457-f8a2-4b65-a5a1-889df4c651d6</ID_ARABIZIENTRY>
+    <ArabiziText>Ana lmaghreb ma3tani walo la ho9ou9 la khedma la walo la 9anoun</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:28:03.9383968+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1e941a0f-8afe-4d53-b3e0-bfe6d76d8105</ID_ARABIZIENTRY>
+    <ArabiziText>ach kansme3a had loughenya kayjini lbeka lah yensr sidna wykhlih lina yarebi twel 3omro wt7ftoo men l3in</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:28:20.5048953+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>e7dfe827-078c-46e0-b1bb-5f553cfc2e92</ID_ARABIZIENTRY>
+    <ArabiziText>allah khalikk lina asidena Mohamed 6 kolona tahete amerakkk</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:28:28.9335735+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>474a1fbb-e26d-48c3-b93f-efa8c6153c6a</ID_ARABIZIENTRY>
+    <ArabiziText>wa aara almaghrib. Almamlaka aljamila. Almamlaka alhurriya. Almamlaka alqadima. Annas tayyib ve latifun. Almamlaka min al malik al alima. Uhibb almaghrib.</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:28:47.8169574+01:00</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2c68ad79-5bf0-493b-b71a-b5abbe6f1f86</ID_ARABIZIENTRY>
+    <ArabiziText>a7ssan le roi howa mohamed 6 lah ya7afdo oytawalna 3omro	</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T13:42:15</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5de23e2d-e249-4e16-bee7-c58d89fb43fe</ID_ARABIZIENTRY>
+    <ArabiziText>Al maghrib zwwiin ghir mnin katchado al camera man fou9 :) waw kayban salama habbat a khouya camera lard wo dir liya chi malhama lafri33 ala douk chwanat lamhafrin wo zbal wo khnaz fi 9nat yallah barra3ni a khouya b9at fi kamera HD tal3a lasma dir malhama ala douk li sawbo chwanat houfara wo fellaha chouf halthom	</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T14:06:58</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1ecc1fa3-96ad-46cf-bad6-4898738fd91f</ID_ARABIZIENTRY>
+    <ArabiziText>Tfooo mrarba tjr ibrio itayhoo b bnat bladhom mais batma rf3at rayat maghrib osawtha rai333 tbarkalah 3liha li hssadha i3ma talahaw f chi haja dyal slah ouba3do manha acha3b lrdar tfoooo 3la blad	</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T14:20:55</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>21538a2f-f7bd-4f30-8834-b1b43d981d37</ID_ARABIZIENTRY>
+    <ArabiziText>reja3touna 1000 année llour tfou tfouuuuu...ach far9 binna o bin 9eddafi mi kan ki diro aghani bhal hado ighasslo bihom admigha t nass..	</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T14:45:24</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>cdaa40be-d216-4175-89a9-0df8200a306f</ID_ARABIZIENTRY>
+    <ArabiziText>bladna zwina lhamdolillah lkhirr mojodd lhamdolilah olah ikhalina lina malikna winsro lina gher katb9aw thadro 7na 7snn mn bzaff dyall dowal hmd lfa9irr wakell ontoma dawin	</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T14:50:27</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>973369c0-6759-4dbc-9c38-1f8e7ee03cb1</ID_ARABIZIENTRY>
+    <ArabiziText>Alah ikhalilna bladna dayman zahra.ndiro yad f yad o nabniw maghrib alghad	</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T15:29:35</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2797c88d-46e3-4b38-bd8a-b1fec331128c</ID_ARABIZIENTRY>
+    <ArabiziText>najat 3tabu lah ikhalik lina yarabi raki andi fl9alb ufadam	</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T15:52:48</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>652ee9e5-8047-4ea8-b49f-e7f2f5984e02</ID_ARABIZIENTRY>
+    <ArabiziText>kana9ta3 la vídeo o kanarja3 nasma3 dou3a2 sayda naima samih okhti wa oumi.	</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T16:02:41</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>0e9b2594-5b39-48f5-bd60-e5ac6e5e0f88</ID_ARABIZIENTRY>
+    <ArabiziText>allh ihfed baldi oyhfed wald baldi li rajla obnat baldi nissa2 men dahab oynssrna ohfad lia malkna okhlina f salam oyhfdna men 3idyan oli ma3jbnah ta3ma 3inih	</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T16:08:59</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ab523701-df46-43fe-a243-396d7bba2c67</ID_ARABIZIENTRY>
+    <ArabiziText>ta7ya lbladi wlad bladi l3zaz lah insar malikna lhbib lah ihafdo lina	</ArabiziText>
+    <ArabiziEntryDate>2017-09-26T16:13:50</ArabiziEntryDate>
   </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

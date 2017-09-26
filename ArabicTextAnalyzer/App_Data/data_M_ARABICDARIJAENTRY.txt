@@ -1046,11 +1046,6 @@
     <ArabicDarijaText>مع سوس برد كشكش و فرفش</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>f2321eb7-7f41-4b30-b091-c0311f4ddfdf</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>ec198325-4626-42dd-a309-c45ce6fee44c</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ثف مغاربة تجر يبغي طاح ب بنت بلادهم ولكن باتم رفعة غيط مغرب ساوث rai333 تباركله عليه لي حصده عم تلهو ف شي حاجة ديال سلاح بعد منها شعب الردار ثف على بلد</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>6cc8fb7b-2386-44b9-bd98-7aecd2d8015f</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>96967511-ed55-45bc-9afb-fdd3ed95d4a9</ID_ARABIZIENTRY>
     <ArabicDarijaText>هه نتوما غير حدوح هي المنظة ديالها طلع طلع نتوما لي كتحرقو دمكم</ArabicDarijaText>
@@ -2421,11 +2416,6 @@
     <ArabicDarijaText>لم سلطان عواشر مبروك كندخل لهاد الموقع بش نشارك ف لمسابقة مقلق فيه والو</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>b817e1cc-b4e8-4949-8d06-57740b65c997</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>db586b7f-bb0f-4143-ad35-1a719bfd8528</ID_ARABIZIENTRY>
-    <ArabicDarijaText>سلم لقيت نفترق زاغورا نشاله</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>a22681cd-e3e2-40f8-9f9f-a3a44ba58fb6</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>d93d8fed-f982-41ec-a2b4-4cdc7f079652</ID_ARABIZIENTRY>
     <ArabicDarijaText>ممكن شي حد يقول ليك إسم هاد ولد القادر اسهار</ArabicDarijaText>
@@ -2656,11 +2646,6 @@
     <ArabicDarijaText>ثمن</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>c5603a53-1be4-4cbb-9373-7a832ada979b</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>ff75a1eb-9944-4870-bf84-49e8d7e81341</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام حودت هدى , inwi في خدمتكم . باش تلغو تشغيل alautomatiqui ديال بدل صوتك , ماعليكم غير تغسل stop ف سمس لرقم 789 .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>2c555a96-839c-4a9b-b99b-a38be878f9ad</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>94212813-0028-49dd-b3e0-163fbbdca37a</ID_ARABIZIENTRY>
     <ArabicDarijaText>و ملي ما بقا لا جمهور لا ultra راه رئيس لي غادي يجي غادي دير الرجاء حيت قسر و غادي دير كيف دار حسبان اش غادي صوره غادي غلق فين هو جمهور 2009 2010 2011 ما كان حتى واحد يقدر يدو على الرجاء خاب معيور من كنت كتسمعها الآن ولا لعب لي جا كيسكت جمهور ... و تواجه معاه hit مشاو رجل .. .</ArabicDarijaText>
@@ -2749,5 +2734,145 @@
     <ID_ARABICDARIJAENTRY>094c85a2-419e-470f-b402-776262707d99</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>2ca69cf9-a239-4726-921f-26e936b65ae7</ID_ARABIZIENTRY>
     <ArabicDarijaText>السلام هتت هدى , inwi في خدمتكم . باش تلغو تشغيل alautomatiqui ديال بدل صوتك , ماعليكم غير ترسل stop ف سمس لرقم 789 .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0486131a-2465-40e7-b4fa-ddd76d183a64</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8593b0b4-bd36-48c2-aa8d-ba1b34b663af</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام لقيت نفترق زاغورا إن شاء الله</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4b5d0916-cd7b-4d61-b8fd-dfe1658a9b72</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>cffbdb6e-dac3-43a6-8cca-f629d5375476</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بلاتي زين وكل يوم تحل ....... زين ديالها ماشي عادي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>478c2be4-3833-4a8a-97e7-cfd9cb55af9d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c3b197bf-6cad-4a3d-a5b7-23804afcdbe0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ديما ديما ديما .... مغرب , الله يحفظ لن و يخلي لينا سيدنا محمد في</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>738f8c93-84e6-4b95-bf29-c4d12fe15a4f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f86f3de3-3338-45a6-b056-ed2d220784cf</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عزز علينا المغرب والمالك ولكن علاش هاد alpropanganda بحال ديال القذافي .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>aa0a7d39-a5d2-44e9-825e-f2901d13f00f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b6fc43c6-b935-44bb-a1dd-e7aa440511ee</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ساره غني علمة يسلم و تم مغرب و تحية لأسرة العلوية والراى المغربي والشر المغربية</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9dc78e1f-1320-46ff-9266-1c1f7977b185</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>598e7058-1cd1-4679-a213-c54d79bd3d9f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الله على بلاتي زين و نمت في بلدي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>bf466df1-dfe9-40bb-89c7-3d2607fca4db</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>91984b12-d0a6-49b8-95ff-95348d08424e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هاد راه مزبلة ماشي ملهما ههه لز فس فايرة فتره</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a2a7252e-4e91-412f-8beb-0bddb2b3bcd1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e21d3e77-2d93-4d71-a204-a9dbd1126ce1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ملك نتا حب من عند الله . الحمد لله .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>19cbbc36-9bef-4d03-8b0e-862af52f8a5e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>dc8a9cd7-1400-4af2-8a4f-eb75defd8b62</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ملحم ورا الله يتهم سه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6a90798e-adb2-4232-b78d-1387e6fdeb8c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>70f52df2-d55f-4c8d-80bd-4b422754b23c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مالهم واعر و مختوما تباركله لكم waltantmenna نكمل الملهمة بحال هاكة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>95b6482e-e329-40a8-9a52-82001c900487</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>538606eb-33db-4fc5-aaac-93e6552d9cad</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لا حفظ لينا ملكنا لغالي و طول لينا فعمر من يارب العالمين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c47ba2c1-68e3-4fc8-8847-8aff4ccfd867</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a72fae34-051e-4a89-b11e-eb138acf73cc</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام صوت كان عندي ولكن صورة ما كاين شي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>bcaf047b-3806-4b6b-bc61-df3031b384a4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fe65a70b-1f20-4ef0-bf26-cb27cd7c3493</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بي اسماك الحسن يا هي يا قايم يا د الجلالي والقرم يا نور يا سماد يا قدس يا الله .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>43c03aa7-84ed-411a-beb9-b86ee5efa81f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>acb615a8-6ed0-4007-a28d-986bf9ea3fe0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هذا لي بداو و المغاربة .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>eed33025-4f40-4e7a-b764-be52da96dddf</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>505b0457-f8a2-4b65-a5a1-889df4c651d6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا المغرب معطا والو لا حقوق لا خدمة لا والو لا قانون</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>733a3c84-260e-4d51-bb57-4176d81b7f89</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1e941a0f-8afe-4d53-b3e0-bfe6d76d8105</ID_ARABIZIENTRY>
+    <ArabicDarijaText>اش كنسمع هاد الغنية كايجيني لبك الله ينصر سيدنا وخليح لينا يارب طويل عمر wt7ftoo من لعن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>38315315-7d7b-439e-93d8-56b09eb3e0a9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e7dfe827-078c-46e0-b1bb-5f553cfc2e92</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الله خالك لينا استنى محمد 6 كلنا تحت ميرك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>20bc2951-c45b-440f-9c35-500f49a20610</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>474a1fbb-e26d-48c3-b93f-efa8c6153c6a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و را المغرب . المملكة الجميلة . المملكة الحرية . المملكة القديم . ناس ثايب في التيفون . المملكة من الملك للم . حب المغرب .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>da406d5e-7abd-436e-9055-4731b6069f37</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2c68ad79-5bf0-493b-b71a-b5abbe6f1f86</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حسن الملك هو محمد 6 الله يحفظ ويطولنا عمر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>be721ff5-2ab6-48d2-9dac-66155d8205f5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5de23e2d-e249-4e16-bee7-c58d89fb43fe</ID_ARABIZIENTRY>
+    <ArabicDarijaText>المغرب زوين غير منين كاتشدو الكاميرا من فوق :) وو كابا سلام هبط يا خويا كاميرا لغد و دير ليا شي مالهم الفرع لا دوك شواة المحفرين و زبل و خناز في قناة يالله برعني يا خويا بقات في الكاميرا hd طلع السما دير مالهم لا دوك لي سوبو شواة حفارا و فيلها شوف حالتهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e52396a8-4f79-4329-aec7-dbb0e9a129fd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1ecc1fa3-96ad-46cf-bad6-4898738fd91f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ثف مغاربة تجر يبغي طاح ب بنت بلادهم ولكن باتم رفعة غيط المغرب صوتها رائع تباركله عليه لي حصدها عم تلهو ف شي حاجة ديال سلاح بعد منها شعب الردار ثف على بلت</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>566bfcda-a5f6-46a8-89cb-8b6bc1a6d1a5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>21538a2f-f7bd-4f30-8834-b1b43d981d37</ID_ARABIZIENTRY>
+    <ArabicDarijaText>رجعتونا 1000 année الغ ثف طفو ... اش فرق بين و بين قذافي م كان كي دير غا بحال هؤلاء يغسل بيهم دمجه ة ناس . .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a4240918-c9a1-435e-916b-9f8b4f1b474f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>cdaa40be-d216-4175-89a9-0df8200a306f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بلادنا زوينة الحمدلله الخير موجود الحمدلله والله خلينا لينا ملكنا ونصر لينا غير كتبقاو تهدره نحن حسن من بزاف ديال دول الحمد لله الفقير والقيل نتوما داوين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0c1d5e89-a3b3-4647-829c-635c368d22ee</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>973369c0-6759-4dbc-9c38-1f8e7ee03cb1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الله خلالنا بلادنا ديما زهر . ندير يد ف يد و نبنيو المغرب لغات</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>188bd91f-9cf9-4341-8e3d-a4072b063a31</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2797c88d-46e3-4b38-bd8a-b1fec331128c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نجاة عتاب الله يخليك لينا يارب راك انت فلقلب وفدم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a6e04a99-0bc0-4557-9dab-e7ef74995f4f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>652ee9e5-8047-4ea8-b49f-e7f2f5984e02</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كنقطع لا فيديو و كنرجع نسمع دعاء سيد نعيمة سميح ختي و م .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0558dfde-99c5-4ad7-bfa5-391829255f71</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0e9b2594-5b39-48f5-bd60-e5ac6e5e0f88</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الله يحفظ بلد يحفظ ولد بلد لي رجل بنت بلد نساء من تحب وينصرنا حفظ لي ملكنا وخلينا ف السلام يحفظنا من عدان لي ماعجبناه تعم عينه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6a2fce23-1121-4c4a-ab20-2002b295cc08</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ab523701-df46-43fe-a243-396d7bba2c67</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تحية البلاد ولد بلاتي العزاز الله ينصر ملكنا الحبيب الله يحفظ لنا</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
