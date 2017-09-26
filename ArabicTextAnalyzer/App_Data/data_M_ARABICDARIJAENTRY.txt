@@ -2876,11 +2876,6 @@
     <ArabicDarijaText>ههه و على commentairates كيدايرين يا ربي , و مومو بدا ف سنتر d'appel و الآن كاتريب زبالة ديال الفلوس grâce يا سون تغفيل و سون acharnement و انتم عطينها غا alcritiques . فس parlez de copiage لرص قوة الا majorité de فس comportements , habitudes و mœurs سنة copier / كولير de l'occident   _   غا المنافق على قهوه .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>b57167cb-0fc4-4a4f-85df-36e261569a25</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>23d97e00-76b1-4d14-9b0a-1f9408c9de85</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ما تتعجبكم شي صراحة تتسبب فيه , انا مش مع بينقي او pjd ولكن جي طرف الهضرة ديال بصح . صراحة مات bghiha هاد . râ كلكم را ماشي زعيم را حتى انا mowaddaf عند مالك . ناس لي ت فهم في دستور عارفين qu'on يا ن monarchie exécutive ça فيث دير قوة ك آ ست الملك قوى ترك alpays ماشي monarchie symbolique او parlementaire , و سلا على نبى مالكم تتسبب في بنكيران hit كلكم صاغه</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>a519ab42-6126-418f-89f0-44d8437b03a7</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>afc29464-d6f1-4e35-9590-b67f4ad7db21</ID_ARABIZIENTRY>
     <ArabicDarijaText>انتم ما صالحين شي كاملين تحية الملك هو لي يحكم</ArabicDarijaText>
@@ -3234,5 +3229,10 @@
     <ID_ARABICDARIJAENTRY>d2969255-172f-4ad8-8cd2-6f493f2758ca</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>fa08b3b4-8498-4e3b-bf34-36883b01bbc2</ID_ARABIZIENTRY>
     <ArabicDarijaText>هاديك ماشي الكلام ديال كلمة ديال ورقة و ستيلو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>92d3c066-b86e-467f-a23e-140a4a7c0db4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>96ffa837-b7e3-4b8f-94a5-d5dda9a4e498</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ما تتعجبكم شي صراحة تتسبب فيه , انا مش مع بينقي او pjd ولكن جي طرف الهضرة ديال بصح . صراحة مات بغيها هاد . râ كلكم را ماشي زعم را حتى انا موظف عند مالك . ناس لي ت فهم في دستور عارفين qu'on يا ن monarchie exécutive ça فية دير قوة ك 1 ست الملك قوى ترك alpays ماشي monarchie symbolique او parlementaire , و سلا على نب مالكم تتسبب في بنكيران hit كلكم صاغه</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
