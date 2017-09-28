@@ -73,12 +73,22 @@ namespace ArabicTextAnalyzer.Business.Provider
                 String typeEntity;
                 if (new TextFrequency().NERStartsWithWord_brands(word, out typeEntity))
                 {
-                    entities = entities.Concat(new[] { new TextEntity
+                    // add only if not already in entities
+                    // otherwise increment
+                    TextEntity existingEntity = entities.First(m => m.Mention == word);
+                    if (existingEntity == null)
+                    {
+                        entities = entities.Concat(new[] { new TextEntity
                             {
                                 Count = 1,
                                 Mention = word,
                                 Type = typeEntity
                             } });
+                    }
+                    else
+                    {
+                        existingEntity.Count++;
+                    }
                 }
             }
             foreach (var entity in entities)
