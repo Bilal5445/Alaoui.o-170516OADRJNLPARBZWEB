@@ -127,17 +127,6 @@ namespace ArabicTextAnalyzer.Controllers
             xs.Reverse();
 
             // themes / main entities : send list of main tags
-            // load/deserialize list of M_ARABICDARIJAENTRY_TEXTENTITY
-            /*List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
-            var path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_TEXTENTITY).Name + ".txt");
-            var serializer = new XmlSerializer(textEntities.GetType());
-            if (System.IO.File.Exists(path))
-            {
-                using (var reader = new System.IO.StreamReader(path))
-                {
-                    textEntities = (List<M_ARABICDARIJAENTRY_TEXTENTITY>)serializer.Deserialize(reader);
-                }
-            }*/
             var mainEntities = textEntities.Where(m => m.TextEntity.Type == "MAIN ENTITY");
             mainEntities = DistinctBy(mainEntities, m => m.TextEntity.Mention);
 
@@ -306,6 +295,42 @@ namespace ArabicTextAnalyzer.Controllers
             new TextPersist().Serialize_Delete_M_ARABIZIENTRY_Cascading(arabiziWordGuid, dataPath);
 
             //
+            return RedirectToAction("Index");
+        }
+
+        // This action applies a new main tag/entity/theme/keyword to a post
+        [HttpGet]
+        public ActionResult Train_ApplyNewMainTag(Guid idArabicDarijaEntry, String mainEntity)
+        {
+            // load M_ARABICDARIJAENTRY_TEXTENTITY
+            var dataPath = Server.MapPath("~/App_Data");
+            var arabicDarijaEntryTextEntities = new TextPersist().Deserialize<M_ARABICDARIJAENTRY_TEXTENTITY>(dataPath);
+
+            // Check before if already main entity
+            if (arabicDarijaEntryTextEntities.Find(m => m.ID_ARABICDARIJAENTRY == idArabicDarijaEntry && m.TextEntity.Mention == mainEntity && m.TextEntity.Type == "MAIN ENTITY") != null)
+            {
+                TempData["showAlertWarning"] = true;
+                TempData["msgAlert"] = "'" + mainEntity + "' is already MAIN ENTITY for the post";
+                return RedirectToAction("Index");
+            }
+
+            // apply main tag
+            arabicDarijaEntryTextEntities.Add(new M_ARABICDARIJAENTRY_TEXTENTITY
+            {
+                ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
+                ID_ARABICDARIJAENTRY = idArabicDarijaEntry,
+                TextEntity = new TextEntity
+                {
+                    Count = 1,
+                    Mention = mainEntity,
+                    Type = "MAIN ENTITY"
+                }
+            });
+            new TextPersist().SerializeBack_dataPath(arabicDarijaEntryTextEntities, dataPath);
+
+            //
+            TempData["showAlertSuccess"] = true;
+            TempData["msgAlert"] = "'" + mainEntity + "' is now MAIN ENTITY for the post";
             return RedirectToAction("Index");
         }
 
