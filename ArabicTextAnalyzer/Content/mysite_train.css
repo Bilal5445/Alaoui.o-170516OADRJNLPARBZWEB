@@ -90,6 +90,10 @@ td.arabic-text {
     direction: rtl;
 }
 
+td.arabic-text mark, td.arabic-text .mark {
+    padding: 0;
+}
+
 td.arabizi-text {
     direction: ltr;
 }
