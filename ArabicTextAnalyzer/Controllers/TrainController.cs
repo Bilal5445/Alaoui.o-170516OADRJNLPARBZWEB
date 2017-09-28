@@ -588,9 +588,9 @@ namespace ArabicTextAnalyzer.Controllers
                     // Entity extraction from rosette (https://api.rosette.com/rest/v1/)
                     var textEntityExtraction = new TextEntityExtraction();
                     var entities = textEntityExtraction.GetEntities(arabicText);
-
+                    
                     // NER manual extraction
-                    new TextEntityExtraction().NerManualExtraction(arabicText, ref entities, arabicDarijaEntry.ID_ARABICDARIJAENTRY, Server);
+                    new TextEntityExtraction().NerManualExtraction(arabicText, /*ref*/ entities, arabicDarijaEntry.ID_ARABICDARIJAENTRY, Server);
                 }
 
                 //

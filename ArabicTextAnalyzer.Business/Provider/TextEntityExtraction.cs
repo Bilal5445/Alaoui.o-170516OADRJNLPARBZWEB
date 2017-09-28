@@ -65,8 +65,27 @@ namespace ArabicTextAnalyzer.Business.Provider
             return returnValue;
         }
 
-        public void NerManualExtraction(String arabicText, ref IEnumerable<TextEntity> entities, Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY, HttpServerUtilityBase Server)
+        public void NerManualExtraction(String arabicText, /*ref*/ IEnumerable<TextEntity> entities, Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY, HttpServerUtilityBase Server)
         {
+            // clean 1 rosette ners : reset counter
+            foreach (var entity in entities)
+                entity.Count = 0;
+            // clean 2 rosette ners : drop self containing
+            foreach (var entity in entities)
+            {
+                var entitiesToDrop = entities.ToList().FindAll(m => m.Mention != entity.Mention && m.Mention.Contains(entity.Mention));
+                // if (entitiesToDrop.Count == 1)
+                foreach (var entityToDrop in entitiesToDrop)
+                {
+                    // var entityToDrop = entities.SingleOrDefault(m => m.Mention != entity.Mention && m.Mention.Contains(entity.Mention));
+                    // if (entityToDrop != null)
+                    entityToDrop.Type = "TODROP";
+                }
+            }
+            var lentities = entities.ToList();
+            lentities.RemoveAll(m => m.Type == "TODROP");
+            // lentitities.to
+
             // NER manual extraction
             foreach (var word in arabicText.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
             {
@@ -75,15 +94,21 @@ namespace ArabicTextAnalyzer.Business.Provider
                 {
                     // add only if not already in entities
                     // otherwise increment
-                    TextEntity existingEntity = entities.First(m => m.Mention == word);
+                    TextEntity existingEntity = lentities.First(m => m.Mention == word);
                     if (existingEntity == null)
                     {
-                        entities = entities.Concat(new[] { new TextEntity
+                        /*entities = entities.Concat(new[] { new TextEntity
                             {
                                 Count = 1,
                                 Mention = word,
                                 Type = typeEntity
-                            } });
+                            } });*/
+                        lentities.Add(new TextEntity
+                        {
+                            Count = 1,
+                            Mention = word,
+                            Type = typeEntity
+                        });
                     }
                     else
                     {
@@ -91,7 +116,7 @@ namespace ArabicTextAnalyzer.Business.Provider
                     }
                 }
             }
-            foreach (var entity in entities)
+            foreach (var entity in lentities)
             {
                 var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
                 {
