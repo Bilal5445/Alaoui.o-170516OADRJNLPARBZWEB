@@ -511,7 +511,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         #region BACK YARD BO
-        private /*void*/ Guid train(M_ARABIZIENTRY arabiziEntry)
+        private Guid train(M_ARABIZIENTRY arabiziEntry)
         {
             // Arabizi to arabic script via direct call to perl script
             var textConverter = new TextConverter();
