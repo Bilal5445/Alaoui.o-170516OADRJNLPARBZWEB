@@ -94,7 +94,7 @@ namespace ArabicTextAnalyzer.Business.Provider
                 {
                     // add only if not already in entities
                     // otherwise increment
-                    TextEntity existingEntity = lentities.First(m => m.Mention == word);
+                    TextEntity existingEntity = lentities.FirstOrDefault(m => m.Mention == word);
                     if (existingEntity == null)
                     {
                         /*entities = entities.Concat(new[] { new TextEntity
