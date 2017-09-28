@@ -3221,11 +3221,6 @@
     <ArabicDarijaText>و نوض تقاعد رحم عقو بيكم</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>df93665a-a0db-4082-9ccc-8fb072c02c05</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>10feeb4c-811b-494c-b066-763f58c8e54d</ID_ARABIZIENTRY>
-    <ArabicDarijaText>سمحولي بنكيران بلا فيه الهضرة machoft والو اش دار ل hôpitaux باقين بحال الاول المسكنة عايش كي القلب فلس hôpitaux ولا فلس urgences الضغط المغربي كيف كيف رشوا partout ول حجر سالغي ول جر نتع المواطن المسكنة هدية او هرج اش دار بنكيران الشعب دار ليه صراحة مشى لينا شبعان mayhasse ب جعان .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>d2969255-172f-4ad8-8cd2-6f493f2758ca</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>fa08b3b4-8498-4e3b-bf34-36883b01bbc2</ID_ARABIZIENTRY>
     <ArabicDarijaText>هاديك ماشي الكلام ديال كلمة ديال ورقة و ستيلو</ArabicDarijaText>
@@ -3234,5 +3229,10 @@
     <ID_ARABICDARIJAENTRY>5e0371bc-2171-4e50-b8ff-41af8cbed904</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>cb71e71a-0684-4c26-9c62-d03135b30d95</ID_ARABIZIENTRY>
     <ArabicDarijaText>ما تتعجبكم شي صراحة تتسبب فيه , انا مش مع بينقي او pjd ولكن جي طرف الهضرة ديال بصح . صراحة مات بغيها هاد . râ كلكم را ماشي زعم را حتى انا موظف عند مالك . ناس لي ت فهم في دستور عارفين qu'on يا ن monarchie exécutive ça فيوث دير قوة ك آ ست الملك قوى ترك البلاد ماشي monarchie symbolique او parlementaire , و سلا على نبي مالكم تتسبب في بنكيران hit كلكم صاغه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ac3c3ece-7532-432d-b336-3bd250b87d3e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2a81b834-21f2-49e5-a931-809109f85adb</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سمحولي بنكيران بلا فيه الهذرة ماشوفت والو اش دار ل hôpitaux باقين بحال الاول المسكينة عايش كي القلب فليس hôpitaux ولا فليس urgences الضغط المغربي كيف كيف رشوة partout ول حجرة salaire ول جر نتع المواطن المسكينة هدية او حراج اش دار بنكيران الشعب دار ليه صراحة مشى لينا شبعان مايحس ب جعانة .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
