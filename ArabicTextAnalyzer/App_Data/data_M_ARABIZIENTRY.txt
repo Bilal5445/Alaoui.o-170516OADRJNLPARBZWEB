@@ -2890,11 +2890,6 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-09-26T16:50:00.9758433+00:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>31c68efa-d5b2-4ce1-8f0d-2ad50afbed69</ID_ARABIZIENTRY>
-    <ArabiziText>Saraha man 3anadi ran9olaha lamraba kamlin li 3ando nafas lablado ikabri lablado maroc mahtama maroc 0%0 walo mafiha la 9non la hokoma i sarha lahkoma kolha bahl bahal makin laha9 la 9non achno tabdal falmrib walo ziro walo imatdich etabdal lamrib ila bari tabadl ki5aso cha3ab jadid hitch ch3ab kolo mardich tabdal koloche 3ando tafkir 5ib i sa3ibbbb bazaffff bach ita9ad had lablad hitch kolcheee li 3ando flos maki9na3ach i kisra9 fch3ab i ch3ab marib 3ajbhom lahl iba9in homa i3amrhom ifi9o wa5a rade tabro tabdolo rais lahkoma ma3amrkom taalmo lamrib i tabadl ila matbdolotch natoma kamlin marib kamlo la9non 3amro tabdal iba9a dima ta5lof i himaj i fakar la5naza nazidkom ila maknch la5dama 3anad lahkoma mardech irabho laflos i natoma rade tafhomo lab9i man raskom inzidkom malikona jalalat malik mohamad sadis howa ma9adrch maskin ihadar hitch ila nad ehadar i 9ol laha9 rade 9tloh lamraba dilna hitch lahkoma 3amraha tabadl lah i5od fihom laha9 yarbi homa li 5arjo 3ala marib i3amro tabadl</ArabiziText>
-    <ArabiziEntryDate>2017-09-26T16:50:09.5019161+00:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>c5bb6632-f4ee-45bd-b732-269a9897023f</ID_ARABIZIENTRY>
     <ArabiziText>Ana wllah bkite alihe bdmoue</ArabiziText>
     <ArabiziEntryDate>2017-09-26T16:50:31.6857352+00:00</ArabiziEntryDate>
@@ -3230,13 +3225,18 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-09-26T17:02:30.0556441+00:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>cb71e71a-0684-4c26-9c62-d03135b30d95</ID_ARABIZIENTRY>
-    <ArabiziText>matate3jebkomch saraha tatsebbo fih, ana machi m3a benky ola pjd mais je trouve lhadra dyalo bessah. saraha mati bghiha had. râ galikom rani machi za3im rani ta ana mowaddaf 3ind malik. nass li ti fahmou fi dostour 3arfine qu'on a une monarchie exécutive ça veut dire que c'est le roi qui dirige le pays machi monarchie symbolique ola parlementaire, ewa sla 3la nbi malkom tatsebbo fi benkirane hit galikom saraha	</ArabiziText>
-    <ArabiziEntryDate>2017-09-26T20:00:12</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>2a81b834-21f2-49e5-a931-809109f85adb</ID_ARABIZIENTRY>
     <ArabiziText>samhouli benkirane yballi fih ilhadra machoft walou ach dar les hôpitaux bakyine bhal lawal lmaskine 3ayech ki lkalb fles hôpitaux wla fles urgences l idart lmaghribiya kif kif rachwa partout wal hogra salaire wal ojra nta3 lmowaten lmiskine haddit wala haraj ach dar benkirane licha3b dar lih saraha machi lina chab3ane mayhasse bi ji3ane .	</ArabiziText>
     <ArabiziEntryDate>2017-09-28T11:30:53</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>bd1003fb-2c6f-4979-ad01-f7102808e6fe</ID_ARABIZIENTRY>
+    <ArabiziText>matate3jebkomch saraha tatsebbo fih, ana machi m3a benky ola pjd mais je trouve lhadra dyalo bessah. saraha mati bghiha had. râ galikom rani machi za3im rani ta ana mowaddaf 3ind malik. nass li ti fahmou fi dostour 3arfine qu'on a une monarchie exécutive ça veut dire que c'est le roi qui dirige le pays machi monarchie symbolique ola parlementaire, ewa sla 3la nbi malkom tatsebbo fi benkirane hit galikom saraha	</ArabiziText>
+    <ArabiziEntryDate>2017-09-28T13:26:05</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5c754ca4-28a2-4f7d-80b2-53c50e8a0864</ID_ARABIZIENTRY>
+    <ArabiziText>Saraha man 3anadi ran9olaha lamraba kamlin li 3ando nafas lablado ikabri lablado maroc mahtama maroc 0%0 walo mafiha la 9non la hokoma i sarha lahkoma kolha bahl bahal makin laha9 la 9non achno tabdal falmrib walo ziro walo imatdich etabdal lamrib ila bari tabadl ki5aso cha3ab jadid hitch ch3ab kolo mardich tabdal koloche 3ando tafkir 5ib i sa3ibbbb bazaffff bach ita9ad had lablad hitch kolcheee li 3ando flos maki9na3ach i kisra9 fch3ab i ch3ab marib 3ajbhom lahl iba9in homa i3amrhom ifi9o wa5a rade tabro tabdolo rais lahkoma ma3amrkom taalmo lamrib i tabadl ila matbdolotch natoma kamlin marib kamlo la9non 3amro tabdal iba9a dima ta5lof i himaj i fakar la5naza nazidkom ila maknch la5dama 3anad lahkoma mardech irabho laflos i natoma rade tafhomo lab9i man raskom inzidkom malikona jalalat malik mohamad sadis howa ma9adrch maskin ihadar hitch ila nad ehadar i 9ol laha9 rade 9tloh lamraba dilna hitch lahkoma 3amraha tabadl lah i5od fihom laha9 yarbi homa li 5arjo 3ala marib i3amro tabadl	</ArabiziText>
+    <ArabiziEntryDate>2017-09-28T13:53:13</ArabiziEntryDate>
   </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

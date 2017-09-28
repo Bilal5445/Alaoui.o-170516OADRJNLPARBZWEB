@@ -2886,11 +2886,6 @@
     <ArabicDarijaText>وحاطة شحال من عام و نتا رئيس الحكومة . شنو شفنا منكم . انتم شبعان بنكيران . نحن شعب لوكل العصا والمهتمة حقنا . ما إذا مشيت نتا غادي يجي واحد اخر كلشي بحال بحال</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>d925afb4-b6ef-4fac-b4fd-31a746df1e6c</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>31c68efa-d5b2-4ce1-8f0d-2ad50afbed69</ID_ARABIZIENTRY>
-    <ArabicDarijaText>صراحة من عند ran9olaha المربى كاملين لي عندو نفس البلاد اكبر البلاد المغرب مهتم المغرب 0 % 0 والو مافيها لا قنون لا حكومة ا ساره الحكومة كلها بحل بحال مكين الحق لا قنون شنو تبذل falmrib والو زيرو والو imatdich يتبدل المغيب إذا باغي تبادل ki5aso شعب جديد هيتسه شعب كل ما رد شي تبذل كلشي عند تفكر خيب ا صعيب بزاف باش تقد هاد البلاد هيتسه كلشي لي عندو فلوس ما ki9na3a شي ا kisra9 فشعب ا شعب مغيب عجبهم الحل باقين هوما عمرهم فقه واخا غادي ثابر تبذله راس الحكومة ma3amrkom تعلم المغيب ا تبادل إذا ما تبدلت شي نتوما كاملين مغيب كامل القنون عمر تبذل بقا ديما تخلف ا همج ا فقر ala5naza nazidkom إذا ما كن شي الخدمة عند الحكومة ما رد شي رابح لفلوس ا نتوما غادي تفهم لبقي من راسكم inzidkom ملكنا جلالة مالك محمد سدس هو ما قادر شي مسكين حاضر هيتسه إذا نات حاضر ا قول الحق غادي قتله المربى دلنا هيتسه الحكومة عمرها تبادل الله يخود فيهم الحق يارب هم لي خرج على مغيب عمر تبذل</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>b9af43a6-8160-4d4a-bf24-447be6d72e66</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>c5bb6632-f4ee-45bd-b732-269a9897023f</ID_ARABIZIENTRY>
     <ArabicDarijaText>انا ولله بقيت ليه بذمة</ArabicDarijaText>
@@ -3226,13 +3221,18 @@
     <ArabicDarijaText>هاديك ماشي الكلام ديال كلمة ديال ورقة و ستيلو</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>5e0371bc-2171-4e50-b8ff-41af8cbed904</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>cb71e71a-0684-4c26-9c62-d03135b30d95</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ما تتعجبكم شي صراحة تتسبب فيه , انا مش مع بينقي او pjd ولكن جي طرف الهضرة ديال بصح . صراحة مات بغيها هاد . râ كلكم را ماشي زعم را حتى انا موظف عند مالك . ناس لي ت فهم في دستور عارفين qu'on يا ن monarchie exécutive ça فيوث دير قوة ك آ ست الملك قوى ترك البلاد ماشي monarchie symbolique او parlementaire , و سلا على نبي مالكم تتسبب في بنكيران hit كلكم صاغه</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>ac3c3ece-7532-432d-b336-3bd250b87d3e</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>2a81b834-21f2-49e5-a931-809109f85adb</ID_ARABIZIENTRY>
     <ArabicDarijaText>سمحولي بنكيران بلا فيه الهذرة ماشوفت والو اش دار ل hôpitaux باقين بحال الاول المسكينة عايش كي القلب فليس hôpitaux ولا فليس urgences الضغط المغربي كيف كيف رشوة partout ول حجرة salaire ول جر نتع المواطن المسكينة هدية او حراج اش دار بنكيران الشعب دار ليه صراحة مشى لينا شبعان مايحس ب جعانة .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>87d3507a-6f62-41a5-97c7-19f9a423e250</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>bd1003fb-2c6f-4979-ad01-f7102808e6fe</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ما تتعجبكم شي صراحة تتسبب فيه , انا مش مع بينقي او pjd ولكن جي طرف الهذرة ديال بصح . صراحة مات بغيها هاد . râ كلكم را ماشي زعم را حتى انا موظف عند مالك . ناس لي ت فهم في دستور عارفين qu'on يا ن monarchie exécutive ça فيث دير قوة ك آ ست الملك قوى ترك البلاد ماشي monarchie symbolique او parlementaire , و صلى على نبي مالكم تتسبب في بنكيران hit كلكم صاغه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8fce1f31-52e2-46ef-a688-e2109722b399</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5c754ca4-28a2-4f7d-80b2-53c50e8a0864</ID_ARABIZIENTRY>
+    <ArabicDarijaText>صراحة من عند غنقلها للمغاربة كاملين لي عندو نفس البلاد اكبر البلاد المغرب مهتم المغرب 0 % 0 والو مافيها لا قنون لا حكم ا ساره الحكومة كلها بحل بحال مكين الحق لا قنون شنو تبدل في المغرب والو زيرو والو imatdich يتبدل المغرب إذا باغي تبادل كيخصو شعب جديد هتش شعب كل ما رد شي تبدل كلشي عند تفكر خيب ا صعيب بزاف باش تقد هاد البلاد هتش كلشي لي عندو فلوس ما كيقنع شي ا kisra9 فشعب ا شعب المغرب عاجبهم الحل باقين هوما اعمرهم فقه واخا غادي ثابر تبدله راس الحكومة ماعمركم تعلم المغرب ا تبادل إذا ما تبدلت شي نتوما كاملين المغرب كامل القنون عمر تبدل بقا تم تخلف ا همج ا فكر الخنازة نزيدكم إذا ما كن شي الخدمة عند الحكومة ما رد شي رابح لفلوس ا نتوما غادي تفهم البق من راسكم نزيدكم ملكنا جلالة مالك محمد سادس هو ما قادر شي ماسكين هادر هتش إذا نظ هادر ا قول الحق غادي قتلوه للمغاربة ذلنا هتش الحكومة عمره تبادل الله يخود فيهم الحق يارب هم لي خرج على المغرب عمر تبدل</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
