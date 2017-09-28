@@ -2920,19 +2920,9 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-09-26T16:51:22.936662+00:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>7b7c641c-caab-4504-83e6-78716b6f8359</ID_ARABIZIENTRY>
-    <ArabiziText>nari lah ihdina 7na ila ta7 chiwa7d bnidina kntkrfso 3lih 7ram wlah...o3laach haad alhaadra hattta ldabaa 3aad kaaygoolha</ArabiziText>
-    <ArabiziEntryDate>2017-09-26T16:51:31.7782926+00:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>a3eb8189-4865-42e9-88f7-e5685df1c81f</ID_ARABIZIENTRY>
     <ArabiziText>DSSARA DIAL WALOU. WACH WALLA KAY DHAK 3LA LE ROI OUVERTEMENT. YEMCHI 9AWAD KAYEN MA7SSAN MENOU</ArabiziText>
     <ArabiziEntryDate>2017-09-26T16:51:42.3974981+00:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>7b0f7722-a520-4d58-838a-0da519741629</ID_ARABIZIENTRY>
-    <ArabiziText>hteramatii l said Raeess rank f lklb wa said Raeess rah kandhio mhak Lil o Nhar hna f holanda mhak oklchi lmgarba f lrhorba rah kadho mhak laah insrak</ArabiziText>
-    <ArabiziEntryDate>2017-09-26T16:51:53.4980093+00:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>699bbd74-8ff3-4b72-923c-2839f88b5e14</ID_ARABIZIENTRY>
@@ -3063,11 +3053,6 @@ inshallah khir ya rab</ArabiziText>
     <ID_ARABIZIENTRY>203d0b63-52d4-4f6f-b48f-d9aaf06854df</ID_ARABIZIENTRY>
     <ArabiziText>DSSARA DIAL WALOU. WACH WALLA KAY DHAK 3LA LE ROI OUVERTEMENT. YEMCHI 9AWAD KAYEN MA7SSAN MENOU</ArabiziText>
     <ArabiziEntryDate>2017-09-26T16:56:35.4430231+00:00</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>dbc6348a-be4b-46ca-b0cd-0c08672a7332</ID_ARABIZIENTRY>
-    <ArabiziText>hteramatii l said Raeess rank f lklb wa said Raeess rah kandhio mhak Lil o Nhar hna f holanda mhak oklchi lmgarba f lrhorba rah kadho mhak laah insrak</ArabiziText>
-    <ArabiziEntryDate>2017-09-26T16:56:45.134357+00:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>a32a5b69-4de8-4eb8-9d1d-44a0d6949c33</ID_ARABIZIENTRY>
@@ -3238,5 +3223,15 @@ inshallah khir ya rab</ArabiziText>
     <ID_ARABIZIENTRY>f3d51c08-7365-4122-89a3-a8b30ace92a1</ID_ARABIZIENTRY>
     <ArabiziText>Saraha man 3anadi ran9olaha lamraba kamlin li 3ando nafas lablado ikabri lablado maroc mahtama maroc 0%0 walo mafiha la 9non la hokoma i sarha lahkoma kolha bahl bahal makin laha9 la 9non achno tabdal falmrib walo ziro walo imatdich etabdal lamrib ila bari tabadl ki5aso cha3ab jadid hitch ch3ab kolo mardich tabdal koloche 3ando tafkir 5ib i sa3ibbbb bazaffff bach ita9ad had lablad hitch kolcheee li 3ando flos maki9na3ach i kisra9 fch3ab i ch3ab marib 3ajbhom lahl iba9in homa i3amrhom ifi9o wa5a rade tabro tabdolo rais lahkoma ma3amrkom taalmo lamrib i tabadl ila matbdolotch natoma kamlin marib kamlo la9non 3amro tabdal iba9a dima ta5lof i himaj i fakar la5naza nazidkom ila maknch la5dama 3anad lahkoma mardech irabho laflos i natoma rade tafhomo lab9i man raskom inzidkom malikona jalalat malik mohamad sadis howa ma9adrch maskin ihadar hitch ila nad ehadar i 9ol laha9 rade 9tloh lamraba dilna hitch lahkoma 3amraha tabadl lah i5od fihom laha9 yarbi homa li 5arjo 3ala marib i3amro tabadl	</ArabiziText>
     <ArabiziEntryDate>2017-09-28T17:58:01</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>faada52a-eaaa-41ad-a067-8dfd28be7516</ID_ARABIZIENTRY>
+    <ArabiziText>nari lah ihdina 7na ila ta7 chiwa7d bnidina kntkrfso 3lih 7ram wlah...o3laach haad alhaadra hattta ldabaa 3aad kaaygoolha	</ArabiziText>
+    <ArabiziEntryDate>2017-09-28T18:15:38</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>a6500e28-2567-4e17-b720-500d990ba4a2</ID_ARABIZIENTRY>
+    <ArabiziText>hteramatii l said Raeess rank f lklb wa said Raeess rah kandhio mhak Lil o Nhar hna f holanda mhak oklchi lmgarba f lrhorba rah kadho mhak laah insrak	</ArabiziText>
+    <ArabiziEntryDate>2017-09-28T18:43:39</ArabiziEntryDate>
   </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

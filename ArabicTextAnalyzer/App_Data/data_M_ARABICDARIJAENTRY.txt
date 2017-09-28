@@ -2916,19 +2916,9 @@
     <ArabicDarijaText>بلات ديال ولاد القحاب باراكا من تزار ( غدا تفرقع ) بنادم بحال البط</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>ab37f94a-9d24-4d65-a46a-ddf9ef97086e</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>7b7c641c-caab-4504-83e6-78716b6f8359</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ناري الله حضينة نحن إذا طاح شيواحد بنيتنا kntkrfso عليه حرام وله ... علاش هاد الهضرة حتى التابع عاد كيقولها</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>4c9910ac-ebfa-45c3-a4bd-1318005d4856</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>a3eb8189-4865-42e9-88f7-e5685df1c81f</ID_ARABIZIENTRY>
     <ArabicDarijaText>دسر ديال والو . هل ولا كي ضحك على الملك walvertement . يمشي قوات كاين محسن من</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>21869424-3d16-478d-8938-992bfc8964ee</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>7b0f7722-a520-4d58-838a-0da519741629</ID_ARABIZIENTRY>
-    <ArabicDarijaText>hteramatii السيد راس راك ف القلب والسد راس راه كادحي محق ليل والنهار هنا ف هولندا محق كلشي المغرب ف alrhorba راه كده محق الله انسرق</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>589a8503-fd76-4352-8134-308f3dce564c</ID_ARABICDARIJAENTRY>
@@ -3059,11 +3049,6 @@
     <ID_ARABICDARIJAENTRY>5fa4715f-310c-4245-ba1b-872a82c3de8a</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>203d0b63-52d4-4f6f-b48f-d9aaf06854df</ID_ARABIZIENTRY>
     <ArabicDarijaText>دسر ديال والو . هل ولا كي ضحك على الملك walvertement . يمشي قوات كاين محسن من</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>093a3519-61b1-442e-ab12-83c2e6bef485</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>dbc6348a-be4b-46ca-b0cd-0c08672a7332</ID_ARABIZIENTRY>
-    <ArabicDarijaText>hteramatii السيد راس راك ف القلب ولست راس راه كادحي محق ليل والنهار هنا ف هولندا محق كلشي المغرب ف alrhorba راه كده محق الله نسرق</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>0b0f78c2-a537-4742-97a4-e5019c7b6b0f</ID_ARABICDARIJAENTRY>
@@ -3234,5 +3219,15 @@
     <ID_ARABICDARIJAENTRY>1d13c20c-5741-4e55-8f96-1b5fd33a7863</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>f3d51c08-7365-4122-89a3-a8b30ace92a1</ID_ARABIZIENTRY>
     <ArabicDarijaText>صراحة من عند غنقلها المغاربة كاملين لي عندو نفس البلاد كبر البلاد المغرب مهتم المغرب 0 % 0 والو مافيها لا قنن لا حكومة 1 ساره الحكومة كلها بحل بحال ماكين الحق لا قنن شنو تبدل في المغرب والو زيرو والو و ما تدى شي يتبدل المغرب إذا باغي تبادل كيخصو شعب جديد حيث شعب كل ما رد شي تبدل كلشي عند تفكر خيب 1 صعيب بزاف باش تقد هاد البلاد حيث كلشي لي عندو فلوس ما كيقنع شي 1 كيسرق فشعب 1 شعب المغرب عجبهم الحل باقين هوما عمرهم فقه واخا غادي تبر تبدله راس الحكومة ماعمركم تعلم المغرب 1 تبادل إذا ما تبدلت شي انتم كاملين المغرب كامل القنون عمر تبدل بقا ديما تخلف 1 همج 1 فقر الخنازة نزيدكم إذا ما كن شي الخدمة عند الحكومة ما رد شي رابح لفلوس 1 انتم غادي تفهم البق من راسكم نزيدكم ملكنا جلالة ملك محمد سادس هو ما قادر شي ماسكين حضر حيث إذا نات حضر 1 قول الحق غادي قتلوه المغاربة ديالنا حيث الحكومة عمرها تبادل الله يخود فيهم الحق يارب هم لي خرج على المغرب عمر تبدل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ef0c0c74-9afc-4503-99d8-5d19443bb7c9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>faada52a-eaaa-41ad-a067-8dfd28be7516</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ناري الله وحدين نحن إذا طاح شيواحد بنتين كنتكرفسو عليه حرام والله ... علاش هاد الهذرة حتى التابع عاد كيقولها</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5e7fb3f8-fb29-4966-b041-535881a906b4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a6500e28-2567-4e17-b720-500d990ba4a2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حتراماتي السيد راس راك ف الكلب والست راس راه كادحي محك ليل والنهار هنا ف هولندا محك كلشي المغاربة ف الغرب راه كده محك الله نسرق</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
