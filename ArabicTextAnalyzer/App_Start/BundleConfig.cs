@@ -33,7 +33,8 @@ namespace ArabicTextAnalyzer
             bundles.Add(new StyleBundle("~/Content/css_train").Include(
                       "~/Content/mysite_train.css",
                       "~/Content/mysite_train_themepanel.css",
-                      "~/Content/mysite_train_keywordfiltering.css"
+                      "~/Content/mysite_train_keywordfiltering.css",
+                      "~/Content/mysite_train_bulkimport.css"
                       ));
 
             // related to mark in tables

@@ -1,0 +1,4 @@
+﻿/* quick & dirty hack : for the main tag form input to not push warning messsage if any to the 2nd line */
+#mainEntity {
+    width: 130px;
+}
