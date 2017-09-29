@@ -59,6 +59,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             // post-process (eg : hna => nahnou)
             output = Postprocess_slash_r_slash_n(output);
             output = Postprocess_حنا_to_نحن(output);
+            output = Postprocess_هاد_to_هذا(output);
 
             return output;
         }
@@ -232,7 +233,12 @@ namespace ArabicTextAnalyzer.Business.Provider
         {
             return arabic.Replace("حنا", "نحن");
         }
-        
+
+        public string Postprocess_هاد_to_هذا(string arabic)
+        {
+            return arabic.Replace("هاد", "هذا");
+        }
+
         #endregion
 
         static string RemoveOtherSymbols(string text)
