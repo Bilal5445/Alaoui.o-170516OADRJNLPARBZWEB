@@ -126,7 +126,9 @@ namespace ArabicTextAnalyzer.Business.Provider
                 var nertype = wordSlashType[1];
 
                 // contains case insensitive
-                if (source.IndexOf(nerword, StringComparison.InvariantCultureIgnoreCase) >= 0)
+                // if (source.IndexOf(nerword, StringComparison.InvariantCultureIgnoreCase) >= 0)
+                var occurrences = CountStringOccurrences(source, nerword);
+                if (occurrences > 0)
                 {
                     // add only if not already in entities
                     // otherwise increment
@@ -142,10 +144,23 @@ namespace ArabicTextAnalyzer.Business.Provider
                     }
                     else
                     {
-                        existingEntity.Count++;
+                        existingEntity.Count += occurrences;
                     }
                 }
             }
+        }
+
+        public static int CountStringOccurrences(string text, string pattern)
+        {
+            // Loop through all instances of the string 'text'.
+            int count = 0;
+            int i = 0;
+            while ((i = text.IndexOf(pattern, i)) != -1)
+            {
+                i += pattern.Length;
+                count++;
+            }
+            return count;
         }
 
         public bool NERStartsWithWord_brands(string domain, out String type)
