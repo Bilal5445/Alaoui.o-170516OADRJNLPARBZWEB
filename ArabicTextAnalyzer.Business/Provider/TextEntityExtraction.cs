@@ -38,7 +38,6 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             request.AddParameter("application/json", content, ParameterType.RequestBody);
 
-
             var response = client.Execute(request);
 
             List<TextEntity> returnValue = null;
@@ -71,7 +70,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             var lentities = NerRosetteClean(entities);
 
             // NER manual extraction
-            foreach (var word in arabicText.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
+            /*foreach (var word in arabicText.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
             {
                 String typeEntity;
                 if (new TextFrequency().NERStartsWithWord_brands(word, out typeEntity))
@@ -93,7 +92,10 @@ namespace ArabicTextAnalyzer.Business.Provider
                         existingEntity.Count++;
                     }
                 }
-            }
+            }*/
+            new TextFrequency().GetManualEntities(arabicText, lentities);
+
+            // Saving
             foreach (var entity in lentities)
             {
                 var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY

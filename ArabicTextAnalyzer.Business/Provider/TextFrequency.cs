@@ -1,4 +1,5 @@
-﻿using ArabicTextAnalyzer.Domain.Models;
+﻿using ArabicTextAnalyzer.Domain;
+using ArabicTextAnalyzer.Domain.Models;
 using OADRJNLPCommon.Business;
 using System;
 using System.Collections.Generic;
@@ -114,6 +115,37 @@ namespace ArabicTextAnalyzer.Business.Provider
                     return true; // and stop reading lines
 
             return false;
+        }
+
+        public void GetManualEntities(String source, List<TextEntity> lentities)
+        {
+            foreach (string line in File.ReadLines(pathToNERFile_brands))
+            {
+                var wordSlashType = line.Split(new char[] { '\t' });
+                var nerword = wordSlashType[0];
+                var nertype = wordSlashType[1];
+
+                // contains case insensitive
+                if (source.IndexOf(nerword, StringComparison.InvariantCultureIgnoreCase) >= 0)
+                {
+                    // add only if not already in entities
+                    // otherwise increment
+                    TextEntity existingEntity = lentities.FirstOrDefault(m => m.Mention == nerword);
+                    if (existingEntity == null)
+                    {
+                        lentities.Add(new TextEntity
+                        {
+                            Count = 1,
+                            Mention = nerword,
+                            Type = nertype
+                        });
+                    }
+                    else
+                    {
+                        existingEntity.Count++;
+                    }
+                }
+            }
         }
 
         public bool NERStartsWithWord_brands(string domain, out String type)
