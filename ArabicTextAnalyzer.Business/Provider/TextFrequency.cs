@@ -18,6 +18,7 @@ namespace ArabicTextAnalyzer.Business.Provider
         private String pathToBidictFile;
         private String pathToNER;
         private String pathToNERFile_brands;
+        private String pathToNotNERFile;
 
         public TextFrequency ()
         {
@@ -27,6 +28,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             pathToBidictFile = pathToBidict + @"arabizi-arabic-bitext.arz";
             pathToNER = PathConstant.pathToArabiziEnv + @"ner\";
             pathToNERFile_brands = pathToNER + @"entities-brand.txt";
+            pathToNotNERFile = pathToNER + @"not-entities.txt";
         }
 
         public void AddPhraseToCorpus(String post)
@@ -131,6 +133,18 @@ namespace ArabicTextAnalyzer.Business.Provider
             }
 
             type = String.Empty;
+            return false;
+        }
+
+        public bool NotNERContainsWord(string word)
+        {
+            // make it one line
+            word = word.Replace("\r\n", " ");
+
+            foreach (string line in File.ReadLines(pathToNotNERFile))
+                if (Regex.IsMatch(line, @"\b" + word + @"\b", RegexOptions.IgnoreCase))
+                    return true; // and stop reading lines
+
             return false;
         }
 

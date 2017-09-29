@@ -65,26 +65,10 @@ namespace ArabicTextAnalyzer.Business.Provider
             return returnValue;
         }
 
-        public void NerManualExtraction(String arabicText, /*ref*/ IEnumerable<TextEntity> entities, Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY, HttpServerUtilityBase Server)
+        public void NerManualExtraction(String arabicText, IEnumerable<TextEntity> entities, Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY, HttpServerUtilityBase Server)
         {
-            // clean 1 rosette ners : reset counter
-            foreach (var entity in entities)
-                entity.Count = 0;
-            // clean 2 rosette ners : drop self containing
-            foreach (var entity in entities)
-            {
-                var entitiesToDrop = entities.ToList().FindAll(m => m.Mention != entity.Mention && m.Mention.Contains(entity.Mention));
-                // if (entitiesToDrop.Count == 1)
-                foreach (var entityToDrop in entitiesToDrop)
-                {
-                    // var entityToDrop = entities.SingleOrDefault(m => m.Mention != entity.Mention && m.Mention.Contains(entity.Mention));
-                    // if (entityToDrop != null)
-                    entityToDrop.Type = "TODROP";
-                }
-            }
-            var lentities = entities.ToList();
-            lentities.RemoveAll(m => m.Type == "TODROP");
-            // lentitities.to
+            // clean post-rosette
+            var lentities = NerRosetteClean(entities);
 
             // NER manual extraction
             foreach (var word in arabicText.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
@@ -97,12 +81,6 @@ namespace ArabicTextAnalyzer.Business.Provider
                     TextEntity existingEntity = lentities.FirstOrDefault(m => m.Mention == word);
                     if (existingEntity == null)
                     {
-                        /*entities = entities.Concat(new[] { new TextEntity
-                            {
-                                Count = 1,
-                                Mention = word,
-                                Type = typeEntity
-                            } });*/
                         lentities.Add(new TextEntity
                         {
                             Count = 1,
@@ -129,6 +107,40 @@ namespace ArabicTextAnalyzer.Business.Provider
                 var path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_TEXTENTITY.txt");
                 new TextPersist().Serialize(textEntity, path);
             }
+        }
+
+        public List<TextEntity> NerRosetteClean(IEnumerable<TextEntity> entities)
+        {
+            // clean 1 rosette ners : reset counter
+            foreach (var entity in entities)
+                entity.Count = 0;
+
+            // clean 2 rosette ners : drop self containing
+            foreach (var entity in entities)
+            {
+                var entitiesToDrop = entities.ToList().FindAll(m => m.Mention != entity.Mention && m.Mention.Contains(entity.Mention));
+                foreach (var entityToDrop in entitiesToDrop)
+                {
+                    entityToDrop.Type = "TODROP";
+                }
+            }
+            var lentities = entities.ToList();
+            lentities.RemoveAll(m => m.Type == "TODROP");
+
+            // clean 3 rosette ners : drop entities from exlusion files (ex:allah : irrelevant for us)
+            // lentities.RemoveAll(m => m.Mention == "الله");
+            var textFrequency = new TextFrequency();
+            foreach (var entityToDrop in lentities)
+            {
+                if (textFrequency.NotNERContainsWord(entityToDrop.Mention))
+                {
+                    entityToDrop.Type = "TODROP";
+                }
+            }
+            lentities.RemoveAll(m => m.Type == "TODROP");
+
+            //
+            return lentities;
         }
     }
 }
