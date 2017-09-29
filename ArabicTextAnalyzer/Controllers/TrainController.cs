@@ -590,7 +590,7 @@ namespace ArabicTextAnalyzer.Controllers
                     var entities = textEntityExtraction.GetEntities(arabicText);
                     
                     // NER manual extraction
-                    new TextEntityExtraction().NerManualExtraction(arabicText, /*ref*/ entities, arabicDarijaEntry.ID_ARABICDARIJAENTRY, Server);
+                    new TextEntityExtraction().NerManualExtraction(arabicText, entities, arabicDarijaEntry.ID_ARABICDARIJAENTRY, Server);
                 }
 
                 //
