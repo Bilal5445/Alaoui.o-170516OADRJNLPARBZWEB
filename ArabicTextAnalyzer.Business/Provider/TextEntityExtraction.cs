@@ -72,6 +72,17 @@ namespace ArabicTextAnalyzer.Business.Provider
             // NER manual extraction
             new TextFrequency().GetManualEntities(arabicText, lentities);
 
+            // clean 3 post rosette & manual ners : drop self containing
+            foreach (var entity in lentities)
+            {
+                var entitiesToDrop = entities.ToList().FindAll(m => m.Mention != entity.Mention && m.Mention.Contains(entity.Mention));
+                foreach (var entityToDrop in entitiesToDrop)
+                {
+                    entityToDrop.Type = "TODROP";
+                }
+            }
+            lentities.RemoveAll(m => m.Type == "TODROP");
+
             // Saving
             foreach (var entity in lentities)
             {
