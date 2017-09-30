@@ -195,6 +195,11 @@ namespace ArabicTextAnalyzer.Business.Provider
             return false;
         }
 
+        public int GetEntitiesCount()
+        {
+            return File.ReadLines(pathToNERFile_brands).Count();
+        }
+
         public int GetArabiziEntriesCount(String dataPath)
         {
             List<M_ARABIZIENTRY> arabiziEntries = new TextPersist().Deserialize<M_ARABIZIENTRY>(dataPath);

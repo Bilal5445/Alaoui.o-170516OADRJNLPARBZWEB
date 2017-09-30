@@ -29,6 +29,7 @@
 <h2>Training (v0.178.29.7)</h2>
 
 <!-- theme menu -->
+@*
 <div class="dropdown div-inline">
     <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
         Select Theme
@@ -91,6 +92,7 @@
         <span class="label label-success themekeywords">@tag.Keyword</span>
     }
 }
+*@
 
 <!-- arabizi keying & corpus info & co -->
 <div id="row-arabizi-input" class="row" style="margin-top: 30px">
@@ -144,6 +146,10 @@
                 <div class="row">
                     <div class="col-md-6 col-xs-6"><small>Arabizi Entries:</small></div>
                     <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n0}", @ViewBag.ArabiziEntriesCount)</small></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-xs-6"><small>Entities Count:</small></div>
+                    <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n0}", @ViewBag.EntitiesCount)</small></div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-xs-6"><small>Ratio Latin:</small></div>

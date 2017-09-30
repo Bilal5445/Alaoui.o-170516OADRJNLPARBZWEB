@@ -29,6 +29,7 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.BidictSize = new TextFrequency().GetBidictNumberOfLine();
             @ViewBag.ArabiziEntriesCount = new TextFrequency().GetArabiziEntriesCount(dataPath);
             @ViewBag.RatioLatinWordsOnEntries = new TextFrequency().GetRatioLatinWordsOnEntries(dataPath);
+            @ViewBag.EntitiesCount = new TextFrequency().GetEntitiesCount();
 
             // deserialize/send twingly accounts
             @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(dataPath);
