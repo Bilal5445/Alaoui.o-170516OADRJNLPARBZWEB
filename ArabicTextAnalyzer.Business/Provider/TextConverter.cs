@@ -208,7 +208,7 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             // String pattern = @"\b(a|h){0,1}(ha|ha){3,}(h|a){0,1}\b";
             String pattern = @"\b(a|h){0,1}(h|a){3,}(h|a){0,1}\b";
-            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ههه", RegexOptions.IgnoreCase);
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ههههه", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
         }
@@ -231,12 +231,16 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public string Postprocess_حنا_to_نحن(string arabic)
         {
-            return arabic.Replace("حنا", "نحن");
+            // replace whole-word only
+            // return arabic.Replace("حنا", "نحن");
+            return Regex.Replace(arabic, @"\bحنا\b", "نحن");
         }
 
         public string Postprocess_هاد_to_هذا(string arabic)
         {
-            return arabic.Replace("هاد", "هذا");
+            // replace whole-word only
+            // return arabic.Replace("هاد", "هذا");
+            return Regex.Replace(arabic, @"\bهاد\b", "هذا");
         }
 
         #endregion
