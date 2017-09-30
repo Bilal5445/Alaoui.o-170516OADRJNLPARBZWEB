@@ -70,29 +70,6 @@ namespace ArabicTextAnalyzer.Business.Provider
             var lentities = NerRosetteClean(entities);
 
             // NER manual extraction
-            /*foreach (var word in arabicText.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
-            {
-                String typeEntity;
-                if (new TextFrequency().NERStartsWithWord_brands(word, out typeEntity))
-                {
-                    // add only if not already in entities
-                    // otherwise increment
-                    TextEntity existingEntity = lentities.FirstOrDefault(m => m.Mention == word);
-                    if (existingEntity == null)
-                    {
-                        lentities.Add(new TextEntity
-                        {
-                            Count = 1,
-                            Mention = word,
-                            Type = typeEntity
-                        });
-                    }
-                    else
-                    {
-                        existingEntity.Count++;
-                    }
-                }
-            }*/
             new TextFrequency().GetManualEntities(arabicText, lentities);
 
             // Saving
