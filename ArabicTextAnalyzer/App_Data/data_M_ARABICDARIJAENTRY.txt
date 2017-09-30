@@ -2926,26 +2926,6 @@
     <ArabicDarijaText>ظنكم الله ظنكم الله والربى تشد لينا حقنا المغرب harfen بلا الملك دول الحوت والقلب دول مبغاش للسلم ولكن ربي كبير قريب تمشي هاد almalkiwa دول الحوت راكم مفتوحين ظنكم الله ظنكم الله</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>01cd1873-71c1-44b0-9499-f4907dd10ff3</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>81d66263-d1b3-42d7-ba0b-e324f687127e</ID_ARABIZIENTRY>
-    <ArabicDarijaText>كلكم الملك هو رئيس و مصير البلاد , ضنك مكين لا حكم لا نم , و رجع المغرب لفريقي هو رجع الجهلة , و maghansstafdo منها والو ك شعب , بغينا تغير ف درسا و تغير ف صح و ساكن و المواطن ما يبقى شي عيش , مع لحفاظ على نظام الملك كرمز ماشي blhokm و تبان</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>b0e7217b-9c70-4e6c-8026-3c05b2465913</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>5d71f4c3-1f08-4a79-a1d8-1bed7cfda990</ID_ARABIZIENTRY>
-    <ArabicDarijaText>اه كاين غير نتا الحكومة ما ktkhl3 شي تسرت يا بنكيران القلب كان غير نتا المومن ف هاد البلاد كتاب</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>d9614496-9ffc-4c3b-9374-efd6d5827786</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>9e21aaee-bb24-48f7-aa65-40538174cd5f</ID_ARABIZIENTRY>
-    <ArabicDarijaText>سباب طرد هو لفيضان ربط ب بنقرا</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>6ad18143-ea3c-4123-a413-4212fbde9fcd</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>57a0b1d8-af9f-4ee6-94d6-775027f9bb92</ID_ARABIZIENTRY>
-    <ArabicDarijaText>الفياضانات الخير fl3asima هي سبب ترد</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>41181617-f211-4b7e-a8e5-aede7e2def03</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>ca548029-d356-412d-a025-fc529d65dc68</ID_ARABIZIENTRY>
     <ArabicDarijaText>لقاني ولحقوق الانسان ??? يا خونا يا ولاد القحاب !</ArabicDarijaText>
@@ -2964,16 +2944,6 @@
     <ID_ARABICDARIJAENTRY>5aa48216-1388-437a-b0a6-59c2078a47da</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>09d80c10-b656-4112-be3c-6ada3aac77c6</ID_ARABIZIENTRY>
     <ArabicDarijaText>وسيح دير لمارت الحجب conseiller لا فمي د ملك de ميتغ الفيل islamiq</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>f5178cd2-7a5e-4320-93f0-b58976ef9e5e</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>d898193b-f54f-4a28-bde5-40f8aa9fc45f</ID_ARABIZIENTRY>
-    <ArabicDarijaText>لطف نتا راجل assibenkiran دخلت ذاك zeni9 n3lto الله</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>deb3e998-2239-4063-b49e-0108742f6d08</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>a48c637f-8db0-4ae6-87ce-6401118eddc9</ID_ARABIZIENTRY>
-    <ArabicDarijaText>صير تمشي تقود اولاد القحاب راه شعب قريب نفجر على دين مقوم يا ربعة الخونة المجريمين tatstahmrou شعب شعب راه عاق بيكم و هاديك سياسة ديالكم الله ياخذ فيكم الحق</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>fed59950-96be-409c-9ee0-f05113b87b5e</ID_ARABICDARIJAENTRY>
@@ -3006,29 +2976,9 @@
     <ArabicDarijaText>وا سير العبيد الله ينعل تبن مك اولت ala9hb</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>4f15f460-8f7e-4c7c-9862-f75289f65877</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>9ce8fef2-e0e6-453a-8e3a-85fc9a8ee286</ID_ARABIZIENTRY>
-    <ArabicDarijaText>kathadadna ولا شنو سير تعلم تهدر و نتا مراجل 3tatk الايام</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>d1dedc80-643e-469d-a38b-1265b0e74548</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>99097e3a-f9a1-4f54-a04e-0a6e59f98f09</ID_ARABIZIENTRY>
-    <ArabicDarijaText>بنكيران nasalahch فالمغرب خاص امشي ياسره</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>65eca85b-6678-4160-90ac-dbc0e7551f03</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>dc23237b-c568-435b-83a6-e6cbda462387</ID_ARABIZIENTRY>
     <ArabicDarijaText>سي كود عربي جهل</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>8dd10a23-81a6-4935-b855-a50249c52468</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>3e0acee3-5d1f-44cc-8a2e-f2cfa7c12f89</ID_ARABIZIENTRY>
-    <ArabicDarijaText>و على هاد حسب إذا كنت 9aratrat مالك هيا لي katnafad في خير اش دور ديالك حتى سير فحالك</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>7e4c2d70-bf73-4d4b-9909-3a8e10778fed</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>0d36087f-dd3d-4f89-bdce-162e734c88e5</ID_ARABIZIENTRY>
-    <ArabicDarijaText>السلام بكل صراحة الملك هو لي tay7kam البلاد ولكه بنكيران غادي يبقى يعطي غو ولكن الملك طابق هو فوق قلش بنكيران تبادل بزاف ما بقا شي قابلية بحال كان فل معرض برد او تاسو</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>6585bfcf-0782-44f9-ba0d-a823277fb056</ID_ARABICDARIJAENTRY>
@@ -3061,44 +3011,14 @@
     <ArabicDarijaText>علاش هاد الهضرة حتى التابع عاد كيقولها</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>d0448d3c-d9c3-4051-b9c5-cceef2589fcb</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>0f2d410f-a8c2-4628-ae1c-3e73f23217a0</ID_ARABIZIENTRY>
-    <ArabicDarijaText>كلكم الملك هو رئيس و مصير البلاد , ظنك مكين لا حكومة لا نيم , و رجع المغرب لافريقى هو رجع الجهلة , و maghansstafdo منها والو ك شعب , بغينا تغير ف درسا و تغير ف صحة و ساكن و المواطن ما يبقى شي عيش , مع لحفاظ على نظام الملك كرمز ماشي blhokm و تبان :</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>84bb23f0-a557-41e7-a40a-c532a34f4e70</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>5745438a-b4bd-4684-af5e-31b9601b824a</ID_ARABIZIENTRY>
-    <ArabicDarijaText>h كان غير نتا الحكومة ما ktkhl3 شي تصرت يا بنكيران القلب كان غير نتا المومن ف هاد البلاد كتاب</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>c9c91104-544e-4e29-9a6e-84ee454ec486</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>8d42ad82-f175-4d63-8864-e8769ec46010</ID_ARABIZIENTRY>
-    <ArabicDarijaText>لفيضانات الخير fl3asima هي سبب تغد</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>9d618820-7bfd-462c-9040-f9537874b1d1</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>0aac60e8-62c5-4673-bf29-6b59ae140533</ID_ARABIZIENTRY>
     <ArabicDarijaText>حمتله راك حسن رئس شفت فحط له بارك وخا تمت قال</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>335a7a2f-ecd3-4c3b-b62a-46231b08b928</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>9f81bb63-7db1-4110-be80-85b9b839d8a4</ID_ARABIZIENTRY>
-    <ArabicDarijaText>سير تقود انتم خرجت على البلاد . dbrtiw على راسكم ونسيت ناس الفقر والسير شوف لي يعطيك 9kma الآن . إذا مزبلة تاريخ</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>bfcac44c-596d-4360-964d-7b28c9fea6ca</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>5be90b04-c966-4bc2-8046-13fab28dbe7f</ID_ARABIZIENTRY>
-    <ArabicDarijaText>نتى سبب من سبب الفتنة والغلا لاسعار ياك اسي شفار الكبير تنطق انا ف غلق لاسعار على شعب يا الحصة alkapa</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>a0e1cd7f-c0bf-45eb-a8f7-faeb848ec598</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>bb855aef-1764-4ef9-9c8f-6b9174ed6c69</ID_ARABIZIENTRY>
     <ArabicDarijaText>اي ا ا كون ماشي نتا لي شاد سم كون طاحت</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>25ea1508-32e4-4eeb-88b2-804d3a4272c0</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>34d22c59-2bea-4fe7-8ce1-2e7090819224</ID_ARABIZIENTRY>
-    <ArabicDarijaText>علاش كان chiwhdin ما kayhmlo شي بنقرة علاش اه لا غير كيقول المعقل</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>b0f329c6-7c94-4e4e-bc67-fb12386e727b</ID_ARABICDARIJAENTRY>
@@ -3166,19 +3086,9 @@
     <ArabicDarijaText>كلشي تفرش يا شفار . صفق ديال سيد البحر . الله ياخذ فين الحق . شفرت الموظفين من سالار ديالهم . انت مافي و بتق خادم بيك صادق و rmawk لازبال .</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>91748185-6895-49ae-88ef-56d540bd8fe3</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>6e9f2ec5-22f0-4125-a5c9-a6f77b32b905</ID_ARABIZIENTRY>
-    <ArabicDarijaText>هاد ديماغوجية اللي كنت katkallam بيها بلدين plein ب دلم هي اللي ما ka7mal شي فيك رغم ان سلام بحالك . chawahtina</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>ad719c32-e5d3-4fca-bfbb-ac5465287b88</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>762a8bd2-8769-4edd-b07b-71f513806695</ID_ARABIZIENTRY>
     <ArabicDarijaText>هيا ساهرة مغربي . مجهدة ترجع غي بقوت صلح .</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>5087647f-b8f4-40ae-bed8-d6395f1a4d53</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>3dff50ec-adab-4617-b27a-88929539a8dc</ID_ARABIZIENTRY>
-    <ArabicDarijaText>ههه هاد ماشي حاضرة ديال بنكيران .. راه رسالة من الملك و . هو taykraha .... ماشفتو البرلمان عمر و كلشي وقف ... هادشي تيقن غا pour الملك .. pour شعب .. نص ما كن شي و مس الاخر يا مترب يا ناعس</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>935b4c92-d111-4ad2-988d-1f040ab7af00</ID_ARABICDARIJAENTRY>
@@ -3216,18 +3126,93 @@
     <ArabicDarijaText>ما تتعجبكم شي صراحة تتسبب فيه , انا مش مع بينقي او pjd ولكن جي طرف الهذرة ديال بصح . صراحة مات بغيها هاد . râ كلكم را ماشي زعم را حتى انا موظف عند مالك . ناس لي ت فهم في دستور عارفين qu'on يا ن monarchie exécutive ça فيث دير قوة ك آ ست الملك قوى ترك البلاد ماشي monarchie symbolique او parlementaire , و صلى على نبي مالكم تتسبب في بنكيران hit كلكم صاغه</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>1d13c20c-5741-4e55-8f96-1b5fd33a7863</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>f3d51c08-7365-4122-89a3-a8b30ace92a1</ID_ARABIZIENTRY>
-    <ArabicDarijaText>صراحة من عند غنقلها المغاربة كاملين لي عندو نفس البلاد كبر البلاد المغرب مهتم المغرب 0 % 0 والو مافيها لا قنن لا حكومة 1 ساره الحكومة كلها بحل بحال ماكين الحق لا قنن شنو تبدل في المغرب والو زيرو والو و ما تدى شي يتبدل المغرب إذا باغي تبادل كيخصو شعب جديد حيث شعب كل ما رد شي تبدل كلشي عند تفكر خيب 1 صعيب بزاف باش تقد هاد البلاد حيث كلشي لي عندو فلوس ما كيقنع شي 1 كيسرق فشعب 1 شعب المغرب عجبهم الحل باقين هوما عمرهم فقه واخا غادي تبر تبدله راس الحكومة ماعمركم تعلم المغرب 1 تبادل إذا ما تبدلت شي انتم كاملين المغرب كامل القنون عمر تبدل بقا ديما تخلف 1 همج 1 فقر الخنازة نزيدكم إذا ما كن شي الخدمة عند الحكومة ما رد شي رابح لفلوس 1 انتم غادي تفهم البق من راسكم نزيدكم ملكنا جلالة ملك محمد سادس هو ما قادر شي ماسكين حضر حيث إذا نات حضر 1 قول الحق غادي قتلوه المغاربة ديالنا حيث الحكومة عمرها تبادل الله يخود فيهم الحق يارب هم لي خرج على المغرب عمر تبدل</ArabicDarijaText>
-  </M_ARABICDARIJAENTRY>
-  <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>ef0c0c74-9afc-4503-99d8-5d19443bb7c9</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>faada52a-eaaa-41ad-a067-8dfd28be7516</ID_ARABIZIENTRY>
     <ArabicDarijaText>ناري الله وحدين نحن إذا طاح شيواحد بنتين كنتكرفسو عليه حرام والله ... علاش هاد الهذرة حتى التابع عاد كيقولها</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>5e7fb3f8-fb29-4966-b041-535881a906b4</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>a6500e28-2567-4e17-b720-500d990ba4a2</ID_ARABIZIENTRY>
-    <ArabicDarijaText>حتراماتي السيد راس راك ف الكلب والست راس راه كادحي محك ليل والنهار هنا ف هولندا محك كلشي المغاربة ف الغرب راه كده محك الله نسرق</ArabicDarijaText>
+    <ID_ARABICDARIJAENTRY>53dd5b33-13b5-4517-93c7-9962718a51c8</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>16eea98a-e014-4410-ac01-981fe76bcf72</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حتراماتي السيد راس راك ف القلب والست راس راه كادحي محق ليل والنهار هنا ف هولندا محق كلشي المغاربة ف الغرب راه كده محق الله ينصرك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>dca7fc80-8c46-4798-87a7-0fb8222bc189</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>bb38035b-d778-4e86-8e51-980ef392679e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كتهددنا ولا شنو سير تعلم تهدر و نتا مرجل عطاتك لئيم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f8bef93f-e248-49bd-8609-05c769c077f9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>bbd5a347-b07d-4d6c-b020-7b9ce419a5ad</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بنكيران ما صالح شي فالمغرب خاص امشي اسرح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d084943d-a6ca-4c5b-9416-4d0d48208fb5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ef73f1f7-e02c-4d7d-a98f-5e9afd26ba5d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و على هذا حسب إذا كنت قرارات ملك هيا لي كتنفذ في خير اش دور ديالك حتى سير فحالك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d3c16c39-465c-49ff-b645-9096c6b75314</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7cd79f96-32b5-483c-b13f-f0052ba20624</ID_ARABIZIENTRY>
+    <ArabicDarijaText>صراحة من عند غنقلها المغاربة كاملين لي عندو نفس البلاد كبر البلاد المغرب مهتم المغرب 0 % 0 والو مافيها لا قنون لا حكومة و ساره الحكومة كلها بحل بحال ماكين الحق لا قنون شنو تبذل في المغرب والو زيرو والو و ما طظ شي يتبدل المغرب إذا باغي تبادل كيخصو شعب جديد حيث شعب كل ما رد شي تبذل كلشي عند تفكر خيب و صعيب بزاف باش تقد هذا البلاد حيث كلشي لي عندو فلوس ما كيقنع شي و كيسرق فشعب و شعب المغرب عاجبهم الحل باقين هوما وعمرهم وفق واخا غادي ثابر تبدله راس الحكومة ماعمركم تعلم المغرب و تبادل إذا ما تبدلت شي انتم كاملين المغرب كامل القنون عمر تبذل بقا تم تخلف و همج و فقر الخنازة نزيدكم إذا ما كن شي الخدمة عند الحكومة ما رد شي رابح لفلوس و انتم غادي تفهم البق من راسكم نزيدكم ملكنا جلالة ملك محمد سادس هو ما قادر شي مسكن يحضر حيث إذا نظ يحضر و قول الحق غادي قتلوه المغاربة ديالنا حيث الحكومة عمرها تبادل الله خود فيهم الحق يارب هم لي خرج على المغرب عمر تبذل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>569f0571-2191-4070-a19e-7401e1a6768e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2cdd63b2-0a3e-4a4b-8c61-5788d78abb4c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سير تمشي تقود اولاد القحاب راه شعب قريب نفجر على دين مقوم يا ربعة الخونة المجرمين تتستحمرو شعب شعب راه عاق بكم و هذايك سياسة ديالكم الله ياخذ فيكم الحق</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ffcbcda7-b444-4c5f-a6e3-da057f5fd484</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8808af33-7ab9-43f4-b95f-728786161acb</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام بكل صراحة الملك هو لي تيحكم البلاد ولكها بنكيران غادي يبقى يعطي غو ولكن الملك طابق هو فوق قلش بنكيران تبادل بزاف ما بقا شي كابلا بحال كان فال معرض برد او تيسو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ed44212e-6985-4b18-a4c5-0ba815f35805</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>226a129a-6482-4b7e-979f-078b50bfa247</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هذا ديماغوجية اللي كنت كتكلم بيها بلدين plein ب ظلم هي اللي ما ka7mal شي فيك رغم ان سلام بحالك . شوهتنا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ea057857-da29-4135-8763-cda94cf1f76d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4f630fb7-36b0-4011-9520-0c98133cc3c9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>وح كان غير نتا الحكومة ما كتخلع شي تصرت يا بنكيران القلب كان غير نتا المومن ف هذا البلاد كذب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>de1742ce-81e3-4ea5-ac79-98519725b6c6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>da0dfcf0-679e-4652-b9ad-fbe260665647</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الفيضانات الخير فلعاصمة هي سبب تغض</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3c83f84d-5f4d-4b46-9558-2453a5b8490a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>58005816-cfb6-4290-83bc-1b4f78885781</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سباب طرد هو لفيضان ربط ب بنكيران</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f0a284ad-a323-4630-beb9-4f32e50dcd85</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>23f20ab8-18e6-46ce-8890-25263125efa9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سير تقود انتم خرجت على البلاد . دبرتو على راسكم ونصت ناس الفقر والصيغ شوف لي يعطيك 9kma الآن . لا مزبلة تاريخ</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>285323bf-88b7-4bdb-a0f6-0e8be843c7db</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>719edca3-c4f5-4711-aed6-431b8d0a91ae</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لطف نتا راجل assibenkiran دخلت ذاك zeni9 n3lto الله</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>23cf9161-8c62-40ed-ae7e-4ecc61481e13</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fc3e0004-2dad-4fea-93de-89c7e0ec1bfb</ID_ARABIZIENTRY>
+    <ArabicDarijaText>علاش كان شيوحدين ما كيحملو شي بنكيران علاش اه لا غير كيقول المعقل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c1339cad-8225-4806-b5ad-7421435de230</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>75422813-292a-49b6-adc4-92d1a589d647</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انت سبب من أسباب الفتنة والغلا الأسعار ياك اسي شفار الكبير تنطق انا ف غلاء الأسعار على شعب يا لحاس الكابة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>424eaf41-657a-4955-9641-34796f4bc070</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>cf02a460-7389-4186-bc23-586a08fe8288</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ههههه هذا ماشي هذرة ديال بنكيران .. راه رسالة من الملك و . هو تيقراها .... ماشفتو البرلمان عامر و كولشي وقف ... هادشي تيقن غا بغ الملك .. بغ شعب .. نص ما كن شي و مس الاخر يا متغيب يا ناعس</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a3f64076-1e3c-4842-bdfa-cff77f0e8dad</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>19e61d5f-23fa-4e28-bdf0-4d415396ce55</ID_ARABIZIENTRY>
+    <ArabicDarijaText>قالكم الملك هو رئيس و مسير البلاد , اذن ماكين لا حكومة لا نمي , و رجع المغرب ل إفريقيا هو رجع الجاهلي , و ماغنستفدو منها والو ك شعب , بغينا تغير ف دراسة و تغير ف صحة و ساكن و المواطن ما يبقى شي عيش , مع لحفاظ على نظام الملك كرمز ماشي بلحكم و طابان</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
