@@ -426,6 +426,26 @@ namespace ArabicTextAnalyzer.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult XtrctTheme_ApplyNewActive(String themename)
+        {
+            // find previous active, and disable it
+            String dataPath = Server.MapPath("~/App_Data");
+            var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
+            var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
+            activeXtrctTheme.CurrentActive = String.Empty;
+
+            // find to-be-active by name, and make it active
+            var tobeactiveXtrctTheme = xtrctThemes.Find(m => m.ThemeName == themename);
+            tobeactiveXtrctTheme.CurrentActive = "active";
+
+            // save
+            new TextPersist().SerializeBack_dataPath(xtrctThemes, dataPath);
+
+            //
+            return RedirectToAction("Index");
+        }
+
         // This action handles the form POST and the upload
         [HttpPost]
         public ActionResult Data_Upload(HttpPostedFileBase file, String mainEntity)
