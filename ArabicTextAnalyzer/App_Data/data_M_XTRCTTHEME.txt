@@ -3,11 +3,16 @@
   <M_XTRCTTHEME>
     <ID_XTRCTTHEME>fc9536b1-9dc6-4f4a-bc3b-96fea8ecbfab</ID_XTRCTTHEME>
     <ThemeName>INWI</ThemeName>
-    <CurrentActive></CurrentActive>
+    <CurrentActive />
   </M_XTRCTTHEME>
   <M_XTRCTTHEME>
     <ID_XTRCTTHEME>a7f0096d-c561-418a-9bb4-2cf905f5b902</ID_XTRCTTHEME>
     <ThemeName>BMCE</ThemeName>
-	<CurrentActive>active</CurrentActive>
+    <CurrentActive />
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>cc0294e8-be7c-4f99-b529-467078ad1a54</ID_XTRCTTHEME>
+    <ThemeName>BENKIRANE</ThemeName>
+    <CurrentActive>active</CurrentActive>
   </M_XTRCTTHEME>
 </ArrayOfM_XTRCTTHEME>
