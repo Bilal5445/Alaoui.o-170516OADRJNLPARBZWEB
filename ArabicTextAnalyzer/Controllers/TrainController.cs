@@ -55,16 +55,6 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [HttpPost]
-        public ActionResult TrainStepOne(M_ARABIZIENTRY arabiziEntry)
-        {
-            // Arabizi to arabic script via direct call to perl script
-            train(arabiziEntry);
-
-            //
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost]
         public ActionResult ArabicDarijaEntryPartialView()
         {
             // This action is called at each reload of train main view, via Ajax to fill the partial view of the grid arabizi/arabic
@@ -142,29 +132,14 @@ namespace ArabicTextAnalyzer.Controllers
             return PartialView("_IndexPartialPage_arabicDarijaEntries", /*xs*/class1);
         }
 
-        /*public static IEnumerable<TSource> DistinctBy<TSource, TKey>
-    (this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
+        [HttpPost]
+        public ActionResult TrainStepOne(M_ARABIZIENTRY arabiziEntry)
         {
-            HashSet<TKey> seenKeys = new HashSet<TKey>();
-            foreach (TSource element in source)
-            {
-                if (seenKeys.Add(keySelector(element)))
-                {
-                    yield return element;
-                }
-            }
-        }*/
+            // Arabizi to arabic script via direct call to perl script
+            train(arabiziEntry);
 
-        public static IEnumerable<TSource> DistinctBy<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
-        {
-            HashSet<TKey> seenKeys = new HashSet<TKey>();
-            foreach (TSource element in source)
-            {
-                if (seenKeys.Add(keySelector(element)))
-                {
-                    yield return element;
-                }
-            }
+            //
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -335,6 +310,7 @@ namespace ArabicTextAnalyzer.Controllers
             return RedirectToAction("Index");
         }
 
+        #region BACK YARD TWINGLY
         [HttpGet]
         public ActionResult TwinglySetup()
         {
@@ -510,6 +486,7 @@ namespace ArabicTextAnalyzer.Controllers
             // redirect back to the index action to show the form once again
             return RedirectToAction("Index");
         }
+        #endregion
 
         #region BACK YARD BO
         private Guid train(M_ARABIZIENTRY arabiziEntry)
@@ -599,6 +576,33 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             return Guid.Empty;
+        }
+        #endregion
+
+        #region BACKYARD BO HELPERS
+        /*public static IEnumerable<TSource> DistinctBy<TSource, TKey>
+    (this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
+        {
+            HashSet<TKey> seenKeys = new HashSet<TKey>();
+            foreach (TSource element in source)
+            {
+                if (seenKeys.Add(keySelector(element)))
+                {
+                    yield return element;
+                }
+            }
+        }*/
+
+        public static IEnumerable<TSource> DistinctBy<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
+        {
+            HashSet<TKey> seenKeys = new HashSet<TKey>();
+            foreach (TSource element in source)
+            {
+                if (seenKeys.Add(keySelector(element)))
+                {
+                    yield return element;
+                }
+            }
         }
         #endregion
     }
