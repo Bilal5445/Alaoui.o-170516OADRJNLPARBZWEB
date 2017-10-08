@@ -29,7 +29,6 @@
 <h2>Training (v0.178.29.7)</h2>
 
 <!-- theme menu -->
-@*
 <div class="dropdown div-inline">
     <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
         Select Theme
@@ -42,7 +41,7 @@
         }
     </ul>
 </div>
-<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal">
+@*<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal">
     <span class="glyphicon glyphicon-plus"></span>
 </button>
 <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal">
@@ -196,7 +195,20 @@
             <label for="importposts">Bulk Import:</label>
             <input type="file" name="file" class="form-control" id="importposts" />
             <label for="mainEntity">Main Tag:</label>
-            <input type="text" name="mainEntity" class="form-control" id="mainEntity" />
+            <!-- <input type="text" name="mainEntity" class="form-control" id="mainEntity" /> -->
+            @* <div class="dropdown div-inline">
+                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                    Select Theme
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    @foreach(var xtrctTheme in ViewBag.XtrctThemes)
+                    {
+                    <li class="@xtrctTheme.CurrentActive"><a href="#">@xtrctTheme.ThemeName</a></li>
+                    }
+                </ul>
+            </div> *@
+            @Html.DropDownList("mainEntity", (IEnumerable<SelectListItem>)ViewBag.XtrctThemesPlain, /*"-- Select Contact --"*/null, new { @class = "form-control" })
         </div>
         <button class="btn btn-success btn-md" type="submit" id="import_posts">
             Import Posts

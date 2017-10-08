@@ -34,7 +34,7 @@ namespace ArabicTextAnalyzer.Controllers
             // deserialize/send twingly accounts
             @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(dataPath);
 
-            // theme : deserialize/send list, plus send active one, plus send list of tags/keywords
+            // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
             var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
             var xtrctThemesKeywords = new TextPersist().Deserialize<M_XTRCTTHEME_KEYWORD>(dataPath);
             var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
@@ -42,7 +42,7 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.ActiveXtrctTheme = activeXtrctTheme;
             @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).ToList();
 
-            // file updload communication
+            // file upload communication
             @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
             @ViewBag.showAlertSuccess = TempData["showAlertSuccess"] != null ? TempData["showAlertSuccess"] : false;
             @ViewBag.msgAlert = TempData["msgAlert"] != null ? TempData["msgAlert"] : String.Empty;
@@ -387,6 +387,7 @@ namespace ArabicTextAnalyzer.Controllers
             //
             return RedirectToAction("Index");
         }
+        #endregion
 
         [HttpPost]
         public ActionResult XtrctTheme_AddNew(String themename, String themetags)
@@ -486,7 +487,6 @@ namespace ArabicTextAnalyzer.Controllers
             // redirect back to the index action to show the form once again
             return RedirectToAction("Index");
         }
-        #endregion
 
         #region BACK YARD BO
         private Guid train(M_ARABIZIENTRY arabiziEntry)
