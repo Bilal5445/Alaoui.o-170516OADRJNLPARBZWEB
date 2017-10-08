@@ -446,6 +446,44 @@ namespace ArabicTextAnalyzer.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult XtrctTheme_Keywords_Reload(String themename)
+        {
+            String dataPath = Server.MapPath("~/App_Data");
+
+            // we look for the ners that are associated with each entry for the current theme 
+            var textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
+            var arabicDarijaEntryTextEntities = new TextPersist().Deserialize<M_ARABICDARIJAENTRY_TEXTENTITY>(dataPath);
+            var arabicDarijaEntryTextMainEntities = arabicDarijaEntryTextEntities.FindAll(m => m.TextEntity.Type == "MAIN ENTITY" && m.TextEntity.Mention == themename);
+            foreach (var mainentity in arabicDarijaEntryTextMainEntities)
+            {
+                textEntities.AddRange(arabicDarijaEntryTextEntities.FindAll(m => m.ID_ARABICDARIJAENTRY == mainentity.ID_ARABICDARIJAENTRY));
+            }
+
+            // if not existing, add them to list of theme keywords
+            var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
+            var xtrctThemesKeywords = new TextPersist().Deserialize<M_XTRCTTHEME_KEYWORD>(dataPath);
+            var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
+            foreach (var entity in textEntities)
+            {
+                if (xtrctThemesKeywords.Find(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME && m.Keyword == entity.TextEntity.Mention) == null)
+                {
+                    xtrctThemesKeywords.Add(new M_XTRCTTHEME_KEYWORD
+                    {
+                        ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
+                        ID_XTRCTTHEME = activeXtrctTheme.ID_XTRCTTHEME,
+                        Keyword = entity.TextEntity.Mention
+                    });
+                }
+            }
+
+            // save
+            new TextPersist().SerializeBack_dataPath(xtrctThemesKeywords, dataPath);
+
+            //
+            return RedirectToAction("Index");
+        }
+
         // This action handles the form POST and the upload
         [HttpPost]
         public ActionResult Data_Upload(HttpPostedFileBase file, String mainEntity)

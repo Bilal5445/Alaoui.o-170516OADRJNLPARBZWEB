@@ -35,22 +35,22 @@
         <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
-        @foreach(var xtrctTheme in ViewBag.XtrctThemes)
+        @foreach (var xtrctTheme in ViewBag.XtrctThemes)
         {
-        <li class="@xtrctTheme.CurrentActive"><a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = @xtrctTheme.ThemeName })">@xtrctTheme.ThemeName</a></li>
+            <li class="@xtrctTheme.CurrentActive"><a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = @xtrctTheme.ThemeName })">@xtrctTheme.ThemeName</a></li>
         }
     </ul>
 </div>
 <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal">
     <span class="glyphicon glyphicon-plus"></span>
 </button>
-@*<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal">
+<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal">
     <span class="glyphicon glyphicon-edit"></span>
 </button>
 <button type="button" class="btn btn-sm">
     <span class="glyphicon glyphicon-remove"></span>
 </button>
-*@
+
 <!-- modal new theme dialogbox -->
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -63,15 +63,15 @@
             <div class="modal-body">
                 @using (Html.BeginForm("XtrctTheme_AddNew", "Train", FormMethod.Post))
                 {
-                <div class="form-group">
-                    <label for="themename">Theme Name</label>
-                    @Html.TextBox("themename", "", new { @class="form-control", placeholder = "Enter new theme name", @required = "required", id= "themename" })
-                </div>
-                <div class="form-group">
-                    <label for="themetags">Theme Tags</label>
-                    @Html.TextBox("themetags", "", new { @class = "form-control", @required = "required", id = "themetags", data_role = "tagsinput" })
-                </div>
-                <button type="submit" class="btn btn-default btn-success">Add</button>
+                    <div class="form-group">
+                        <label for="themename">Theme Name</label>
+                        @Html.TextBox("themename", "", new { @class = "form-control", placeholder = "Enter new theme name", @required = "required", id = "themename" })
+                    </div>
+                    <div class="form-group">
+                        <label for="themetags">Theme Tags</label>
+                        @Html.TextBox("themetags", "", new { @class = "form-control", @required = "required", id = "themetags", data_role = "tagsinput" })
+                    </div>
+                    <button type="submit" class="btn btn-default btn-success">Add</button>
                 }
             </div>
         </div>
@@ -91,6 +91,9 @@
         <span class="label label-success themekeywords">@tag.Keyword</span>
     }
 }
+<a href="@Url.Action("XtrctTheme_Keywords_Reload", new { themename = @ViewBag.ActiveXtrctTheme.ThemeName })" class="btn btn-danger btn-xs">
+    <span class="glyphicon glyphicon-refresh" aria-hidden="true">
+</span></a>
 
 <!-- arabizi keying & corpus info & co -->
 <div id="row-arabizi-input" class="row" style="margin-top: 30px">
@@ -105,7 +108,7 @@
                     @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
                 </div>
             </div>
-                <!-- button submit -->
+            <!-- button submit -->
             <div class="row">
                 <div class="col-md-2">
                     <button class="btn btn-success btn-md" type="submit" id="train">
@@ -196,17 +199,17 @@
             <label for="mainEntity">Main Tag:</label>
             <!-- <input type="text" name="mainEntity" class="form-control" id="mainEntity" /> -->
             @* <div class="dropdown div-inline">
-                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
-                    Select Theme
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    @foreach(var xtrctTheme in ViewBag.XtrctThemes)
-                    {
-                    <li class="@xtrctTheme.CurrentActive"><a href="#">@xtrctTheme.ThemeName</a></li>
-                    }
-                </ul>
-            </div> *@
+                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                        Select Theme
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        @foreach(var xtrctTheme in ViewBag.XtrctThemes)
+                        {
+                        <li class="@xtrctTheme.CurrentActive"><a href="#">@xtrctTheme.ThemeName</a></li>
+                        }
+                    </ul>
+                </div> *@
             @Html.DropDownList("mainEntity", (IEnumerable<SelectListItem>)ViewBag.XtrctThemesPlain, /*"-- Select Contact --"*/null, new { @class = "form-control" })
         </div>
         <button class="btn btn-success btn-md" type="submit" id="import_posts">
