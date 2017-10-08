@@ -39,6 +39,7 @@ namespace ArabicTextAnalyzer.Controllers
             var xtrctThemesKeywords = new TextPersist().Deserialize<M_XTRCTTHEME_KEYWORD>(dataPath);
             var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
             @ViewBag.XtrctThemes = xtrctThemes;
+            @ViewBag.XtrctThemesPlain = xtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName });
             @ViewBag.ActiveXtrctTheme = activeXtrctTheme;
             @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).ToList();
 
@@ -118,14 +119,17 @@ namespace ArabicTextAnalyzer.Controllers
             xs.Reverse();
 
             // themes / main entities : send list of main tags
-            var mainEntities = textEntities.Where(m => m.TextEntity.Type == "MAIN ENTITY");
-            mainEntities = DistinctBy(mainEntities, m => m.TextEntity.Mention);
+            /*var mainEntities = textEntities.Where(m => m.TextEntity.Type == "MAIN ENTITY");
+            mainEntities = DistinctBy(mainEntities, m => m.TextEntity.Mention);*/
+            var dataPath = Server.MapPath("~/App_Data/");
+            var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
 
             // 
             var class1 = new Class1
             {
                 Classes2 = xs,
-                MainEntities = mainEntities
+                // MainEntities = mainEntities
+                MainEntities = xtrctThemes
             };
 
             // pass entries to partial view via the model (instead of the bag for a view)

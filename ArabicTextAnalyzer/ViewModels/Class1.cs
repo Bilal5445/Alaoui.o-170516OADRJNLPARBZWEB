@@ -18,6 +18,7 @@ namespace ArabicTextAnalyzer.ViewModels
     public class Class1
     {
         public List<Class2> Classes2 { get; set; }
-        public IEnumerable<M_ARABICDARIJAENTRY_TEXTENTITY> MainEntities { get; set; }
+        // public IEnumerable<M_ARABICDARIJAENTRY_TEXTENTITY> MainEntities { get; set; }
+        public IEnumerable<M_XTRCTTHEME> MainEntities { get; set; }
     }
 }
