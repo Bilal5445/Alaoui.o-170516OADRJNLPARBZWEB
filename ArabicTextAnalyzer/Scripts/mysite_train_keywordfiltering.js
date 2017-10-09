@@ -18,11 +18,11 @@
             ],
         });
 
-        $('.datatables-table tbody').on('click', 'tr', function () {
+        /*$('.datatables-table tbody').on('click', 'tr', function () {
             $(this).toggleClass('selected');
 
             // change a href
             alert($(this).find("td:eq(6)").find("a").attr("href"));
-        });
+        });*/
     });
 }
