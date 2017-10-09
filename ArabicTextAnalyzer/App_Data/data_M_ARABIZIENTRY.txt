@@ -3220,56 +3220,6 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-09-30T18:29:17</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>02c2a45c-bc29-4bb4-9d43-b0e7db6689a1</ID_ARABIZIENTRY>
-    <ArabiziText>slm inwi bghit cxarji wahd samsung walakin ca marche pas	</ArabiziText>
-    <ArabiziEntryDate>2017-10-09T13:02:43</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>e2033b5f-a3d9-4298-a999-3c095998e5a7</ID_ARABIZIENTRY>
-    <ArabiziText>slm inwi bghit cxarji wahd samsung walakin ca marche pas	</ArabiziText>
-    <ArabiziEntryDate>2017-10-09T13:04:50</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>328caf96-0cb5-4485-a33c-3c4b6d6e349a</ID_ARABIZIENTRY>
-    <ArabiziText>slm inwi bghit cxarji wahd samsung walakin ca marche pas</ArabiziText>
-    <ArabiziEntryDate>2017-10-09T13:02:17</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>4f0771fe-9cec-4088-a45b-f32961d2b086</ID_ARABIZIENTRY>
-    <ArabiziText>slm inwi bghit cxarji wahd samsung walakin ca marche pas	</ArabiziText>
-    <ArabiziEntryDate>2017-10-09T14:15:42</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>30281d3c-3900-45ee-a65c-31d3ce3dd722</ID_ARABIZIENTRY>
-    <ArabiziText>slm inwi bghit cxarji wahd samsung walakin ca marche pas	</ArabiziText>
-    <ArabiziEntryDate>2017-10-09T14:21:04</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>695fa3fc-f4ad-4829-923a-8e403aae8d73</ID_ARABIZIENTRY>
-    <ArabiziText>slm inwi bghit xarji wahd samsung walakin ca marche pas	</ArabiziText>
-    <ArabiziEntryDate>2017-10-09T14:22:55</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>fb2d5005-102e-4c9e-9da1-b55557c7ef1e</ID_ARABIZIENTRY>
-    <ArabiziText>slm inwi bghit xarji wahd samsung walakin ca marche pas	</ArabiziText>
-    <ArabiziEntryDate>2017-10-09T14:32:26</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>46e3a7a8-a484-46ed-9730-267fc648596a</ID_ARABIZIENTRY>
-    <ArabiziText>slm inwi bghit xarji wahd samsung walakin ca marche pas	</ArabiziText>
-    <ArabiziEntryDate>2017-10-09T14:39:36</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>d0b560d0-2739-450c-a704-1b33609abccf</ID_ARABIZIENTRY>
-    <ArabiziText>slm inwi bghit xarji wahd samsung walakin ca marche pas	</ArabiziText>
-    <ArabiziEntryDate>2017-10-09T14:43:44</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>cab52f67-0945-41fc-980a-0b47ba723762</ID_ARABIZIENTRY>
-    <ArabiziText>slm inwi bghit xarji wahd samsung walakin ca marche pas	</ArabiziText>
-    <ArabiziEntryDate>2017-10-09T14:46:33</ArabiziEntryDate>
-  </M_ARABIZIENTRY>
-  <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>4dfcbae3-1a7d-4278-bfed-32a77eefb80f</ID_ARABIZIENTRY>
     <ArabiziText>slm inwi bghit xarji wahd samsung walakin ca marche pas	</ArabiziText>
     <ArabiziEntryDate>2017-10-09T14:57:41</ArabiziEntryDate>
