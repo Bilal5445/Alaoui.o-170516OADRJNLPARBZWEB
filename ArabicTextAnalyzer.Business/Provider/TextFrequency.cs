@@ -155,7 +155,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             // Loop through all instances of the string 'text'.
             int count = 0;
             int i = 0;
-            while ((i = text.IndexOf(pattern, i)) != -1)
+            while ((i = text.IndexOf(pattern, i, StringComparison.InvariantCultureIgnoreCase)) != -1)
             {
                 i += pattern.Length;
                 count++;
