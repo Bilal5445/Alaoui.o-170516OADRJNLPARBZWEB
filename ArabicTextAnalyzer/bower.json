@@ -4,6 +4,8 @@
   "dependencies": {
     "jquery": "2.2.3",
     "datatables": "1.10.11",
+    "datatables.net-select-dt": "1.2.3",
+    "datatables.net-buttons-dt": "1.4.2",
     "mark.js": "8.11.0",
     "jquery.mark": "8.11.0",
     "datatables.mark.js": "2.0.1",

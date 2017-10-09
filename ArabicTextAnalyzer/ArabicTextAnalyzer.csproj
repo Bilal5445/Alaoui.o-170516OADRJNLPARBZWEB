@@ -228,6 +228,12 @@
     <Content Include="bower_components\datatables.mark.js\dist\datatables.mark.js" />
     <Content Include="bower_components\datatables.mark.js\dist\datatables.mark.min.css" />
     <Content Include="bower_components\datatables.mark.js\dist\datatables.mark.min.js" />
+    <Content Include="bower_components\datatables.net-select-dt\css\select.dataTables.css" />
+    <Content Include="bower_components\datatables.net-select-dt\css\select.dataTables.min.css" />
+    <Content Include="bower_components\datatables.net-select-dt\License.txt" />
+    <Content Include="bower_components\datatables.net-select\js\dataTables.select.js" />
+    <Content Include="bower_components\datatables.net-select\js\dataTables.select.min.js" />
+    <Content Include="bower_components\datatables.net-select\License.txt" />
     <Content Include="bower_components\datatables.net\js\jquery.dataTables.js" />
     <Content Include="bower_components\datatables.net\js\jquery.dataTables.min.js" />
     <Content Include="bower_components\datatables.net\License.txt" />
@@ -461,6 +467,12 @@
     <Content Include="bower_components\bootstrap-tagsinput\LICENSE" />
     <Content Include="bower_components\bootstrap-tagsinput\package.json" />
     <Content Include="bower_components\bootstrap-tagsinput\README.md" />
+    <Content Include="bower_components\datatables.net-select-dt\.bower.json" />
+    <Content Include="bower_components\datatables.net-select-dt\bower.json" />
+    <Content Include="bower_components\datatables.net-select-dt\Readme.md" />
+    <Content Include="bower_components\datatables.net-select\.bower.json" />
+    <Content Include="bower_components\datatables.net-select\bower.json" />
+    <Content Include="bower_components\datatables.net-select\Readme.md" />
     <None Include="Properties\PublishProfiles\VM_137.116.196.7.pubxml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

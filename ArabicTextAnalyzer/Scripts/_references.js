@@ -2,6 +2,7 @@
 /// <reference path="../bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js" />
 /// <reference path="../bower_components/datatables.mark.js/dist/datatables.mark.js" />
 /// <reference path="../bower_components/datatables.net/js/jquery.dataTables.js" />
+/// <reference path="../bower_components/datatables.net-select/js/dataTables.select.js" />
 /// <reference path="../bower_components/datatables/media/js/jquery.dataTables.js" />
 /// <reference path="../bower_components/jquery.mark/dist/mark.js" />
 /// <reference path="../bower_components/jquery/dist/jquery.js" />

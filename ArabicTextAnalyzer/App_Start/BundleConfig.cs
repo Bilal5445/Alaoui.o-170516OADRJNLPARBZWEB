@@ -59,8 +59,8 @@ namespace ArabicTextAnalyzer
                 "~/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"
                 ));
             bundles.Add(new StyleBundle("~/Content/js_train_tagsinput").Include(
-                     "~/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css"
-                     ));
+                "~/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css"
+                ));
         }
     }
 }
