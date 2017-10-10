@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfM_XTRCTTHEME xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ArrayOfM_XTRCTTHEME xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <M_XTRCTTHEME>
     <ID_XTRCTTHEME>fc9536b1-9dc6-4f4a-bc3b-96fea8ecbfab</ID_XTRCTTHEME>
     <ThemeName>INWI</ThemeName>
@@ -8,11 +8,39 @@
   <M_XTRCTTHEME>
     <ID_XTRCTTHEME>a7f0096d-c561-418a-9bb4-2cf905f5b902</ID_XTRCTTHEME>
     <ThemeName>BMCE</ThemeName>
-    <CurrentActive />
+    <CurrentActive>active</CurrentActive>
   </M_XTRCTTHEME>
   <M_XTRCTTHEME>
     <ID_XTRCTTHEME>cc0294e8-be7c-4f99-b529-467078ad1a54</ID_XTRCTTHEME>
     <ThemeName>BENKIRANE</ThemeName>
-    <CurrentActive>active</CurrentActive>
+    <CurrentActive />
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>e5673ecc-b551-4a79-8475-962e33cb6acd</ID_XTRCTTHEME>
+    <ThemeName>Thé Sultan</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>91e44af0-5bf1-4f31-bb07-3c440bfcbfe9</ID_XTRCTTHEME>
+    <ThemeName>beauté</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>30dd15fa-f012-4f2d-810e-798234e68ebd</ID_XTRCTTHEME>
+    <ThemeName>Banque</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>3683aee6-77bc-44e4-9e80-ff9e8e2a9f49</ID_XTRCTTHEME>
+    <ThemeName>Beauté </ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>bb470694-22c3-4573-a89d-e7bfcb8e6d18</ID_XTRCTTHEME>
+    <ThemeName>Benkirane</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>2c47480a-5743-49a4-801a-edb268401d48</ID_XTRCTTHEME>
+    <ThemeName>badr Hari</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>3add917d-3bf9-44ab-a123-197b14c4081a</ID_XTRCTTHEME>
+    <ThemeName>Crédit</ThemeName>
   </M_XTRCTTHEME>
 </ArrayOfM_XTRCTTHEME>
