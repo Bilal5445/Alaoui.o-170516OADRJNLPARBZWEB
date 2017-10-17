@@ -30,7 +30,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             outputFileLocation = pathToExample + "small-example.7.charWordTransl";
             inputFileLocation = pathToExample + "small-example.arabizi";
             processFileLocation = workingDirectoryLocation + @"RUN_transl_pipeline.sh";
-    }
+        }
 
         public string Convert(string source)
         {
@@ -38,7 +38,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_wa_ma_ch(source);
             source = Preprocess_li_ma_ch(source);
             source = Preprocess_ma_ch(source);
-            source = Preprocess_le(source);
+            // source = Preprocess_le(source);
             source = Preprocess_al_wa(source);
             source = Preprocess_al(source);
             source = Preprocess_dl(source);
@@ -99,14 +99,14 @@ namespace ArabicTextAnalyzer.Business.Provider
             return miniArabiziKeyword;
         }
 
-        public string Preprocess_le(string arabizi)
+        /*public string Preprocess_le(string arabizi)
         {
             // ex : on mix le fr avec l'arabe : 'le' dans le sens l'article 'al'
             String pattern = RegexConstant.leRule;
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "al", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
-        }
+        }*/
 
         public string Preprocess_al_wa(string arabizi)
         {
@@ -155,7 +155,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             //beeeeezzaf
             //bezzzzzzzzzaf
             //beeeeeezzzzzzzzzzaaaaaaaaaf
-            
+
             String pattern = @"\bbe*z+a*f\b";
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "bzf", RegexOptions.IgnoreCase);
 
