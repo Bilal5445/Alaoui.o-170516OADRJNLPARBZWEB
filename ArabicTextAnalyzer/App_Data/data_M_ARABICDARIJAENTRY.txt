@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfM_ARABICDARIJAENTRY xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ArrayOfM_ARABICDARIJAENTRY xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <M_ARABICDARIJAENTRY>
     <ID_ARABICDARIJAENTRY>7bf0c6c6-59a9-4ee4-8164-1b89df781f4f</ID_ARABICDARIJAENTRY>
     <ID_ARABIZIENTRY>acd109b0-0686-467c-bbb0-d48bf147bad8</ID_ARABIZIENTRY>
@@ -8841,8 +8841,8 @@
     <ArabicDarijaText>نعم كهو عندك صح راه بزاف بنت tichahiw رجل و الله وحضهم و هادي دراري حث هم ولكن بنت عاق bazzf سلق بنظام قاع ممجوج وش في نترك يقدر يصبر</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>acd0c551-1d16-4e3c-88c3-0679a615d830</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>b3caea1b-bfe6-4cec-a78b-e53ca4306813</ID_ARABIZIENTRY>
-    <ArabicDarijaText>بنت كي لبست قصير ولا طويل , دراري kaydsrou عليه واخا هاكاك ! اذن ل فات شاغر ل منتلة _s d'abord عاد نشوفو هل alhabits سنة appropri _s و بس : 3</ArabicDarijaText>
+    <ID_ARABICDARIJAENTRY>35281eaa-8357-4b2f-a432-6375a15c61f1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a77e9f7e-f728-44f8-ba6c-48cac462cfc6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بنت كي لبست قصر ولا طويل , دراري كيضسرو عليها واخا هكاك ! اذن ل فات شاغر almentalités d'abord عاد نشوفو هل alhabits سنة appropriés و بس : 3</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>
