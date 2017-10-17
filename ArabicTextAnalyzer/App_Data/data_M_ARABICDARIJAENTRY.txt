@@ -6865,4 +6865,1984 @@
     <ID_ARABIZIENTRY>e48c4711-4bcb-4d9e-9b82-4fc3af951494</ID_ARABIZIENTRY>
     <ArabicDarijaText>بغيت nssawlk مشيت عندهم حالة compte المهم عطاتني غي كرة de جون قولتلها بغيت حتى ديال انترنت قالتلي هاديك katkhdam مع انترنت منين بغيت ندخله مع lpaypal ما بجهات شي</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7238c0cb-8df1-4f9c-b371-70f07bf26fcd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d9d49a25-e798-4d36-ad7f-231b2c3b9547</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ce4505f6-d128-4d25-a26c-f3d6535c6a6c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>18def353-b262-4295-80fb-59634bcf3641</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عيت لي قلت لي جي تاخد ن سردت gratuit 100 % قلت ل كوميرسيال بلا ما محتاج شي بقا عليا غير خود غير خود قلت ليه ولك , خد لي ردف مع جنس وفاسلف ملي مشيت لبنت قالت لي ه gratuit 100 % , تصيغ تقبل ملي قاقر contrat قالقة فرص de تصيغ : 1250 درهم بغ ن سردت de 15000 درهم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>981013f4-9a87-4829-b4c9-b565dc031194</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>58cf3173-48ac-495b-a6a4-8bea8aa279b7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بريف , وفاسلف كتاب شفار مؤسسة غباي غير الحرام , ملي توليو تعيط تكون عندكم الجورة باش تقول ما كن شي ن كردة gratuit و بلا كين زيادة بق كتكتب علينا . فكك وف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8ac1ccdb-61f3-401a-8792-8532b950a7c3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>50541ea5-b576-4d46-9d6a-ce758b7d6b7a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>جاوبني عافاكم baghrit نوم ديال كوميرسيال</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e79893b2-20e7-4013-8ba6-92b4e0cef64f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>187540cb-042f-47fb-858b-3b83db78da8f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كنتو باغين dab7oni ذبح خايبة في واحد رشة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c963de8a-368f-407e-ab78-46b37b663625</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e7337ea1-c6cf-4f40-b8d9-9e0647d23cd8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ديما وفاسلف . منة وفاسلف بغ فترة البيرت 2017</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>467df395-066e-44e7-bedb-743b402c5426</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>14ab4861-0806-49c1-ade2-b52d9c27de54</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شفار شفار نسبة ناسبا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9adf4c00-037e-4cd6-b7bf-b669df7260b7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e712e82e-e1df-47b4-89ca-e5002e968bea</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ولي بغا دير سلف و ما خدام شي ههههه كيفاش ظر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>121164f6-7545-40d4-9b29-236481d1f5b4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d3ce7520-c9a1-4619-8636-679822566939</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا خم بورق هم ما بغاو شي عطو لي كيفاش زعما هادشي كتير wajhiyat او سهنه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>97dacce0-35c3-4941-a5ad-421f93ba1e2e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7c8b1729-0c1f-4773-ac7a-9a8abba422e7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام مكن كريدي و انا , عسكرى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1750abd0-ebba-4e4a-975d-b0f2c893cc2e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>63c9d620-5d54-4802-b345-c29375c7cf7f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام , المرجو ترسل لنا طلبك عبر رسالة خاص على لا باغي ديالنا .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>989efbd8-adc9-489f-95c8-c2e8391be77e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b82a37d2-5a64-48db-9f2a-de4383523b73</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ولكن ما عندي فكه سولت عند شك و سارة melitir</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>eadff871-0f46-4d84-813a-63272350d0ef</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d8c738bd-1900-453d-bed8-4be52f83b75b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شكرا ليك بزاف .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f3651180-5f40-4f84-8e69-002a6d289bf4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1ea7fd25-4c9d-467e-be1b-3ff957af6755</ID_ARABIZIENTRY>
+    <ArabicDarijaText>3wacharkom مبروك من kol3am وانتم بخير</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d2176722-ce54-4afc-bc95-52bab613020d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>98be402c-ca90-40e0-ae08-18172b4b14e1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و علينا و عليك باش ما تمنت</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e167b363-e4f6-40c3-a635-227bc308696b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>301675e6-434e-4f4d-b211-8bd994a81de6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هذا الوفري كان بمناسبة د لذة و لا طرات كتبت من 150 دراهم الشهر . الوفري متواجدا عند نص partenaires d'quipement de لا مسن و ف algrandes surfaces بحال marjane , alectroplanet ... .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ec38797f-8242-4fed-87ac-10bc492fb404</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f6211bcf-a191-4a2f-b2c9-23f528fc353e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام ممكن نعرف alconditions ديال هذا لوفرة عافك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7c921b5a-57aa-43bc-b685-742c017149e6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1e9b63a5-0c3d-44a8-9eee-53a8385705a5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>10000 درهم شنو نحتج فيه م ورقات</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c6d28328-0e7b-49a1-b238-9ab4bb7f0e68</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f15686ec-17a3-4d12-aec5-115345793041</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سلام انا خدام ابيك ممكن ناخذ</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7fb817cb-8e22-41fd-9942-d0f26bc94596</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>918fafdd-d74f-4c91-a652-1022882405ab</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عيط لي قلت لي جي تاخد ن كردة gratuit 100 % قلت ل كوميرسيال بلا ما محتاج شي بقا عليا غير خود غير خود قلت ليه ولك , خد لي ردف مع جنس وفاسلف ملي مشيت لبنت قالت لي ه gratuit 100 % , تسير تقبل ملي قاقر contrat كنلقى فرص de تسير : 1250 درهم بر ن كردة de 15000 درهم .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ab064a2a-f0d3-41c0-ab47-dadeef044410</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>72250d73-702e-453e-b976-66f9a7aa3929</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لا بغيت ناخد الآن واش نقدر !!</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>da8f4bf5-098e-4790-adb6-407659297aae</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>641cbf24-38bb-4abd-abc2-da7b7015d75d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بريف , وفاسلف كتاب شفار مؤسسة غباوة غير الحرام , ملي توليو تعيط تكون عندكم الجرئ باش تقول ما كن شي ن كردة gratuit و بلا كين زيادة بق كتكتب علينا . فكك فف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>574009f4-a2ff-43d1-ae0b-5e6aebffe115</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>039cb982-8579-4bcb-bfa5-51c1da3da457</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سلام شنو هوما alpapier التي تطلبه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f957e029-db46-4cf9-925d-528a483935db</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ac54e68a-88ec-4929-857e-38685cc78afd</ID_ARABIZIENTRY>
+    <ArabicDarijaText>جاوبني عافاكم baghrit نوم ديال كومرسيال</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>78c1d1c3-4509-43ea-b478-826de39a247f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>79773ccb-4020-4395-9d8e-76ddddb258ab</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام كم , خصك تمشي الاقرب جنس وفاسلف و هوما غادي تكلف بشرح و يعطوك كل تفاصيل .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>de0ed222-810d-4c9c-80cc-b72bd13c901c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fa44ad6b-0533-4da7-a4c6-2f026ae2fa80</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كنتو باغين dab7oni ذبح خايبة في واحد رشت</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>75755d51-c771-4418-9174-f7f9fc83a07a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ae54f2b4-53ee-44ac-bdfd-5ca387bc20ee</ID_ARABIZIENTRY>
+    <ArabicDarijaText>bravo مازت من توفق القدم إن شاء الله</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6cf5d442-7588-415d-892e-dc5f942e234f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>90c82799-0f32-4c40-be3c-13bf43daed6f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ديما وفاسلف . منة وفاسلف بور فترة ليبيرتيه 2017</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>80abfb12-9b28-48c0-957c-27c48994ea7b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d341d97b-3f24-4254-a4bf-df800f16657b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شكرا على تعمق , وفاق و tatabou3ek لنا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5212629a-d92b-44d7-9f60-c1660a8c11b5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0c2258ed-0460-48b4-90e1-a3c18cf38b41</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شفار شفار نسبة ناصبة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>dec19e49-5462-43ca-9f41-3dc0f84f3497</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>342fc2d4-4b97-4aef-8879-25c9be348313</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مرحبا هذا واجب لكم حاط خدامين مع شعب شكرا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0c358129-da0d-4106-bb47-d4061aa643e6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2597c7af-2bff-459a-8f90-9fda462ea9c1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ولي بغا دير سلاف و ما خدام شي ههههه كيفاش ضير</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>caea0463-5b98-4a6a-a3a6-6cf40b76ef9d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>60b1c657-690b-44e2-a003-6dc2ed79136c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام صف بغيت نسولكم الله يجزيكم هذا واف صلف هل ktsalfo ناس او شنو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f74cb49c-0bc2-44eb-8ffd-eb7c72c99725</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5d028f68-0ae4-48ea-a081-0fa517579b52</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا خام برق هم ما بغاو شي عطو لي كيفاش زعما هادشي كتير wajhiyat او شنه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8f115474-e826-4b02-8f95-9789c927eabd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3cf68e0c-93b9-4ca5-9755-dc6a817d747a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام سهام , وفاسلف متخصص ف السردية لا الاستهلاك ( برت personnel , كردية اوتوموبيل , quipement ذس منقص ) ... .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>899f2dae-0783-489f-8632-f0ee9285e5eb</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>eb547b9e-d1de-4384-b7ad-67eda335cecc</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام موقن كريدي و انا , عسكري</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>05b04787-5abb-450f-8aa0-b24ffd7b8d04</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1f718e88-11bf-45c9-b6fe-f672d2122b8f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>باش تعرف علينا أكثر , دخل الموقع الالكتروني ديالنا و زورين ف حتى الوكالة ديالنا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>35c40d1a-0ab4-45db-9b34-a1a5f09a430c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fabb8145-17ca-4d8d-900e-1a94630de980</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام , المرجو ترسل لنا طلبك عبر رسالة خاص على لا باغي ديالنا .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>23622bda-4ca9-476c-a206-3114291d3531</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2f8dfa08-a57b-493a-be79-e60eac610f45</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام فاق بنسب anciente ضروري عام وخا contrat سدي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2dfef702-7636-4bcd-bf79-4e5d3f10bded</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1ce7397a-780f-4a4b-a8e2-05204e781e7c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ولكن ما عندي فكه سولت عند شك و سارة melitir</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>caded241-ac7d-4ea0-b96b-e8fbc680e58f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>00ae5930-092c-4515-a488-f3198eb87661</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مفهمت والو فهادشي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1fb37fba-ce06-4455-b69f-0eb70a9f6345</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ee27d557-0dda-4125-8390-5df9cc951c88</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شكرا ليك بزاف .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>12b619b5-c61a-410c-919c-7ee1508a3293</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f666cf43-bd13-4012-8823-30682610a4d0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خطئ سنة fhmimi الله يجزيك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a7609d65-0de6-44c3-a373-54c2f586050d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>00eac3d8-cce7-4a81-9b14-d94353c886eb</ID_ARABIZIENTRY>
+    <ArabicDarijaText>3wacharkom مبروك من kol3am وانتم بخير</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8b3d09db-3e5e-4010-b7df-334ea38a4d92</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4618a401-93e3-4032-89c3-bf28ff0b6451</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سعداتك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>11a2f3d2-019e-468f-9271-7d5a7b005d7c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b6f73129-265e-489b-aafc-be640140d6f8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و علينا و عليك باش ما تمنت</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>441fb197-b69c-4eb8-9f79-ce9b928e54b5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>65afefee-c328-4365-a774-d0c48c854602</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تاهيتي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>bf832e29-4aa2-4bae-8aef-de500e231fac</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e671c886-2bf7-44a5-84c0-0c568ae1e083</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هذا لوفرة كان بمناسبة د لذة و لا طرات كتبت من 150 دراهم الشهر . لوفرة متواجد عند نص partenaires d'quipement de لا ميسون و ف algrandes surfaces بحال marjane , alectroplanet ... .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e6b0cd04-8dee-497e-b167-350a17b64d30</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a314258b-1ba0-493d-aab0-d05dae83166c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شكرا لكم بزيف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ca691175-4ab3-43ec-b66f-e607c6888074</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>61958cee-153a-490b-8d2a-d2a3488aed3a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام ممكن نعرف alconditions ديال هذا الوفري عافك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>26a29c60-af4d-4bf5-9bdd-318fd1c06942</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2e168250-e8d3-4574-b471-2b73a937ac53</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و . بصح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8fcd93f3-b19c-4d3e-b830-11e278985f2c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>37bce054-a69b-43e8-808a-198a21baa4cc</ID_ARABIZIENTRY>
+    <ArabicDarijaText>10000 درهم شنو نحتاج فيه م ورقات</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b8c826d7-dbcb-45c6-b47f-2139f36dbc89</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2088c2c3-6833-4620-bd69-f1ebcaa8e3b3</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مبروك عليك خو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1f45cc1a-d081-4ad6-8135-41eb1002a246</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>eaf8a3d2-bc32-4290-841b-de441b80d40c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سلام انا خدام ابص ممكن ناخد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b0f3f833-4e3d-471a-af2b-6dc7289943d6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>72e3a523-6c63-410c-bdd3-b447772106af</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مبروك عليهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5ce5ec46-0bf7-4068-a3eb-9db39ac98b6f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>39bf8905-a26e-4df8-b9d7-c4c44551fed1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لا بغيت ناخد الآن واش نقدر !!</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>293b065f-4b5b-46bf-890b-ec058f4c6aae</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>55cdc0b2-ac55-4186-8688-a62c2a581624</ID_ARABIZIENTRY>
+    <ArabicDarijaText>إن شاء الله س سافر لا الدار البيضاء بلاصة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9ee002ec-6f6c-438a-8b85-b106b1b89293</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c89fe635-09a4-441a-becb-171bb869e0a8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سلام شنو هم alpapier التي تطلبه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>437e2aff-dd39-4f30-8f1c-bf7e563f7e90</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>28c708e0-08de-4916-aee4-ee82fbac94d6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مدينة فس katmyaz بشهوة القدم w3mrna نسو تقاليدنا شكرا وفاس على هذا المسبقة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0d4d8a81-d8f9-4ffb-8f93-9470b2a3d6db</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8e71b2b9-758b-4b39-9531-6aa0b29cae98</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام كم , خصك تمشي الأقرب جنس وفاسلف و هوما غادي تكلف بشرح و يعطوك كل تفاصيل .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6f053c79-a9e8-4965-88dd-606b651698ac</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2f567d5e-5354-49bb-a95b-dc8ef2f5a654</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تاحنا مشين ليل حأبص و بصح طبس عل تبز يا 5rawet !</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b29891c7-6ca7-4b81-8038-0183c288f61a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b3c29d3b-b26a-405c-ac64-f219a933914c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>باش المشاركة ديالك تكون مقبلة , خصك تشارك معانا اسم و صورة لي والصفة رمضاني حذرتها و katmiyez minta9tek :)</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4ab9b6ce-c3b8-422f-bc63-ff8318a63c09</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5c62d29c-e9a4-4bac-8225-a24fe09919a7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>bravo مازد من توفق القدم إن شاء الله</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a3d205be-d3e2-4a8b-aeee-93b747e67abf</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4a89608e-f796-44f8-aa87-fab28acc3c13</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الواليدين هوما سبب marabawche alwladhom حليني رجليهم ولد و طلق في zna9i magadinche على الولد matwildouche ان</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>83d7f5d1-4206-4caa-b5e8-b4b033b2855c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c423c866-b716-400c-952e-863b3b310ca9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شكرا على الوصفة خصنا سغ</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8c7e9064-8832-4716-a8fc-1755774f73ad</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>43c8916a-8e88-44d3-be92-43cd1654b296</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شكرا على تعمق , وفاق و tatabou3ek لنا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>86bf95f5-319c-4862-ad72-a42b99ac61dc</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3f1a396f-81d9-4ab4-8cbf-1c8110e8041f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كنقول المسل الأول هوما الوالدين الآن درت هل في المجتمع</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3c337458-41a8-4add-ae50-a55e5d629423</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b95ffdb7-96b3-42cd-bcac-3d6f2004cdd9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حمتله داز مزيان .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2a3da9db-5114-40f6-a971-ee5d52e8c169</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>797111f2-feb6-4262-bafb-7f4eed22f35f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مرحبا هذا واجب لكم هنة خدامين مع شعب شكرا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>dfbabd7e-a46c-4537-9c76-f4acdf60eef2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0e0c1ac1-e321-4212-b8c5-9379309cc184</ID_ARABIZIENTRY>
+    <ArabicDarijaText>أش هذا لخر او فلمغرب سيبا . .. خشم دفن ناس الدار البيضاء ثف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7a153d39-8196-4bbf-9869-e69f40aa672b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f75bdf1e-17b1-4918-a55a-ec39b7b8286f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حمتله مزيان</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c029fed0-a03d-4a13-83fc-079ee79638f2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8176355b-deec-4d92-a0a3-6d47282cceea</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام كف بغيت نسولكم الله يجزيكم هذا وفى سلف هل ktsalfo ناس او شنه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9fd421a6-dad4-46ce-8ef2-5fb6666f4abf</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6973c5ff-b641-4013-b126-4e31fb514293</ID_ARABIZIENTRY>
+    <ArabicDarijaText>جاثم tbargiga خلو ناس تعيش ولاد القحاب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>cd86beaf-a67f-4db8-acd1-8ac91cb0ac0d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7aa32f03-493c-437a-9f6d-45cd47356262</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام سهام , وفاسلف متخصصا ف السردية لا الاستهلاك ( برت personnel , كردة اوتوموبيل , quipement تص منقص ) ... .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f484e075-71a6-4472-b211-b4ff684c7705</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fef82ded-eee6-408f-a53e-fe71260d8361</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حتى شي قلب فيهم makihdar مقاد .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3f424124-7ae4-47fc-bb15-64c3a8b52d76</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>dd8a8422-a43c-4ab2-be66-639d4c0c4ea9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تاحنا مشين ليل حأبص و بصح طبس عل تبز يا 5rawet !</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c146d1e2-b0f7-4fee-a9d6-51f9473c5a55</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>90a5de8e-2764-4cde-97eb-cf03385b7b45</ID_ARABIZIENTRY>
+    <ArabicDarijaText>باش تعرف علينا أكثر , دخل الموقع الالكتروني ديالنا و زرنا ف حتى الوكالة ديالنا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e418168e-53b2-4abc-9c14-fdb080efc578</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7a0ed1fc-be9d-4cbf-97ad-5443701701de</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شوف بعد كيفاش خدام لا لغة لا والو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>01a35c74-98de-4d44-91cd-a6349cbf66aa</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>19aabb62-c176-42f0-9646-3411ee759b8b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الواليدين هوما سبب marabawche alwladhom هلن رجليهم ولد و طلق في zna9i magadinche على الولد matwildouche ان</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6d71600d-38bd-4f0c-953a-7fc2876d339d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fc407e5d-1a48-4183-b233-d19a60fde6cf</ID_ARABIZIENTRY>
+    <ArabicDarijaText>السلام فاق بنسب anciente ضروري عام وخا contrat كت</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>008f76e0-4503-4121-8eb3-7c4e9681c984</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ef84fe08-0884-47fe-bd22-454b9a0a9561</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ور كتب ما كين والو . فلوس و دوز التي بغيت بنادم كيدز حرق .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>02ae2919-16d2-4a30-bbf9-3d69a5dae217</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>687295d4-db2a-4187-8616-258f636964cc</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كنقول لمصل الأول هوما الوالدين الآن درت هل في المجتمع</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e31ab124-a76b-47c3-9483-7a2c56161206</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>855069d6-e635-47c8-bd9e-c2c83b58a72f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مفهمت والو فهادشي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3191fd93-0fff-4ed4-a49f-5006eecc7524</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7fd1aaff-fe6c-4842-b6ef-f73014fb4c19</ID_ARABIZIENTRY>
+    <ArabicDarijaText>علاش فاش كدور معاهم kaykhaliwak دوز و هذا الحشيش التي كان في يغب منين دازت ? و كيفاش وصلت ? باراكا من كتب حتى سمرا . كلشي معروف ... .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c0ad11f1-43f7-429c-9d39-efc73d47ed5a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>827f5399-59a6-41fa-b9d4-8bac9ab8fe3f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>أش هذا لخر او فلمغرب سيبا . .. خشم يضفن ناس الدار البيضاء ثف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>bdab8124-0705-42f4-ac5a-d843337717dc</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>24936942-25d7-453a-9748-e7d12e0f7098</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خت سنة fhmimi الله يجزيك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>609d1e83-0943-4332-8aa8-6470ed425d20</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>53ccc7bd-ceeb-4e6d-b732-856a645c412c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هدشي غير صنم , ضحكه علينا lmkhayar ف هذا دون و بلاصة عايشين غير بهذشي هوما كيدير طريق ل bznaza تخلص دوز بلا سكانر لا والو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>757e57cd-470f-45a8-9150-75328abcccae</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2b34995a-418b-4415-8f24-af5f00f5d671</ID_ARABIZIENTRY>
+    <ArabicDarijaText>جاثم tbargiga خلو ناس تعيش ولاد القحاب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f771be54-0225-4223-84b0-23c394a871f5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4573f06c-3744-43dc-a0bd-7b4d27cb969b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سعداتك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4fc0f1c7-6744-4d19-b8be-f2c9f5e27ee0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8b7b255f-e4ab-46a6-a4e9-e83d484190e0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>matjalewhmche ي زرعه يا دولة de نفاق</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>340460a0-0cbd-470b-a360-5d48a3b6ef2a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d96df25a-faa4-43f8-83f8-0e8a8fca330b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حتى شي قلب فيهم makihdar مقاد .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6fa57cf0-077c-4552-9c1e-628a5525dc46</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7172b26c-49c4-447a-a7e8-f7ed76de3930</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تاهيتى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d046d13d-263a-4bb5-86b3-b15911f4856b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>98ffe339-4e3e-42d7-8bc8-b3ae97619de7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>أليز حب direction عكاشة بور شمسها</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>793547b0-2790-46c7-91c5-9842b145308c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b1493403-a096-48c8-b676-f68f6cb84610</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شوف بعد كيفاش خدام لا لغة لا والو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6e7fc362-50df-4f17-995c-43297db8ed66</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b6b7dbad-a6db-4ec2-b582-1a03c8b83c87</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شكرا لكم بزيف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d5ab57ed-afb3-4e90-bdc0-9886d64fc3c2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3bfcacfe-b211-4115-888c-cfdade27a766</ID_ARABIZIENTRY>
+    <ArabicDarijaText>جالون njadmo واش ندير نسفت بنتنا السعودية كما كيدير الرب ثف على تبن أمكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>29c29f52-9b41-47c0-9438-16f6b69a2b2c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>23c8f955-856c-4e5f-8f2c-80904eebb167</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ير كتب ما كين والو . فلوس و دوز التي بغيت بنادم كاتز حرق .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7dc43012-4a54-4884-aeb4-5e26171ba195</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5af8a7e2-ae31-49fe-a945-501511df9024</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و . بصح</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f240041b-8804-48c3-9093-d83c4ceb3478</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a5851ce1-687e-4726-aaf0-5917225ba3d8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>باركا من joza3balat كدوز التي بغيت كرش لحرام</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0df7d411-dfc0-43d3-8621-782c7b0057dc</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2ce2f751-265d-4e57-b0fc-eba908f6f3b7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>علاش فاش كدور معاهم kaykhaliwak دوز و هذا الحشيش التي كان في ورب منين دازت ? و كيفاش وصلت ? باراكا من كتب حتى كامرا . كلشي معروف ... .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3e1360db-bdd5-48be-bc17-42f3669bf266</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>030bf386-2b09-4a2b-a0a8-7aaab4c0ec9c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مبروك عليك خوي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>37ed6eca-898f-43df-b5ce-cafcb055eee1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b6d74f79-2d21-41d0-a18e-1df368e5be7f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>directeur الازرق , inspecteur الوداد , بشروط هؤلاء كلهم شفار ظلمين الله ياخذ فيهم ل حقي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2660f06a-0c02-4dec-abda-e703a590d66e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>be67b647-7dfc-49e9-9ca9-45bde8e36aa6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>machigfor ما والو قاع ليدز على الخط البيض متصل زيرو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9e6fe3a2-dc0f-401d-bdb8-26d100db2ae9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0e2be6b8-426d-46d4-bd06-6c221f3c97e0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هدشي غير سينما , ضحك علينا lmkhayar ف هذا دون و بلاصة عايشين غير بهذشي هوما كيدير طريق ل bznaza تخلص دوز بلا سكانر لا والو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1eb9ba0d-0c85-437d-8a5e-0c20d7d1d654</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f7aef232-6ce8-4929-9069-4b2b3e71233d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مبروك عليهم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>52b98258-2981-4557-be33-01e2b9d9e0f0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e27933f4-82fb-4207-8518-187bf7dd188d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>أهم راه عندهم نص sd3to كركوم . .. هو غادي يقولك شنو كين ههههه كل شفار فيهم منعرف شحال عند من دار غير نحن تاجو المغرب مرة ف 6 سنين و تنضم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3f66d2ac-c12d-4106-b1f0-242c1555e698</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>92fd10b7-842a-4e42-b434-118712dd87db</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شيفور ديال الويل .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b80e0cae-61b8-45f5-9187-334d7c3ff9ac</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>73513b4f-c275-4376-aa5c-f73939f598f2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>matjalewhmche ي زرعها يا دولة de نفق</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d39911c5-d0fa-4921-88cb-2a0d05698a98</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2da50dca-5d27-4e35-990a-a28562ef9dce</ID_ARABIZIENTRY>
+    <ArabicDarijaText>إن شاء الله س سافر لا الدار البيضاء بلاصة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>13c16374-aace-489b-bfa5-d2c13085efe8</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4af30deb-bcbd-45f1-9ce8-4f77bba60cb6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>أشفغا اولاد الحرام يا ولد زنة تتحضر م تبين . ......................... tantmna ربي شطة لحياتكم شمل يا ولد زنة ............ واسلم و عليكم war7mati الله walbarakatoh . .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1cb2211e-95b9-4bc5-af29-370745bfd89e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>706ccca4-7399-4113-a190-a6a7cec5cd28</ID_ARABIZIENTRY>
+    <ArabicDarijaText>راه طريق تا لفح سدر katkmi الكف ضعيفة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d3364670-bde8-4686-be03-feb9ab177cdd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d36e7fe6-cefc-49bd-be45-7c87dfeb068d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>للز حب direction عكاشة بور شمسه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f67676d8-c2d8-4959-bb8f-7d77fe5b4c06</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>eb9f8434-59f0-4de5-9a0e-4e1ed46ffc0d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مدينة فس katmyaz بشهوة القدم w3mrna نسو تقلدنا شكرا وفاس على هذا المسبقة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5bc4de7b-2118-482e-9f80-2b640a905cc7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>77834b51-dc45-42b6-bfe6-2c2470b21420</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كي عجبني chawafriya ديال الكرة التي كي جرو ب 120km \ ه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e6cde819-3fa8-4392-80a1-beaccefe5dd1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e619ed43-028e-4aa3-b305-26163c087c85</ID_ARABIZIENTRY>
+    <ArabicDarijaText>جالونا njadmo واش ندير نسفت بناتنا السعودية كما كيدير الرب ثف على تابون أمكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>18ef3d36-31db-491d-8262-abb342759694</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>499e3e39-42a1-4d67-8076-01e85c02b2f3</ID_ARABIZIENTRY>
+    <ArabicDarijaText>باش المشاركة ديالك تكون مقبل , خصك تشرك معانا اسم و صورة لي والصفة رمضاني حضرتها و katmiyez minta9tek :)</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>af3a1c11-904a-4686-be7e-d05b29447c82</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ce6ea59a-3810-4967-8dd4-cabd7ffd1d1c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الفته زوين , تباركله عليكم ولكن كون تخلو الفيديو كامل بلا بزاف ديال زوق</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>565a1ae9-0d24-4144-b1ed-670f7bfe4017</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>71a3d78f-9de9-4658-b6e5-cfc6fa9167b4</ID_ARABIZIENTRY>
+    <ArabicDarijaText>باركا من joza3balat كدوز التي بغيت كرش لحرام</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ac002e26-827d-46fc-982c-c6643b286d97</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0edfe5cf-c3fc-43fb-8288-9424c63b9113</ID_ARABIZIENTRY>
+    <ArabicDarijaText>machigfor ما والو قاع ليدز على الخط البيض متأصل زيرو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>40188826-b395-4934-bfb3-45b2438c30dd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7a2a108a-ea84-4108-bd54-d729cfb4a0c7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شكرا على الوصفة خصنا صورة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>452e8754-4a03-48e2-91b7-57656a655e2c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>29b69aa7-0c58-4f1c-966a-11979f93188f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>على عن ما كاين شي ف وثوب غادي تلقاه ف bladi8.com</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f1b8e33e-9cec-46ce-8930-e36206130b34</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>227a6bdf-94aa-4de3-9c0d-1f38ef83f18d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>directeur الازرق , inspecteur الوداد , بشروط هؤلاء كلهم شفار ظالمين الله ياخذ فيهم ل حقي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>36d9d83a-fd0a-471d-bf96-ef4eb0835d58</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>50d73476-ca99-4ff2-bb3a-198cb5010754</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شيفور ديال الولي .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a03b13d4-c577-4284-834c-053d4bbbb320</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>24ac49a5-8f7a-4466-9d13-60725f6cd5bd</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حمتله داز مزيان .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3dd44835-50e0-47aa-bee7-b79737ecafa3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5c8b5a4f-5058-4ab3-9f32-32912cc550e0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>plz خويا الله يحفظك بغيت سمية ديال هداك ديسك التي راه abdel3ali نوار</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2989f3c9-de5e-4db3-9d4e-9ff10be00a0a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a75b1160-ef4f-48d3-a92a-febd7ef2e946</ID_ARABIZIENTRY>
+    <ArabicDarijaText>أهم راه عندهم نص sd3to كرقم . .. هو غادي يقولك شنو كين ههههه كل شفار فيهم منعرف شحال عند من دار غير نحن تانجو المغرب مرة ف 6 سنين و تنضمه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>cb2a7d8d-c933-4f49-958a-f8c20abfe31e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8dd03f27-e625-4259-adfe-847ca36bd331</ID_ARABIZIENTRY>
+    <ArabicDarijaText>راه طريق تا لفها ستر katkmi لكيف ضعيفا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>eb757054-829d-47ec-b6d3-3da1172d1fdb</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3de76364-33ec-4c01-bbaa-2ccf9b9f10f6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حمتله مزيان</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>98daa0e2-3e22-4283-8358-d0e582e918f3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ea903628-4937-4ea8-81c7-5e63405122d7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تازة فيه غير سيمانة الفت اسلام</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6788d8aa-bd3b-4e6b-b57f-fca8b7c59bb2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f0e9dc94-90f2-45ae-a734-f78d0f559c72</ID_ARABIZIENTRY>
+    <ArabicDarijaText>أشفغا اولاد الحرام يا ولد زنا تتحضر م تبين . ......................... tantmna ربي اكحت لحياتكم شمل يا ولد زنا ............ وأسلم و عليكم war7mati الله walbarakatoh . .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>665bde8d-5c95-4d8d-973a-2370128f1a4a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6ec9d1c5-9312-4211-81c4-1fb67f3b5be9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كي عجبني chawafriya ديال الكرة التي كي جرو ب 120km \ ه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>433988b6-bee4-4e05-888e-4a5d87cae527</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7a1e6b67-1213-485c-b35d-24e8d9d61808</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هه ديسك نتع شيفر هوما . هوما عمرهم تبادل آ ه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>41ffeec9-ae3b-4a47-92b8-0425dd85536b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>62b195e7-e38e-43ff-a92f-680adba72ca8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خصنا ندوز</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c5f69607-b115-4dfa-8dcb-30c8878c0437</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b9f92ee0-fa04-4615-9bac-2d61121c84dd</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لفيتو زوين , تباركله عليكم ولكن كون تخلو الفيديو كامل بلا بزاف ديال زوق</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>612b1473-b005-4dd1-a93f-8a59f3aae834</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1573a595-4b52-4a96-853f-d83a8b3dd2bf</ID_ARABIZIENTRY>
+    <ArabicDarijaText>hd تنل كندوز من نحن غادين البلاد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9477c20f-af02-4219-830d-ebb22831412a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>bfc94615-035e-4ef0-97b5-2f2aa67d9207</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مسليني لكم , ياك صحافة ديال l'algerie قالت ان رجل مراقبات الحدود تحاصر المغرب , و كاتخنق اقتصادا , بمعنى لبق mayzha9 ???? يعني الى دخلت شي حاجة l'algerie راه حراس ديال l'alegerie التي kadakhlha</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c09fae2d-9be6-47de-9d9d-be1fbdebef3d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9f37c68f-d239-4360-a1e2-e8c5e1bff1bf</ID_ARABIZIENTRY>
+    <ArabicDarijaText>على عن ما كاين شي ف وثب غادي تلقاه ف bladi8.com</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e040b7be-c4fb-43c1-95c0-f3343fa850eb</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4d3c3dec-ccf7-43c6-9dd2-b1b9533d43f4</ID_ARABIZIENTRY>
+    <ArabicDarijaText>tunnels وسعر blakhes فلالي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>60ba482d-78bf-407a-b3d2-01e5a15a5b17</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d436ef1f-b535-4a55-8670-81ce958a44a8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا عاف 2 قرع بحال هؤلاء بادن لي برهوم أتصل بيا + 212611685828</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ca66771c-d53c-4e49-ba51-e0d91f13b553</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>dd75ca57-4742-40c1-9ff5-9206792faea9</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ولاد مما غطين تز الله عز رجل ولد شعب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ce8caa89-5c7d-43fd-ad2e-e7116f901cc6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>838a0924-4d10-453a-a366-0a0f413975af</ID_ARABIZIENTRY>
+    <ArabicDarijaText>plz خويا الله يحفظك بغيت سمية ديال هداك ديسك التي راه abdel3ali انور</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>62a74dca-7440-43f3-a074-ca7c4e21c8d9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b3105c76-3c25-46f3-902b-3452d2b7730c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هل هذا طريق فيه 2 ميترو شفار حق البلاد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>92c5cbfe-27c1-401a-9794-9fa97a4658eb</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9fa507b1-ed36-4e2f-b0cd-c009ff7a1bfb</ID_ARABIZIENTRY>
+    <ArabicDarijaText>أنا عندي قرع بادن قدام باغي nbi3hom 06 32 81 03 76</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0ce090cf-b546-4670-ae4b-8cba9a8d77c5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>00cc2752-7f14-4bc0-b3aa-144e8ddfacf1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ما تنسى شي انا المسامحة كبير عند ربي .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>fe28cfe3-2400-433b-a1d1-e55aa026b562</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>954598d7-50c0-49c1-8409-499898de8604</ID_ARABIZIENTRY>
+    <ArabicDarijaText>دزة فيه غير سيمانة ألافات ياسلام</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a017e5a2-fee7-4fcb-bbe9-30c67c052996</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>be2eac77-9f56-4f54-ae28-b167da3896db</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شكون عاتق البيرمي شروطه وال</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c5db393e-0c74-40c2-b31d-3b7aa6f380b7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e25230af-20f7-4c26-b7f9-068bcd2e2949</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عندي قرعة بدا lesieur عندها القاع بحال lesieur لخضر والعند السكني</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5ca7f888-4c24-4393-bcc5-f6714f33f70e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>86d1b65a-14e8-464f-b5c6-7b90a6dcfb6f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نعم lmosamih كريم ولكن بقا في الحل الحكرة خايبة أنا ما نكتب شي عليك ديرها لي نخلي دار به واخا كون شكون كون لمهم الله يستر و صفى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>dafae1e5-7c3b-432c-991b-db4c12874066</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7126a4cc-57ba-40a4-a09e-df999b03eaaf</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هه ديسك نتع شافير هوما . هوما عمرهم تبادل 1 ه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>fcd9b07b-4e9d-4060-86c6-aaec532d3cbf</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>66fed10f-e4f2-4f59-ad3a-b7c70942105a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شيفور نتي tbrkalah عليه ولد طريق عارف اش كيدير وزايدون راه عته صاحب signal باش دوبل .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b4f07f81-5100-4520-8795-21a17f8ccdf4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3235c158-1f44-455f-b0d5-e4e1cf0d2233</ID_ARABIZIENTRY>
+    <ArabicDarijaText>أنا عندي أكثر mine50000 وحدة ولكن معرفتش اليمين nbi3home</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>72b0247d-44cc-4d24-a5af-263961d75bd7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>553209bc-f6b0-4690-ac04-80ed7759476f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و نزل درب جيت به القلب مالك يا صاحب جبت لي ألمرت</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8328f1f5-ec97-4b91-b852-4acb145edc6f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>383f7ec9-9ef0-4fb1-a93e-c6d484a4dd23</ID_ARABIZIENTRY>
+    <ArabicDarijaText>hd تونل كندوز من نحن غادين البلاد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1df3bc11-c99a-41fe-ba22-a0bd74738a1a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2307d5a2-2796-4bca-89b1-0dedce0d8d2f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>علاش كيخسر ذاك البرهوش الهذرة . ديك طريق قادره غي رجل التي كاسحات طريق طويل والله يحفظ وميرك على تسك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>274f2d13-e3cd-4762-8c7d-2531f089a65b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0ec549b8-61f3-41e7-b2c1-c5138e6c6958</ID_ARABIZIENTRY>
+    <ArabicDarijaText>أنا عندي 10 ديال ليقرع ديال الصور بادن قدام التي بقهم تصل وتصب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9fddc6f3-8f0f-4f37-af61-f149dcb4ae9f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9fedf909-4b53-4709-9bb2-eddc9b5fef70</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ما عجباتك شي حضرتي نتة راسك مع لحية الكلام ساقت تعجبنا فيه ومن تجي الالفات تبقاو تفرج انت بعد وكان تكون فهاد البلاصة اول واحد تهرب هيتسه التي كيدير ما كيهذر شي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>bfc35404-4b66-4f40-ac85-6462f072029c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7562ce95-f6af-49c2-bf4d-6d6081004ab2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>tunnels وسعر blakhes فليل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>130daf26-a49f-48f9-9d8f-62fb57cb7da3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1e7cee6a-f6c1-4479-bd2b-8ee9da899704</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تباركله عليك اخي دور يا almichlan والبرق حتى سامعك جران</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>210b1ecf-bd8f-41ea-b10d-58b1e5a0bd2f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8f04afe8-8d71-4c32-bd2c-566bb3702eaf</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عندي القرعة مكتوب بالعربية</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9362f130-053a-437d-9e07-0015e821874f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>27c00bab-614e-4d9f-a222-e5eee05ee591</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا عنف 2 قرع بحال هؤلاء بادن لي براهم أتصال بيا + 212611685828</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4d39f1d5-4910-4205-bc18-62c9964cc71c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>57e17da8-1d49-4fbf-92a8-18d3eb8d11bd</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نكون رجل ولا مرة ما كأهم شي رجل عماره ماكنت belhadra . ونتا belhadra nta3ak تبات شي التي قلت رجل ديال المغرب شميت ولا كلكم صراحة katsabouh عليه قاعدين الغ لوغ</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ab92c0a0-3717-42bb-9200-0c05ee24c9e6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>369099ce-e4c5-48b8-989a-2834a08fcf7b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هل هذا طريق فيه 2 ميترو شفار حق البلاد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4f2ac6cf-5d8b-486c-86ef-62338b954c38</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>107ee1d1-5a9b-4ef8-8d14-4a00c6b244dc</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا شفر بحال قادر أكادير بركان ترانسبورت ديال لخضر 2 نهار ديال طريق</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c7f3d0f8-aaae-474f-bbdb-590a2d68b6b1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>abf7f21f-333b-4b30-a6ff-8f8321084ba2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عندي قنن لا cigogne 90cl في جاج غلت tayalsa9 مغنطيس فيها و فيها شي نقطة ف جاج تيبر التي بغا يشري ها ن 0619494759</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b9dba628-197d-4fea-acd0-f41c2ee423ef</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6d1d7ec9-b312-4744-886d-48f18fd51cd7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>أنا عندي قرع بادن قدام باغي nbi3hom 06 32 81 03 76</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8b980f9f-4375-4c7e-b3ce-159364e7e1c5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8f547699-9ac6-4ee1-bfdb-1b3bfecbd04b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>sb3ak طول mimto !!</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>bfde2907-5313-4c97-8b30-94c5075fd067</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6152797c-bd30-4165-aa3b-a7738da61170</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شكون عاتق البيرمي شروطه والا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>33f24399-cad4-42f7-a025-b326c7b6137a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ec39bf9e-e829-40cf-a735-d5143c1cfbf5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>اجي يا المعلم تشوف شير ديال ليل مكان غي القدم ودور البن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>783963f1-2522-4e92-85c9-c527a618a511</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5890bbe9-c5f7-47f6-b0ff-286026ee4fa6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>التي عند القرعة لخضر يكتب لي انا شاري و بل مو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7f326d6f-97ac-4a37-b8ac-ae4f3ebf0e45</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4dc79c4c-c307-438c-b7b9-8fc2e993a803</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عندي قرعة بدا lesieur عندها القاع بحال lesieur لخضر والعند السجن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5bc908eb-d4fa-407d-83ab-c33c35f37715</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d706c441-fb9e-4ac0-8f54-97aae62797ef</ID_ARABIZIENTRY>
+    <ArabicDarijaText>قالك رجل رجل المغرب يعرف yasta9waw غي على نص و شي راجل فيكم عطيه 2 sa9lat ووارن رجل كي دار قالك رجل ثف كلكم يا رجل المغرب غي شميت manasta3raf حتى بولد مرة منكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>82ddd6fd-2de1-47db-af43-fc4a20cc87f0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f66046cb-a8f6-4233-84d7-f7880482b754</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شيفور نتي tbrkalah عليه ولد طريق عارف اش كيدير وزايدون راه عته صاحب signal باش دوبل .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8f25a8de-8abf-41a0-93a0-f0933d79918f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>03fa0ce7-0f28-458c-8faa-197542d6a0c2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خاتر ناس فتر و ففر ونص 48 وجدة‎‎ الاهمام</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4f0d844c-7bcc-4ee3-b1bb-a82997817281</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>636dacd8-02f8-4413-8796-5c2bb813dd1c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كحت عندي جوج من هذا قرعة التي ب يشري تصل بيا ok الهاتف 063699238</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c3dca58a-16e5-4bc2-85a2-b8dfceaacd12</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>dadba1ef-d07f-44f9-979d-bc3532f9972c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>أنا عندي أكثر mine50000 وحدة ولكن معرفتش اليمين nbi3home</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e1526016-712c-4913-ab93-4c8f7e38d0bf</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a92b4dfa-c7dd-4af3-99de-822dee23c006</ID_ARABIZIENTRY>
+    <ArabicDarijaText>للمائة ديال 2 ريال .. .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>860e9c61-0970-4a5c-a644-2a1adf39e363</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3d6724d7-25d0-47b0-b444-e79809ea8f05</ID_ARABIZIENTRY>
+    <ArabicDarijaText>علاش كيخسر ذاك البرهوش الهذرة . ديك طريق قادره غي رجل التي كاسحات طريق طويل والله يحفظ وميرك على تسك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>93f4730b-c7f6-4986-a39c-fabe2721eb03</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ff35d11c-4504-4c09-8e8c-ba9dffa6e5ea</ID_ARABIZIENTRY>
+    <ArabicDarijaText>دبلجة فخت متأصل ماشي مشكل الا كانت طريق خاوية</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c456d8dc-1ea2-42d5-95ae-5b43afb81f0a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b973ec84-5758-4c5e-8d6f-b1d4c7ff5d5b</ID_ARABIZIENTRY>
+    <ArabicDarijaText />
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a3b16ffd-4ae1-4897-8c64-b8208154b13d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>89888484-cfbc-4c60-ae10-bc3b170eec6c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>أنا عندي 10 ديال لقرع ديال الصور بادن قدام التي بقهم تصل وتصب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ac49b413-cbd0-4228-bb43-3250b64447ab</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>76802e51-8cab-49f8-8355-1bf0e071eab3</ID_ARABIZIENTRY>
+    <ArabicDarijaText>وا سير عند انت , والله حتى فرصك , هداك راه ماشي قلب راه ماشي normal</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b0cafc6a-92c7-4be1-b76a-f0d9fc93af8c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a51b6658-b250-4f30-969d-ca7dcd2db3d3</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تباركله عليك اخي دور يا almichlan والبرق حتى يسمعك جرا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4958ddf3-4160-4a2a-bbf3-9e8df0542d66</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>02b04051-1380-47b8-9d68-4323cc6a5d21</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و zaidoom ما كاين شي التي صبغ بقا مرة كامين و هو تاج هاديك هيا الفرصة المناصب باش حيت عليه و الواحد كل الله حسن لعون</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4461d1bc-b5fb-429d-b71e-936728ca44de</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ffa56f77-1ccf-4e5a-a2c6-cca9b17219b6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عندي القرعة مكتوب بلعربي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c8cdd096-d256-4d5f-8682-b4dd8c7a589d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d67f1fd7-f790-453d-9810-a41dea3fcc49</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كان كنت محل fel5addama المعاق walkat3achar والله magisak حاجة أكبر نسبة . راك نتي نسب جاوني</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a260aaa7-4da4-482c-9b89-3b9b02415d39</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e0a8d640-776c-4463-9e95-2dc005a41d67</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كقوله تلغ بشوية قدام السمر خلا السمر تحت و تشوف داكشي ديال صح كيدير</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>937a36c7-2fcc-427b-a98f-89e3b18765c7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>15996cad-2edb-4352-bc40-48b5efefc29a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا شفر بحال قادر أكادير بركان ترانسبورت ديال لخضر 2 نهار ديال طريق</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b01d40a0-f01a-4c3e-b8fd-e8e9cacc707c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>967e297a-ce65-49bb-9ccf-0cbd79512941</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تبارك الله على هذا شفر ولد حرف طريق amskrod صعيب بزاف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>61ccecd1-292f-4882-81aa-07c935063bb9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e5e2a136-1ea3-429f-9f92-4496a13674ab</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عندي قنن لا cigogne 90cl في جاج غلت tayalsa9 مغنطيس فيها و فيها شي نقطة ف جاج ثابر التي بغا يشري ها ن 0619494759</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8ddf6b7a-543c-4f9d-b93e-678d9dfa9ec4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>725fae0b-4415-4419-b8a3-4cd8c0b3cf2c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>باش عرفك بلا ما مخلص شي المغرب الهاتف او باش عندك مشكل في لويف حتى جنابك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9b9598cb-0ca4-402e-86b4-d43034a96802</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8f8635c8-d50c-4004-9f42-c76014da03af</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كيغنيو وسط سطافيط ههههه بحال هادشي بلا مطبقو dawzoh</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>96c62438-a438-4a0a-9942-4d4dfafee67a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>68ab380e-8a21-4b9a-8f0e-4537b06a089d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>اجي يا المعلم تشوف شير ديال ليل مكان غي القدم ودور البن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>782b160e-332f-450e-9fc6-06bad5b4f768</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>52ef9eb9-3497-4fa0-b451-c84dc7cc4fea</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مقاش عليك دوبل في الخط تاصل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b2e71ebd-5951-43f3-92f8-e0fca09921a6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0653681f-9a7c-4d50-a4f8-5e062d86cef5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>التي عند القرعة لخضر يكتب لي انا شاري و بل مو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f28d799a-ff5a-4bcd-b102-999a4866cf2d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c02e69e4-b26d-42cb-84f0-de7681fb7fc1</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بلاصة ديال زب انتم هوما شفار ديال بصح و عاين بين يا ولاد القحاب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>cd66c0ac-c9f7-4512-963c-ddabac0af8ca</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4852e1b3-a7c5-40db-afc4-6bce1406c7b0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يا زب أش هذا لفوضى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7cf1791d-5816-41f3-a688-e952556e7d9d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>44e3632f-c735-4a8f-8622-97836c030a34</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خاتر ناس فتر و ففر ونص 48 وجدة‎‎ الهمام</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>cf7d7c2e-ccd6-4f9d-b28e-4a9ab7c3e661</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0ba00597-bb1f-4bb8-ad99-4433d43a6b26</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الله يعطه صحة على هذا ديسك ديال شير ليل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d969d00b-7ad5-40d5-8f8f-0ea133e5d91e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e3389897-44b1-447a-ba41-0bd32842cbc8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كحت عندي جوج من هذا قرعت التي ب يشري تصل بيا ok الهاتف 063699238</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1bf9f23a-5a92-4668-b35e-773a6e80d9f0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e70a7658-8de4-4d60-90ea-ed1f8cdb6a6f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بحال بحال كلشي شفار دوك البوليسي زعما رجل ع شميت</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8de89eae-6c50-4cdb-85b4-1def39d50f7d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e4d690f6-67d7-4ca0-931c-4ea621770a85</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خاص متحد حسن 2 و بأسر لحد ناس tfar3ine</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ad010645-0de7-4701-8aed-6d24993334d8</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ff0b3ee0-e3fa-4b5d-8420-0c7e7fd4bfe5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>دبلجة فخت متأصل ماشي مشكل الا كانت طريق خاوية</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>abfb84b7-2d94-499b-9224-9b102a025ad7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a1ef8dfe-dfa8-412c-9938-256ca8475b25</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يسلم على amskroud . العز عتي البذلة علاش كاتقلب .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b78e3443-52b4-4bbb-8edb-4ac496929d35</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7a24ddd4-8cad-45cd-8773-45384f7030d2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كان كنت محل fel5addama المعاق walkat3achar والله magisak حاجة أكبر نسبة . راك نتي نصب جاوني</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8cb24acc-635b-4a2c-8b69-7c0fbc58ffe4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c7629648-0cf4-4d1e-9d4c-0f20a1a0bf81</ID_ARABIZIENTRY>
+    <ArabicDarijaText />
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6de2c3b6-0a57-4c66-8a76-1ba690b54f85</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0e11b428-86d3-4042-bd6e-a28cff43bdfa</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا بغيت نعرف . علاش kaychdo شي واحد كيقولو له يا ولد الحاج . كيفاش زعما</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b9bfea1d-c526-4931-85f8-bbc5450af2c5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>36975bc7-3cac-4136-bed7-963a0c5f2d2a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ملي لمطر كان خاص يدخل في دنم 0:27 هذا وقت الفظ</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f2b7f4d0-b0d7-436e-b5cf-c9e54c7e949f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>304ae626-f80e-4f80-b9dc-72ee85364265</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و zaidoom ما كاين شي التي سبقه بقا مرة كامين و هو تاج هاديك هيا الفرصة المناصب باش حيت عليه و الواحد كل الله حسن العوا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>aaa30464-58a1-422c-880e-6fa668ae4c20</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>804a908f-f1e0-42a6-bef5-1efc02943f19</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بحال الى ما kadoblo شي فيه انتم لأحدكم الخط عيبنا واحد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ab2129df-08b8-4bd9-8c5a-600617ec6d07</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>cfe73c4e-b2b0-4644-8545-230b19f6c2a0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>باش عرفاك بلا ما مخلص شي المغرب الهاتف او باش عندك مشكل في الوفى حتى جنبك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9c613688-7184-4f1f-8af8-31818396fadc</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5b771967-76b3-4ba0-92bb-44711ecc7d88</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كلكم يا البلاصة ttmchiw عند الفقيه باش وتغلق شي حجاب بلد سمو الله ضو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1c2dc992-f20f-4377-84f5-954e105f532f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0bc0d0a2-52bb-49a5-9301-64fa58d00754</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ولاد القحاب دوها في كركوم و سير بدل alcouches لبوتفليقة ههههه كون كيف sayadkoum تونس الأحرار ي جيرام يا تاني</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f3fd03bd-ce21-4e76-9a5f-4aafc76331a3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>87f8f03f-c3d7-4176-85b8-0da31f3ae1f2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تبارك الله على هذا شفر ولد حرف طريق amskrod صعيب بزاف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2662b655-2bd0-4cfe-8c86-f86c3784bcc7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f9caad87-9b43-4616-9d11-ae08651a925d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سوقى فن ماشي عن عن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e5ee5b1d-3085-4fda-b535-8069c4ef9dd1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4d5d5f88-cf2b-4c47-8d2a-805f43c5b847</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بلاصة ديال زب انتم هوما شفار ديال بصح و عان بين يا ولاد القحاب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9118f648-8dc3-4ddb-9c01-052406cd57b0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>726739a7-ed93-4f87-819b-f204665f786f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الحلى خط عليكم لقواد المخزن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>53dae692-c7d0-4839-ad59-1f4972502589</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9d9023d7-782f-46a8-9474-bcaab6a06f25</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شكون حسب شعب كرش جوا هو ساكت شعب حمار ب زبل تم bozebal الله يعطكم مصيبة هربت شعب كامل مات ف بحر فيصب د ب زبل ل mkhasren بلاد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f3e83d12-ead8-444c-92ea-dbba667439ba</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ef88540a-749b-4b93-98ea-c158c8ff8703</ID_ARABIZIENTRY>
+    <ArabicDarijaText>" من الخير التي بغا دير شي حاجة ديرها التي بغت تعرى تعرى و التي بغا تحركه تحركه و تحركه عمر مغذى حيدت و كل واحد دير التي بغا را رسول كل رسالة ديالو و الله سبحانه وتعالى منزل القرآن فيه كلشي و التي دار شي حاجة حتى العادة الله والجهات نتحسب كاملين ولد و بنت "" را 3amerkome ما غادي طفق ل بنت كيقولو الولد والولاد كيقولو لبنت والله التي غادي حسب كل واحد """ ; " من الخير التي بغا دير شي حاجة ديرها التي بغت تعرى تعرى و التي بغا تحركه تحركه و تحركه عمر مغذى حيدت و كل واحد دير التي بغا را رسول كل رسالة ديالو و الله سبحانه وتعالى منزل القرآن فيه كلشي و التي دار شي حاجة حتى العادة الله والجهات نتحسب كاملين ولد و بنت "" را 3amerkome ما غادي طفق ل بنت كيقولو الولد والولاد كيقولو لبنت والله التي غادي حسب كل واحد """</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2fc7fd54-9880-4704-9481-5d5a2bd4ba85</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>13684daa-6fc5-4c4c-8cf8-1f66e87e8a30</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مقاش عليك دوبل في الخط تاصل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8afc1767-33ef-44f0-99dd-5299b935cfdb</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5ee7577d-bc05-4afc-b4eb-e87f7d83cc06</ID_ARABIZIENTRY>
+    <ArabicDarijaText>القحط متصل لفرج الكلخ</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e418d6c9-c273-40f2-baf2-279e78a7411e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>aa775df1-96eb-4554-9e5c-7afae7ca708f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بحال بحال كلشي شفار دوك البوليسي زعما رجل ع شميت</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>67330c38-e706-4d75-92cb-ba87e7710292</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>73a65e44-56b6-4ef7-8504-8a3d03b9c228</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يا ضو دين مها ن الحبس سلع د khenz و د katbi3 حرين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7cbf806e-a1ef-4ed6-809a-26ba244a1ead</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>571dc546-854d-47d9-815f-b77659fef52d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حجم عليه بل حبب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4fe1e911-feaf-42bc-8962-2bbb16a6e3c3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>219e9705-bce2-4cf6-bbbe-c57119cac28f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يا شريف ف جابني ناس mazroubine اتهم مادار , ولكن malhereusement هنا اذن الحوت مدمني بترغي التي مسليني kabhoum taykalbou لا جوا منجل , mataykhaliw ليهم حتى لفم مغير و ن بلوس enceinte , ك 1 ست ن سجيت يا discuter بار plusieurs بيرسونس يا ن بس غجر دون سول صوت , جي سيس الفلص بوسنة , ولكن ربي نص تط de جهات البصر . .... ; يا شريف ف جابني ناس mazroubine اتهم مادار , ولكن malhereusement هنا اذن الحية مدمني بترغي التي مسليني kabhoum taykalbou لا جوا منجل , mataykhaliw ليهم حتى لفم مغير و ن بلوس enceinte , ك 1 ست ن سجيت يا discuter بار plusieurs بيرسونس يا ن بس غجر دون سول صوت , جي سيس الفلص بوسنة , ولكن ربي نص تط de جهات البصر .... .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>02cc63f3-5bd4-4a85-b665-a462f505b045</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>bf8fb2e8-477b-4c8c-9f8f-1320de1809b2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الله أعطيه صحة على هذا ديسك ديال شير ليل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>0e836679-088a-4817-8204-f041abad22f0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ed028f2d-3829-43c5-892a-80153c45650b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ديما ناس البولا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b5219ddc-0bc8-49e8-b528-b8face8025ea</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>94bbc3f7-abd8-47df-8b1a-4002ecdb8955</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا بغيت نعرف . علاش kaychdo شي واحد كيقولو له يا ولد الحاج . كيفاش زعما</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c6d9c925-cb8c-47bb-8641-ab5ec81c6370</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a866b868-f623-4a60-bb14-725df05b8bc7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>موسيبا كحلة ولكن بصيف طربا lirbatna دولة هي حاضي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6f8c72bd-8647-438c-bfd2-73771126b5e4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9421e4a7-c0e6-4e11-8c0a-94459d7c0a5b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هاداك mzanzan</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6e4c0c58-4a6f-49c6-a7ce-4bca9d14d672</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4da37d4e-2d97-46e8-878c-bf46d4bdfbbf</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سلام عليكم smahli خويا نقلك بلا يقدر كون ندق الحق ف chiahajat ولكن انت رجعت لم كل ل نساء مع انا كينين رجال likithercho بنس وخا كون ب جلب و ال حجب و nzidk بلا ل غلط ماشي من نص hit ماشي هما likimchiw تحركه ب طفل ( هذا ظهر منتشرا قد أنك سمعتها ف عدد من برامج و radio و جرنال ) نص ما kitharchou شي ب حيوانة و ما kitharchou شي ب التي مرات عاقلين و ما kitharchou شي ب التي تحت تأثير تخدير ( بينج ) ف مستشفيات و ما بغيت شي نقول هل خرى را معروفة ومعاد تعلقا ب نساء وزيت وزيت وزيت يعني ماشي غي لباس د بنت ولا نساء عامتان هو likikhali رجل تحركه به ولا katharech به بدك لباس رجل هوما التي ما عرفت شي شنو جاهم لا حول او قوات لا بلاه وصافي ; سلام عليكم smahli خويا نقلك بلا يقدر كون ندق الحق ف chiahajat ولكن انت رجعت لم كل ل نساء مع انا كينين رجال likithercho بنس وخا كون ب جلب و ال حجب و nzidk بلا ل غلط ماشي من نص hit ماشي هما likimchiw تحركه ب طفل ( هذا ظهر منتشرا قد أنك سمعتها ف عدد من برامج و radio و جرنال ) نص ما kitharchou شي ب حيوانة و ما kitharchou شي ب التي مرات عاقلين و ما kitharchou شي ب التي تحت تأثير تخدير ( بينج ) ف مستشفيات و ما بغيت شي نقول هل خرى را معروفة ومعاد تعلقا ب نساء وزيت وزيت وزيت يعني ماشي غي لباس د بنت ولا نساء عامتان هو likikhali رجل تحركه به ولا katharech به بدك لباس رجل هوما التي ما عرفت شي شنو جاهم لا حول او قوات لا بلاه وصفة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d0372b8c-6d76-4eca-b84d-1c74fb957d6b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a68ca98b-c4f6-44a7-a4f1-3cad95aac96c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يسلم على amskroud . العز عطي البدل علاش كتقلب .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8f826222-c01d-484a-b724-af9c56dd3788</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>14524680-6cf5-49c8-ac9b-c41f1bb3365f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شيفور ديال زب فين مضوبل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f20c9f36-d5aa-4b36-948c-ef3d0c9904a3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4c4cd139-6107-4582-8555-f0497a44a82e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كلكم يا البلاصة ttmchiw عند الفقيه باش وتغلق شي حجاب بلد سمو الله دوي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>eea6c47c-3bb3-42c2-9836-722a97d650e4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>28adc06b-295b-4bf0-9b62-c3ee917834c3</ID_ARABIZIENTRY>
+    <ArabicDarijaText>" من الخير التي بغا دير شي حاجة ديرها التي بغت تعار تعار و التي بغا تحركه تحركه و تحركه عمر مغذ حيد و كل واحد دير التي بغا را راسل كل رسالة ديالو و الله سبحانه وتعالى منزل القرآن فيه كلشي و التي دار شي حاجة حتى العادة الله ولغات نتحاسب كاملين ولد و بنت "" را 3amerkome ما غادي طفق ل بنت كيقولو الولد والولاد كيقولو لبنت والله التي غادي حسب كل واحد """ ; " من الخير التي بغا دير شي حاجة ديرها التي بغت تعار تعار و التي بغا تحركه تحركه و تحركه عمر مغذ حيد و كل واحد دير التي بغا را راسل كل رسالة ديالو و الله سبحانه وتعالى منزل القرآن فيه كلشي و التي دار شي حاجة حتى العادة الله ولغات نتحاسب كاملين ولد و بنت "" را 3amerkome ما غادي طفق ل بنت كيقولو الولد والولاد كيقولو لبنت والله التي غادي حسب كل واحد """</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>26a9d564-3eaf-4054-bd52-680f55d0b383</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c41f6121-bc28-47cd-a0e1-a5d8713e2bbe</ID_ARABIZIENTRY>
+    <ArabicDarijaText>وحاتم شتتهم و من بعد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>14963d1b-0a5f-4a43-9515-9e53a7257462</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b7dc8a68-3075-4b92-9201-063f999ebd82</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هذا كهين مقهور</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5a65b395-667a-4355-8388-868d89161c3e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e80f7767-78a7-4db1-b782-2b2b4a502b9a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تفاحة جمع عانق بعد حتى ال كنعرف كعرف ف دين ديال بعد و الله ل كحساب ماشي ثينا ; تفاحة جمع عانق بعد حتى ال كنعرف كعرف ف دين ديال بعد و الله ل كحساب ماشي ثينا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8b3538c7-87a0-41db-961b-0ed93f538b48</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5aa4f537-abb8-4f2c-b8cf-ce476f73115f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بحال الى ما kadoblo شي فيه انتم ليحتكم الخط عيبنا واحد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>761cca1b-d83f-4f57-a362-d9fb97440159</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>391449fa-ac63-49d9-9dc9-c974651ca6c3</ID_ARABIZIENTRY>
+    <ArabicDarijaText>معرفت كيفاش بقا عايش كهنة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b1668ea9-86e6-43be-a296-9791a9a066f4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ee8f2eea-7f56-4c0a-9348-637caf3c138e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الحلى يخت عليكم القوات المخزن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d3046e19-1f3d-40f3-a15d-ef0f37a716eb</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e61b292b-ab68-4bd7-806f-d037a35478a5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يا شريف ف جبنه ناس mazroubine اتهم مادار , ولكن malhereusement هنا اذن الحوت مدمني بترغي التي مسليني kabhoum taykalbou لا جوا منجيل , mataykhaliw ليهم حتى الفم مغير و ن بلس enceinte , ك أ ست ن سجيت يا discuter بار plusieurs بيرسونس يا ن بس غجر دون سول صوت , جي سيس الفلص بوسنة , ولكن ربي نص تيط de جهات البصر . .... ; يا شريف ف جبنه ناس mazroubine اتهم مادار , ولكن malhereusement هنا اذن الحية مدمني بترغي التي مسليني kabhoum taykalbou لا جوا منجيل , mataykhaliw ليهم حتى الفم مغير و ن بلس enceinte , ك أ ست ن سجيت يا discuter بار plusieurs بيرسونس يا ن بس غجر دون سول صوت , جي سيس الفلص بوسنة , ولكن ربي نص تيط de جهات البصر .... .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6a222705-2ace-41b1-b480-8392e2fb3a9e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6e355f9f-fe37-47d4-abce-74106c142021</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ولطف شحال كثر الجرائم walkaichdomohm ki4tio وهم جه هم علاش بحال الى هوما معهم علاش مخليهم بن يعرفهم ناس علش</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c51e4440-2d02-4b2d-8211-9e2507be4f53</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b49c8a38-e803-4012-8d51-d77b9960514a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كلاتن تغم ما هدنه حتى قلو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5d084b94-52d4-4070-b837-8a12d921b8e6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>69d7b217-a6cc-4cfe-8160-3754976a6563</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الله اسي شيخ سعر ما كل شي لنا نتبع عورة ناس بل مرا ن غده ل بصر تاعنا اسي لا هوما لابسين lmziir هذاك سوقهم hit كل واحد ك تحسب ب عمل اسي / و هادي ماشي طريقة طوع بيها ناس حيت دين ل سلام دين وسر ماشي عصر اسي ; الله اسي شيخ سعر ما كل شي لنا نتبع عورة ناس بل مرا ن غده ل بصر تاعنا اسي لا هوما لابسين lmziir هذاك سوقهم hit كل واحد ك تحسب ب عمل اسي / و هادي ماشي طريقة طوع بيها ناس حيت دين ل سلام دين وسر ماشي عصر أسي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>41b337d0-e1f7-4f97-8388-c80c4ddd2309</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>bcf65c4f-d482-470a-a4f8-02fbd30d783a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سوق فن ماشي عن عن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e04828fd-2377-428e-a216-48406cac59ac</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>941e9cd2-426b-4f34-9601-a71168e0863a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>غرسون من خنفر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6913b959-ff4f-49a8-b068-3042d2280777</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9d8ac0a2-6dba-45c8-804f-7c341f99a613</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كان كنت محل fel5addama المعاق walkat3achar والله magisak حاجة أكبر نسبة . راك نتي نسب جاوني</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c619a244-8e16-443d-bd7b-8630a3b0591f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a761db06-d897-47a2-af81-339b8d443fd6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يا ضو دين مها ن الحبس سلع د khenz و د katbi3 حرين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c4d04403-849a-4395-87c8-5902db9ea82d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2169dbb4-e404-45e5-9a3b-596cb7f2f9ef</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سلام عليكم smahli خويا نقلك بلا يقدر كون نتك الحق ف chiahajat ولكن انت رجعت لم كل ل نساء مع انا كينين رجل likithercho بنسا وخا كون ب جلب و ال حجاب و nzidk بلا ل غلط ماشي من نص hit ماشي هما likimchiw تحركه ب طفل ( هذا تحير منتشرة قد أنك سمعتها ف عدد من برامج و radio و جرنال ) نص ما kitharchou شي ب حيوانة و ما kitharchou شي ب التي مرات عاقلين و ما kitharchou شي ب التي تحت تأثير تختر ( بينج ) ف مستشفيات و ما بغيت شي نقول هل خرى را معروفة ومعادة تعلقا ب نساء وزد وزد وزد يعني ماشي غي لباس د بنت ولا نساء عامتان هو likikhali رجل تحركه به ولا katharech به بدك لباس رجل هوما التي ما عرفت شي شنو جهوم لا حول او قواتا لا بلاه وصافي ; سلام عليكم smahli خويا نقلك بلا يقدر كون نتك الحق ف chiahajat ولكن انت رجعت لم كل ل نساء مع انا كينين رجل likithercho بنسا وخا كون ب جلب و ال حجاب و nzidk بلا ل غلط ماشي من نص hit ماشي هما likimchiw تحركه ب طفل ( هذا تحير منتشرة قد أنك سمعتها ف عدد من برامج و radio و جرنال ) نص ما kitharchou شي ب حيوانة و ما kitharchou شي ب التي مرات عاقلين و ما kitharchou شي ب التي تحت تأثير تختر ( بينج ) ف مستشفيات و ما بغيت شي نقول هل خرى را معروفة ومعادة تعلقا ب نساء وزد وزد وزد يعني ماشي غي لباس د بنت ولا نساء عامتان هو likikhali رجل تحركه به ولا katharech به بدك لباس رجل هوما التي ما عرفت شي شنو جهوم لا حول او قواتا لا بلاه وصف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>cd6ccd67-098a-46e7-a61c-e4a6f1d4136f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d7713c96-8c85-4d74-a97a-c07a7aca0bcf</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الآن تسيم تشد واحد sakrn مدير والو . . هذاك أنا ما تهمني شي . شاد التي حزن صيفى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>fc858369-148e-4793-a6b4-6c103eb275b6</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a3d10763-50c4-4f01-9763-0134fcbcf58f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ماسخة هذا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6e71853a-5c6f-44a0-8120-46b2a671b8fd</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>70db06c6-3edb-4774-87cb-e3b8cde084be</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يا علاش ما صورتنا شي l9ziba ديال ختك وطريقتك ولا انتم من المباشرين بلجان أخ ثف عليك الحيوان ; يا علاش ما صورتنا شي l9ziba ديال ختك وطريقتك ولا انتم من المباشرين بلجان أخ ثف عليك الحيوان</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6d2b4464-ac4c-458f-b693-53cd2bd7c767</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7cf8f95b-436d-4f52-b853-5a494566bd48</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الخيط متصل لفرج الكلخ</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e406cbb4-907f-411b-8ddb-424b83ec9642</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>39abf0c2-122d-4d7e-b729-65a7045fc324</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مضوبل ف خط متأصل هذا ملو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7bdea102-b529-4a17-99c9-1577198085c3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7ae3bb4d-6a9a-44e4-a5bb-aa813c6f53df</ID_ARABIZIENTRY>
+    <ArabicDarijaText>باش عرفك بلا ما مخلص شي المغرب الهاتف او باش عندك مشكل في ألوف حتى جنابك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f38bc5fe-a1cd-4dd3-a9b3-cbd748b664c2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>87149841-17aa-4c8f-aea0-e68a67cf362c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مصيبا كحلة ولكن بصيف تربى lirbatna دولة هي حاضي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d3c602c2-d71e-4759-8fb5-38b103d95c82</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>910e2237-ff9c-417c-82d7-e88cb3d840c2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تفاحه جمع عينيك بعد حتى ال كنعرف كعرف ف دين ديال بعد و الله ل كحساب ماشي طن ; تفاحه جمع عينيك بعد حتى ال كنعرف كعرف ف دين ديال بعد و الله ل كحساب ماشي طن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4b898f80-300a-4ad7-99c1-1119edfbfeb2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>df8cfc73-0097-498f-95ae-b36ce0023043</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يا المغرب عقو صافي و تبعو طريق الله هي التي تم . و هذا صحاب برا و البيتس غادين ست باز منهم الى ما دخل حد عندهم . ملهم معظمهم حد و ناس عايش مزيان . و انتم mabliyin و trmiw floskom . عقو بأرق</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f641e3b9-331b-4adb-9f42-ff1ffaa94242</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3ba4184c-2dc8-4497-baff-43a6c87239f0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خاتر خاتر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>49de89f9-1eb2-4a07-9381-7b20bb5c70e4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>87d6d319-0848-4f1e-90ba-eee562ac1c87</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ما كاين شي شي حاجة إسمه تاجير دين , دين ليس ب تجار ; ما كاين شي شي حاجة إسمه تاجير دين , دين ليس ب تيجرى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2c071eca-23b3-4c6f-8eca-651e4b213b7a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>49b78190-da76-489a-b0b7-9c8f1deac940</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ديما ناس البولا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d6163375-2329-4f0d-b910-0d98ac6322bb</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7847dd66-afd2-44eb-83af-03d62cc77bf6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بلاصة ديال زب انتم هوما شفار ديال بصح و عاين بين يا ولاد القحاب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2a862533-1c97-4a3f-8c6a-89b2d0c7db33</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0ab32194-cf30-4388-9c39-6201b4895e11</ID_ARABIZIENTRY>
+    <ArabicDarijaText>وحاتم شتتهم و من بعد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ce102825-11da-41c1-b614-718928c3fcf9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3a8b8af1-deda-4843-8efa-b3d059877ede</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الله اسي شيخ صار ما كل شي لنا نطبع عورات ناس بل مرا ن غض ل بصر تاعنا اسي لا هوما لابسين lmziir هذاك سوقهم hit كل واحد ك يتحسب ب عمل اسي / و هادي ماشي طريقة طوعي بيها ناس حيت دين ل سلام دين وصر ماشي عصر اسي ; الله اسي شيخ صار ما كل شي لنا نطبع عورات ناس بل مرا ن غض ل بصر تاعنا اسي لا هوما لابسين lmziir هذاك سوقهم hit كل واحد ك يتحسب ب عمل اسي / و هادي ماشي طريقة طوعي بيها ناس حيت دين ل سلام دين وصر ماشي عصر اس</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f58a0a9f-9879-4098-9309-3e6b20e8a053</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0b24c59c-8d83-4511-8886-152f25500a74</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بيزنس mkhalyinhom في البيتس walbars و كاتشدو دروسه في زنقة الله يهديكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>16f20344-4f7e-4bb5-8ad0-2a2e054cf4d0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2521641a-8c37-4ef3-9341-a440cd3df24d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تبهدل ههههه مالك تاع plastique</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3634dd44-a11c-45e2-bc55-6483757a7d95</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b80eeaa6-9e39-4a64-8bb2-abc72a631969</ID_ARABIZIENTRY>
+    <ArabicDarijaText>" كلها "" انك لا تحت من احببت ولكن . .. انا غير kanwassal ما كاحدى شي . ههههه راه الله جال في عله taykkhateb رسول ماشي انت يا أخي ههههه " ; " كلها "" انك لا تحت من احببت ولكن ... انا غير kanwassal ما كاحدى شي . ههههه راه الله جال في عله taykkhateb رسول ماشي انت يا أخي ههههه "</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>999827c3-128c-40ee-ba53-4d3ebce04ed0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>67926acb-bb5f-41c4-9a57-7b68704107d6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شيفور ديال زب فين مضوبل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>60324a8f-589f-4061-9c39-40d74f3fda0d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9def605d-7c21-4dd0-87b9-8de72f0974bd</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بحال بحال كلشي شفار دوك البوليسي زعما رجل ع شميت</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>17abd6e2-5362-4653-ac46-348bb3dc7a11</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ded25e07-af6a-432e-935a-abf0f3186ca7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>التف شحال كثر الجرائم walkaichdomohm ki4tio وهم جه هم علاش بحال الى هوما معهم علاش مخليهم بن عرفهم ناس علش</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>46c40ddb-e7db-4019-888a-67da38f47cf2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1e0b170c-8446-4094-b5c7-2ad257cfc2fb</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يا علاش ما صورتنا شي l9ziba ديال ختك وطريقتك ولا انتم من المباشرين بلجنة اخ ثف عليك لحيوان ; يا علاش ما صورتنا شي l9ziba ديال ختك وطريقتك ولا انتم من المباشرين بلجنة اخ ثف عليك لحيوان</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6427c4c8-2e27-4fe5-a391-12d082201a90</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>bdb97183-93d8-4582-84c9-e3e68a713d2a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>قحبة م سي بين مهمه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>bb68d08f-8825-4487-84db-43d6cfc8517f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>383bb885-2387-4b6b-aa15-aed0c01945a0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مقبلين را الماكلة و الاخر و الحكرة ف طلب أمام البرلمان والأساتذة ف inezgane</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>925d38aa-295f-4799-a4ff-3334ed88fd71</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ff59ca0a-fbef-4cd6-96fc-f40d8c4550b3</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سير خويا قراو تعلم بركة من الخبر ; سير خويا قراو تعلم بركة من الخبرة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e3d7e4f5-b15e-4843-9bc5-3eef0feca1a4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5d08c15e-43da-415a-bd85-f8c53b167294</ID_ARABIZIENTRY>
+    <ArabicDarijaText>معرفت كيفاش بقا عايش خنا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4d861164-a465-496b-996b-71f5a1542a83</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>91093fab-e7ce-4310-b7ef-441b653e2c5f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا بغيت نعرف . علاش kaychdo شي واحد كيقولو له يا ولد الحاج . كيفاش زعما</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1cb02aaf-6765-472e-bd7d-42063f09f683</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5c804029-523c-4258-bf74-299c1ab4a455</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الآن تصم تشد واحد sakrn مدير والو . . هذاك أنا ما تهمني شي . شاد التي حزين صيف</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a550326d-4e2d-49ce-aa91-a28fd2df9206</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>88b7ca3f-6965-4284-8612-d3bac2705089</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ما كاين شي شي حاجة إسمه تاجر دين , دين ليس ب تجار ; ما كاين شي شي حاجة إسمه تاجر دين , دين ليس ب تجرى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a9fd6053-3123-4734-abf6-9f84b70f13d7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>28013e3a-b34d-4218-8483-1bcb3a2aa6b8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شعب ديال zarwata كنت تعطهم ديموقراطي أعلم الله أش دير mayasslahlihom غي هتلر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>da7b032c-86e7-465c-816c-2e4f101e63c2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f684cf10-cb45-417b-8b97-53e4a182c23e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>nikak ف tramtak</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>871325c8-f700-4d1a-bfbf-dc3c8c8c00d5</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>dec46b7b-9943-41e0-acb4-75807ba265ec</ID_ARABIZIENTRY>
+    <ArabicDarijaText>اه عونك ولد بلد تثنية المعقول ولكن خس تزايدت المواضع بزاف تاهلة غور ; اه عونك ولد بلد تثنية المعقول ولكن خس تزايدت المواضع بزاف تاهلة رور</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5b0262c1-ebe7-4f27-995a-11de9dd6cfa0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2a30a870-4d62-42c0-a02b-c77f0e8eabef</ID_ARABIZIENTRY>
+    <ArabicDarijaText>غرسون من خنفر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ec477b0b-f888-44cd-ab82-c015ca7b09b2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f8cc813c-ddf2-44ce-aa6a-1db4b7efe974</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كلكم يا البلاصة ttmchiw عند الفقيه باش تغلق شي حجاب بلد سمو الله تأو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>aeea8d2e-4eeb-4789-8be1-909bfb49c1f0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5c77ee1a-b266-40f0-ba5e-64d54cfb4a08</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يا المغرب عقه صافي و تبعو طريق الله هي التي تم . و هذا صحاب برا و البيتس غادين ست باز منهم الى ما دخل حد عندهم . ملحوم معظمهم حد و ناس عايش مزيان . و انتم mabliyin و trmiw floskom . عقه براك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>40db4b13-2b28-49bc-8125-26411706322f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4abbb57c-6190-48a5-8b18-c11a81125370</ID_ARABIZIENTRY>
+    <ArabicDarijaText>" كلها "" انك لا تحت من أحببت ولكن . .. انا غير kanwassal ما كاحد شي . ههههه راه الله جال في علة taykkhateb راسل ماشي انت يا أخي ههههه " ; " كلها "" انك لا تحت من أحببت ولكن ... انا غير kanwassal ما كاحد شي . ههههه راه الله جال في علة taykkhateb راسل ماشي انت يا أخي ههههه "</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6c14dbec-de30-42a3-aac7-b85fea56d35c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3e89103a-82a6-4067-a8c3-ed3675170f84</ID_ARABIZIENTRY>
+    <ArabicDarijaText>صراحة كون ما كان شي بلاصة كون taithajmo علينا فدورنا . .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6316cf08-39a1-46dc-9f21-618d90efce70</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c31889e4-937c-421a-ba97-71f1a735ee67</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حمار ما يشوف شي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9b048440-ae10-4f54-a933-3040870d881a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>f9b40296-e41f-472f-9c7f-2792c0f5de20</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ج آ ع ب كومبرس هل راه غا و دعي الثوب ههههه ضجة الكهن لا يجوز . .. ; ج آ ع ب كومبرس هل راه غا و دعي الثوب ههههه ضجة الكهن لا يجوز .. .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1d751090-7eb2-41e8-80ea-36419a59abc1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0fab0f51-1384-44a9-9e90-500d70795ba5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مضوبل ف خت متصل هذا مالو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8715a957-496b-4cf2-8770-c0a3db09bc4b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>42af01ef-7a60-444b-9f8b-a47f0c9b6c35</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لحل يخت عليكم القوت المخزن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>81cf88d6-4acf-4611-8e51-9c0199193046</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>98bb1126-3c2e-4d75-bf7c-7dc4efd8f44a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بزنس mkhalyinhom في البيتس walbars و كاتشدو دروسه في زنقة الله يهديكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2b1ff67d-2787-49fc-a8da-45aca7985b2a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>0812bcac-9f8f-4b1c-ba74-dc3c9e3b66ce</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سير خويا قراو تعلم بركة من الخبر ; سير خويا قراو تعلم باراكا من لخبر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>98754ce1-f0af-473f-aa1e-7fc4b500ba86</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>89fd381f-c5dc-4d1f-87c2-c7eecdae9cd8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عاد هدشي مكن الخام لا والو هدشي bkhin لحكم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>76ab14bb-0227-4c72-8ecd-b4918fb1b7a8</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d6b422f2-63c9-4ca0-b45e-6a3e9ca28e88</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بس لخر يا خري</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ae118309-f3e6-40a2-9e90-172f41bb5305</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>104a47ac-685c-41d4-96ad-df18a7632278</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يا ضو دين مها ن الحبس سلع د khenz و د katbi3 حرين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8994cc18-7d09-42b8-8c4b-e72a96ab9f76</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e32d8a3b-2248-4fb8-971f-b431d37cc31c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>برافو على جنوا تم خصنا جديد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2d64c314-2dc4-4561-820b-25fef3e6093a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>22226c42-3f32-4062-9427-25de38001482</ID_ARABIZIENTRY>
+    <ArabicDarijaText>برافو على غنوا ديما خصنا جديد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b766ed3f-0f42-49fc-92b7-eebc8007b31f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3ed6a54f-5ec4-4219-9814-e12f34c53ab0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حسن شي عادل برم بين شك رجل ثقة osiryoz ألف مرحبا بيك غي تم بالما بلما</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>bb605206-3a4d-499e-89d5-03141b65cbab</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fc7da01e-8351-47e5-b701-7e38f0068834</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ههههه متناقض بزاف . تتجول راك فرحان hit تدير عنوا و taydokhlo ناس شوفو فيديو ديالك على سلام معمرك وسط 20 000 مشاهدة ?? دخل وطوب دير ستاسى حر فيديو 4 741 023 .. و حتى سير الله يهديك . و انت تتخلص على الفيديو تا تتكل الحرام ما عرقت شي ف هذا لفلوس ; ههههه متناقض بزاف . تتجول راك فرحان hit تدير عنوا و taydokhlo ناس شوفو فيديو ديالك على سلام معمرك وسط 20 000 مشاهدة ?? دخل وطوب دير ستاسى حر فيديو 4 741 023 .. و حتى سير الله يهديك . و انت تتخلص على الفيديو تا تتكل الحرام ما عرقت شي ف هذا الفلوس</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>60eac4fb-c4dc-41ee-bf0c-726ba5429fc1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a708669c-6405-4f3f-a89b-56e38252d62b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>برافو على جنوا تم خصنا جديد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7f136f53-7a4f-4669-ac58-438c5479ae6e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c423bc6d-2b11-473a-964b-1083cf609c02</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ثم تصنت كلكم nsaw3likom سياسة نحث lamakanatch سياسة ما غارن شي حد خونا نحث و مست هنا kantsantolih ههههه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>dd9635c4-825a-40c5-881b-39d95832b47f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>fbe42426-5a6d-458d-a1e8-cde31aafda78</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بيصح نحيل عيني و دنيا ترجع جينتيل !</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>aefb23c9-908b-43c3-af85-01f0f8a19494</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4999ef66-bc9e-474d-abc5-e85b9b759d62</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شعب يريد zaatla بتل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ed5985ee-dcdd-4084-9680-909d4c02b7a1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>14349574-2f1c-4b17-95f3-48439d923c0b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مرحبا بكم ف بلد كنو مرسك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a4a19c25-f958-4093-87af-b91098e13760</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>cc4c82bf-d852-4166-ab67-89a2db0747f6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>016 و مزال كنسمع لكم راكم top ! سلام الخط في ل الكرة ديال شهادة ماشي ديال فرنسا .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f8c43203-e4fb-4255-9ae7-5d4931c574a3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1e47e6e6-93f5-421c-ae91-c9222db70aa2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يم يم خايف لا نمت مغتر و غير بيا عيتاني</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>70f75c29-8186-46ca-978e-b50ce152b8f8</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>dc12e41e-9971-490d-af6a-5d81e7d4e130</ID_ARABIZIENTRY>
+    <ArabicDarijaText>mnayyak يرجى طعن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c4ab6096-acaf-46a5-bb4c-c58a0383e774</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a8cb92c2-b905-4b55-846d-40b2f80d4830</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هاديك خويا أمازيغ tie7ti البراكة fmawazine انت بعد تيزين فيك دوك الفلوس</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c7beee07-4de6-4f15-9f9a-e7becbe1c609</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>19a1e431-c9dc-44ad-ba2b-05c05447f797</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نروح نكتم نجيب zetlaa</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ebc9d498-7a97-4774-8394-61d1bcc0a33a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>88cda2c2-00a4-4d50-8b2a-9f65ffb84e98</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عاديا آ و آ 3dyanek و عداني l'algerie و المغرب اسي بقو بس يا l'kinokh ن توتي sympati فشكل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b6255398-d200-45f6-8fcb-7f5691199f60</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9ec2e463-bc26-458c-af1b-66ae50bb0aaf</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كونسيرت واعر ولكن ما ghenaw شي لنا بركة ديك ليلة . ولكن دازت ليلة والعرى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ef0171c8-57ce-4870-ba6f-9bc54bff5e65</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>610e39c8-f9b3-44db-9ad3-6807f3f3f8ba</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و ندمت علاش مشيت ل تفت جيت و ما جيت شي ل جنوا , top</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ef2386b6-a93a-4866-9e87-4cf66b318dc1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4972d463-435d-4bc3-8d96-6fb41ce06f87</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ولكن علاش ما غنيت شي لنا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>cc0bc1dd-94a5-4419-b9f3-f35c195e0dbc</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9a0d41b0-c18f-47ca-a53f-ddc1c120d43a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مسيك ديال بصح , ما كنت شي نعرفهم فات ولكن kisma3t ليهم عجبني , بصق حاضر على ذس sujets واقعين , بيك ب فروم الدار البيضاء جنوة diffusion , esprons نشوفكم مرة خرى إن شاء الله</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b8761403-1c53-42f9-9504-94011d37a6ad</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d2b24134-cd14-48e3-bfee-52892727a095</ID_ARABIZIENTRY>
+    <ArabicDarijaText>" مالك مالك مالك مالك !!!!!!!! ش """""""" د نص كل تحب l8oneyaa مالك متحجبة "</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>803b9bf7-762b-4865-ad92-2be505988b94</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>253aca0d-f748-4232-8029-ae1d5ea5ca96</ID_ARABIZIENTRY>
+    <ArabicDarijaText>" ما عاجبك شي ما تسمع شي را complet بج حبيبنا "" قاع عاد يعرف كنو diffusion """</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e12d0e7a-5dfe-4cfa-a67f-b604ef21db79</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>43751119-f347-42a3-8477-300fb33cb874</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ثورى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6fc3531b-7a72-4d76-b7cf-4438e13ff200</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>8e98c6da-a8f6-4eb2-bc16-120d124a42e4</ID_ARABIZIENTRY>
+    <ArabicDarijaText>برافو على كناو تم خصنا جديد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>458fc65a-23bb-4829-b919-17e2eb0c1dff</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d93c4f62-9495-4298-bacd-bbc5bb97e72e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حسن مادار ف موازنة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>77b4e7cb-2d1e-4599-9e50-8c69de244267</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a827c2c2-09c0-4c39-b92e-6ae4b658137f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ثم تصنت كلكم nsaw3likom سياسة نحث lamakanatch سياسة ما ريران شي حد خونا نحث و مست هنا kantsantolih ههههه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2abef527-19d4-4098-80ff-6a0d7504f207</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>587846d8-62be-4b3a-a5e8-26b0fc0de2c2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بغينا شي لينك ntelecharjiw القهرا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>31e24531-2b5d-46f9-8a57-bfbb8066ef78</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e8aa6b05-ef94-4c70-9ce4-3e433d28bd5e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بيش نحل عيني و دنيا ترجع جينتل !</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a1bf4606-b662-439d-9cae-3c1c510c4a22</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>98ee3571-b7dd-4877-a5ac-15d71fbc9a57</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الكرة بلد الفن وسياسى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>66e351c8-7229-414d-bdef-6b831aa17d50</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1ac9448a-1808-49c8-b885-827c0c41906c</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شعب يريد zaatla باتيل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2122fed7-c7ce-4708-8a73-d9f7c670eca7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>60732eff-24ea-4fdd-bf1a-3c1591414c25</ID_ARABIZIENTRY>
+    <ArabicDarijaText>اول كونسيرت ملي عاود تجمع شحال هدي تم كان كجو ل صورة + ما راك شي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c11c0dd3-663d-488b-96fb-dddb5506e306</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d3aff20f-efa2-4f76-a08b-68dc64efd454</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مرحبا بكم ف بلد كناو مرسك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b7389328-f79f-4ad1-bc61-46a308c2f89a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ba972bbf-c5b4-414f-82cb-2882dbc6f46f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>اول كونسيرت لهم ف المغرب هوا حتى هذا العام داز m9awaed ذاك نهار أحسن كونسيرت ف موازين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>93d84ec9-635b-45fe-bf39-f4e251f53d43</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>df929141-22a5-4ac1-a1dd-1e5cf1a9d78b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>016 و مزال كنسمع لكم راكم top ! سلام الخط في ل الكرة ديال شهادة ماشي ديال فرنسا .</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2bc0c198-5d98-44e0-93f5-05e67479088d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>749533ca-8ae5-4f5d-831e-ca6157842aa7</ID_ARABIZIENTRY>
+    <ArabicDarijaText>صوتو واعر كم toujours تباركله عليك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5a92cc1d-c0f3-4188-a768-3ed73eb9f074</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a92f414c-55b1-4cee-90e7-785c18623322</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يمة يمة خايف لا نمت مغتر و غير بيا عدا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>baf478f4-b588-4dd0-83e9-d3a06b0d2511</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>deb95b2a-9b28-410f-a3b5-848763e8a496</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حسن ساهرة دازت في موازين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2c01b516-1963-4cfb-9b63-ba273fa822e9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>73f413b2-390b-4148-859c-4bb10b10459b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>mnayyak يرجى تاعنا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>76d36681-d5ed-4228-88b9-f1e9b4390e2c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>27235c71-55b9-4623-a64c-3e0696fea2a5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شعب يرد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>339ddada-fd7a-415a-8de7-a37a785fe93c</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d2f8ec04-d13a-42d0-a5b4-976f5208f3aa</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هاديك خويا أمازيغ tie7ti البراكة fmawazine انت بعد تيزين فيك دوك الفلوس</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>853b54a8-1b17-4829-93f2-084167bcfe54</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>449f0a9a-6e02-4f6f-a51f-fc19d9d6ed19</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شعب يريد زات قوى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1704b447-18bb-4e5a-b241-8451ce4b37dc</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>187269b0-17ea-4b55-9945-f20d88d0a77d</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نروح نكتم نجيب zetlaa</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6aa1e83a-17d7-4651-8759-247fe203e97f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>cc63d0eb-9ff4-43fc-aa05-d439d6b84103</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا وياك ديال اللي in3albou chomage . .. انا وياك و الأمور سافاج ... يا مالك يا بنت الجراة اه يا مالك عن عليك و nebghik من زمان يا مالك ... يق انا وياك ندير تبغي يق انا ويق ندير naufrage انا وياك ماشي منطقة ... قفش نخلق تمشي مع البراني اه يا ملاكك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>50ba4bef-ab8d-4dff-8de2-e5bbf7e2f27f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>13e2b70b-2f69-401a-b46f-fd5073d2cb4b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>عاديا آ و آ 3dyanek و عدا l'algerie و المغرب اسي بقو بس يا l'kinokh ن تط sympati فشكل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b8e317f4-a319-4c4a-a9a4-395b6c491540</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>15d94d1f-e9b6-400f-92dd-d0f2cf963f1a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>دار لميزان ديال داك المراكشي حفظ مزيان السطلة ماركين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>87c3bae5-2a71-4063-8e06-b734d23512fb</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9decb978-b10d-45bc-99ef-623a64f0937f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>كونسيرت واعر ولكن ما ghenaw شي لنا بركة ديك ليلة . ولكن دازت ليلة والعرى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>d013338d-27f2-4e0a-9a52-6241dfc1ccdb</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4509fc1f-6297-43dc-81de-c17c3131283b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هذا قلب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>4a5152ae-4516-4009-97d5-623cf54884ab</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c715cf24-a0c7-44b2-9d6f-6aea0d4a5779</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و ندمت علاش مشيت ل تفد جيت و ما جيت شي ل كنو , top</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>7fcf4625-131b-40b0-bae9-24da0f5ad48f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>18f8fff0-d42a-4895-900c-693b0b332d1b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>قلب مفترس تم حسن بكرهم شي حاجة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>685cbddb-9cd6-442e-9a3f-240a20eb2b10</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>1fb6dce3-0e45-4cb4-a90c-5770f020b81e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ولكن علاش ما غنيت شي لنا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a438262a-8ebc-4f70-876d-daa5b5e89fe1</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>955ee53c-c19c-4cf3-8507-13e6087d9c58</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مسيك ديال بصح , ما كنت شي نعرفهم فات ولكن kisma3t ليهم عجبني , بسك حاضر على تيس sujets واقعين , بيك ب فروم الدار البيضاء جنو diffusion , esprons نشوفكم مرة خرى إن شاء الله</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>21482143-3fe9-4c29-817c-f050daf01d1e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4806f2a0-338e-441a-b2e1-23aa1961b362</ID_ARABIZIENTRY>
+    <ArabicDarijaText>" مالك مالك مالك مالك !!!!!!!! ش """""""" د نص كل تحب l8oneyaa مالك متحجبة "</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>1455837e-9a8c-42dd-90ae-16c00247bc66</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>a2f66e44-f40c-4234-bc33-e018837670a6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>" ما عجبك شي ما تسمع شي را complet بجي حبيبنا "" قاع عاد يعرف جنو diffusion """</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8ecac93c-6657-49cc-a95c-7dcd0464576d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>09923e4c-b611-40bf-971e-13a3fe6fabcb</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تورا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>797acbe7-8f45-4f6b-98f0-5d4d8e7edd0b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>5a62edc6-9db8-4937-a13b-7948266376db</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حسن مادار ف موازنة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c2dcdb46-6224-4fdd-b7a0-175730d8d7d0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e8b87360-1264-49d8-8a13-951ae5dc2232</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بغينا شي لينك ntelecharjiw القهرا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>65911809-d264-4eaf-a0e8-a5526f6d9b01</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>51b2ba4d-95e7-443b-8fd5-b9951a387210</ID_ARABIZIENTRY>
+    <ArabicDarijaText>الكرة بلد الفن وسياسا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a46789fb-2bed-46c1-a61a-bc1d0ebd1341</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c0b569ec-268b-433b-83e7-de77d9384a28</ID_ARABIZIENTRY>
+    <ArabicDarijaText>اول كونسيرت ملي عاود تجمع شحال هدي تم كان كجو ل صورة + ما راك شي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>87e8b2f8-ef6a-4146-a973-6c8df2616933</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>85f240fc-c392-49a5-bdde-8f31e942d2de</ID_ARABIZIENTRY>
+    <ArabicDarijaText>اول كونسيرت لهم ف المغرب هوا حتى هذا العام داز m9awaed ذاك نهار أحسن كونسيرت ف موازين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5e0a402b-9542-4719-886b-33c499c0bfef</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>e48c110f-3404-4f2c-a3df-a7a69f0d3f9e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>صوتو واعر كم toujours تباركله عليك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>281a8306-fbb3-4527-ab31-23ac15310608</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>94f3930b-7042-405c-bb2c-2c61bf04dcdb</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حسن ساهرة دازت في موازين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>2138d1b1-80be-49c7-970f-8f7c92253304</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>bdfb039e-bb0d-4c6a-ac81-5286e8c3aa6b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شعب يرد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>65595cb0-f5f0-42bb-bc8d-bd6914e76e58</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d0ffd939-d54b-4b09-84f1-1f64b233357f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>شعب يريد زات قوي</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a87d797c-bddb-4282-bc2c-42b823edd544</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2d4189b9-e994-45f0-86db-e672de26f909</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا وياك ديال اللي in3albou chomage . .. انا وياك و الأمور سافاج ... يا مالك يا بنت الجيرانه اه يا مالك عن عليك و nebghik من زمان يا مالك ... يق انا وياك ندير تبغي يق انا ويك ندير naufrage انا وياك ماشي منطقة ... قفصه نخلق تمشي مع البراني اه يا ملاكك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>99b73d0b-77f6-41cb-aa0e-48709887c17d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>bc88459d-401e-445f-b0d8-a21e89f63678</ID_ARABIZIENTRY>
+    <ArabicDarijaText>دار الميزان ديال داك المراكشي حفظ مزيان السطله مارسين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e0ec7c5f-3a87-4fe1-9f98-277fa67e1bff</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3264e8a2-6c3e-4573-96d4-a046acdfd5e2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هذا كلاب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8caf36bf-f95a-4ca6-aacf-1ee21a6145e2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9409f3eb-d9eb-4cb5-b8fd-4eab4cb4a251</ID_ARABIZIENTRY>
+    <ArabicDarijaText>قلب مفترس تم حسن بكرهم شي حاجة</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ef08c6cd-299a-428f-87d1-6aa266b1d60f</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6df4793d-add3-4dc2-a798-5ff4c08c67cf</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا شارجيت</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>15e5550b-29f2-4f80-8127-e194ac0b19bf</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>73cd7341-9688-4b07-a012-27d4864ed6b0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هادشي قطر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>658f6068-9a72-4faa-a16e-bc46c19aa22d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b247813c-5d40-4d8a-abcf-b84ab32bed93</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حسن شي عادل برم بين شك رجل ثقة osiryoz ألف مرحبا بيك غي تم بالما بلما</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>bc703578-d3bc-4501-99f7-499abe3f767e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>26c34ae8-3aff-415b-baf6-4c84224f4f67</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ههههه 3abdel7a9 عشر شملان ههههه هؤلاء كحمالين يا عام __ كان معانا ف طنجة والله يستاهل بلحق ف تطوان فحال معانا تطوان تا هنا كحمالين __ تحية م طنجة ن تطوان تا انشالة بتول شمالي __</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>91b6c547-436a-49b9-b5e3-f965d3eaa1d4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>231fad4d-2fdc-4d9f-b333-ea3bdba03bd6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>خيتي اجيو انت انت myxf xokrn</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3f5b1d80-1920-4714-b304-742bd9828268</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7e3353bc-e61b-406d-96ad-15e21b6d4f37</ID_ARABIZIENTRY>
+    <ArabicDarijaText>benchikha محل صداق مع تطوان حيت هو كبغى لعبة ولمة باغين لاعب ولد كول</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>3699d7c0-fd8d-45d5-9d45-413123a4a65d</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9e5e9429-208a-4981-9083-361443210439</ID_ARABIZIENTRY>
+    <ArabicDarijaText>باينة احترافية ديال mosrayir غي طويل التي جالسين عمه الراية ديال توان طاح راسو ريفية 4 سنتيم ههههه وصوغ</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>bf2a33e0-843b-4ddd-beb3-f05742798abb</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4950ef14-41ab-40b9-8d8e-c845e54193bc</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ههههه 3abdel7a9 عشر شملان ههههه هؤلاء شملان يا عام __ كان معانا ف طنجة والله يستاهل بلحق ف تطوان فحال معانا تطوان تا هنا كحمالين __ تحية م طنجة ن تطوان تا انشالة بتول شمالية</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c1bb09a9-bdeb-4701-9181-117298f08f2e</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>184a0f91-09fa-49d6-bed9-8c2b651bf470</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فالحقيقة تحية لا فاميلي أبرون البينات نادي تطوان</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>c2f0f7dc-18f8-41d2-8c39-d4101986ebae</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>ca2f7499-183d-4bb8-89fd-e490369a8064</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نسحة الله وأنكم وتكون أحسن فارق</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b921d540-a3f8-443d-82cd-f1f8f82c3e78</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>6e5e6645-347f-4fc3-99bb-1b035c7188e2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>تح ندري المغرب تطوان الله عون بين شيخ ولله لا إنسان معقول ولد العائلة صراحا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>96c48d27-cd07-4807-a013-ef1ee6559dd9</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>3ce98bd2-d809-493f-bfc4-351bc287eda8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مرحبا و زيد القدم</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6c2d31c4-0a89-4b9d-a851-d83cc99da541</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2800ee99-cb0c-48db-bc0e-60da3a931b95</ID_ARABIZIENTRY>
+    <ArabicDarijaText>اه ندري المغرب تطوان الله عون بين شيخ ولله لا إنسان معقول ولد العائلة سغه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f72aa53a-9b6b-4f36-9fcb-c40418cbf798</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c93ba49c-79cd-44b7-acf8-c6f6c3c23eb5</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يا سيدي نتمنى لكم معاه كل خير . عند ما كل صراحة . مدارين في مستوا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a7475ca4-9d6c-48ad-9d8f-481225ae9440</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>93ce07c3-7db3-4506-b28e-4e78df93b34e</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مشة الله يستحيل كل غير له فتح على كل واحد</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>6f110b3f-8865-4078-8ca6-c1d209068eed</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>25f69e4c-3bc9-4e61-92af-221efe38cd26</ID_ARABIZIENTRY>
+    <ArabicDarijaText>هذا لقبر ديال قود المغرب n3lto الله عليه</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f0b8b0d5-b5b5-41f7-8a69-a4712800fe5b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>d423b3a4-ece4-415c-b53d-8fd005a522c0</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بشط خضم فيه ما سرقه شي بركة من طابعى</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a404e5f9-9655-4837-aff4-e3b148132e88</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9d43a28a-1403-4210-81d8-6e785b3422d4</ID_ARABIZIENTRY>
+    <ArabicDarijaText>يود فلوس الحرام ما يهمنا شي شنو هي الفايدة عايش واحد فين هي زوج صالح ولبان الله هذه كاملين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>af52a2bc-e835-44d9-a97b-5ae7974301a4</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>514d09bc-f0ba-4afa-8067-906d581feb10</ID_ARABIZIENTRY>
+    <ArabicDarijaText>اه سهل عليك ويزيدك من عند</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>edb822ec-3f74-4b06-adb1-c0228b6716c7</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>23a6cd13-2a06-4a12-81bd-101db34b106f</ID_ARABIZIENTRY>
+    <ArabicDarijaText>فلس الحرام لغنى حرام سير ثقة الله ولبت تمشي لجمع</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f091e9e5-4692-4b04-a4d2-ca0a08e06c9a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>62a27a67-4e8c-40aa-95d2-9b5b78f0981a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مليار و 300 هو كريستان و نعل شيطان من الكتب سعد لمجرد إمتى بدا بصح يوصل هذا رست هه وخا كون عندو شركة ظل klorits مقموع ظل الخل mbanat حدك</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>394eb0a2-3ba6-4a7c-8f7e-669b57448436</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>4dec95fe-fb96-422e-9a9a-326923bdfa3b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حلال او حرام واحد قرا حتى عة و ساكن فسكن اقتضت</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>e52b3b5b-2231-4ac3-8af4-4778e5f59a90</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>7e0ed339-afe9-4604-8651-00a453effed2</ID_ARABIZIENTRY>
+    <ArabicDarijaText>مشيو تقود انتم واحد سعد لمجرد زمل بقا زمل شحال ديال شك ولد العاهرة بينين</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>47ff6d99-8b24-4894-9657-47b34a8e070a</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2d95bf45-2758-4503-881d-98286892d102</ID_ARABIZIENTRY>
+    <ArabicDarijaText>حينت بررت نتي جي glesili على زب انا سمعت كان غا تزوج بيك شم فيك ريحت المعزة والهوى يدير منقص سير صاحبتي نق حالتك راك خانز</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b604baaa-3d70-4cca-a846-45771afcc645</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>2513cb1c-5d41-4563-abf4-9eb2c099fa10</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سير مثلا تقود ترجل زب نتا katela7ewan بحال القحبة زب</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>ea01f0c0-b0e0-42cc-b6d6-2b0db52068b8</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>45e41a82-c4d0-45c6-831d-7707fa7bd520</ID_ARABIZIENTRY>
+    <ArabicDarijaText>وا سير ده في كراك نتا مقابل زقك ديال تريثت نتا برأسك kathnzaz في درية و بزز والله سير خلي كلها ده في كر و ده حتى نتا في كراك راك زدت فيه شنو بغيت tsla77 هذا البلاد والقول لا صلحطها غدا و katzaddd و katkfasss سير ربي غير khwatatak عاد شوف بنت ناس</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>a9c06be7-15e6-40da-8022-12ce59f288c2</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>348f2df0-4de1-41db-895b-fcbde4bdadfa</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انت مقريف لا fhdartak لا ftari9tak عمر دين ما كان حق دين عند شورط صلح راسك عاد أجي شوف دين اش فيه و كل صحة تتعلق من قرعته</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>5647457f-5efe-412d-bfd4-c2fbce1f854b</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>535958eb-fb31-4455-9e77-ba0dc83676ba</ID_ARABIZIENTRY>
+    <ArabicDarijaText>ناس التي تقول صور لبنت ولم عند شي الحق . .. نصو 2m براسها fl7afalat و ساهرة ديالها تم katrekez غير على صدور wlmo2a5irat فلوجة ديال لبنات !! هذا ماشي شح ?????????? و شكون تشوغ معاهم ما مازال هذا قاعما bien wjahom .. غير دار ضجة حيت كل كلام الحق و هذاك الحزب التي نت ضد شيخ صار .. ماشي fmasla7to هذا الهذرة التي تقولها .. باغين المرا تكون متملق ومتحررة ماكين لا حجاب لا والو .. حيث ما قادر شي كل نحن ما بغناه شي ضو فهاد سجيت .. قالك الى ما وصور شي وقت و ما عند شي الحق .. ك فرع ما عند شي الحق .. ولكن 2m wrba3tha بن فهاد الكأس مرات bnfisam شخصية حيت كيديرو شي حاجة وهم ضدها فنفس الوقت</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>b2b889e0-3627-47b0-8ca5-ce6916f59eb0</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>575be462-56e9-47f3-bb22-59283c9a0e81</ID_ARABIZIENTRY>
+    <ArabicDarijaText>اللهم حدن يا رب . تخيل لو كان رسول عليه سالت و السلام عايش معانا الآن هل ghankono هاكا . مستحيل . يا رب نسالك الهدايا</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>f96c2d50-907c-4160-ba31-e32c3dd46801</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>c3ecfde6-b4d1-4cb4-802c-4f5941d0f2e8</ID_ARABIZIENTRY>
+    <ArabicDarijaText>سير تقود كاملين يا lmkabite , مواضيعكم تافه , ليعطينا معكم غا شي تسونامي جمع الحزاق كامل</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9f8e8179-a3f5-46b8-b329-1ded5e658042</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>34122558-271f-440f-a3b8-18fe9ce097c6</ID_ARABIZIENTRY>
+    <ArabicDarijaText>انا الحمدلله كنلبس لحجب شارع ما كنص شي شي حد لتحذر معايا bbl3akss kihtarmmoni هتش ترفع من قيمة لفتة خصوصا فهاد زمان الفتن</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9d64dcd3-5e78-44dd-b493-af2a8ebad5fc</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>9f24326e-8b34-4615-b3b9-971b9f98b394</ID_ARABIZIENTRY>
+    <ArabicDarijaText>لمرا ماشي شي _hwa , ولكن فيها شي _hwa الراجل الرس قوة انت كتقول على مخلوق كل غير شي _hwa , تفسير ديال _k لي الكريم كاسح _w _h بدين قلو</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>8070ef8e-139c-4219-b9f0-86775b909ae3</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>66308f8e-8819-4359-84ab-56e1867ff5b4</ID_ARABIZIENTRY>
+    <ArabicDarijaText>و انت مال _k شغل _k تلبس tjean مزيغ و الا ما تلبس شي , غادي تقولي و صاحب راهنا ف بلد سلم . و من هنا ف بلد سلام لاش كيتباع شرب و لحدك ما كتدوي شي عليه لاكنتي باغي طب _9 السلام بحق وطرق طب _9 على دولة كلها , ما الا ما ntala9ti شي م _n باب السلام و قلت لي لا يا خويا را هي ما خصها شي طلب _s lmzayer هيتش حسم و لا ولدها ماشي شغل _k . المشكل الحقيقة ف البلاد هي كبر م _n جا ديال لبنت كان l9wads و لاثرت و فتاة خضراء و حقوق و اما كثر م _n 50 % و زيد و زيت</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>9e85a9a5-1ea5-46be-acb0-9398fa0e4075</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>352f8934-ee0d-4bdf-a876-191c6bff238a</ID_ARABIZIENTRY>
+    <ArabicDarijaText>نعم كهو عندك صح راه بزاف بنت tichahiw رجل و الله وحضهم و هادي دراري حث هم ولكن بنت عاق bazzf سلق بنظام قاع ممجوج وش في نترك يقدر يصبر</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
+  <M_ARABICDARIJAENTRY>
+    <ID_ARABICDARIJAENTRY>acd0c551-1d16-4e3c-88c3-0679a615d830</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>b3caea1b-bfe6-4cec-a78b-e53ca4306813</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بنت كي لبست قصير ولا طويل , دراري kaydsrou عليه واخا هاكاك ! اذن ل فات شاغر ل منتلة _s d'abord عاد نشوفو هل alhabits سنة appropri _s و بس : 3</ArabicDarijaText>
+  </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

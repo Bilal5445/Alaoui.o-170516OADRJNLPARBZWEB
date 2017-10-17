@@ -43,4 +43,52 @@
     <ID_XTRCTTHEME>3add917d-3bf9-44ab-a123-197b14c4081a</ID_XTRCTTHEME>
     <ThemeName>Crédit</ThemeName>
   </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>846ebbbb-18ef-4971-83d0-650181119a21</ID_XTRCTTHEME>
+    <ThemeName>Criminalité</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>e0cdd8f7-e817-4f64-b018-7fd8a258de09</ID_XTRCTTHEME>
+    <ThemeName>CTM</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>060090f4-ba4a-420a-940c-10b5f690b624</ID_XTRCTTHEME>
+    <ThemeName>Cuisine</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>b035d89c-126c-415c-be35-d5a5c53abae5</ID_XTRCTTHEME>
+    <ThemeName>cuisine</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>e87a81a9-a632-4bf5-a1d7-f4be77dcf3d6</ID_XTRCTTHEME>
+    <ThemeName>Délinquence </ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>c9d3fbfb-418a-4af0-830d-9f362ba06daf</ID_XTRCTTHEME>
+    <ThemeName>Femme religion</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>706e4715-c5af-4dba-9bde-e94154d9bb23</ID_XTRCTTHEME>
+    <ThemeName>Femme religion</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>c452b247-c06c-4f29-9032-b5fd1e9c6df3</ID_XTRCTTHEME>
+    <ThemeName>Mawazine</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>1317ad3c-0a5e-4f60-bda0-f7ef2b6a0861</ID_XTRCTTHEME>
+    <ThemeName>football</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>281ee076-dc02-460f-a31e-d2f9b30dcafa</ID_XTRCTTHEME>
+    <ThemeName>Harcélement sexuel</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>ddccf8e3-17fa-4d57-8b39-2b742ff61c6a</ID_XTRCTTHEME>
+    <ThemeName>immobilier</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>1d3bef95-1779-4dc7-983f-6e4dfa5ab0c3</ID_XTRCTTHEME>
+    <ThemeName>Immigration</ThemeName>
+  </M_XTRCTTHEME>
 </ArrayOfM_XTRCTTHEME>
