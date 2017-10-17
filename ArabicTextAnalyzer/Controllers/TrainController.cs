@@ -3,6 +3,7 @@ using ArabicTextAnalyzer.Domain;
 using ArabicTextAnalyzer.Domain.Models;
 using ArabicTextAnalyzer.Models;
 using ArabicTextAnalyzer.ViewModels;
+using OADRJNLPCommon.Business;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -488,6 +489,8 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpPost]
         public ActionResult Data_Upload(HttpPostedFileBase file, String mainEntity)
         {
+            Logging.Write(Server, "Data_Upload - 1");
+
             // check before if the user selected a file
             if (file == null || file.ContentLength == 0)
             {
@@ -496,6 +499,8 @@ namespace ArabicTextAnalyzer.Controllers
                 TempData["msgAlert"] = "No file has been chosen.";
                 return RedirectToAction("Index");
             }
+
+            Logging.Write(Server, "Data_Upload - 2");
 
             // check before if mainEntity is not empty
             if (String.IsNullOrWhiteSpace(mainEntity))
@@ -506,12 +511,18 @@ namespace ArabicTextAnalyzer.Controllers
                 return RedirectToAction("Index");
             }
 
+            Logging.Write(Server, "Data_Upload - 3");
+
             // extract only the filename
             var fileName = Path.GetFileName(file.FileName);
+
+            Logging.Write(Server, "Data_Upload - 4");
 
             // store the file inside ~/App_Data/uploads folder
             var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
             file.SaveAs(path);
+
+            Logging.Write(Server, "Data_Upload - 5");
 
             // loop and process each one
             var lines = System.IO.File.ReadLines(path).ToList();
@@ -553,13 +564,19 @@ namespace ArabicTextAnalyzer.Controllers
         #region BACK YARD BO
         private Guid train(M_ARABIZIENTRY arabiziEntry)
         {
+            Logging.Write(Server, "train - 1");
+
             // Arabizi to arabic script via direct call to perl script
             var textConverter = new TextConverter();
+
+            Logging.Write(Server, "train - 2");
 
             // Arabizi to arabic from perl script
             if (arabiziEntry.ArabiziText != null)
             {
                 var id_ARABICDARIJAENTRY = Guid.NewGuid();
+
+                Logging.Write(Server, "train - 3 - before lock");
 
                 lock (thisLock)
                 {
@@ -576,13 +593,19 @@ namespace ArabicTextAnalyzer.Controllers
                         ArabicDarijaText = arabicText
                     };
 
+                    Logging.Write(Server, "train - 4");
+
                     // Save arabiziEntry to Serialization
                     String path = Server.MapPath("~/App_Data/data_M_ARABIZIENTRY.txt");
                     new TextPersist().Serialize(arabiziEntry, path);
 
+                    Logging.Write(Server, "train - 5");
+
                     // Save arabicDarijaEntry to Serialization
                     path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY.txt");
                     new TextPersist().Serialize(arabicDarijaEntry, path);
+
+                    Logging.Write(Server, "train - 6");
 
                     // latin words
                     MatchCollection matches = TextTools.ExtractLatinWords(arabicDarijaEntry.ArabicDarijaText);
@@ -618,6 +641,8 @@ namespace ArabicTextAnalyzer.Controllers
                         new TextPersist().Serialize(latinWord, path);
                     }
 
+                    Logging.Write(Server, "train - 7");
+
                     // Sentiment analysis from watson https://gateway.watsonplatform.net/";
                     var textSentimentAnalyzer = new TextSentimentAnalyzer();
                     var sentiment = textSentimentAnalyzer.GetSentiment(arabicText);
@@ -625,13 +650,18 @@ namespace ArabicTextAnalyzer.Controllers
                     path = Server.MapPath("~/App_Data/data_TextSentiment.txt");
                     new TextPersist().Serialize(sentiment, path);
 
+                    Logging.Write(Server, "train - 8");
+
                     // Entity extraction from rosette (https://api.rosette.com/rest/v1/)
                     var textEntityExtraction = new TextEntityExtraction();
                     var entities = textEntityExtraction.GetEntities(arabicText);
-                    
+
+                    Logging.Write(Server, "train - 9");
+
                     // NER manual extraction
                     new TextEntityExtraction().NerManualExtraction(arabicText, entities, arabicDarijaEntry.ID_ARABICDARIJAENTRY, Server);
                 }
+                Logging.Write(Server, "train - 10 - after lock");
 
                 //
                 return id_ARABICDARIJAENTRY;
