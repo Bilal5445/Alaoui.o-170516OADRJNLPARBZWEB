@@ -429,6 +429,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\hlpr.vertical-text.css" />
     <Content Include="Content\mysite_train.css" />
     <Content Include="Content\mysite_train_bulkimport.css" />
     <Content Include="Content\mysite_train_keywordfiltering.css" />
@@ -508,6 +509,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\my.js" />
     <Content Include="Scripts\mysite_train.js" />
     <Content Include="Scripts\mysite_train_keywordfiltering.js" />
     <Content Include="Scripts\respond.js" />

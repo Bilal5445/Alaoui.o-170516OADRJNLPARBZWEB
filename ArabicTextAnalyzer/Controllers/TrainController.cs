@@ -315,7 +315,7 @@ namespace ArabicTextAnalyzer.Controllers
             return RedirectToAction("Index");
         }
 
-        #region BACK YARD TWINGLY
+        #region BACK YARD ACTIONS TWINGLY
         [HttpGet]
         public ActionResult TwinglySetup()
         {
@@ -394,6 +394,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
         #endregion
 
+        #region BACK YARD ACTIONS THEME
         [HttpPost]
         public ActionResult XtrctTheme_AddNew(String themename, String themetags)
         {
@@ -484,6 +485,7 @@ namespace ArabicTextAnalyzer.Controllers
             //
             return RedirectToAction("Index");
         }
+        #endregion
 
         // This action handles the form POST and the upload
         [HttpPost]
@@ -559,6 +561,12 @@ namespace ArabicTextAnalyzer.Controllers
 
             // redirect back to the index action to show the form once again
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public void Log(String message)
+        {
+            Logging.Write(Server, message);
         }
 
         #region BACK YARD BO
@@ -671,7 +679,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
         #endregion
 
-        #region BACKYARD BO HELPERS
+        #region BACK YARD BO HELPERS
         /*public static IEnumerable<TSource> DistinctBy<TSource, TKey>
     (this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
         {

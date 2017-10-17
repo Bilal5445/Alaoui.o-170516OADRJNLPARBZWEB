@@ -8,4 +8,21 @@
 
     var elapsed = Math.round(sec0 * 100) / 100 + 's';
     document.getElementById("loadTime").innerHTML = elapsed;
+
+    //
+    logToServer("loadTime : " + elapsed);
+}
+
+function logToServer(elapsed) {
+    $.ajax({
+        type: 'POST',
+        url: "/Train/Log",
+        data: { "message": elapsed },
+        failure: function (response) {
+            console.log(response);
+        },
+        error: function (response) {
+            console.log(response);
+        }
+    });
 }
