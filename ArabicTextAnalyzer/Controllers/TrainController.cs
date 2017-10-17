@@ -134,7 +134,7 @@ namespace ArabicTextAnalyzer.Controllers
             };
 
             // pass entries to partial view via the model (instead of the bag for a view)
-            return PartialView("_IndexPartialPage_arabicDarijaEntries", /*xs*/class1);
+            return PartialView("_IndexPartialPage_arabicDarijaEntries", class1);
         }
 
         [HttpPost]
