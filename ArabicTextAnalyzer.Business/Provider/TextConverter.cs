@@ -14,16 +14,23 @@ namespace ArabicTextAnalyzer.Business.Provider
     public class TextConverter : ITextConverter
     {
         // -> this is the folder containing the script
-        private const string workingDirectoryLocation = PathConstant.pathToArabiziEnv;
+        private string workingDirectoryLocation = new PathConstant().pathToArabiziEnv;
 
         // -> the output file
-        private const String pathToExample = workingDirectoryLocation + @"example\";
-        // private const string outputFileLocation = pathToExample + "small-example.7.charTransl";
-        private const string outputFileLocation = pathToExample + "small-example.7.charWordTransl";
+        private String pathToExample;
+        private string outputFileLocation;
         // -> the input file(saw that the script only works with this file)
-        private const string inputFileLocation = pathToExample + "small-example.arabizi";
+        private string inputFileLocation;
         // -> the script : full pipeline
-        private const string processFileLocation = workingDirectoryLocation + @"RUN_transl_pipeline.sh";
+        private string processFileLocation;
+
+        public TextConverter()
+        {
+            pathToExample = workingDirectoryLocation + @"example\";
+            outputFileLocation = pathToExample + "small-example.7.charWordTransl";
+            inputFileLocation = pathToExample + "small-example.arabizi";
+            processFileLocation = workingDirectoryLocation + @"RUN_transl_pipeline.sh";
+    }
 
         public string Convert(string source)
         {

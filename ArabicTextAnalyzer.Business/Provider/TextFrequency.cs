@@ -23,11 +23,15 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public TextFrequency ()
         {
-            pathToCorpus = PathConstant.pathToArabiziEnv + @"corpus\";
+            // -> this is the folder containing the script
+            string workingDirectoryLocation = new PathConstant().pathToArabiziEnv;
+
+            //
+            pathToCorpus = workingDirectoryLocation + @"corpus\";
             pathToDictFile = pathToCorpus + @"170426_extended_dict.txt";
-            pathToBidict = PathConstant.pathToArabiziEnv + @"arabizi-arabic-bitext\";
+            pathToBidict = workingDirectoryLocation + @"arabizi-arabic-bitext\";
             pathToBidictFile = pathToBidict + @"arabizi-arabic-bitext.arz";
-            pathToNER = PathConstant.pathToArabiziEnv + @"ner\";
+            pathToNER = workingDirectoryLocation + @"ner\";
             pathToNERFile_brands = pathToNER + @"entities-brand.txt";
             pathToNotNERFile = pathToNER + @"not-entities.txt";
         }
