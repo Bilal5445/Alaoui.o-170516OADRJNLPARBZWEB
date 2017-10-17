@@ -7,11 +7,11 @@
         success: (function (result) {
             $('#partialPlaceHolder').html(result);
 
-            // fct to attach table with search highlight keywords
-            InitializeDataTables();
-
             // refresh load time
             refreshPlainLoadTime();
+
+            // fct to attach table with search highlight keywords
+            InitializeDataTables();
         }),
         failure: function (response) {
             console.log(response);
