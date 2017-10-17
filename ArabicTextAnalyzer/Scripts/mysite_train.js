@@ -9,6 +9,9 @@
 
             // fct to attach table with search highlight keywords
             InitializeDataTables();
+
+            // refresh load time
+            refreshPlainLoadTime();
         }),
         failure: function (response) {
             console.log(response);

@@ -223,6 +223,7 @@
     <Content Include="App_Data\data_M_XTRCTTHEME_KEYWORD.txt" />
     <Content Include="App_Data\data_TextEntity.txt" />
     <Content Include="App_Data\data_TextSentiment.txt" />
+    <Content Include="App_Data\log.txt" />
     <Content Include="bower_components\bootstrap-tagsinput\dist\bootstrap-tagsinput-angular.js" />
     <Content Include="bower_components\bootstrap-tagsinput\dist\bootstrap-tagsinput-angular.min.js" />
     <Content Include="bower_components\bootstrap-tagsinput\dist\bootstrap-tagsinput-typeahead.css" />
