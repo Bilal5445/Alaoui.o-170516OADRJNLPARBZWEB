@@ -8841,8 +8841,8 @@
     <ArabicDarijaText>نعم كهو عندك صح راه بزاف بنت tichahiw رجل و الله وحضهم و هادي دراري حث هم ولكن بنت عاق bazzf سلق بنظام قاع ممجوج وش في نترك يقدر يصبر</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
   <M_ARABICDARIJAENTRY>
-    <ID_ARABICDARIJAENTRY>35281eaa-8357-4b2f-a432-6375a15c61f1</ID_ARABICDARIJAENTRY>
-    <ID_ARABIZIENTRY>a77e9f7e-f728-44f8-ba6c-48cac462cfc6</ID_ARABIZIENTRY>
-    <ArabicDarijaText>بنت كي لبست قصر ولا طويل , دراري كيضسرو عليها واخا هكاك ! اذن ل فات شاغر almentalités d'abord عاد نشوفو هل alhabits سنة appropriés و بس : 3</ArabicDarijaText>
+    <ID_ARABICDARIJAENTRY>b2ebd6ca-aae7-48db-b1e0-49e07ab98970</ID_ARABICDARIJAENTRY>
+    <ID_ARABIZIENTRY>442307fa-fd06-4917-b89f-d40ed9fa306b</ID_ARABIZIENTRY>
+    <ArabicDarijaText>بنت كي لبست قسر ولا طويل , دراري كيضسرو عليها واخا حاكاك ! بحيث يكون لديك لتغيير المواقف الأولى عاد نشوفو هل الملابس هي مناسبا أم لا : 3</ArabicDarijaText>
   </M_ARABICDARIJAENTRY>
 </ArrayOfM_ARABICDARIJAENTRY>

@@ -8851,8 +8851,8 @@ inshallah khir ya rab</ArabiziText>
     <ArabiziEntryDate>2017-10-15T17:44:51.9550953+00:00</ArabiziEntryDate>
   </M_ARABIZIENTRY>
   <M_ARABIZIENTRY>
-    <ID_ARABIZIENTRY>a77e9f7e-f728-44f8-ba6c-48cac462cfc6</ID_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>442307fa-fd06-4917-b89f-d40ed9fa306b</ID_ARABIZIENTRY>
     <ArabiziText>bnt ki lbsat 9sir wla twil,drari kaydsrou 3liha wakha hakak ! donc il faut changer les mentalités d'abord 3ad nchoufou wach les habits sont appropriés ou pas :3	</ArabiziText>
-    <ArabiziEntryDate>2017-10-17T12:48:23</ArabiziEntryDate>
+    <ArabiziEntryDate>2017-10-18T16:44:59</ArabiziEntryDate>
   </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
