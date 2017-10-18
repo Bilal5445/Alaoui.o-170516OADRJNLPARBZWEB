@@ -591,8 +591,11 @@ namespace ArabicTextAnalyzer.Controllers
                     // complete arabizi entry
                     arabiziEntry.ID_ARABIZIENTRY = Guid.NewGuid();
 
+                    // first pass : correct/translate the original arabizi into msa arabic using big/google apis (to take care of french/english segments in codeswitch arabizi posts)
+                    var arabiziTextToMsaFirstPass = new TranslationTools().CorrectTranslate(arabiziEntry.ArabiziText/*, Server*/);
+
                     // prepare darija from perl script
-                    var arabicText = textConverter.Convert(arabiziEntry.ArabiziText);
+                    var arabicText = textConverter.Convert(/*arabiziEntry.ArabiziText*/arabiziTextToMsaFirstPass);
                     var arabicDarijaEntry = new M_ARABICDARIJAENTRY
                     {
                         // ID_ARABICDARIJAENTRY = Guid.NewGuid(),
@@ -638,7 +641,7 @@ namespace ArabicTextAnalyzer.Controllers
                         };
 
                         // See if we can further correct/translate any latin words
-                        var translatedLatinWord = new TranslationTools().CorrectTranslate(arabiziWord, Server);
+                        var translatedLatinWord = new TranslationTools().CorrectTranslate(arabiziWord/*, Server*/);
                         latinWord.Translation = translatedLatinWord;
 
                         // if any replacein arabic text (TODO : use match to replace the match and not search/replace to better handle duplicate)
