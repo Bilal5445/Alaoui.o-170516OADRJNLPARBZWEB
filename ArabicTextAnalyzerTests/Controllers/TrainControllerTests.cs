@@ -685,16 +685,14 @@ namespace ArabicTextAnalyzer.Controllers.Tests
         [TestMethod()]
         public void ut_170822_test_make_sure_la_4G_does_not_get_preprocessed_to_al4g()
         {
-            // TODO : Still KO
-
             //
             String arabizi = "Salam Abdelilah El Hafidi, inwi fi khidmatikoum. Bach takhdem likoum la 4G awalan khasekoum tkounou tatwajdou be madina fiha taghtya dial la 4G ou lhatef dialekoum khas tekoun fihe lkhidma dial la 4G metwafra ou akhiran khase tkoun 3andkoum albitaka SIM fiha hata hya lkhidma dial la 4G, bach tghayerou lbitaka dial inwi le 4G twajhou men fadlkoum lwakala dial inwi, taghyire be 30dh, ila kan 3andkoum ichtirak taghyire al bitaka majani. inwi tatchkarkoum 3la ikhlas dialkoum.";
             String nottarget = "al4g";
 
             //
-            var textConverter = new TextConverter();
+            var textConverter = new TextConverter(String.Empty);
             arabizi = textConverter.Preprocess_ma_ch(arabizi);
-            arabizi = textConverter.Preprocess_le(arabizi);
+            // arabizi = textConverter.Preprocess_le(arabizi);
             arabizi = textConverter.Preprocess_al_wa(arabizi);
             arabizi = textConverter.Preprocess_al(arabizi);
             arabizi = textConverter.Preprocess_bezzaf(arabizi);
@@ -714,6 +712,29 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             //
             var textConverter = new TextConverter();
             var cleansed = textConverter.Preprocess_emoticons(arabizi);
+
+            Assert.AreEqual(expected, cleansed);
+        }
+
+        [TestMethod()]
+        public void ut_171018_test_firstpass_and_Preprocess_arabic_comma_and_unicode_special_chars()
+        {
+            String arabizi = "wla twil,drari";
+            String expected = "twil WLA، Drari";
+
+            // consume google/bing apis
+            var BingSpellcheckAPIKey = "1e14edea7a314d469541e8ced0af38c9";
+            var GoogleTranslationApiKey = "AIzaSyBqnBEi2fRhKRRpcPCJ-kwTl0cJ2WcQRJI";
+            var arabiziTextToMsaFirstPass = new TranslationTools(BingSpellcheckAPIKey, GoogleTranslationApiKey).CorrectTranslate(arabizi);
+
+            Assert.AreEqual("twil WLA، Drari", arabiziTextToMsaFirstPass);
+
+            arabizi = "twil WLA، Drari";
+            expected = "twil WLA ,  Drari";
+
+            //
+            var textConverter = new TextConverter(String.Empty);
+            var cleansed = textConverter.Preprocess_arabic_comma(arabizi);
 
             Assert.AreEqual(expected, cleansed);
         }

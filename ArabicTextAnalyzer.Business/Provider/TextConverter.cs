@@ -24,6 +24,12 @@ namespace ArabicTextAnalyzer.Business.Provider
         // -> the script : full pipeline
         private string processFileLocation;
 
+        // for UT only
+        public TextConverter(String utWorkingDirectoryLocation)
+        {
+            workingDirectoryLocation = utWorkingDirectoryLocation;
+        }
+
         public TextConverter()
         {
             pathToExample = workingDirectoryLocation + @"example\";
@@ -46,6 +52,10 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_ahaha(source);
             source = Preprocess_3_m_i_f_z_a_j_l_etc(source);
             source = Preprocess_emoticons(source);
+
+            // preprocess unicode arabic comma (sould be done at perl level, but somehow does not work)
+            source = Preprocess_arabic_comma(source);
+            source = Preprocess_unicode_special_chars(source);
 
             // to arabizi file
             File.WriteAllText(inputFileLocation, source);
@@ -227,6 +237,25 @@ namespace ArabicTextAnalyzer.Business.Provider
             // Console.WriteLine(cleansed);
 
             return cleansed;
+        }
+
+        public string Preprocess_arabic_comma(string arabizi)
+        {
+            String pattern = @"\u060C+";
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, " , ", RegexOptions.IgnoreCase);
+
+            return miniArabiziKeyword;
+        }
+
+        public string Preprocess_unicode_special_chars(string arabizi)
+        {
+            String pattern = @"\u0F20+";    // space
+            arabizi = Regex.Replace(arabizi, pattern, " ", RegexOptions.IgnoreCase);
+
+            pattern = @"\uFFFE+";   // space
+            var miniArabiziKeyword = Regex.Replace(arabizi, pattern, " ", RegexOptions.IgnoreCase);
+
+            return miniArabiziKeyword;
         }
         #endregion
 

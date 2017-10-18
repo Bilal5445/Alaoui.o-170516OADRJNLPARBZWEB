@@ -14,9 +14,25 @@ namespace ArabicTextAnalyzer.Business.Provider
     public class TranslationTools
     {
         String spellCheckAPi = "https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?text=";
-        String bingSpellApiKey = ConfigurationManager.AppSettings["BingSpellcheckAPIKey"].ToString();
+        String bingSpellApiKey; // = ConfigurationManager.AppSettings["BingSpellcheckAPIKey"].ToString();
 
-        public String CorrectTranslate(String arabiziWord, HttpServerUtilityBase Server)
+        // google translation api key
+        String translationApiKey; // = ConfigurationManager.AppSettings["GoogleTranslationApiKey"].ToString();
+
+        // for UT only
+        public TranslationTools(String bingSpellApiKey, String googleTranslationApiKey)
+        {
+            this.bingSpellApiKey = bingSpellApiKey;
+            this.translationApiKey = googleTranslationApiKey;
+        }
+
+        public TranslationTools()
+        {
+            bingSpellApiKey = ConfigurationManager.AppSettings["BingSpellcheckAPIKey"].ToString();
+            translationApiKey = ConfigurationManager.AppSettings["GoogleTranslationApiKey"].ToString();
+        }
+
+        public String CorrectTranslate(String arabiziWord/*, HttpServerUtilityBase Server*/)
         {
             // See if we can further correct/translate any latin words
             var previousText = arabiziWord;
@@ -31,8 +47,7 @@ namespace ArabicTextAnalyzer.Business.Provider
                     correctedWord = previousText;
             }
 
-            var translatedLatinWord = new GoogleTranslationApiTools().getArabicTranslatedWord(correctedWord, Server);
-            // ArabicDarijaText = ArabicDarijaText.Replace(previousText, TranslatedText);
+            var translatedLatinWord = new GoogleTranslationApiTools(translationApiKey).getArabicTranslatedWord(correctedWord/*, Server*/);
 
             return translatedLatinWord;
         }
@@ -40,13 +55,21 @@ namespace ArabicTextAnalyzer.Business.Provider
 
     public class GoogleTranslationApiTools
     {
-        public string getArabicTranslatedWord(string correctedWord, HttpServerUtilityBase Server)
+        string translationApiKey;
+
+        public GoogleTranslationApiTools(String googleTranslationApiKey)
         {
-            string translationApiKey = ConfigurationManager.AppSettings["GoogleTranslationApiKey"].ToString();
+            translationApiKey = googleTranslationApiKey;
+        }
+
+        public string getArabicTranslatedWord(string correctedWord/*, HttpServerUtilityBase Server*/)
+        {
+            // string translationApiKey = ConfigurationManager.AppSettings["GoogleTranslationApiKey"].ToString();
             string translateApiUrl = "https://translation.googleapis.com/language/translate/v2?key=" + translationApiKey;
             translateApiUrl += "&target=" + "AR";
             translateApiUrl += "&source=" + "FR";
-            translateApiUrl += "&q=" + Server.UrlEncode(correctedWord.Trim());
+            // translateApiUrl += "&model=" + "base";  // base = statistique, nmt = NN : MC181017 as of today, for target = arabic, only base is available
+            translateApiUrl += "&q=" + /*Server*/WebUtility.UrlEncode(correctedWord.Trim());
             WebClient client = new WebClient();
             client.Encoding = System.Text.Encoding.UTF8;
             string Jsonresult = client.DownloadString(translateApiUrl);
