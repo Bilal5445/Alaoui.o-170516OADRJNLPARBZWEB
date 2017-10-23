@@ -35,18 +35,11 @@ namespace ArabicTextAnalyzer.Business.Provider
         public String CorrectTranslate(String arabiziWord)
         {
             // See if we can further correct/translate any latin words
-            /*var previousText = arabiziWord;
-            string spellcheckUrl = spellCheckAPi + WebUtility.UrlEncode(previousText)
-                + "&cc=FR"
-                + "&mkt=fr-FR"
-                + "&mode=spell";*/
-            var correctedWord = new BingSpellCheckerApiTools().bingSpellcheckApi(/*spellcheckUrl,*/arabiziWord, bingSpellApiKey);
-            /*if (correctedWord != previousText)
-            {
-                if (correctedWord == "")
-                    correctedWord = previousText;
-            }*/
 
+            // bing spell
+            var correctedWord = new BingSpellCheckerApiTools().bingSpellcheckApi(arabiziWord, bingSpellApiKey);
+
+            // google tranlsation
             var translatedLatinWord = new GoogleTranslationApiTools(translationApiKey).getArabicTranslatedWord(correctedWord);
 
             return translatedLatinWord;
@@ -68,7 +61,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             translateApiUrl += "&target=" + "AR";
             translateApiUrl += "&source=" + "FR";
             // translateApiUrl += "&model=" + "base";  // base = statistique, nmt = NN : MC181017 as of today, for target = arabic, only base is available
-            translateApiUrl += "&q=" + WebUtility.UrlEncode(correctedWord.Trim());
+            translateApiUrl += "&q=" + WebUtility.UrlEncode(correctedWord.Trim(new char[] { ' ', '\t' }));
             WebClient client = new WebClient();
             client.Encoding = System.Text.Encoding.UTF8;
             string Jsonresult = client.DownloadString(translateApiUrl);
@@ -82,9 +75,12 @@ namespace ArabicTextAnalyzer.Business.Provider
 
     public class BingSpellCheckerApiTools
     {
-        public string bingSpellcheckApi(/*string url, */String arabiziWord, string apiKey)
+        public string bingSpellcheckApi(String arabiziWord, string apiKey)
         {
             String spellCheckAPi = "https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?text=";
+
+            // clean
+            arabiziWord = arabiziWord.Trim(new char[] { ' ', '\t' });
 
             var previousText = arabiziWord;
             string spellcheckUrl = spellCheckAPi + WebUtility.UrlEncode(previousText)
@@ -94,20 +90,48 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             String url = spellcheckUrl;
 
-            var correctedText = "";
+            var correctedText = String.Empty;
+            var supportText = String.Empty;
             WebClient client = new WebClient();
             client.Headers.Add("Ocp-Apim-Subscription-Key", apiKey);
             client.Encoding = System.Text.Encoding.UTF8;
+
             try
             {
                 string json = client.DownloadString(url);
                 var jsonresult = JObject.Parse(json).SelectToken("flaggedTokens") as JArray;
+
+                // process : build a string with pieces from suggesestions from bing
+                var peekindex = 0;
                 foreach (var result in jsonresult)
                 {
-                    correctedText = result.SelectToken("suggestions[0].suggestion").ToString();
-                    break;
-                    // return correctedText;
+                    // index of first word with possible spelling correction
+                    var stopindex = Convert.ToInt32(result.SelectToken("offset").ToString());
+
+                    // copy string up to this location
+                    correctedText += arabiziWord.Substring(peekindex, (stopindex - peekindex));
+                    supportText += arabiziWord.Substring(peekindex, (stopindex - peekindex));
+
+                    // the token is unknown, so copy it as is, and increase peek index
+                    /*if (result.SelectToken("type").ToString() == "UnknownToken")
+                    {
+                        var unknowtoken = result.SelectToken("token").ToString();
+                        correctedText += unknowtoken;
+                        peekindex = correctedText.Length;
+                    }
+                    else*/
+                    {
+                        var token = result.SelectToken("token").ToString();
+                        var firstsuggestion = result.SelectToken("suggestions[0].suggestion").ToString();
+                        correctedText += firstsuggestion;
+                        supportText += token;
+                        // peekindex = correctedText.Length;
+                        peekindex = supportText.Length;
+                    }
                 }
+
+                // copy the rest
+                correctedText += arabiziWord.Substring(peekindex, (arabiziWord.Length - peekindex));
 
                 //
                 if (correctedText != previousText)
@@ -121,7 +145,6 @@ namespace ArabicTextAnalyzer.Business.Provider
             catch (Exception ex)
             {
                 throw ex;
-                // return ex.ToString();
             }
         }
     }

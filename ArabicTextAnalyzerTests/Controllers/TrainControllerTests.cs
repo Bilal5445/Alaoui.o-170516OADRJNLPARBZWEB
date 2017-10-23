@@ -562,7 +562,7 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             var variants = new TextConverter().GetAllTranscriptions(word);
 
             var nbr = variants.FindAll(m => m.Contains("مزيانين")).Count;
-            
+
             //
             Assert.IsTrue(nbr == 1);
         }
@@ -743,13 +743,89 @@ namespace ArabicTextAnalyzer.Controllers.Tests
         public void ut_171023_test_firstpass_bing_on_text_with_quote()
         {
             String arabizi = "Bsahtek 7biba dyali btol l3mer inchalah wbax matmaniti lah ykhalilek marwan w ya39ob walidik khotek je t'embrasse bonne voyage bb	";
-            String expected = "twil WLA، Drari";
+            // String expected = "Bsahtek 7biba dyali btol l3mer inchalah wbax matmaniti lah ykhalilek marwan w ya39ob walidik khotek je t'embrasse bonne voyage bb";
+            String expected = "Bsahtek 7biba dyali bitola 3amer inchallah wbaxmatmaniti lah ykhalik marwan w ya39ob walidik khotek je t'embrasse bonne voyage bb";
 
             // consume google/bing apis
             var BingSpellcheckAPIKey = "1e14edea7a314d469541e8ced0af38c9";
             var correctedWord = new BingSpellCheckerApiTools().bingSpellcheckApi(arabizi, BingSpellcheckAPIKey);
 
             Assert.AreEqual(expected, correctedWord);
+        }
+
+        [TestMethod()]
+        public void ut_171023_test_firstpass_google_on_text_with_lah_and_w()
+        {
+            // FAIL : should work when we add a bidict preprocess before google/bing
+            // See VSO 562 (https://namatedev.visualstudio.com/170105OADRJNLP/_workitems/edit/562)
+
+            String arabizi = "btol l3mer inchalah wbax matmaniti lah ykhalilek marwan w ya39ob bonne voyage bb	";
+            String minexpected = "btol l3mer inchalah wbax matmaniti لاه ykhalilek مروان ث ya39ob جيدة ب رحلة";
+            String preferablyexpected = "btol l3mer inchalah wbax matmaniti الله ykhalilek مروان و ya39ob جيدة bébé رحلة";
+
+            var GoogleTranslationApiKey = "AIzaSyBqnBEi2fRhKRRpcPCJ-kwTl0cJ2WcQRJI";
+            var translatedLatinWord = new GoogleTranslationApiTools(GoogleTranslationApiKey).getArabicTranslatedWord(arabizi);
+
+            Assert.AreEqual(minexpected, translatedLatinWord);
+            Assert.AreEqual(preferablyexpected, translatedLatinWord);
+        }
+
+        [TestMethod()]
+        public void ut_171023_test_firstpass_bing_should_work_when_no_suggestions_available()
+        {
+            String arabizi = "Salam Houditta Houda, inwi fi khidmatikoum.Bach telghiw techghil l automatiqui dyal bedel sotek, ma3likoum ghir tresslou STOP f sms l ra9m 789.";
+            String expected = "Salam Houditta Houda, inwi fi khidmatikoum.Bach telghiw techghil l automatiqui dyal bedel sotek, ma3likoum ghir tresslou STOP f sms l ra9m 789.";
+
+            // consume google/bing apis
+            var BingSpellcheckAPIKey = "1e14edea7a314d469541e8ced0af38c9";
+            var correctedWord = new BingSpellCheckerApiTools().bingSpellcheckApi(arabizi, BingSpellcheckAPIKey);
+
+            // bing finds nothing so no change
+            Assert.AreEqual(expected, correctedWord);
+        }
+
+        [TestMethod()]
+        public void ut_171023_test_firstpass_bing_should_work_when_one_suggestion_available()
+        {
+            //
+            String arabizi = "je t'emebrasse bonne voyage";
+            String expected = "je t'embrasse bonne voyage";
+
+            // consume google/bing apis
+            var BingSpellcheckAPIKey = "1e14edea7a314d469541e8ced0af38c9";
+            var correctedWord = new BingSpellCheckerApiTools().bingSpellcheckApi(arabizi, BingSpellcheckAPIKey);
+
+            // bing finds one so change
+            Assert.AreEqual(expected, correctedWord);
+        }
+
+        [TestMethod()]
+        public void ut_171023_test_firstpass_google_on_mispelled_word_ex_automatiqui_make_sure_it_does_not_work()
+        {
+            String arabizi = "automatiqui";
+            String expected = "automatiqui";
+
+            var GoogleTranslationApiKey = "AIzaSyBqnBEi2fRhKRRpcPCJ-kwTl0cJ2WcQRJI";
+            var translatedLatinWord = new GoogleTranslationApiTools(GoogleTranslationApiKey).getArabicTranslatedWord(arabizi);
+
+            Assert.AreEqual(expected, translatedLatinWord);
+        }
+
+        [TestMethod()]
+        public void ut_171023_test_firstpass_bing_and_google_on_mispelled_word_ex_automatiqui()
+        {
+            String arabizi = "automatiqui";
+            String expected = "تلقائي";
+
+            // consume bing apis
+            var BingSpellcheckAPIKey = "1e14edea7a314d469541e8ced0af38c9";
+            arabizi = new BingSpellCheckerApiTools().bingSpellcheckApi(arabizi, BingSpellcheckAPIKey);
+
+            // google
+            var GoogleTranslationApiKey = "AIzaSyBqnBEi2fRhKRRpcPCJ-kwTl0cJ2WcQRJI";
+            var translatedLatinWord = new GoogleTranslationApiTools(GoogleTranslationApiKey).getArabicTranslatedWord(arabizi);
+
+            Assert.AreEqual(expected, translatedLatinWord);
         }
     }
 }
