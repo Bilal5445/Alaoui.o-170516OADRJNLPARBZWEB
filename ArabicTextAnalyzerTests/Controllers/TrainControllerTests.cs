@@ -738,5 +738,18 @@ namespace ArabicTextAnalyzer.Controllers.Tests
 
             Assert.AreEqual(expected, cleansed);
         }
+
+        [TestMethod()]
+        public void ut_171023_test_firstpass_bing_on_text_with_quote()
+        {
+            String arabizi = "Bsahtek 7biba dyali btol l3mer inchalah wbax matmaniti lah ykhalilek marwan w ya39ob walidik khotek je t'embrasse bonne voyage bb	";
+            String expected = "twil WLA، Drari";
+
+            // consume google/bing apis
+            var BingSpellcheckAPIKey = "1e14edea7a314d469541e8ced0af38c9";
+            var correctedWord = new BingSpellCheckerApiTools().bingSpellcheckApi(arabizi, BingSpellcheckAPIKey);
+
+            Assert.AreEqual(expected, correctedWord);
+        }
     }
 }

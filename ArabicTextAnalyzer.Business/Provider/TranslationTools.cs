@@ -13,7 +13,7 @@ namespace ArabicTextAnalyzer.Business.Provider
 {
     public class TranslationTools
     {
-        String spellCheckAPi = "https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?text=";
+        // String spellCheckAPi = "https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?text=";
         String bingSpellApiKey; // = ConfigurationManager.AppSettings["BingSpellcheckAPIKey"].ToString();
 
         // google translation api key
@@ -32,22 +32,22 @@ namespace ArabicTextAnalyzer.Business.Provider
             translationApiKey = ConfigurationManager.AppSettings["GoogleTranslationApiKey"].ToString();
         }
 
-        public String CorrectTranslate(String arabiziWord/*, HttpServerUtilityBase Server*/)
+        public String CorrectTranslate(String arabiziWord)
         {
             // See if we can further correct/translate any latin words
-            var previousText = arabiziWord;
-            string spellcheckUrl = spellCheckAPi + previousText
+            /*var previousText = arabiziWord;
+            string spellcheckUrl = spellCheckAPi + WebUtility.UrlEncode(previousText)
                 + "&cc=FR"
                 + "&mkt=fr-FR"
-                + "&mode=spell";
-            var correctedWord = new BingSpellCheckerApiTools().bingSpellcheckApi(spellcheckUrl, bingSpellApiKey);
-            if (correctedWord != previousText)
+                + "&mode=spell";*/
+            var correctedWord = new BingSpellCheckerApiTools().bingSpellcheckApi(/*spellcheckUrl,*/arabiziWord, bingSpellApiKey);
+            /*if (correctedWord != previousText)
             {
                 if (correctedWord == "")
                     correctedWord = previousText;
-            }
+            }*/
 
-            var translatedLatinWord = new GoogleTranslationApiTools(translationApiKey).getArabicTranslatedWord(correctedWord/*, Server*/);
+            var translatedLatinWord = new GoogleTranslationApiTools(translationApiKey).getArabicTranslatedWord(correctedWord);
 
             return translatedLatinWord;
         }
@@ -62,14 +62,13 @@ namespace ArabicTextAnalyzer.Business.Provider
             translationApiKey = googleTranslationApiKey;
         }
 
-        public string getArabicTranslatedWord(string correctedWord/*, HttpServerUtilityBase Server*/)
+        public string getArabicTranslatedWord(string correctedWord)
         {
-            // string translationApiKey = ConfigurationManager.AppSettings["GoogleTranslationApiKey"].ToString();
             string translateApiUrl = "https://translation.googleapis.com/language/translate/v2?key=" + translationApiKey;
             translateApiUrl += "&target=" + "AR";
             translateApiUrl += "&source=" + "FR";
             // translateApiUrl += "&model=" + "base";  // base = statistique, nmt = NN : MC181017 as of today, for target = arabic, only base is available
-            translateApiUrl += "&q=" + /*Server*/WebUtility.UrlEncode(correctedWord.Trim());
+            translateApiUrl += "&q=" + WebUtility.UrlEncode(correctedWord.Trim());
             WebClient client = new WebClient();
             client.Encoding = System.Text.Encoding.UTF8;
             string Jsonresult = client.DownloadString(translateApiUrl);
@@ -83,8 +82,18 @@ namespace ArabicTextAnalyzer.Business.Provider
 
     public class BingSpellCheckerApiTools
     {
-        public string bingSpellcheckApi(string url, string apiKey)
+        public string bingSpellcheckApi(/*string url, */String arabiziWord, string apiKey)
         {
+            String spellCheckAPi = "https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?text=";
+
+            var previousText = arabiziWord;
+            string spellcheckUrl = spellCheckAPi + WebUtility.UrlEncode(previousText)
+                + "&cc=FR"
+                + "&mkt=fr-FR"
+                + "&mode=spell";
+
+            String url = spellcheckUrl;
+
             var correctedText = "";
             WebClient client = new WebClient();
             client.Headers.Add("Ocp-Apim-Subscription-Key", apiKey);
@@ -96,8 +105,17 @@ namespace ArabicTextAnalyzer.Business.Provider
                 foreach (var result in jsonresult)
                 {
                     correctedText = result.SelectToken("suggestions[0].suggestion").ToString();
-                    return correctedText;
+                    break;
+                    // return correctedText;
                 }
+
+                //
+                if (correctedText != previousText)
+                {
+                    if (correctedText == "")
+                        correctedText = previousText;
+                }
+
                 return correctedText;
             }
             catch (Exception ex)

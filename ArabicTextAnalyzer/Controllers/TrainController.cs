@@ -532,7 +532,7 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 var idArabicDarijaEntry = train(new M_ARABIZIENTRY
                 {
-                    ArabiziText = line,
+                    ArabiziText = line.Trim(),
                     ArabiziEntryDate = DateTime.Now
                 });
 
