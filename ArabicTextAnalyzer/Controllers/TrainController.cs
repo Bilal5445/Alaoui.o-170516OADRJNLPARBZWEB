@@ -607,95 +607,119 @@ namespace ArabicTextAnalyzer.Controllers
         #region BACK YARD BO
         private Guid train(M_ARABIZIENTRY arabiziEntry)
         {
-            // Arabizi to arabic script via direct call to perl script
-            var textConverter = new TextConverter();
-
             // Arabizi to arabic from perl script
-            if (arabiziEntry.ArabiziText != null)
+            if (arabiziEntry.ArabiziText == null)
+                return Guid.Empty;
+
+            //
+            var id_ARABICDARIJAENTRY = Guid.NewGuid();
+
+            Logging.Write(Server, "train - before lock");
+            lock (thisLock)
             {
-                var id_ARABICDARIJAENTRY = Guid.NewGuid();
+                train_savearabizi(arabiziEntry);
 
-                Logging.Write(Server, "train - 3 - before lock");
+                String arabicText = train_binggoogle(arabiziEntry);
 
-                lock (thisLock)
+                arabicText = train_perl(arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY);
+
+                arabicText = train_latinwords(arabicText, id_ARABICDARIJAENTRY);
+
+                train_sa(arabicText);
+
+                train_ner(arabicText, id_ARABICDARIJAENTRY);
+            }
+            Logging.Write(Server, "train - after lock");
+
+            //
+            return id_ARABICDARIJAENTRY;
+        }
+
+        private void train_savearabizi(M_ARABIZIENTRY arabiziEntry)
+        {
+            // complete arabizi entry & Save arabiziEntry to Serialization
+            arabiziEntry.ID_ARABIZIENTRY = Guid.NewGuid();
+            String path = Server.MapPath("~/App_Data/data_M_ARABIZIENTRY.txt");
+            new TextPersist().Serialize(arabiziEntry, path);
+        }
+
+        private static string train_binggoogle(M_ARABIZIENTRY arabiziEntry)
+        {
+            // first pass : correct/translate the original arabizi into msa arabic using big/google apis (to take care of french/english segments in codeswitch arabizi posts)
+            return new TranslationTools().CorrectTranslate(arabiziEntry.ArabiziText);
+        }
+
+        private String train_perl(string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY)
+        {
+            // translate arabiza to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
+            arabicText = new TextConverter().Convert(arabicText);
+            var arabicDarijaEntry = new M_ARABICDARIJAENTRY
+            {
+                ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
+                ID_ARABIZIENTRY = id_ARABIZIENTRY,
+                ArabicDarijaText = arabicText
+            };
+            String path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY.txt");
+            new TextPersist().Serialize(arabicDarijaEntry, path);
+
+            //
+            return arabicText;
+        }
+
+        private String train_latinwords(String arabicText, Guid id_ARABICDARIJAENTRY)
+        {
+            // extract latin words and save every match of latin words
+            // also calculate on the fly the number of variants
+            MatchCollection matches = TextTools.ExtractLatinWords(arabicText);
+            foreach (Match match in matches)
+            {
+                // do not consider words in the bidict as latin words
+                if (new TextFrequency().BidictContainsWord(match.Value))
+                    continue;
+
+                // count variants
+                String arabiziWord = match.Value;
+                int variantsCount = new TextConverter().GetAllTranscriptions(arabiziWord).Count;
+
+                var latinWord = new M_ARABICDARIJAENTRY_LATINWORD
                 {
-                    // complete arabizi entry & Save arabiziEntry to Serialization
-                    arabiziEntry.ID_ARABIZIENTRY = Guid.NewGuid();
-                    String path = Server.MapPath("~/App_Data/data_M_ARABIZIENTRY.txt");
-                    new TextPersist().Serialize(arabiziEntry, path);
+                    ID_ARABICDARIJAENTRY_LATINWORD = Guid.NewGuid(),
+                    ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
+                    LatinWord = arabiziWord,
+                    VariantsCount = variantsCount
+                };
 
-                    // first pass : correct/translate the original arabizi into msa arabic using big/google apis (to take care of french/english segments in codeswitch arabizi posts)
-                    var arabiziTextToMsaFirstPass = new TranslationTools().CorrectTranslate(arabiziEntry.ArabiziText);
+                // See if we can further correct/translate any latin words
+                var translatedLatinWord = new TranslationTools().CorrectTranslate(arabiziWord);
+                latinWord.Translation = translatedLatinWord;
 
-                    // translate arabiza to darija using perl script and save arabicDarijaEntry to Serialization
-                    var arabicText = textConverter.Convert(arabiziTextToMsaFirstPass);
-                    var arabicDarijaEntry = new M_ARABICDARIJAENTRY
-                    {
-                        ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
-                        ID_ARABIZIENTRY = arabiziEntry.ID_ARABIZIENTRY,
-                        ArabicDarijaText = arabicText
-                    };
-                    path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY.txt");
-                    new TextPersist().Serialize(arabicDarijaEntry, path);
+                // if any replacein arabic text (TODO : use match to replace the match and not search/replace to better handle duplicate)
+                arabicText = arabicText.Replace(match.Value, translatedLatinWord);
 
-                    // extract latin words and save every match of latin words
-                    // also calculate on the fly the number of variants
-                    MatchCollection matches = TextTools.ExtractLatinWords(arabicDarijaEntry.ArabicDarijaText);
-                    foreach (Match match in matches)
-                    {
-                        // do not consider words in the bidict as latin words
-                        if (new TextFrequency().BidictContainsWord(match.Value))
-                            continue;
-
-                        // count variants
-                        String arabiziWord = match.Value;
-                        int variantsCount = new TextConverter().GetAllTranscriptions(arabiziWord).Count;
-
-                        var latinWord = new M_ARABICDARIJAENTRY_LATINWORD
-                        {
-                            ID_ARABICDARIJAENTRY_LATINWORD = Guid.NewGuid(),
-                            ID_ARABICDARIJAENTRY = arabicDarijaEntry.ID_ARABICDARIJAENTRY,
-                            LatinWord = arabiziWord,
-                            VariantsCount = variantsCount
-                        };
-
-                        // See if we can further correct/translate any latin words
-                        var translatedLatinWord = new TranslationTools().CorrectTranslate(arabiziWord);
-                        latinWord.Translation = translatedLatinWord;
-
-                        // if any replacein arabic text (TODO : use match to replace the match and not search/replace to better handle duplicate)
-                        arabicText = arabicText.Replace(match.Value, translatedLatinWord);
-
-                        // Save to Serialization
-                        path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_LATINWORD.txt");
-                        new TextPersist().Serialize(latinWord, path);
-                    }
-
-
-                    // Sentiment analysis from watson https://gateway.watsonplatform.net/" and Save to Serialization
-                    var textSentimentAnalyzer = new TextSentimentAnalyzer();
-                    var sentiment = textSentimentAnalyzer.GetSentiment(arabicText);
-                    path = Server.MapPath("~/App_Data/data_TextSentiment.txt");
-                    new TextPersist().Serialize(sentiment, path);
-
-                    Logging.Write(Server, "train - 8");
-
-                    // Entity extraction from rosette (https://api.rosette.com/rest/v1/)
-                    var textEntityExtraction = new TextEntityExtraction();
-                    var entities = textEntityExtraction.GetEntities(arabicText);
-
-                    Logging.Write(Server, "train - 9");
-
-                    // NER manual extraction
-                    new TextEntityExtraction().NerManualExtraction(arabicText, entities, arabicDarijaEntry.ID_ARABICDARIJAENTRY, Server);
-                }
-                Logging.Write(Server, "train - 10 - after lock");
-
-                //
-                return id_ARABICDARIJAENTRY;
+                // Save to Serialization
+                string path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_LATINWORD.txt");
+                new TextPersist().Serialize(latinWord, path);
             }
 
-            return Guid.Empty;
+            return arabicText;
+        }
+
+        private void train_sa(string arabicText)
+        {
+            // Sentiment analysis from watson https://gateway.watsonplatform.net/" and Save to Serialization
+            var textSentimentAnalyzer = new TextSentimentAnalyzer();
+            var sentiment = textSentimentAnalyzer.GetSentiment(arabicText);
+            string path = Server.MapPath("~/App_Data/data_TextSentiment.txt");
+            new TextPersist().Serialize(sentiment, path);
+        }
+
+        private void train_ner(string arabicText, Guid id_ARABICDARIJAENTRY)
+        {
+            // Entity extraction from rosette (https://api.rosette.com/rest/v1/)
+            var entities = new TextEntityExtraction().GetEntities(arabicText);
+
+            // NER manual extraction
+            new TextEntityExtraction().NerManualExtraction(arabicText, entities, id_ARABICDARIJAENTRY, Server);
         }
         #endregion
 
