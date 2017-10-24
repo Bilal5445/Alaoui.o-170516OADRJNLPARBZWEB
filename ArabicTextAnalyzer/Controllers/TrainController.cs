@@ -617,9 +617,9 @@ namespace ArabicTextAnalyzer.Controllers
             Logging.Write(Server, "train - before lock");
             lock (thisLock)
             {
-                train_savearabizi(arabiziEntry);
+                String arabicText = train_savearabizi(arabiziEntry);
 
-                String arabicText = train_binggoogle(arabiziEntry);
+                arabicText = train_binggoogle(arabicText);
 
                 arabicText = train_perl(arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY);
 
@@ -635,18 +635,20 @@ namespace ArabicTextAnalyzer.Controllers
             return id_ARABICDARIJAENTRY;
         }
 
-        private void train_savearabizi(M_ARABIZIENTRY arabiziEntry)
+        private String train_savearabizi(M_ARABIZIENTRY arabiziEntry)
         {
             // complete arabizi entry & Save arabiziEntry to Serialization
             arabiziEntry.ID_ARABIZIENTRY = Guid.NewGuid();
             String path = Server.MapPath("~/App_Data/data_M_ARABIZIENTRY.txt");
             new TextPersist().Serialize(arabiziEntry, path);
+
+            return arabiziEntry.ArabiziText;
         }
 
-        private static string train_binggoogle(M_ARABIZIENTRY arabiziEntry)
+        private static string train_binggoogle(String arabicText)
         {
             // first pass : correct/translate the original arabizi into msa arabic using big/google apis (to take care of french/english segments in codeswitch arabizi posts)
-            return new TranslationTools().CorrectTranslate(arabiziEntry.ArabiziText);
+            return new TranslationTools().CorrectTranslate(arabicText);
         }
 
         private String train_perl(string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY)
