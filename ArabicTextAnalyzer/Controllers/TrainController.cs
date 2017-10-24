@@ -59,6 +59,8 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpPost]
         public ActionResult ArabicDarijaEntryPartialView()
         {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+
             // This action is called at each reload of train main view, via Ajax to fill the partial view of the grid arabizi/arabic
 
             // load/deserialize M_ARABICDARIJAENTRY
@@ -132,6 +134,9 @@ namespace ArabicTextAnalyzer.Controllers
                 // MainEntities = mainEntities
                 MainEntities = xtrctThemes
             };
+
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
 
             // pass entries to partial view via the model (instead of the bag for a view)
             return PartialView("_IndexPartialPage_arabicDarijaEntries", class1);
@@ -392,6 +397,36 @@ namespace ArabicTextAnalyzer.Controllers
             //
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public ActionResult TwinglySetup_deleteAccount(Guid id_twinglyaccount_api_key)
+        {
+            // deserialize & send twingly accounts
+            var twinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
+
+            // find the one to delete
+            var accountToDelete = twinglyAccounts.Find(m => m.ID_TWINGLYACCOUNT_API_KEY == id_twinglyaccount_api_key);
+
+            // disable active one
+            var activeAccount = twinglyAccounts.Find(m => m.CurrentActive == "active");
+
+            // we can not delete active account
+            if (accountToDelete == activeAccount)
+            {
+                TempData["showAlertWarning"] = true;
+                TempData["msgAlert"] = "you cannot delete the active Twingly account";
+                return RedirectToAction("Index");
+            }
+
+            // remove
+            twinglyAccounts.Remove(accountToDelete);
+
+            // Save back to Serialization
+            new TextPersist().SerializeBack_dataPath<M_TWINGLYACCOUNT>(twinglyAccounts, Server.MapPath("~/App_Data"));
+
+            //
+            return RedirectToAction("Index");
+        }
         #endregion
 
         #region BACK YARD ACTIONS THEME
@@ -595,7 +630,7 @@ namespace ArabicTextAnalyzer.Controllers
                     var arabiziTextToMsaFirstPass = new TranslationTools().CorrectTranslate(arabiziEntry.ArabiziText/*, Server*/);
 
                     // prepare darija from perl script
-                    var arabicText = textConverter.Convert(/*arabiziEntry.ArabiziText*/arabiziTextToMsaFirstPass);
+                    var arabicText = textConverter.Convert(arabiziTextToMsaFirstPass);
                     var arabicDarijaEntry = new M_ARABICDARIJAENTRY
                     {
                         // ID_ARABICDARIJAENTRY = Guid.NewGuid(),
@@ -641,7 +676,7 @@ namespace ArabicTextAnalyzer.Controllers
                         };
 
                         // See if we can further correct/translate any latin words
-                        var translatedLatinWord = new TranslationTools().CorrectTranslate(arabiziWord/*, Server*/);
+                        var translatedLatinWord = new TranslationTools().CorrectTranslate(arabiziWord);
                         latinWord.Translation = translatedLatinWord;
 
                         // if any replacein arabic text (TODO : use match to replace the match and not search/replace to better handle duplicate)
