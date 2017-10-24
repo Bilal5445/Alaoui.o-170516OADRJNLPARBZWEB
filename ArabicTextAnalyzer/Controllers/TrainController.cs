@@ -607,12 +607,8 @@ namespace ArabicTextAnalyzer.Controllers
         #region BACK YARD BO
         private Guid train(M_ARABIZIENTRY arabiziEntry)
         {
-            Logging.Write(Server, "train - 1");
-
             // Arabizi to arabic script via direct call to perl script
             var textConverter = new TextConverter();
-
-            Logging.Write(Server, "train - 2");
 
             // Arabizi to arabic from perl script
             if (arabiziEntry.ArabiziText != null)
@@ -623,47 +619,35 @@ namespace ArabicTextAnalyzer.Controllers
 
                 lock (thisLock)
                 {
-                    // complete arabizi entry
+                    // complete arabizi entry & Save arabiziEntry to Serialization
                     arabiziEntry.ID_ARABIZIENTRY = Guid.NewGuid();
+                    String path = Server.MapPath("~/App_Data/data_M_ARABIZIENTRY.txt");
+                    new TextPersist().Serialize(arabiziEntry, path);
 
                     // first pass : correct/translate the original arabizi into msa arabic using big/google apis (to take care of french/english segments in codeswitch arabizi posts)
-                    var arabiziTextToMsaFirstPass = new TranslationTools().CorrectTranslate(arabiziEntry.ArabiziText/*, Server*/);
+                    var arabiziTextToMsaFirstPass = new TranslationTools().CorrectTranslate(arabiziEntry.ArabiziText);
 
-                    // prepare darija from perl script
+                    // translate arabiza to darija using perl script and save arabicDarijaEntry to Serialization
                     var arabicText = textConverter.Convert(arabiziTextToMsaFirstPass);
                     var arabicDarijaEntry = new M_ARABICDARIJAENTRY
                     {
-                        // ID_ARABICDARIJAENTRY = Guid.NewGuid(),
                         ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
                         ID_ARABIZIENTRY = arabiziEntry.ID_ARABIZIENTRY,
                         ArabicDarijaText = arabicText
                     };
-
-                    Logging.Write(Server, "train - 4");
-
-                    // Save arabiziEntry to Serialization
-                    String path = Server.MapPath("~/App_Data/data_M_ARABIZIENTRY.txt");
-                    new TextPersist().Serialize(arabiziEntry, path);
-
-                    Logging.Write(Server, "train - 5");
-
-                    // Save arabicDarijaEntry to Serialization
                     path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY.txt");
                     new TextPersist().Serialize(arabicDarijaEntry, path);
 
-                    Logging.Write(Server, "train - 6");
-
-                    // latin words
-                    MatchCollection matches = TextTools.ExtractLatinWords(arabicDarijaEntry.ArabicDarijaText);
-
-                    // save every match of latin words
+                    // extract latin words and save every match of latin words
                     // also calculate on the fly the number of variants
+                    MatchCollection matches = TextTools.ExtractLatinWords(arabicDarijaEntry.ArabicDarijaText);
                     foreach (Match match in matches)
                     {
                         // do not consider words in the bidict as latin words
                         if (new TextFrequency().BidictContainsWord(match.Value))
                             continue;
 
+                        // count variants
                         String arabiziWord = match.Value;
                         int variantsCount = new TextConverter().GetAllTranscriptions(arabiziWord).Count;
 
@@ -687,12 +671,10 @@ namespace ArabicTextAnalyzer.Controllers
                         new TextPersist().Serialize(latinWord, path);
                     }
 
-                    Logging.Write(Server, "train - 7");
 
-                    // Sentiment analysis from watson https://gateway.watsonplatform.net/";
+                    // Sentiment analysis from watson https://gateway.watsonplatform.net/" and Save to Serialization
                     var textSentimentAnalyzer = new TextSentimentAnalyzer();
                     var sentiment = textSentimentAnalyzer.GetSentiment(arabicText);
-                    // Save to Serialization
                     path = Server.MapPath("~/App_Data/data_TextSentiment.txt");
                     new TextPersist().Serialize(sentiment, path);
 
