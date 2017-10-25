@@ -16,7 +16,8 @@ namespace ArabicTextAnalyzer.Business.Provider
         public String pathToCorpus { get; }
         public String pathToDictFile { get; }
         private String pathToBidict;
-        private String pathToBidictFile;
+        private String pathToBidictFileArz;
+        private String pathToBidictFileAr;
         private String pathToNER;
         private String pathToNERFile_brands;
         private String pathToNotNERFile;
@@ -30,7 +31,8 @@ namespace ArabicTextAnalyzer.Business.Provider
             pathToCorpus = workingDirectoryLocation + @"corpus\";
             pathToDictFile = pathToCorpus + @"170426_extended_dict.txt";
             pathToBidict = workingDirectoryLocation + @"arabizi-arabic-bitext\";
-            pathToBidictFile = pathToBidict + @"arabizi-arabic-bitext.arz";
+            pathToBidictFileArz = pathToBidict + @"arabizi-arabic-bitext.arz";
+            pathToBidictFileAr = pathToBidict + @"arabizi-arabic-bitext.ar";
             pathToNER = workingDirectoryLocation + @"ner\";
             pathToNERFile_brands = pathToNER + @"entities-brand.txt";
             pathToNotNERFile = pathToNER + @"not-entities.txt";
@@ -94,7 +96,7 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public int GetBidictNumberOfLine()
         {
-            return File.ReadLines(pathToBidictFile).Count();
+            return File.ReadLines(pathToBidictFileArz).Count();
         }
 
         public bool BidictContainsWord(string domain)
@@ -102,11 +104,34 @@ namespace ArabicTextAnalyzer.Business.Provider
             // make it one line
             domain = domain.Replace("\r\n", " ");
 
-            foreach (string line in File.ReadLines(pathToBidictFile))
+            foreach (string line in File.ReadLines(pathToBidictFileArz))
                 if (Regex.IsMatch(line, @"\b" + domain + @"\b", RegexOptions.IgnoreCase))
                     return true; // and stop reading lines
 
             return false;
+        }
+
+        public String ReplaceArzByArFromBidict(String arabiziText)
+        {
+            var arzlines = File.ReadAllLines(pathToBidictFileArz);
+            var arlines = File.ReadAllLines(pathToBidictFileAr);
+
+            //var lines = File.ReadLines(pathToBidictFile);
+            // foreach (var arz in File.ReadLines(pathToNERFile_brands))
+            for (int i = 0; i < arzlines.Count(); i++)
+            {
+                /// var arz = lines.ElementAt(i);
+                var arz = arzlines[i];
+
+                // contains case insensitive
+                arabiziText = new Regex(@"\b" + arz + @"\b", RegexOptions.IgnoreCase).Replace(arabiziText, arlines[i]);
+                /*if (arabiziText.IndexOf(arz, StringComparison.InvariantCultureIgnoreCase) >= 0)
+                {
+                    arabiziText = arabiziText.Replace(arz, arlines[i]);
+                }*/
+            }
+
+            return arabiziText;
         }
 
         public bool NERContainsWord_brands(string domain)

@@ -619,6 +619,8 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 String arabicText = train_savearabizi(arabiziEntry);
 
+                arabicText = train_bidict(arabicText);
+
                 arabicText = train_binggoogle(arabicText);
 
                 arabicText = train_perl(arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY);
@@ -639,10 +641,22 @@ namespace ArabicTextAnalyzer.Controllers
         {
             // complete arabizi entry & Save arabiziEntry to Serialization
             arabiziEntry.ID_ARABIZIENTRY = Guid.NewGuid();
+
+            // clean
+            arabiziEntry.ArabiziText = arabiziEntry.ArabiziText.Trim(new char[] { ' ', '\t' });
+
+            // save
             String path = Server.MapPath("~/App_Data/data_M_ARABIZIENTRY.txt");
             new TextPersist().Serialize(arabiziEntry, path);
 
             return arabiziEntry.ArabiziText;
+        }
+
+        private static string train_bidict(string arabicText)
+        {
+            // clean before google/bing : o w
+            arabicText = new TextFrequency().ReplaceArzByArFromBidict(arabicText);
+            return arabicText;
         }
 
         private static string train_binggoogle(String arabicText)
