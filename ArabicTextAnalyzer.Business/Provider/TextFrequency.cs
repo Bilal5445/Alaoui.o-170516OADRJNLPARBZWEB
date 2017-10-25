@@ -116,19 +116,13 @@ namespace ArabicTextAnalyzer.Business.Provider
             var arzlines = File.ReadAllLines(pathToBidictFileArz);
             var arlines = File.ReadAllLines(pathToBidictFileAr);
 
-            //var lines = File.ReadLines(pathToBidictFile);
-            // foreach (var arz in File.ReadLines(pathToNERFile_brands))
+            //
             for (int i = 0; i < arzlines.Count(); i++)
             {
-                /// var arz = lines.ElementAt(i);
                 var arz = arzlines[i];
 
                 // contains case insensitive
-                arabiziText = new Regex(@"\b" + arz + @"\b", RegexOptions.IgnoreCase).Replace(arabiziText, arlines[i]);
-                /*if (arabiziText.IndexOf(arz, StringComparison.InvariantCultureIgnoreCase) >= 0)
-                {
-                    arabiziText = arabiziText.Replace(arz, arlines[i]);
-                }*/
+                arabiziText = new Regex(@"\b" + arz + @"\b", RegexOptions.IgnoreCase).Replace(arabiziText, "<span class='notranslate'>" + arlines[i] + "</span>");
             }
 
             return arabiziText;

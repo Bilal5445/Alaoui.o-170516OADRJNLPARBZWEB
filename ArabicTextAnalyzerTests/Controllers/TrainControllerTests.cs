@@ -827,5 +827,29 @@ namespace ArabicTextAnalyzer.Controllers.Tests
 
             Assert.AreEqual(expected, translatedLatinWord);
         }
+
+        [TestMethod()]
+        public void ut_171025_test_google_translate_api_on_notranslate()
+        {
+            String arabizi = "Ana khdit f7alom mn <span class='notranslate'>pull and bear</span>";
+            String expected = "khdit آنا f7alom دقيقة <span class='notranslate'>pull and bear</span>";
+
+            var GoogleTranslationApiKey = "AIzaSyBqnBEi2fRhKRRpcPCJ-kwTl0cJ2WcQRJI";
+            var translatedLatinWord = new GoogleTranslationApiTools(GoogleTranslationApiKey).getArabicTranslatedWord(arabizi, "html");
+
+            Assert.AreEqual(expected, translatedLatinWord);
+        }
+
+        [TestMethod()]
+        public void ut_171025_test_clean_multiple_occurrences_notranslate()
+        {
+            String arabizi = "<span class='notranslate'>Ana</span> khdit f7alom mn <span class='notranslate'>pull and bear</span>";
+            String expected = "Ana khdit f7alom mn pull and bear";
+
+            // clean <span class='notranslate'>
+            arabizi = new Regex(@"<span class='notranslate'>(.*?)</span>").Replace(arabizi, "$1");
+            
+            Assert.AreEqual(expected, arabizi);
+        }
     }
 }

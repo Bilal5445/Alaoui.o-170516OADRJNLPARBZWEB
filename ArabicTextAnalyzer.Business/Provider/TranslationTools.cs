@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Script.Serialization;
@@ -40,7 +41,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             var correctedWord = new BingSpellCheckerApiTools().bingSpellcheckApi(arabiziWord, bingSpellApiKey);
 
             // google tranlsation
-            var translatedLatinWord = new GoogleTranslationApiTools(translationApiKey).getArabicTranslatedWord(correctedWord);
+            var translatedLatinWord = new GoogleTranslationApiTools(translationApiKey).getArabicTranslatedWord(correctedWord, "html");
 
             return translatedLatinWord;
         }
@@ -55,13 +56,18 @@ namespace ArabicTextAnalyzer.Business.Provider
             translationApiKey = googleTranslationApiKey;
         }
 
-        public string getArabicTranslatedWord(string correctedWord)
+        public string getArabicTranslatedWord(string correctedWord, string format = null)
         {
             string translateApiUrl = "https://translation.googleapis.com/language/translate/v2?key=" + translationApiKey;
             translateApiUrl += "&target=" + "AR";
             translateApiUrl += "&source=" + "FR";
             // translateApiUrl += "&model=" + "base";  // base = statistique, nmt = NN : MC181017 as of today, for target = arabic, only base is available
             translateApiUrl += "&q=" + WebUtility.UrlEncode(correctedWord.Trim(new char[] { ' ', '\t' }));
+
+            // plain text or html format (for ignoring part)
+            if (!String.IsNullOrEmpty(format) && (format == "html" || format == "text"))
+                translateApiUrl += "&format=" + format;
+
             WebClient client = new WebClient();
             client.Encoding = System.Text.Encoding.UTF8;
             string Jsonresult = client.DownloadString(translateApiUrl);
@@ -69,6 +75,10 @@ namespace ArabicTextAnalyzer.Business.Provider
             jsonData = (new JavaScriptSerializer()).Deserialize<JsonData>(Jsonresult);
             var TranslatedText = jsonData.Data.Translations[0].TranslatedText;
             translateApiUrl = "";
+
+            // clean <span class='notranslate'>
+            TranslatedText = new Regex(@"<span class='notranslate'>(.*?)</span>").Replace(TranslatedText, "$1");
+
             return TranslatedText;
         }
     }
