@@ -23,7 +23,8 @@
 });
 
 // event when we switch between twingly accounts radio buttons
-$("#myButtons :input").change(function () {
+// $("#myButtons :input").change(function () {
+$("input#id").change(function () {
 
     console.log($(this).parent().text().split(/\ +/)[1]);
 
