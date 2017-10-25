@@ -284,6 +284,23 @@ namespace ArabicTextAnalyzer.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult Train_DeleteEntries(String arabiziWordGuids)
+        {
+            var larabiziWordGuids = arabiziWordGuids.Split(new char[] { ',' });
+
+            var dataPath = Server.MapPath("~/App_Data/");
+
+            foreach (var larabiziWordGuid in larabiziWordGuids)
+            {
+                Guid arabiziWordGuid = new Guid(larabiziWordGuid);
+                new TextPersist().Serialize_Delete_M_ARABIZIENTRY_Cascading(arabiziWordGuid, dataPath);
+            }
+
+            //
+            return RedirectToAction("Index");
+        }
+
         // This action applies a new main tag/entity/theme/keyword to a post
         [HttpGet]
         public ActionResult Train_ApplyNewMainTag(Guid idArabicDarijaEntry, String mainEntity)
