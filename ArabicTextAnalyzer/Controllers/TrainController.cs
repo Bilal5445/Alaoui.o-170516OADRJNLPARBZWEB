@@ -65,15 +65,22 @@ namespace ArabicTextAnalyzer.Controllers
 
             // load/deserialize M_ARABICDARIJAENTRY
             List<M_ARABICDARIJAENTRY> entries = loaddeserializeM_ARABICDARIJAENTRY();
+            // List<M_ARABICDARIJAENTRY> entries = loaddeserializeM_ARABICDARIJAENTRY_DB();
+
+            watch.Stop();
+            var elapsedMs0 = watch.ElapsedMilliseconds;
 
             // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
             List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD();
+            // List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DB();
 
             // load/deserialize M_ARABIZIENTRY
             List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY();
+            // List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY_DB();
 
             // load/deserialize list of M_ARABICDARIJAENTRY_TEXTENTITY
             List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY();
+            // List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB();
 
             //
             List<Class2> xs = new List<Class2>();
@@ -95,16 +102,13 @@ namespace ArabicTextAnalyzer.Controllers
             xs.Reverse();
 
             // themes / main entities : send list of main tags
-            /*var mainEntities = textEntities.Where(m => m.TextEntity.Type == "MAIN ENTITY");
-            mainEntities = DistinctBy(mainEntities, m => m.TextEntity.Mention);*/
             var dataPath = Server.MapPath("~/App_Data/");
             var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
 
             // 
             var class1 = new Class1
             {
-                Classes2 = xs,
-                // MainEntities = mainEntities
+                Classes2 = xs.Take(100).ToList(),
                 MainEntities = xtrctThemes
             };
 
@@ -595,14 +599,13 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [HttpGet]
-        public ActionResult SetupFillDBFromXML()
+        public void SetupCreateFillDBFromXML()
         {
             // Warning this methiod has to be executed (on VM and on server) once to make the swicth between XML serialization to DB. Otherwise any new entry 
             // to DB will be erased by the ones previously in xml
 
             using (var db = new ArabiziDbContext())
             {
-                Logging.Write(Server, db.Database.Connection.ConnectionString);
                 var M_TWINGLYACCOUNTs = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
                 var M_ARABICDARIJAENTRYs = new TextPersist().Deserialize<M_ARABICDARIJAENTRY>(Server.MapPath("~/App_Data"));
                 var M_ARABICDARIJAENTRY_LATINWORDs = new TextPersist().Deserialize<M_ARABICDARIJAENTRY_LATINWORD>(Server.MapPath("~/App_Data"));
@@ -626,9 +629,15 @@ namespace ArabicTextAnalyzer.Controllers
                 // commit
                 db.SaveChanges();
             }
+        }
 
-            // redirect back to the index action to show the form once again
-            return RedirectToAction("Index");
+        [HttpGet]
+        public void SetupDeleteDB()
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                db.Database.Delete();
+            }
         }
 
         #region BACK YARD BO TRAIN
@@ -792,6 +801,14 @@ namespace ArabicTextAnalyzer.Controllers
             return entries;
         }
 
+        private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY_DB()
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                return db.M_ARABICDARIJAENTRYs.ToList();
+            }
+        }
+
         private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY()
         {
             List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
@@ -808,6 +825,14 @@ namespace ArabicTextAnalyzer.Controllers
             return textEntities;
         }
 
+        private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB()
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                return db.M_ARABICDARIJAENTRY_TEXTENTITYs.ToList();
+            }
+        }
+
         private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY()
         {
             List<M_ARABIZIENTRY> arabiziEntries = new List<M_ARABIZIENTRY>();
@@ -821,6 +846,14 @@ namespace ArabicTextAnalyzer.Controllers
             return arabiziEntries;
         }
 
+        private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY_DB()
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                return db.M_ARABIZIENTRYs.ToList();
+            }
+        }
+
         private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD()
         {
             List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = new List<M_ARABICDARIJAENTRY_LATINWORD>();
@@ -832,6 +865,14 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             return latinWordsEntries;
+        }
+
+        private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DB()
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                return db.M_ARABICDARIJAENTRY_LATINWORDs.ToList();
+            }
         }
         #endregion
 
