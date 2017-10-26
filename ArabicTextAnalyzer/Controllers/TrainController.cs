@@ -64,43 +64,16 @@ namespace ArabicTextAnalyzer.Controllers
             // This action is called at each reload of train main view, via Ajax to fill the partial view of the grid arabizi/arabic
 
             // load/deserialize M_ARABICDARIJAENTRY
-            List<M_ARABICDARIJAENTRY> entries = new List<M_ARABICDARIJAENTRY>();
-            String path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY).Name + ".txt");
-            XmlSerializer serializer = new XmlSerializer(entries.GetType());
-            using (var reader = new System.IO.StreamReader(path))
-            {
-                entries = (List<M_ARABICDARIJAENTRY>)serializer.Deserialize(reader);
-            }
+            List<M_ARABICDARIJAENTRY> entries = loaddeserializeM_ARABICDARIJAENTRY();
 
             // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
-            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = new List<M_ARABICDARIJAENTRY_LATINWORD>();
-            path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_LATINWORD).Name + ".txt");
-            serializer = new XmlSerializer(latinWordsEntries.GetType());
-            using (var reader = new System.IO.StreamReader(path))
-            {
-                latinWordsEntries = (List<M_ARABICDARIJAENTRY_LATINWORD>)serializer.Deserialize(reader);
-            }
+            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD();
 
             // load/deserialize M_ARABIZIENTRY
-            List<M_ARABIZIENTRY> arabiziEntries = new List<M_ARABIZIENTRY>();
-            path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABIZIENTRY).Name + ".txt");
-            serializer = new XmlSerializer(arabiziEntries.GetType());
-            using (var reader = new System.IO.StreamReader(path))
-            {
-                arabiziEntries = (List<M_ARABIZIENTRY>)serializer.Deserialize(reader);
-            }
+            List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY();
 
             // load/deserialize list of M_ARABICDARIJAENTRY_TEXTENTITY
-            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
-            path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_TEXTENTITY).Name + ".txt");
-            serializer = new XmlSerializer(textEntities.GetType());
-            if (System.IO.File.Exists(path))
-            {
-                using (var reader = new System.IO.StreamReader(path))
-                {
-                    textEntities = (List<M_ARABICDARIJAENTRY_TEXTENTITY>)serializer.Deserialize(reader);
-                }
-            }
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY();
 
             //
             List<Class2> xs = new List<Class2>();
@@ -658,7 +631,7 @@ namespace ArabicTextAnalyzer.Controllers
             return RedirectToAction("Index");
         }
 
-        #region BACK YARD BO
+        #region BACK YARD BO TRAIN
         private Guid train(M_ARABIZIENTRY arabiziEntry)
         {
             // Arabizi to arabic from perl script
@@ -802,6 +775,63 @@ namespace ArabicTextAnalyzer.Controllers
 
             // NER manual extraction
             new TextEntityExtraction().NerManualExtraction(arabicText, entities, id_ARABICDARIJAENTRY, Server);
+        }
+        #endregion
+
+        #region BACK YARD BO LOAD
+        private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY()
+        {
+            List<M_ARABICDARIJAENTRY> entries = new List<M_ARABICDARIJAENTRY>();
+            string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY).Name + ".txt");
+            XmlSerializer serializer = new XmlSerializer(entries.GetType());
+            using (var reader = new System.IO.StreamReader(path))
+            {
+                entries = (List<M_ARABICDARIJAENTRY>)serializer.Deserialize(reader);
+            }
+
+            return entries;
+        }
+
+        private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY()
+        {
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
+            string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_TEXTENTITY).Name + ".txt");
+            XmlSerializer serializer = new XmlSerializer(textEntities.GetType());
+            if (System.IO.File.Exists(path))
+            {
+                using (var reader = new System.IO.StreamReader(path))
+                {
+                    textEntities = (List<M_ARABICDARIJAENTRY_TEXTENTITY>)serializer.Deserialize(reader);
+                }
+            }
+
+            return textEntities;
+        }
+
+        private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY()
+        {
+            List<M_ARABIZIENTRY> arabiziEntries = new List<M_ARABIZIENTRY>();
+            string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABIZIENTRY).Name + ".txt");
+            XmlSerializer serializer = new XmlSerializer(arabiziEntries.GetType());
+            using (var reader = new System.IO.StreamReader(path))
+            {
+                arabiziEntries = (List<M_ARABIZIENTRY>)serializer.Deserialize(reader);
+            }
+
+            return arabiziEntries;
+        }
+
+        private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD()
+        {
+            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = new List<M_ARABICDARIJAENTRY_LATINWORD>();
+            string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_LATINWORD).Name + ".txt");
+            XmlSerializer serializer = new XmlSerializer(latinWordsEntries.GetType());
+            using (var reader = new System.IO.StreamReader(path))
+            {
+                latinWordsEntries = (List<M_ARABICDARIJAENTRY_LATINWORD>)serializer.Deserialize(reader);
+            }
+
+            return latinWordsEntries;
         }
         #endregion
 
