@@ -684,8 +684,27 @@ namespace ArabicTextAnalyzer.Controllers
 
         private String train_perl(string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY)
         {
+            var regex = new Regex(@"<span class='notranslate'>(.*?)</span>");
+
+            // save matches
+            var matches = regex.Matches(arabicText);
+
+            // skip over non-translantable parts
+            arabicText = regex.Replace(arabicText, "001000100");
+
             // translate arabiza to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
             arabicText = new TextConverter().Convert(arabicText);
+
+            // restore do not translate
+            var regex2 = new Regex(@"001000100");
+            foreach (Match match in matches)
+            {
+                arabicText = regex2.Replace(arabicText, match.Value, 1);
+            }
+            // clean <span class='notranslate'>
+            arabicText = new Regex(@"<span class='notranslate'>(.*?)</span>").Replace(arabicText, "$1");
+
+            // save
             var arabicDarijaEntry = new M_ARABICDARIJAENTRY
             {
                 ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
@@ -721,13 +740,6 @@ namespace ArabicTextAnalyzer.Controllers
                     LatinWord = arabiziWord,
                     VariantsCount = variantsCount
                 };
-
-                // See if we can further correct/translate any latin words
-                var translatedLatinWord = new TranslationTools().CorrectTranslate(arabiziWord);
-                latinWord.Translation = translatedLatinWord;
-
-                // if any replacein arabic text (TODO : use match to replace the match and not search/replace to better handle duplicate)
-                arabicText = arabicText.Replace(match.Value, translatedLatinWord);
 
                 // Save to Serialization
                 string path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_LATINWORD.txt");

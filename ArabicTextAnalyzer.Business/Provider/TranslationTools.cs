@@ -76,9 +76,6 @@ namespace ArabicTextAnalyzer.Business.Provider
             var TranslatedText = jsonData.Data.Translations[0].TranslatedText;
             translateApiUrl = "";
 
-            // clean <span class='notranslate'>
-            TranslatedText = new Regex(@"<span class='notranslate'>(.*?)</span>").Replace(TranslatedText, "$1");
-
             return TranslatedText;
         }
     }
