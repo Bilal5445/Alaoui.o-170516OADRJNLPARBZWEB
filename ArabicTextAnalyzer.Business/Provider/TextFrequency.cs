@@ -22,7 +22,23 @@ namespace ArabicTextAnalyzer.Business.Provider
         private String pathToNERFile_brands;
         private String pathToNotNERFile;
 
-        public TextFrequency ()
+        // for UT only
+        public TextFrequency(String pathToArabiziEnv)
+        {
+            string workingDirectoryLocation = pathToArabiziEnv;
+
+            //
+            pathToCorpus = workingDirectoryLocation + @"corpus\";
+            pathToDictFile = pathToCorpus + @"170426_extended_dict.txt";
+            pathToBidict = workingDirectoryLocation + @"arabizi-arabic-bitext\";
+            pathToBidictFileArz = pathToBidict + @"arabizi-arabic-bitext.arz";
+            pathToBidictFileAr = pathToBidict + @"arabizi-arabic-bitext.ar";
+            pathToNER = workingDirectoryLocation + @"ner\";
+            pathToNERFile_brands = pathToNER + @"entities-brand.txt";
+            pathToNotNERFile = pathToNER + @"not-entities.txt";
+        }
+
+        public TextFrequency()
         {
             // -> this is the folder containing the script
             string workingDirectoryLocation = new PathConstant().pathToArabiziEnv;
@@ -122,7 +138,15 @@ namespace ArabicTextAnalyzer.Business.Provider
                 var arz = arzlines[i];
 
                 // contains case insensitive
-                arabiziText = new Regex(@"\b" + arz + @"\b", RegexOptions.IgnoreCase).Replace(arabiziText, "<span class='notranslate'>" + arlines[i] + "</span>");
+                var regex = new Regex(@"\b" + arz + @"\b(?![^<>]*</|[^><]*>)", RegexOptions.IgnoreCase);    // ie : find word but anot already surrended by tags
+                MatchCollection matches = regex.Matches(arabiziText);
+                foreach (Match match in matches)
+                {
+                    if (match.Value.StartsWith("<span class='notranslate'>"))
+                        continue;
+
+                    arabiziText = regex.Replace(arabiziText, "<span class='notranslate'>" + arlines[i] + "</span>");
+                }
             }
 
             return arabiziText;

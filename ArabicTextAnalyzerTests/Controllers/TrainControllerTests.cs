@@ -851,5 +851,29 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             
             Assert.AreEqual(expected, arabizi);
         }
+
+        [TestMethod()]
+        public void ut_171025_test_ReplaceArzByArFromBidict_on_two_words_entry()
+        {
+            String arabizi = "maroc telecom";
+            String expected = "<span class='notranslate'>IAM</span>";
+
+            // clean before google/bing : o w
+            arabizi = new TextFrequency(@"C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\").ReplaceArzByArFromBidict(arabizi);
+
+            Assert.AreEqual(expected, arabizi);
+        }
+
+        [TestMethod()]
+        public void ut_171025_test_ReplaceArzByArFromBidict_on_two_words_entries_in_a_phrase()
+        {
+            String arabizi = "Le maroc zwyine wa maroc telecom mjahda";
+            String expected = "Le <span class='notranslate'>المغرب</span> zwyine wa <span class='notranslate'>IAM</span> mjahda";
+
+            // clean before google/bing : o w
+            arabizi = new TextFrequency(@"C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\").ReplaceArzByArFromBidict(arabizi);
+
+            Assert.AreEqual(expected, arabizi);
+        }
     }
 }
