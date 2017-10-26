@@ -337,7 +337,7 @@ namespace ArabicTextAnalyzer.Controllers
             return RedirectToAction("Index");
         }
 
-        #region BACK YARD ACTIONS TWINGLY
+        #region FRONT YARD ACTIONS TWINGLY
         [HttpGet]
         public ActionResult TwinglySetup()
         {
@@ -446,7 +446,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
         #endregion
 
-        #region BACK YARD ACTIONS THEME
+        #region FRONT YARD ACTIONS THEME
         [HttpPost]
         public ActionResult XtrctTheme_AddNew(String themename, String themetags)
         {
@@ -619,6 +619,43 @@ namespace ArabicTextAnalyzer.Controllers
         public void Log(String message)
         {
             Logging.Write(Server, message);
+        }
+
+        [HttpGet]
+        public ActionResult SetupFillDBFromXML()
+        {
+            // Warning this methiod has to be executed (on VM and on server) once to make the swicth between XML serialization to DB. Otherwise any new entry 
+            // to DB will be erased by the ones previously in xml
+
+            using (var db = new ArabiziDbContext())
+            {
+                Logging.Write(Server, db.Database.Connection.ConnectionString);
+                var M_TWINGLYACCOUNTs = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
+                var M_ARABICDARIJAENTRYs = new TextPersist().Deserialize<M_ARABICDARIJAENTRY>(Server.MapPath("~/App_Data"));
+                var M_ARABICDARIJAENTRY_LATINWORDs = new TextPersist().Deserialize<M_ARABICDARIJAENTRY_LATINWORD>(Server.MapPath("~/App_Data"));
+                var M_ARABICDARIJAENTRY_TEXTENTITYs = new TextPersist().Deserialize<M_ARABICDARIJAENTRY_TEXTENTITY>(Server.MapPath("~/App_Data"));
+                var M_ARABIZIENTRYs = new TextPersist().Deserialize<M_ARABIZIENTRY>(Server.MapPath("~/App_Data"));
+                var M_XTRCTTHEMEs = new TextPersist().Deserialize<M_XTRCTTHEME>(Server.MapPath("~/App_Data"));
+                var M_XTRCTTHEME_KEYWORDs = new TextPersist().Deserialize<M_XTRCTTHEME_KEYWORD>(Server.MapPath("~/App_Data"));
+
+                // clean too early date => 2017-01-01 00:00:00 (DateTime.MinValue)
+                M_ARABIZIENTRYs.Where(w => w.ArabiziEntryDate == DateTime.MinValue).ToList().ForEach(s => s.ArabiziEntryDate = DateTime.Now.AddYears(-1));
+
+                //
+                db.M_TWINGLYACCOUNTs.AddRange(M_TWINGLYACCOUNTs);
+                db.M_ARABICDARIJAENTRYs.AddRange(M_ARABICDARIJAENTRYs);
+                db.M_ARABICDARIJAENTRY_LATINWORDs.AddRange(M_ARABICDARIJAENTRY_LATINWORDs);
+                db.M_ARABICDARIJAENTRY_TEXTENTITYs.AddRange(M_ARABICDARIJAENTRY_TEXTENTITYs);
+                db.M_ARABIZIENTRYs.AddRange(M_ARABIZIENTRYs);
+                db.M_XTRCTTHEMEs.AddRange(M_XTRCTTHEMEs);
+                db.M_XTRCTTHEME_KEYWORDs.AddRange(M_XTRCTTHEME_KEYWORDs);
+
+                // commit
+                db.SaveChanges();
+            }
+
+            // redirect back to the index action to show the form once again
+            return RedirectToAction("Index");
         }
 
         #region BACK YARD BO

@@ -198,6 +198,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\TrainController.cs" />
+    <Compile Include="Models\ArabiziDbContext.cs" />
     <Compile Include="Models\ProcessTextDto.cs" />
     <Compile Include="Models\TextAnalyze.cs" />
     <Compile Include="Controllers\AccountController.cs" />
