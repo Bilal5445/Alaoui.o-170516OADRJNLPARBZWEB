@@ -650,108 +650,31 @@ namespace ArabicTextAnalyzer.Controllers
 
                 var itemsCount = 0;
 
-                // List<Customers> items = db.Customers.ToList();
+                //
                 List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL();
-                // load/deserialize M_ARABIZIENTRY
-                /*List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY(_accessMode).Take(100).ToList();
-                // load/deserialize M_ARABICDARIJAENTRY
-                List<M_ARABICDARIJAENTRY> arabicDarijaEntrie = loaddeserializeM_ARABICDARIJAENTRY(_accessMode);*/
+                List<M_ARABICDARIJAENTRY_TEXTENTITY> arabicDarijaEntrys = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
+                List<M_ARABICDARIJAENTRY_LATINWORD> arabicDarijaEntryLatinWords = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL();
+                List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
+                List<M_XTRCTTHEME> MainEntities = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
 
-                /*if (!string.IsNullOrWhiteSpace(searchAccount))
+                //
+                itemsCount = items.Count();
+
+                // Visual formatting
+                items.ForEach(s =>
                 {
-                    items = items.Where(a => a.Account.Contains(searchAccount)).ToList();
-                }
+                    s.FormattedArabiziEntryDate = s.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm");
+                    s.FormattedArabicDarijaText = TextTools.HighlightExtractedLatinWords(s.ArabicDarijaText, s.ID_ARABICDARIJAENTRY, arabicDarijaEntryLatinWords);
+                    s.FormattedEntitiesTypes = TextTools.DisplayEntitiesType(s.ID_ARABICDARIJAENTRY, TextEntities);
+                    s.FormattedEntities = TextTools.DisplayEntities(s.ID_ARABICDARIJAENTRY, TextEntities);
+                    s.FormattedRemoveAndApplyTagCol = TextTools.DisplayRemoveAndApplyTagCol(s.ID_ARABIZIENTRY, s.ID_ARABICDARIJAENTRY, MainEntities);
+                });
 
-                if (!string.IsNullOrWhiteSpace(searchSource))
-                {
-                    items = items.Where(a => a.Source.Contains(searchSource)).ToList();
-                }
-
-                if (!string.IsNullOrWhiteSpace(searchEntity))
-                {
-                    items = items.Where(a => a.Entity.Contains(searchEntity)).ToList();
-                }
-
-                if (!string.IsNullOrWhiteSpace(searchName))
-                {
-                    items = items.Where(a => a.Name.Contains(searchName)).ToList();
-                }*/
-
-                itemsCount = /*arabiziEntries*/items.Count();
-
-                /*switch (this.Request.QueryString["order[0][column]"])
-                {
-                    case "0":
-                        if (this.Request.QueryString["order[0][dir]"] == "asc")
-                        {
-                            items = items.OrderBy(a => a.Account).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
-                        }
-                        if (this.Request.QueryString["order[0][dir]"] == "desc")
-                        {
-                            items = items.OrderByDescending(a => a.Account).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
-                        }
-                        break;
-                    case "1":
-                        if (this.Request.QueryString["order[0][dir]"] == "asc")
-                        {
-                            items = items.OrderBy(a => a.Source).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
-                        }
-                        if (this.Request.QueryString["order[0][dir]"] == "desc")
-                        {
-                            items = items.OrderByDescending(a => a.Source).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
-                        }
-                        break;
-                    case "2":
-                        if (this.Request.QueryString["order[0][dir]"] == "asc")
-                        {
-                            items = items.OrderBy(a => a.Entity).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
-                        }
-                        if (this.Request.QueryString["order[0][dir]"] == "desc")
-                        {
-                            items = items.OrderByDescending(a => a.Entity).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
-                        }
-                        break;
-                    case "3":
-                        if (this.Request.QueryString["order[0][dir]"] == "asc")
-                        {
-                            items = items.OrderBy(a => a.Name).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
-                        }
-                        if (this.Request.QueryString["order[0][dir]"] == "desc")
-                        {
-                            items = items.OrderByDescending(a => a.Name).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
-                        }
-                        break;
-                    default:
-                        items = items.Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
-                        break;
-                }*/
-
-                // var res = new List<ArabiziToArabicViewModel>();
-                items.ForEach(s => s.FormattedArabiziEntryDate = s.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm"));
-
-
-#if false
-            for (int i = 0; i < /*arabiziEntries*/items.Count; i++)
-            {
-                res.Add(
-                    new ArabiziToArabicViewModel()
-                    {
-                        /*Id = items[i].Id.ToString(),
-                        Account = items[i].Account,
-                        Source = items[i].Source,
-                        Entity = items[i].Entity,
-                        Name = items[i].Name*/
-                        // FormattedArabiziEntryDate = arabiziEntries[i].ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm"),
-                        // ArabiziText = arabiziEntries[i].ArabiziText
-                    });
-            }
-#endif
-
+                //
                 return JsonConvert.SerializeObject(new
                 {
                     recordsTotal = itemsCount.ToString(),
                     recordsFiltered = itemsCount.ToString(),
-                    // data = res
                     data = items
                 });
             }
@@ -1214,6 +1137,19 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
+        private List<M_XTRCTTHEME> loaddeserializeM_XTRCTTHEME_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_XTRCTTHEME";
+
+                conn.Open();
+                return conn.Query<M_XTRCTTHEME>(qry).ToList();
+            }
+        }
+
         private List<ArabiziToArabicViewModel> loadArabiziToArabicViewModel_DAPPERSQL()
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
@@ -1221,8 +1157,10 @@ namespace ArabicTextAnalyzer.Controllers
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 String qry = "SELECT TOP 100 "
+                        + "ARZ.ID_ARABIZIENTRY, "
                         + "ARZ.ArabiziEntryDate, "
                         + "ARZ.ArabiziText, "
+                        + "AR.ID_ARABICDARIJAENTRY, "
                         + "AR.ArabicDarijaText "
                     + "FROM T_ARABIZIENTRY ARZ " 
                     + "INNER JOIN T_ARABICDARIJAENTRY AR ON ARZ.ID_ARABIZIENTRY = AR.ID_ARABIZIENTRY "

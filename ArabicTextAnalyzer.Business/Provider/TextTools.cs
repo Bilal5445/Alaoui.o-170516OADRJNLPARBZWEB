@@ -94,6 +94,8 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public static String HighlightExtractedLatinWords(Guid ID_ARABIZIENTRY, List<M_ARABICDARIJAENTRY> arabicDarijaEntrys, List<M_ARABICDARIJAENTRY_LATINWORD> ArabicDarijaEntryLatinWords)
         {
+            // in this method ArabicDarijaEntryLatinWords are not pre-filtered
+
             // Highlith and add label of counts of variantes
 
             // find arabic darija text
@@ -146,6 +148,8 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public static String HighlightExtractedLatinWords(M_ARABICDARIJAENTRY arabicDarijaEntry, List<M_ARABICDARIJAENTRY_LATINWORD> ArabicDarijaEntryLatinWords)
         {
+            // in this method ArabicDarijaEntryLatinWords are not pre-filtered
+
             // Highlith and add label of counts of variantes
 
             // find arabic darija text
@@ -153,6 +157,56 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             // limit to concerned latin words
             List<M_ARABICDARIJAENTRY_LATINWORD> arabicDarijaEntryLatinWords = ArabicDarijaEntryLatinWords.FindAll(m => m.ID_ARABICDARIJAENTRY == arabicDarijaEntry.ID_ARABICDARIJAENTRY);
+
+            foreach (var arabicDarijaEntryLatinWord in arabicDarijaEntryLatinWords)
+            {
+                var mostPopularVariant = arabicDarijaEntryLatinWord.MostPopularVariant;
+                var latinWord = arabicDarijaEntryLatinWord.LatinWord;
+                var translation = arabicDarijaEntryLatinWord.Translation;
+                var count = arabicDarijaEntryLatinWord.VariantsCount;
+                var guid = arabicDarijaEntryLatinWord.ID_ARABICDARIJAENTRY_LATINWORD;
+                String newhtml;
+                if (count > 0)
+                {
+                    if (String.IsNullOrEmpty(translation) == false)
+                    {
+                        newhtml = $@"&rlm;<b><mark>" + translation + "</mark></b>";
+                    }
+                    else
+                    {
+                        if (guid != Guid.Empty)
+                            newhtml = $@"&rlm;<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{latinWord}</mark></b>
+                                    <a href='/Train/Train_AddToCorpus/?arabiziWord={latinWord}&arabiziWordGuid={guid}'>
+                                        <span class='badge'>{count}</span>
+                                    </a>";
+                        else
+                            newhtml = $@"&rlm;<b><mark data-toggle='tooltip' title='{mostPopularVariant}'>{latinWord}</mark></b>
+                                    <span class='badge'>{count}</span>";
+                    }
+                }
+                else
+                {
+                    if (String.IsNullOrEmpty(translation) == false)
+                        newhtml = $@"&rlm;<b><mark>" + translation + "</mark></b>";
+                    else
+                        newhtml = $@"&rlm;<b><mark>" + latinWord + "</mark></b>";
+                }
+                var regex = new Regex(RegexConstant.notPreceededByMark + latinWord, RegexOptions.IgnoreCase);
+                arabicDarijaText = regex.Replace(arabicDarijaText, newhtml, 1);
+            }
+
+            //
+            return arabicDarijaText;
+        }
+
+        public static String HighlightExtractedLatinWords(String arabicDarijaText, Guid ID_ARABICDARIJAENTRY, List<M_ARABICDARIJAENTRY_LATINWORD> ArabicDarijaEntryLatinWords)
+        {
+            // in this method ArabicDarijaEntryLatinWords are not pre-filtered
+
+            // Highlith and add label of counts of variantes
+
+            // limit to concerned latin words
+            List<M_ARABICDARIJAENTRY_LATINWORD> arabicDarijaEntryLatinWords = ArabicDarijaEntryLatinWords.FindAll(m => m.ID_ARABICDARIJAENTRY == ID_ARABICDARIJAENTRY);
 
             foreach (var arabicDarijaEntryLatinWord in arabicDarijaEntryLatinWords)
             {
@@ -261,6 +315,28 @@ namespace ArabicTextAnalyzer.Business.Provider
             return entitiesString;
         }
 
+        public static String DisplayEntities(Guid ID_ARABICDARIJAENTRY, List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities)
+        {
+            // limit to concerned text entities
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = TextEntities.FindAll(m => m.ID_ARABICDARIJAENTRY == ID_ARABICDARIJAENTRY);
+
+            String entitiesString = String.Empty;
+            foreach (var textEntity in textEntities)
+            {
+                String badgeCounter = textEntity.TextEntity.Count > 1 ? "(" + textEntity.TextEntity.Count + ")" : String.Empty;
+                if (TextEntities.IndexOf(textEntity) % 4 == 0)
+                    entitiesString += "<span class=\"label label-primary\">" + textEntity.TextEntity.Mention + " " + badgeCounter + "</span> ";
+                else if (TextEntities.IndexOf(textEntity) % 4 == 1)
+                    entitiesString += "<span class=\"label label-default\">" + textEntity.TextEntity.Mention + " " + badgeCounter + "</span> ";
+                else if (TextEntities.IndexOf(textEntity) % 4 == 2)
+                    entitiesString += "<span class=\"label label-success\">" + textEntity.TextEntity.Mention + " " + badgeCounter + "</span> ";
+                else
+                    entitiesString += "<span class=\"label label-info\">" + textEntity.TextEntity.Mention + " " + badgeCounter + "</span> ";
+            }
+
+            return entitiesString;
+        }
+
         public static String DisplayEntitiesType(List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities)
         {
             String entitiesString = String.Empty;
@@ -322,6 +398,50 @@ namespace ArabicTextAnalyzer.Business.Provider
             }
 
             return entitiesString;
+        }
+
+        public static String DisplayEntitiesType(Guid ID_ARABICDARIJAENTRY, List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities)
+        {
+            // limit to concerned text entities
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = TextEntities.FindAll(m => m.ID_ARABICDARIJAENTRY == ID_ARABICDARIJAENTRY);
+
+            String entitiesString = String.Empty;
+            foreach (var textEntity in textEntities)
+            {
+                if (TextEntities.IndexOf(textEntity) % 4 == 0)
+                    entitiesString += "<span class=\"label label-primary\">" + textEntity.TextEntity.Type + "</span> ";
+                else if (TextEntities.IndexOf(textEntity) % 4 == 1)
+                    entitiesString += "<span class=\"label label-default\">" + textEntity.TextEntity.Type + "</span> ";
+                else if (TextEntities.IndexOf(textEntity) % 4 == 2)
+                    entitiesString += "<span class=\"label label-success\">" + textEntity.TextEntity.Type + "</span> ";
+                else
+                    entitiesString += "<span class=\"label label-info\">" + textEntity.TextEntity.Type + "</span> ";
+            }
+
+            return entitiesString;
+        }
+
+        public static String DisplayRemoveAndApplyTagCol(Guid ID_ARABIZIENTRY, Guid ID_ARABICDARIJAENTRY, List<M_XTRCTTHEME> MainEntities)
+        {
+            // remove button
+            String newhtml1 = $@"<a href='/Train/Train_DeleteEntry/?arabiziWordGuid={ID_ARABIZIENTRY}' class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Remove</a>";
+
+            // dropdown tags
+            String newhtml2 = $@"<div class='dropdown'>
+                                    <button class='btn btn-warning btn-xs dropdown-toggle' type='button' data-toggle='dropdown'>
+                                        Main Tag
+                                        <span class='caret'></span>
+                                    </button>";
+            newhtml2 += "<ul class='dropdown-menu'>";
+            foreach(var mainEntity in MainEntities)
+            {
+                newhtml2 += $@"<li><a href = '/Train/Train_ApplyNewMainTag/?idArabicDarijaEntry={ID_ARABICDARIJAENTRY}&mainEntity={mainEntity.ThemeName}'> {mainEntity.ThemeName} </a></li>";
+            }
+            newhtml2 += $@"</ul>
+                    </div>";
+
+            //
+            return newhtml1+ newhtml2;
         }
     }
 }

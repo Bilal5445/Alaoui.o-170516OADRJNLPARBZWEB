@@ -25,10 +25,10 @@ function InitializeDataTables() {
                     { "data": null },
                     { "data": "FormattedArabiziEntryDate", "className": "arabizi-text top" },
                     { "data": "ArabiziText", "className": "arabizi-text top" },
-                    { "data": "ArabicDarijaText", "className": "arabic-text top" },
-                    { "data": null },
-                    { "data": null },
-                    { "data": null }
+                    { "data": "FormattedArabicDarijaText", "className": "arabic-text top" },
+                    { "data": "FormattedEntitiesTypes", "className": "arabic-text top entitiestype" },
+                    { "data": "FormattedEntities", "className": "arabic-text top entities" },
+                    { "data": "FormattedRemoveAndApplyTagCol", "className": "center top" }
             ],
             "columnDefs": [{
                 "defaultContent": "-",
