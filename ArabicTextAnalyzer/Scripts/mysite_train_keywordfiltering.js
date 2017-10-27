@@ -13,6 +13,7 @@ function InitializeDataTables() {
             },
             aaSorting: [],   // just use the sorting from the server
             "pageLength": 100,
+            // dom just to display the design of the fields : search , page , ...
             dom: "<'row'<'col-sm-3'B><'col-sm-3'l><'col-sm-6'f>>" +
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-5'i><'col-sm-7'p>>",
