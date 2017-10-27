@@ -3,62 +3,14 @@
 
 <!-- table of posts -->
 <table class="posts datatables-table table table-striped table-hover table-bordered">
-    <thead>
-        <tr class="header">
-            <th class="center top col50px">#</th>
-            <th class="center top col110px">Date</th>
-            <th class="center top col50prc">Arabizi</th>
-            <th class="center top col50prc">Arabic</th>
-            <th class="center top col100px">NER Types</th>
-            <th class="center top col130px">Entities</th>
-            <th class="center top col75px"></th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr class="header">
-            <th class="center top">#</th>
-            <th class="center top">Date</th>
-            <th class="center top">Arabizi</th>
-            <th class="center top">Arabic</th>
-            <th class="center top">NER Types</th>
-            <th class="center top">Entities</th>
-            <th class="center top"></th>
-        </tr>
-    </tfoot>
     <tbody>
         @{ var stopwatch = new System.Diagnostics.Stopwatch();
             stopwatch.Start();
-            @*foreach (var entry in Model.Classes2)
-            {
-                <tr>
-                    <td class="center top">@(Model.Classes2.Count - Model.Classes2.IndexOf(entry))</td>
-                    <td class="arabizi-text top">@entry.ArabiziEntry.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm")</td>
-                    <td class="arabizi-text top">@entry.ArabiziEntry.ArabiziText</td>
-                    <td class="arabic-text top">@Html.Raw(@TextTools.HighlightExtractedLatinWords(@entry.ArabicDarijaEntry.ArabicDarijaText, @entry.ArabicDarijaEntryLatinWords))</td>
-                    <td class="arabic-text top entitiestype">@Html.Raw(@TextTools.DisplayEntitiesType(@entry.TextEntities))</td>
-                    <td class="arabic-text top entities">@Html.Raw(@TextTools.DisplayEntities(@entry.TextEntities))</td>
-                    <td class="center top">
-                        <a href="@Url.Action("Train_DeleteEntry", new { arabiziWordGuid = @entry.ArabiziEntry.ID_ARABIZIENTRY })" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove</a>
-                        <div class="dropdown">
-                            <button class="btn btn-warning btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
-                                Main Tag
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                @foreach (var mainEntity in Model.MainEntities)
-                                {
-                                    <li><a href="@Url.Action("Train_ApplyNewMainTag", new { idArabicDarijaEntry = @entry.ArabicDarijaEntry.ID_ARABICDARIJAENTRY, mainEntity = @mainEntity.ThemeName })">@mainEntity.ThemeName</a></li>
-                                }
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-            }
-            *@
             foreach (var entry in Model.ArabiziEntrys)
             {
                 // find concerned arabic darija
                 var arabicDarijaEntry = Model.ArabicDarijaEntrys.Find(m => m.ID_ARABIZIENTRY == entry.ID_ARABIZIENTRY);
+
                 <tr>
                     <td class="center top">@(Model.ArabiziEntrys.Count - Model.ArabiziEntrys.IndexOf(entry))</td>
                     <td class="arabizi-text top">@entry.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm")</td>
@@ -84,9 +36,28 @@
                 </tr>
             }
             stopwatch.Stop();
-            <tr>
-            <td ccolspan="7">Time elapsed (ms): @(stopwatch.ElapsedMilliseconds)</td>
-            </tr>
         }
     </tbody>
+    <thead>
+        <tr class="header">
+            <th class="center top col50px">#</th>
+            <th class="center top col110px">Date</th>
+            <th class="center top col50prc">Arabizi</th>
+            <th class="center top col50prc">Arabic</th>
+            <th class="center top col100px">NER Types</th>
+            <th class="center top col130px">Entities</th>
+            <th class="center top col75px">@(stopwatch.Elapsed.ToString("mm\\:ss"))</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr class="header">
+            <th class="center top">#</th>
+            <th class="center top">Date</th>
+            <th class="center top">Arabizi</th>
+            <th class="center top">Arabic</th>
+            <th class="center top">NER Types</th>
+            <th class="center top">Entities</th>
+            <th class="center top"></th>
+        </tr>
+    </tfoot>
 </table>
