@@ -119,9 +119,9 @@ namespace ArabicTextAnalyzer.Controllers
                 };*/
                 var arabiziViewModel = new ArabiziViewModel
                 {
+                    ArabiziEntrys = arabiziEntries,
                     ArabicDarijaEntrys = entries,
                     ArabicDarijaEntryLatinWords = latinWordsEntries,
-                    ArabiziEntrys = arabiziEntries,
                     TextEntities = textEntities,
                     MainEntities = xtrctThemes
                 };
@@ -856,7 +856,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "SELECT * FROM T_ARABICDARIJAENTRY";
+                String qry = "SELECT * FROM T_ARABICDARIJAENTRY ";
 
                 conn.Open();
                 return conn.Query<M_ARABICDARIJAENTRY>(qry).ToList();
