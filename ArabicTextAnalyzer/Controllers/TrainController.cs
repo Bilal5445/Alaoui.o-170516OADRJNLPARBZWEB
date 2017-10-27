@@ -85,12 +85,14 @@ namespace ArabicTextAnalyzer.Controllers
                 // load/deserialize list of M_ARABICDARIJAENTRY_TEXTENTITY
                 List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY(accessMode);
 
-                watch.Stop();
-                var elapsedMs0 = watch.ElapsedMilliseconds;
+                // load/deserialize themes / main entities : send list of main tags
+                var dataPath = Server.MapPath("~/App_Data/");
+                var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
+
                 watch.Start();
 
-                //
-                List<Class2> xs = new List<Class2>();
+                // preparing model views
+                /*List<Class2> xs = new List<Class2>();
                 foreach (M_ARABICDARIJAENTRY arabicdarijaentry in entries)
                 {
                     var perEntryLatinWordsEntries = latinWordsEntries.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY).ToList();
@@ -106,16 +108,21 @@ namespace ArabicTextAnalyzer.Controllers
                 }
 
                 // reverse order to latest entry in top
+                if (accessMode != AccessMode.dappersql) // in dapper, we sort at query level
                     xs.Reverse();
-
-                // themes / main entities : send list of main tags
-                var dataPath = Server.MapPath("~/App_Data/");
-                var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
 
                 // 
                 var class1 = new Class1
                 {
                     Classes2 = xs.Take(100).ToList(),
+                    MainEntities = xtrctThemes
+                };*/
+                var arabiziViewModel = new ArabiziViewModel
+                {
+                    ArabicDarijaEntrys = entries,
+                    ArabicDarijaEntryLatinWords = latinWordsEntries,
+                    ArabiziEntrys = arabiziEntries,
+                    TextEntities = textEntities,
                     MainEntities = xtrctThemes
                 };
 
@@ -123,7 +130,7 @@ namespace ArabicTextAnalyzer.Controllers
                 var elapsedMs = watch.ElapsedMilliseconds;
 
                 // pass entries to partial view via the model (instead of the bag for a view)
-                return PartialView("_IndexPartialPage_arabicDarijaEntries", class1);
+                return PartialView("_IndexPartialPage_arabicDarijaEntries", arabiziViewModel /*class1*/);
             }
             catch (Exception ex)
             {

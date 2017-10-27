@@ -7,6 +7,15 @@ using System.Web;
 
 namespace ArabicTextAnalyzer.ViewModels
 {
+    public class ArabiziViewModel
+    {
+        public List<M_ARABIZIENTRY> ArabiziEntrys { get; set; }
+        public List<M_ARABICDARIJAENTRY> ArabicDarijaEntrys { get; set; }
+        public List<M_ARABICDARIJAENTRY_LATINWORD> ArabicDarijaEntryLatinWords { get; set; }
+        public List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities { get; set; }
+        public List<M_XTRCTTHEME> MainEntities { get; set; }
+    }
+
     public class Class2
     {
         public M_ARABICDARIJAENTRY ArabicDarijaEntry { get; set; }
