@@ -4,38 +4,38 @@
 <!-- table of posts -->
 <table class="posts datatables-table table table-striped table-hover table-bordered">
     <tbody>
-        @{ var stopwatch = new System.Diagnostics.Stopwatch();
-            stopwatch.Start();
-            foreach (var entry in Model.ArabiziEntrys)
-            {
-                // find concerned arabic darija
-                var arabicDarijaEntry = Model.ArabicDarijaEntrys.Find(m => m.ID_ARABIZIENTRY == entry.ID_ARABIZIENTRY);
+        @{ var stopwatch = new System.Diagnostics.Stopwatch(); }
+        @{ stopwatch.Start(); }
+        @foreach (var entry in Model.ArabiziEntrys)
+        {
+            // find concerned arabic darija
+            var arabicDarijaEntry = Model.ArabicDarijaEntrys.Find(m => m.ID_ARABIZIENTRY == entry.ID_ARABIZIENTRY);
 
-                <tr>
-                    <td class="center top">@(Model.ArabiziEntrys.Count - Model.ArabiziEntrys.IndexOf(entry))</td>
-                    <td class="arabizi-text top">@entry.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm")</td>
-                    <td class="arabizi-text top">@entry.ArabiziText</td>
-                    <td class="arabic-text top">@Html.Raw(@TextTools.HighlightExtractedLatinWords(arabicDarijaEntry, Model.ArabicDarijaEntryLatinWords))</td>
-                    <td class="arabic-text top entitiestype">@Html.Raw(@TextTools.DisplayEntitiesType(arabicDarijaEntry, @Model.TextEntities))</td>
-                    <td class="arabic-text top entities">@Html.Raw(@TextTools.DisplayEntities(arabicDarijaEntry, @Model.TextEntities))</td>
-                    <td class="center top">
-                        <a href="@Url.Action("Train_DeleteEntry", new { arabiziWordGuid = @entry.ID_ARABIZIENTRY })" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove</a>
-                        <div class="dropdown">
-                            <button class="btn btn-warning btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
-                                Main Tag
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                @foreach (var mainEntity in Model.MainEntities)
-                                {
-                                    <li><a href="@Url.Action("Train_ApplyNewMainTag", new { idArabicDarijaEntry = arabicDarijaEntry.ID_ARABICDARIJAENTRY, mainEntity = @mainEntity.ThemeName })">@mainEntity.ThemeName</a></li>
-                                }
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-            }
-            stopwatch.Stop();
+            <tr>
+                <td class="center top">@(Model.ArabiziEntrys.Count - Model.ArabiziEntrys.IndexOf(entry))</td>
+                <td class="arabizi-text top">@entry.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm")</td>
+                <td class="arabizi-text top">@entry.ArabiziText</td>
+                <td class="arabic-text top">@Html.Raw(@TextTools.HighlightExtractedLatinWords(arabicDarijaEntry, Model.ArabicDarijaEntryLatinWords))</td>
+                <td class="arabic-text top entitiestype">@Html.Raw(@TextTools.DisplayEntitiesType(arabicDarijaEntry, @Model.TextEntities))</td>
+                <td class="arabic-text top entities">@Html.Raw(@TextTools.DisplayEntities(arabicDarijaEntry, @Model.TextEntities))</td>
+                <td class="center top">
+                    <a href="@Url.Action("Train_DeleteEntry", new { arabiziWordGuid = @entry.ID_ARABIZIENTRY })" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove</a>
+                    <div class="dropdown">
+                        <button class="btn btn-warning btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
+                            Main Tag
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            @foreach (var mainEntity in Model.MainEntities)
+                            {
+                                <li><a href="@Url.Action("Train_ApplyNewMainTag", new { idArabicDarijaEntry = arabicDarijaEntry.ID_ARABICDARIJAENTRY, mainEntity = @mainEntity.ThemeName })">@mainEntity.ThemeName</a></li>
+                            }
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+        @{ stopwatch.Stop(); }
         }
     </tbody>
     <thead>
