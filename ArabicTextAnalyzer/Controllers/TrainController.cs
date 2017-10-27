@@ -3,9 +3,13 @@ using ArabicTextAnalyzer.Domain;
 using ArabicTextAnalyzer.Domain.Models;
 using ArabicTextAnalyzer.Models;
 using ArabicTextAnalyzer.ViewModels;
+using Dapper;
 using OADRJNLPCommon.Business;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -59,64 +63,75 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpPost]
         public ActionResult ArabicDarijaEntryPartialView()
         {
-            var watch = System.Diagnostics.Stopwatch.StartNew();
-
-            // This action is called at each reload of train main view, via Ajax to fill the partial view of the grid arabizi/arabic
-
-            //
-            var accessMode = AccessMode.sql;
-
-            // load/deserialize M_ARABICDARIJAENTRY
-            List<M_ARABICDARIJAENTRY> entries = loaddeserializeM_ARABICDARIJAENTRY(accessMode);
-
-            // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
-            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD(accessMode);
-
-            // load/deserialize M_ARABIZIENTRY
-            List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY(accessMode);
-
-            // load/deserialize list of M_ARABICDARIJAENTRY_TEXTENTITY
-            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY(accessMode);
-
-            watch.Stop();
-            var elapsedMs0 = watch.ElapsedMilliseconds;
-            watch.Start();
-
-            //
-            List<Class2> xs = new List<Class2>();
-            foreach (M_ARABICDARIJAENTRY arabicdarijaentry in entries)
+            try
             {
-                var perEntryLatinWordsEntries = latinWordsEntries.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY).ToList();
-                var perEntryTextEntities = textEntities.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY).ToList();
-                var x = new Class2
+                var watch = System.Diagnostics.Stopwatch.StartNew();
+
+                // This action is called at each reload of train main view, via Ajax to fill the partial view of the grid arabizi/arabic
+
+                //
+                var accessMode = AccessMode.dappersql;
+                // var accessMode = AccessMode.xml;
+
+                // load/deserialize M_ARABICDARIJAENTRY
+                List<M_ARABICDARIJAENTRY> entries = loaddeserializeM_ARABICDARIJAENTRY(accessMode);
+
+                // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
+                List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD(accessMode);
+
+                // load/deserialize M_ARABIZIENTRY
+                List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY(accessMode);
+
+                // load/deserialize list of M_ARABICDARIJAENTRY_TEXTENTITY
+                List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY(accessMode);
+
+                watch.Stop();
+                var elapsedMs0 = watch.ElapsedMilliseconds;
+                watch.Start();
+
+                //
+                List<Class2> xs = new List<Class2>();
+                foreach (M_ARABICDARIJAENTRY arabicdarijaentry in entries)
                 {
-                    ArabicDarijaEntry = arabicdarijaentry,
-                    ArabicDarijaEntryLatinWords = perEntryLatinWordsEntries,
-                    ArabiziEntry = arabiziEntries.Single(m => m.ID_ARABIZIENTRY == arabicdarijaentry.ID_ARABIZIENTRY),
-                    TextEntities = perEntryTextEntities
+                    var perEntryLatinWordsEntries = latinWordsEntries.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY).ToList();
+                    var perEntryTextEntities = textEntities.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY).ToList();
+                    var x = new Class2
+                    {
+                        ArabicDarijaEntry = arabicdarijaentry,
+                        ArabicDarijaEntryLatinWords = perEntryLatinWordsEntries,
+                        ArabiziEntry = arabiziEntries.Single(m => m.ID_ARABIZIENTRY == arabicdarijaentry.ID_ARABIZIENTRY),
+                        TextEntities = perEntryTextEntities
+                    };
+                    xs.Add(x);
+                }
+
+                // reverse order to latest entry in top
+                    xs.Reverse();
+
+                // themes / main entities : send list of main tags
+                var dataPath = Server.MapPath("~/App_Data/");
+                var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
+
+                // 
+                var class1 = new Class1
+                {
+                    Classes2 = xs.Take(100).ToList(),
+                    MainEntities = xtrctThemes
                 };
-                xs.Add(x);
+
+                watch.Stop();
+                var elapsedMs = watch.ElapsedMilliseconds;
+
+                // pass entries to partial view via the model (instead of the bag for a view)
+                return PartialView("_IndexPartialPage_arabicDarijaEntries", class1);
             }
-
-            // reverse order to latest entry in top
-            xs.Reverse();
-
-            // themes / main entities : send list of main tags
-            var dataPath = Server.MapPath("~/App_Data/");
-            var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
-
-            // 
-            var class1 = new Class1
+            catch (Exception ex)
             {
-                Classes2 = xs.Take(100).ToList(),
-                MainEntities = xtrctThemes
-            };
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
 
-            watch.Stop();
-            var elapsedMs = watch.ElapsedMilliseconds;
-
-            // pass entries to partial view via the model (instead of the bag for a view)
-            return PartialView("_IndexPartialPage_arabicDarijaEntries", class1);
+                return null;
+            }
         }
 
         [HttpPost]
@@ -790,7 +805,8 @@ namespace ArabicTextAnalyzer.Controllers
         #region BACK YARD BO LOAD
         enum AccessMode
         {
-            sql,
+            dappersql,
+            efsql,
             xml
         }
 
@@ -798,8 +814,12 @@ namespace ArabicTextAnalyzer.Controllers
         {
             if (accessMode == AccessMode.xml)
                 return loaddeserializeM_ARABICDARIJAENTRY();
-            else
+            else if (accessMode == AccessMode.efsql)
                 return loaddeserializeM_ARABICDARIJAENTRY_DB();
+            else if (accessMode == AccessMode.dappersql)
+                return loaddeserializeM_ARABICDARIJAENTRY_DAPPERSQL();
+
+            return null;
         }
 
         private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY()
@@ -823,12 +843,29 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
+        private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_ARABICDARIJAENTRY";
+
+                conn.Open();
+                return conn.Query<M_ARABICDARIJAENTRY>(qry).ToList();
+            }
+        }
+
         private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY(AccessMode accessMode)
         {
             if (accessMode == AccessMode.xml)
                 return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY();
-            else
+            else if (accessMode == AccessMode.efsql)
                 return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB();
+            else if (accessMode == AccessMode.dappersql)
+                return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
+
+            return null;
         }
 
         private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY()
@@ -855,12 +892,56 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
+        private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_ARABICDARIJAENTRY_TEXTENTITY";
+
+                conn.Open();
+
+                // special case, our initial class was complex (deep TextEntity), DB table created from initial class by EF is somehow flat
+                // so at loading, we need to convert back from flat to complex deep
+                var flats = conn.Query<M_ARABICDARIJAENTRY_TEXTENTITY_FLAT>(qry);
+
+                //
+                List<M_ARABICDARIJAENTRY_TEXTENTITY> unflats = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
+                foreach (var flat in flats)
+                {
+                    M_ARABICDARIJAENTRY_TEXTENTITY unflat = new M_ARABICDARIJAENTRY_TEXTENTITY
+                    {
+                        ID_ARABICDARIJAENTRY = flat.ID_ARABICDARIJAENTRY,
+                        ID_ARABICDARIJAENTRY_TEXTENTITY = flat.ID_ARABICDARIJAENTRY_TEXTENTITY,
+                        TextEntity = new TextEntity
+                        {
+                            Count = flat.TextEntity_Count,
+                            EntityId = flat.TextEntity_EntityId,
+                            Mention = flat.TextEntity_Mention,
+                            Normalized = flat.TextEntity_Normalized,
+                            Type = flat.TextEntity_Type
+
+                        }
+                    };
+                    unflats.Add(unflat);
+                }
+
+                return unflats;
+                // return conn.Query<M_ARABICDARIJAENTRY_TEXTENTITY>(qry).ToList();
+            }
+        }
+
         private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY(AccessMode accessMode)
         {
             if (accessMode == AccessMode.xml)
                 return loaddeserializeM_ARABIZIENTRY();
-            else
+            else if (accessMode == AccessMode.efsql)
                 return loaddeserializeM_ARABIZIENTRY_DB();
+            else if (accessMode == AccessMode.dappersql)
+                return loaddeserializeM_ARABIZIENTRY_DAPPERSQL();
+
+            return null;
         }
 
         private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY()
@@ -884,12 +965,29 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
+        private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_ARABIZIENTRY";
+
+                conn.Open();
+                return conn.Query<M_ARABIZIENTRY>(qry).ToList();
+            }
+        }
+
         private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD(AccessMode accessMode)
         {
             if (accessMode == AccessMode.xml)
                 return loaddeserializeM_ARABICDARIJAENTRY_LATINWORD();
-            else
+            else if (accessMode == AccessMode.efsql)
                 return loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DB();
+            else if (accessMode == AccessMode.dappersql)
+                return loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL();
+
+            return null;
         }
 
         private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD()
@@ -910,6 +1008,19 @@ namespace ArabicTextAnalyzer.Controllers
             using (var db = new ArabiziDbContext())
             {
                 return db.M_ARABICDARIJAENTRY_LATINWORDs.ToList();
+            }
+        }
+
+        private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_ARABICDARIJAENTRY_LATINWORD";
+
+                conn.Open();
+                return conn.Query<M_ARABICDARIJAENTRY_LATINWORD>(qry).ToList();
             }
         }
         #endregion

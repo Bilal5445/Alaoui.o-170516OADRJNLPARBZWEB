@@ -16,4 +16,17 @@ namespace ArabicTextAnalyzer.Domain.Models
         public Guid ID_ARABICDARIJAENTRY { get; set; }              // FK one-to-many
         public TextEntity TextEntity { get; set; }
     }
+
+    [Table("T_ARABICDARIJAENTRY_TEXTENTITY")]
+    public class M_ARABICDARIJAENTRY_TEXTENTITY_FLAT
+    {
+        [Key]
+        public Guid ID_ARABICDARIJAENTRY_TEXTENTITY { get; set; }    // PK
+        public Guid ID_ARABICDARIJAENTRY { get; set; }              // FK one-to-many
+        public long TextEntity_Count { get; set; }
+        public string TextEntity_EntityId { get; set; }
+        public string TextEntity_Mention { get; set; }
+        public string TextEntity_Normalized { get; set; }
+        public string TextEntity_Type { get; set; }
+    }
 }
