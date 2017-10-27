@@ -629,7 +629,7 @@ namespace ArabicTextAnalyzer.Controllers
             Logging.Write(Server, message);
         }
 
-        public object DataTablesNet_ServerSide_GetList(int id)
+        public object DataTablesNet_ServerSide_GetList()
         {
             try
             {
@@ -648,17 +648,17 @@ namespace ArabicTextAnalyzer.Controllers
                 string searchEntity = this.Request.QueryString["columns[2][search][value]"];
                 string searchName = this.Request.QueryString["columns[3][search][value]"];
 
-                var itemsCount = 0;
+                var itemsCount = loadArabiziToArabicViewModelCount_DAPPERSQL();
 
                 //
-                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL();
+                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL().Skip(start).Take(itemsPerPage).ToList();
                 List<M_ARABICDARIJAENTRY_TEXTENTITY> arabicDarijaEntrys = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
                 List<M_ARABICDARIJAENTRY_LATINWORD> arabicDarijaEntryLatinWords = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL();
                 List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
                 List<M_XTRCTTHEME> MainEntities = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
 
                 //
-                itemsCount = items.Count();
+                // itemsCount = items.Count();
 
                 // Visual formatting
                 items.ForEach(s =>
@@ -1156,7 +1156,8 @@ namespace ArabicTextAnalyzer.Controllers
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "SELECT TOP 100 "
+                String qry = "SELECT "
+                        // + "TOP 100 "
                         + "ARZ.ID_ARABIZIENTRY, "
                         + "ARZ.ArabiziEntryDate, "
                         + "ARZ.ArabiziText, "
@@ -1168,6 +1169,20 @@ namespace ArabicTextAnalyzer.Controllers
 
                 conn.Open();
                 return conn.Query<ArabiziToArabicViewModel>(qry).ToList();
+            }
+        }
+
+        private int loadArabiziToArabicViewModelCount_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT COUNT(*) "
+                    + "FROM T_ARABIZIENTRY ";
+
+                conn.Open();
+                return conn.QueryFirst<int>(qry);
             }
         }
         #endregion
