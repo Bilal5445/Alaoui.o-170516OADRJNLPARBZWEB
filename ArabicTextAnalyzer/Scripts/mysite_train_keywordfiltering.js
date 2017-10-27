@@ -49,16 +49,11 @@ function InitializeDataTables() {
 
                 // drop it from global (we know it is there)
                 var index = selectedArabiziIds.indexOf(hrefBackInnerId);
-                // if (index > -1) {
                 selectedArabiziIds.splice(index, 1);
-                // }
 
                 // set new value href (from backup)
                 var newhref = "/Train/Train_DeleteEntry?arabiziWordGuids=" + hrefBackInnerId;
                 $(this).find("td:eq(6)").find("> a").attr("href", newhref);
-
-                // console.log($(this).find("td:eq(6)").find("> a").attr("href"));
-                // console.log($(this).attr("class"));
             }
 
             // loop over selected to concatenate the arabizi entries ids
