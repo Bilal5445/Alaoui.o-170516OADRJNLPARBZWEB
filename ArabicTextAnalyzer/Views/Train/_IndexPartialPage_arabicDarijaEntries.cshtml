@@ -3,9 +3,9 @@
 
 <!-- table of posts -->
 <table class="posts datatables-table table table-striped table-hover table-bordered">
+    @{ var stopwatch = new System.Diagnostics.Stopwatch(); }
+    @{ stopwatch.Start(); }
     <tbody>
-        @{ var stopwatch = new System.Diagnostics.Stopwatch(); }
-        @{ stopwatch.Start(); }
         @foreach (var entry in Model.ArabiziEntrys)
         {
             // find concerned arabic darija
@@ -36,7 +36,6 @@
             </tr>
         }
         @{ stopwatch.Stop(); }
-        }
     </tbody>
     <thead>
         <tr class="header">
