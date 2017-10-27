@@ -22,7 +22,7 @@ function InitializeDataTables() {
             ],
             //
             "columns": [
-                    { "data": null },
+                    { "data": "PositionHash", "className": "center top" },
                     { "data": "FormattedArabiziEntryDate", "className": "arabizi-text top" },
                     { "data": "ArabiziText", "className": "arabizi-text top" },
                     { "data": "FormattedArabicDarijaText", "className": "arabic-text top" },

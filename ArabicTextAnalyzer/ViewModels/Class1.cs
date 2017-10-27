@@ -36,10 +36,11 @@ namespace ArabicTextAnalyzer.ViewModels
     {
         public Guid ID_ARABIZIENTRY { get; set; }
         public DateTime ArabiziEntryDate { get; set; }
-        public String FormattedArabiziEntryDate { get; set; }
         public String ArabiziText { get; set; }
         public Guid ID_ARABICDARIJAENTRY { get; set; }
         public String ArabicDarijaText { get; set; }
+        public int PositionHash { get; set; }
+        public String FormattedArabiziEntryDate { get; set; }
         public String FormattedArabicDarijaText { get; set; }
         public String FormattedEntitiesTypes { get; set; }
         public String FormattedEntities { get; set; }

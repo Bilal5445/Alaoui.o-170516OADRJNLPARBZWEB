@@ -663,6 +663,7 @@ namespace ArabicTextAnalyzer.Controllers
                 // Visual formatting
                 items.ForEach(s =>
                 {
+                    s.PositionHash = itemsCount - start - items.IndexOf(s);
                     s.FormattedArabiziEntryDate = s.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm");
                     s.FormattedArabicDarijaText = TextTools.HighlightExtractedLatinWords(s.ArabicDarijaText, s.ID_ARABICDARIJAENTRY, arabicDarijaEntryLatinWords);
                     s.FormattedEntitiesTypes = TextTools.DisplayEntitiesType(s.ID_ARABICDARIJAENTRY, TextEntities);
