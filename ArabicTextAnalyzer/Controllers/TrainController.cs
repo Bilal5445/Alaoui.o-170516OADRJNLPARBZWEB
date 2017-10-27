@@ -63,24 +63,24 @@ namespace ArabicTextAnalyzer.Controllers
 
             // This action is called at each reload of train main view, via Ajax to fill the partial view of the grid arabizi/arabic
 
+            //
+            var accessMode = AccessMode.sql;
+
             // load/deserialize M_ARABICDARIJAENTRY
-            List<M_ARABICDARIJAENTRY> entries = loaddeserializeM_ARABICDARIJAENTRY();
-            // List<M_ARABICDARIJAENTRY> entries = loaddeserializeM_ARABICDARIJAENTRY_DB();
+            List<M_ARABICDARIJAENTRY> entries = loaddeserializeM_ARABICDARIJAENTRY(accessMode);
+
+            // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
+            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD(accessMode);
+
+            // load/deserialize M_ARABIZIENTRY
+            List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY(accessMode);
+
+            // load/deserialize list of M_ARABICDARIJAENTRY_TEXTENTITY
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY(accessMode);
 
             watch.Stop();
             var elapsedMs0 = watch.ElapsedMilliseconds;
-
-            // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
-            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD();
-            // List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DB();
-
-            // load/deserialize M_ARABIZIENTRY
-            List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY();
-            // List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY_DB();
-
-            // load/deserialize list of M_ARABICDARIJAENTRY_TEXTENTITY
-            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY();
-            // List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB();
+            watch.Start();
 
             //
             List<Class2> xs = new List<Class2>();
@@ -788,6 +788,20 @@ namespace ArabicTextAnalyzer.Controllers
         #endregion
 
         #region BACK YARD BO LOAD
+        enum AccessMode
+        {
+            sql,
+            xml
+        }
+
+        private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY(AccessMode accessMode)
+        {
+            if (accessMode == AccessMode.xml)
+                return loaddeserializeM_ARABICDARIJAENTRY();
+            else
+                return loaddeserializeM_ARABICDARIJAENTRY_DB();
+        }
+
         private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY()
         {
             List<M_ARABICDARIJAENTRY> entries = new List<M_ARABICDARIJAENTRY>();
@@ -807,6 +821,14 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 return db.M_ARABICDARIJAENTRYs.ToList();
             }
+        }
+
+        private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY(AccessMode accessMode)
+        {
+            if (accessMode == AccessMode.xml)
+                return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY();
+            else
+                return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB();
         }
 
         private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY()
@@ -833,6 +855,14 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
+        private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY(AccessMode accessMode)
+        {
+            if (accessMode == AccessMode.xml)
+                return loaddeserializeM_ARABIZIENTRY();
+            else
+                return loaddeserializeM_ARABIZIENTRY_DB();
+        }
+
         private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY()
         {
             List<M_ARABIZIENTRY> arabiziEntries = new List<M_ARABIZIENTRY>();
@@ -852,6 +882,14 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 return db.M_ARABIZIENTRYs.ToList();
             }
+        }
+
+        private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD(AccessMode accessMode)
+        {
+            if (accessMode == AccessMode.xml)
+                return loaddeserializeM_ARABICDARIJAENTRY_LATINWORD();
+            else
+                return loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DB();
         }
 
         private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD()
