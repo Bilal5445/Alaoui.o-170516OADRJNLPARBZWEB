@@ -30,4 +30,13 @@ namespace ArabicTextAnalyzer.ViewModels
         // public IEnumerable<M_ARABICDARIJAENTRY_TEXTENTITY> MainEntities { get; set; }
         public IEnumerable<M_XTRCTTHEME> MainEntities { get; set; }
     }
+
+    // class for the table in the partialview
+    public class ArabiziToArabicViewModel
+    {
+        public DateTime ArabiziEntryDate { get; set; }
+        public String FormattedArabiziEntryDate { get; set; }
+        public String ArabiziText { get; set; }
+        public String ArabicDarijaText { get; set; }
+    }
 }

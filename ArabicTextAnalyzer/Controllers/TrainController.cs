@@ -4,7 +4,9 @@ using ArabicTextAnalyzer.Domain.Models;
 using ArabicTextAnalyzer.Models;
 using ArabicTextAnalyzer.ViewModels;
 using Dapper;
+using Newtonsoft.Json;
 using OADRJNLPCommon.Business;
+using OADRJNLPCommon.DataTablesNet;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -21,7 +23,11 @@ namespace ArabicTextAnalyzer.Controllers
 {
     public class TrainController : Controller
     {
+        // global lock to queur concurrent access
         private static Object thisLock = new Object();
+
+        // data access mode (ef-sql, dapper-sql, xml)
+        AccessMode _accessMode = AccessMode.dappersql;
 
         // GET: Train
         public ActionResult Index()
@@ -70,17 +76,18 @@ namespace ArabicTextAnalyzer.Controllers
                 // This action is called at each reload of train main view, via Ajax to fill the partial view of the grid arabizi/arabic
 
                 //
-                var accessMode = AccessMode.dappersql;
+                // var accessMode = AccessMode.dappersql;
                 // var accessMode = AccessMode.xml;
+                var accessMode = _accessMode;
+
+                // load/deserialize M_ARABIZIENTRY
+                List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY(accessMode);
 
                 // load/deserialize M_ARABICDARIJAENTRY
                 List<M_ARABICDARIJAENTRY> entries = loaddeserializeM_ARABICDARIJAENTRY(accessMode);
 
                 // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
                 List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD(accessMode);
-
-                // load/deserialize M_ARABIZIENTRY
-                List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY(accessMode);
 
                 // load/deserialize list of M_ARABICDARIJAENTRY_TEXTENTITY
                 List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY(accessMode);
@@ -141,6 +148,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
+        #region FRONT YARD ACTIONS TRAIN
         [HttpPost]
         public ActionResult TrainStepOne(M_ARABIZIENTRY arabiziEntry)
         {
@@ -335,6 +343,7 @@ namespace ArabicTextAnalyzer.Controllers
             TempData["msgAlert"] = "'" + mainEntity + "' is now MAIN ENTITY for the post";
             return RedirectToAction("Index");
         }
+        #endregion
 
         #region FRONT YARD ACTIONS TWINGLY
         [HttpGet]
@@ -620,6 +629,179 @@ namespace ArabicTextAnalyzer.Controllers
             Logging.Write(Server, message);
         }
 
+        public object DataTablesNet_ServerSide_GetList(int id)
+        {
+            try
+            {
+                int start = 0;
+
+                int.TryParse(this.Request.QueryString["start"], out start);
+
+                int itemsPerPage = 10;
+
+                int.TryParse(this.Request.QueryString["length"], out itemsPerPage);
+
+                string searchValue = this.Request.QueryString["search[value]"].ToString();
+
+                string searchAccount = this.Request.QueryString["columns[0][search][value]"];
+                string searchSource = this.Request.QueryString["columns[1][search][value]"];
+                string searchEntity = this.Request.QueryString["columns[2][search][value]"];
+                string searchName = this.Request.QueryString["columns[3][search][value]"];
+
+                var itemsCount = 0;
+
+                // List<Customers> items = db.Customers.ToList();
+                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL();
+                // load/deserialize M_ARABIZIENTRY
+                /*List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY(_accessMode).Take(100).ToList();
+                // load/deserialize M_ARABICDARIJAENTRY
+                List<M_ARABICDARIJAENTRY> arabicDarijaEntrie = loaddeserializeM_ARABICDARIJAENTRY(_accessMode);*/
+
+                /*if (!string.IsNullOrWhiteSpace(searchAccount))
+                {
+                    items = items.Where(a => a.Account.Contains(searchAccount)).ToList();
+                }
+
+                if (!string.IsNullOrWhiteSpace(searchSource))
+                {
+                    items = items.Where(a => a.Source.Contains(searchSource)).ToList();
+                }
+
+                if (!string.IsNullOrWhiteSpace(searchEntity))
+                {
+                    items = items.Where(a => a.Entity.Contains(searchEntity)).ToList();
+                }
+
+                if (!string.IsNullOrWhiteSpace(searchName))
+                {
+                    items = items.Where(a => a.Name.Contains(searchName)).ToList();
+                }*/
+
+                itemsCount = /*arabiziEntries*/items.Count();
+
+                /*switch (this.Request.QueryString["order[0][column]"])
+                {
+                    case "0":
+                        if (this.Request.QueryString["order[0][dir]"] == "asc")
+                        {
+                            items = items.OrderBy(a => a.Account).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
+                        }
+                        if (this.Request.QueryString["order[0][dir]"] == "desc")
+                        {
+                            items = items.OrderByDescending(a => a.Account).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
+                        }
+                        break;
+                    case "1":
+                        if (this.Request.QueryString["order[0][dir]"] == "asc")
+                        {
+                            items = items.OrderBy(a => a.Source).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
+                        }
+                        if (this.Request.QueryString["order[0][dir]"] == "desc")
+                        {
+                            items = items.OrderByDescending(a => a.Source).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
+                        }
+                        break;
+                    case "2":
+                        if (this.Request.QueryString["order[0][dir]"] == "asc")
+                        {
+                            items = items.OrderBy(a => a.Entity).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
+                        }
+                        if (this.Request.QueryString["order[0][dir]"] == "desc")
+                        {
+                            items = items.OrderByDescending(a => a.Entity).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
+                        }
+                        break;
+                    case "3":
+                        if (this.Request.QueryString["order[0][dir]"] == "asc")
+                        {
+                            items = items.OrderBy(a => a.Name).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
+                        }
+                        if (this.Request.QueryString["order[0][dir]"] == "desc")
+                        {
+                            items = items.OrderByDescending(a => a.Name).Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
+                        }
+                        break;
+                    default:
+                        items = items.Skip(start).Take(itemsPerPage).AsEnumerable().ToList();
+                        break;
+                }*/
+
+                // var res = new List<ArabiziToArabicViewModel>();
+                items.ForEach(s => s.FormattedArabiziEntryDate = s.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm"));
+
+
+#if false
+            for (int i = 0; i < /*arabiziEntries*/items.Count; i++)
+            {
+                res.Add(
+                    new ArabiziToArabicViewModel()
+                    {
+                        /*Id = items[i].Id.ToString(),
+                        Account = items[i].Account,
+                        Source = items[i].Source,
+                        Entity = items[i].Entity,
+                        Name = items[i].Name*/
+                        // FormattedArabiziEntryDate = arabiziEntries[i].ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm"),
+                        // ArabiziText = arabiziEntries[i].ArabiziText
+                    });
+            }
+#endif
+
+                return JsonConvert.SerializeObject(new
+                {
+                    recordsTotal = itemsCount.ToString(),
+                    recordsFiltered = itemsCount.ToString(),
+                    // data = res
+                    data = items
+                });
+            }
+            catch (Exception ex)
+            {
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                return null;
+            }
+        }
+
+        [HttpPost]
+        public JsonResult DataTablesNet_ServerSide_GetData(object parameters)
+        {
+            try
+            {
+                var req = DataTableParameters.Get(parameters);
+
+                var resultSet = new DataTableResultSet();
+                resultSet.draw = req.Draw;
+                resultSet.recordsTotal = 10; /* total number of records in table */
+                resultSet.recordsFiltered = 10; /* number of records after search - box filtering is applied */
+
+                /*foreach (var recordFromDb in queryDb)
+                { // this is pseudocode
+                    var columns = new List<string>();
+                    columns.Add("first column value");
+                    columns.Add("second column value");
+                    columns.Add("third column value");
+                    // you may add as many columns as you need. Each column is a string in the List<string> 
+                    resultSet.data.Add(columns);
+                }
+                SendResponse(HttpContext.Current.Response, result);*/
+
+                // load/deserialize M_ARABIZIENTRY
+                List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY(AccessMode.dappersql).Take(100).ToList();
+
+                return Json(/*arabiziEntries*/resultSet, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                return null;
+            }
+        }
+
+        #region FRONT YARD ACTIONS SETUP DB
         [HttpGet]
         public void SetupCreateFillDBFromXML()
         {
@@ -661,6 +843,7 @@ namespace ArabicTextAnalyzer.Controllers
                 db.Database.Delete();
             }
         }
+        #endregion
 
         #region BACK YARD BO TRAIN
         private Guid train(M_ARABIZIENTRY arabiziEntry)
@@ -1028,6 +1211,25 @@ namespace ArabicTextAnalyzer.Controllers
 
                 conn.Open();
                 return conn.Query<M_ARABICDARIJAENTRY_LATINWORD>(qry).ToList();
+            }
+        }
+
+        private List<ArabiziToArabicViewModel> loadArabiziToArabicViewModel_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT TOP 100 "
+                        + "ARZ.ArabiziEntryDate, "
+                        + "ARZ.ArabiziText, "
+                        + "AR.ArabicDarijaText "
+                    + "FROM T_ARABIZIENTRY ARZ " 
+                    + "INNER JOIN T_ARABICDARIJAENTRY AR ON ARZ.ID_ARABIZIENTRY = AR.ID_ARABIZIENTRY "
+                    + "ORDER BY ARZ.ArabiziEntryDate DESC ";
+
+                conn.Open();
+                return conn.Query<ArabiziToArabicViewModel>(qry).ToList();
             }
         }
         #endregion

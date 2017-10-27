@@ -20,6 +20,32 @@ function InitializeDataTables() {
             buttons: [
                 'copyHtml5',
             ],
+            //
+            "columns": [
+                    { "data": null },
+                    { "data": "FormattedArabiziEntryDate", "className": "arabizi-text top" },
+                    { "data": "ArabiziText", "className": "arabizi-text top" },
+                    { "data": "ArabicDarijaText", "className": "arabic-text top" },
+                    { "data": null },
+                    { "data": null },
+                    { "data": null }
+            ],
+            "columnDefs": [{
+                "defaultContent": "-",
+                "targets": "_all"
+            }],
+            // server side
+            "processing": true,
+            "serverSide": true,
+            /*"ajax": {
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "/Train/DataTablesNet_ServerSide_GetData",
+                data: function (d) {
+                    return JSON.stringify({ parameters: d });
+                }
+            }*/
+            "ajax": "Train/DataTablesNet_ServerSide_GetList/0"
         });
 
         $('.datatables-table tbody').on('click', 'tr', function () {
