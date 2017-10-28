@@ -45,7 +45,7 @@ function InitializeDataTables() {
                     return JSON.stringify({ parameters: d });
                 }
             }*/
-            "ajax": "Train/DataTablesNet_ServerSide_GetList/0"
+            "ajax": "/Train/DataTablesNet_ServerSide_GetList/0"
         });
 
         $('.datatables-table tbody').on('click', 'tr', function () {
