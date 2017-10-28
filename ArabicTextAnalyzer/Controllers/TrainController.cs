@@ -112,24 +112,10 @@ namespace ArabicTextAnalyzer.Controllers
             String twinglyApiUrl = "https://data.twingly.net/socialfeed/a/api/";
 
             // obtain current twingly key
-            /*List<M_TWINGLYACCOUNT> twinglyAccounts = new List<M_TWINGLYACCOUNT>();
-            var path = Server.MapPath("~/App_Data/data_" + typeof(M_TWINGLYACCOUNT).Name + ".txt");
-            var serializer = new XmlSerializer(twinglyAccounts.GetType());
-            using (var reader = new System.IO.StreamReader(path))
-            {
-                twinglyAccounts = (List<M_TWINGLYACCOUNT>)serializer.Deserialize(reader);
-            }*/
             List<M_TWINGLYACCOUNT> twinglyAccounts = loaddeserializeM_TWINGLYACCOUNT_DAPPERSQL();
             String twinglyApiKey = twinglyAccounts.Find(m => m.CurrentActive == "active").ID_TWINGLYACCOUNT_API_KEY.ToString();
 
             // deserialize M_ARABICDARIJAENTRY_LATINWORD to check if most popular already found
-            /*List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = new List<M_ARABICDARIJAENTRY_LATINWORD>();
-            path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_LATINWORD).Name + ".txt");
-            serializer = new XmlSerializer(latinWordsEntries.GetType());
-            using (var reader = new System.IO.StreamReader(path))
-            {
-                latinWordsEntries = (List<M_ARABICDARIJAENTRY_LATINWORD>)serializer.Deserialize(reader);
-            }*/
             List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL();
             var latinWordsEntry = latinWordsEntries.Find(m => m.ID_ARABICDARIJAENTRY_LATINWORD == arabiziWordGuid);
             if (latinWordsEntry == null)
@@ -159,9 +145,6 @@ namespace ArabicTextAnalyzer.Controllers
                         postText = OADRJNLPCommon.Business.Business.getPostBasedOnKeywordFromFBViaTwingly(latinWordsEntry.MostPopularVariant, twinglyApi15Url, twinglyApiKey, false);
                     // upddate count twingly account
                     new TwinglyTools().upddateCountTwinglyAccount(twinglyApiUrl, twinglyApiKey, Server.MapPath("~/App_Data/data_M_TWINGLYACCOUNT.txt"));
-                    /*var calls_free = OADRJNLPCommon.Business.Business.getTwinglyAccountInfo_calls_free(twinglyApi15Url, twinglyApiKey);
-                    path = Server.MapPath("~/App_Data/data_M_TWINGLYACCOUN.txt");
-                    new TextPersist().Serialize_Update_M_TWINGLYACCOUNT_calls_free(new Guid(twinglyApiKey), calls_free, path);*/
                     //
                     if (String.IsNullOrEmpty(postText))
                     {
@@ -216,7 +199,7 @@ namespace ArabicTextAnalyzer.Controllers
                     if (arabiziWordGuid != Guid.Empty)
                     {
                         // save mostPopularKeyword
-                        path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_LATINWORD.txt");
+                        var path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_LATINWORD.txt");
                         new TextPersist().Serialize_Update_M_ARABICDARIJAENTRY_LATINWORD_MostPopularVariant(arabiziWordGuid, mostPopularKeyword, path);
                     }
 
