@@ -71,80 +71,8 @@ namespace ArabicTextAnalyzer.Controllers
         {
             try
             {
-                var watch = System.Diagnostics.Stopwatch.StartNew();
-
-                // This action is called at each reload of train main view, via Ajax to fill the partial view of the grid arabizi/arabic
-
-                //
-                // var accessMode = AccessMode.dappersql;
-                // var accessMode = AccessMode.xml;
-                var accessMode = _accessMode;
-
-                Logging.Write(Server, "Partial : 1");
-
-                // load/deserialize M_ARABIZIENTRY
-                List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY(accessMode);
-
-                // load/deserialize M_ARABICDARIJAENTRY
-                List<M_ARABICDARIJAENTRY> entries = loaddeserializeM_ARABICDARIJAENTRY(accessMode);
-
-                Logging.Write(Server, "Partial : 2");
-
-                // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
-                List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD(accessMode);
-
-                // load/deserialize list of M_ARABICDARIJAENTRY_TEXTENTITY
-                List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY(accessMode);
-
-                Logging.Write(Server, "Partial : 3");
-
-                // load/deserialize themes / main entities : send list of main tags
-                var dataPath = Server.MapPath("~/App_Data/");
-                var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
-
-                watch.Start();
-
-                // preparing model views
-                /*List<Class2> xs = new List<Class2>();
-                foreach (M_ARABICDARIJAENTRY arabicdarijaentry in entries)
-                {
-                    var perEntryLatinWordsEntries = latinWordsEntries.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY).ToList();
-                    var perEntryTextEntities = textEntities.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY).ToList();
-                    var x = new Class2
-                    {
-                        ArabicDarijaEntry = arabicdarijaentry,
-                        ArabicDarijaEntryLatinWords = perEntryLatinWordsEntries,
-                        ArabiziEntry = arabiziEntries.Single(m => m.ID_ARABIZIENTRY == arabicdarijaentry.ID_ARABIZIENTRY),
-                        TextEntities = perEntryTextEntities
-                    };
-                    xs.Add(x);
-                }
-
-                // reverse order to latest entry in top
-                if (accessMode != AccessMode.dappersql) // in dapper, we sort at query level
-                    xs.Reverse();
-
-                // 
-                var class1 = new Class1
-                {
-                    Classes2 = xs.Take(100).ToList(),
-                    MainEntities = xtrctThemes
-                };*/
-                var arabiziViewModel = new ArabiziViewModel
-                {
-                    ArabiziEntrys = arabiziEntries,
-                    ArabicDarijaEntrys = entries,
-                    ArabicDarijaEntryLatinWords = latinWordsEntries,
-                    TextEntities = textEntities,
-                    MainEntities = xtrctThemes
-                };
-
-                watch.Stop();
-                var elapsedMs = watch.ElapsedMilliseconds;
-                Logging.Write(Server, "elapsedMs : " + elapsedMs);
-
                 // pass entries to partial view via the model (instead of the bag for a view)
-                return PartialView("_IndexPartialPage_arabicDarijaEntries", arabiziViewModel /*class1*/);
+                return PartialView("_IndexPartialPage_arabicDarijaEntries");
             }
             catch (Exception ex)
             {

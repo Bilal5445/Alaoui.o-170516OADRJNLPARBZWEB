@@ -37,14 +37,6 @@ function InitializeDataTables() {
             // server side
             "processing": true,
             "serverSide": true,
-            /*"ajax": {
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                url: "/Train/DataTablesNet_ServerSide_GetData",
-                data: function (d) {
-                    return JSON.stringify({ parameters: d });
-                }
-            }*/
             "ajax": "/Train/DataTablesNet_ServerSide_GetList/0"
         });
 

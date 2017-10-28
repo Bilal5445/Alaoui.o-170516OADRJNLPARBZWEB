@@ -1,11 +1,5 @@
-﻿@using ArabicTextAnalyzer.Business.Provider
-@model ArabicTextAnalyzer.ViewModels.ArabiziViewModel/*.Class1*/
-
-<!-- table of posts -->
+﻿<!-- table of posts -->
 <table class="posts datatables-table table table-striped table-hover table-bordered">
-    @{ var stopwatch = new System.Diagnostics.Stopwatch(); }
-    @{ stopwatch.Start(); }
-    @{ stopwatch.Stop(); }
     <thead>
         <tr class="header">
             <th class="center top col50px">#</th>
@@ -14,7 +8,7 @@
             <th class="center top col50prc">Arabic</th>
             <th class="center top col100px">NER Types</th>
             <th class="center top col130px">Entities</th>
-            <th class="center top col75px">@(stopwatch.Elapsed.ToString("mm\\:ss"))</th>
+            <th class="center top col75px"></th>
         </tr>
     </thead>
     <tfoot>
