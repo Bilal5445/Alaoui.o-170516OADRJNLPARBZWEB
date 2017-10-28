@@ -8,6 +8,7 @@ using RestSharp;
 using ArabicTextAnalyzer.Domain.Models;
 using System.Linq;
 using System.Web;
+using OADRJNLPCommon.Business;
 
 namespace ArabicTextAnalyzer.Business.Provider
 {
@@ -64,7 +65,11 @@ namespace ArabicTextAnalyzer.Business.Provider
             return returnValue;
         }
 
-        public void NerManualExtraction(String arabicText, IEnumerable<TextEntity> entities, Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY, HttpServerUtilityBase Server)
+        public void NerManualExtraction(String arabicText, IEnumerable<TextEntity> entities, Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY, 
+            HttpServerUtilityBase Server,
+            Action<M_ARABICDARIJAENTRY_TEXTENTITY, AccessMode> saveserializeM_ARABICDARIJAENTRY_TEXTENTITY,
+            AccessMode accessMode
+            )
         {
             // clean post-rosette
             var lentities = NerRosetteClean(entities);
@@ -94,8 +99,9 @@ namespace ArabicTextAnalyzer.Business.Provider
                 };
 
                 // Save to Serialization
-                var path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_TEXTENTITY.txt");
-                new TextPersist().Serialize(textEntity, path);
+                /*var path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_TEXTENTITY.txt");
+                new TextPersist().Serialize(textEntity, path);*/
+                saveserializeM_ARABICDARIJAENTRY_TEXTENTITY(textEntity, accessMode);
             }
         }
 

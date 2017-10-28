@@ -792,19 +792,19 @@ namespace ArabicTextAnalyzer.Controllers
             Logging.Write(Server, "train - before lock");
             lock (thisLock)
             {
-                String arabicText = train_savearabizi(arabiziEntry);
+                String arabicText = train_savearabizi(arabiziEntry, AccessMode.efsql);
 
                 arabicText = train_bidict(arabicText);
 
                 arabicText = train_binggoogle(arabicText);
 
-                arabicText = train_perl(arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY);
+                arabicText = train_saveperl(arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql);
 
-                arabicText = train_latinwords(arabicText, id_ARABICDARIJAENTRY);
+                arabicText = train_savelatinwords(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
 
-                train_sa(arabicText);
+                train_savesa(arabicText);
 
-                train_ner(arabicText, id_ARABICDARIJAENTRY);
+                train_savener(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
             }
             Logging.Write(Server, "train - after lock");
 
@@ -812,7 +812,7 @@ namespace ArabicTextAnalyzer.Controllers
             return id_ARABICDARIJAENTRY;
         }
 
-        private String train_savearabizi(M_ARABIZIENTRY arabiziEntry)
+        private String train_savearabizi(M_ARABIZIENTRY arabiziEntry, AccessMode accessMode)
         {
             // complete arabizi entry & Save arabiziEntry to Serialization
             arabiziEntry.ID_ARABIZIENTRY = Guid.NewGuid();
@@ -821,8 +821,7 @@ namespace ArabicTextAnalyzer.Controllers
             arabiziEntry.ArabiziText = arabiziEntry.ArabiziText.Trim(new char[] { ' ', '\t' });
 
             // save
-            String path = Server.MapPath("~/App_Data/data_M_ARABIZIENTRY.txt");
-            new TextPersist().Serialize(arabiziEntry, path);
+            saveserializeM_ARABIZIENTRY(arabiziEntry, accessMode);
 
             return arabiziEntry.ArabiziText;
         }
@@ -840,7 +839,7 @@ namespace ArabicTextAnalyzer.Controllers
             return new TranslationTools().CorrectTranslate(arabicText);
         }
 
-        private String train_perl(string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY)
+        private String train_saveperl(string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
         {
             var regex = new Regex(@"<span class='notranslate'>(.*?)</span>");
 
@@ -862,21 +861,22 @@ namespace ArabicTextAnalyzer.Controllers
             // clean <span class='notranslate'>
             arabicText = new Regex(@"<span class='notranslate'>(.*?)</span>").Replace(arabicText, "$1");
 
-            // save
+            //
             var arabicDarijaEntry = new M_ARABICDARIJAENTRY
             {
                 ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
                 ID_ARABIZIENTRY = id_ARABIZIENTRY,
                 ArabicDarijaText = arabicText
             };
-            String path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY.txt");
-            new TextPersist().Serialize(arabicDarijaEntry, path);
+
+            // save to persisi
+            saveserializeM_ARABICDARIJAENTRY(arabicDarijaEntry, accessMode);
 
             //
             return arabicText;
         }
 
-        private String train_latinwords(String arabicText, Guid id_ARABICDARIJAENTRY)
+        private String train_savelatinwords(String arabicText, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
         {
             // extract latin words and save every match of latin words
             // also calculate on the fly the number of variants
@@ -900,39 +900,39 @@ namespace ArabicTextAnalyzer.Controllers
                 };
 
                 // Save to Serialization
-                string path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_LATINWORD.txt");
-                new TextPersist().Serialize(latinWord, path);
+                saveserializeM_ARABICDARIJAENTRY_LATINWORD(latinWord, accessMode);
             }
 
             return arabicText;
         }
 
-        private void train_sa(string arabicText)
+        private void train_savesa(string arabicText)
         {
             // Sentiment analysis from watson https://gateway.watsonplatform.net/" and Save to Serialization
             var textSentimentAnalyzer = new TextSentimentAnalyzer();
-            var sentiment = textSentimentAnalyzer.GetSentiment(arabicText);
-            string path = Server.MapPath("~/App_Data/data_TextSentiment.txt");
-            new TextPersist().Serialize(sentiment, path);
+            TextSentiment sentiment = textSentimentAnalyzer.GetSentiment(arabicText);
+
+            //
+            saveserializeM_ARABICDARIJAENTRY_LATINWORD_XML(sentiment);
         }
 
-        private void train_ner(string arabicText, Guid id_ARABICDARIJAENTRY)
+        private void train_savener(string arabicText, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
         {
             // Entity extraction from rosette (https://api.rosette.com/rest/v1/)
             var entities = new TextEntityExtraction().GetEntities(arabicText);
 
             // NER manual extraction
-            new TextEntityExtraction().NerManualExtraction(arabicText, entities, id_ARABICDARIJAENTRY, Server);
+            new TextEntityExtraction().NerManualExtraction(arabicText, entities, id_ARABICDARIJAENTRY, Server, saveserializeM_ARABICDARIJAENTRY_TEXTENTITY, accessMode);
         }
         #endregion
 
         #region BACK YARD BO LOAD
-        enum AccessMode
+        /*public enum AccessMode
         {
             dappersql,
             efsql,
             xml
-        }
+        }*/
 
         private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY(AccessMode accessMode)
         {
@@ -1195,6 +1195,121 @@ namespace ArabicTextAnalyzer.Controllers
                 conn.Open();
                 return conn.QueryFirst<int>(qry);
             }
+        }
+        #endregion
+
+        #region BACK YARD BO SAVE
+        private void saveserializeM_ARABIZIENTRY(M_ARABIZIENTRY arabiziEntry, AccessMode accessMode)
+        {
+            if (accessMode == AccessMode.xml)
+                saveserializeM_ARABIZIENTRY_XML(arabiziEntry);
+            else if (accessMode == AccessMode.efsql)
+            {
+                saveserializeM_ARABIZIENTRY_EFSQL(arabiziEntry);
+            }
+        }
+
+        private void saveserializeM_ARABIZIENTRY_XML(M_ARABIZIENTRY arabiziEntry)
+        {
+            // save
+            String path = Server.MapPath("~/App_Data/data_M_ARABIZIENTRY.txt");
+            new TextPersist().Serialize(arabiziEntry, path);
+        }
+
+        private void saveserializeM_ARABIZIENTRY_EFSQL(M_ARABIZIENTRY arabiziEntry)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                db.M_ARABIZIENTRYs.Add(arabiziEntry);
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        private void saveserializeM_ARABICDARIJAENTRY(M_ARABICDARIJAENTRY arabicDarijaEntry, AccessMode accessMode)
+        {
+            if (accessMode == AccessMode.xml)
+                saveserializeM_ARABICDARIJAENTRY_XML(arabicDarijaEntry);
+            else if (accessMode == AccessMode.efsql)
+            {
+                saveserializeM_ARABICDARIJAENTRY_EFSQL(arabicDarijaEntry);
+            }
+        }
+
+        private void saveserializeM_ARABICDARIJAENTRY_EFSQL(M_ARABICDARIJAENTRY arabicDarijaEntry)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                db.M_ARABICDARIJAENTRYs.Add(arabicDarijaEntry);
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        private void saveserializeM_ARABICDARIJAENTRY_XML(M_ARABICDARIJAENTRY arabicDarijaEntry)
+        {
+            String path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY.txt");
+            new TextPersist().Serialize(arabicDarijaEntry, path);
+        }
+
+        private void saveserializeM_ARABICDARIJAENTRY_LATINWORD(M_ARABICDARIJAENTRY_LATINWORD latinWord, AccessMode accessMode)
+        {
+            if (accessMode == AccessMode.xml)
+                saveserializeM_ARABICDARIJAENTRY_LATINWORD_XML(latinWord);
+            else if (accessMode == AccessMode.efsql)
+                saveserializeM_ARABICDARIJAENTRY_LATINWORD_EFSQL(latinWord);
+        }
+
+        private void saveserializeM_ARABICDARIJAENTRY_LATINWORD_EFSQL(M_ARABICDARIJAENTRY_LATINWORD latinWord)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                db.M_ARABICDARIJAENTRY_LATINWORDs.Add(latinWord);
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        private void saveserializeM_ARABICDARIJAENTRY_LATINWORD_XML(M_ARABICDARIJAENTRY_LATINWORD latinWord)
+        {
+            // Save to Serialization
+            string path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_LATINWORD.txt");
+            new TextPersist().Serialize(latinWord, path);
+        }
+
+        private void saveserializeM_ARABICDARIJAENTRY_LATINWORD_XML(TextSentiment sentiment)
+        {
+            string path = Server.MapPath("~/App_Data/data_TextSentiment.txt");
+            new TextPersist().Serialize(sentiment, path);
+        }
+
+        private void saveserializeM_ARABICDARIJAENTRY_TEXTENTITY(M_ARABICDARIJAENTRY_TEXTENTITY textEntity, AccessMode accessMode)
+        {
+            if (accessMode == AccessMode.xml)
+                saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_XML(textEntity);
+            else if (accessMode == AccessMode.efsql)
+                saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(textEntity);
+        }
+
+        private void saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(M_ARABICDARIJAENTRY_TEXTENTITY textEntity)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                db.M_ARABICDARIJAENTRY_TEXTENTITYs.Add(textEntity);
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        private void saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_XML(M_ARABICDARIJAENTRY_TEXTENTITY textEntity)
+        {
+            // Save to Serialization
+            var path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_TEXTENTITY.txt");
+            new TextPersist().Serialize(textEntity, path);
         }
         #endregion
 
