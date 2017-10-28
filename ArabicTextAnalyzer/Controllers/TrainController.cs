@@ -80,17 +80,23 @@ namespace ArabicTextAnalyzer.Controllers
                 // var accessMode = AccessMode.xml;
                 var accessMode = _accessMode;
 
+                Logging.Write(Server, "Partial : 1");
+
                 // load/deserialize M_ARABIZIENTRY
                 List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY(accessMode);
 
                 // load/deserialize M_ARABICDARIJAENTRY
                 List<M_ARABICDARIJAENTRY> entries = loaddeserializeM_ARABICDARIJAENTRY(accessMode);
 
+                Logging.Write(Server, "Partial : 2");
+
                 // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
                 List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD(accessMode);
 
                 // load/deserialize list of M_ARABICDARIJAENTRY_TEXTENTITY
                 List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY(accessMode);
+
+                Logging.Write(Server, "Partial : 3");
 
                 // load/deserialize themes / main entities : send list of main tags
                 var dataPath = Server.MapPath("~/App_Data/");
@@ -135,6 +141,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                 watch.Stop();
                 var elapsedMs = watch.ElapsedMilliseconds;
+                Logging.Write(Server, "elapsedMs : " + elapsedMs);
 
                 // pass entries to partial view via the model (instead of the bag for a view)
                 return PartialView("_IndexPartialPage_arabicDarijaEntries", arabiziViewModel /*class1*/);
