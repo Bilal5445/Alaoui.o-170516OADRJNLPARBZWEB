@@ -91,4 +91,44 @@
     <ID_XTRCTTHEME>1d3bef95-1779-4dc7-983f-6e4dfa5ab0c3</ID_XTRCTTHEME>
     <ThemeName>Immigration</ThemeName>
   </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>75c0f3e1-2d86-4fff-9691-09e0f7c81815</ID_XTRCTTHEME>
+    <ThemeName>art de vire</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>a11b1d6a-b37d-4f03-a589-e3ac976f6d9b</ID_XTRCTTHEME>
+    <ThemeName>Aid El Adha</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>08ca194d-909f-42e2-91c9-18ede27adce3</ID_XTRCTTHEME>
+    <ThemeName>chaine TV</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>28c15924-a67d-40e3-8151-76d7314644ea</ID_XTRCTTHEME>
+    <ThemeName>ONCF</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>d54e7db0-d044-40c3-8de8-0cfe647a62f6</ID_XTRCTTHEME>
+    <ThemeName>Parlement</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>455444ac-d633-4ef5-9bdd-ff366a57da1a</ID_XTRCTTHEME>
+    <ThemeName>femme</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>a27b46c2-6f48-4d19-a0fc-781751798c4d</ID_XTRCTTHEME>
+    <ThemeName>RAM</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>0baf4f25-6cb5-4020-b8f8-329a139435b5</ID_XTRCTTHEME>
+    <ThemeName>Hirak</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>2d483dda-12fc-44f7-bf4c-7db614271b50</ID_XTRCTTHEME>
+    <ThemeName>Roi Mohamed 6</ThemeName>
+  </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>81ffdae0-429d-4d67-bd93-09bbfe452195</ID_XTRCTTHEME>
+    <ThemeName>Saad Lamjered</ThemeName>
+  </M_XTRCTTHEME>
 </ArrayOfM_XTRCTTHEME>
