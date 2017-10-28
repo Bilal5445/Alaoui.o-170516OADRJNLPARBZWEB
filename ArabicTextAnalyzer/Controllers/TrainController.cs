@@ -633,34 +633,44 @@ namespace ArabicTextAnalyzer.Controllers
         {
             try
             {
+                // get from client side, from where we start the paging
                 int start = 0;
-
                 int.TryParse(this.Request.QueryString["start"], out start);
 
+                // get from client side, to which length the paging goes
                 int itemsPerPage = 10;
-
                 int.TryParse(this.Request.QueryString["length"], out itemsPerPage);
 
+                //
                 string searchValue = this.Request.QueryString["search[value]"].ToString();
 
+                //
                 string searchAccount = this.Request.QueryString["columns[0][search][value]"];
                 string searchSource = this.Request.QueryString["columns[1][search][value]"];
                 string searchEntity = this.Request.QueryString["columns[2][search][value]"];
                 string searchName = this.Request.QueryString["columns[3][search][value]"];
 
+                //
                 var itemsCount = loadArabiziToArabicViewModelCount_DAPPERSQL();
 
-                //
+                // get main data from DB first
                 List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL().Skip(start).Take(itemsPerPage).ToList();
-                List<M_ARABICDARIJAENTRY_TEXTENTITY> arabicDarijaEntrys = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
+
+                // filter on search term if any
+                if (!String.IsNullOrEmpty(searchValue)) {
+                    items = items.Where(a => a.ArabiziText.ToUpper().Contains(searchValue.ToUpper()) || a.ArabicDarijaText.ToUpper().Contains(searchValue.ToUpper())).ToList();
+                }
+
+                // page as per request
+                // List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL().Skip(start).Take(itemsPerPage).ToList();
+                items = items.Skip(start).Take(itemsPerPage).ToList();
+
+                // get other helper data from DB
                 List<M_ARABICDARIJAENTRY_LATINWORD> arabicDarijaEntryLatinWords = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL();
                 List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
                 List<M_XTRCTTHEME> MainEntities = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
 
-                //
-                // itemsCount = items.Count();
-
-                // Visual formatting
+                // Visual formatting before sending back
                 items.ForEach(s =>
                 {
                     s.PositionHash = itemsCount - start - items.IndexOf(s);
