@@ -38,16 +38,26 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
             @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
             @ViewBag.BidictSize = new TextFrequency().GetBidictNumberOfLine();
-            @ViewBag.ArabiziEntriesCount = new TextFrequency().GetArabiziEntriesCount(dataPath);
-            @ViewBag.RatioLatinWordsOnEntries = new TextFrequency().GetRatioLatinWordsOnEntries(dataPath);
+            // @ViewBag.ArabiziEntriesCount = new TextFrequency().GetArabiziEntriesCount(dataPath);
+            // @ViewBag.ArabiziEntriesCount = new TextPersist().Deserialize<M_ARABIZIENTRY>(dataPath).Count;
+            var arabiziEntriesCount = loaddeserializeM_ARABIZIENTRY_DAPPERSQL().Count;
+            @ViewBag.ArabiziEntriesCount = arabiziEntriesCount;
+            // @ViewBag.RatioLatinWordsOnEntries = new TextFrequency().GetRatioLatinWordsOnEntries(dataPath);
+            // @ViewBag.RatioLatinWordsOnEntries = new TextFrequency().GetLatinEntriesCount(dataPath) / (double)new TextFrequency().GetArabiziEntriesCount(dataPath);
+            // @ViewBag.RatioLatinWordsOnEntries = new TextFrequency().GetLatinEntriesCount(dataPath) / (double)arabiziEntriesCount;
+            @ViewBag.RatioLatinWordsOnEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL().Where(m => String.IsNullOrWhiteSpace(m.Translation) == true).ToList().Count / (double)arabiziEntriesCount;
+
             @ViewBag.EntitiesCount = new TextFrequency().GetEntitiesCount();
 
             // deserialize/send twingly accounts
-            @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(dataPath);
+            // @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(dataPath);
+            @ViewBag.TwinglyAccounts = loaddeserializeM_TWINGLYACCOUNT_DAPPERSQL();
 
             // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
-            var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
-            var xtrctThemesKeywords = new TextPersist().Deserialize<M_XTRCTTHEME_KEYWORD>(dataPath);
+            // var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
+            var xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
+            // var xtrctThemesKeywords = new TextPersist().Deserialize<M_XTRCTTHEME_KEYWORD>(dataPath);
+            var xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL();
             var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
             @ViewBag.XtrctThemes = xtrctThemes;
             @ViewBag.XtrctThemesPlain = xtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName });
@@ -102,23 +112,25 @@ namespace ArabicTextAnalyzer.Controllers
             String twinglyApiUrl = "https://data.twingly.net/socialfeed/a/api/";
 
             // obtain current twingly key
-            List<M_TWINGLYACCOUNT> twinglyAccounts = new List<M_TWINGLYACCOUNT>();
+            /*List<M_TWINGLYACCOUNT> twinglyAccounts = new List<M_TWINGLYACCOUNT>();
             var path = Server.MapPath("~/App_Data/data_" + typeof(M_TWINGLYACCOUNT).Name + ".txt");
             var serializer = new XmlSerializer(twinglyAccounts.GetType());
             using (var reader = new System.IO.StreamReader(path))
             {
                 twinglyAccounts = (List<M_TWINGLYACCOUNT>)serializer.Deserialize(reader);
-            }
+            }*/
+            List<M_TWINGLYACCOUNT> twinglyAccounts = loaddeserializeM_TWINGLYACCOUNT_DAPPERSQL();
             String twinglyApiKey = twinglyAccounts.Find(m => m.CurrentActive == "active").ID_TWINGLYACCOUNT_API_KEY.ToString();
 
             // deserialize M_ARABICDARIJAENTRY_LATINWORD to check if most popular already found
-            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = new List<M_ARABICDARIJAENTRY_LATINWORD>();
+            /*List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = new List<M_ARABICDARIJAENTRY_LATINWORD>();
             path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_LATINWORD).Name + ".txt");
             serializer = new XmlSerializer(latinWordsEntries.GetType());
             using (var reader = new System.IO.StreamReader(path))
             {
                 latinWordsEntries = (List<M_ARABICDARIJAENTRY_LATINWORD>)serializer.Deserialize(reader);
-            }
+            }*/
+            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL();
             var latinWordsEntry = latinWordsEntries.Find(m => m.ID_ARABICDARIJAENTRY_LATINWORD == arabiziWordGuid);
             if (latinWordsEntry == null)
             {
@@ -248,8 +260,9 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult Train_ApplyNewMainTag(Guid idArabicDarijaEntry, String mainEntity)
         {
             // load M_ARABICDARIJAENTRY_TEXTENTITY
-            var dataPath = Server.MapPath("~/App_Data");
-            var arabicDarijaEntryTextEntities = new TextPersist().Deserialize<M_ARABICDARIJAENTRY_TEXTENTITY>(dataPath);
+            /*var dataPath = Server.MapPath("~/App_Data");
+            var arabicDarijaEntryTextEntities = new TextPersist().Deserialize<M_ARABICDARIJAENTRY_TEXTENTITY>(dataPath);*/
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> arabicDarijaEntryTextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
 
             // Check before if already main entity
             if (arabicDarijaEntryTextEntities.Find(m => m.ID_ARABICDARIJAENTRY == idArabicDarijaEntry && m.TextEntity.Mention == mainEntity && m.TextEntity.Type == "MAIN ENTITY") != null)
@@ -260,7 +273,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             // apply main tag
-            arabicDarijaEntryTextEntities.Add(new M_ARABICDARIJAENTRY_TEXTENTITY
+            var m_arabicdarijaentry_textentity = new M_ARABICDARIJAENTRY_TEXTENTITY
             {
                 ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
                 ID_ARABICDARIJAENTRY = idArabicDarijaEntry,
@@ -270,8 +283,10 @@ namespace ArabicTextAnalyzer.Controllers
                     Mention = mainEntity,
                     Type = "MAIN ENTITY"
                 }
-            });
-            new TextPersist().SerializeBack_dataPath(arabicDarijaEntryTextEntities, dataPath);
+            };
+            // arabicDarijaEntryTextEntities.Add(m_arabicdarijaentry_textentity);
+            // new TextPersist().SerializeBack_dataPath(arabicDarijaEntryTextEntities, dataPath);
+            saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(m_arabicdarijaentry_textentity);
 
             //
             TempData["showAlertSuccess"] = true;
@@ -318,7 +333,8 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult TwinglySetup_changeActiveAccount(Guid newlyActive_id_twinglyaccount_api_key)
         {
             // deserialize & send twingly accounts
-            var twinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
+            // var twinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
+            List<M_TWINGLYACCOUNT> twinglyAccounts = loaddeserializeM_TWINGLYACCOUNT_DAPPERSQL();
 
             // disable active one
             twinglyAccounts.Find(m => m.CurrentActive == "active").CurrentActive = String.Empty;
@@ -337,7 +353,8 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult TwinglySetup_AddNewActiveAccount(Guid newlyActive_id_twinglyaccount_api_key)
         {
             // deserialize & send twingly accounts
-            var twinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
+            // var twinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
+            List<M_TWINGLYACCOUNT> twinglyAccounts = loaddeserializeM_TWINGLYACCOUNT_DAPPERSQL();
 
             // disable active one
             twinglyAccounts.Find(m => m.CurrentActive == "active").CurrentActive = String.Empty;
@@ -362,7 +379,8 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult TwinglySetup_deleteAccount(Guid id_twinglyaccount_api_key)
         {
             // deserialize & send twingly accounts
-            var twinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
+            // var twinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(Server.MapPath("~/App_Data"));
+            List<M_TWINGLYACCOUNT> twinglyAccounts = loaddeserializeM_TWINGLYACCOUNT_DAPPERSQL();
 
             // find the one to delete
             var accountToDelete = twinglyAccounts.Find(m => m.ID_TWINGLYACCOUNT_API_KEY == id_twinglyaccount_api_key);
@@ -427,17 +445,20 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult XtrctTheme_ApplyNewActive(String themename)
         {
             // find previous active, and disable it
-            String dataPath = Server.MapPath("~/App_Data");
-            var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
+            /*String dataPath = Server.MapPath("~/App_Data");
+            var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);*/
+            /*List<M_XTRCTTHEME> xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
             var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
-            activeXtrctTheme.CurrentActive = String.Empty;
+            activeXtrctTheme.CurrentActive = String.Empty;*/
+            saveserializeM_XTRCTTHEME_EFSQL3();
 
             // find to-be-active by name, and make it active
-            var tobeactiveXtrctTheme = xtrctThemes.Find(m => m.ThemeName == themename);
-            tobeactiveXtrctTheme.CurrentActive = "active";
+            /*var tobeactiveXtrctTheme = xtrctThemes.Find(m => m.ThemeName == themename);
+            tobeactiveXtrctTheme.CurrentActive = "active";*/
+            saveserializeM_XTRCTTHEME_EFSQL2(themename);
 
             // save
-            new TextPersist().SerializeBack_dataPath(xtrctThemes, dataPath);
+            // new TextPersist().SerializeBack_dataPath(xtrctThemes, dataPath);
 
             //
             return RedirectToAction("Index");
@@ -450,7 +471,8 @@ namespace ArabicTextAnalyzer.Controllers
 
             // we look for the ners that are associated with each entry for the current theme 
             var textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
-            var arabicDarijaEntryTextEntities = new TextPersist().Deserialize<M_ARABICDARIJAENTRY_TEXTENTITY>(dataPath);
+            // var arabicDarijaEntryTextEntities = new TextPersist().Deserialize<M_ARABICDARIJAENTRY_TEXTENTITY>(dataPath);
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> arabicDarijaEntryTextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
             var arabicDarijaEntryTextMainEntities = arabicDarijaEntryTextEntities.FindAll(m => m.TextEntity.Type == "MAIN ENTITY" && m.TextEntity.Mention == themename);
             foreach (var mainentity in arabicDarijaEntryTextMainEntities)
             {
@@ -458,8 +480,10 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             // if not existing, add them to list of theme keywords
-            var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
-            var xtrctThemesKeywords = new TextPersist().Deserialize<M_XTRCTTHEME_KEYWORD>(dataPath);
+            // var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
+            List<M_XTRCTTHEME> xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
+            // var xtrctThemesKeywords = new TextPersist().Deserialize<M_XTRCTTHEME_KEYWORD>(dataPath);
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL();
             var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
             foreach (var entity in textEntities)
             {
@@ -862,13 +886,6 @@ namespace ArabicTextAnalyzer.Controllers
         #endregion
 
         #region BACK YARD BO LOAD
-        /*public enum AccessMode
-        {
-            dappersql,
-            efsql,
-            xml
-        }*/
-
         private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY(AccessMode accessMode)
         {
             if (accessMode == AccessMode.xml)
@@ -1096,6 +1113,32 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
+        private List<M_XTRCTTHEME_KEYWORD> loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_XTRCTTHEME_KEYWORD";
+
+                conn.Open();
+                return conn.Query<M_XTRCTTHEME_KEYWORD>(qry).ToList();
+            }
+        }
+
+        private List<M_TWINGLYACCOUNT> loaddeserializeM_TWINGLYACCOUNT_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_TWINGLYACCOUNT";
+
+                conn.Open();
+                return conn.Query<M_TWINGLYACCOUNT>(qry).ToList();
+            }
+        }
+
         private List<ArabiziToArabicViewModel> loadArabiziToArabicViewModel_DAPPERSQL()
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
@@ -1245,6 +1288,45 @@ namespace ArabicTextAnalyzer.Controllers
             // Save to Serialization
             var path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_TEXTENTITY.txt");
             new TextPersist().Serialize(textEntity, path);
+        }
+
+        private void saveserializeM_XTRCTTHEME_EFSQL(M_XTRCTTHEME m_xtrcttheme)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                db.M_XTRCTTHEMEs.Add(m_xtrcttheme);
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        private void saveserializeM_XTRCTTHEME_EFSQL2(String themename)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                var xtrctThemes = db.M_XTRCTTHEMEs;
+
+                var tobeactiveXtrctTheme = xtrctThemes.Where(m => m.ThemeName == themename).FirstOrDefault<M_XTRCTTHEME>();
+                tobeactiveXtrctTheme.CurrentActive = "active";
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        private void saveserializeM_XTRCTTHEME_EFSQL3()
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                var xtrctThemes = db.M_XTRCTTHEMEs;
+
+                var tobeactiveXtrctTheme = xtrctThemes.Where(m => m.CurrentActive == "active").FirstOrDefault<M_XTRCTTHEME>();
+                tobeactiveXtrctTheme.CurrentActive = String.Empty;
+
+                // commit
+                db.SaveChanges();
+            }
         }
         #endregion
 
