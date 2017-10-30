@@ -58,6 +58,11 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_arabic_comma(source);
             source = Preprocess_unicode_special_chars(source);
 
+            // preprocess silent wovelles : create artificially vowells (alef) between consonns because we know that there is no more french words that we can distrurb,
+            // plus any one kept by bidict is converted temp to 001000100, so no risk,
+            // plus we added _VOY_ in ptable to be one of the 3 vowels alef, ya2 or waw
+            source = Preprocess_SilentVowels(source);
+
             // to arabizi file
             File.WriteAllText(inputFileLocation, source);
 
@@ -255,6 +260,16 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             pattern = @"\uFFFE+";   // space
             var miniArabiziKeyword = Regex.Replace(arabizi, pattern, " ", RegexOptions.IgnoreCase);
+
+            return miniArabiziKeyword;
+        }
+        #endregion
+
+        #region BACK YARD Preprocess SILENT VOWELLS
+        public string Preprocess_SilentVowels(string arabizi)
+        {
+            // n d => n _VOY_ d
+            String miniArabiziKeyword = Regex.Replace(arabizi, "nd", "n_VOW_d", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
         }

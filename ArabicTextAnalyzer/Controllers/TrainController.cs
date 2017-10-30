@@ -754,7 +754,9 @@ namespace ArabicTextAnalyzer.Controllers
             arabicText = regex.Replace(arabicText, "001000100");
 
             // translate arabiza to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
+            Logging.Write(Server, "train - train_saveperl : before TextConverter().Convert : " + arabicText);
             arabicText = new TextConverter().Convert(arabicText);
+            Logging.Write(Server, "train - train_saveperl : after TextConverter().Convert : " + arabicText);
 
             // restore do not translate
             var regex2 = new Regex(@"001000100");
