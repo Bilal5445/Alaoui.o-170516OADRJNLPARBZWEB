@@ -6,7 +6,6 @@ using ArabicTextAnalyzer.ViewModels;
 using Dapper;
 using Newtonsoft.Json;
 using OADRJNLPCommon.Business;
-using OADRJNLPCommon.DataTablesNet;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -27,7 +26,7 @@ namespace ArabicTextAnalyzer.Controllers
         private static Object thisLock = new Object();
 
         // data access mode (ef-sql, dapper-sql, xml)
-        AccessMode _accessMode = AccessMode.dappersql;
+        // AccessMode _accessMode = AccessMode.dappersql;
 
         // GET: Train
         public ActionResult Index()
@@ -630,43 +629,6 @@ namespace ArabicTextAnalyzer.Controllers
                     recordsFiltered = itemsCount.ToString(),
                     data = items
                 });
-            }
-            catch (Exception ex)
-            {
-                Logging.Write(Server, ex.Message);
-                Logging.Write(Server, ex.StackTrace);
-
-                return null;
-            }
-        }
-
-        [HttpPost]
-        public JsonResult DataTablesNet_ServerSide_GetData(object parameters)
-        {
-            try
-            {
-                var req = DataTableParameters.Get(parameters);
-
-                var resultSet = new DataTableResultSet();
-                resultSet.draw = req.Draw;
-                resultSet.recordsTotal = 10; /* total number of records in table */
-                resultSet.recordsFiltered = 10; /* number of records after search - box filtering is applied */
-
-                /*foreach (var recordFromDb in queryDb)
-                { // this is pseudocode
-                    var columns = new List<string>();
-                    columns.Add("first column value");
-                    columns.Add("second column value");
-                    columns.Add("third column value");
-                    // you may add as many columns as you need. Each column is a string in the List<string> 
-                    resultSet.data.Add(columns);
-                }
-                SendResponse(HttpContext.Current.Response, result);*/
-
-                // load/deserialize M_ARABIZIENTRY
-                List<M_ARABIZIENTRY> arabiziEntries = loaddeserializeM_ARABIZIENTRY(AccessMode.dappersql).Take(100).ToList();
-
-                return Json(/*arabiziEntries*/resultSet, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
