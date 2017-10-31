@@ -47,7 +47,8 @@ function InitializeDataTables() {
         $('.datatables-table tbody').on('click', 'tr', function (e) {
 
             // if we click on the last column, do not select/unselect
-            if ($(e.target).parent().attr('class').includes("controls"))
+            if ($(e.target).closest("td").attr('class').includes("controls"))
+            // if ($(e.target).parent().attr('class').includes("controls"))
                 return;
 
             // select the row
