@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -703,22 +704,32 @@ namespace ArabicTextAnalyzer.Controllers
             Logging.Write(Server, "train - before lock");
             lock (thisLock)
             {
+                var watch = Stopwatch.StartNew();
+
                 String arabicText = train_savearabizi(arabiziEntry, AccessMode.efsql);
+                Logging.Write(Server, "train - after train_savearabizi : " + watch.ElapsedMilliseconds); watch.Restart();
 
                 //
                 arabicText = new TextConverter().Preprocess_upstream(arabicText);
+                Logging.Write(Server, "train - after train_Preprocess_upstream : " + watch.ElapsedMilliseconds); watch.Restart();
 
                 arabicText = train_bidict(arabicText);
+                Logging.Write(Server, "train - after train_bidict : " + watch.ElapsedMilliseconds); watch.Restart();
 
                 arabicText = train_binggoogle(arabicText);
+                Logging.Write(Server, "train - after train_binggoogle : " + watch.ElapsedMilliseconds); watch.Restart();
 
                 arabicText = train_saveperl(arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql);
+                Logging.Write(Server, "train - after train_saveperl : " + watch.ElapsedMilliseconds); watch.Restart();
 
                 arabicText = train_savelatinwords(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
+                Logging.Write(Server, "train - after train_savelatinwords : " + watch.ElapsedMilliseconds); watch.Restart();
 
                 train_savesa(arabicText);
+                Logging.Write(Server, "train - after train_savesa : " + watch.ElapsedMilliseconds); watch.Restart();
 
                 train_savener(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
+                Logging.Write(Server, "train - after train_savener : " + watch.ElapsedMilliseconds); watch.Restart();
             }
             Logging.Write(Server, "train - after lock");
 
@@ -764,9 +775,7 @@ namespace ArabicTextAnalyzer.Controllers
             arabicText = regex.Replace(arabicText, "001000100");
 
             // translate arabiza to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
-            Logging.Write(Server, "train - train_saveperl : before TextConverter().Convert : " + arabicText);
             arabicText = new TextConverter().Convert(arabicText);
-            Logging.Write(Server, "train - train_saveperl : after TextConverter().Convert : " + arabicText);
 
             // restore do not translate
             var regex2 = new Regex(@"001000100");
