@@ -595,8 +595,12 @@ namespace ArabicTextAnalyzer.Controllers
                 string searchEntity = this.Request.QueryString["columns[2][search][value]"];
                 string searchName = this.Request.QueryString["columns[3][search][value]"];
 
-                //
+                // all elements
                 var itemsCount = loadArabiziToArabicViewModelCount_DAPPERSQL();
+
+                // adjust itemsPerPage case show all
+                if (itemsPerPage == -1)
+                    itemsPerPage = itemsCount;
 
                 // get main data from DB first
                 List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL().Skip(start).Take(itemsPerPage).ToList();
@@ -607,7 +611,6 @@ namespace ArabicTextAnalyzer.Controllers
                 }
 
                 // page as per request
-                // List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL().Skip(start).Take(itemsPerPage).ToList();
                 items = items.Skip(start).Take(itemsPerPage).ToList();
 
                 // get other helper data from DB
