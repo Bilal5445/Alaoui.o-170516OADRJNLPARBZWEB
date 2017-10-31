@@ -48,7 +48,6 @@ function InitializeDataTables() {
 
             // if we click on the last column, do not select/unselect
             if ($(e.target).closest("td").attr('class').includes("controls"))
-            // if ($(e.target).parent().attr('class').includes("controls"))
                 return;
 
             // select the row
@@ -60,10 +59,12 @@ function InitializeDataTables() {
                 // we select
 
                 // find the guid of arabiz entry from the href
-                var hrefInnerId = $(this).find("td:eq(6)").find("> a").attr("href").substring("/Train/Train_DeleteEntry?arabiziWordGuid=".length);
+                var hrefInnerId = $(this).find("td:eq(6)").find("> a").attr("href").substring("/Train/Train_DeleteEntry/?arabiziWordGuid=".length);
 
                 // add it to global array
                 selectedArabiziIds.push(hrefInnerId);
+
+                console.log(hrefInnerId);
 
                 // save old id in backud
                 $(this).find("td:eq(6)").find("> a").attr('data-backhref', hrefInnerId);
@@ -80,14 +81,14 @@ function InitializeDataTables() {
                 selectedArabiziIds.splice(index, 1);
 
                 // set new value href (from backup)
-                var newhref = "/Train/Train_DeleteEntry?arabiziWordGuids=" + hrefBackInnerId;
+                var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + hrefBackInnerId;
                 $(this).find("td:eq(6)").find("> a").attr("href", newhref);
             }
 
             // loop over selected to concatenate the arabizi entries ids
             $('tr.selected td:last-child').each(function (index) {
                 // new value href
-                var newhref = "/Train/Train_DeleteEntries?arabiziWordGuids=" + selectedArabiziIds.join();
+                var newhref = "/Train/Train_DeleteEntries/?arabiziWordGuids=" + selectedArabiziIds.join();
 
                 // set new value
                 $(this).find("> a").attr("href", newhref);
