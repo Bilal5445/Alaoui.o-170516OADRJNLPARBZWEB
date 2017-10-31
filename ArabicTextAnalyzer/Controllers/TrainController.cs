@@ -602,15 +602,15 @@ namespace ArabicTextAnalyzer.Controllers
                 if (itemsPerPage == -1)
                     itemsPerPage = itemsCount;
 
-                // get main data from DB first
-                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL().Skip(start).Take(itemsPerPage).ToList();
+                // get main (whole) data from DB first
+                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL();
 
                 // filter on search term if any
                 if (!String.IsNullOrEmpty(searchValue)) {
                     items = items.Where(a => a.ArabiziText.ToUpper().Contains(searchValue.ToUpper()) || a.ArabicDarijaText.ToUpper().Contains(searchValue.ToUpper())).ToList();
                 }
 
-                // page as per request
+                // page as per request (index of page and length)
                 items = items.Skip(start).Take(itemsPerPage).ToList();
 
                 // get other helper data from DB
