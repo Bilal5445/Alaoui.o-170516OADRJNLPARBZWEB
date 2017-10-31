@@ -28,7 +28,7 @@ function InitializeDataTables() {
                     { "data": "FormattedArabicDarijaText", "className": "arabic-text top" },
                     { "data": "FormattedEntitiesTypes", "className": "arabic-text top entitiestype" },
                     { "data": "FormattedEntities", "className": "arabic-text top entities" },
-                    { "data": "FormattedRemoveAndApplyTagCol", "className": "center top" }
+                    { "data": "FormattedRemoveAndApplyTagCol", "className": "controls center top" } // class 'controls' just there to identify the td to prevent click on 'remove' (or any other button in this column) to be considered as selection
             ],
             "columnDefs": [{
                 "defaultContent": "-",
@@ -40,7 +40,12 @@ function InitializeDataTables() {
             "ajax": "/Train/DataTablesNet_ServerSide_GetList/0"
         });
 
-        $('.datatables-table tbody').on('click', 'tr', function () {
+        $('.datatables-table tbody').on('click', 'tr', function (e) {
+
+            // if we click on the last column, do not select/unselect
+            if ($(e.target).parent().attr('class').includes("controls"))
+                return;
+
             // select the row
             $(this).toggleClass('selected');
 
