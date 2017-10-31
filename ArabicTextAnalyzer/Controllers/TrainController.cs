@@ -213,8 +213,9 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public ActionResult Train_DeleteEntry(Guid arabiziWordGuid)
         {
-            var dataPath = Server.MapPath("~/App_Data/");
-            new TextPersist().Serialize_Delete_M_ARABIZIENTRY_Cascading(arabiziWordGuid, dataPath);
+            /*var dataPath = Server.MapPath("~/App_Data/");
+            new TextPersist().Serialize_Delete_M_ARABIZIENTRY_Cascading(arabiziWordGuid, dataPath);*/
+            Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
 
             //
             return RedirectToAction("Index");
@@ -225,12 +226,15 @@ namespace ArabicTextAnalyzer.Controllers
         {
             var larabiziWordGuids = arabiziWordGuids.Split(new char[] { ',' });
 
-            var dataPath = Server.MapPath("~/App_Data/");
+            // var dataPath = Server.MapPath("~/App_Data/");
 
             foreach (var larabiziWordGuid in larabiziWordGuids)
             {
-                Guid arabiziWordGuid = new Guid(larabiziWordGuid);
-                new TextPersist().Serialize_Delete_M_ARABIZIENTRY_Cascading(arabiziWordGuid, dataPath);
+                // minor : trim leading '='
+                Guid arabiziWordGuid = new Guid(larabiziWordGuid.TrimStart(new char[] { '=' }));
+
+                // new TextPersist().Serialize_Delete_M_ARABIZIENTRY_Cascading(arabiziWordGuid, dataPath);
+                Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
             }
 
             //
@@ -1126,7 +1130,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
         #endregion
 
-        #region BACK YARD BO SAVE
+        #region BACK YARD BO SAVE / DELETE
         private void saveserializeM_ARABIZIENTRY(M_ARABIZIENTRY arabiziEntry, AccessMode accessMode)
         {
             if (accessMode == AccessMode.xml)
@@ -1273,6 +1277,32 @@ namespace ArabicTextAnalyzer.Controllers
 
                 var tobeactiveXtrctTheme = xtrctThemes.Where(m => m.CurrentActive == "active").FirstOrDefault<M_XTRCTTHEME>();
                 tobeactiveXtrctTheme.CurrentActive = String.Empty;
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        public void Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(Guid id_arabizientry)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                // filter on the one linked to current arabizi entry
+                var arabicdarijaentry = db.M_ARABICDARIJAENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry);
+
+                // load/deserialize data_M_ARABICDARIJAENTRY_TEXTENTITY
+                // filter on the ones linked to current arabic darija entry
+                db.M_ARABICDARIJAENTRY_TEXTENTITYs.RemoveRange(db.M_ARABICDARIJAENTRY_TEXTENTITYs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
+
+                // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
+                // filter on the ones linked to current arabic darija entry
+                db.M_ARABICDARIJAENTRY_LATINWORDs.RemoveRange(db.M_ARABICDARIJAENTRY_LATINWORDs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
+
+                // remove arabic darija item
+                db.M_ARABICDARIJAENTRYs.Remove(arabicdarijaentry);
+
+                // remove arabizi
+                db.M_ARABIZIENTRYs.Remove(db.M_ARABIZIENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry));
 
                 // commit
                 db.SaveChanges();
