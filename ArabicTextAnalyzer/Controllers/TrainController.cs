@@ -698,6 +698,9 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 String arabicText = train_savearabizi(arabiziEntry, AccessMode.efsql);
 
+                //
+                arabicText = new TextConverter().Preprocess_upstream(arabicText);
+
                 arabicText = train_bidict(arabicText);
 
                 arabicText = train_binggoogle(arabicText);

@@ -41,18 +41,8 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public string Convert(string source)
         {
-            // preprocess (eg: ma/ch)
-            source = Preprocess_wa_ma_ch(source);
-            source = Preprocess_li_ma_ch(source);
-            source = Preprocess_ma_ch(source);
-            // source = Preprocess_le(source);
-            source = Preprocess_al_wa(source);
-            source = Preprocess_al(source);
-            source = Preprocess_dl(source);
-            source = Preprocess_bezzaf(source);
-            source = Preprocess_ahaha(source);
-            source = Preprocess_3_m_i_f_z_a_j_l_etc(source);
-            source = Preprocess_emoticons(source);
+            //
+            // source = Preprocess_upstream(source);
 
             // preprocess unicode arabic comma (sould be done at perl level, but somehow does not work)
             source = Preprocess_arabic_comma(source);
@@ -87,8 +77,27 @@ namespace ArabicTextAnalyzer.Business.Provider
             return output;
         }
 
+        #region BACK YARD Preprocess UPSTREAM
+        public string Preprocess_upstream(string source)
+        {
+            // preprocess (eg: ma/ch)
+            source = Preprocess_wa_ma_ch(source);
+            source = Preprocess_li_ma_ch(source);
+            source = Preprocess_ma_ch(source);
+            // source = Preprocess_le(source);
+            source = Preprocess_al_wa(source);
+            source = Preprocess_al(source);
+            source = Preprocess_dl(source);
+            source = Preprocess_bezzaf(source);
+            source = Preprocess_ahaha(source);
+            source = Preprocess_3_m_i_f_z_a_j_l_etc(source);
+            source = Preprocess_emoticons(source);
+            return source;
+        }
+        #endregion
+
         #region BACK YARD Preprocess
-        public string Preprocess_wa_ma_ch(string arabizi)
+        private string Preprocess_wa_ma_ch(string arabizi)
         {
             // on the contrary, we need to separate
             String pattern = RegexConstant.waMaChRule;
@@ -97,7 +106,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             return miniArabiziKeyword;
         }
 
-        public string Preprocess_li_ma_ch(string arabizi)
+        private string Preprocess_li_ma_ch(string arabizi)
         {
             // on the contrary, we need to separate
             String pattern = RegexConstant.liMaChRule;
@@ -106,6 +115,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             return miniArabiziKeyword;
         }
 
+        // public for UT only
         public string Preprocess_ma_ch(string arabizi)
         {
             // on the contrary, we need to separate
@@ -124,6 +134,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             return miniArabiziKeyword;
         }*/
 
+        // public for UT only
         public string Preprocess_al_wa(string arabizi)
         {
             // this step re-assemble "al WORD1 wa WORD2" => "alWORD1 wa alWORD2"
@@ -145,6 +156,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             return miniArabiziKeyword;
         }
 
+        // public for UT only
         public string Preprocess_al(string arabizi)
         {
             // wa3acha al malik => wa3acha almalik
@@ -154,7 +166,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             return miniArabiziKeyword;
         }
 
-        public string Preprocess_dl(string arabizi)
+        private string Preprocess_dl(string arabizi)
         {
             // wa3acha al malik => wa3acha almalik
             String pattern = RegexConstant.dlRule;
@@ -163,6 +175,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             return miniArabiziKeyword;
         }
 
+        // public for UT only
         public string Preprocess_bezzaf(string arabizi)
         {
             //bzf
@@ -178,7 +191,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             return miniArabiziKeyword;
         }
 
-        public string Preprocess_3_m_i_f_z_a_j_l_etc(string arabizi)
+        private string Preprocess_3_m_i_f_z_a_j_l_etc(string arabizi)
         {
             //bzf
             //bezzaf
@@ -220,6 +233,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             return miniArabiziKeyword;
         }
 
+        // public for UT only
         public string Preprocess_ahaha(string arabizi)
         {
             //hahahahahahaha
@@ -236,6 +250,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             return miniArabiziKeyword;
         }
 
+        // public for UT only
         public string Preprocess_emoticons(string arabizi)
         {
             // string text = "a\u2705b\U0001f52ec\u26f1d\U0001F602e\U00010000";
@@ -245,6 +260,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             return cleansed;
         }
 
+        // public for UT only
         public string Preprocess_arabic_comma(string arabizi)
         {
             String pattern = @"\u060C+";
@@ -253,7 +269,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             return miniArabiziKeyword;
         }
 
-        public string Preprocess_unicode_special_chars(string arabizi)
+        private string Preprocess_unicode_special_chars(string arabizi)
         {
             String pattern = @"\u0F20+";    // space
             arabizi = Regex.Replace(arabizi, pattern, " ", RegexOptions.IgnoreCase);
