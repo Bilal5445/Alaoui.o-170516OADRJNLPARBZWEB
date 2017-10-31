@@ -92,6 +92,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_ahaha(source);
             source = Preprocess_3_m_i_f_z_a_j_l_etc(source);
             source = Preprocess_emoticons(source);
+            source = Preprocess_underscore(source);
             return source;
         }
         #endregion
@@ -120,7 +121,7 @@ namespace ArabicTextAnalyzer.Business.Provider
         {
             // on the contrary, we need to separate
             String pattern = RegexConstant.maChRule;
-            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ma $1 ch", RegexOptions.IgnoreCase);
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "ما $1 ش", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
         }
@@ -258,6 +259,14 @@ namespace ArabicTextAnalyzer.Business.Provider
             // Console.WriteLine(cleansed);
 
             return cleansed;
+        }
+
+        private string Preprocess_underscore(string arabizi)
+        {
+            String pattern = @"\b(.+)_\b";
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "$1 _", RegexOptions.IgnoreCase);
+
+            return miniArabiziKeyword;
         }
 
         // public for UT only
