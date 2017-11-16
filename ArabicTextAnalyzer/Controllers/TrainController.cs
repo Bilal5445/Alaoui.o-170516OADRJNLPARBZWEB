@@ -571,15 +571,17 @@ namespace ArabicTextAnalyzer.Controllers
         {
             try
             {
-                // get from client side, from where we start the paging
+                //
                 int start = 0;
+                int itemsPerPage = 10;
+
+                // get from client side, from where we start the paging
                 int.TryParse(this.Request.QueryString["start"], out start);
 
                 // get from client side, to which length the paging goes
-                int itemsPerPage = 10;
                 int.TryParse(this.Request.QueryString["length"], out itemsPerPage);
 
-                //
+                // get from client search word
                 string searchValue = this.Request.QueryString["search[value]"].ToString();
 
                 //
@@ -588,7 +590,7 @@ namespace ArabicTextAnalyzer.Controllers
                 string searchEntity = this.Request.QueryString["columns[2][search][value]"];
                 string searchName = this.Request.QueryString["columns[3][search][value]"];
 
-                // all elements
+                // get from DB the number of entries
                 var itemsCount = loadArabiziToArabicViewModelCount_DAPPERSQL();
 
                 // adjust itemsPerPage case show all
@@ -596,7 +598,7 @@ namespace ArabicTextAnalyzer.Controllers
                     itemsPerPage = itemsCount;
 
                 // get main (whole) data from DB first
-                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL();
+                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL(activeThemeOnly: true);
 
                 // filter on search term if any
                 if (!String.IsNullOrEmpty(searchValue)) {
@@ -1106,7 +1108,6 @@ namespace ArabicTextAnalyzer.Controllers
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 String qry = "SELECT "
-                        // + "TOP 100 "
                         + "ARZ.ID_ARABIZIENTRY, "
                         + "ARZ.ArabiziEntryDate, "
                         + "ARZ.ArabiziText, "
@@ -1114,6 +1115,53 @@ namespace ArabicTextAnalyzer.Controllers
                         + "AR.ArabicDarijaText "
                     + "FROM T_ARABIZIENTRY ARZ " 
                     + "INNER JOIN T_ARABICDARIJAENTRY AR ON ARZ.ID_ARABIZIENTRY = AR.ID_ARABIZIENTRY "
+                    + "ORDER BY ARZ.ArabiziEntryDate DESC ";
+
+                conn.Open();
+                return conn.Query<ArabiziToArabicViewModel>(qry).ToList();
+            }
+        }
+
+        /*private List<ArabiziToArabicViewModel2> loadArabiziToArabicViewModel2_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT "
+                        + "ARZ.ID_ARABIZIENTRY, "
+                        + "ARZ.ArabiziEntryDate, "
+                        + "ARZ.ArabiziText, "
+                        + "AR.ID_ARABICDARIJAENTRY, "
+                        + "AR.ArabicDarijaText, "
+                        + "ARTE.TextEntity_Mention "
+                    + "FROM T_ARABIZIENTRY ARZ "
+                    + "INNER JOIN T_ARABICDARIJAENTRY AR ON ARZ.ID_ARABIZIENTRY = AR.ID_ARABIZIENTRY "
+                    + "INNER JOIN T_ARABICDARIJAENTRY_TEXTENTITY ARTE ON AR.ID_ARABICDARIJAENTRY = ARTE.ID_ARABICDARIJAENTRY AND TextEntity_Type = 'MAIN ENTITY' "
+                    + "ORDER BY ARZ.ArabiziEntryDate DESC ";
+
+                conn.Open();
+                return conn.Query<ArabiziToArabicViewModel2>(qry).ToList();
+            }
+        }*/
+
+        private List<ArabiziToArabicViewModel> loadArabiziToArabicViewModel_DAPPERSQL(bool activeThemeOnly)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT "
+                        + "ARZ.ID_ARABIZIENTRY, "
+                        + "ARZ.ArabiziEntryDate, "
+                        + "ARZ.ArabiziText, "
+                        + "AR.ID_ARABICDARIJAENTRY, "
+                        + "AR.ArabicDarijaText, "
+                        + "ARTE.TextEntity_Mention "
+                    + "FROM T_ARABIZIENTRY ARZ "
+                    + "INNER JOIN T_ARABICDARIJAENTRY AR ON ARZ.ID_ARABIZIENTRY = AR.ID_ARABIZIENTRY "
+                    + "INNER JOIN T_ARABICDARIJAENTRY_TEXTENTITY ARTE ON AR.ID_ARABICDARIJAENTRY = ARTE.ID_ARABICDARIJAENTRY AND TextEntity_Type = 'MAIN ENTITY' "
+                    + "INNER JOIN T_XTRCTTHEME XT ON XT.ThemeName = ARTE.TextEntity_Mention AND XT.CurrentActive = 'active' "
                     + "ORDER BY ARZ.ArabiziEntryDate DESC ";
 
                 conn.Open();

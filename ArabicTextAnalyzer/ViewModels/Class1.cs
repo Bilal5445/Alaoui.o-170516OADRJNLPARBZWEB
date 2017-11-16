@@ -7,16 +7,16 @@ using System.Web;
 
 namespace ArabicTextAnalyzer.ViewModels
 {
-    public class ArabiziViewModel
+    /*public class ArabiziViewModel
     {
         public List<M_ARABIZIENTRY> ArabiziEntrys { get; set; }
         public List<M_ARABICDARIJAENTRY> ArabicDarijaEntrys { get; set; }
         public List<M_ARABICDARIJAENTRY_LATINWORD> ArabicDarijaEntryLatinWords { get; set; }
         public List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities { get; set; }
         public List<M_XTRCTTHEME> MainEntities { get; set; }
-    }
+    }*/
 
-    public class Class2
+    /*public class Class2
     {
         public M_ARABICDARIJAENTRY ArabicDarijaEntry { get; set; }
         public List<M_ARABICDARIJAENTRY_LATINWORD> ArabicDarijaEntryLatinWords { get; set; }
@@ -27,9 +27,8 @@ namespace ArabicTextAnalyzer.ViewModels
     public class Class1
     {
         public List<Class2> Classes2 { get; set; }
-        // public IEnumerable<M_ARABICDARIJAENTRY_TEXTENTITY> MainEntities { get; set; }
         public IEnumerable<M_XTRCTTHEME> MainEntities { get; set; }
-    }
+    }*/
 
     // class for the table in the partialview
     public class ArabiziToArabicViewModel
@@ -46,4 +45,20 @@ namespace ArabicTextAnalyzer.ViewModels
         public String FormattedEntities { get; set; }
         public String FormattedRemoveAndApplyTagCol { get; set; }
     }
+
+    /*public class ArabiziToArabicViewModel2
+    {
+        public Guid ID_ARABIZIENTRY { get; set; }
+        public DateTime ArabiziEntryDate { get; set; }
+        public String ArabiziText { get; set; }
+        public Guid ID_ARABICDARIJAENTRY { get; set; }
+        public String ArabicDarijaText { get; set; }
+        public int PositionHash { get; set; }
+        public String FormattedArabiziEntryDate { get; set; }
+        public String FormattedArabicDarijaText { get; set; }
+        public String FormattedEntitiesTypes { get; set; }
+        public String FormattedEntities { get; set; }
+        public String FormattedRemoveAndApplyTagCol { get; set; }
+        public String TextEntity_Mention { get; set; }
+    }*/
 }
