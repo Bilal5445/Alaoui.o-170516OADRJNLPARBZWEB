@@ -18,10 +18,6 @@
 
 @section scripts {
 
-    <!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/united/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">-->
-    <!--<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/mark.js/8.6.0/jquery.mark.min.js"></script>
@@ -44,30 +40,33 @@
     <script type="text/javascript" src="~/Scripts/my.js"></script>
 }
 
+<!-- Title -->
 <h2>Training (v0.1710.31.13)</h2>
 
 <!-- theme menu -->
-<div class="dropdown div-inline">
-    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
-        Select Theme
-        <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-        @foreach (var xtrctTheme in ViewBag.XtrctThemes)
+<div>
+    <div class="dropdown div-inline">
+        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+            Select Theme
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            @foreach (var xtrctTheme in ViewBag.XtrctThemes)
         {
         <li class="@xtrctTheme.CurrentActive"><a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = @xtrctTheme.ThemeName })">@xtrctTheme.ThemeName</a></li>
         }
-    </ul>
+        </ul>
+    </div>
+    <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal">
+        <span class="glyphicon glyphicon-plus"></span>
+    </button>
+    <button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal">
+        <span class="glyphicon glyphicon-edit"></span>
+    </button>
+    <button type="button" class="btn btn-sm">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
 </div>
-<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal">
-    <span class="glyphicon glyphicon-plus"></span>
-</button>
-<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal">
-    <span class="glyphicon glyphicon-edit"></span>
-</button>
-<button type="button" class="btn btn-sm">
-    <span class="glyphicon glyphicon-remove"></span>
-</button>
 
 <!-- modal new theme dialogbox -->
 <div class="modal fade" id="myModal" role="dialog">
@@ -97,22 +96,24 @@
 </div>
 
 <!-- Theme & keywords -->
-<h3><span class="label label-info">@ViewBag.ActiveXtrctTheme.ThemeName</span></h3>
-@foreach (var tag in ViewBag.ActiveXtrctThemeTags)
-{
-    if (ViewBag.ActiveXtrctThemeTags.IndexOf(tag) % 2 == 0)
+<div>
+    <h3><span class="label label-info">@ViewBag.ActiveXtrctTheme.ThemeName</span></h3>
+    @foreach (var tag in ViewBag.ActiveXtrctThemeTags)
     {
-        <span class="label label-primary themekeywords">@tag.Keyword</span>
+        if (ViewBag.ActiveXtrctThemeTags.IndexOf(tag) % 2 == 0)
+        {
+            <span class="label label-primary themekeywords">@tag.Keyword</span>
+        }
+        else
+        {
+            <span class="label label-success themekeywords">@tag.Keyword</span>
+        }
     }
-    else
-    {
-        <span class="label label-success themekeywords">@tag.Keyword</span>
-    }
-}
-<a href="@Url.Action("XtrctTheme_Keywords_Reload", new { themename = @ViewBag.ActiveXtrctTheme.ThemeName })" class="btn btn-danger btn-xs">
-    <span class="glyphicon glyphicon-refresh" aria-hidden="true">
-    </span>
-</a>
+    <a href="@Url.Action("XtrctTheme_Keywords_Reload", new { themename = @ViewBag.ActiveXtrctTheme.ThemeName })" class="btn btn-danger btn-xs">
+        <span class="glyphicon glyphicon-refresh" aria-hidden="true">
+        </span>
+    </a>
+</div>
 
 <!-- arabizi keying & corpus info & co -->
 <div id="row-arabizi-input" class="row" style="margin-top: 30px">
@@ -120,34 +121,34 @@
     <div class="col-md-3 col-sm-6">
         @using (Html.BeginForm("TrainStepOne", "Train", FormMethod.Post))
             {
-        <div class="panel panel-default active">
-            <div class="panel-heading">Arabizi</div>
-            <div class="panel-body" style="padding: 0; height: 150px">
-                @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "height: 100%; width: 100%", @required = "required" })
-                @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
+            <div class="panel panel-default active">
+                <div class="panel-heading">Arabizi</div>
+                <div class="panel-body" style="padding: 0; height: 150px">
+                    @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "height: 100%; width: 100%", @required = "required" })
+                    @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
+                </div>
             </div>
-        </div>
             <!-- button submit -->
-        <div class="row">
-            <div class="col-md-2">
-                <button class="btn btn-success btn-md" type="submit" id="train">
-                    Train
-                </button>
+            <div class="row">
+                <div class="col-md-2">
+                    <button class="btn btn-success btn-md" type="submit" id="train">
+                        Train
+                    </button>
+                </div>
             </div>
-        </div>
         }
     </div>
     <!-- column 2 : Twingly/Corpus Res -->
     <div class="col-md-2 col-sm-6">
         @if (String.IsNullOrEmpty(ViewBag.MostPopularVariant) == false)
             {
-        <div class="panel panel-default active arabic ">
-            <div class="panel-heading">Most Popular Variant : @ViewBag.MostPopularVariant</div>
-            <div class="panel-body" style="padding: 0; height: 150px; position:relative;">
-                <div class="loader"></div>
-                <textarea style="height: 100%; width: 100%" id="arabic-text">@ViewBag.Post</textarea>
+            <div class="panel panel-default active arabic ">
+                <div class="panel-heading">Most Popular Variant : @ViewBag.MostPopularVariant</div>
+                <div class="panel-body" style="padding: 0; height: 150px; position:relative;">
+                    <div class="loader"></div>
+                    <textarea style="height: 100%; width: 100%" id="arabic-text">@ViewBag.Post</textarea>
+                </div>
             </div>
-        </div>
         }
     </div>
     <!-- column 3 : corpus info -->
@@ -190,11 +191,11 @@
                     <div id="myButtons" class="btn-group-vertical btn-group-sm" data-toggle="buttons">
                         @foreach (var twinglyAccount in @ViewBag.TwinglyAccounts)
                         {
-                        <label class="btn btn-primary @twinglyAccount.CurrentActive" style="font-family: monospace; text-align: left;" data-toggle='tooltip' title='@twinglyAccount.UserName'>
-                            @Html.RadioButton("name", "value", true, new { id = "id", style="width: 80%;" }) @twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper()
-                            <span class='badge'>@twinglyAccount.calls_free</span>
-                            <a href="@Url.Action("TwinglySetup_deleteAccount", new { id_twinglyaccount_api_key = twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper() })" style="position: absolute; right: 0; top: 0;"><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
-                        </label>
+                            <label class="btn btn-primary @twinglyAccount.CurrentActive" style="font-family: monospace; text-align: left;" data-toggle='tooltip' title='@twinglyAccount.UserName'>
+                                @Html.RadioButton("name", "value", true, new { id = "id", style = "width: 80%;" }) @twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper()
+                                <span class='badge'>@twinglyAccount.calls_free</span>
+                                <a href="@Url.Action("TwinglySetup_deleteAccount", new { id_twinglyaccount_api_key = twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper() })" style="position: absolute; right: 0; top: 0;"><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
+                            </label>
                         }
                     </div>
                 </div>
@@ -213,36 +214,36 @@
 <div id="row-bulk-input" class="row" style="margin-top: 15px">
     @using (Html.BeginForm("Data_Upload", "Train", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline" }))
     {
-    <div class="form-group">
-        <label for="importposts">Bulk Import:</label>
-        <input type="file" name="file" class="form-control" id="importposts" />
-        <label for="mainEntity">Main Tag:</label>
-        <!-- <input type="text" name="mainEntity" class="form-control" id="mainEntity" /> -->
-        @* <div class="dropdown div-inline">
-                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
-                    Select Theme
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    @foreach(var xtrctTheme in ViewBag.XtrctThemes)
-                    {
-                    <li class="@xtrctTheme.CurrentActive"><a href="#">@xtrctTheme.ThemeName</a></li>
-                    }
-                </ul>
-            </div> *@
-        @Html.DropDownList("mainEntity", (IEnumerable<SelectListItem>)ViewBag.XtrctThemesPlain, /*"-- Select Contact --"*/null, new { @class = "form-control" })
-    </div>
-    <button class="btn btn-success btn-md" type="submit" id="import_posts">
-        Import Posts
-    </button>
-    <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Warning!</strong> @msgAlert
-    </div>
-    <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Success!</strong> @msgAlert
-    </div>
+        <div class="form-group">
+            <label for="importposts">Bulk Import:</label>
+            <input type="file" name="file" class="form-control" id="importposts" />
+            <label for="mainEntity">Main Tag:</label>
+            <!-- <input type="text" name="mainEntity" class="form-control" id="mainEntity" /> -->
+            @* <div class="dropdown div-inline">
+                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                        Select Theme
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        @foreach(var xtrctTheme in ViewBag.XtrctThemes)
+                        {
+                        <li class="@xtrctTheme.CurrentActive"><a href="#">@xtrctTheme.ThemeName</a></li>
+                        }
+                    </ul>
+                </div> *@
+            @Html.DropDownList("mainEntity", (IEnumerable<SelectListItem>)ViewBag.XtrctThemesPlain, /*"-- Select Contact --"*/null, new { @class = "form-control" })
+        </div>
+        <button class="btn btn-success btn-md" type="submit" id="import_posts">
+            Import Posts
+        </button>
+        <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong> @msgAlert
+        </div>
+        <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> @msgAlert
+        </div>
     }
 </div>
 
