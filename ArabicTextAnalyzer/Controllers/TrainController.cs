@@ -590,15 +590,15 @@ namespace ArabicTextAnalyzer.Controllers
                 string searchEntity = this.Request.QueryString["columns[2][search][value]"];
                 string searchName = this.Request.QueryString["columns[3][search][value]"];
 
-                // get from DB the number of entries
-                var itemsCount = loadArabiziToArabicViewModelCount_DAPPERSQL();
+                // get main (whole) data from DB first
+                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL(activeThemeOnly: true);
+
+                // get the number of entries
+                var itemsCount = items.Count;
 
                 // adjust itemsPerPage case show all
                 if (itemsPerPage == -1)
                     itemsPerPage = itemsCount;
-
-                // get main (whole) data from DB first
-                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL(activeThemeOnly: true);
 
                 // filter on search term if any
                 if (!String.IsNullOrEmpty(searchValue)) {
