@@ -57,12 +57,12 @@ namespace ArabicTextAnalyzer.Controllers
             // var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
             var xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
             // var xtrctThemesKeywords = new TextPersist().Deserialize<M_XTRCTTHEME_KEYWORD>(dataPath);
-            var xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL();
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL();
             var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
             @ViewBag.XtrctThemes = xtrctThemes;
             @ViewBag.XtrctThemesPlain = xtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName });
             @ViewBag.ActiveXtrctTheme = activeXtrctTheme;
-            @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).ToList();
+            @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords/*.Where*/.Single(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Keyword.Split(new char[] { ' ' }).ToList();
 
             // file upload communication
             @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
@@ -719,7 +719,7 @@ namespace ArabicTextAnalyzer.Controllers
                 arabicText = train_binggoogle(arabicText);
                 Logging.Write(Server, "train - after train_binggoogle : " + watch.ElapsedMilliseconds); watch.Restart();
 
-                arabicText = train_saveperl(arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql);
+                arabicText = train_saveperl(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql);
                 Logging.Write(Server, "train - after train_saveperl : " + watch.ElapsedMilliseconds); watch.Restart();
 
                 arabicText = train_savelatinwords(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
@@ -764,7 +764,7 @@ namespace ArabicTextAnalyzer.Controllers
             return new TranslationTools().CorrectTranslate(arabicText);
         }
 
-        private String train_saveperl(string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
+        private String train_saveperl(Stopwatch watch, string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
         {
             var regex = new Regex(@"<span class='notranslate'>(.*?)</span>");
 
@@ -775,7 +775,9 @@ namespace ArabicTextAnalyzer.Controllers
             arabicText = regex.Replace(arabicText, "001000100");
 
             // translate arabiza to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
+            Logging.Write(Server, "train - before train_saveperl > Convert : " + watch.ElapsedMilliseconds); watch.Restart();
             arabicText = new TextConverter().Convert(arabicText);
+            Logging.Write(Server, "train - after train_saveperl > Convert : " + watch.ElapsedMilliseconds); watch.Restart();
 
             // restore do not translate
             var regex2 = new Regex(@"001000100");

@@ -1,6 +1,6 @@
 ﻿/* initially for theme panel, but also for upload file panel*/
-.div-inline{
-    display:inline-block;
+.div-inline {
+    display: inline-block;
 }
 
 /* actually not for theme panel, but rather for upload file panel*/
@@ -13,4 +13,21 @@ span.label.themekeywords {
     font-weight: 400;
     padding: 3px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container.containerthemekeywords {
+    margin-top: 14px;
+}
+
+.container.thememenu {
+    margin-top: 20px;
+}
+
+div.themekeywords {
+    text-align: center;
+}
+
+div.themekeywords > h1 {
+    margin-top: 2px;
+    font-size: 48px;
 }
