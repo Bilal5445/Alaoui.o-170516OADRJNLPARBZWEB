@@ -38,31 +38,23 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
             @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
             @ViewBag.BidictSize = new TextFrequency().GetBidictNumberOfLine();
-            // @ViewBag.ArabiziEntriesCount = new TextFrequency().GetArabiziEntriesCount(dataPath);
-            // @ViewBag.ArabiziEntriesCount = new TextPersist().Deserialize<M_ARABIZIENTRY>(dataPath).Count;
             var arabiziEntriesCount = loaddeserializeM_ARABIZIENTRY_DAPPERSQL().Count;
             @ViewBag.ArabiziEntriesCount = arabiziEntriesCount;
-            // @ViewBag.RatioLatinWordsOnEntries = new TextFrequency().GetRatioLatinWordsOnEntries(dataPath);
-            // @ViewBag.RatioLatinWordsOnEntries = new TextFrequency().GetLatinEntriesCount(dataPath) / (double)new TextFrequency().GetArabiziEntriesCount(dataPath);
-            // @ViewBag.RatioLatinWordsOnEntries = new TextFrequency().GetLatinEntriesCount(dataPath) / (double)arabiziEntriesCount;
             @ViewBag.RatioLatinWordsOnEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL().Where(m => String.IsNullOrWhiteSpace(m.Translation) == true).ToList().Count / (double)arabiziEntriesCount;
 
             @ViewBag.EntitiesCount = new TextFrequency().GetEntitiesCount();
 
             // deserialize/send twingly accounts
-            // @ViewBag.TwinglyAccounts = new TextPersist().Deserialize<M_TWINGLYACCOUNT>(dataPath);
             @ViewBag.TwinglyAccounts = loaddeserializeM_TWINGLYACCOUNT_DAPPERSQL();
 
             // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
-            // var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
             var xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
-            // var xtrctThemesKeywords = new TextPersist().Deserialize<M_XTRCTTHEME_KEYWORD>(dataPath);
             List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL();
             var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
             @ViewBag.XtrctThemes = xtrctThemes;
-            @ViewBag.XtrctThemesPlain = xtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName });
+            @ViewBag.XtrctThemesPlain = xtrctThemes/*.OrderBy(m => m.ThemeName)*/.Select(m => new SelectListItem { Text = m.ThemeName });
             @ViewBag.ActiveXtrctTheme = activeXtrctTheme;
-            @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords/*.Where*/.Single(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Keyword.Split(new char[] { ' ' }).ToList();
+            @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Single(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Keyword.Split(new char[] { ' ' }).ToList();
 
             // file upload communication
             @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
@@ -1074,7 +1066,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "SELECT * FROM T_XTRCTTHEME";
+                String qry = "SELECT * FROM T_XTRCTTHEME ORDER BY ThemeName ";
 
                 conn.Open();
                 return conn.Query<M_XTRCTTHEME>(qry).ToList();
