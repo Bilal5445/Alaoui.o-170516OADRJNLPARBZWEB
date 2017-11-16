@@ -52,7 +52,7 @@ namespace ArabicTextAnalyzer.Controllers
             List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL();
             var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
             @ViewBag.XtrctThemes = xtrctThemes;
-            @ViewBag.XtrctThemesPlain = xtrctThemes/*.OrderBy(m => m.ThemeName)*/.Select(m => new SelectListItem { Text = m.ThemeName });
+            @ViewBag.XtrctThemesPlain = xtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName, Selected = m.ThemeName == activeXtrctTheme.ThemeName ? true : false });
             @ViewBag.ActiveXtrctTheme = activeXtrctTheme;
             @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Single(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Keyword.Split(new char[] { ' ' }).ToList();
 
