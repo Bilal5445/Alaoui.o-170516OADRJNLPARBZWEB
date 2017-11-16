@@ -875,5 +875,25 @@ namespace ArabicTextAnalyzer.Controllers.Tests
 
             Assert.AreEqual(expected, arabizi);
         }
+
+        [TestMethod()]
+        public void ut_171114_test_CountStringOccurrences_should_find_full_words_not_within_words()
+        {
+            String arabicsource = "خويا أنا راجوى ولكن زكريا ما بقا ش كيلعب بسيفه رسمية عيدان دقيقة الحسن قلب على راسو أكثر إدارة تعليمية ما كاينا ش التي تحمى لعب دقيقة بحال زيارتها الانتقالة خصوصا الغريم مرحاض و بالفعل وقعنا فأخطأ بحال هادوك مثل صبحي";
+            String nerword = "س";
+
+            // clean before google/bing : o w
+            var count = TextFrequency.CountStringOccurrences(arabicsource, nerword);
+            var expectedcount = 0;
+
+            Assert.AreEqual(expectedcount, count, "1");
+
+            //
+            nerword = "الحسن";
+            count = TextFrequency.CountStringOccurrences(arabicsource, nerword);
+            expectedcount = 1;
+
+            Assert.AreEqual(expectedcount, count, "2");
+        }
     }
 }

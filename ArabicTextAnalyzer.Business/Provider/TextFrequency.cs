@@ -155,10 +155,10 @@ namespace ArabicTextAnalyzer.Business.Provider
         public bool NERContainsWord_brands(string domain)
         {
             // make it one line
-            domain = domain.Replace("\r\n", " ");
+            domain = domain.Replace("\r\n", " ").Trim();
 
             foreach (string line in File.ReadLines(pathToNERFile_brands))
-                if (Regex.IsMatch(line, @"\b" + domain + @"\b", RegexOptions.IgnoreCase))
+                if (Regex.IsMatch(line.Trim(), @"\b" + domain + @"\b", RegexOptions.IgnoreCase))
                     return true; // and stop reading lines
 
             return false;
@@ -166,48 +166,59 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public void GetManualEntities(String source, List<TextEntity> lentities)
         {
+            List<TextEntity> manualNERs = new List<TextEntity>();
+
+            // search in manual NERs
             foreach (string line in File.ReadLines(pathToNERFile_brands))
             {
                 var wordSlashType = line.Split(new char[] { '\t' });
-                var nerword = wordSlashType[0];
-                var nertype = wordSlashType[1];
+                var nerword = wordSlashType[0].Trim();
+                var nertype = wordSlashType[1].Trim();
 
                 // contains case insensitive
                 // if (source.IndexOf(nerword, StringComparison.InvariantCultureIgnoreCase) >= 0)
                 var occurrences = CountStringOccurrences(source, nerword);
                 if (occurrences > 0)
                 {
-                    // add only if not already in entities
-                    // otherwise increment
-                    TextEntity existingEntity = lentities.FirstOrDefault(m => m.Mention == nerword);
-                    if (existingEntity == null)
+                    // add only if not already in manual entities
+                    TextEntity existingManualEntity = manualNERs.FirstOrDefault(m => m.Mention == nerword);
+                    if (existingManualEntity == null)
                     {
-                        lentities.Add(new TextEntity
+                        manualNERs.Add(new TextEntity
                         {
-                            Count = 1,
+                            Count = occurrences,
                             Mention = nerword,
                             Type = nertype
                         });
                     }
-                    else
-                    {
-                        existingEntity.Count += occurrences;
-                    }
                 }
+            }
+
+            // merge with NERs from previous stage : rosette
+            // add only if not already in entities (by previous stage : rosette)
+            // otherwise increment
+            foreach(var manualNER in manualNERs)
+            {
+                TextEntity existingEntity = lentities.FirstOrDefault(m => m.Mention == manualNER.Mention);
+                if (existingEntity == null)
+                    lentities.Add(manualNER);
+                else
+                    existingEntity.Count += manualNER.Count;
             }
         }
 
         public static int CountStringOccurrences(string text, string pattern)
         {
             // Loop through all instances of the string 'text'.
-            int count = 0;
+            /*int count = 0;
             int i = 0;
             while ((i = text.IndexOf(pattern, i, StringComparison.InvariantCultureIgnoreCase)) != -1)
             {
                 i += pattern.Length;
                 count++;
             }
-            return count;
+            return count;*/
+            return Regex.Matches(text, @"\b" + pattern + @"\b", RegexOptions.IgnoreCase).Count;
         }
 
         public bool NERStartsWithWord_brands(string domain, out String type)
@@ -219,9 +230,9 @@ namespace ArabicTextAnalyzer.Business.Provider
             {
                 // if (line.StartsWith(domain, StringComparison.InvariantCultureIgnoreCase))
                 var wordSlashType = line.Split(new char[] { '\t' });
-                if (wordSlashType[0].Equals(domain, StringComparison.InvariantCultureIgnoreCase))
+                if (wordSlashType[0].Trim().Equals(domain, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    type = line.Split(new char[] { '\t' })[1];
+                    type = line.Split(new char[] { '\t' })[1].Trim();
                     return true; // and stop reading lines
                 }
             }
