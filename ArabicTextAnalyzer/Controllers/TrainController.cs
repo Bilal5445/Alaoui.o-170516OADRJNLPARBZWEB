@@ -90,7 +90,14 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult TrainStepOne(M_ARABIZIENTRY arabiziEntry)
         {
             // Arabizi to arabic script via direct call to perl script
-            train(arabiziEntry);
+            var res = train(arabiziEntry);
+
+            if (res == Guid.Empty)
+            {
+                TempData["showAlertWarning"] = true;
+                TempData["msgAlert"] = "Text is required !";
+                return RedirectToAction("Index");
+            }
 
             //
             return RedirectToAction("Index");
@@ -239,8 +246,6 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult Train_ApplyNewMainTag(Guid idArabicDarijaEntry, String mainEntity)
         {
             // load M_ARABICDARIJAENTRY_TEXTENTITY
-            /*var dataPath = Server.MapPath("~/App_Data");
-            var arabicDarijaEntryTextEntities = new TextPersist().Deserialize<M_ARABICDARIJAENTRY_TEXTENTITY>(dataPath);*/
             List<M_ARABICDARIJAENTRY_TEXTENTITY> arabicDarijaEntryTextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
 
             // Check before if already main entity
@@ -263,8 +268,6 @@ namespace ArabicTextAnalyzer.Controllers
                     Type = "MAIN ENTITY"
                 }
             };
-            // arabicDarijaEntryTextEntities.Add(m_arabicdarijaentry_textentity);
-            // new TextPersist().SerializeBack_dataPath(arabicDarijaEntryTextEntities, dataPath);
             saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(m_arabicdarijaentry_textentity);
 
             //
@@ -424,20 +427,10 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult XtrctTheme_ApplyNewActive(String themename)
         {
             // find previous active, and disable it
-            /*String dataPath = Server.MapPath("~/App_Data");
-            var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);*/
-            /*List<M_XTRCTTHEME> xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
-            var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
-            activeXtrctTheme.CurrentActive = String.Empty;*/
-            saveserializeM_XTRCTTHEME_EFSQL3();
+            saveserializeM_XTRCTTHEME_EFSQL_Deactivate();
 
             // find to-be-active by name, and make it active
-            /*var tobeactiveXtrctTheme = xtrctThemes.Find(m => m.ThemeName == themename);
-            tobeactiveXtrctTheme.CurrentActive = "active";*/
-            saveserializeM_XTRCTTHEME_EFSQL2(themename);
-
-            // save
-            // new TextPersist().SerializeBack_dataPath(xtrctThemes, dataPath);
+            saveserializeM_XTRCTTHEME_EFSQL_Active(themename);
 
             //
             return RedirectToAction("Index");
@@ -591,7 +584,7 @@ namespace ArabicTextAnalyzer.Controllers
                 string searchName = this.Request.QueryString["columns[3][search][value]"];
 
                 // get main (whole) data from DB first
-                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL(activeThemeOnly: true);
+                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL(activeThemeOnly: /*true*/false);
 
                 // get the number of entries
                 var itemsCount = items.Count;
@@ -601,7 +594,8 @@ namespace ArabicTextAnalyzer.Controllers
                     itemsPerPage = itemsCount;
 
                 // filter on search term if any
-                if (!String.IsNullOrEmpty(searchValue)) {
+                if (!String.IsNullOrEmpty(searchValue))
+                {
                     items = items.Where(a => a.ArabiziText.ToUpper().Contains(searchValue.ToUpper()) || a.ArabicDarijaText.ToUpper().Contains(searchValue.ToUpper())).ToList();
                 }
 
@@ -1113,7 +1107,7 @@ namespace ArabicTextAnalyzer.Controllers
                         + "ARZ.ArabiziText, "
                         + "AR.ID_ARABICDARIJAENTRY, "
                         + "AR.ArabicDarijaText "
-                    + "FROM T_ARABIZIENTRY ARZ " 
+                    + "FROM T_ARABIZIENTRY ARZ "
                     + "INNER JOIN T_ARABICDARIJAENTRY AR ON ARZ.ID_ARABIZIENTRY = AR.ID_ARABIZIENTRY "
                     + "ORDER BY ARZ.ArabiziEntryDate DESC ";
 
@@ -1147,26 +1141,31 @@ namespace ArabicTextAnalyzer.Controllers
 
         private List<ArabiziToArabicViewModel> loadArabiziToArabicViewModel_DAPPERSQL(bool activeThemeOnly)
         {
-            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            if (activeThemeOnly)
             {
-                String qry = "SELECT "
-                        + "ARZ.ID_ARABIZIENTRY, "
-                        + "ARZ.ArabiziEntryDate, "
-                        + "ARZ.ArabiziText, "
-                        + "AR.ID_ARABICDARIJAENTRY, "
-                        + "AR.ArabicDarijaText, "
-                        + "ARTE.TextEntity_Mention "
-                    + "FROM T_ARABIZIENTRY ARZ "
-                    + "INNER JOIN T_ARABICDARIJAENTRY AR ON ARZ.ID_ARABIZIENTRY = AR.ID_ARABIZIENTRY "
-                    + "INNER JOIN T_ARABICDARIJAENTRY_TEXTENTITY ARTE ON AR.ID_ARABICDARIJAENTRY = ARTE.ID_ARABICDARIJAENTRY AND TextEntity_Type = 'MAIN ENTITY' "
-                    + "INNER JOIN T_XTRCTTHEME XT ON XT.ThemeName = ARTE.TextEntity_Mention AND XT.CurrentActive = 'active' "
-                    + "ORDER BY ARZ.ArabiziEntryDate DESC ";
+                String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
 
-                conn.Open();
-                return conn.Query<ArabiziToArabicViewModel>(qry).ToList();
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    String qry = "SELECT "
+                            + "ARZ.ID_ARABIZIENTRY, "
+                            + "ARZ.ArabiziEntryDate, "
+                            + "ARZ.ArabiziText, "
+                            + "AR.ID_ARABICDARIJAENTRY, "
+                            + "AR.ArabicDarijaText, "
+                            + "ARTE.TextEntity_Mention "
+                        + "FROM T_ARABIZIENTRY ARZ "
+                        + "INNER JOIN T_ARABICDARIJAENTRY AR ON ARZ.ID_ARABIZIENTRY = AR.ID_ARABIZIENTRY "
+                        + "INNER JOIN T_ARABICDARIJAENTRY_TEXTENTITY ARTE ON AR.ID_ARABICDARIJAENTRY = ARTE.ID_ARABICDARIJAENTRY AND TextEntity_Type = 'MAIN ENTITY' "
+                        + "INNER JOIN T_XTRCTTHEME XT ON XT.ThemeName = ARTE.TextEntity_Mention AND XT.CurrentActive = 'active' "
+                        + "ORDER BY ARZ.ArabiziEntryDate DESC ";
+
+                    conn.Open();
+                    return conn.Query<ArabiziToArabicViewModel>(qry).ToList();
+                }
             }
+            else
+                return loadArabiziToArabicViewModel_DAPPERSQL();
         }
 
         private int loadArabiziToArabicViewModelCount_DAPPERSQL()
@@ -1309,7 +1308,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private void saveserializeM_XTRCTTHEME_EFSQL2(String themename)
+        private void saveserializeM_XTRCTTHEME_EFSQL_Active(String themename)
         {
             using (var db = new ArabiziDbContext())
             {
@@ -1323,7 +1322,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private void saveserializeM_XTRCTTHEME_EFSQL3()
+        private void saveserializeM_XTRCTTHEME_EFSQL_Deactivate()
         {
             using (var db = new ArabiziDbContext())
             {

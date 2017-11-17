@@ -84,15 +84,15 @@
             <div class="modal-body">
                 @using (Html.BeginForm("XtrctTheme_AddNew", "Train", FormMethod.Post))
                 {
-                <div class="form-group">
-                    <label for="themename">Theme Name</label>
-                    @Html.TextBox("themename", "", new { @class = "form-control", placeholder = "Enter new theme name", @required = "required", id = "themename" })
-                </div>
-                <div class="form-group">
-                    <label for="themetags">Theme Tags</label>
-                    @Html.TextBox("themetags", "", new { @class = "form-control", @required = "required", id = "themetags", data_role = "tagsinput" })
-                </div>
-                <button type="submit" class="btn btn-default btn-success">Add</button>
+                    <div class="form-group">
+                        <label for="themename">Theme Name</label>
+                        @Html.TextBox("themename", "", new { @class = "form-control", placeholder = "Enter new theme name", @required = "required", id = "themename" })
+                    </div>
+                    <div class="form-group">
+                        <label for="themetags">Theme Tags</label>
+                        @Html.TextBox("themetags", "", new { @class = "form-control", @required = "required", id = "themetags", data_role = "tagsinput" })
+                    </div>
+                    <button type="submit" class="btn btn-default btn-success">Add</button>
                 }
             </div>
         </div>
@@ -101,9 +101,12 @@
 
 <!-- Theme & keywords -->
 <div class="themekeywords card card-inverse card-primary">
-    <h1><span class="label label-info">@ViewBag.ActiveXtrctTheme.ThemeName
-        <a href="" style="position: absolute; right: 0; top: 0;"><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
-        </span></h1>
+    <h1>
+        <span class="label label-info">
+            @ViewBag.ActiveXtrctTheme.ThemeName
+            <a href="" style="position: absolute; right: 0; top: 0;"><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
+        </span>
+    </h1>
     <div class="container containerthemekeywords">
         @foreach (var tag in ViewBag.ActiveXtrctThemeTags)
         {
@@ -122,6 +125,23 @@
     </a>
 </div>
 
+<!-- aribizi -->
+@using (Html.BeginForm("TrainStepOne", "Train", FormMethod.Post, new { id = "trainform" }))
+{
+    <div class="panel panel-default active">
+        <div class="panel-heading">Arabizi</div>
+        <div class="panel-body" style="padding: 0;">
+            <div class="input-group">
+                @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "resize:none", rows = 2, @class = "form-control custom-control", @required = "required" })
+                @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
+                <span class="input-group-addon btn btn-primary" onclick="document.forms['trainform'].submit();">Translate</span>
+                <!--<button class="input-group-addon btn btn-primary" type="submit" id="train">Translate</button>-->
+            </div>
+
+        </div>
+    </div>
+}
+
 <!-- arabizi keying & corpus info & co -->
 <div id="row-arabizi-input" class="row" style="margin-top: 30px; display: none;">
     <!-- column 1 : arabizi input -->
@@ -135,7 +155,7 @@
                 @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
             </div>
         </div>
-            <!-- button submit -->
+        <!-- button submit -->
         <div class="row">
             <div class="col-md-2">
                 <button class="btn btn-success btn-md" type="submit" id="train">
@@ -221,23 +241,23 @@
 <div id="row-bulk-input" class="row" style="margin-top: 15px">
     @using (Html.BeginForm("Data_Upload", "Train", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline" }))
     {
-    <div class="form-group">
-        <label for="importposts">Bulk Import:</label>
-        <input type="file" name="file" class="form-control" id="importposts" />
-        <label for="mainEntity">Main Tag:</label>
-        @Html.DropDownList("mainEntity", (IEnumerable<SelectListItem>)ViewBag.XtrctThemesPlain, null, new { @class = "form-control" })
-    </div>
-    <button class="btn btn-success btn-md" type="submit" id="import_posts">
-        Import Posts
-    </button>
-    <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Warning!</strong> @msgAlert
-    </div>
-    <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Success!</strong> @msgAlert
-    </div>
+        <div class="form-group">
+            <label for="importposts">Bulk Import:</label>
+            <input type="file" name="file" class="form-control" id="importposts" />
+            <label for="mainEntity">Main Tag:</label>
+            @Html.DropDownList("mainEntity", (IEnumerable<SelectListItem>)ViewBag.XtrctThemesPlain, null, new { @class = "form-control" })
+        </div>
+        <button class="btn btn-success btn-md" type="submit" id="import_posts">
+            Import Posts
+        </button>
+        <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong> @msgAlert
+        </div>
+        <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> @msgAlert
+        </div>
     }
 </div>
 
