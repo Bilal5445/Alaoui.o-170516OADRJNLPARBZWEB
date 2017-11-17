@@ -435,7 +435,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             newhtml2 += "<ul class='dropdown-menu'>";
             foreach(var mainEntity in MainEntities)
             {
-                newhtml2 += $@"<li><a href = '/Train/Train_ApplyNewMainTag/?idArabicDarijaEntry={ID_ARABICDARIJAENTRY}&mainEntity={mainEntity.ThemeName}'> {mainEntity.ThemeName} </a></li>";
+                newhtml2 += $@"<li><a href = '/Train/Train_ApplyNewMainTag/?idArabicDarijaEntry={ID_ARABICDARIJAENTRY}&mainEntity={mainEntity.ThemeName.Trim()}'> {mainEntity.ThemeName.Trim()} </a></li>";
             }
             newhtml2 += $@"</ul>
                     </div>";

@@ -52,7 +52,7 @@ namespace ArabicTextAnalyzer.Controllers
             List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL();
             var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
             @ViewBag.XtrctThemes = xtrctThemes;
-            @ViewBag.XtrctThemesPlain = xtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName, Selected = m.ThemeName == activeXtrctTheme.ThemeName ? true : false });
+            @ViewBag.XtrctThemesPlain = xtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == activeXtrctTheme.ThemeName.Trim() ? true : false });
             @ViewBag.ActiveXtrctTheme = activeXtrctTheme;
             @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Single(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Keyword.Split(new char[] { ' ' }).ToList();
 
@@ -87,10 +87,10 @@ namespace ArabicTextAnalyzer.Controllers
 
         #region FRONT YARD ACTIONS TRAIN
         [HttpPost]
-        public ActionResult TrainStepOne(M_ARABIZIENTRY arabiziEntry)
+        public ActionResult TrainStepOne(M_ARABIZIENTRY arabiziEntry, String mainEntity)
         {
             // Arabizi to arabic script via direct call to perl script
-            var res = train(arabiziEntry);
+            var res = train(arabiziEntry, mainEntity);
 
             if (res == Guid.Empty)
             {
@@ -397,7 +397,7 @@ namespace ArabicTextAnalyzer.Controllers
             var newXtrctTheme = new M_XTRCTTHEME
             {
                 ID_XTRCTTHEME = Guid.NewGuid(),
-                ThemeName = themename
+                ThemeName = themename.Trim()
             };
 
             // Save to Serialization
@@ -521,14 +521,14 @@ namespace ArabicTextAnalyzer.Controllers
             var lines = System.IO.File.ReadLines(path).ToList();
             foreach (string line in lines)
             {
-                var idArabicDarijaEntry = train(new M_ARABIZIENTRY
+                /*var idArabicDarijaEntry = */train(new M_ARABIZIENTRY
                 {
                     ArabiziText = line.Trim(),
                     ArabiziEntryDate = DateTime.Now
-                });
+                }, mainEntity);
 
                 // add main entity & Save to Serialization
-                var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
+                /*var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
                 {
                     ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
                     ID_ARABICDARIJAENTRY = idArabicDarijaEntry,
@@ -538,9 +538,10 @@ namespace ArabicTextAnalyzer.Controllers
                         Mention = mainEntity,
                         Type = "MAIN ENTITY"
                     }
-                };
-                var pathtextentity = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_TEXTENTITY.txt");
-                new TextPersist().Serialize(textEntity, pathtextentity);
+                };*/
+                /*var pathtextentity = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_TEXTENTITY.txt");
+                new TextPersist().Serialize(textEntity, pathtextentity);*/
+                // saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(textEntity);
             }
 
             // mark how many rows been translated
@@ -584,7 +585,7 @@ namespace ArabicTextAnalyzer.Controllers
                 string searchName = this.Request.QueryString["columns[3][search][value]"];
 
                 // get main (whole) data from DB first
-                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL(activeThemeOnly: /*true*/false);
+                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL(activeThemeOnly: true);
 
                 // get the number of entries
                 var itemsCount = items.Count;
@@ -680,7 +681,7 @@ namespace ArabicTextAnalyzer.Controllers
         #endregion
 
         #region BACK YARD BO TRAIN
-        private Guid train(M_ARABIZIENTRY arabiziEntry)
+        private Guid train(M_ARABIZIENTRY arabiziEntry, String mainEntity)
         {
             // Arabizi to arabic from perl script
             if (arabiziEntry.ArabiziText == null)
@@ -718,6 +719,20 @@ namespace ArabicTextAnalyzer.Controllers
 
                 train_savener(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
                 Logging.Write(Server, "train - after train_savener : " + watch.ElapsedMilliseconds); watch.Restart();
+
+                // apply main tag : add main entity & Save to Serialization
+                var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
+                {
+                    ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
+                    ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
+                    TextEntity = new TextEntity
+                    {
+                        Count = 1,
+                        Mention = mainEntity,
+                        Type = "MAIN ENTITY"
+                    }
+                };
+                saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(textEntity);
             }
             Logging.Write(Server, "train - after lock");
 
