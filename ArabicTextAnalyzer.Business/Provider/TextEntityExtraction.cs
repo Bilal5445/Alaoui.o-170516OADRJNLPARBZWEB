@@ -36,7 +36,6 @@ namespace ArabicTextAnalyzer.Business.Provider
                         content = source
                     });
 
-
             request.AddParameter("application/json", content, ParameterType.RequestBody);
 
             var response = client.Execute(request);
@@ -99,8 +98,6 @@ namespace ArabicTextAnalyzer.Business.Provider
                 };
 
                 // Save to Serialization
-                /*var path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_TEXTENTITY.txt");
-                new TextPersist().Serialize(textEntity, path);*/
                 saveserializeM_ARABICDARIJAENTRY_TEXTENTITY(textEntity, accessMode);
             }
         }
@@ -108,8 +105,8 @@ namespace ArabicTextAnalyzer.Business.Provider
         public List<TextEntity> NerRosetteClean(IEnumerable<TextEntity> entities)
         {
             // clean 1 rosette ners : reset counter
-            foreach (var entity in entities)
-                entity.Count = 0;
+            /*foreach (var entity in entities)
+                entity.Count = 0;*/
 
             // clean 2 rosette ners : drop self containing
             foreach (var entity in entities)
