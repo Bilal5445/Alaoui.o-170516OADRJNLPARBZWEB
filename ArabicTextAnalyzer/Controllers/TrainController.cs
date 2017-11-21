@@ -54,7 +54,9 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.XtrctThemes = xtrctThemes;
             @ViewBag.XtrctThemesPlain = xtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == activeXtrctTheme.ThemeName.Trim() ? true : false });
             @ViewBag.ActiveXtrctTheme = activeXtrctTheme;
-            @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Single(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Keyword.Split(new char[] { ' ' }).ToList();
+            // note the keywords can be many records associated with this theme, plus the original record (filled at creation) contains many kewords seprated by space
+            @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
+            // @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Single(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Keyword.Split(new char[] { ' ' }).ToList();
 
             // file upload communication
             @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
@@ -441,9 +443,8 @@ namespace ArabicTextAnalyzer.Controllers
         {
             String dataPath = Server.MapPath("~/App_Data");
 
-            // we look for the ners that are associated with each entry for the current theme 
+            // We look for the NERs that are associated with each entry for the current theme 
             var textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
-            // var arabicDarijaEntryTextEntities = new TextPersist().Deserialize<M_ARABICDARIJAENTRY_TEXTENTITY>(dataPath);
             List<M_ARABICDARIJAENTRY_TEXTENTITY> arabicDarijaEntryTextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
             var arabicDarijaEntryTextMainEntities = arabicDarijaEntryTextEntities.FindAll(m => m.TextEntity.Type == "MAIN ENTITY" && m.TextEntity.Mention == themename);
             foreach (var mainentity in arabicDarijaEntryTextMainEntities)
@@ -452,9 +453,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             // if not existing, add them to list of theme keywords
-            // var xtrctThemes = new TextPersist().Deserialize<M_XTRCTTHEME>(dataPath);
             List<M_XTRCTTHEME> xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
-            // var xtrctThemesKeywords = new TextPersist().Deserialize<M_XTRCTTHEME_KEYWORD>(dataPath);
             List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL();
             var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
             foreach (var entity in textEntities)
@@ -471,7 +470,8 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             // save
-            new TextPersist().SerializeBack_dataPath(xtrctThemesKeywords, dataPath);
+            // new TextPersist().SerializeBack_dataPath(xtrctThemesKeywords, dataPath);
+            saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(xtrctThemesKeywords);
 
             //
             return RedirectToAction("Index");
@@ -521,7 +521,8 @@ namespace ArabicTextAnalyzer.Controllers
             var lines = System.IO.File.ReadLines(path).ToList();
             foreach (string line in lines)
             {
-                /*var idArabicDarijaEntry = */train(new M_ARABIZIENTRY
+                /*var idArabicDarijaEntry = */
+                train(new M_ARABIZIENTRY
                 {
                     ArabiziText = line.Trim(),
                     ArabiziEntryDate = DateTime.Now
@@ -1317,6 +1318,27 @@ namespace ArabicTextAnalyzer.Controllers
             using (var db = new ArabiziDbContext())
             {
                 db.M_XTRCTTHEMEs.Add(m_xtrcttheme);
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        public void saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(List<M_XTRCTTHEME_KEYWORD> m_xtrcttheme_keywords)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                //
+                db.Database.ExecuteSqlCommand("DELETE FROM T_XTRCTTHEME_KEYWORD");
+                db.M_XTRCTTHEME_KEYWORDs.AddRange(m_xtrcttheme_keywords);
+                /*var newUserIDs = m_xtrcttheme_keywords.Select(u => u.ID_XTRCTTHEME_KEYWORD).Distinct().ToArray();
+                var usersInDb = dbcontext.Users.Where(u => newUserIDs.Contains(u.UserId))
+                                               .Select(u => u.UserId).ToArray();
+                var usersNotInDb = NewUsers.Where(u => !usersInDb.Contains(u.UserId));
+                foreach (User user in usersNotInDb)
+                {
+                    context.Add(user);
+                }*/
 
                 // commit
                 db.SaveChanges();

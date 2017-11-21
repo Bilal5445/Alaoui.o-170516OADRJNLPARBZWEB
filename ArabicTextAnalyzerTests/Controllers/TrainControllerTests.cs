@@ -895,5 +895,24 @@ namespace ArabicTextAnalyzer.Controllers.Tests
 
             Assert.AreEqual(expectedcount, count, "2");
         }
+
+        [TestMethod()]
+        public void ut_171117_test_Preprocess_SilentVowels()
+        {
+            String arabicsource = "3i9o barak";
+            String expectedoutarabicsource = "3i9o barak_VOW_";
+
+            //
+            arabicsource = new TextConverter().Preprocess_SilentVowels(arabicsource);
+
+            Assert.AreEqual(expectedoutarabicsource, arabicsource, "1");
+
+            //
+            arabicsource = "k";
+            expectedoutarabicsource = "k";
+            arabicsource = new TextConverter().Preprocess_SilentVowels(arabicsource);
+
+            Assert.AreEqual(expectedoutarabicsource, arabicsource, "2");
+        }
     }
 }
