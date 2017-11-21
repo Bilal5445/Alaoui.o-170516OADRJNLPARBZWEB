@@ -32,8 +32,6 @@ namespace ArabicTextAnalyzer.Controllers
         // GET: Train
         public ActionResult Index()
         {
-            String dataPath = Server.MapPath("~/App_Data");
-
             // send size of corpus & co-data
             @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
             @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
@@ -49,14 +47,16 @@ namespace ArabicTextAnalyzer.Controllers
 
             // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
             var xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
-            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL();
+            // List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL();
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL();
             var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
             @ViewBag.XtrctThemes = xtrctThemes;
             @ViewBag.XtrctThemesPlain = xtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == activeXtrctTheme.ThemeName.Trim() ? true : false });
             @ViewBag.ActiveXtrctTheme = activeXtrctTheme;
             // note the keywords can be many records associated with this theme, plus the original record (filled at creation) contains many kewords seprated by space
-            @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
-            // @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Single(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Keyword.Split(new char[] { ' ' }).ToList();
+            // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
+            // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
+            @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Select(m => m.Keyword).ToList();
 
             // file upload communication
             @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
@@ -215,8 +215,6 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public ActionResult Train_DeleteEntry(Guid arabiziWordGuid)
         {
-            /*var dataPath = Server.MapPath("~/App_Data/");
-            new TextPersist().Serialize_Delete_M_ARABIZIENTRY_Cascading(arabiziWordGuid, dataPath);*/
             Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
 
             //
@@ -440,6 +438,35 @@ namespace ArabicTextAnalyzer.Controllers
 
         [HttpGet]
         public ActionResult XtrctTheme_Keywords_Reload(String themename)
+        {
+            // List<Tuple<String, int>> tagscounts = loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(themename);
+            List<THEMETAGSCOUNT> tagscounts = loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(themename);
+
+            //
+            var activeXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL();
+
+            //
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = new List<M_XTRCTTHEME_KEYWORD>();
+            foreach (var tagcount in tagscounts)
+            {
+                xtrctThemesKeywords.Add(new M_XTRCTTHEME_KEYWORD
+                {
+                    ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
+                    ID_XTRCTTHEME = activeXtrctTheme.ID_XTRCTTHEME,
+                    Keyword = tagcount.TextEntity_Mention
+                });
+            }
+
+            // save
+            // saveserializeM_XTRCTTHEME_KEYWORDs_DELETE_ALL_EFSQL(xtrctThemesKeywords, activeXtrctTheme);
+            saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(xtrctThemesKeywords, activeXtrctTheme);
+
+            //
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult XtrctTheme_Keywords_ReloadOld(String themename)
         {
             // We look for the NERs that are associated with each entry for the current theme 
             var textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
@@ -977,6 +1004,35 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
+        // private List<Tuple<String, int>> loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(String themename)
+        private List<THEMETAGSCOUNT> loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(String themename)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            // anti sql injection
+            themename = themename.Replace("'", "''").Trim();
+
+            //
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry0 = "SELECT "
+                                + "TextEntity_Mention, SUM(TextEntity_Count) SUM_TextEntity_Count "
+                            + "FROM T_ARABICDARIJAENTRY_TEXTENTITY "
+                            + "WHERE ID_ARABICDARIJAENTRY IN( "
+                                + "SELECT ID_ARABICDARIJAENTRY "
+                                + "FROM T_ARABICDARIJAENTRY_TEXTENTITY "
+                                + "WHERE TextEntity_Type = 'MAIN ENTITY' "
+                                + "AND TextEntity_Mention like '" + themename.Trim() + "' "
+                            + ") "
+                            + "AND TextEntity_Type != 'MAIN ENTITY' "
+                            + "GROUP BY TextEntity_Mention ";
+
+                conn.Open();
+                // return conn.Query<Tuple<String, int>>(qry0).ToList();
+                return conn.Query<THEMETAGSCOUNT>(qry0).ToList();
+            }
+        }
+
         private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY(AccessMode accessMode)
         {
             if (accessMode == AccessMode.xml)
@@ -1082,6 +1138,19 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
+        private M_XTRCTTHEME loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_XTRCTTHEME WHERE CurrentActive = 'active' ";
+
+                conn.Open();
+                return conn.QueryFirst<M_XTRCTTHEME>(qry);
+            }
+        }
+
         private List<M_XTRCTTHEME_KEYWORD> loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL()
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
@@ -1089,6 +1158,19 @@ namespace ArabicTextAnalyzer.Controllers
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 String qry = "SELECT * FROM T_XTRCTTHEME_KEYWORD";
+
+                conn.Open();
+                return conn.Query<M_XTRCTTHEME_KEYWORD>(qry).ToList();
+            }
+        }
+
+        private List<M_XTRCTTHEME_KEYWORD> loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_XTRCTTHEME_KEYWORD XK INNER JOIN T_XTRCTTHEME X ON XK.ID_XTRCTTHEME = X.ID_XTRCTTHEME AND X.CurrentActive = 'active' ";
 
                 conn.Open();
                 return conn.Query<M_XTRCTTHEME_KEYWORD>(qry).ToList();
@@ -1328,14 +1410,36 @@ namespace ArabicTextAnalyzer.Controllers
                 //
                 db.Database.ExecuteSqlCommand("DELETE FROM T_XTRCTTHEME_KEYWORD");
                 db.M_XTRCTTHEME_KEYWORDs.AddRange(m_xtrcttheme_keywords);
-                /*var newUserIDs = m_xtrcttheme_keywords.Select(u => u.ID_XTRCTTHEME_KEYWORD).Distinct().ToArray();
-                var usersInDb = dbcontext.Users.Where(u => newUserIDs.Contains(u.UserId))
-                                               .Select(u => u.UserId).ToArray();
-                var usersNotInDb = NewUsers.Where(u => !usersInDb.Contains(u.UserId));
-                foreach (User user in usersNotInDb)
-                {
-                    context.Add(user);
-                }*/
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        public void saveserializeM_XTRCTTHEME_KEYWORDs_DELETE_ALL_EFSQL(List<M_XTRCTTHEME_KEYWORD> m_xtrcttheme_keywords, M_XTRCTTHEME currentTheme)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                //
+                db.Database.ExecuteSqlCommand("DELETE FROM T_XTRCTTHEME_KEYWORD WHERE ID_XTRCTTHEME = '" + currentTheme.ID_XTRCTTHEME + "' ");
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        public void saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(List<M_XTRCTTHEME_KEYWORD> m_xtrcttheme_keywords, M_XTRCTTHEME currentTheme)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                //
+                db.Database.ExecuteSqlCommand("DELETE FROM T_XTRCTTHEME_KEYWORD WHERE ID_XTRCTTHEME = '" + currentTheme.ID_XTRCTTHEME + "' ");
+
+                // commit
+                db.SaveChanges();
+
+                // reload
+                db.M_XTRCTTHEME_KEYWORDs.AddRange(m_xtrcttheme_keywords);
 
                 // commit
                 db.SaveChanges();
