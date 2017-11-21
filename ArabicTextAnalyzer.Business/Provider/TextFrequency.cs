@@ -164,7 +164,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             return false;
         }
 
-        public void GetManualEntities(String source, List<TextEntity> lentities)
+        public void GetManualEntities(String source, List<TextEntity> rosetteNERs)
         {
             List<TextEntity> manualNERs = new List<TextEntity>();
 
@@ -196,14 +196,15 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             // merge with NERs from previous stage : rosette
             // add only if not already in entities (by previous stage : rosette)
-            // otherwise increment
-            foreach(var manualNER in manualNERs)
+            //// otherwise increment
+            // otherwise do not increment because we do reset anymore count to 0 after rosette step
+            foreach (var manualNER in manualNERs)
             {
-                TextEntity existingEntity = lentities.FirstOrDefault(m => m.Mention == manualNER.Mention);
+                TextEntity existingEntity = rosetteNERs.FirstOrDefault(rosetteNER => rosetteNER.Mention == manualNER.Mention);
                 if (existingEntity == null)
-                    lentities.Add(manualNER);
-                else
-                    existingEntity.Count += manualNER.Count;
+                    rosetteNERs.Add(manualNER);
+                /*else
+                    existingEntity.Count += manualNER.Count;*/
             }
         }
 
