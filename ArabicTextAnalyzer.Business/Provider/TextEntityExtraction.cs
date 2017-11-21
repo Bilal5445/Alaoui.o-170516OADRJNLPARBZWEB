@@ -104,10 +104,6 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public List<TextEntity> NerRosetteClean(IEnumerable<TextEntity> entities)
         {
-            // clean 1 rosette ners : reset counter
-            /*foreach (var entity in entities)
-                entity.Count = 0;*/
-
             // clean 2 rosette ners : drop self containing
             foreach (var entity in entities)
             {
@@ -121,7 +117,6 @@ namespace ArabicTextAnalyzer.Business.Provider
             lentities.RemoveAll(m => m.Type == "TODROP");
 
             // clean 3 rosette ners : drop entities from exlusion files (ex:allah : irrelevant for us)
-            // lentities.RemoveAll(m => m.Mention == "الله");
             var textFrequency = new TextFrequency();
             foreach (var entityToDrop in lentities)
             {

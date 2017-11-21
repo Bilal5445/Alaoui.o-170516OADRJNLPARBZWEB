@@ -441,8 +441,6 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public ActionResult XtrctTheme_Keywords_Reload(String themename)
         {
-            String dataPath = Server.MapPath("~/App_Data");
-
             // We look for the NERs that are associated with each entry for the current theme 
             var textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
             List<M_ARABICDARIJAENTRY_TEXTENTITY> arabicDarijaEntryTextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
@@ -470,7 +468,6 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             // save
-            // new TextPersist().SerializeBack_dataPath(xtrctThemesKeywords, dataPath);
             saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(xtrctThemesKeywords);
 
             //
