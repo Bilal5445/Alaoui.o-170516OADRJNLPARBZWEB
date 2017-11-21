@@ -464,42 +464,6 @@ namespace ArabicTextAnalyzer.Controllers
             //
             return RedirectToAction("Index");
         }
-
-        [HttpGet]
-        public ActionResult XtrctTheme_Keywords_ReloadOld(String themename)
-        {
-            // We look for the NERs that are associated with each entry for the current theme 
-            var textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
-            List<M_ARABICDARIJAENTRY_TEXTENTITY> arabicDarijaEntryTextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
-            var arabicDarijaEntryTextMainEntities = arabicDarijaEntryTextEntities.FindAll(m => m.TextEntity.Type == "MAIN ENTITY" && m.TextEntity.Mention == themename);
-            foreach (var mainentity in arabicDarijaEntryTextMainEntities)
-            {
-                textEntities.AddRange(arabicDarijaEntryTextEntities.FindAll(m => m.ID_ARABICDARIJAENTRY == mainentity.ID_ARABICDARIJAENTRY));
-            }
-
-            // if not existing, add them to list of theme keywords
-            List<M_XTRCTTHEME> xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
-            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL();
-            var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
-            foreach (var entity in textEntities)
-            {
-                if (xtrctThemesKeywords.Find(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME && m.Keyword == entity.TextEntity.Mention) == null)
-                {
-                    xtrctThemesKeywords.Add(new M_XTRCTTHEME_KEYWORD
-                    {
-                        ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
-                        ID_XTRCTTHEME = activeXtrctTheme.ID_XTRCTTHEME,
-                        Keyword = entity.TextEntity.Mention
-                    });
-                }
-            }
-
-            // save
-            saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(xtrctThemesKeywords);
-
-            //
-            return RedirectToAction("Index");
-        }
         #endregion
 
         // This action handles the form POST and the upload
@@ -1022,9 +986,11 @@ namespace ArabicTextAnalyzer.Controllers
                                 + "SELECT ID_ARABICDARIJAENTRY "
                                 + "FROM T_ARABICDARIJAENTRY_TEXTENTITY "
                                 + "WHERE TextEntity_Type = 'MAIN ENTITY' "
-                                + "AND TextEntity_Mention like '" + themename.Trim() + "' "
+                                + "AND TextEntity_Mention like '" + themename + "' "
                             + ") "
                             + "AND TextEntity_Type != 'MAIN ENTITY' "
+                            + "AND TextEntity_Type != 'PREPOSITION' "
+                            + "AND TextEntity_Type != 'PRONOUN' "
                             + "GROUP BY TextEntity_Mention ";
 
                 conn.Open();

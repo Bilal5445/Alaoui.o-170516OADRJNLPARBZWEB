@@ -13,6 +13,7 @@ span.label.themekeywords {
     font-weight: 400;
     padding: 3px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 2;
 }
 
 .container.containerthemekeywords {
