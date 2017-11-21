@@ -85,7 +85,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_li_ma_ch(source);
             source = Preprocess_ma_ch(source);
             // source = Preprocess_le(source);
-            source = Preprocess_al_wa(source);
+            // source = Preprocess_al_wa(source);
             source = Preprocess_al(source);
             source = Preprocess_dl(source);
             source = Preprocess_bezzaf(source);
@@ -296,7 +296,10 @@ namespace ArabicTextAnalyzer.Business.Provider
         public string Preprocess_SilentVowels(string arabizi)
         {
             // n d => n _VOY_ d
-            String miniArabiziKeyword = Regex.Replace(arabizi, "nd", "n_VOW_d", RegexOptions.IgnoreCase);
+            arabizi = Regex.Replace(arabizi, "nd", "n_VOW_d", RegexOptions.IgnoreCase);
+
+            // final k => k _VOY
+            String miniArabiziKeyword = Regex.Replace(arabizi, @"(\w+k\b)", "$1_VOW_", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
         }
