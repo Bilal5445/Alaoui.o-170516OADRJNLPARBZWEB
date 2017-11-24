@@ -12,6 +12,8 @@ using OADRJNLPCommon.Business;
 using ArabicTextAnalyzer.Domain.Models;
 using System.Xml.Serialization;
 using ArabicTextAnalyzer.Models;
+using System.IO;
+using System.Diagnostics;
 
 namespace ArabicTextAnalyzer.Controllers.Tests
 {
@@ -913,6 +915,29 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             arabicsource = new TextConverter().Preprocess_SilentVowels(arabicsource);
 
             Assert.AreEqual(expectedoutarabicsource, arabicsource, "2");
+        }
+
+        [TestMethod()]
+        public void ut_171123_test_speed_read_arabic_dict()
+        {
+            // On c# reading a file of 564000 words take usually less than 1 sec
+            // Vs +1.5 sec on perl ??!
+
+            var watch = Stopwatch.StartNew();
+            var vocab = new Dictionary<String, int>();
+            string workingDirectoryLocation = @"C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\";
+            var pathToModels = workingDirectoryLocation + @"models\";
+            var pathToArabicDictFile = pathToModels + @"moroccan-arabic-dict";
+            foreach (string line in File.ReadLines(pathToArabicDictFile))
+            {
+                // chomp($line);
+                var trimmedline = line.TrimEnd(new char[] { '\n' });
+
+                // $vocab{$line}= 1;
+                vocab[trimmedline] = 1;
+            }
+            watch.Stop();
+            Assert.IsTrue(watch.ElapsedMilliseconds < 1000, watch.ElapsedMilliseconds.ToString());
         }
     }
 }
