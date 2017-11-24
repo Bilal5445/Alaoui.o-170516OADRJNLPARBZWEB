@@ -1,0 +1,377 @@
+27/10/2017 09:02:40.214510 : WINDEV1612SYS: loadTime : 26.3s
+27/10/2017 09:02:42.188089 : WINDEV1612SYS: loadTime : refresh : 29.54s
+27/10/2017 09:06:27.387716 : WINDEV1612SYS: loadTime : 43.32s
+27/10/2017 09:06:51.803658 : WINDEV1612SYS: loadTime : refresh : 8.12s
+27/10/2017 09:08:43.288013 : WINDEV1612SYS: loadTime : 1.47s
+27/10/2017 09:08:49.690270 : WINDEV1612SYS: loadTime : refresh : 8.17s
+27/10/2017 09:08:58.392830 : WINDEV1612SYS: loadTime : 0.84s
+27/10/2017 09:09:03.431424 : WINDEV1612SYS: loadTime : refresh : 6.07s
+27/10/2017 09:10:35.135905 : WINDEV1612SYS: loadTime : 40.75s
+27/10/2017 09:10:51.609376 : WINDEV1612SYS: loadTime : refresh : 57.54s
+27/10/2017 09:24:08.843124 : WINDEV1612SYS: loadTime : 33.6s
+27/10/2017 09:24:11.927278 : WINDEV1612SYS: loadTime : refresh : 37.08s
+27/10/2017 09:25:08.658082 : WINDEV1612SYS: loadTime : 0.91s
+27/10/2017 09:25:16.787071 : WINDEV1612SYS: loadTime : 1.05s
+27/10/2017 09:25:21.619125 : WINDEV1612SYS: loadTime : refresh : 6.14s
+27/10/2017 09:25:23.333894 : WINDEV1612SYS: loadTime : 0.76s
+27/10/2017 09:26:21.754847 : WINDEV1612SYS: loadTime : 45.63s
+27/10/2017 09:26:24.826205 : WINDEV1612SYS: loadTime : refresh : 52.03s
+27/10/2017 09:26:28.333132 : WINDEV1612SYS: loadTime : 0.83s
+27/10/2017 09:26:36.497103 : WINDEV1612SYS: loadTime : refresh : 9.17s
+27/10/2017 09:26:40.790165 : WINDEV1612SYS: loadTime : 1.06s
+27/10/2017 09:26:56.980566 : WINDEV1612SYS: loadTime : refresh : 17.8s
+27/10/2017 09:27:02.154610 : WINDEV1612SYS: loadTime : 1.1s
+27/10/2017 09:27:07.629838 : WINDEV1612SYS: loadTime : refresh : 6.71s
+27/10/2017 09:27:10.309141 : WINDEV1612SYS: loadTime : 0.78s
+27/10/2017 09:27:52.541222 : WINDEV1612SYS: loadTime : refresh : 42.92s
+27/10/2017 09:28:40.278951 : WINDEV1612SYS: loadTime : 31.75s
+27/10/2017 09:28:47.345785 : WINDEV1612SYS: loadTime : refresh : 39.12s
+27/10/2017 09:28:52.138581 : WINDEV1612SYS: loadTime : 1.14s
+27/10/2017 09:28:58.209081 : WINDEV1612SYS: loadTime : refresh : 7.77s
+27/10/2017 09:29:04.863392 : WINDEV1612SYS: loadTime : 0.95s
+27/10/2017 09:31:19.946580 : WINDEV1612SYS: loadTime : 35.03s
+27/10/2017 09:31:38.072239 : WINDEV1612SYS: loadTime : refresh : 53.59s
+27/10/2017 09:32:09.096488 : WINDEV1612SYS: loadTime : 0.7s
+27/10/2017 09:32:13.935974 : WINDEV1612SYS: loadTime : refresh : 5.77s
+27/10/2017 09:32:24.076262 : WINDEV1612SYS: loadTime : 0.89s
+27/10/2017 09:32:30.780056 : WINDEV1612SYS: loadTime : refresh : 7.75s
+27/10/2017 09:32:34.083461 : WINDEV1612SYS: loadTime : 0.94s
+27/10/2017 09:32:36.479240 : WINDEV1612SYS: loadTime : refresh : 3.41s
+27/10/2017 09:32:38.730017 : WINDEV1612SYS: loadTime : 0.75s
+27/10/2017 09:32:40.771268 : WINDEV1612SYS: loadTime : refresh : 2.88s
+27/10/2017 09:32:46.956523 : WINDEV1612SYS: loadTime : 0.8s
+27/10/2017 09:32:51.927091 : WINDEV1612SYS: loadTime : refresh : 5.93s
+27/10/2017 09:32:58.377363 : WINDEV1612SYS: loadTime : 0.81s
+27/10/2017 09:33:04.421090 : WINDEV1612SYS: loadTime : refresh : 7.26s
+27/10/2017 09:33:05.411013 : WINDEV1612SYS: loadTime : 4.67s
+27/10/2017 09:33:10.294289 : WINDEV1612SYS: loadTime : refresh : 9.78s
+27/10/2017 09:33:20.527516 : WINDEV1612SYS: loadTime : 0.98s
+27/10/2017 09:33:25.854761 : WINDEV1612SYS: loadTime : refresh : 6.41s
+27/10/2017 09:33:29.236560 : WINDEV1612SYS: loadTime : 0.75s
+27/10/2017 09:33:36.516936 : WINDEV1612SYS: loadTime : refresh : 8.13s
+27/10/2017 09:35:45.797941 : WINDEV1612SYS: loadTime : 41.09s
+27/10/2017 09:39:30.869986 : WINDEV1612SYS: loadTime : refresh : 26.36s
+27/10/2017 09:47:38.901132 : WINDEV1612SYS: loadTime : 1.86s
+27/10/2017 09:47:43.425762 : WINDEV1612SYS: loadTime : 9.12s
+27/10/2017 09:47:57.681666 : WINDEV1612SYS: loadTime : refresh : 24.75s
+27/10/2017 09:48:03.133403 : WINDEV1612SYS: loadTime : 1.44s
+27/10/2017 09:48:14.278210 : WINDEV1612SYS: loadTime : refresh : 12.72s
+27/10/2017 09:48:23.757694 : WINDEV1612SYS: loadTime : 1.45s
+27/10/2017 09:48:29.264837 : WINDEV1612SYS: loadTime : refresh : 7.09s
+27/10/2017 09:48:35.132658 : WINDEV1612SYS: loadTime : 1.43s
+27/10/2017 09:48:45.902803 : WINDEV1612SYS: loadTime : refresh : 12.33s
+27/10/2017 09:49:10.332335 : WINDEV1612SYS: loadTime : 1.38s
+27/10/2017 09:49:16.353630 : WINDEV1612SYS: loadTime : refresh : 7.75s
+27/10/2017 09:49:22.047323 : WINDEV1612SYS: loadTime : 1.56s
+27/10/2017 09:49:26.656704 : WINDEV1612SYS: loadTime : refresh : 6.31s
+27/10/2017 09:49:31.443447 : WINDEV1612SYS: loadTime : 1.73s
+27/10/2017 09:50:30.766591 : WINDEV1612SYS: loadTime : refresh : 1.2s
+27/10/2017 10:24:38.724257 : WINDEV1612SYS: loadTime : 44.05s
+27/10/2017 10:25:22.898774 : WINDEV1612SYS: loadTime : 1.51s
+27/10/2017 10:28:57.642350 : WINDEV1612SYS: loadTime : 30.51s
+27/10/2017 10:29:21.166383 : WINDEV1612SYS: Invalid object name 'M_ARABICDARIJAENTRY'.
+27/10/2017 10:29:21.307261 : WINDEV1612SYS:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   at Dapper.SqlMapper.<QueryImpl>d__125`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at ArabicTextAnalyzer.Controllers.TrainController.loaddeserializeM_ARABICDARIJAENTRY_DAPPERSQL() in C:\Users\Yahia Alaoui\Desktop\DEV\170516OADRJNLPARBZWEB\ArabicTextAnalyzer\Controllers\TrainController.cs:line 854
+   at ArabicTextAnalyzer.Controllers.TrainController.loaddeserializeM_ARABICDARIJAENTRY(AccessMode accessMode) in C:\Users\Yahia Alaoui\Desktop\DEV\170516OADRJNLPARBZWEB\ArabicTextAnalyzer\Controllers\TrainController.cs:line 819
+   at ArabicTextAnalyzer.Controllers.TrainController.ArabicDarijaEntryPartialView() in C:\Users\Yahia Alaoui\Desktop\DEV\170516OADRJNLPARBZWEB\ArabicTextAnalyzer\Controllers\TrainController.cs:line 76
+27/10/2017 10:29:21.524781 : WINDEV1612SYS: loadTime : refresh : 58.22s
+27/10/2017 10:32:32.926387 : WINDEV1612SYS: loadTime : 25.05s
+27/10/2017 10:33:02.227869 : WINDEV1612SYS: loadTime : 1.41s
+27/10/2017 10:33:20.148402 : WINDEV1612SYS: loadTime : 1.64s
+27/10/2017 10:35:01.566238 : WINDEV1612SYS: loadTime : 2.05s
+27/10/2017 10:37:17.634141 : WINDEV1612SYS: loadTime : 1.62s
+27/10/2017 10:38:32.124096 : WINDEV1612SYS: loadTime : 4.11s
+27/10/2017 10:40:20.414138 : WINDEV1612SYS: loadTime : 32.27s
+27/10/2017 10:40:53.242092 : WINDEV1612SYS: loadTime : refresh : 5.59s
+27/10/2017 10:41:04.166904 : WINDEV1612SYS: loadTime : 1.22s
+27/10/2017 10:42:51.988387 : WINDEV1612SYS: loadTime : refresh : 49.22s
+27/10/2017 10:43:11.069269 : WINDEV1612SYS: loadTime : 28.71s
+27/10/2017 10:43:17.856009 : WINDEV1612SYS: loadTime : refresh : 35.49s
+27/10/2017 10:44:29.560165 : WINDEV1612SYS: loadTime : 13.91s
+27/10/2017 10:44:45.341752 : WINDEV1612SYS: loadTime : refresh : 30.21s
+27/10/2017 10:46:05.765086 : WINDEV1612SYS: loadTime : 10.41s
+27/10/2017 10:46:07.687478 : WINDEV1612SYS: loadTime : refresh : 12.54s
+27/10/2017 10:46:32.104756 : WINDEV1612SYS: loadTime : 2.16s
+27/10/2017 10:46:34.245480 : WINDEV1612SYS: loadTime : refresh : 4.5s
+27/10/2017 10:46:42.621674 : WINDEV1612SYS: loadTime : 1.25s
+27/10/2017 10:46:44.727063 : WINDEV1612SYS: loadTime : refresh : 3.56s
+27/10/2017 10:47:14.905273 : WINDEV1612SYS: loadTime : 10.06s
+27/10/2017 10:47:16.572251 : WINDEV1612SYS: loadTime : refresh : 11.97s
+27/10/2017 10:47:37.985370 : WINDEV1612SYS: loadTime : 10.24s
+27/10/2017 10:47:39.456522 : WINDEV1612SYS: loadTime : refresh : 11.94s
+27/10/2017 10:48:43.244180 : WINDEV1612SYS: loadTime : 32.01s
+27/10/2017 10:48:52.446318 : WINDEV1612SYS: loadTime : refresh : 41.45s
+27/10/2017 10:50:47.313301 : WINDEV1612SYS: loadTime : 15.24s
+27/10/2017 10:50:55.962181 : WINDEV1612SYS: loadTime : refresh : 24.16s
+27/10/2017 10:51:27.417416 : WINDEV1612SYS: loadTime : 14.96s
+27/10/2017 10:51:43.474918 : WINDEV1612SYS: loadTime : refresh : 31.15s
+27/10/2017 10:52:21.522478 : WINDEV1612SYS: loadTime : 15.49s
+27/10/2017 10:53:01.247768 : WINDEV1612SYS: loadTime : 1.63s
+27/10/2017 11:13:30.192270 : WINDEV1612SYS: loadTime : 35.52s
+27/10/2017 11:14:16.501352 : WINDEV1612SYS: loadTime : refresh : 22.02s
+27/10/2017 11:14:42.313448 : WINDEV1612SYS: loadTime : 1.17s
+27/10/2017 11:14:52.443670 : WINDEV1612SYS: loadTime : refresh : 11.34s
+27/10/2017 11:15:17.023143 : WINDEV1612SYS: loadTime : 0.96s
+27/10/2017 11:15:21.369501 : WINDEV1612SYS: loadTime : refresh : 5.41s
+27/10/2017 11:15:42.231679 : WINDEV1612SYS: loadTime : 0.97s
+27/10/2017 11:15:46.706585 : WINDEV1612SYS: loadTime : refresh : 5.52s
+27/10/2017 11:16:27.233629 : WINDEV1612SYS: loadTime : 15.65s
+27/10/2017 11:16:32.068306 : WINDEV1612SYS: loadTime : refresh : 20.72s
+27/10/2017 11:17:43.950331 : WINDEV1612SYS: loadTime : 31.63s
+27/10/2017 11:17:51.000903 : WINDEV1612SYS: loadTime : refresh : 39.04s
+27/10/2017 11:18:00.254821 : WINDEV1612SYS: loadTime : 1.33s
+27/10/2017 11:18:07.707679 : WINDEV1612SYS: loadTime : refresh : 9.26s
+27/10/2017 11:18:16.829959 : WINDEV1612SYS: loadTime : 0.96s
+27/10/2017 11:18:21.886980 : WINDEV1612SYS: loadTime : refresh : 6.27s
+27/10/2017 11:18:27.926355 : WINDEV1612SYS: loadTime : 1.34s
+27/10/2017 11:18:37.321757 : WINDEV1612SYS: loadTime : refresh : 10.8s
+27/10/2017 11:41:35.965289 : WINDEV1612SYS: loadTime : 32.86s
+27/10/2017 11:43:54.453984 : WINDEV1612SYS: loadTime : refresh : 51.58s
+27/10/2017 11:44:43.994016 : WINDEV1612SYS: loadTime : 1.14s
+27/10/2017 11:44:56.172331 : WINDEV1612SYS: loadTime : refresh : 13.45s
+27/10/2017 11:44:59.921844 : WINDEV1612SYS: loadTime : 0.96s
+27/10/2017 11:45:05.935571 : WINDEV1612SYS: loadTime : refresh : 7.09s
+27/10/2017 12:43:26.200104 : WINDEV1612SYS: loadTime : 35.95s
+27/10/2017 12:44:38.411589 : WINDEV1612SYS: loadTime : 1.24s
+27/10/2017 12:45:04.024344 : WINDEV1612SYS: loadTime : 1.28s
+27/10/2017 13:03:14.433336 : WINDEV1612SYS: loadTime : 33.82s
+27/10/2017 13:03:22.616145 : WINDEV1612SYS: loadTime : refresh : 42.24s
+27/10/2017 13:10:22.493718 : WINDEV1612SYS: loadTime : 37.03s
+27/10/2017 13:10:33.270533 : WINDEV1612SYS: loadTime : refresh : 48.03s
+27/10/2017 13:25:04.711323 : WINDEV1612SYS: loadTime : 36.93s
+27/10/2017 13:26:17.014156 : WINDEV1612SYS: loadTime : refresh : 49.45s
+27/10/2017 13:26:35.742950 : WINDEV1612SYS: loadTime : 1.41s
+27/10/2017 13:26:49.260042 : WINDEV1612SYS: loadTime : refresh : 15.23s
+27/10/2017 13:27:32.006745 : WINDEV1612SYS: loadTime : 1.43s
+27/10/2017 13:28:07.395466 : WINDEV1612SYS: loadTime : refresh : 37.06s
+27/10/2017 13:41:36.231864 : WINDEV1612SYS: loadTime : 22.56s
+27/10/2017 13:41:48.593853 : WINDEV1612SYS: loadTime : refresh : 35.17s
+27/10/2017 13:50:26.220709 : WINDEV1612SYS: loadTime : 5.47s
+27/10/2017 13:50:38.174655 : WINDEV1612SYS: loadTime : refresh : 17.56s
+27/10/2017 13:52:41.265806 : WINDEV1612SYS: loadTime : 1.69s
+27/10/2017 13:52:53.749453 : WINDEV1612SYS: loadTime : refresh : 14.36s
+27/10/2017 13:55:25.137104 : WINDEV1612SYS: loadTime : 2.01s
+27/10/2017 13:55:37.451173 : WINDEV1612SYS: loadTime : refresh : 14.5s
+27/10/2017 13:56:32.126254 : WINDEV1612SYS: loadTime : 1.78s
+27/10/2017 13:56:46.515990 : WINDEV1612SYS: loadTime : refresh : 16.39s
+27/10/2017 13:57:59.790678 : WINDEV1612SYS: loadTime : 1.99s
+27/10/2017 13:58:12.395952 : WINDEV1612SYS: loadTime : refresh : 14.73s
+27/10/2017 13:59:44.449419 : WINDEV1612SYS: loadTime : 1.98s
+27/10/2017 13:59:57.031462 : WINDEV1612SYS: loadTime : refresh : 14.72s
+27/10/2017 14:02:06.128252 : WINDEV1612SYS: loadTime : 13.12s
+27/10/2017 14:02:21.443337 : WINDEV1612SYS: loadTime : refresh : 28.58s
+27/10/2017 14:04:56.903965 : WINDEV1612SYS: loadTime : 10.26s
+27/10/2017 14:05:09.191569 : WINDEV1612SYS: loadTime : refresh : 22.79s
+27/10/2017 14:07:59.900979 : WINDEV1612SYS: loadTime : 10.91s
+27/10/2017 14:08:30.896340 : WINDEV1612SYS: loadTime : 1.41s
+27/10/2017 14:08:50.473189 : WINDEV1612SYS: loadTime : refresh : 21.12s
+27/10/2017 14:15:16.876248 : WINDEV1612SYS: loadTime : 1.75s
+27/10/2017 14:15:29.557255 : WINDEV1612SYS: loadTime : refresh : 14.79s
+27/10/2017 14:22:55.580471 : WINDEV1612SYS: loadTime : 1.71s
+27/10/2017 14:23:15.287330 : WINDEV1612SYS: loadTime : refresh : 21.59s
+27/10/2017 14:25:45.545436 : WINDEV1612SYS: loadTime : 2.31s
+27/10/2017 14:26:09.554817 : WINDEV1612SYS: loadTime : refresh : 26.68s
+27/10/2017 14:29:22.281910 : WINDEV1612SYS: loadTime : 1.59s
+27/10/2017 14:29:41.913888 : WINDEV1612SYS: loadTime : refresh : 21.43s
+27/10/2017 14:30:26.736286 : WINDEV1612SYS: loadTime : 1.58s
+27/10/2017 14:30:33.869343 : WINDEV1612SYS: loadTime : refresh : 8.87s
+27/10/2017 14:30:51.084094 : WINDEV1612SYS: loadTime : 1.3s
+27/10/2017 14:30:51.486272 : WINDEV1612SYS: loadTime : refresh : 1.8s
+27/10/2017 14:40:19.414688 : WINDEV1612SYS: loadTime : 1.31s
+27/10/2017 14:40:19.622202 : WINDEV1612SYS: loadTime : refresh : 1.63s
+27/10/2017 14:46:26.858400 : WINDEV1612SYS: loadTime : 24.68s
+27/10/2017 14:46:27.249976 : WINDEV1612SYS: loadTime : refresh : 25.22s
+27/10/2017 14:48:16.975182 : WINDEV1612SYS: loadTime : 19.72s
+27/10/2017 14:48:17.331072 : WINDEV1612SYS: loadTime : refresh : 20.25s
+27/10/2017 14:50:21.973238 : WINDEV1612SYS: loadTime : 19.01s
+27/10/2017 14:50:22.168755 : WINDEV1612SYS: loadTime : refresh : 19.41s
+27/10/2017 14:52:25.517127 : WINDEV1612SYS: loadTime : 1.64s
+27/10/2017 14:52:25.766141 : WINDEV1612SYS: loadTime : refresh : 2.04s
+27/10/2017 15:02:46.104363 : WINDEV1612SYS: loadTime : 43.82s
+27/10/2017 15:02:52.069068 : WINDEV1612SYS: loadTime : refresh : 50.02s
+27/10/2017 15:05:00.133926 : WINDEV1612SYS: loadTime : 39.1s
+27/10/2017 15:05:00.623573 : WINDEV1612SYS: loadTime : refresh : 39.66s
+27/10/2017 15:13:37.187266 : WINDEV1612SYS: loadTime : 37.34s
+27/10/2017 15:13:37.756341 : WINDEV1612SYS: loadTime : refresh : 38.07s
+27/10/2017 15:15:41.218703 : WINDEV1612SYS: loadTime : 34.21s
+27/10/2017 15:15:41.715136 : WINDEV1612SYS: loadTime : refresh : 34.89s
+27/10/2017 15:16:54.690670 : WINDEV1612SYS: Value cannot be null.
+Parameter name: source
+27/10/2017 15:16:54.715556 : WINDEV1612SYS:    at System.Linq.Enumerable.Select[TSource,TResult](IEnumerable`1 source, Func`2 selector)
+   at OADRJNLPCommon.DataTablesNet.DataTableColumn.Get(JToken input) in C:\Users\Yahia Alaoui\Desktop\DEV\170215OADRJNLPMLDC\OADRJNLPCommon\OADRJNLPCommon\DataTablesNet\DataTableParameters.cs:line 79
+   at OADRJNLPCommon.DataTablesNet.DataTableParameters.Get(JToken input) in C:\Users\Yahia Alaoui\Desktop\DEV\170215OADRJNLPMLDC\OADRJNLPCommon\OADRJNLPCommon\DataTablesNet\DataTableParameters.cs:line 43
+   at OADRJNLPCommon.DataTablesNet.DataTableParameters.Get(Object input) in C:\Users\Yahia Alaoui\Desktop\DEV\170215OADRJNLPMLDC\OADRJNLPCommon\OADRJNLPCommon\DataTablesNet\DataTableParameters.cs:line 33
+   at ArabicTextAnalyzer.Controllers.TrainController.DataTablesNet_ServerSide_GetData(Object parameters) in C:\Users\Yahia Alaoui\Desktop\DEV\170516OADRJNLPARBZWEB\ArabicTextAnalyzer\Controllers\TrainController.cs:line 631
+27/10/2017 15:30:29.251133 : WINDEV1612SYS: loadTime : 36.77s
+27/10/2017 15:30:29.893239 : WINDEV1612SYS: loadTime : refresh : 37.66s
+27/10/2017 15:34:11.327745 : WINDEV1612SYS: loadTime : 1.7s
+27/10/2017 15:34:11.611919 : WINDEV1612SYS: loadTime : refresh : 2.63s
+27/10/2017 15:36:10.662279 : WINDEV1612SYS: loadTime : 1.66s
+27/10/2017 15:36:10.959794 : WINDEV1612SYS: loadTime : refresh : 2.41s
+27/10/2017 15:44:42.749639 : WINDEV1612SYS: loadTime : 2.11s
+27/10/2017 15:44:43.232952 : WINDEV1612SYS: loadTime : refresh : 2.56s
+27/10/2017 15:46:58.836184 : WINDEV1612SYS: loadTime : 1.87s
+27/10/2017 15:46:59.341267 : WINDEV1612SYS: loadTime : refresh : 2.37s
+27/10/2017 15:49:26.635021 : WINDEV1612SYS: loadTime : 1.74s
+27/10/2017 15:49:27.296586 : WINDEV1612SYS: loadTime : refresh : 2.27s
+27/10/2017 15:59:05.456463 : WINDEV1612SYS: loadTime : 19.77s
+27/10/2017 15:59:05.906704 : WINDEV1612SYS: loadTime : refresh : 29.88s
+27/10/2017 16:02:14.845258 : WINDEV1612SYS: loadTime : 2.45s
+27/10/2017 16:02:15.854921 : WINDEV1612SYS: loadTime : refresh : 3.44s
+27/10/2017 16:02:49.923274 : WINDEV1612SYS: loadTime : 0.84s
+27/10/2017 16:02:50.535323 : WINDEV1612SYS: loadTime : refresh : 10.27s
+27/10/2017 16:52:34.786382 : WINDEV1612SYS: loadTime : 40.38s
+27/10/2017 16:52:35.223873 : WINDEV1612SYS: loadTime : refresh : 40.86s
+27/10/2017 16:57:22.540970 : WINDEV1612SYS: loadTime : 46.76s
+27/10/2017 16:57:22.884011 : WINDEV1612SYS: loadTime : refresh : 47.45s
+27/10/2017 17:04:49.836699 : WINDEV1612SYS: loadTime : 1.61s
+27/10/2017 17:04:50.140070 : WINDEV1612SYS: loadTime : refresh : 2.31s
+27/10/2017 17:07:29.428563 : WINDEV1612SYS: loadTime : 32.65s
+27/10/2017 17:07:29.905635 : WINDEV1612SYS: loadTime : refresh : 33.19s
+27/10/2017 17:09:26.151270 : WINDEV1612SYS: Incorrect syntax near 'T_ARABICDARIJA'.
+27/10/2017 17:09:26.171149 : WINDEV1612SYS:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   at Dapper.SqlMapper.<QueryImpl>d__125`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at ArabicTextAnalyzer.Controllers.TrainController.loadArabiziToArabicViewModel_DAPPERSQL() in C:\Users\Yahia Alaoui\Desktop\DEV\170516OADRJNLPARBZWEB\ArabicTextAnalyzer\Controllers\TrainController.cs:line 1231
+   at ArabicTextAnalyzer.Controllers.TrainController.DataTablesNet_ServerSide_GetList(Int32 id) in C:\Users\Yahia Alaoui\Desktop\DEV\170516OADRJNLPARBZWEB\ArabicTextAnalyzer\Controllers\TrainController.cs:line 654
+27/10/2017 17:10:23.802095 : WINDEV1612SYS: loadTime : 34.94s
+27/10/2017 17:10:24.328280 : WINDEV1612SYS: loadTime : refresh : 35.64s
+27/10/2017 17:10:58.641512 : WINDEV1612SYS: Invalid object name 'T_ARABICDARIJA'.
+27/10/2017 17:10:58.668525 : WINDEV1612SYS:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   at Dapper.SqlMapper.<QueryImpl>d__125`1.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at ArabicTextAnalyzer.Controllers.TrainController.loadArabiziToArabicViewModel_DAPPERSQL() in C:\Users\Yahia Alaoui\Desktop\DEV\170516OADRJNLPARBZWEB\ArabicTextAnalyzer\Controllers\TrainController.cs:line 1231
+   at ArabicTextAnalyzer.Controllers.TrainController.DataTablesNet_ServerSide_GetList(Int32 id) in C:\Users\Yahia Alaoui\Desktop\DEV\170516OADRJNLPARBZWEB\ArabicTextAnalyzer\Controllers\TrainController.cs:line 654
+27/10/2017 17:12:31.743966 : WINDEV1612SYS: loadTime : 33.97s
+27/10/2017 17:12:32.530561 : WINDEV1612SYS: loadTime : refresh : 34.96s
+27/10/2017 17:15:03.604802 : WINDEV1612SYS: loadTime : 29.68s
+27/10/2017 17:15:04.059321 : WINDEV1612SYS: loadTime : refresh : 30.28s
+27/10/2017 17:15:29.299924 : WINDEV1612SYS: loadTime : 0.95s
+27/10/2017 17:15:30.009972 : WINDEV1612SYS: loadTime : refresh : 1.61s
+27/10/2017 17:15:38.624968 : WINDEV1612SYS: loadTime : 0.85s
+27/10/2017 17:15:39.203447 : WINDEV1612SYS: loadTime : refresh : 1.7s
+27/10/2017 17:21:39.126396 : WINDEV1612SYS: loadTime : 1.72s
+27/10/2017 17:21:40.222964 : WINDEV1612SYS: loadTime : refresh : 3s
+27/10/2017 17:22:52.796391 : WINDEV1612SYS: loadTime : 1.56s
+27/10/2017 17:22:53.714860 : WINDEV1612SYS: loadTime : refresh : 2.65s
+27/10/2017 17:19:00.263122 : WINDEV1612SYS: loadTime : 38.8s
+27/10/2017 17:19:00.902947 : WINDEV1612SYS: loadTime : refresh : 58.65s
+27/10/2017 17:23:37.555764 : WINDEV1612SYS: loadTime : 1.53s
+27/10/2017 17:23:38.038086 : WINDEV1612SYS: loadTime : refresh : 21.27s
+27/10/2017 17:44:47.136909 : WINDEV1612SYS: loadTime : 20.88s
+27/10/2017 17:44:47.732162 : WINDEV1612SYS: loadTime : refresh : 31.6s
+27/10/2017 18:06:06.864652 : WINDEV1612SYS: loadTime : 20.09s
+27/10/2017 18:06:07.228989 : WINDEV1612SYS: loadTime : refresh : 20.67s
+27/10/2017 18:07:28.888932 : WINDEV1612SYS: loadTime : 0.83s
+27/10/2017 18:07:29.196371 : WINDEV1612SYS: loadTime : refresh : 1.21s
+27/10/2017 18:28:05.025326 : WINDEV1612SYS: loadTime : 22.73s
+27/10/2017 18:28:05.584856 : WINDEV1612SYS: loadTime : refresh : 34.38s
+27/10/2017 18:28:44.957875 : WINDEV1612SYS: loadTime : 0.85s
+27/10/2017 18:28:45.637577 : WINDEV1612SYS: loadTime : refresh : 12.43s
+27/10/2017 18:40:21.947800 : WINDEV1612SYS: loadTime : 0.99s
+27/10/2017 18:40:22.407342 : WINDEV1612SYS: loadTime : refresh : 1.37s
+27/10/2017 18:40:34.160030 : WINDEV1612SYS: loadTime : 0.6s
+27/10/2017 18:40:34.517822 : WINDEV1612SYS: loadTime : refresh : 0.87s
+27/10/2017 18:57:54.108561 : WINDEV1612SYS: loadTime : 22.78s
+27/10/2017 18:57:54.716090 : WINDEV1612SYS: loadTime : refresh : 34.49s
+27/10/2017 18:58:11.002793 : WINDEV1612SYS: loadTime : 0.69s
+27/10/2017 18:58:11.921652 : WINDEV1612SYS: loadTime : refresh : 12.54s
+27/10/2017 19:09:22.078814 : WINDEV1612SYS: loadTime : 19.41s
+27/10/2017 19:09:22.668131 : WINDEV1612SYS: loadTime : refresh : 20.19s
+27/10/2017 19:09:22.861584 : WINDEV1612SYS: Column "T_ARABIZIENTRY.ArabiziEntryDate" is invalid in the ORDER BY clause because it is not contained in either an aggregate function or the GROUP BY clause.
+27/10/2017 19:09:22.909605 : WINDEV1612SYS:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   at Dapper.SqlMapper.QueryRowImpl[T](IDbConnection cnn, Row row, CommandDefinition& command, Type effectiveType)
+   at Dapper.SqlMapper.QueryFirst[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType)
+   at ArabicTextAnalyzer.Controllers.TrainController.loadArabiziToArabicViewModelCount_DAPPERSQL() in C:\Users\Yahia Alaoui\Desktop\DEV\170516OADRJNLPARBZWEB\ArabicTextAnalyzer\Controllers\TrainController.cs:line 1187
+   at ArabicTextAnalyzer.Controllers.TrainController.DataTablesNet_ServerSide_GetList() in C:\Users\Yahia Alaoui\Desktop\DEV\170516OADRJNLPARBZWEB\ArabicTextAnalyzer\Controllers\TrainController.cs:line 651
+27/10/2017 19:10:46.225715 : WINDEV1612SYS: loadTime : 19.17s
+27/10/2017 19:10:46.422646 : WINDEV1612SYS: loadTime : refresh : 19.61s
+27/10/2017 19:25:10.384700 : WINDEV1612SYS: loadTime : 22.22s
+27/10/2017 19:25:11.057279 : WINDEV1612SYS: loadTime : refresh : 23.07s
+27/10/2017 19:25:51.479651 : WINDEV1612SYS: loadTime : 1.39s
+27/10/2017 19:25:51.801188 : WINDEV1612SYS: loadTime : refresh : 1.78s
+28/10/2017 10:02:56.369372 : WINDEV1612SYS: loadTime : 22.55s
+28/10/2017 10:02:59.348840 : WINDEV1612SYS: loadTime : refresh : 25.65s
+28/10/2017 10:11:35.369745 : WINDEV1612SYS: loadTime : 19.05s
+28/10/2017 10:11:35.877802 : WINDEV1612SYS: loadTime : refresh : 19.7s
+28/10/2017 10:28:29.578883 : WINDEV1612SYS: train - before lock
+28/10/2017 10:28:40.132428 : WINDEV1612SYS: train - after lock
+28/10/2017 10:28:41.253783 : WINDEV1612SYS: loadTime : 11.53s
+28/10/2017 10:28:43.823733 : WINDEV1612SYS: loadTime : refresh : 14.26s
+28/10/2017 11:31:58.924473 : WINDEV1612SYS: train - before lock
+28/10/2017 11:32:14.099527 : WINDEV1612SYS: train - after lock
+28/10/2017 11:32:28.424193 : WINDEV1612SYS: loadTime : 42.02s
+28/10/2017 11:32:28.669710 : WINDEV1612SYS: loadTime : refresh : 42.35s
+28/10/2017 22:31:07.125097 : WINDEV1612SYS: loadTime : 24.62s
+28/10/2017 22:31:07.173616 : WINDEV1612SYS: loadTime : refresh : 24.81s
+28/10/2017 23:00:11.408165 : WINDEV1612SYS: loadTime : 22.33s
+29/10/2017 08:19:19.698675 : WINDEV1612SYS: loadTime : refresh : 43.39s
+29/10/2017 08:19:20.011719 : WINDEV1612SYS: loadTime : 44.33s
+29/10/2017 08:21:42.270238 : WINDEV1612SYS: train - before lock
+29/10/2017 08:22:30.041953 : WINDEV1612SYS: train - after lock
+29/10/2017 08:22:31.173218 : WINDEV1612SYS: loadTime : refresh : 48.95s
+29/10/2017 08:22:31.303626 : WINDEV1612SYS: loadTime : 48.89s
+29/10/2017 08:23:04.455088 : WINDEV1612SYS: train - before lock
+29/10/2017 08:25:49.762901 : WINDEV1612SYS: train - after lock
+29/10/2017 08:25:50.608731 : WINDEV1612SYS: loadTime : refresh : 46.17s
+29/10/2017 08:25:50.687017 : WINDEV1612SYS: loadTime : 46.09s
