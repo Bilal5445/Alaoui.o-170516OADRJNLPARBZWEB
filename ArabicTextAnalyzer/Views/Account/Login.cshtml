@@ -51,13 +51,23 @@
             }
         </section>
     </div>
+    @*
     <div class="col-md-4">
         <section id="socialLoginForm">
             @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
         </section>
     </div>
+    *@
 </div>
+
+@section styles {
+    @* vertical load time *@
+    <link rel="stylesheet" type="text/css" href="~/Content/hlpr.vertical-text.css" />
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    @* vertical load time *@
+    <script type="text/javascript" src="~/Scripts/my.js"></script>
 }
