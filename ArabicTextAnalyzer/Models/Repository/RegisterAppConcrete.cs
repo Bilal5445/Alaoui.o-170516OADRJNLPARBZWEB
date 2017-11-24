@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace ArabicTextAnalyzer.Models.Repository
 {
-    public  class RegisterAppConcrete : IRegisterApp
+    public class RegisterAppConcrete : IRegisterApp
     {
         ArabiziDbContext _context;
+
         public RegisterAppConcrete()
         {
             _context = new ArabiziDbContext();
-
         }
 
         public IEnumerable<RegisterApp> ListofApps(string UserID)
@@ -41,7 +41,6 @@ namespace ArabicTextAnalyzer.Models.Repository
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -69,11 +68,9 @@ namespace ArabicTextAnalyzer.Models.Repository
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-
 
         public bool ValidateAppName(RegisterApp registercompany)
         {
@@ -93,7 +90,6 @@ namespace ArabicTextAnalyzer.Models.Repository
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -115,10 +111,8 @@ namespace ArabicTextAnalyzer.Models.Repository
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-         
     }
 }

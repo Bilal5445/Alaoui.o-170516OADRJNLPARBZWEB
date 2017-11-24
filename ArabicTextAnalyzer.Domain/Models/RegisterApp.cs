@@ -10,24 +10,15 @@ namespace ArabicTextAnalyzer.Domain.Models
 {
     public class RegisterApp
     {
-        
         public int RegisterAppId { get; set; }
         [Required(ErrorMessage = "Required Name")]
         public string Name { get; set; }
         public int TotalAppCallLimit { get; set; }
         public int TotalAppCallConsumed { get; set; }
         public DateTime? CreatedOn { get; set; }
-
         public string UserID { get; set; }
-        //[ForeignKey("UserID")]
-        //public virtual RegisterUser RegisterUsers { get; set; }
-
-
-        //[Required(ErrorMessage = "Required EmailID")]
-        //public string EmailId { get; set; }
-        //[Required(ErrorMessage = "Required Status")]
-        //public bool Status { get; set; }
     }
+
     public class RegisterAppCallingLog
     {
         public RegisterAppCallingLog()
@@ -36,10 +27,6 @@ namespace ArabicTextAnalyzer.Domain.Models
         }
         public int RegisterAppCallingLogId { get; set; }
         public string UserId { get; set; }
-
-
-        // [ForeignKey("UserID")]
-        //public virtual si RegisterUsers { get; set; }
         public int? RegisterAppId { get; set; }
         [ForeignKey("RegisterAppId")]
         public virtual RegisterApp RegisterApps { get; set; }
@@ -48,7 +35,5 @@ namespace ArabicTextAnalyzer.Domain.Models
         public virtual TokensManager TokensManagers { get; set; }
         public DateTime? DateCreatedOn { get; set; }
         public string MethodName { get; set; }
-
-
     }
 }
