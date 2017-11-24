@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201710270934303_InitialCreate.Designer.cs">
       <DependentUpon>201710270934303_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711241555349_TokenAuthentication.cs" />
+    <Compile Include="Migrations\201711241555349_TokenAuthentication.Designer.cs">
+      <DependentUpon>201711241555349_TokenAuthentication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArabiziDbContext.cs" />
     <Compile Include="Models\ProcessTextDto.cs" />
@@ -515,6 +519,7 @@
     <Content Include="bower_components\datatables.net-select\bower.json" />
     <Content Include="bower_components\datatables.net-select\Readme.md" />
     <None Include="Properties\PublishProfiles\VM_137.116.196.7.pubxml" />
+    <Content Include="Migrations\howto_migrations.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
@@ -611,6 +616,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710270934303_InitialCreate.resx">
       <DependentUpon>201710270934303_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711241555349_TokenAuthentication.resx">
+      <DependentUpon>201711241555349_TokenAuthentication.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

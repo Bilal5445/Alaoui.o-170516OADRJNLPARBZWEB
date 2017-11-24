@@ -13,7 +13,6 @@
         {
             @Html.AntiForgeryToken()
 
-
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
                 @Html.LabelFor(model => model.Name, "Enter App Name:", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -27,53 +26,48 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
         }
     }
-   else
-   {
-       ClientKeys clientkeys = ViewBag.clientkeys;
-       if (clientkeys != null)
-       {
-        <div class="form-group">
-            <div class="col-lg-12">
-                <div class="col-md-6">
-                    <div class="panel panel-default active ">
-                        <div class="panel-heading">@clientkeys.RegisterApps.Name</div>
-                        <div class="panel-body" style="padding: 0; height: 250px">
-                            <div class="form-group"></div>
-                            <div class="col-lg-12">
-                                <div class="col-lg-3">
-                                    <img src="~/Content/Images/app.jpg" width="100" height="100" />
+    else
+    {
+        ClientKeys clientkeys = ViewBag.clientkeys;
+        if (clientkeys != null)
+        {
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <div class="col-md-6">
+                        <div class="panel panel-default active ">
+                            <div class="panel-heading">@clientkeys.RegisterApps.Name</div>
+                            <div class="panel-body" style="padding: 0; height: 250px">
+                                <div class="form-group"></div>
+                                <div class="col-lg-12">
+                                    <div class="col-lg-3">
+                                        <img src="~/Content/Images/app.jpg" width="100" height="100" />
+                                    </div>
+                                    <div class="col-lg-9 pull-right">
+                                        <p> <label class="control-label">App Name:</label> @clientkeys.RegisterApps.Name</p>
+                                        <p> <label class="control-label">ClientId:</label> @clientkeys.ClientId</p>
+                                        <p> <label class="control-label">Client Secret:</label> @clientkeys.ClientSecret</p>
+                                        <p>
+                                            <label class="control-label">Total Max Call Limit:</label>
+                                            @if (clientkeys.RegisterApps.TotalAppCallLimit == 0)
+                                            {
+                                                <span style="color:red;">No more calls</span>
+                                            }
+                                            else
+                                            {
+                                                @Html.Raw(clientkeys.RegisterApps.TotalAppCallLimit + " Calls")
+                                            }
+                                        </p>
+                                        <p> <label class="control-label">Total Consumed Call:</label> @clientkeys.RegisterApps.TotalAppCallConsumed</p>
+                                    </div>
                                 </div>
-                                <div class="col-lg-9 pull-right" >
-                                    <p> <label class="control-label">App Name:</label> @clientkeys.RegisterApps.Name</p>
-                                    <p> <label class="control-label">ClientId:</label> @clientkeys.ClientId</p>
-                                    <p> <label class="control-label">Client Secret:</label> @clientkeys.ClientSecret</p>
-                                    <p> <label class="control-label">Total Max Call Limit:</label>
-                                    @if (clientkeys.RegisterApps.TotalAppCallLimit == 0)
-                                    {
-                                        <span style="color:red;">No more calls</span>
-                                    }
-                                    else
-                                    {
-                                        @Html.Raw(clientkeys.RegisterApps.TotalAppCallLimit +" Calls")
-                                    }</p>
-                                    <p> <label class="control-label">Total Consumed Call:</label> @clientkeys.RegisterApps.TotalAppCallConsumed</p>
-                                </div>
+
                             </div>
-                           
                         </div>
                     </div>
                 </div>
             </div>
-           
-            
-        </div>
         }
     }
 </div>

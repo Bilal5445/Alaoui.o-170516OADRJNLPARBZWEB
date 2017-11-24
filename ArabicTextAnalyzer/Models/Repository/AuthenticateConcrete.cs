@@ -15,7 +15,6 @@ namespace ArabicTextAnalyzer.Models.Repository
 
         public AuthenticateConcrete()
         {
-
             _context = new ArabiziDbContext();
         }
 
@@ -147,6 +146,7 @@ namespace ArabicTextAnalyzer.Models.Repository
                 throw;
             }
         }
+
         public bool IsTokenValid(string token, string methodName, out string errMsg)
         {
             bool flag = false;
@@ -218,7 +218,7 @@ namespace ArabicTextAnalyzer.Models.Repository
                     {
                         tokenExist.IsDeleted = true;
                         _context.SaveChanges();
-                        flag = true;                       
+                        flag = true;
                     }
                 }
             }

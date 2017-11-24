@@ -17,6 +17,8 @@ namespace ArabicTextAnalyzer.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+
+        // authentication
         IRegisterApp _IRegister;
         IClientKeys _IClientKeys;
         IAuthenticate _IAuthenticate;
@@ -342,26 +344,19 @@ namespace ArabicTextAnalyzer.Controllers
             base.Dispose(disposing);
         }
 
-
         [Authorize]
         public ActionResult ManageApp(RegisterApp model)
         {
-            
             var userId = User.Identity.GetUserId();
 
-            
-           // if (app)
-            //{
-            //    return RedirectToAction("Index");
-            //}
             var keyExists = _IClientKeys.IsUniqueKeyAlreadyGenerate(userId);
             ViewBag.clientExist = keyExists;
             if (keyExists)
             {
                 // Getting Generate ClientID and ClientSecert Key By UserID
                 ViewBag.clientkeys = _IClientKeys.GetGenerateUniqueKeyByUserID(userId);
-                
             }
+
             if (Request.HttpMethod.ToUpper() == "GET")
             {
 
@@ -381,27 +376,22 @@ namespace ArabicTextAnalyzer.Controllers
                         return View("ManageApp", model);
                     }
                     var app = _IRegister.CheckIsAppRegistered(userId);
-                    if (app==false)
-                    { 
-                    model.UserID = userId;
-                    model.CreatedOn = DateTime.Now;
-                    model.TotalAppCallLimit = AppCallLimit;
-
-                    _IRegister.Add(model);
-
-                    // Genrate Clientid and Secret Key
-                    if (model.RegisterAppId > 0)
+                    if (app == false)
                     {
+                        model.UserID = userId;
+                        model.CreatedOn = DateTime.Now;
+                        model.TotalAppCallLimit = AppCallLimit;
+
+                        _IRegister.Add(model);
+
+                        // Genrate Clientid and Secret Key
+                        if (model.RegisterAppId > 0)
+                        {
                             try
                             {
-
                                 ClientKeys clientkeys = new ClientKeys();
 
-
-
                                 // Validating ClientID and ClientSecert already Exists
-
-
                                 if (keyExists)
                                 {
                                     // Getting Generate ClientID and ClientSecert Key By UserID
@@ -417,10 +407,10 @@ namespace ArabicTextAnalyzer.Controllers
                                     var company = _IRegister.FindAppByUserId(userId);
                                     companyId = company.RegisterAppId;
 
-                                    //Generate Keys
+                                    // Generate Keys
                                     _IClientKeys.GenerateUniqueKey(out clientID, out clientSecert);
 
-                                    //Saving Keys Details in Database
+                                    // Saving Keys Details in Database
                                     clientkeys.ClientKeysID = 0;
                                     clientkeys.RegisterAppId = companyId;
                                     clientkeys.CreatedOn = DateTime.Now;
@@ -431,22 +421,18 @@ namespace ArabicTextAnalyzer.Controllers
                                     ViewBag.clientkeys = clientkeys;
                                     ViewBag.clientExist = true;
                                 }
-
-                           
-
+                            }
+                            catch (Exception)
+                            {
+                                throw;
+                            }
                         }
-                        catch (Exception)
-                        {
-                            throw;
-                        }
-                    }
                     }
                     else
                     {
                         return RedirectToAction("Index");
                     }
                     return View(model);
-                    // return RedirectToAction("Create");
                 }
                 catch
                 {
@@ -455,9 +441,9 @@ namespace ArabicTextAnalyzer.Controllers
             }
             return View();
         }
+
         public ActionResult GenrateToken(string userId)
         {
-          //  var userId = User.Identity.GetUserId();
             if (Request.HttpMethod.ToUpper() == "GET")
             {
 
@@ -467,31 +453,29 @@ namespace ArabicTextAnalyzer.Controllers
                 var clientkeys = _IClientKeys.GetGenerateUniqueKeyByUserID(userId);
                 string message = string.Empty;
                 bool isAppValid = _IClientKeys.IsAppValid(clientkeys);
-                if(isAppValid==false)
+                if (isAppValid == false)
                 {
                     message = "No More calls";
-                    
                 }
                 else
                 {
-                    message= GetToken(clientkeys);
+                    message = GetToken(clientkeys);
                 }
                 Session["message"] = message;
                 ViewBag.Message = message;
-                if(clientkeys!=null)
+                if (clientkeys != null)
                 {
                     Session["userId"] = clientkeys.UserID;
                 }
-                
             }
             return RedirectToAction("Index", "Train");
         }
+
         public string GetToken(ClientKeys clientKeys)
         {
             string result = string.Empty;
             if (string.IsNullOrEmpty(clientKeys.ClientId) && string.IsNullOrEmpty(clientKeys.ClientSecret))
             {
-
                 result = "Not Valid Request";
                 return result;
             }
@@ -552,85 +536,6 @@ namespace ArabicTextAnalyzer.Controllers
             }
             return result;
         }
-
-        //public ActionResult GenerateKeys(ClientKeys clientkeys)
-        //{
-        //    var userId = User.Identity.GetUserId();
-        //    if (Request.HttpMethod.ToUpper() == "GET")
-        //    {
-        //        try
-        //        {
-        //            if(clientkeys==null)
-        //            {
-        //                clientkeys = new ClientKeys();
-        //            }
-
-
-        //            // Validating ClientID and ClientSecert already Exists
-        //            var keyExists = _IClientKeys.IsUniqueKeyAlreadyGenerate(Convert.ToInt32(userId));
-
-        //            if (keyExists)
-        //            {
-        //                // Getting Generate ClientID and ClientSecert Key By UserID
-        //                clientkeys = _IClientKeys.GetGenerateUniqueKeyByUserID(Convert.ToInt32(userId));
-        //            }
-        //            else
-        //            {
-        //                string clientID = string.Empty;
-        //                string clientSecert = string.Empty;
-        //                int companyId = 0;
-
-        //                var company = _IRegister.FindAppByUserId(Convert.ToInt32(userId));
-        //                companyId = company.RegisterAppId;
-
-        //                //Generate Keys
-        //                _IClientKeys.GenerateUniqueKey(out clientID, out clientSecert);
-
-        //                //Saving Keys Details in Database
-        //                clientkeys.ClientKeysID = 0;
-        //                clientkeys.RegisterAppId = companyId;
-        //                clientkeys.CreatedOn = DateTime.Now;
-        //                clientkeys.ClientId = clientID;
-        //                clientkeys.ClientSecret = clientSecert;
-        //                clientkeys.UserID = Convert.ToInt32(userId);
-        //                _IClientKeys.SaveClientIDandClientSecert(clientkeys);
-
-        //            }
-
-        //            return View(clientkeys);
-        //        }
-        //        catch (Exception)
-        //        {
-        //            throw;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        try
-        //        {
-        //            string clientID = string.Empty;
-        //            string clientSecert = string.Empty;
-
-        //            //Generate Keys
-        //            _IClientKeys.GenerateUniqueKey(out clientID, out clientSecert);
-
-        //            //Updating ClientID and ClientSecert 
-        //            var company = _IRegister.FindAppByUserId(Convert.ToInt32(userId));
-        //            clientkeys.RegisterAppId = company.RegisterAppId;
-        //            clientkeys.CreatedOn = DateTime.Now;
-        //            clientkeys.ClientId = clientID;
-        //            clientkeys.ClientSecret = clientSecert;
-        //            clientkeys.UserID = Convert.ToInt32(userId);
-        //            _IClientKeys.UpdateClientIDandClientSecert(clientkeys);
-
-        //            return RedirectToAction("GenerateKeys");
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            return View();
-        //        }
-        //    }
-        //}
 
         #region Helpers
         // Used for XSRF protection when adding external logins

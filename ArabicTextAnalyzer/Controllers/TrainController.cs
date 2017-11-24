@@ -27,43 +27,44 @@ namespace ArabicTextAnalyzer.Controllers
     {
         // global lock to queur concurrent access
         private static Object thisLock = new Object();
+
+        // authentication in constructor
         IAuthenticate _IAuthenticate;
         IRegisterApp _IRegister;
         public TrainController()
         {
-            
             _IAuthenticate = new AuthenticateConcrete();
             _IRegister = new RegisterAppConcrete();
         }
+
         // data access mode (ef-sql, dapper-sql, xml)
         // AccessMode _accessMode = AccessMode.dappersql;
 
         // GET: Train
-		 [Authorize]
+        [Authorize]
         public ActionResult Index()
         {
-            
+            // token management
             var token = Session["_T0k@n_"];
             bool istokenexpire = _IAuthenticate.IsTokenExpire(Convert.ToString(token));
-            if(istokenexpire)
+            if (istokenexpire)
             {
                 Session["_T0k@n_"] = "";
                 TempData["showAlertWarning"] = true;
                 TempData["msgAlert"] = "Your token is expired.";
             }
-            string errMessage=string.Empty;
+            string errMessage = string.Empty;
             var userId = User.Identity.GetUserId();
             List<RegisterApp> _registerApp = _IRegister.ListofApps(userId).ToList();
             ViewBag.registerApp = _registerApp;
 
-            
-                // send size of corpus & co-data
-                @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
-                @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
-                @ViewBag.BidictSize = new TextFrequency().GetBidictNumberOfLine();
-                var arabiziEntriesCount = loaddeserializeM_ARABIZIENTRY_DAPPERSQL().Count;
-                @ViewBag.ArabiziEntriesCount = arabiziEntriesCount;
-                @ViewBag.RatioLatinWordsOnEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL().Where(m => String.IsNullOrWhiteSpace(m.Translation) == true).ToList().Count / (double)arabiziEntriesCount;
+            // send size of corpus & co-data
+            @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
+            @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
+            @ViewBag.BidictSize = new TextFrequency().GetBidictNumberOfLine();
+            var arabiziEntriesCount = loaddeserializeM_ARABIZIENTRY_DAPPERSQL().Count;
+            @ViewBag.ArabiziEntriesCount = arabiziEntriesCount;
+            @ViewBag.RatioLatinWordsOnEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL().Where(m => String.IsNullOrWhiteSpace(m.Translation) == true).ToList().Count / (double)arabiziEntriesCount;
 
             @ViewBag.EntitiesCount = new TextFrequency().GetEntitiesCount();
 
@@ -115,16 +116,16 @@ namespace ArabicTextAnalyzer.Controllers
         #region FRONT YARD ACTIONS TRAIN
         [Authorize]
         [HttpPost]
-        public ActionResult TrainStepOne(M_ARABIZIENTRY arabiziEntry, String mainEntity )
+        public ActionResult TrainStepOne(M_ARABIZIENTRY arabiziEntry, String mainEntity)
         {
             var token = Session["_T0k@n_"];
             string errMessage = string.Empty;
-            if (token !=null && _IAuthenticate.IsTokenValid(Convert.ToString( token), "TrainStepOne", out errMessage))
+            if (token != null && _IAuthenticate.IsTokenValid(Convert.ToString(token), "TrainStepOne", out errMessage))
             {
 
                 // Arabizi to arabic script via direct call to perl script
-                
-				var res =  train(arabiziEntry, mainEntity);
+
+                var res = train(arabiziEntry, mainEntity);
 
                 if (res == Guid.Empty)
                 {

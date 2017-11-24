@@ -22,12 +22,12 @@ namespace ArabicTextAnalyzer.Models
         public DbSet<M_TWINGLYACCOUNT> M_TWINGLYACCOUNTs { get; set; }
         public DbSet<M_XTRCTTHEME> M_XTRCTTHEMEs { get; set; }
         public DbSet<M_XTRCTTHEME_KEYWORD> M_XTRCTTHEME_KEYWORDs { get; set; }
+
+        // authentication entities
         public DbSet<RegisterUser> RegisterUsers { get; set; }
         public DbSet<RegisterApp> RegisterApps { get; set; }
         public DbSet<TokensManager> TokensManager { get; set; }
         public DbSet<ClientKeys> ClientKeys { get; set; }
         public DbSet<RegisterAppCallingLog> RegisterAppCallingLogs { get; set; }
-
-        
     }
 }
