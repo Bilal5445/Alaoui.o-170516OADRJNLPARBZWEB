@@ -201,9 +201,23 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AuthenticateController.cs" />
     <Compile Include="Controllers\TrainController.cs" />
+    <Compile Include="Migrations\201710270934303_InitialCreate.cs" />
+    <Compile Include="Migrations\201710270934303_InitialCreate.Designer.cs">
+      <DependentUpon>201710270934303_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArabiziDbContext.cs" />
     <Compile Include="Models\ProcessTextDto.cs" />
+    <Compile Include="Models\Repository\AuthenticateConcrete.cs" />
+    <Compile Include="Models\Repository\ClientKeysConcrete.cs" />
+    <Compile Include="Models\Repository\IAuthenticate.cs" />
+    <Compile Include="Models\Repository\IClientKeys.cs" />
+    <Compile Include="Models\Repository\IRegisterApp.cs" />
+    <Compile Include="Models\Repository\IRegisterUser.cs" />
+    <Compile Include="Models\Repository\RegisterAppConcrete.cs" />
+    <Compile Include="Models\Repository\RegisterUserConcrete.cs" />
     <Compile Include="Models\TextAnalyze.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -436,6 +450,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\hlpr.vertical-text.css" />
+    <Content Include="Content\Images\app.jpg" />
     <Content Include="Content\mysite_train.css" />
     <Content Include="Content\mysite_train_bulkimport.css" />
     <Content Include="Content\mysite_train_keywordfiltering.css" />
@@ -561,12 +576,15 @@
     <Content Include="Views\Train\Index.cshtml" />
     <Content Include="Views\Train\_IndexPartialPage_arabicDarijaEntries.cshtml" />
     <Content Include="Web.config.server" />
+    <Content Include="Views\Manage\Create.cshtml" />
+    <Content Include="Views\Manage\GenerateKeys.cshtml" />
+    <Content Include="Views\Manage\GenrateToken.cshtml" />
+    <Content Include="Views\Manage\ManageApp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />
     <Folder Include="BusinessContracts\" />
     <Folder Include="Business\" />
-    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -589,6 +607,11 @@
       <Project>{f14cf097-10e2-4336-a27b-ab55903a0354}</Project>
       <Name>ArabicTextAnalyzer.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710270934303_InitialCreate.resx">
+      <DependentUpon>201710270934303_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

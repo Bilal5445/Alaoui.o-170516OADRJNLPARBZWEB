@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AES256Encryption\EncryptionLibrary.cs" />
+    <Compile Include="Models\ClientKeys.cs" />
     <Compile Include="Models\M_ARABICDARIJAENTRY_TEXTENTITY.cs" />
     <Compile Include="Models\M_ARABICDARIJAENTRY.cs" />
     <Compile Include="Models\M_ARABICDARIJAENTRY_LATINWORD.cs" />
@@ -48,6 +50,9 @@
     <Compile Include="Models\M_TWINGLYACCOUNT.cs" />
     <Compile Include="Models\M_XTRCTTHEME.cs" />
     <Compile Include="Models\M_XTRCTTHEME_KEYWORD.cs" />
+    <Compile Include="Models\RegisterApp.cs" />
+    <Compile Include="Models\RegisterUser.cs" />
+    <Compile Include="Models\TokensManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextEntity.cs" />
     <Compile Include="TextSentiment.cs" />

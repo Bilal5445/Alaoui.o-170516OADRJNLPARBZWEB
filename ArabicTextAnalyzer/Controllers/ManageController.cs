@@ -7,7 +7,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ArabicTextAnalyzer.Models;
-
+using ArabicTextAnalyzer.Domain.Models;
+using ArabicTextAnalyzer.Models.Repository;
+using System.Configuration;
 namespace ArabicTextAnalyzer.Controllers
 {
     [Authorize]
@@ -15,9 +17,15 @@ namespace ArabicTextAnalyzer.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        IRegisterApp _IRegister;
+        IClientKeys _IClientKeys;
+        IAuthenticate _IAuthenticate;
 
         public ManageController()
         {
+            _IRegister = new RegisterAppConcrete();
+            _IClientKeys = new ClientKeysConcrete();
+            _IAuthenticate = new AuthenticateConcrete();
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -32,9 +40,9 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -49,6 +57,7 @@ namespace ArabicTextAnalyzer.Controllers
                 _userManager = value;
             }
         }
+
 
         //
         // GET: /Manage/Index
@@ -333,7 +342,297 @@ namespace ArabicTextAnalyzer.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+
+        [Authorize]
+        public ActionResult ManageApp(RegisterApp model)
+        {
+            
+            var userId = User.Identity.GetUserId();
+
+            
+           // if (app)
+            //{
+            //    return RedirectToAction("Index");
+            //}
+            var keyExists = _IClientKeys.IsUniqueKeyAlreadyGenerate(userId);
+            ViewBag.clientExist = keyExists;
+            if (keyExists)
+            {
+                // Getting Generate ClientID and ClientSecert Key By UserID
+                ViewBag.clientkeys = _IClientKeys.GetGenerateUniqueKeyByUserID(userId);
+                
+            }
+            if (Request.HttpMethod.ToUpper() == "GET")
+            {
+
+            }
+            else
+            {
+                try
+                {
+                    if (!ModelState.IsValid)
+                    {
+                        return View("ManageApp", model);
+                    }
+
+                    if (_IRegister.ValidateAppName(model))
+                    {
+                        ModelState.AddModelError("", "App is Already Registered");
+                        return View("ManageApp", model);
+                    }
+                    var app = _IRegister.CheckIsAppRegistered(userId);
+                    if (app==false)
+                    { 
+                    model.UserID = userId;
+                    model.CreatedOn = DateTime.Now;
+                    model.TotalAppCallLimit = AppCallLimit;
+
+                    _IRegister.Add(model);
+
+                    // Genrate Clientid and Secret Key
+                    if (model.RegisterAppId > 0)
+                    {
+                            try
+                            {
+
+                                ClientKeys clientkeys = new ClientKeys();
+
+
+
+                                // Validating ClientID and ClientSecert already Exists
+
+
+                                if (keyExists)
+                                {
+                                    // Getting Generate ClientID and ClientSecert Key By UserID
+                                    clientkeys = _IClientKeys.GetGenerateUniqueKeyByUserID(userId);
+                                    ViewBag.clientkeys = clientkeys;
+                                }
+                                else
+                                {
+                                    string clientID = string.Empty;
+                                    string clientSecert = string.Empty;
+                                    int companyId = 0;
+
+                                    var company = _IRegister.FindAppByUserId(userId);
+                                    companyId = company.RegisterAppId;
+
+                                    //Generate Keys
+                                    _IClientKeys.GenerateUniqueKey(out clientID, out clientSecert);
+
+                                    //Saving Keys Details in Database
+                                    clientkeys.ClientKeysID = 0;
+                                    clientkeys.RegisterAppId = companyId;
+                                    clientkeys.CreatedOn = DateTime.Now;
+                                    clientkeys.ClientId = clientID;
+                                    clientkeys.ClientSecret = clientSecert;
+                                    clientkeys.UserID = userId;
+                                    _IClientKeys.SaveClientIDandClientSecert(clientkeys);
+                                    ViewBag.clientkeys = clientkeys;
+                                    ViewBag.clientExist = true;
+                                }
+
+                           
+
+                        }
+                        catch (Exception)
+                        {
+                            throw;
+                        }
+                    }
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    return View(model);
+                    // return RedirectToAction("Create");
+                }
+                catch
+                {
+                    return View();
+                }
+            }
+            return View();
+        }
+        public ActionResult GenrateToken(string userId)
+        {
+          //  var userId = User.Identity.GetUserId();
+            if (Request.HttpMethod.ToUpper() == "GET")
+            {
+
+            }
+            else
+            {
+                var clientkeys = _IClientKeys.GetGenerateUniqueKeyByUserID(userId);
+                string message = string.Empty;
+                bool isAppValid = _IClientKeys.IsAppValid(clientkeys);
+                if(isAppValid==false)
+                {
+                    message = "No More calls";
+                    
+                }
+                else
+                {
+                    message= GetToken(clientkeys);
+                }
+                Session["message"] = message;
+                ViewBag.Message = message;
+                if(clientkeys!=null)
+                {
+                    Session["userId"] = clientkeys.UserID;
+                }
+                
+            }
+            return RedirectToAction("Index", "Train");
+        }
+        public string GetToken(ClientKeys clientKeys)
+        {
+            string result = string.Empty;
+            if (string.IsNullOrEmpty(clientKeys.ClientId) && string.IsNullOrEmpty(clientKeys.ClientSecret))
+            {
+
+                result = "Not Valid Request";
+                return result;
+            }
+            else
+            {
+                if (_IAuthenticate.ValidateKeys(clientKeys))
+                {
+                    var clientkeys = _IAuthenticate.GetClientKeysDetailsbyCLientIDandClientSecert(clientKeys.ClientId, clientKeys.ClientSecret);
+
+                    if (clientkeys == null)
+                    {
+
+                        result = "InValid Keys";
+                        return result;
+                    }
+                    else
+                    {
+                        if (_IAuthenticate.IsTokenAlreadyExists(clientkeys.RegisterAppId.Value))
+                        {
+                            _IAuthenticate.DeleteGenerateToken(clientkeys.RegisterAppId.Value);
+
+                            var IssuedOn = DateTime.Now;
+                            var newToken = _IAuthenticate.GenerateToken(clientkeys, IssuedOn);
+
+                            var status = _IAuthenticate.InsertToken(clientkeys, ConfigurationManager.AppSettings["TokenExpiry"], newToken);
+                            if (status == 1)
+                            {
+                                Session["_T0k@n_"] = newToken;
+                                result = "Token genrated successfully !!!";
+                            }
+                            else
+                            {
+                                result = "Error in Creating Token";
+                            }
+                        }
+                        else
+                        {
+                            var IssuedOn = DateTime.Now;
+                            var newToken = _IAuthenticate.GenerateToken(clientkeys, IssuedOn);
+
+                            var status = _IAuthenticate.InsertToken(clientkeys, ConfigurationManager.AppSettings["TokenExpiry"], newToken);
+                            if (status == 1)
+                            {
+                                Session["_T0k@n_"] = newToken;
+                                result = "Token genrated successfully !!!";
+                            }
+                            else
+                            {
+                                result = "Error in Creating Token";
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    result = "Invalid Keys!!!";
+                }
+            }
+            return result;
+        }
+
+        //public ActionResult GenerateKeys(ClientKeys clientkeys)
+        //{
+        //    var userId = User.Identity.GetUserId();
+        //    if (Request.HttpMethod.ToUpper() == "GET")
+        //    {
+        //        try
+        //        {
+        //            if(clientkeys==null)
+        //            {
+        //                clientkeys = new ClientKeys();
+        //            }
+
+
+        //            // Validating ClientID and ClientSecert already Exists
+        //            var keyExists = _IClientKeys.IsUniqueKeyAlreadyGenerate(Convert.ToInt32(userId));
+
+        //            if (keyExists)
+        //            {
+        //                // Getting Generate ClientID and ClientSecert Key By UserID
+        //                clientkeys = _IClientKeys.GetGenerateUniqueKeyByUserID(Convert.ToInt32(userId));
+        //            }
+        //            else
+        //            {
+        //                string clientID = string.Empty;
+        //                string clientSecert = string.Empty;
+        //                int companyId = 0;
+
+        //                var company = _IRegister.FindAppByUserId(Convert.ToInt32(userId));
+        //                companyId = company.RegisterAppId;
+
+        //                //Generate Keys
+        //                _IClientKeys.GenerateUniqueKey(out clientID, out clientSecert);
+
+        //                //Saving Keys Details in Database
+        //                clientkeys.ClientKeysID = 0;
+        //                clientkeys.RegisterAppId = companyId;
+        //                clientkeys.CreatedOn = DateTime.Now;
+        //                clientkeys.ClientId = clientID;
+        //                clientkeys.ClientSecret = clientSecert;
+        //                clientkeys.UserID = Convert.ToInt32(userId);
+        //                _IClientKeys.SaveClientIDandClientSecert(clientkeys);
+
+        //            }
+
+        //            return View(clientkeys);
+        //        }
+        //        catch (Exception)
+        //        {
+        //            throw;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        try
+        //        {
+        //            string clientID = string.Empty;
+        //            string clientSecert = string.Empty;
+
+        //            //Generate Keys
+        //            _IClientKeys.GenerateUniqueKey(out clientID, out clientSecert);
+
+        //            //Updating ClientID and ClientSecert 
+        //            var company = _IRegister.FindAppByUserId(Convert.ToInt32(userId));
+        //            clientkeys.RegisterAppId = company.RegisterAppId;
+        //            clientkeys.CreatedOn = DateTime.Now;
+        //            clientkeys.ClientId = clientID;
+        //            clientkeys.ClientSecret = clientSecert;
+        //            clientkeys.UserID = Convert.ToInt32(userId);
+        //            _IClientKeys.UpdateClientIDandClientSecert(clientkeys);
+
+        //            return RedirectToAction("GenerateKeys");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            return View();
+        //        }
+        //    }
+        //}
+
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -383,7 +682,14 @@ namespace ArabicTextAnalyzer.Controllers
             RemovePhoneSuccess,
             Error
         }
+        public int AppCallLimit
+        {
+            get
+            {
+                return Convert.ToInt32(ConfigurationManager.AppSettings["TotalAppCallLimit"]);
+            }
+        }
 
-#endregion
+        #endregion
     }
 }

@@ -1,6 +1,7 @@
 ﻿using ArabicTextAnalyzer.Business.Provider;
 using ArabicTextAnalyzer.Domain;
 using ArabicTextAnalyzer.Domain.Models;
+using ArabicTextAnalyzer.Models.Repository;
 using ArabicTextAnalyzer.Models;
 using ArabicTextAnalyzer.ViewModels;
 using Dapper;
@@ -18,27 +19,51 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml.Serialization;
-
+using Microsoft.AspNet.Identity;
 namespace ArabicTextAnalyzer.Controllers
 {
+    [Authorize]
     public class TrainController : Controller
     {
         // global lock to queur concurrent access
         private static Object thisLock = new Object();
-
+        IAuthenticate _IAuthenticate;
+        IRegisterApp _IRegister;
+        public TrainController()
+        {
+            
+            _IAuthenticate = new AuthenticateConcrete();
+            _IRegister = new RegisterAppConcrete();
+        }
         // data access mode (ef-sql, dapper-sql, xml)
         // AccessMode _accessMode = AccessMode.dappersql;
 
         // GET: Train
+		 [Authorize]
         public ActionResult Index()
         {
-            // send size of corpus & co-data
-            @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
-            @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
-            @ViewBag.BidictSize = new TextFrequency().GetBidictNumberOfLine();
-            var arabiziEntriesCount = loaddeserializeM_ARABIZIENTRY_DAPPERSQL().Count;
-            @ViewBag.ArabiziEntriesCount = arabiziEntriesCount;
-            @ViewBag.RatioLatinWordsOnEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL().Where(m => String.IsNullOrWhiteSpace(m.Translation) == true).ToList().Count / (double)arabiziEntriesCount;
+            
+            var token = Session["_T0k@n_"];
+            bool istokenexpire = _IAuthenticate.IsTokenExpire(Convert.ToString(token));
+            if(istokenexpire)
+            {
+                Session["_T0k@n_"] = "";
+                TempData["showAlertWarning"] = true;
+                TempData["msgAlert"] = "Your token is expired.";
+            }
+            string errMessage=string.Empty;
+            var userId = User.Identity.GetUserId();
+            List<RegisterApp> _registerApp = _IRegister.ListofApps(userId).ToList();
+            ViewBag.registerApp = _registerApp;
+
+            
+                // send size of corpus & co-data
+                @ViewBag.CorpusSize = new TextFrequency().GetCorpusNumberOfLine();
+                @ViewBag.CorpusWordCount = new TextFrequency().GetCorpusWordCount();
+                @ViewBag.BidictSize = new TextFrequency().GetBidictNumberOfLine();
+                var arabiziEntriesCount = loaddeserializeM_ARABIZIENTRY_DAPPERSQL().Count;
+                @ViewBag.ArabiziEntriesCount = arabiziEntriesCount;
+                @ViewBag.RatioLatinWordsOnEntries = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL().Where(m => String.IsNullOrWhiteSpace(m.Translation) == true).ToList().Count / (double)arabiziEntriesCount;
 
             @ViewBag.EntitiesCount = new TextFrequency().GetEntitiesCount();
 
@@ -88,19 +113,32 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         #region FRONT YARD ACTIONS TRAIN
+        [Authorize]
         [HttpPost]
-        public ActionResult TrainStepOne(M_ARABIZIENTRY arabiziEntry, String mainEntity)
+        public ActionResult TrainStepOne(M_ARABIZIENTRY arabiziEntry, String mainEntity )
         {
-            // Arabizi to arabic script via direct call to perl script
-            var res = train(arabiziEntry, mainEntity);
-
-            if (res == Guid.Empty)
+            var token = Session["_T0k@n_"];
+            string errMessage = string.Empty;
+            if (token !=null && _IAuthenticate.IsTokenValid(Convert.ToString( token), "TrainStepOne", out errMessage))
             {
-                TempData["showAlertWarning"] = true;
-                TempData["msgAlert"] = "Text is required !";
-                return RedirectToAction("Index");
-            }
 
+                // Arabizi to arabic script via direct call to perl script
+                
+				var res =  train(arabiziEntry, mainEntity);
+
+                if (res == Guid.Empty)
+                {
+                    TempData["showAlertWarning"] = true;
+                    TempData["msgAlert"] = "Text is required.";
+                    return RedirectToAction("Index");
+                }
+            }
+            else
+            {
+                Session["_T0k@n_"] = "";
+                TempData["showAlertWarning"] = true;
+                TempData["msgAlert"] = errMessage; //"Not a valid token";
+            }
             //
             return RedirectToAction("Index");
         }

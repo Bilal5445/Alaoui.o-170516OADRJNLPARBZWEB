@@ -3,7 +3,15 @@
 @{
     ViewBag.Title = "Train";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
+    var token = Session["_T0k@n_"];
+    var user = Session["userId"];
+    List<RegisterApp> registerAppList = ViewBag.registerApp;
+    var message = Session["message"];
+
+    bool showAlertWarning = ViewBag.showAlertWarning;
+    bool showAlertSuccess = ViewBag.showAlertSuccess;
+    String msgAlert = ViewBag.msgAlert;
+    }
 
 @section styles {
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">-->
@@ -84,15 +92,15 @@
             <div class="modal-body">
                 @using (Html.BeginForm("XtrctTheme_AddNew", "Train", FormMethod.Post))
                 {
-                    <div class="form-group">
-                        <label for="themename">Theme Name</label>
-                        @Html.TextBox("themename", "", new { @class = "form-control", placeholder = "Enter new theme name", @required = "required", id = "themename" })
-                    </div>
-                    <div class="form-group">
-                        <label for="themetags">Theme Tags</label>
-                        @Html.TextBox("themetags", "", new { @class = "form-control", @required = "required", id = "themetags", data_role = "tagsinput" })
-                    </div>
-                    <button type="submit" class="btn btn-default btn-success">Add</button>
+                <div class="form-group">
+                    <label for="themename">Theme Name</label>
+                    @Html.TextBox("themename", "", new { @class = "form-control", placeholder = "Enter new theme name", @required = "required", id = "themename" })
+                </div>
+                <div class="form-group">
+                    <label for="themetags">Theme Tags</label>
+                    @Html.TextBox("themetags", "", new { @class = "form-control", @required = "required", id = "themetags", data_role = "tagsinput" })
+                </div>
+                <button type="submit" class="btn btn-default btn-success">Add</button>
                 }
             </div>
         </div>
@@ -125,139 +133,220 @@
     </a>
 </div>
 
-<!-- aribizi translate -->
-@using (Html.BeginForm("TrainStepOne", "Train", new { mainEntity = @ViewBag.ActiveXtrctTheme.ThemeName.Trim() }, FormMethod.Post, new { id = "trainform" }))
-{
-    <div class="panel panel-default active">
-        <div class="panel-heading">Arabizi</div>
-        <div class="panel-body" style="padding: 0;">
-            <div class="input-group">
-                @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "resize:none", rows = 2, @class = "form-control custom-control", @required = "required" })
-                @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
-                <span class="input-group-addon btn btn-primary" onclick="document.forms['trainform'].submit();">Translate</span>
-            </div>
-        </div>
-    </div>
-}
 
-<!-- arabizi keying & corpus info & co -->
-<div id="row-arabizi-input" class="row" style="margin-top: 30px; display: none;">
-    <!-- column 1 : arabizi input -->
-    <div class="col-md-3 col-sm-6">
-        @using (Html.BeginForm("TrainStepOne", "Train", FormMethod.Post))
-        {
-            <div class="panel panel-default active">
-                <div class="panel-heading">Arabizi</div>
-                <div class="panel-body" style="padding: 0; height: 150px">
-                    @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "height: 100%; width: 100%", @required = "required" })
+<div class="row">
+    @using (Html.BeginForm("GenrateToken", "Manage"))
+    {
+        <div class="form-group"></div>
+                    <div class="form-group col-lg-12">
+                        <div class="col-lg-2"></div>
+                        <label class="control-label col-lg-1">My Apps</label>
+                        <div class="col-lg-4">
+                            @Html.DropDownList("userId", new SelectList(registerAppList, "UserID", "Name", Convert.ToString(user)), "---Select App---", new { @class = "form-control", @required = "required" })
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="submit" value="Genrate Token" class="btn btn-primary" />
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Warning!</strong> @msgAlert
+                            </div>
+                            @if (!string.IsNullOrEmpty(Convert.ToString(message)))
+                            {
+                                <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" >
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>Warning!</strong> @(Convert.ToString(message))
+                                </div>
+                            }
+                            <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Success!</strong> @msgAlert
+                            </div>
+                        </div>
+
+                    </div>
+
+    }
+</div>
+
+
+
+@if (token != null && !string.IsNullOrEmpty(token as string))
+{
+    <!-- aribizi translate -->
+    using (Html.BeginForm("TrainStepOne", "Train", new { mainEntity = @ViewBag.ActiveXtrctTheme.ThemeName.Trim() }, FormMethod.Post, new { id = "trainform" }))
+    {
+        <div class="panel panel-default active">
+            <div class="panel-heading">Arabizi</div>
+            <div class="panel-body" style="padding: 0;">
+                @*<div class="form-group">
+                        <label class="control-label col-lg-2">Token:</label>
+                        <div class="col-lg-10">
+                            <input type="text" name="token" id="token" value="@token" class="form-control" />
+
+                        </div>
+                    </div>*@
+                <div class="input-group">
+                    @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "resize:none", rows = 2, @class = "form-control custom-control", @required = "required" })
                     @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
-                </div>
-            </div>
-        <!-- button submit -->
-            <div class="row">
-                <div class="col-md-2">
-                    <button class="btn btn-success btn-md" type="submit" id="train">
-                        Train
-                    </button>
-                </div>
-            </div>
-        }
-    </div>
-    <!-- column 2 : Twingly/Corpus Res -->
-    <div class="col-md-2 col-sm-6">
-        @if (String.IsNullOrEmpty(ViewBag.MostPopularVariant) == false)
-        {
-            <div class="panel panel-default active arabic ">
-                <div class="panel-heading">Most Popular Variant : @ViewBag.MostPopularVariant</div>
-                <div class="panel-body" style="padding: 0; height: 150px; position:relative;">
-                    <div class="loader"></div>
-                    <textarea style="height: 100%; width: 100%" id="arabic-text">@ViewBag.Post</textarea>
-                </div>
-            </div>
-        }
-    </div>
-    <!-- column 3 : corpus info -->
-    <div class="col-md-3 col-sm-6">
-        <div class="panel panel-default active arabic ">
-            <div class="panel-heading">Corpus/Bidict Info</div>
-            <div class="panel-body" style="height: 150px; position:relative;">
-                <div class="row">
-                    <div class="col-md-6 col-xs-6"><small>Corpus Lines:</small></div>
-                    <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n0}", @ViewBag.CorpusSize)</small></div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6"><small>Bidict Lines:</small></div>
-                    <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n0}", @ViewBag.BidictSize)</small></div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6"><small>Arabizi Entries:</small></div>
-                    <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n0}", @ViewBag.ArabiziEntriesCount)</small></div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6"><small>Entities Count:</small></div>
-                    <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n0}", @ViewBag.EntitiesCount)</small></div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-xs-6"><small>Ratio Latin:</small></div>
-                    <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n2}", @ViewBag.RatioLatinWordsOnEntries)</small></div>
+                    <span class="input-group-addon btn btn-primary" onclick="document.forms['trainform'].submit();">Translate</span>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- column 4 : twingly accounts -->
-    <div class="col-md-4 col-sm-6">
-        <div class="panel panel-default active arabic ">
-            <div class="panel-heading row" style="margin-left: 0px; margin-right: 0px;">
-                <div class="col-xs-6 col-lg-2">Twingly</div>
-                <div class="col-xs-6 col-lg-10"><input type="text" name="txtNewTwinglyAccount" class="form-control" value="" placeholder="" id="txtNewTwinglyAccount" style="padding: 0; border: 0; height: 20px;"></div>
+    }
+
+    <!-- arabizi keying & corpus info & co -->
+    <div id="row-arabizi-input" class="row" style="margin-top: 30px; display: none;">
+        <!-- column 1 : arabizi input -->
+        <div class="col-md-3 col-sm-6">
+            @using (Html.BeginForm("TrainStepOne", "Train", FormMethod.Post))
+        {
+        <div class="panel panel-default active">
+            <div class="panel-heading">Arabizi</div>
+            <div class="panel-body" style="padding: 0; height: 150px">
+                @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "height: 100%; width: 100%", @required = "required" })
+                @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
             </div>
-            <div class="panel-body" style="height: 150px; position: relative;">
-                <div class="form-group">
-                    <div id="myButtons" class="btn-group-vertical btn-group-sm" data-toggle="buttons">
-                        @foreach (var twinglyAccount in @ViewBag.TwinglyAccounts)
+        </div>
+        <!-- button submit -->
+        <div class="row">
+            <div class="col-md-2">
+                <button class="btn btn-success btn-md" type="submit" id="train">
+                    Train
+                </button>
+            </div>
+        </div>
+        }
+        </div>
+        <!-- column 2 : Twingly/Corpus Res -->
+        <div class="col-md-2 col-sm-6">
+            @if (String.IsNullOrEmpty(ViewBag.MostPopularVariant) == false)
+        {
+        <div class="panel panel-default active arabic ">
+            <div class="panel-heading">Most Popular Variant : @ViewBag.MostPopularVariant</div>
+            <div class="panel-body" style="padding: 0; height: 150px; position:relative;">
+                <div class="loader"></div>
+                <textarea style="height: 100%; width: 100%" id="arabic-text">@ViewBag.Post</textarea>
+            </div>
+        </div>
+        }
+        </div>
+        <!-- column 3 : corpus info -->
+        <div class="col-md-3 col-sm-6">
+            <div class="panel panel-default active arabic ">
+                <div class="panel-heading">Corpus/Bidict Info</div>
+                <div class="panel-body" style="height: 150px; position:relative;">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6"><small>Corpus Lines:</small></div>
+                        <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n0}", @ViewBag.CorpusSize)</small></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6"><small>Bidict Lines:</small></div>
+                        <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n0}", @ViewBag.BidictSize)</small></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6"><small>Arabizi Entries:</small></div>
+                        <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n0}", @ViewBag.ArabiziEntriesCount)</small></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6"><small>Entities Count:</small></div>
+                        <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n0}", @ViewBag.EntitiesCount)</small></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6"><small>Ratio Latin:</small></div>
+                        <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n2}", @ViewBag.RatioLatinWordsOnEntries)</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- column 4 : twingly accounts -->
+        <div class="col-md-4 col-sm-6">
+            <div class="panel panel-default active arabic ">
+                <div class="panel-heading row" style="margin-left: 0px; margin-right: 0px;">
+                    <div class="col-xs-6 col-lg-2">Twingly</div>
+                    <div class="col-xs-6 col-lg-10"><input type="text" name="txtNewTwinglyAccount" class="form-control" value="" placeholder="" id="txtNewTwinglyAccount" style="padding: 0; border: 0; height: 20px;"></div>
+                </div>
+                <div class="panel-body" style="height: 150px; position: relative;">
+                    <div class="form-group">
+                        <div id="myButtons" class="btn-group-vertical btn-group-sm" data-toggle="buttons">
+                            @foreach (var twinglyAccount in @ViewBag.TwinglyAccounts)
                         {
-                            <label class="btn btn-primary @twinglyAccount.CurrentActive" style="font-family: monospace; text-align: left;" data-toggle='tooltip' title='@twinglyAccount.UserName'>
-                                @Html.RadioButton("name", "value", true, new { id = "id", style = "width: 80%;" }) @twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper()
-                                <span class='badge'>@twinglyAccount.calls_free</span>
-                                <a href="@Url.Action("TwinglySetup_deleteAccount", new { id_twinglyaccount_api_key = twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper() })" style="position: absolute; right: 0; top: 0;"><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
-                            </label>
+                        <label class="btn btn-primary @twinglyAccount.CurrentActive" style="font-family: monospace; text-align: left;" data-toggle='tooltip' title='@twinglyAccount.UserName'>
+                            @Html.RadioButton("name", "value", true, new { id = "id", style = "width: 80%;" }) @twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper()
+                            <span class='badge'>@twinglyAccount.calls_free</span>
+                            <a href="@Url.Action("TwinglySetup_deleteAccount", new { id_twinglyaccount_api_key = twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper() })" style="position: absolute; right: 0; top: 0;"><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
+                        </label>
                         }
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-@{
-    bool showAlertWarning = ViewBag.showAlertWarning;
-    bool showAlertSuccess = ViewBag.showAlertSuccess;
-    String msgAlert = ViewBag.msgAlert;
+    
+
+        <!-- upload large file of posts -->
+        <div id="row-bulk-input" class="row" style="margin-top: 15px">
+            @using (Html.BeginForm("Data_Upload", "Train", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline" }))
+            {
+                <div class="form-group">
+                    <label for="importposts">Bulk Import:</label>
+                    <input type="file" name="file" class="form-control" id="importposts" />
+                    <label for="mainEntity">Main Tag:</label>
+                    @Html.DropDownList("mainEntity", (IEnumerable<SelectListItem>)ViewBag.XtrctThemesPlain, null, new { @class = "form-control" })
+                </div>
+                <button class="btn btn-success btn-md" type="submit" id="import_posts">
+                    Import Posts
+                </button>
+                <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Warning!</strong> @msgAlert
+                </div>
+                <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Success!</strong> @msgAlert
+                </div>
+            }
+        </div>
+        <!-- Place where you will insert your partial -->
+        <div id="partialPlaceHolder" style="display:inline;"> </div>
 }
+@*//else
+//{*@
+            @*<div class="row">
+                @using (Html.BeginForm("GenrateToken", "Manage"))
+                {
+                    <div class="form-group"></div>
+                    <div class="form-group col-lg-12">
+                        <div class="col-lg-2"></div>
+                        <label class="control-label col-lg-1">My Apps</label>
+                        <div class="col-lg-4">
+                            @Html.DropDownList("userId", new SelectList(registerAppList, "UserID", "Name"),"---Select App---", new { @class = "form-control",@required="required" })                          
+                        </div>
+                        <div class="col-lg-4">                     
+                            <input type="submit" value="Genrate Token" class="btn btn-primary" />
 
-<!-- upload large file of posts -->
-<div id="row-bulk-input" class="row" style="margin-top: 15px">
-    @using (Html.BeginForm("Data_Upload", "Train", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline" }))
-    {
-        <div class="form-group">
-            <label for="importposts">Bulk Import:</label>
-            <input type="file" name="file" class="form-control" id="importposts" />
-            <label for="mainEntity">Main Tag:</label>
-            @Html.DropDownList("mainEntity", (IEnumerable<SelectListItem>)ViewBag.XtrctThemesPlain, null, new { @class = "form-control" })
-        </div>
-        <button class="btn btn-success btn-md" type="submit" id="import_posts">
-            Import Posts
-        </button>
-        <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Warning!</strong> @msgAlert
-        </div>
-        <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Success!</strong> @msgAlert
-        </div>
-    }
-</div>
-
-<!-- Place where you will insert your partial -->
-<div id="partialPlaceHolder" style="display:inline;"> </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Warning!</strong> @msgAlert
+                            </div>
+                            <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Success!</strong> @msgAlert
+                            </div>
+                        </div>
+                       
+                    </div>
+                    
+                }
+            </div>*@
+       @*// }*@
