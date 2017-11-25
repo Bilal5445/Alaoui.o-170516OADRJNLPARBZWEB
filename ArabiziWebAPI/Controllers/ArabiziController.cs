@@ -53,10 +53,9 @@ namespace ArabiziWebAPI.Controllers
             }
             else
             {
-                var message = new HttpResponseMessage();
-                message.StatusCode = HttpStatusCode.NotAcceptable;
-                message.Content = new StringContent(errorMessage);
-                return Ok(message);
+                HttpResponseMessage response = new HttpResponseMessage();
+                response = Request.CreateResponse(HttpStatusCode.NotAcceptable, errorMessage);              
+                return Ok(response);
             }
         }
 
