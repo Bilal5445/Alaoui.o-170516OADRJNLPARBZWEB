@@ -93,5 +93,25 @@ namespace ArabicTextAnalyzer.Controllers
                 return message;
             }
         }
+
+
+        public HttpResponseMessage ValidateToken(string token, string methodTocall)
+        {
+            var message = new HttpResponseMessage();
+            string errMessage = string.Empty;
+            if (_IAuthenticate.IsTokenValid(Convert.ToString(token), methodTocall, out errMessage))
+            {
+
+                message.StatusCode = HttpStatusCode.OK;
+                message.Content = new StringContent("Success");
+
+            }
+            else
+            {
+                message.StatusCode = HttpStatusCode.NotAcceptable;
+                message.Content = new StringContent(errMessage);
+            }
+            return message;
+        }
     }
 }
