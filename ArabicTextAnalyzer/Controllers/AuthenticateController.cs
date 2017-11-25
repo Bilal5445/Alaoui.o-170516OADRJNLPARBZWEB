@@ -121,7 +121,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
             else
             {
-                response = Request.CreateResponse(HttpStatusCode.NotAcceptable, errMessage);               
+                response = Request.CreateResponse(HttpStatusCode.InternalServerError, errMessage);               
             }
             return response;
         }
