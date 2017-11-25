@@ -176,25 +176,22 @@ namespace ArabicTextAnalyzer.Models.Repository
                         }
                         else
                         {
-                            errMsg = "Your call limit is bounce. Please contact to support team.";
+                            errMsg = "Your call limit is bounced. Please contact to support team.";
                         }
                     }
                     else
                     {
                         tokenExist.IsDeleted = true;
                         _context.SaveChanges();
-                        errMsg = "Token Expire";
+                        errMsg = "Token Expired";
                     }
 
 
                 }
                 else
                 {
-                    errMsg = "Token invalid.";
-                }
-                //(from token in _context.TokensManager
-                // where token.CompanyID == CompanyID
-                // select token).Count();
+                    errMsg = "Token is invalid.";
+                }                
             }
             else
             {
