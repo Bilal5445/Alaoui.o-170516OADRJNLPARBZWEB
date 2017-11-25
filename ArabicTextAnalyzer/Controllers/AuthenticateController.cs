@@ -19,13 +19,17 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         // POST: api/Authenticate
-        public HttpResponseMessage Authenticate([FromBody]ClientKeys ClientKeys)
+        public HttpResponseMessage Authenticate(string ClientId, string ClientSecret)
         {
+            ClientKeys ClientKeys = new ClientKeys() { ClientId = ClientId, ClientSecret = ClientSecret };
+
             if (string.IsNullOrEmpty(ClientKeys.ClientId) && string.IsNullOrEmpty(ClientKeys.ClientSecret))
             {
-                var message = new HttpResponseMessage(HttpStatusCode.NotAcceptable);
-                message.Content = new StringContent("Not Valid Request");
-                return message;
+
+                HttpResponseMessage response = new HttpResponseMessage();
+                response = Request.CreateResponse(HttpStatusCode.NotAcceptable, "Not Valid Request");
+                return response;
+             
             }
             else
             {
@@ -35,9 +39,10 @@ namespace ArabicTextAnalyzer.Controllers
 
                     if (clientkeys == null)
                     {
-                        var message = new HttpResponseMessage(HttpStatusCode.NotFound);
-                        message.Content = new StringContent("InValid Keys");
-                        return message;
+                        HttpResponseMessage response = new HttpResponseMessage();
+                        response = Request.CreateResponse(HttpStatusCode.NotFound, "InValid Keys");
+                        return response;
+               
                     }
                     else
                     {
@@ -55,9 +60,9 @@ namespace ArabicTextAnalyzer.Controllers
                 }
                 else
                 {
-                    var message = new HttpResponseMessage(HttpStatusCode.NotFound);
-                    message.Content = new StringContent("InValid Keys");
-                    return new HttpResponseMessage { StatusCode = HttpStatusCode.NotAcceptable };
+                    HttpResponseMessage response = new HttpResponseMessage();
+                    response = Request.CreateResponse(HttpStatusCode.NotFound, "InValid Keys");
+                    return response;                 
                 }
             }
         }
@@ -80,7 +85,7 @@ namespace ArabicTextAnalyzer.Controllers
             if (result == 1)
             {
                 HttpResponseMessage response = new HttpResponseMessage();
-                response = Request.CreateResponse(HttpStatusCode.OK, "Authorized");
+                response = Request.CreateResponse(HttpStatusCode.OK, newToken);
                 response.Headers.Add("Token", newToken);
                 response.Headers.Add("TokenExpiry", ConfigurationManager.AppSettings["TokenExpiry"]);
                 response.Headers.Add("Access-Control-Expose-Headers", "Token,TokenExpiry");
@@ -88,30 +93,37 @@ namespace ArabicTextAnalyzer.Controllers
             }
             else
             {
-                var message = new HttpResponseMessage(HttpStatusCode.NotAcceptable);
-                message.Content = new StringContent("Error in Creating Token");
-                return message;
+                HttpResponseMessage response = new HttpResponseMessage();
+                response = Request.CreateResponse(HttpStatusCode.NotAcceptable, "Error in Creating Token");             
+                return response;               
             }
         }
 
 
         public HttpResponseMessage ValidateToken(string token, string methodTocall)
         {
-            var message = new HttpResponseMessage();
+            HttpResponseMessage response = new HttpResponseMessage();
             string errMessage = string.Empty;
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                token = token.Replace(" ", "+");
+                token = token.Replace(@"\", "");
+            }
             if (_IAuthenticate.IsTokenValid(Convert.ToString(token), methodTocall, out errMessage))
             {
+               
+                response = Request.CreateResponse(HttpStatusCode.OK, "Success");            
 
-                message.StatusCode = HttpStatusCode.OK;
-                message.Content = new StringContent("Success");
+            
+             
 
             }
             else
             {
-                message.StatusCode = HttpStatusCode.NotAcceptable;
-                message.Content = new StringContent(errMessage);
+                response = Request.CreateResponse(HttpStatusCode.NotAcceptable, errMessage);               
             }
-            return message;
+            return response;
         }
     }
 }

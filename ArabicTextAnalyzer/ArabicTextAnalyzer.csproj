@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -203,14 +204,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AuthenticateController.cs" />
     <Compile Include="Controllers\TrainController.cs" />
-    <Compile Include="Migrations\201710270934303_InitialCreate.cs" />
-    <Compile Include="Migrations\201710270934303_InitialCreate.Designer.cs">
-      <DependentUpon>201710270934303_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711241555349_TokenAuthentication.cs" />
-    <Compile Include="Migrations\201711241555349_TokenAuthentication.Designer.cs">
-      <DependentUpon>201711241555349_TokenAuthentication.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArabiziDbContext.cs" />
     <Compile Include="Models\ProcessTextDto.cs" />
@@ -612,14 +605,6 @@
       <Project>{f14cf097-10e2-4336-a27b-ab55903a0354}</Project>
       <Name>ArabicTextAnalyzer.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710270934303_InitialCreate.resx">
-      <DependentUpon>201710270934303_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711241555349_TokenAuthentication.resx">
-      <DependentUpon>201711241555349_TokenAuthentication.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

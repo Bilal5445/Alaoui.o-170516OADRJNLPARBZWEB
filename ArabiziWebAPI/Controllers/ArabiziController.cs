@@ -30,8 +30,15 @@ namespace ArabiziWebAPI.Controllers
         {
             return _arabicdarijaentries;
         }
+     
+        public IHttpActionResult Authenticate(string clientId, string clientSecret)
+        {
+            var response = CheckForToken(clientId, clientSecret);
+            return Ok(response);
+        }
 
-        public IHttpActionResult GetArabicDarijaEntry(string token,int id)
+      
+        public IHttpActionResult GetArabicDarijaEntry(string token,int? id)
         {
             var errorMessage = string.Empty;
             if (ValidateToken(token, "GetArabicDarijaEntry", out errorMessage))
@@ -53,7 +60,8 @@ namespace ArabiziWebAPI.Controllers
             }
         }
 
-        public IHttpActionResult GetArabicDarijaEntry(string token, String text)
+       
+        public IHttpActionResult GetArabicDarijaEntry([FromBody]string token, String text)
         {
             var errorMessage = string.Empty;
             if (ValidateToken(token, "GetArabicDarijaEntry", out errorMessage))
@@ -152,21 +160,18 @@ namespace ArabiziWebAPI.Controllers
                 return Ok(message);
             }
         }
-
-        public IHttpActionResult Authenticate(string clientId, string clientSecret)
-        {
-            var response = CheckForToken(clientId, clientSecret);
-            return Ok(response);
-        }
+      
         public bool ValidateToken(string token, string methodToCall, out string errorMessage)
         {
             errorMessage = string.Empty;
             string result = null;
-            Dictionary<string, string> requestContent = new Dictionary<string, string>();
-            requestContent.Add("token", token);
-            requestContent.Add("methodTocall", methodToCall);
-            result = HtmlHelpers.MakeHttpClientRequest(ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/ValidateToken",
-               requestContent, HttpMethod.Post);
+            //Dictionary<string, string> requestContent = new Dictionary<string, string>();
+            //requestContent.Add("token", token);
+            //requestContent.Add("methodTocall", methodToCall);
+
+            var requestContent = "/?token="+ token + "&methodTocall="+methodToCall;
+            result = HtmlHelpers.PostAPIRequest(ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken"
+               +requestContent,requestContent);
 
             if (result.Contains("Success"))
             {
@@ -180,12 +185,12 @@ namespace ArabiziWebAPI.Controllers
         }
         private string CheckForToken(string clientId, string clientSecret)
         {
-            string result = null;
-            Dictionary<string, string> requestContent = new Dictionary<string, string>();
-            requestContent.Add("ClientId", clientId);
-            requestContent.Add("ClientSecret", clientSecret);
-            result = HtmlHelpers.MakeHttpClientRequest(ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate",
-               requestContent, HttpMethod.Post);
+            string result = null;           
+
+           var requestContent = "/?clientId="+ clientId + "&clientSecret="+ clientSecret ;
+
+        result = HtmlHelpers.PostAPIRequest(ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + 
+            "api/Authenticate/Authenticate"+ requestContent,   requestContent);
 
             return result;
 
@@ -195,6 +200,46 @@ namespace ArabiziWebAPI.Controllers
 
     public static class HtmlHelpers
     {
+
+        public static string PostAPIRequest(string url,string para)
+        {
+            HttpClient client;
+            string result = string.Empty;
+            try
+            {
+                client = new HttpClient();
+                client.DefaultRequestHeaders.Clear();
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                // Use SecurityProtocolType.Ssl3 if needed for compatibility reasons
+
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
+
+
+                byte[] messageBytes = System.Text.Encoding.UTF8.GetBytes(para);
+                var content = new ByteArrayContent(messageBytes);
+                content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                content.Headers.Add("access-control-allow-origin", "*");
+
+
+                var response = client.PostAsync(url, content).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    result = response.Content.ReadAsStringAsync().Result;
+                }
+                else
+                {
+                    result = response.Content.ReadAsStringAsync().Result;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            return result;
+
+        }
 
         public static string MakeHttpClientRequest(string requestUrl, Dictionary<string, string> requestContent, HttpMethod verb)
         {
