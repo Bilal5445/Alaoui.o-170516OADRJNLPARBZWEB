@@ -20,6 +20,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Xml.Serialization;
 using Microsoft.AspNet.Identity;
+using OADRJNLPCommon.Models;
+using ArabicTextAnalyzer.Business.ScrappyBusiness;
+
 namespace ArabicTextAnalyzer.Controllers
 {
     [Authorize]
@@ -651,6 +654,23 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
+        public object DataTablesNet_ServerSide_FB_GetList()
+        {
+            // get main (whole) data from DB first
+            List<FB_POST> items = loaddeserializeT_FB_POST_DAPPERSQL();
+
+            // get the number of entries
+            var itemsCount = items.Count;
+
+            //
+            return JsonConvert.SerializeObject(new
+            {
+                recordsTotal = itemsCount.ToString(),
+                recordsFiltered = itemsCount.ToString(),
+                data = items
+            });
+        }
+
         #region FRONT YARD ACTIONS SETUP DB
         [HttpGet]
         public void SetupCreateFillDBFromXML()
@@ -694,6 +714,31 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
         #endregion
+
+        [HttpPost]
+        public ActionResult FetchFBData(Search search, int id)
+        {
+            @ViewBag.Message = "";
+            string Error = string.Empty;
+
+            //
+            var fbApp = clBusiness.GetFbApplication(id);
+
+            //
+            search.FbAccessToken = clBusiness.FacebookGetAccessToken(fbApp);
+
+            //
+            clBusiness.getFacebookGroupFeed(search, fbApp, ref Error);
+
+            //
+            if (string.IsNullOrEmpty(Error))
+                return RedirectToAction("Index", "Home");
+            else
+            {
+                @ViewBag.Message = Error;
+                return View(search);
+            }
+        }
 
         #region BACK YARD BO TRAIN
         private Guid train(M_ARABIZIENTRY arabiziEntry, String mainEntity)
@@ -1180,6 +1225,19 @@ namespace ArabicTextAnalyzer.Controllers
 
                 conn.Open();
                 return conn.Query<M_TWINGLYACCOUNT>(qry).ToList();
+            }
+        }
+
+        private List<FB_POST> loaddeserializeT_FB_POST_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_FB_POST";
+
+                conn.Open();
+                return conn.Query<FB_POST>(qry).ToList();
             }
         }
 

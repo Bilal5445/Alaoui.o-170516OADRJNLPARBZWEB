@@ -12,6 +12,9 @@
 
             // fct to attach table with search highlight keywords
             InitializeDataTables();
+
+            // fct to attach FB table
+            InitializeFBDataTables();
         }),
         failure: function (response) {
             console.log(response);
