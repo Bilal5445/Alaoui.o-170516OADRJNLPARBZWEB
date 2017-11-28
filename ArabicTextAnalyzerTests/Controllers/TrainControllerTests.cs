@@ -13,6 +13,9 @@ using ArabicTextAnalyzer.Domain.Models;
 using System.Xml.Serialization;
 using ArabicTextAnalyzer.Models;
 using System.Net.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Microsoft.CSharp;
 
 namespace ArabicTextAnalyzer.Controllers.Tests
 {
@@ -849,7 +852,7 @@ namespace ArabicTextAnalyzer.Controllers.Tests
 
             // clean <span class='notranslate'>
             arabizi = new Regex(@"<span class='notranslate'>(.*?)</span>").Replace(arabizi, "$1");
-            
+
             Assert.AreEqual(expected, arabizi);
         }
 
@@ -922,17 +925,30 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             // get token
             var clientId = "f6dkqniUpUskiJA";
             var clientSecret = "6sUKVfD1UQOYWe5";
-            var authenticateUrl = "http://localhost:50037/api/Arabizi/Authenticate/?" + "clientId=" + clientId  + "&clientSecret=" + clientSecret;
+            var authenticateUrl = "http://localhost:50037/api/Arabizi/Authenticate/?" + "clientId=" + clientId + "&clientSecret=" + clientSecret;
             HttpResponseMessage tokenResponse = new HttpClient().GetAsync(authenticateUrl).Result;
             if (tokenResponse.IsSuccessStatusCode)
             {
                 var data = tokenResponse.Content.ReadAsStringAsync().Result;
-                Assert.AreEqual("\"LzY2XeLWu1IjCtsmGboDkppSRb8GWGfi0A/8ndFeHwJ3UqFwmCpP6wngxDk7GNabLrJ20+u7NN1obPuDIdxhE+4wv6++0embViFHYDPEfpCJknaOVXuhNSyqVQEjMErT\"", data);
-            }
+                // Assert.AreEqual("\"LzY2XeLWu1IjCtsmGboDkppSRb8GWGfi0A/8ndFeHwJ3UqFwmCpP6wngxDk7GNabLrJ20+u7NN1obPuDIdxhE+4wv6++0embViFHYDPEfpCJknaOVXuhNSyqVQEjMErT\"", data);
+                // data = data.Trim(new char[] { '\"', '\'' });
+                data = data.Substring(3, 128);
 
-            //
-            /*var arabiziUrl = "http://localhost:50037/api/Arabizi?text=maghrib";
-            HttpResponseMessage response = new HttpClient(arabiziUrl).GetAsync().Result;*/
+                //
+                var arabiziUrl = "http://localhost:50037/api/Arabizi/GetArabicDarijaEntry/?text=tajriba"
+                    + "&token="
+                    + data;
+                // var arabiziUrl = "http://localhost:50037/api/Arabizi?text=maghrib";
+                HttpResponseMessage response = new HttpClient().GetAsync(arabiziUrl).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var data2 = response.Content.ReadAsStringAsync().Result;
+                    // var dynamicObject = JsonConvert.DeserializeObject(data2);
+                    dynamic dynamicObject = JObject.Parse(data2);
+                    String trad = Convert.ToString(dynamicObject.M_ARABICDARIJAENTRY.ArabicDarijaText);
+                    Assert.IsTrue(("تجريبى" == trad) || ("تجريبة" == trad));
+                }
+            }
         }
     }
 }
