@@ -33,7 +33,6 @@ namespace ArabicTextAnalyzer.Business.Provider
         public TextConverter()
         {
             pathToExample = workingDirectoryLocation + @"example\";
-            // outputFileLocation = pathToExample + "small-example.7.charWordTransl";
             outputFileLocation = pathToExample + "small-example.7.charTransl";
             inputFileLocation = pathToExample + "small-example.arabizi";
             processFileLocation = workingDirectoryLocation + @"RUN_transl_pipeline.sh";
