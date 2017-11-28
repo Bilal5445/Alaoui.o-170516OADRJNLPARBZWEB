@@ -122,9 +122,7 @@ namespace ArabicTextAnalyzer.Controllers
             string errMessage = string.Empty;
             if (token != null && _IAuthenticate.IsTokenValid(Convert.ToString(token), "TrainStepOne", out errMessage))
             {
-
                 // Arabizi to arabic script via direct call to perl script
-
                 var res = train(arabiziEntry, mainEntity);
 
                 if (res == Guid.Empty)
@@ -138,8 +136,9 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 Session["_T0k@n_"] = "";
                 TempData["showAlertWarning"] = true;
-                TempData["msgAlert"] = errMessage; //"Not a valid token";
+                TempData["msgAlert"] = errMessage;  // "Not a valid token";
             }
+
             //
             return RedirectToAction("Index");
         }
@@ -531,50 +530,38 @@ namespace ArabicTextAnalyzer.Controllers
                 return RedirectToAction("Index");
             }
 
-            Logging.Write(Server, "Data_Upload - 3");
-
             // extract only the filename
             var fileName = Path.GetFileName(file.FileName);
-
-            Logging.Write(Server, "Data_Upload - 4");
 
             // store the file inside ~/App_Data/uploads folder
             var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
             file.SaveAs(path);
 
-            Logging.Write(Server, "Data_Upload - 5");
-
-            // loop and process each one
-            var lines = System.IO.File.ReadLines(path).ToList();
-            foreach (string line in lines)
+            var token = Session["_T0k@n_"];
+            string errMessage = string.Empty;
+            if (token != null && _IAuthenticate.IsTokenValid(Convert.ToString(token), "Data_Upload", out errMessage))
             {
-                /*var idArabicDarijaEntry = */
-                train(new M_ARABIZIENTRY
+                // loop and process each one
+                var lines = System.IO.File.ReadLines(path).ToList();
+                foreach (string line in lines)
                 {
-                    ArabiziText = line.Trim(),
-                    ArabiziEntryDate = DateTime.Now
-                }, mainEntity);
-
-                // add main entity & Save to Serialization
-                /*var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
-                {
-                    ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
-                    ID_ARABICDARIJAENTRY = idArabicDarijaEntry,
-                    TextEntity = new TextEntity
+                    train(new M_ARABIZIENTRY
                     {
-                        Count = 1,
-                        Mention = mainEntity,
-                        Type = "MAIN ENTITY"
-                    }
-                };*/
-                /*var pathtextentity = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_TEXTENTITY.txt");
-                new TextPersist().Serialize(textEntity, pathtextentity);*/
-                // saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(textEntity);
-            }
+                        ArabiziText = line.Trim(),
+                        ArabiziEntryDate = DateTime.Now
+                    }, mainEntity);
+                }
 
-            // mark how many rows been translated
-            TempData["showAlertSuccess"] = true;
-            TempData["msgAlert"] = lines.Count.ToString() + " rows has been imported.";
+                // mark how many rows been translated
+                TempData["showAlertSuccess"] = true;
+                TempData["msgAlert"] = lines.Count.ToString() + " rows has been imported.";
+            }
+            else
+            {
+                Session["_T0k@n_"] = "";
+                TempData["showAlertWarning"] = true;
+                TempData["msgAlert"] = errMessage;  // "Not a valid token";
+            }
 
             // delete just uploaded file in uploads
             System.IO.File.Delete(path);
