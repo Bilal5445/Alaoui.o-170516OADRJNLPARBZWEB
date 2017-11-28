@@ -13,6 +13,7 @@ namespace ArabicTextAnalyzer.Controllers
     public class AuthenticateController : ApiController
     {
         IAuthenticate _IAuthenticate;
+
         public AuthenticateController()
         {
             _IAuthenticate = new AuthenticateConcrete();
@@ -25,11 +26,9 @@ namespace ArabicTextAnalyzer.Controllers
 
             if (string.IsNullOrEmpty(ClientKeys.ClientId) && string.IsNullOrEmpty(ClientKeys.ClientSecret))
             {
-
                 HttpResponseMessage response = new HttpResponseMessage();
                 response = Request.CreateResponse(HttpStatusCode.NotAcceptable, "Not Valid Request");
                 return response;
-             
             }
             else
             {
@@ -42,7 +41,6 @@ namespace ArabicTextAnalyzer.Controllers
                         HttpResponseMessage response = new HttpResponseMessage();
                         response = Request.CreateResponse(HttpStatusCode.NotFound, "InValid Keys");
                         return response;
-               
                     }
                     else
                     {
@@ -62,24 +60,16 @@ namespace ArabicTextAnalyzer.Controllers
                 {
                     HttpResponseMessage response = new HttpResponseMessage();
                     response = Request.CreateResponse(HttpStatusCode.NotFound, "InValid Keys");
-                    return response;                 
+                    return response;
                 }
             }
         }
-
 
         [NonAction]
         private HttpResponseMessage GenerateandSaveToken(ClientKeys clientkeys)
         {
             var IssuedOn = DateTime.Now;
             var newToken = _IAuthenticate.GenerateToken(clientkeys, IssuedOn);
-            //TokensManager token = new TokensManager();
-            //token.TokensManagerID = 0;
-            //token.TokenKey = newToken;
-            //token.RegisterAppId = clientkeys.RegisterAppId;
-            //token.IssuedOn = IssuedOn;
-            //token.ExpiresOn = DateTime.Now.AddMinutes(Convert.ToInt32(ConfigurationManager.AppSettings["TokenExpiry"]));
-            //token.CreaatedOn = DateTime.Now;
             var result = _IAuthenticate.InsertToken(clientkeys, ConfigurationManager.AppSettings["TokenExpiry"], newToken);
 
             if (result == 1)
@@ -94,11 +84,10 @@ namespace ArabicTextAnalyzer.Controllers
             else
             {
                 HttpResponseMessage response = new HttpResponseMessage();
-                response = Request.CreateResponse(HttpStatusCode.NotAcceptable, "Error in Creating Token");             
-                return response;               
+                response = Request.CreateResponse(HttpStatusCode.NotAcceptable, "Error in Creating Token");
+                return response;
             }
         }
-
 
         public HttpResponseMessage ValidateToken(string token, string methodTocall)
         {
@@ -112,16 +101,12 @@ namespace ArabicTextAnalyzer.Controllers
             }
             if (_IAuthenticate.IsTokenValid(Convert.ToString(token), methodTocall, out errMessage))
             {
-               
-                response = Request.CreateResponse(HttpStatusCode.OK, "Success");            
 
-            
-             
-
+                response = Request.CreateResponse(HttpStatusCode.OK, "Success");
             }
             else
             {
-                response = Request.CreateResponse(HttpStatusCode.InternalServerError, errMessage);               
+                response = Request.CreateResponse(HttpStatusCode.InternalServerError, errMessage);
             }
             return response;
         }

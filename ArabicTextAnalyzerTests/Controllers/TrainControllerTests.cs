@@ -12,6 +12,7 @@ using OADRJNLPCommon.Business;
 using ArabicTextAnalyzer.Domain.Models;
 using System.Xml.Serialization;
 using ArabicTextAnalyzer.Models;
+using System.Net.Http;
 
 namespace ArabicTextAnalyzer.Controllers.Tests
 {
@@ -913,6 +914,25 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             arabicsource = new TextConverter().Preprocess_SilentVowels(arabicsource);
 
             Assert.AreEqual(expectedoutarabicsource, arabicsource, "2");
+        }
+
+        [TestMethod()]
+        public void ut_171127_test_arabiziapi_getToken_and_use_it()
+        {
+            // get token
+            var clientId = "f6dkqniUpUskiJA";
+            var clientSecret = "6sUKVfD1UQOYWe5";
+            var authenticateUrl = "http://localhost:50037/api/Arabizi/Authenticate/?" + "clientId=" + clientId  + "&clientSecret=" + clientSecret;
+            HttpResponseMessage tokenResponse = new HttpClient().GetAsync(authenticateUrl).Result;
+            if (tokenResponse.IsSuccessStatusCode)
+            {
+                var data = tokenResponse.Content.ReadAsStringAsync().Result;
+                Assert.AreEqual("\"LzY2XeLWu1IjCtsmGboDkppSRb8GWGfi0A/8ndFeHwJ3UqFwmCpP6wngxDk7GNabLrJ20+u7NN1obPuDIdxhE+4wv6++0embViFHYDPEfpCJknaOVXuhNSyqVQEjMErT\"", data);
+            }
+
+            //
+            /*var arabiziUrl = "http://localhost:50037/api/Arabizi?text=maghrib";
+            HttpResponseMessage response = new HttpClient(arabiziUrl).GetAsync().Result;*/
         }
     }
 }
