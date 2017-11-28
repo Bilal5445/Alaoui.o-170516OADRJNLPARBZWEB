@@ -31,6 +31,7 @@ namespace ArabiziWebAPI.Controllers
             return _arabicdarijaentries;
         }
 
+        [HttpGet]
         public IHttpActionResult Authenticate(string clientId, string clientSecret)
         {
             var response = CheckForToken(clientId, clientSecret);
@@ -38,8 +39,7 @@ namespace ArabiziWebAPI.Controllers
             return Ok(response);
         }
 
-
-        public IHttpActionResult GetArabicDarijaEntry(string token, int? id)
+        /*public IHttpActionResult GetArabicDarijaEntry(string token, int? id)
         {
             var errorMessage = string.Empty;
             if (ValidateToken(token, "GetArabicDarijaEntry", out errorMessage))
@@ -59,9 +59,10 @@ namespace ArabiziWebAPI.Controllers
                 return Ok(new { Status = "Forbidden", Error = errorMessage });
             }
         }
+        */
 
-
-        public IHttpActionResult GetArabicDarijaEntry([FromBody]string token, String text)
+        [HttpGet]
+        public IHttpActionResult GetArabicDarijaEntry(/*[FromBody]*/string token, String text)
         {
             var errorMessage = string.Empty;
             if (ValidateToken(token, "GetArabicDarijaEntry", out errorMessage))
@@ -90,7 +91,6 @@ namespace ArabiziWebAPI.Controllers
 
                         // prepare darija from perl script
                         var arabicText = textConverter.Convert(arabiziEntry.ArabiziText);
-                        /*var*/
                         arabicDarijaEntry = new M_ARABICDARIJAENTRY
                         {
                             ID_ARABICDARIJAENTRY = Guid.NewGuid(),
@@ -165,13 +165,11 @@ namespace ArabiziWebAPI.Controllers
         {
             errorMessage = string.Empty;
             string result = null;
-            //Dictionary<string, string> requestContent = new Dictionary<string, string>();
-            //requestContent.Add("token", token);
-            //requestContent.Add("methodTocall", methodToCall);
 
             var requestContent = "/?token=" + token + "&methodTocall=" + methodToCall;
-            result = HtmlHelpers.PostAPIRequest(ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken"
-               + requestContent, requestContent);
+            // var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken" + requestContent;
+            var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken" + requestContent;
+            result = HtmlHelpers.PostAPIRequest(url, requestContent);
 
             if (result.Contains("Success"))
             {
@@ -183,24 +181,22 @@ namespace ArabiziWebAPI.Controllers
                 return false;
             }
         }
+
         private string CheckForToken(string clientId, string clientSecret)
         {
             string result = null;
 
             var requestContent = "/?clientId=" + clientId + "&clientSecret=" + clientSecret;
 
-            result = HtmlHelpers.PostAPIRequest(ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" +
-                "api/Authenticate/Authenticate" + requestContent, requestContent);
+            var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/Authenticate" + requestContent;
+            result = HtmlHelpers.PostAPIRequest(url, requestContent);
 
             return result;
-
         }
     }
 
-
     public static class HtmlHelpers
     {
-
         public static string PostAPIRequest(string url, string para)
         {
             HttpClient client;
