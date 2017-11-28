@@ -1,25 +1,50 @@
-﻿<!-- table of posts -->
-<table class="posts datatables-table table table-striped table-hover table-bordered">
-    <thead>
-        <tr class="header">
-            <th class="center top col50px">#</th>
-            <th class="center top col110px">Date</th>
-            <th class="center top col50prc">Arabizi</th>
-            <th class="center top col50prc">Arabic</th>
-            <th class="center top col100px">NER Types</th>
-            <th class="center top col130px">Entities</th>
-            <th class="center top col75px"></th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr class="header">
-            <th class="center top">#</th>
-            <th class="center top">Date</th>
-            <th class="center top">Arabizi</th>
-            <th class="center top">Arabic</th>
-            <th class="center top">NER Types</th>
-            <th class="center top">Entities</th>
-            <th class="center top"></th>
-        </tr>
-    </tfoot>
-</table>
+﻿<!-- Nav tabs -->
+<ul class="nav nav-pills" role="tablist">
+    <li role="presentation" class="active"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">Working Data</a></li>
+    <li role="presentation"><a href="#second" aria-controls="second" role="tab" data-toggle="tab">Facebook Page - Taoufik Bouachrine توفيق بوعشرين</a></li>
+    <!--<li role="presentation" class="dropdown">
+        <a aria-controls="second" role="tab" class="dropdown-toggle" data-toggle="dropdown" href="#second">Facebook Page - Taoufik Bouachrine توفيق بوعشرين<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Retrieve new data</a></li>
+        </ul>
+    </li>-->
+</ul>
+
+<div class="tab-content" style="border: 1px solid black; padding: 15px; background-color: #fffeef;">
+    <div role="tabpanel" class="tab-pane active" id="first">
+        <!-- table of posts -->
+        <table class="posts datatables-table table table-striped table-hover table-bordered">
+            <thead>
+                <tr class="header">
+                    <th class="center top col50px">#</th>
+                    <th class="center top col110px">Date</th>
+                    <th class="center top col50prc">Arabizi</th>
+                    <th class="center top col50prc">Arabic</th>
+                    <th class="center top col100px">NER Types</th>
+                    <th class="center top col130px">Entities</th>
+                    <th class="center top col75px"></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr class="header">
+                    <th class="center top">#</th>
+                    <th class="center top">Date</th>
+                    <th class="center top">Arabizi</th>
+                    <th class="center top">Arabic</th>
+                    <th class="center top">NER Types</th>
+                    <th class="center top">Entities</th>
+                    <th class="center top"></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="second">
+        @using (Html.BeginForm("FetchFBData", "Train", FormMethod.Post, new { @class = "form-inline", style = "margin-bottom: 15px;" }))
+        {
+            <div class="form-group">
+                <button class="btn btn-outline-primary btn-xs" type="submit" id="import_posts">Retrieve new data <span class="glyphicon glyphicon-refresh"></span></button>
+            </div>
+        }
+        <table class="posts-fb datatables-table-fb table table-striped table-hover table-bordered"></table>
+    </div>
+</div>

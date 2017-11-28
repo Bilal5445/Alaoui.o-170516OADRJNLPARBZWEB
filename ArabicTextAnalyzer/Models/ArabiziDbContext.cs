@@ -1,4 +1,5 @@
 ﻿using ArabicTextAnalyzer.Domain.Models;
+using OADRJNLPCommon.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,7 +13,6 @@ namespace ArabicTextAnalyzer.Models
         public ArabiziDbContext()
         : base("ConnLocalDBArabizi")
         {
-
         }
 
         public DbSet<M_ARABICDARIJAENTRY> M_ARABICDARIJAENTRYs { get; set; }
@@ -29,5 +29,15 @@ namespace ArabicTextAnalyzer.Models
         public DbSet<TokensManager> TokensManager { get; set; }
         public DbSet<ClientKeys> ClientKeys { get; set; }
         public DbSet<RegisterAppCallingLog> RegisterAppCallingLogs { get; set; }
+    }
+
+    public class ScrappyWebDbContext : DbContext
+    {
+        public ScrappyWebDbContext()
+            : base("ScrapyWebEntities")
+        {
+        }
+
+        public DbSet<FB_POST> T_FB_POST { get; set; }
     }
 }
