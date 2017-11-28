@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using OADRJNLPCommon.Business;
 using System.Text;
 using System.Globalization;
+using System.Web;
 
 namespace ArabicTextAnalyzer.Business.Provider
 {
@@ -22,7 +23,7 @@ namespace ArabicTextAnalyzer.Business.Provider
         // -> the input file(saw that the script only works with this file)
         private string inputFileLocation;
         // -> the script : full pipeline
-        private string processFileLocation;
+        private string translPipelineScript;
 
         // for UT only
         public TextConverter(String utWorkingDirectoryLocation)
@@ -33,31 +34,38 @@ namespace ArabicTextAnalyzer.Business.Provider
         public TextConverter()
         {
             pathToExample = workingDirectoryLocation + @"example\";
-            outputFileLocation = pathToExample + "small-example.7.charTransl";
             inputFileLocation = pathToExample + "small-example.arabizi";
-            processFileLocation = workingDirectoryLocation + @"RUN_transl_pipeline.sh";
+            outputFileLocation = pathToExample + "small-example.7.charTransl";
+            translPipelineScript = workingDirectoryLocation + @"RUN_transl_pipeline.sh";
         }
 
         public string Convert(string source)
         {
-            //
-            // source = Preprocess_upstream(source);
+            Stopwatch watch = Stopwatch.StartNew();
+            return Convert(null, watch, source);
+        }
 
+        public string Convert(HttpServerUtilityBase Server, Stopwatch watch, string source)
+        {
             // preprocess unicode arabic comma (sould be done at perl level, but somehow does not work)
             source = Preprocess_arabic_comma(source);
+            Logging.Write(Server, "train - after train_saveperl > Convert >  Preprocess_arabic_comma : " + watch.ElapsedMilliseconds); // watch.Restart();
             source = Preprocess_unicode_special_chars(source);
+            Logging.Write(Server, "train - after train_saveperl > Convert >  Preprocess_unicode_special_chars : " + watch.ElapsedMilliseconds); // watch.Restart();
 
             // preprocess silent wovelles : create artificially vowells (alef) between consonns because we know that there is no more french words that we can distrurb,
             // plus any one kept by bidict is converted temp to 001000100, so no risk,
             // plus we added _VOY_ in ptable to be one of the 3 vowels alef, ya2 or waw
             source = Preprocess_SilentVowels(source);
+            Logging.Write(Server, "train - after train_saveperl > Convert >  Preprocess_SilentVowels : " + watch.ElapsedMilliseconds); // watch.Restart();
 
-            // to arabizi file
+            // to arabizi (INPUT) file
             File.WriteAllText(inputFileLocation, source);
+            Logging.Write(Server, "train - after train_saveperl > Convert >  WriteAllText : " + watch.ElapsedMilliseconds); // watch.Restart();
 
             //
             var process = new Process();
-            var processInformation = new ProcessStartInfo(processFileLocation)
+            var processInformation = new ProcessStartInfo(translPipelineScript)
             {
                 WorkingDirectory = workingDirectoryLocation,
                 UseShellExecute = true
@@ -65,8 +73,11 @@ namespace ArabicTextAnalyzer.Business.Provider
             process.StartInfo = processInformation;
             process.Start();
             process.WaitForExit();
+            Logging.Write(Server, "train - after train_saveperl > Convert >  ProcessStartInfo : " + watch.ElapsedMilliseconds); // watch.Restart();
 
+            // read arabic (OUTPUT) file
             var output = File.ReadAllText(outputFileLocation);
+            Logging.Write(Server, "train - after train_saveperl > Convert >  ReadAllText : " + watch.ElapsedMilliseconds); // watch.Restart();
 
             // post-process (eg : hna => nahnou)
             output = Postprocess_slash_r_slash_n(output);
@@ -85,6 +96,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_ma_ch(source);
             // source = Preprocess_le(source);
             // source = Preprocess_al_wa(source);
+            source = Preprocess_wal(source);
             source = Preprocess_al(source);
             source = Preprocess_dl(source);
             source = Preprocess_bezzaf(source);
@@ -164,6 +176,15 @@ namespace ArabicTextAnalyzer.Business.Provider
             // wa3acha al malik => wa3acha almalik
             String pattern = RegexConstant.alRule;
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "al$2", RegexOptions.IgnoreCase);
+
+            return miniArabiziKeyword;
+        }
+
+        private string Preprocess_wal(string arabizi)
+        {
+            // wa3acha al malik => wa3acha almalik
+            String pattern = RegexConstant.walRule;
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "wa al", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
         }

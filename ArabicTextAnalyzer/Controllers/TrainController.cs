@@ -705,35 +705,36 @@ namespace ArabicTextAnalyzer.Controllers
             //
             var id_ARABICDARIJAENTRY = Guid.NewGuid();
 
-            Logging.Write(Server, "train - before lock");
+            Logging.Write(Server, "train - before lock : 0");
+            var watch = Stopwatch.StartNew();
             lock (thisLock)
             {
-                var watch = Stopwatch.StartNew();
+                Logging.Write(Server, "train - after lock (thisLock) : " + watch.ElapsedMilliseconds); // watch.Restart();
 
                 String arabicText = train_savearabizi(arabiziEntry, AccessMode.efsql);
-                Logging.Write(Server, "train - after train_savearabizi : " + watch.ElapsedMilliseconds); watch.Restart();
+                Logging.Write(Server, "train - after train_savearabizi : " + watch.ElapsedMilliseconds); // watch.Restart();
 
                 //
                 arabicText = new TextConverter().Preprocess_upstream(arabicText);
-                Logging.Write(Server, "train - after train_Preprocess_upstream : " + watch.ElapsedMilliseconds); watch.Restart();
+                Logging.Write(Server, "train - after train_Preprocess_upstream : " + watch.ElapsedMilliseconds); // watch.Restart();
 
                 arabicText = train_bidict(arabicText);
-                Logging.Write(Server, "train - after train_bidict : " + watch.ElapsedMilliseconds); watch.Restart();
+                Logging.Write(Server, "train - after train_bidict : " + watch.ElapsedMilliseconds); // watch.Restart();
 
                 arabicText = train_binggoogle(arabicText);
-                Logging.Write(Server, "train - after train_binggoogle : " + watch.ElapsedMilliseconds); watch.Restart();
+                Logging.Write(Server, "train - after train_binggoogle : " + watch.ElapsedMilliseconds); // watch.Restart();
 
                 arabicText = train_saveperl(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql);
-                Logging.Write(Server, "train - after train_saveperl : " + watch.ElapsedMilliseconds); watch.Restart();
+                Logging.Write(Server, "train - after train_saveperl : " + watch.ElapsedMilliseconds); // watch.Restart();
 
                 arabicText = train_savelatinwords(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
-                Logging.Write(Server, "train - after train_savelatinwords : " + watch.ElapsedMilliseconds); watch.Restart();
+                Logging.Write(Server, "train - after train_savelatinwords : " + watch.ElapsedMilliseconds); // watch.Restart();
 
                 train_savesa(arabicText);
-                Logging.Write(Server, "train - after train_savesa : " + watch.ElapsedMilliseconds); watch.Restart();
+                Logging.Write(Server, "train - after train_savesa : " + watch.ElapsedMilliseconds); // watch.Restart();
 
                 train_savener(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
-                Logging.Write(Server, "train - after train_savener : " + watch.ElapsedMilliseconds); watch.Restart();
+                Logging.Write(Server, "train - after train_savener : " + watch.ElapsedMilliseconds); // watch.Restart();
 
                 // apply main tag : add main entity & Save to Serialization
                 var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
@@ -749,7 +750,7 @@ namespace ArabicTextAnalyzer.Controllers
                 };
                 saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(textEntity);
             }
-            Logging.Write(Server, "train - after lock");
+            Logging.Write(Server, "train - after end of lock : " + watch.ElapsedMilliseconds);
 
             //
             return id_ARABICDARIJAENTRY;
@@ -793,9 +794,9 @@ namespace ArabicTextAnalyzer.Controllers
             arabicText = regex.Replace(arabicText, "001000100");
 
             // translate arabiza to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
-            Logging.Write(Server, "train - before train_saveperl > Convert : " + watch.ElapsedMilliseconds); watch.Restart();
-            arabicText = new TextConverter().Convert(arabicText);
-            Logging.Write(Server, "train - after train_saveperl > Convert : " + watch.ElapsedMilliseconds); watch.Restart();
+            Logging.Write(Server, "train - before train_saveperl > Convert : " + watch.ElapsedMilliseconds); // watch.Restart();
+            arabicText = new TextConverter().Convert(Server, watch, arabicText);
+            Logging.Write(Server, "train - after train_saveperl > Convert : " + watch.ElapsedMilliseconds); // watch.Restart();
 
             // restore do not translate
             var regex2 = new Regex(@"001000100");
