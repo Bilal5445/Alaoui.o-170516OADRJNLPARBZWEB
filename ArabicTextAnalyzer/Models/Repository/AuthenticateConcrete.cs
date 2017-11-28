@@ -52,7 +52,6 @@ namespace ArabicTextAnalyzer.Models.Repository
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -75,7 +74,6 @@ namespace ArabicTextAnalyzer.Models.Repository
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -88,7 +86,6 @@ namespace ArabicTextAnalyzer.Models.Repository
                 if (token != null)
                 {
                     token.IsDeleted = true;
-
 
                     return _context.SaveChanges();
                 }
@@ -117,7 +114,6 @@ namespace ArabicTextAnalyzer.Models.Repository
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -126,9 +122,8 @@ namespace ArabicTextAnalyzer.Models.Repository
         {
             try
             {
-                //ConfigurationManager.AppSettings["TokenExpiry"])
+                // 
                 var IssuedOn = DateTime.Now;
-                // var newToken = this.GenerateToken(clientkeys, IssuedOn);
                 TokensManager token = new TokensManager();
                 token.TokensManagerID = 0;
                 token.TokenKey = newToken;
@@ -142,7 +137,6 @@ namespace ArabicTextAnalyzer.Models.Repository
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -185,18 +179,17 @@ namespace ArabicTextAnalyzer.Models.Repository
                         _context.SaveChanges();
                         errMsg = "Token Expired";
                     }
-
-
                 }
                 else
                 {
                     errMsg = "Token is invalid.";
-                }                
+                }
             }
             else
             {
                 errMsg = "Token is required.";
             }
+
             return flag;
         }
 
@@ -219,6 +212,7 @@ namespace ArabicTextAnalyzer.Models.Repository
                     }
                 }
             }
+
             return flag;
         }
     }
