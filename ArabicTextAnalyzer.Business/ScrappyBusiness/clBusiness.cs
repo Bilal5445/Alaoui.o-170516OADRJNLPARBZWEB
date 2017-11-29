@@ -643,6 +643,7 @@ namespace ArabicTextAnalyzer.Business.ScrappyBusiness
         }
         */
 
+        /* MC112917 TMP COMMENT SO IT CAN COMPILE 
         public static FBApplication GetFBApplication(int ApplicationId)
         {
             using (var context = new ScrapyWeb.Models.ScrapyWebEntities())
@@ -788,7 +789,7 @@ namespace ArabicTextAnalyzer.Business.ScrappyBusiness
             {
                 Error = ex.Message;
             }
-        }
+        }*/
 
         /*public static List<T_FB_POST> getFBInfluencerPostsFromFB(String fbInfluencerUrlName, String fbAppId, String fbAccessToken)
         {
@@ -987,6 +988,7 @@ namespace ArabicTextAnalyzer.Business.ScrappyBusiness
         */
 
         #region FRONT YARD PERSIST
+        /* MC112917 TMP COMMENT SO IT CAN COMPILE 
         public static void AddGroupFeedTODb(FacebookGroupFeed feed)
         {
             using (var context = new ScrapyWebEntities())
@@ -1106,9 +1108,11 @@ namespace ArabicTextAnalyzer.Business.ScrappyBusiness
                 writer.Flush();
             }
         }
+        */
         #endregion
 
         #region BACK YARD BO
+        /* MC112917 TMP COMMENT SO IT CAN COMPILE 
         private static void getInfluencerFirstInfoFromFB(String fbInfluencerUrlName, String fbAppId, String graphFBApi28Url, String access_token, String token_type, out String id, out String name)
         {
             string objText = "";
@@ -1201,7 +1205,7 @@ namespace ArabicTextAnalyzer.Business.ScrappyBusiness
                     }
                 }
             }
-        }
+        }*/
         #endregion
     }
 }

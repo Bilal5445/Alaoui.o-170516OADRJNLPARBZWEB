@@ -715,7 +715,8 @@ namespace ArabicTextAnalyzer.Controllers
         }
         #endregion
 
-        [HttpPost]
+        // MC112917 TMP COMMENT SO IT CAN COMPILE
+        /*[HttpPost]
         public ActionResult FetchFBData(Search search, int id)
         {
             @ViewBag.Message = "";
@@ -738,7 +739,7 @@ namespace ArabicTextAnalyzer.Controllers
                 @ViewBag.Message = Error;
                 return View(search);
             }
-        }
+        }*/
 
         #region BACK YARD BO TRAIN
         private Guid train(M_ARABIZIENTRY arabiziEntry, String mainEntity)
