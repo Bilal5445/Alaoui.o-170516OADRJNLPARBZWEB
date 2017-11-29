@@ -82,7 +82,8 @@ namespace ArabicTextAnalyzer.Models.Repository
         {
             try
             {
-                var token = _context.TokensManager.Where(c => c.IsDeleted == false).SingleOrDefault(x => x.RegisterAppId == CompanyID);
+                // sometimes (why?) we can have 2 open tokens so SingleOrDefault, meanwhile fix by FirstOrDefault
+                var token = _context.TokensManager.Where(c => c.IsDeleted == false).FirstOrDefault(x => x.RegisterAppId == CompanyID);
                 if (token != null)
                 {
                     token.IsDeleted = true;
