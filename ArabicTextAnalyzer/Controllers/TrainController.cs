@@ -95,6 +95,13 @@ namespace ArabicTextAnalyzer.Controllers
             TempData.Remove("showAlertSuccess");
             TempData.Remove("msgAlert");
 
+            //Fertch the data for fbPage as only for that theme
+            if(token !=null && !string.IsNullOrEmpty(token as string))
+            {
+                var fbFluencerAsTheme = loadAllT_Fb_InfluencerAsTheme();
+                ViewBag.AllInfluence = fbFluencerAsTheme;
+            }
+
             //
             return View();
         }
@@ -104,6 +111,12 @@ namespace ArabicTextAnalyzer.Controllers
         {
             try
             {
+                var token = Session["_T0k@n_"];
+                if (token != null && !string.IsNullOrEmpty(token as string))
+                {
+                    var fbFluencerAsTheme = loadAllT_Fb_InfluencerAsTheme();
+                    ViewBag.AllInfluence = fbFluencerAsTheme;
+                }
                 // pass entries to partial view via the model (instead of the bag for a view)
                 return PartialView("_IndexPartialPage_arabicDarijaEntries");
             }
@@ -144,6 +157,47 @@ namespace ArabicTextAnalyzer.Controllers
 
             //
             return RedirectToAction("Index");
+        }
+
+        //Method for translate the fb posts
+        [HttpPost]
+        public object TranslateFbPost(string content)
+        {
+            M_ARABIZIENTRY m_arabizientry = new M_ARABIZIENTRY();
+            m_arabizientry.ArabiziText = content;
+            m_arabizientry.ArabiziEntryDate = DateTime.Now;
+            var token = Session["_T0k@n_"];
+            string errMessage = string.Empty;
+            bool status = false;
+            string translatedstring = "";
+            if (token != null && _IAuthenticate.IsTokenValid(Convert.ToString(token), "TranslateFbPost", out errMessage))
+            {
+                var res = train(m_arabizientry, content);
+
+                if (res == Guid.Empty)
+                {
+                    using (var db = new ArabiziDbContext())
+                    {
+                      var arabicdar=  db.M_ARABICDARIJAENTRY_TEXTENTITYs.FirstOrDefault(c => c.ID_ARABICDARIJAENTRY == res);
+                        translatedstring = arabicdar.TextEntity.Normalized;
+                        status = true;
+                    }
+                    // TempData["showAlertWarning"] = true;
+                    //  TempData["msgAlert"] = "Text is required.";
+                    //return RedirectToAction("Index");
+                }
+                else
+                {
+                    translatedstring = "Unable to translate.";
+                }
+            }
+            return JsonConvert.SerializeObject(new
+            {
+                status = status,
+                recordsFiltered = translatedstring,
+                message=errMessage
+            });
+
         }
 
         [HttpGet]
@@ -654,10 +708,10 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        public object DataTablesNet_ServerSide_FB_GetList()
+        public object DataTablesNet_ServerSide_FB_GetList( string fluencerid)
         {
             // get main (whole) data from DB first
-            List<FB_POST> items = loaddeserializeT_FB_POST_DAPPERSQL();
+            List<FB_POST> items = loaddeserializeT_FB_POST_DAPPERSQL(fluencerid);
 
             // get the number of entries
             var itemsCount = items.Count;
@@ -1229,19 +1283,54 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private List<FB_POST> loaddeserializeT_FB_POST_DAPPERSQL()
+        private List<FB_POST> loaddeserializeT_FB_POST_DAPPERSQL(string influencerid="")
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "SELECT * FROM T_FB_POST";
+                String qry = "";
+                if(!string.IsNullOrEmpty(influencerid))
+                {
+                    qry = "SELECT * FROM T_FB_POST where fk_influencer='"+influencerid+"'";
+                }
+                else
+                {
+                    qry = "SELECT * FROM T_FB_POST";
+                }
+                
 
                 conn.Open();
                 return conn.Query<FB_POST>(qry).ToList();
             }
         }
 
+        private List<T_FB_INFLUENCER> loadAllT_Fb_InfluencerAsTheme(string themeid="")
+        {
+            var t_fb_Influencer = new List<T_FB_INFLUENCER>();
+            using (var db = new ArabiziDbContext())
+            {
+                var theme = db.M_XTRCTTHEMEs.FirstOrDefault(c => c.CurrentActive == "active");
+                if(theme!=null)
+                {
+                    String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+                    using (SqlConnection conn = new SqlConnection(ConnectionString))
+                    {
+                        String qry = "SELECT * FROM T_FB_INFLUENCER where fk_theme='" + theme.ID_XTRCTTHEME + "'";
+
+                        conn.Open();
+                        return conn.Query<T_FB_INFLUENCER>(qry).ToList();
+                    }
+                }
+                else
+                {
+                    return t_fb_Influencer;
+                }
+            }
+           
+        }
+    
         private List<ArabiziToArabicViewModel> loadArabiziToArabicViewModel_DAPPERSQL()
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;

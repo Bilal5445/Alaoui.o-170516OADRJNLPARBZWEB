@@ -14,7 +14,7 @@
             InitializeDataTables();
 
             // fct to attach FB table
-            InitializeFBDataTables();
+            //InitializeFBDataTables("");
         }),
         failure: function (response) {
             console.log(response);
