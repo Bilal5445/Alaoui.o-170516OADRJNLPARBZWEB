@@ -785,6 +785,11 @@ namespace ArabicTextAnalyzer.Controllers
 
         private String train_saveperl(Stopwatch watch, string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
         {
+            // first process buttranslateperl : means those should be cleaned in their without-bracket origan form so they can be translated by perl
+            // ex : "<span class='notranslate BUTTRANSLATEPERL'>kolchi</span> katbakkih bl3ani" should become "kolchi katbakkih bl3ani" so perl can translate it
+            arabicText = new Regex(@"<span class='notranslate BUTTRANSLATEPERL'>(.*?)</span>").Replace(arabicText, "$1");
+
+            // process notranslate
             var regex = new Regex(@"<span class='notranslate'>(.*?)</span>");
 
             // save matches
@@ -793,12 +798,12 @@ namespace ArabicTextAnalyzer.Controllers
             // skip over non-translantable parts
             arabicText = regex.Replace(arabicText, "001000100");
 
-            // translate arabiza to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
-            Logging.Write(Server, "train - before train_saveperl > Convert : " + watch.ElapsedMilliseconds); // watch.Restart();
+            // translate arabizi to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
+            Logging.Write(Server, "train - before train_saveperl > Convert : " + watch.ElapsedMilliseconds);
             arabicText = new TextConverter().Convert(Server, watch, arabicText);
-            Logging.Write(Server, "train - after train_saveperl > Convert : " + watch.ElapsedMilliseconds); // watch.Restart();
+            Logging.Write(Server, "train - after train_saveperl > Convert : " + watch.ElapsedMilliseconds);
 
-            // restore do not translate
+            // restore do not translate from 001000100
             var regex2 = new Regex(@"001000100");
             foreach (Match match in matches)
             {
@@ -815,7 +820,7 @@ namespace ArabicTextAnalyzer.Controllers
                 ArabicDarijaText = arabicText
             };
 
-            // save to persisi
+            // save to persist
             saveserializeM_ARABICDARIJAENTRY(arabicDarijaEntry, accessMode);
 
             //

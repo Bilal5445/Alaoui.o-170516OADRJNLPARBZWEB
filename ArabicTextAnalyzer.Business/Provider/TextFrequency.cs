@@ -142,10 +142,18 @@ namespace ArabicTextAnalyzer.Business.Provider
                 MatchCollection matches = regex.Matches(arabiziText);
                 foreach (Match match in matches)
                 {
-                    if (match.Value.StartsWith("<span class='notranslate'>"))
+                    // MC301117 default bidict become 'notranslate' in both binggoogle and in perl
+                    // but when the arlines contains a BUTTRANSLATEPERL, then become 'notranslate' in binggoogle, but 'translate' in perl
+                    // if (match.Value.StartsWith("<span class='notranslate'>"))
+                    if (match.Value.StartsWith("<span class='notranslate"))
                         continue;
 
-                    arabiziText = regex.Replace(arabiziText, "<span class='notranslate'>" + arlines[i] + "</span>");
+                    var arLineCouple = arlines[i].Split(new char[] { '\t' });
+                    var arRemplacment = arLineCouple[0];
+                    if (arLineCouple.Length > 1 && arLineCouple[1] == "BUTTRANSLATEPERL")
+                        arabiziText = regex.Replace(arabiziText, "<span class='notranslate BUTTRANSLATEPERL'>" + arRemplacment + "</span>");
+                    else
+                        arabiziText = regex.Replace(arabiziText, "<span class='notranslate'>" + arRemplacment + "</span>");
                 }
             }
 
