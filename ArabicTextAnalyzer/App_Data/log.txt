@@ -375,3 +375,232 @@ Parameter name: source
 29/10/2017 08:25:49.762901 : WINDEV1612SYS: train - after lock
 29/10/2017 08:25:50.608731 : WINDEV1612SYS: loadTime : refresh : 46.17s
 29/10/2017 08:25:50.687017 : WINDEV1612SYS: loadTime : 46.09s
+30/11/2017 11:06:21.051709 : WINDEV1612SYS: loadTime : refresh : 48.1s
+30/11/2017 11:08:05.065596 : WINDEV1612SYS: loadTime : refresh : -5.45s
+30/11/2017 11:08:07.595672 : WINDEV1612SYS: loadTime : 2.45s
+30/11/2017 11:16:08.870113 : WINDEV1612SYS: loadTime : refresh : 2.06s
+30/11/2017 11:16:09.411590 : WINDEV1612SYS: loadTime : 1.93s
+30/11/2017 11:16:11.915778 : WINDEV1612SYS: loadTime : refresh : 1.16s
+30/11/2017 11:16:12.432541 : WINDEV1612SYS: loadTime : 1.09s
+30/11/2017 11:16:19.121880 : WINDEV1612SYS: train - before lock : 0
+30/11/2017 11:16:19.150391 : WINDEV1612SYS: train - after lock (thisLock) : 0
+30/11/2017 11:16:19.183558 : WINDEV1612SYS: train - after train_savearabizi : 33
+30/11/2017 11:16:19.210890 : WINDEV1612SYS: train - after train_Preprocess_upstream : 60
+30/11/2017 11:16:19.269889 : WINDEV1612SYS: train - after train_bidict : 119
+30/11/2017 11:16:20.774464 : WINDEV1612SYS: train - after train_binggoogle : 1623
+30/11/2017 11:16:20.789092 : WINDEV1612SYS: train - before train_saveperl > Convert : 1638
+30/11/2017 11:16:20.802105 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_arabic_comma : 1651
+30/11/2017 11:16:20.818571 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_unicode_special_chars : 1668
+30/11/2017 11:16:20.829373 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_SilentVowels : 1679
+30/11/2017 11:16:20.864506 : WINDEV1612SYS: train - after train_saveperl > Convert >  WriteAllText : 1714
+30/11/2017 11:16:27.293319 : WINDEV1612SYS: train - after train_saveperl > Convert >  ProcessStartInfo : 8142
+30/11/2017 11:16:27.346432 : WINDEV1612SYS: train - after train_saveperl > Convert >  ReadAllText : 8196
+30/11/2017 11:16:27.359920 : WINDEV1612SYS: train - after train_saveperl > Convert : 8209
+30/11/2017 11:16:27.511950 : WINDEV1612SYS: train - after train_saveperl : 8362
+30/11/2017 11:16:27.538950 : WINDEV1612SYS: train - after train_savelatinwords : 8388
+30/11/2017 11:16:29.091535 : WINDEV1612SYS: train - after train_savesa : 9941
+30/11/2017 11:16:30.474192 : WINDEV1612SYS: train - after train_savener : 11323
+30/11/2017 11:16:30.487800 : WINDEV1612SYS: train - after end of lock : 11337
+30/11/2017 11:16:32.108519 : WINDEV1612SYS: loadTime : refresh : 13.11s
+30/11/2017 11:16:32.196030 : WINDEV1612SYS: loadTime : 13.06s
+30/11/2017 11:17:21.178082 : WINDEV1612SYS: loadTime : 1.77s
+30/11/2017 11:17:21.764587 : WINDEV1612SYS: loadTime : refresh : 1.9s
+30/11/2017 11:39:13.593899 : WINDEV1612SYS: loadTime : refresh : 6.8s
+30/11/2017 11:39:13.644895 : WINDEV1612SYS: loadTime : 6.68s
+30/11/2017 11:39:45.474404 : WINDEV1612SYS: loadTime : refresh : 2.13s
+30/11/2017 11:39:45.537407 : WINDEV1612SYS: loadTime : 2.02s
+30/11/2017 11:39:50.518040 : WINDEV1612SYS: train - before lock : 0
+30/11/2017 11:39:50.531053 : WINDEV1612SYS: train - after lock (thisLock) : 0
+30/11/2017 11:39:50.575543 : WINDEV1612SYS: train - after train_savearabizi : 44
+30/11/2017 11:39:50.598549 : WINDEV1612SYS: train - after train_Preprocess_upstream : 67
+30/11/2017 11:39:50.664721 : WINDEV1612SYS: train - after train_bidict : 133
+30/11/2017 11:39:51.586675 : WINDEV1612SYS: train - after train_binggoogle : 1055
+30/11/2017 11:39:51.597660 : WINDEV1612SYS: train - before train_saveperl > Convert : 1066
+30/11/2017 11:39:51.612169 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_arabic_comma : 1080
+30/11/2017 11:39:51.625172 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_unicode_special_chars : 1094
+30/11/2017 11:39:51.642688 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_SilentVowels : 1111
+30/11/2017 11:39:51.668147 : WINDEV1612SYS: train - after train_saveperl > Convert >  WriteAllText : 1136
+30/11/2017 11:39:58.378023 : WINDEV1612SYS: train - after train_saveperl > Convert >  ProcessStartInfo : 7846
+30/11/2017 11:39:58.450528 : WINDEV1612SYS: train - after train_saveperl > Convert >  ReadAllText : 7919
+30/11/2017 11:39:58.464033 : WINDEV1612SYS: train - after train_saveperl > Convert : 7932
+30/11/2017 11:39:58.511025 : WINDEV1612SYS: train - after train_saveperl : 7979
+30/11/2017 11:39:58.525479 : WINDEV1612SYS: train - after train_savelatinwords : 7993
+30/11/2017 11:39:59.899589 : WINDEV1612SYS: train - after train_savesa : 9367
+30/11/2017 11:40:01.041026 : WINDEV1612SYS: train - after train_savener : 10510
+30/11/2017 11:40:01.055862 : WINDEV1612SYS: train - after end of lock : 10524
+30/11/2017 11:40:02.764085 : WINDEV1612SYS: loadTime : refresh : 12.33s
+30/11/2017 11:40:03.376157 : WINDEV1612SYS: loadTime : 12.19s
+30/11/2017 11:43:02.086139 : WINDEV1612SYS: loadTime : 1.6s
+30/11/2017 11:43:02.653261 : WINDEV1612SYS: loadTime : refresh : 1.76s
+30/11/2017 11:46:51.410001 : WINDEV1612SYS: loadTime : refresh : 1.72s
+30/11/2017 11:46:51.477016 : WINDEV1612SYS: loadTime : 1.68s
+30/11/2017 11:46:53.705790 : WINDEV1612SYS: loadTime : refresh : 1.22s
+30/11/2017 11:46:54.283277 : WINDEV1612SYS: loadTime : 1.13s
+30/11/2017 11:46:56.538491 : WINDEV1612SYS: train - before lock : 0
+30/11/2017 11:46:56.559138 : WINDEV1612SYS: train - after lock (thisLock) : 0
+30/11/2017 11:46:56.593658 : WINDEV1612SYS: train - after train_savearabizi : 34
+30/11/2017 11:46:56.613648 : WINDEV1612SYS: train - after train_Preprocess_upstream : 55
+30/11/2017 11:46:56.648661 : WINDEV1612SYS: train - after train_bidict : 89
+30/11/2017 11:46:57.715796 : WINDEV1612SYS: train - after train_binggoogle : 1156
+30/11/2017 11:46:57.727298 : WINDEV1612SYS: train - before train_saveperl > Convert : 1168
+30/11/2017 11:46:57.741802 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_arabic_comma : 1183
+30/11/2017 11:46:57.759300 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_unicode_special_chars : 1200
+30/11/2017 11:46:57.775284 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_SilentVowels : 1216
+30/11/2017 11:46:57.803315 : WINDEV1612SYS: train - after train_saveperl > Convert >  WriteAllText : 1244
+30/11/2017 11:47:04.025927 : WINDEV1612SYS: train - after train_saveperl > Convert >  ProcessStartInfo : 7466
+30/11/2017 11:47:04.062310 : WINDEV1612SYS: train - after train_saveperl > Convert >  ReadAllText : 7503
+30/11/2017 11:47:04.093618 : WINDEV1612SYS: train - after train_saveperl > Convert : 7534
+30/11/2017 11:47:04.132827 : WINDEV1612SYS: train - after train_saveperl : 7573
+30/11/2017 11:47:05.340758 : WINDEV1612SYS: train - after train_savelatinwords : 8782
+30/11/2017 11:47:06.679920 : WINDEV1612SYS: train - after train_savesa : 10120
+30/11/2017 11:47:07.932602 : WINDEV1612SYS: train - after train_savener : 11373
+30/11/2017 11:47:07.952745 : WINDEV1612SYS: train - after end of lock : 11393
+30/11/2017 11:47:09.967331 : WINDEV1612SYS: loadTime : refresh : 13.53s
+30/11/2017 11:47:10.520025 : WINDEV1612SYS: loadTime : 13.39s
+30/11/2017 11:50:32.344306 : WINDEV1612SYS: loadTime : 3.6s
+30/11/2017 11:50:33.579460 : WINDEV1612SYS: loadTime : refresh : 3.73s
+30/11/2017 11:53:08.914527 : WINDEV1612SYS: loadTime : refresh : 1.68s
+30/11/2017 11:53:08.943525 : WINDEV1612SYS: loadTime : 1.57s
+30/11/2017 11:53:11.818385 : WINDEV1612SYS: loadTime : refresh : 1.3s
+30/11/2017 11:53:11.853034 : WINDEV1612SYS: loadTime : 1.19s
+30/11/2017 11:53:14.375198 : WINDEV1612SYS: train - before lock : 0
+30/11/2017 11:53:14.389702 : WINDEV1612SYS: train - after lock (thisLock) : 0
+30/11/2017 11:53:14.427129 : WINDEV1612SYS: train - after train_savearabizi : 38
+30/11/2017 11:53:14.448481 : WINDEV1612SYS: train - after train_Preprocess_upstream : 58
+30/11/2017 11:53:14.488217 : WINDEV1612SYS: train - after train_bidict : 99
+30/11/2017 11:53:15.700340 : WINDEV1612SYS: train - after train_binggoogle : 1310
+30/11/2017 11:53:15.710422 : WINDEV1612SYS: train - before train_saveperl > Convert : 1321
+30/11/2017 11:53:15.721867 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_arabic_comma : 1332
+30/11/2017 11:53:15.735372 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_unicode_special_chars : 1345
+30/11/2017 11:53:15.745383 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_SilentVowels : 1355
+30/11/2017 11:53:15.758877 : WINDEV1612SYS: train - after train_saveperl > Convert >  WriteAllText : 1369
+30/11/2017 11:53:21.010004 : WINDEV1612SYS: train - after train_saveperl > Convert >  ProcessStartInfo : 6620
+30/11/2017 11:53:21.044528 : WINDEV1612SYS: train - after train_saveperl > Convert >  ReadAllText : 6655
+30/11/2017 11:53:21.079555 : WINDEV1612SYS: train - after train_saveperl > Convert : 6690
+30/11/2017 11:53:21.141631 : WINDEV1612SYS: train - after train_saveperl : 6752
+30/11/2017 11:53:22.101683 : WINDEV1612SYS: train - after train_savelatinwords : 7712
+30/11/2017 11:53:23.205321 : WINDEV1612SYS: train - after train_savesa : 8815
+30/11/2017 11:53:24.253966 : WINDEV1612SYS: train - after train_savener : 9864
+30/11/2017 11:53:24.269952 : WINDEV1612SYS: train - after end of lock : 9880
+30/11/2017 11:53:25.467105 : WINDEV1612SYS: loadTime : refresh : 11.19s
+30/11/2017 11:53:26.000688 : WINDEV1612SYS: loadTime : 11.09s
+30/11/2017 11:53:52.329983 : WINDEV1612SYS: loadTime : refresh : 1.23s
+30/11/2017 11:53:52.403994 : WINDEV1612SYS: loadTime : 1.07s
+30/11/2017 11:53:55.289855 : WINDEV1612SYS: train - before lock : 0
+30/11/2017 11:53:55.301390 : WINDEV1612SYS: train - after lock (thisLock) : 0
+30/11/2017 11:53:55.328857 : WINDEV1612SYS: train - after train_savearabizi : 27
+30/11/2017 11:53:55.340366 : WINDEV1612SYS: train - after train_Preprocess_upstream : 39
+30/11/2017 11:53:55.375273 : WINDEV1612SYS: train - after train_bidict : 73
+30/11/2017 11:53:55.693401 : WINDEV1612SYS: train - after train_binggoogle : 391
+30/11/2017 11:53:55.708397 : WINDEV1612SYS: train - before train_saveperl > Convert : 407
+30/11/2017 11:53:55.723915 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_arabic_comma : 422
+30/11/2017 11:53:55.736403 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_unicode_special_chars : 435
+30/11/2017 11:53:55.751652 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_SilentVowels : 450
+30/11/2017 11:53:55.773413 : WINDEV1612SYS: train - after train_saveperl > Convert >  WriteAllText : 472
+30/11/2017 11:54:01.215097 : WINDEV1612SYS: train - after train_saveperl > Convert >  ProcessStartInfo : 5913
+30/11/2017 11:54:01.229598 : WINDEV1612SYS: train - after train_saveperl > Convert >  ReadAllText : 5927
+30/11/2017 11:54:01.244105 : WINDEV1612SYS: train - after train_saveperl > Convert : 5942
+30/11/2017 11:54:01.262366 : WINDEV1612SYS: train - after train_saveperl : 5960
+30/11/2017 11:54:02.059710 : WINDEV1612SYS: train - after train_savelatinwords : 6757
+30/11/2017 11:54:03.077571 : WINDEV1612SYS: train - after train_savesa : 7775
+30/11/2017 11:54:17.857706 : WINDEV1612SYS: loadTime : refresh : 1.76s
+30/11/2017 11:54:18.386903 : WINDEV1612SYS: loadTime : 1.64s
+30/11/2017 11:54:21.271641 : WINDEV1612SYS: train - before lock : 0
+30/11/2017 11:54:21.284117 : WINDEV1612SYS: train - after lock (thisLock) : 0
+30/11/2017 11:54:21.333032 : WINDEV1612SYS: train - after train_savearabizi : 49
+30/11/2017 11:54:21.348540 : WINDEV1612SYS: train - after train_Preprocess_upstream : 64
+30/11/2017 11:54:21.405627 : WINDEV1612SYS: train - after train_bidict : 121
+30/11/2017 11:54:21.676173 : WINDEV1612SYS: train - after train_binggoogle : 391
+30/11/2017 11:54:21.687697 : WINDEV1612SYS: train - before train_saveperl > Convert : 404
+30/11/2017 11:54:21.701053 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_arabic_comma : 417
+30/11/2017 11:54:21.713083 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_unicode_special_chars : 428
+30/11/2017 11:54:21.724837 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_SilentVowels : 440
+30/11/2017 11:54:21.740468 : WINDEV1612SYS: train - after train_saveperl > Convert >  WriteAllText : 456
+30/11/2017 11:54:26.666340 : WINDEV1612SYS: train - after train_saveperl > Convert >  ProcessStartInfo : 5382
+30/11/2017 11:54:26.751329 : WINDEV1612SYS: train - after train_saveperl > Convert >  ReadAllText : 5467
+30/11/2017 11:54:26.766839 : WINDEV1612SYS: train - after train_saveperl > Convert : 5482
+30/11/2017 11:54:26.811818 : WINDEV1612SYS: train - after train_saveperl : 5528
+30/11/2017 11:54:27.841964 : WINDEV1612SYS: train - after train_savelatinwords : 6558
+30/11/2017 11:54:28.777555 : WINDEV1612SYS: train - after train_savesa : 7493
+30/11/2017 11:55:13.523405 : WINDEV1612SYS: loadTime : refresh : 1.59s
+30/11/2017 11:55:14.277802 : WINDEV1612SYS: loadTime : 1.53s
+30/11/2017 11:56:04.693627 : WINDEV1612SYS: train - before lock : 0
+30/11/2017 11:56:04.714149 : WINDEV1612SYS: train - after lock (thisLock) : 0
+30/11/2017 11:56:04.739073 : WINDEV1612SYS: train - after train_savearabizi : 24
+30/11/2017 11:56:04.753144 : WINDEV1612SYS: train - after train_Preprocess_upstream : 39
+30/11/2017 11:56:04.788138 : WINDEV1612SYS: train - after train_bidict : 74
+30/11/2017 11:56:05.491789 : WINDEV1612SYS: train - after train_binggoogle : 777
+30/11/2017 11:56:05.502763 : WINDEV1612SYS: train - before train_saveperl > Convert : 788
+30/11/2017 11:56:05.514854 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_arabic_comma : 800
+30/11/2017 11:56:05.528252 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_unicode_special_chars : 814
+30/11/2017 11:56:05.539183 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_SilentVowels : 825
+30/11/2017 11:56:05.554745 : WINDEV1612SYS: train - after train_saveperl > Convert >  WriteAllText : 840
+30/11/2017 11:56:10.257849 : WINDEV1612SYS: train - after train_saveperl > Convert >  ProcessStartInfo : 5543
+30/11/2017 11:56:10.324357 : WINDEV1612SYS: train - after train_saveperl > Convert >  ReadAllText : 5610
+30/11/2017 11:56:10.360853 : WINDEV1612SYS: train - after train_saveperl > Convert : 5646
+30/11/2017 11:56:10.418367 : WINDEV1612SYS: train - after train_saveperl : 5704
+30/11/2017 11:56:11.356898 : WINDEV1612SYS: train - after train_savelatinwords : 6642
+30/11/2017 11:56:12.702628 : WINDEV1612SYS: train - after train_savesa : 7988
+30/11/2017 11:58:53.417393 : WINDEV1612SYS: loadTime : 20.18s
+30/11/2017 11:59:16.213880 : WINDEV1612SYS: loadTime : 3.88s
+30/11/2017 11:59:18.369012 : WINDEV1612SYS: loadTime : refresh : 4.03s
+30/11/2017 11:59:25.149366 : WINDEV1612SYS: train - before lock : 0
+30/11/2017 11:59:25.161298 : WINDEV1612SYS: train - after lock (thisLock) : 0
+30/11/2017 11:59:25.239880 : WINDEV1612SYS: train - after train_savearabizi : 78
+30/11/2017 11:59:25.258221 : WINDEV1612SYS: train - after train_Preprocess_upstream : 97
+30/11/2017 11:59:25.344394 : WINDEV1612SYS: train - after train_bidict : 183
+30/11/2017 11:59:26.815081 : WINDEV1612SYS: train - after train_binggoogle : 1654
+30/11/2017 11:59:26.840600 : WINDEV1612SYS: train - before train_saveperl > Convert : 1679
+30/11/2017 11:59:26.862094 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_arabic_comma : 1700
+30/11/2017 11:59:26.878598 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_unicode_special_chars : 1717
+30/11/2017 11:59:26.893590 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_SilentVowels : 1732
+30/11/2017 11:59:26.912189 : WINDEV1612SYS: train - after train_saveperl > Convert >  WriteAllText : 1751
+30/11/2017 11:59:34.571443 : WINDEV1612SYS: train - after train_saveperl > Convert >  ProcessStartInfo : 9410
+30/11/2017 11:59:34.686590 : WINDEV1612SYS: train - after train_saveperl > Convert >  ReadAllText : 9525
+30/11/2017 11:59:34.732077 : WINDEV1612SYS: train - after train_saveperl > Convert : 9570
+30/11/2017 11:59:34.862105 : WINDEV1612SYS: train - after train_saveperl : 9700
+30/11/2017 11:59:36.025230 : WINDEV1612SYS: train - after train_savelatinwords : 10864
+30/11/2017 11:59:38.036480 : WINDEV1612SYS: train - after train_savesa : 12875
+30/11/2017 12:00:26.621126 : WINDEV1612SYS: loadTime : refresh : 9.61s
+30/11/2017 12:00:27.317190 : WINDEV1612SYS: loadTime : 9.39s
+30/11/2017 12:00:51.167010 : WINDEV1612SYS: train - before lock : 0
+30/11/2017 12:00:51.181351 : WINDEV1612SYS: train - after lock (thisLock) : 0
+30/11/2017 12:00:51.199092 : WINDEV1612SYS: train - after train_savearabizi : 17
+30/11/2017 12:00:51.212700 : WINDEV1612SYS: train - after train_Preprocess_upstream : 31
+30/11/2017 12:00:51.280212 : WINDEV1612SYS: train - after train_bidict : 98
+30/11/2017 12:00:51.608251 : WINDEV1612SYS: train - after train_binggoogle : 426
+30/11/2017 12:00:51.620758 : WINDEV1612SYS: train - before train_saveperl > Convert : 439
+30/11/2017 12:00:51.632767 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_arabic_comma : 451
+30/11/2017 12:00:51.648263 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_unicode_special_chars : 466
+30/11/2017 12:00:51.660267 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_SilentVowels : 478
+30/11/2017 12:00:51.683260 : WINDEV1612SYS: train - after train_saveperl > Convert >  WriteAllText : 501
+30/11/2017 12:00:59.024183 : WINDEV1612SYS: train - after train_saveperl > Convert >  ProcessStartInfo : 7842
+30/11/2017 12:00:59.123960 : WINDEV1612SYS: train - after train_saveperl > Convert >  ReadAllText : 7942
+30/11/2017 12:00:59.161711 : WINDEV1612SYS: train - after train_saveperl > Convert : 7980
+30/11/2017 12:00:59.293717 : WINDEV1612SYS: train - after train_saveperl : 8112
+30/11/2017 12:01:00.498872 : WINDEV1612SYS: train - after train_savelatinwords : 9317
+30/11/2017 12:01:01.735032 : WINDEV1612SYS: train - after train_savesa : 10553
+30/11/2017 12:06:51.495405 : WINDEV1612SYS: loadTime : 7.63s
+30/11/2017 12:07:08.507191 : WINDEV1612SYS: loadTime : refresh : 4.26s
+30/11/2017 12:07:09.582347 : WINDEV1612SYS: loadTime : 4.15s
+30/11/2017 12:07:17.841866 : WINDEV1612SYS: train - before lock : 0
+30/11/2017 12:07:17.859876 : WINDEV1612SYS: train - after lock (thisLock) : 0
+30/11/2017 12:07:17.900866 : WINDEV1612SYS: train - after train_savearabizi : 41
+30/11/2017 12:07:17.922268 : WINDEV1612SYS: train - after train_Preprocess_upstream : 62
+30/11/2017 12:07:17.986448 : WINDEV1612SYS: train - after train_bidict : 127
+30/11/2017 12:07:19.464109 : WINDEV1612SYS: train - after train_binggoogle : 1604
+30/11/2017 12:07:19.476076 : WINDEV1612SYS: train - before train_saveperl > Convert : 1616
+30/11/2017 12:07:19.497592 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_arabic_comma : 1637
+30/11/2017 12:07:19.509302 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_unicode_special_chars : 1649
+30/11/2017 12:07:19.526578 : WINDEV1612SYS: train - after train_saveperl > Convert >  Preprocess_SilentVowels : 1666
+30/11/2017 12:07:19.543716 : WINDEV1612SYS: train - after train_saveperl > Convert >  WriteAllText : 1683
+30/11/2017 12:07:26.576460 : WINDEV1612SYS: train - after train_saveperl > Convert >  ProcessStartInfo : 8716
+30/11/2017 12:07:26.663651 : WINDEV1612SYS: train - after train_saveperl > Convert >  ReadAllText : 8803
+30/11/2017 12:07:26.684486 : WINDEV1612SYS: train - after train_saveperl > Convert : 8824
+30/11/2017 12:07:26.900512 : WINDEV1612SYS: train - after train_saveperl : 9040
+30/11/2017 12:07:28.012709 : WINDEV1612SYS: train - after train_savelatinwords : 10153
+30/11/2017 12:07:30.057393 : WINDEV1612SYS: train - after train_savesa : 12197
+30/11/2017 12:08:29.967965 : WINDEV1612SYS: train - after train_savener : 72108
+30/11/2017 12:08:31.371124 : WINDEV1612SYS: train - after end of lock : 73511
+30/11/2017 12:08:41.979955 : WINDEV1612SYS: loadTime : 23.19s
+30/11/2017 12:08:42.667202 : WINDEV1612SYS: loadTime : refresh : 24.13s
