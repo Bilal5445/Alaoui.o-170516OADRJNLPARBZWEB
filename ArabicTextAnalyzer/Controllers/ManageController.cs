@@ -442,7 +442,7 @@ namespace ArabicTextAnalyzer.Controllers
             return View();
         }
 
-        public ActionResult GenrateToken(string userId)
+        public ActionResult GenerateToken(string userId)
         {
             if (Request.HttpMethod.ToUpper() == "GET")
             {
@@ -473,67 +473,61 @@ namespace ArabicTextAnalyzer.Controllers
 
         public string GetToken(ClientKeys clientKeys)
         {
-            string result = string.Empty;
             if (string.IsNullOrEmpty(clientKeys.ClientId) && string.IsNullOrEmpty(clientKeys.ClientSecret))
+                return "Not Valid Request";
+
+            //
+            string result = string.Empty;
+            if (_IAuthenticate.ValidateKeys(clientKeys))
             {
-                result = "Not Valid Request";
-                return result;
-            }
-            else
-            {
-                if (_IAuthenticate.ValidateKeys(clientKeys))
+                var clientkeys = _IAuthenticate.GetClientKeysDetailsbyCLientIDandClientSecert(clientKeys.ClientId, clientKeys.ClientSecret);
+                if (clientkeys == null)
                 {
-                    var clientkeys = _IAuthenticate.GetClientKeysDetailsbyCLientIDandClientSecert(clientKeys.ClientId, clientKeys.ClientSecret);
-
-                    if (clientkeys == null)
-                    {
-
-                        result = "InValid Keys";
-                        return result;
-                    }
-                    else
-                    {
-                        if (_IAuthenticate.IsTokenAlreadyExists(clientkeys.RegisterAppId.Value))
-                        {
-                            _IAuthenticate.DeleteGenerateToken(clientkeys.RegisterAppId.Value);
-
-                            var IssuedOn = DateTime.Now;
-                            var newToken = _IAuthenticate.GenerateToken(clientkeys, IssuedOn);
-
-                            var status = _IAuthenticate.InsertToken(clientkeys, ConfigurationManager.AppSettings["TokenExpiry"], newToken);
-                            if (status == 1)
-                            {
-                                Session["_T0k@n_"] = newToken;
-                                result = "Token genrated successfully !!!";
-                            }
-                            else
-                            {
-                                result = "Error in Creating Token";
-                            }
-                        }
-                        else
-                        {
-                            var IssuedOn = DateTime.Now;
-                            var newToken = _IAuthenticate.GenerateToken(clientkeys, IssuedOn);
-
-                            var status = _IAuthenticate.InsertToken(clientkeys, ConfigurationManager.AppSettings["TokenExpiry"], newToken);
-                            if (status == 1)
-                            {
-                                Session["_T0k@n_"] = newToken;
-                                result = "Token genrated successfully !!!";
-                            }
-                            else
-                            {
-                                result = "Error in Creating Token";
-                            }
-                        }
-                    }
+                    return "InValid Keys";
                 }
                 else
                 {
-                    result = "Invalid Keys!!!";
+                    if (_IAuthenticate.IsTokenAlreadyExists(clientkeys.RegisterAppId.Value))
+                    {
+                        _IAuthenticate.DeleteGenerateToken(clientkeys.RegisterAppId.Value);
+
+                        var IssuedOn = DateTime.Now;
+                        var newToken = _IAuthenticate.GenerateToken(clientkeys, IssuedOn);
+
+                        var status = _IAuthenticate.InsertToken(clientkeys, ConfigurationManager.AppSettings["TokenExpiry"], newToken);
+                        if (status == 1)
+                        {
+                            Session["_T0k@n_"] = newToken;
+                            result = "Token generated successfully !!!";
+                        }
+                        else
+                        {
+                            result = "Error in Creating Token";
+                        }
+                    }
+                    else
+                    {
+                        var IssuedOn = DateTime.Now;
+                        var newToken = _IAuthenticate.GenerateToken(clientkeys, IssuedOn);
+
+                        var status = _IAuthenticate.InsertToken(clientkeys, ConfigurationManager.AppSettings["TokenExpiry"], newToken);
+                        if (status == 1)
+                        {
+                            Session["_T0k@n_"] = newToken;
+                            result = "Token generated successfully !!!";
+                        }
+                        else
+                        {
+                            result = "Error in Creating Token";
+                        }
+                    }
                 }
             }
+            else
+            {
+                result = "Invalid Keys!!!";
+            }
+
             return result;
         }
 

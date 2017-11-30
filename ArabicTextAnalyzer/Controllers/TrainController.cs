@@ -49,7 +49,8 @@ namespace ArabicTextAnalyzer.Controllers
             bool istokenexpire = _IAuthenticate.IsTokenExpire(Convert.ToString(token));
             if (istokenexpire)
             {
-                Session["_T0k@n_"] = "";
+                Session["_T0k@n_"] = String.Empty;
+                Session["message"] = String.Empty;
                 TempData["showAlertWarning"] = true;
                 TempData["msgAlert"] = "Your token is expired.";
             }
