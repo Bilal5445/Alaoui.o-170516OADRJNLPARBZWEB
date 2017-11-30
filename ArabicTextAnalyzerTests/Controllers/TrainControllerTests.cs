@@ -975,5 +975,31 @@ namespace ArabicTextAnalyzer.Controllers.Tests
                 }
             }
         }
+
+        [TestMethod()]
+        public void ut_171130_test_ReplaceArzByArFromBidict_with_BUTTRANSLATEPERL()
+        {
+            String arabizi = "Hadi bant l9ahba kokchi katbakkih bl3ani, j'ai dit kokchi";
+            String expected = "<span class='notranslate'>هذه</span> bant l9ahba <span class='notranslate BUTTRANSLATEPERL'>kolchi</span> katbakkih bl3ani, j'ai dit <span class='notranslate BUTTRANSLATEPERL'>kolchi</span>";
+
+            //
+            arabizi = new TextFrequency(@"C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\").ReplaceArzByArFromBidict(arabizi);
+
+            Assert.AreEqual(expected, arabizi);
+        }
+
+        [TestMethod()]
+        public void ut_171130_test_restore_BUTTRANSLATEPERL_in_perl()
+        {
+            String arabizi = "<span class='notranslate'>هذه</span> bant l9ahba <span class='notranslate BUTTRANSLATEPERL'>kolchi</span> katbakkih bl3ani, j'ai dit <span class='notranslate BUTTRANSLATEPERL'>kolchi</span>";
+            String expected = "<span class='notranslate'>هذه</span> bant l9ahba kolchi katbakkih bl3ani, j'ai dit kolchi";
+
+            //
+            arabizi = new Regex(@"<span class='notranslate BUTTRANSLATEPERL'>(.*?)</span>").Replace(arabizi, "$1");
+
+            Assert.AreEqual(expected, arabizi);
+        }
+
+        
     }
 }
