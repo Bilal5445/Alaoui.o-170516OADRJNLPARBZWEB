@@ -40,13 +40,13 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             var response = client.Execute(request);
 
-            List<TextEntity> returnValue = null;
+            // MC301117 rosette can return badrequest if it does not recognize the language : {"code":"unsupportedLanguage","message":"Language swe not supported"}
+            // It happenned with "macharmla"
+            List<TextEntity> returnValue = new List<TextEntity>();
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 var responseObject = new JavaScriptSerializer().Deserialize<RosetteEntityResponse>(response.Content);
-
-                returnValue = new List<TextEntity>();
 
                 foreach (var rosetteEntity in responseObject.Entities)
                 {
