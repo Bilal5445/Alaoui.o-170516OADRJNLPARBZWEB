@@ -375,6 +375,7 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public List<String> GetAllTranscriptions(String arabiziWord)
         {
+            var output = new List<string>();
             //
             File.WriteAllText(workingDirectoryLocation + "arabiziword", arabiziWord);
 
@@ -392,8 +393,11 @@ namespace ArabicTextAnalyzer.Business.Provider
             process.StartInfo = processInformation;
             process.Start();
             process.WaitForExit();
-
-            var output = File.ReadAllLines(outputVariantsFileLoc).ToList<String>();
+            if(File.Exists(outputVariantsFileLoc))
+            {
+    output = File.ReadAllLines(outputVariantsFileLoc).ToList<String>();
+            }
+      
 
             return output;
         }

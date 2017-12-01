@@ -23,6 +23,46 @@
   <M_ARABIZIENTRY>
     <ID_ARABIZIENTRY>5e439482-d880-40d9-967b-3ab1fce4816e</ID_ARABIZIENTRY>
     <ArabiziText>maghrib</ArabiziText>
-    <ArabiziEntryDate>2017-08-29T17:19:20.6821974+01:00</ArabiziEntryDate>
+    <ArabiziEntryDate>2017-08-29T21:49:20.6821974+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>6fba6a7c-c6bc-468b-9e6a-da79743fbc09</ID_ARABIZIENTRY>
+    <ArabiziText>أفتاتي: أؤيد بلافريج والمشاريع الملكية ليست فوق المحاسبة</ArabiziText>
+    <ArabiziEntryDate>2017-12-01T12:32:25.4910007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5d1378e9-dcc0-49d1-8d8f-663f4a62de2c</ID_ARABIZIENTRY>
+    <ArabiziText>أفتاتي: أؤيد بلافريج والمشاريع الملكية ليست فوق المحاسبة</ArabiziText>
+    <ArabiziEntryDate>2017-12-01T13:04:06.6310007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>958645e4-eebe-4dee-9938-2734e255d52d</ID_ARABIZIENTRY>
+    <ArabiziText>أفتاتي: أؤيد بلافريج والمشاريع الملكية ليست فوق المحاسبة</ArabiziText>
+    <ArabiziEntryDate>2017-12-01T13:06:27.8690007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>56a9ceec-346d-4132-8d4d-56101091bd6c</ID_ARABIZIENTRY>
+    <ArabiziText>أفتاتي: أؤيد بلافريج والمشاريع الملكية ليست فوق المحاسبة</ArabiziText>
+    <ArabiziEntryDate>2017-12-01T13:07:07.4060007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>fc95c39c-f676-4064-a76a-fbf8eba19a53</ID_ARABIZIENTRY>
+    <ArabiziText>أفتاتي: أؤيد بلافريج والمشاريع الملكية ليست فوق المحاسبة</ArabiziText>
+    <ArabiziEntryDate>2017-12-01T13:08:02.9660007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>7d12d691-f706-4fe0-8974-17524d3c6184</ID_ARABIZIENTRY>
+    <ArabiziText>أفتاتي: أؤيد بلافريج والمشاريع الملكية ليست فوق المحاسبة</ArabiziText>
+    <ArabiziEntryDate>2017-12-01T13:10:53.1200007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>4839ca45-b64c-4b22-b8e7-f776a0b5b745</ID_ARABIZIENTRY>
+    <ArabiziText>hello</ArabiziText>
+    <ArabiziEntryDate>2017-12-01T13:15:17.2980007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>94c17024-0155-4d37-9429-b5692294c13a</ID_ARABIZIENTRY>
+    <ArabiziText>hello</ArabiziText>
+    <ArabiziEntryDate>2017-12-01T13:20:58.1730007+05:30</ArabiziEntryDate>
   </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

@@ -98,11 +98,11 @@ function InitializeDataTables() {
 }
 
 // table for FB
-function InitializeFBDataTables() {
+function InitializeFBDataTables(fluencerid) {
     $(function () {
 
         // Initialize DataTables
-        $('.datatables-table-fb').DataTable({
+        $('.table_' + fluencerid).DataTable({
             // Enable mark.js search term highlighting
             mark: {
                 element: 'span',
@@ -129,6 +129,14 @@ function InitializeFBDataTables() {
                     { "data": "likes_count", "className": "arabic-text top" },
                     { "data": "comments_count", "className": "arabic-text top entitiestype" },
                     { "data": "date_publishing", "className": "arabic-text top entities" },
+                    {
+                        "data": function (data)
+                        {
+                            var str = '';
+                            str = str + '<a class="controls center top" onclick="'+"TranslateContent(this)"+'">Translate</a>';
+                            return str;
+                        }
+                        },
             ],
             "columnDefs": [{
                 "defaultContent": "-",
@@ -137,7 +145,91 @@ function InitializeFBDataTables() {
             // server side
             "processing": true,
             "serverSide": true,
-            "ajax": "/Train/DataTablesNet_ServerSide_FB_GetList/0"
+            "ajax": "/Train/DataTablesNet_ServerSide_FB_GetList?fluencerid=" + fluencerid
         });
     });
+}
+
+
+//Table For FB For Particular influencer
+function LoadFacebookPosts(fluencerid) {
+    InitializeFBDataTables(fluencerid)
+    fnCallback(fluencerid)
+}
+function fnCallback(id)
+{
+    $('.table_' + id).show();
+    if (id.length > 0)
+    {
+        $('.tab-pane').each(function () {
+            $(this).removeClass('active');
+        });
+        $('#second_' + id).addClass('active')
+        $('.mainUL').each(function () {
+            $(this).removeClass('active');
+        })
+        $('#' + id).addClass('active');
+    }
+}
+
+function AddInfluencer()
+{
+    var urlname = $('#txtUrlName').val();
+    var pro_or_anti = $('#ddlPro_or_anti').val();
+    
+    var urlToPost = "http://localhost:49835/api/AccountPanel/AddFBInfluencer"
+    $.ajax({
+        "dataType": 'json',
+        "contentType": "application/json; charset=utf-8",
+        "type": "POST",
+        "url": urlToPost,
+        "data": {
+            "name": "",
+            "url_name": urlname,
+            "pro_or_anti": pro_or_anti,
+            "id": 1
+        },
+        "success": function (msg) {
+            var json = JSON.parse(msg.d);
+            //customAlertMessages.alerts.success("Lead has been assigned successfully.");
+            //$('#divGridLeads').DataTable().ajax.reload();
+            //$('#grdLeadAssigned').DataTable().ajax.reload();
+        }
+    });
+}
+
+function TranslateContent(obj)
+{
+    //var token = $('#hdnToken').val();
+    //alert(token)
+  //  alert($($(obj).parents("tr").find("td")[2]).html())
+    if ($($(obj).parents("tr").find("td")[2]).html().trim().length > 0) {
+        var _tag = ($($(obj).parents("tr").find("td")[2])).html().toString();
+        //var urlToPost = "/Train/TranslateFbPost"// 'http://localhost:50037/api/Arabizi/GetArabicDarijaEntry/' + _tag + '?token=' + token// 
+        alert(_tag)
+        $.ajax({
+            "dataType": 'json',
+           // "contentType": "application/json; charset=utf-8",
+            "type": "GET",
+            "url": "/Train/TranslateFbPost",
+            "data": {                
+                "content": _tag
+                //"mainEntity": _tag,
+               // "ArabiziEntryDate": new Date(),
+               // "id": 1
+            },
+            "success": function (msg) {
+                console.log(msg);
+                var json = JSON.parse(msg.d);
+                if (json.status)
+                {
+                    alert(json.recordsFiltered)
+                }
+                //customAlertMessages.alerts.success("Lead has been assigned successfully.");
+                //$('#divGridLeads').DataTable().ajax.reload();
+                //$('#grdLeadAssigned').DataTable().ajax.reload();
+            }
+        });
+       
+    }
 }

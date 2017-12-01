@@ -174,6 +174,7 @@
 }
 else if (token != null && !string.IsNullOrEmpty(token as string))
 {
+
     <!-- aribizi translate -->
     using (Html.BeginForm("TrainStepOne", "Train", new { mainEntity = @ViewBag.ActiveXtrctTheme.ThemeName.Trim() }, FormMethod.Post, new { id = "trainform" }))
     {
@@ -303,5 +304,6 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
     </div>
 
     <!-- Place where you will insert your partial -->
+    <input type="hidden" id="hdnToken" value="@token" />
     <div id="partialPlaceHolder" style="display:inline;"> </div>
 }
