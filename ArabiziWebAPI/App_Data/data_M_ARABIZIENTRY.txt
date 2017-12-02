@@ -65,4 +65,39 @@
     <ArabiziText>hello</ArabiziText>
     <ArabiziEntryDate>2017-12-01T13:20:58.1730007+05:30</ArabiziEntryDate>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3f1112e8-993d-48b8-8baf-798308858378</ID_ARABIZIENTRY>
+    <ArabiziText>أفتاتي: أؤيد بلافريج والمشاريع الملكية ليست فوق المحاسبة</ArabiziText>
+    <ArabiziEntryDate>2017-12-02T10:12:57.3728007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>5a057257-cce7-4409-82a7-53a1cc736959</ID_ARABIZIENTRY>
+    <ArabiziText>أفتاتي: أؤيد بلافريج والمشاريع الملكية ليست فوق المحاسبة</ArabiziText>
+    <ArabiziEntryDate>2017-12-02T10:15:53.3248007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3af3ae3e-3cdd-4dd3-be96-c3079bae04b3</ID_ARABIZIENTRY>
+    <ArabiziText>أفتاتي: أؤيد بلافريج والمشاريع الملكية ليست فوق المحاسبة</ArabiziText>
+    <ArabiziEntryDate>2017-12-02T10:19:02.9828007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b0a0f872-b30b-420a-83e5-b84f561c8d98</ID_ARABIZIENTRY>
+    <ArabiziText>أفتاتي: أؤيد بلافريج والمشاريع الملكية ليست فوق المحاسبة</ArabiziText>
+    <ArabiziEntryDate>2017-12-02T10:32:10.5868007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>58920c17-e57e-43e8-95ab-c7068f3eace6</ID_ARABIZIENTRY>
+    <ArabiziText>أفتاتي: أؤيد بلافريج والمشاريع الملكية ليست فوق المحاسبة</ArabiziText>
+    <ArabiziEntryDate>2017-12-02T10:39:03.5248007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>7c725356-bf5d-4a40-bfc9-80589ab24331</ID_ARABIZIENTRY>
+    <ArabiziText>النفط ينزل تحت 50 دولار للبرميل والمغاربة لا يستفيدون من تراجع الاسعار إليك السبب</ArabiziText>
+    <ArabiziEntryDate>2017-12-02T10:39:41.1958007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3a285987-bbb4-4fcd-b4fb-af750e218078</ID_ARABIZIENTRY>
+    <ArabiziText>أفتاتي: أؤيد بلافريج والمشاريع الملكية ليست فوق المحاسبة</ArabiziText>
+    <ArabiziEntryDate>2017-12-02T15:00:24.385+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

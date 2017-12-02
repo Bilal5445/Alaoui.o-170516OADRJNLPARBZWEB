@@ -126,6 +126,7 @@ function InitializeFBDataTables(fluencerid) {
                     { "data": "id", "className": "center top" },
                     { "data": "fk_influencer", "className": "arabizi-text top" },
                     { "data": "post_text", "className": "arabizi-text top" },
+                    {"data": "translated_text", "className": "arabizi-text top"},
                     { "data": "likes_count", "className": "arabic-text top" },
                     { "data": "comments_count", "className": "arabic-text top entitiestype" },
                     { "data": "date_publishing", "className": "arabic-text top entities" },
@@ -133,7 +134,7 @@ function InitializeFBDataTables(fluencerid) {
                         "data": function (data)
                         {
                             var str = '';
-                            str = str + '<a class="controls center top" onclick="'+"TranslateContent(this)"+'">Translate</a>';
+                            str = str + '<a class="btn btn-warning btn-xs" onclick="'+"TranslateContent(this)"+'">Translate</a>';
                             return str;
                         }
                         },
@@ -153,7 +154,10 @@ function InitializeFBDataTables(fluencerid) {
 
 //Table For FB For Particular influencer
 function LoadFacebookPosts(fluencerid) {
-    InitializeFBDataTables(fluencerid)
+    var $checkedBoxes = $('.table_' + fluencerid + ' tbody tr');
+    if ($checkedBoxes.length == 0) {
+        InitializeFBDataTables(fluencerid)
+    }
     fnCallback(fluencerid)
 }
 function fnCallback(id)
@@ -171,65 +175,278 @@ function fnCallback(id)
         $('#' + id).addClass('active');
     }
 }
-
+var AddInfluencerIsClicked = false;
 function AddInfluencer()
 {
-    var urlname = $('#txtUrlName').val();
-    var pro_or_anti = $('#ddlPro_or_anti').val();
-    
-    var urlToPost = "http://localhost:49835/api/AccountPanel/AddFBInfluencer"
-    $.ajax({
-        "dataType": 'json',
-        "contentType": "application/json; charset=utf-8",
-        "type": "POST",
-        "url": urlToPost,
-        "data": {
-            "name": "",
-            "url_name": urlname,
-            "pro_or_anti": pro_or_anti,
-            "id": 1
-        },
-        "success": function (msg) {
-            var json = JSON.parse(msg.d);
-            //customAlertMessages.alerts.success("Lead has been assigned successfully.");
-            //$('#divGridLeads').DataTable().ajax.reload();
-            //$('#grdLeadAssigned').DataTable().ajax.reload();
-        }
-    });
+    if (AddInfluencerIsClicked == false)
+    {
+        var urlname = $('#txtUrlName').val();
+        var pro_or_anti = $('#ddlPro_or_anti').val();
+        AddInfluencerIsClicked = true;
+
+        //var urlToPost = AddFBInfluencer
+        $.ajax({
+            "dataType": 'json',
+            "contentType": "application/json; charset=utf-8",
+            "type": "GET",
+            "url": "/Train/AddFBInfluencer",
+            "data": {
+                "name": "",
+                "url_name": urlname,
+                "pro_or_anti": pro_or_anti,
+
+            },
+            "success": function (msg) {
+                AddInfluencerIsClicked = false;
+                if (msg.status) {
+                    window.location = '/Train';
+                   
+                }
+                else {
+                    alert("Error " + msg.message);
+                }
+               
+            },
+             "error": function () {
+                 AddInfluencerIsClicked = false;
+                 alert("Error");
+            }
+        });
+    }
+  
 }
 
 function TranslateContent(obj)
 {
+    
     //var token = $('#hdnToken').val();
     //alert(token)
   //  alert($($(obj).parents("tr").find("td")[2]).html())
-    if ($($(obj).parents("tr").find("td")[2]).html().trim().length > 0) {
-        var _tag = ($($(obj).parents("tr").find("td")[2])).html().toString();
-        //var urlToPost = "/Train/TranslateFbPost"// 'http://localhost:50037/api/Arabizi/GetArabicDarijaEntry/' + _tag + '?token=' + token// 
-        alert(_tag)
-        $.ajax({
-            "dataType": 'json',
-           // "contentType": "application/json; charset=utf-8",
-            "type": "GET",
-            "url": "/Train/TranslateFbPost",
-            "data": {                
-                "content": _tag
-                //"mainEntity": _tag,
-               // "ArabiziEntryDate": new Date(),
-               // "id": 1
-            },
-            "success": function (msg) {
-                console.log(msg);
-                var json = JSON.parse(msg.d);
-                if (json.status)
-                {
-                    alert(json.recordsFiltered)
+    if ($($(obj).parents("tr").find("td")[3]).html().trim().length == 0)
+    {
+        if ($($(obj).parents("tr").find("td")[2]).html().trim().length > 0) {
+            var _tag = ($($(obj).parents("tr").find("td")[2])).html().toString();
+            var id = ($($(obj).parents("tr").find("td")[0])).html().toString();
+            //var urlToPost = "/Train/TranslateFbPost"// 'http://localhost:50037/api/Arabizi/GetArabicDarijaEntry/' + _tag + '?token=' + token// 
+            // alert(_tag)
+            $.ajax({
+                "dataType": 'json',
+                // "contentType": "application/json; charset=utf-8",
+                "type": "GET",
+                "url": "/Train/TranslateFbPost",
+                "data": {
+                    "content": _tag,
+                    "id":id
+                    //"mainEntity": _tag,
+                    // "ArabiziEntryDate": new Date(),
+                    // "id": 1
+                },
+                "success": function (msg) {
+                    console.log(msg);
+                    //var json = JSON.parse(msg);
+                    if (msg.status) {
+                        //alert(msg.recordsFiltered)
+
+                        if ($($(obj).parents("tr").find("td")[3]).html().trim().length == 0) {
+                            $($(obj).parents("tr").find("td")[3]).html(msg.recordsFiltered)
+                        }
+                    }
+                    //customAlertMessages.alerts.success("Lead has been assigned successfully.");
+                    //$('#divGridLeads').DataTable().ajax.reload();
+                    //$('#grdLeadAssigned').DataTable().ajax.reload();
+                },
+                "error": function () {
+                    alert("Error")
                 }
-                //customAlertMessages.alerts.success("Lead has been assigned successfully.");
-                //$('#divGridLeads').DataTable().ajax.reload();
-                //$('#grdLeadAssigned').DataTable().ajax.reload();
-            }
-        });
-       
+            });
+
+        }
+        else
+        {
+            alert("There is no post for translate");
+        }
     }
+    else {
+        alert("This post is already translated");
+    }
+   
 }
+
+function RetrieveFBPost(influencerurl_name,influencerid)
+{
+    $.ajax({
+        "dataType": 'json',       
+        "type": "GET",
+        "url": "/Train/RetrieveFBPost",
+        "data": {
+            "influencerurl_name": influencerurl_name
+            //"mainEntity": _tag,
+            // "ArabiziEntryDate": new Date(),
+            // "id": 1
+        },
+        "success": function (msg) {
+            console.log(msg);
+            //var json = JSON.parse(msg);
+            if (msg.status) {
+                ResetDataTable(influencerid);
+                //alert(msg.recordsFiltered)
+                //$('.table_' + influencerid).DataTable().ajax.reload();           
+                //fnCallback(influencerid)
+            }
+            //customAlertMessages.alerts.success("Lead has been assigned successfully.");
+            //$('#divGridLeads').DataTable().ajax.reload();
+            //$('#grdLeadAssigned').DataTable().ajax.reload();
+        },
+        "error": function () {
+            alert("error")
+        }
+    });
+}
+function ResetDataTable(influencerid) {
+    var oTable = $('.table_' + influencerid).dataTable();
+    oTable.fnClearTable();
+    oTable.fnDestroy();
+    LoadFacebookPosts(influencerid)
+}
+
+
+
+
+
+
+
+function fnFormatDetails(table_id, html) {
+    var sOut = "<table id=\"exampleTable_" + table_id + "\">";
+    sOut += html;
+    sOut += "</table>";
+    return sOut;
+}
+
+//////////////////////////////////////////////////////////// EXTERNAL DATA - Array of Objects 
+
+var terranImage = "https://i.imgur.com/HhCfFSb.jpg";
+var jaedongImage = "https://i.imgur.com/s3OMQ09.png";
+var grubbyImage = "https://i.imgur.com/wnEiUxt.png";
+var stephanoImage = "https://i.imgur.com/vYJHVSQ.jpg";
+var scarlettImage = "https://i.imgur.com/zKamh3P.jpg";
+
+// DETAILS ROW A 
+var detailsRowAPlayer1 = { pic: jaedongImage, name: "Jaedong", team: "evil geniuses", server: "NA" };
+var detailsRowAPlayer2 = { pic: scarlettImage, name: "Scarlett", team: "acer", server: "Europe" };
+var detailsRowAPlayer3 = { pic: stephanoImage, name: "Stephano", team: "evil geniuses", server: "Europe" };
+
+var detailsRowA = [detailsRowAPlayer1, detailsRowAPlayer2, detailsRowAPlayer3];
+
+// DETAILS ROW B 
+var detailsRowBPlayer1 = { pic: grubbyImage, name: "Grubby", team: "independent", server: "Europe" };
+
+var detailsRowB = [detailsRowBPlayer1];
+
+// DETAILS ROW C 
+var detailsRowCPlayer1 = { pic: terranImage, name: "Bomber", team: "independent", server: "NA" };
+
+var detailsRowC = [detailsRowCPlayer1];
+
+var rowA = { race: "Zerg", year: "2014", total: "3", details: detailsRowA };
+var rowB = { race: "Protoss", year: "2014", total: "1", details: detailsRowB };
+var rowC = { race: "Terran", year: "2014", total: "1", details: detailsRowC };
+
+var newRowData = [rowA, rowB, rowC];
+
+////////////////////////////////////////////////////////////
+
+var iTableCounter = 1;
+var oTable;
+var oInnerTable;
+var detailsTableHtml;
+
+//Run On HTML Build
+$(document).ready(function () {
+
+    // you would probably be using templates here
+    detailsTableHtml = $("#detailsTable").html();
+
+    //Insert a 'details' column to the table
+    var nCloneTh = document.createElement('th');
+    var nCloneTd = document.createElement('td');
+    nCloneTd.innerHTML = '<img src="http://i.imgur.com/SD7Dz.png">';
+    nCloneTd.className = "center";
+
+    $('#exampleTable thead tr').each(function () {
+        this.insertBefore(nCloneTh, this.childNodes[0]);
+    });
+
+    $('#exampleTable tbody tr').each(function () {
+        this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
+    });
+
+
+    //Initialse DataTables, with no sorting on the 'details' column
+    var oTable = $('#exampleTable').dataTable({
+        "bJQueryUI": true,
+        "aaData": newRowData,
+        "bPaginate": false,
+        "aoColumns": [
+            {
+                "mDataProp": null,
+                "sClass": "control center",
+                "sDefaultContent": '<img src="http://i.imgur.com/SD7Dz.png">'
+            },
+            { "mDataProp": "race" },
+            { "mDataProp": "year" },
+            { "mDataProp": "total" }
+        ],
+        "oLanguage": {
+            "sInfo": "_TOTAL_ entries"
+        },
+        "aaSorting": [[1, 'asc']]
+    });
+
+    /* Add event listener for opening and closing details
+    * Note that the indicator for showing which row is open is not controlled by DataTables,
+    * rather it is done here
+    */
+    $('#exampleTable tbody td img').live('click', function () {
+        var nTr = $(this).parents('tr')[0];
+        var nTds = this;
+
+        if (oTable.fnIsOpen(nTr)) {
+            /* This row is already open - close it */
+            this.src = "http://i.imgur.com/SD7Dz.png";
+            oTable.fnClose(nTr);
+        }
+        else {
+            /* Open this row */
+            var rowIndex = oTable.fnGetPosition($(nTds).closest('tr')[0]);
+            var detailsRowData = newRowData[rowIndex].details;
+
+            this.src = "http://i.imgur.com/d4ICC.png";
+            oTable.fnOpen(nTr, fnFormatDetails(iTableCounter, detailsTableHtml), 'details');
+            oInnerTable = $("#exampleTable_" + iTableCounter).dataTable({
+                "bJQueryUI": true,
+                "bFilter": false,
+                "aaData": detailsRowData,
+                "bSort": true, // disables sorting
+                "aoColumns": [
+                    { "mDataProp": "pic" },
+                    { "mDataProp": "name" },
+                    { "mDataProp": "team" },
+                    { "mDataProp": "server" }
+                ],
+                "bPaginate": false,
+                "oLanguage": {
+                    "sInfo": "_TOTAL_ entries"
+                },
+                "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                    var imgLink = aData['pic'];
+                    var imgTag = '<img width="100px" src="' + imgLink + '"/>';
+                    $('td:eq(0)', nRow).html(imgTag);
+                    return nRow;
+                }
+            });
+            iTableCounter = iTableCounter + 1;
+        }
+    });
+
+
+});
