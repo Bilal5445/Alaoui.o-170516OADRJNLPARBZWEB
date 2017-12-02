@@ -608,3 +608,122 @@ Parameter name: source
 01/12/2017 13:45:45.006000 : PC10-PC: train - after end of lock : 24877
 01/12/2017 13:45:45.859000 : PC10-PC: loadTime : 25.79s
 01/12/2017 13:45:45.879000 : PC10-PC: loadTime : refresh : 25.81s
+01/12/2017 14:22:10.154000 : PC10-PC: loadTime : refresh : 5.19s
+01/12/2017 14:22:10.388000 : PC10-PC: loadTime : 2.2s
+01/12/2017 14:22:44.686000 : PC10-PC: loadTime : 1.41s
+01/12/2017 14:22:44.719000 : PC10-PC: loadTime : refresh : 1.44s
+01/12/2017 14:22:51.843000 : PC10-PC: loadTime : 1.66s
+01/12/2017 14:22:51.889000 : PC10-PC: loadTime : refresh : 1.7s
+01/12/2017 15:42:18.606000 : PC10-PC: loadTime : 33.25s
+01/12/2017 15:42:19.443000 : PC10-PC: loadTime : refresh : 34.02s
+01/12/2017 15:43:11.670000 : PC10-PC: train - before lock : 0
+01/12/2017 15:43:11.983000 : PC10-PC: train - after lock (thisLock) : 0
+01/12/2017 15:43:12.011000 : PC10-PC: train - after train_savearabizi : 27
+01/12/2017 15:43:12.124000 : PC10-PC: train - after train_Preprocess_upstream : 140
+01/12/2017 15:43:12.180000 : PC10-PC: train - after train_bidict : 196
+01/12/2017 15:43:17.037000 : PC10-PC: train - after train_binggoogle : 5053
+01/12/2017 15:43:17.038000 : PC10-PC: train - before train_saveperl > Convert : 5054
+01/12/2017 15:43:17.040000 : PC10-PC: train - after train_saveperl > Convert >  Preprocess_arabic_comma : 5056
+01/12/2017 15:43:17.043000 : PC10-PC: train - after train_saveperl > Convert >  Preprocess_unicode_special_chars : 5059
+01/12/2017 15:43:17.044000 : PC10-PC: train - after train_saveperl > Convert >  Preprocess_SilentVowels : 5060
+01/12/2017 15:43:17.110000 : PC10-PC: train - after train_saveperl > Convert >  WriteAllText : 5126
+01/12/2017 15:46:20.975000 : PC10-PC: loadTime : 18.45s
+01/12/2017 15:46:21.589000 : PC10-PC: loadTime : refresh : 19.08s
+01/12/2017 15:46:39.018000 : PC10-PC: train - before lock : 0
+01/12/2017 15:49:50.607000 : PC10-PC: loadTime : 12.18s
+01/12/2017 15:49:51.179000 : PC10-PC: loadTime : refresh : 12.75s
+01/12/2017 15:49:55.587000 : PC10-PC: loadTime : refresh : 2.86s
+01/12/2017 15:49:57.043000 : PC10-PC: loadTime : 2.53s
+01/12/2017 15:50:02.621000 : PC10-PC: train - before lock : 0
+01/12/2017 15:53:34.517000 : PC10-PC: loadTime : 24s
+01/12/2017 15:53:34.572000 : PC10-PC: loadTime : refresh : 24.04s
+01/12/2017 15:54:39.874000 : PC10-PC: loadTime : refresh : 52.71s
+01/12/2017 15:55:54.220000 : PC10-PC: loadTime : 18.08s
+01/12/2017 15:55:54.308000 : PC10-PC: loadTime : refresh : 18.35s
+01/12/2017 15:56:18.157000 : PC10-PC: train - before lock : 0
+01/12/2017 15:58:09.489000 : PC10-PC: train - before lock : 0
+01/12/2017 16:08:11.331000 : PC10-PC: loadTime : 37.62s
+01/12/2017 16:08:11.923000 : PC10-PC: loadTime : refresh : 38.2s
+01/12/2017 16:08:33.752000 : PC10-PC: train - before lock : 0
+01/12/2017 18:29:47.986000 : PC10-PC: train - after train_saveperl > Convert >  ProcessStartInfo : 9990779
+01/12/2017 18:29:49.586000 : PC10-PC: train - after train_saveperl > Convert >  ReadAllText : 9997003
+01/12/2017 18:29:51.326000 : PC10-PC: train - after train_saveperl > Convert : 9998817
+01/12/2017 18:30:08.864000 : PC10-PC: train - after train_saveperl : 10016354
+02/12/2017 10:12:31.893800 : PC10-PC: loadTime : 21.73s
+02/12/2017 10:12:31.943800 : PC10-PC: loadTime : refresh : 21.81s
+02/12/2017 10:12:37.017800 : PC10-PC: loadTime : 2.42s
+02/12/2017 10:12:37.097800 : PC10-PC: loadTime : refresh : 2.5s
+02/12/2017 10:15:44.309800 : PC10-PC: loadTime : 5.81s
+02/12/2017 10:15:44.439800 : PC10-PC: loadTime : refresh : 5.93s
+02/12/2017 10:18:49.909800 : PC10-PC: loadTime : 2.19s
+02/12/2017 10:18:50.108800 : PC10-PC: loadTime : refresh : 2.23s
+02/12/2017 10:18:56.069800 : PC10-PC: loadTime : 1.27s
+02/12/2017 10:18:56.139800 : PC10-PC: loadTime : refresh : 1.32s
+02/12/2017 10:31:00.960800 : PC10-PC: loadTime : 39.74s
+02/12/2017 10:31:12.678800 : PC10-PC: loadTime : refresh : 51.61s
+02/12/2017 10:31:31.152800 : PC10-PC: loadTime : 4.2s
+02/12/2017 10:31:40.292800 : PC10-PC: loadTime : refresh : 13.3s
+02/12/2017 10:38:37.714800 : PC10-PC: loadTime : 3.36s
+02/12/2017 10:38:40.584800 : PC10-PC: loadTime : refresh : 6.24s
+02/12/2017 10:38:48.977800 : PC10-PC: loadTime : 6.02s
+02/12/2017 10:38:49.007800 : PC10-PC: loadTime : refresh : 6.05s
+02/12/2017 11:35:39.412800 : PC10-PC: loadTime : 49.18s
+02/12/2017 11:37:13.532800 : PC10-PC: loadTime : 27.24s
+02/12/2017 11:37:14.308800 : PC10-PC: loadTime : refresh : 28.02s
+02/12/2017 11:37:28.796800 : PC10-PC: loadTime : 9.47s
+02/12/2017 11:38:01.351800 : PC10-PC: loadTime : refresh : 10.18s
+02/12/2017 12:09:46.213800 : PC10-PC: loadTime : 1.28s
+02/12/2017 12:09:59.573800 : PC10-PC: loadTime : refresh : 23.45s
+02/12/2017 12:11:18.982800 : PC10-PC: loadTime : refresh : 8.81s
+02/12/2017 12:11:19.216800 : PC10-PC: loadTime : 25.11s
+02/12/2017 12:11:26.436800 : PC10-PC: loadTime : 39.98s
+02/12/2017 12:11:26.622800 : PC10-PC: loadTime : refresh : 40.11s
+02/12/2017 12:56:39.588800 : PC10-PC: loadTime : refresh : 27.83s
+02/12/2017 13:01:44.252800 : PC10-PC: loadTime : 3.54s
+02/12/2017 13:03:17.341800 : PC10-PC: loadTime : 30.64s
+02/12/2017 13:03:28.006800 : PC10-PC: loadTime : 49.15s
+02/12/2017 13:03:30.917800 : PC10-PC: loadTime : refresh : 44.54s
+02/12/2017 13:03:30.951800 : PC10-PC: loadTime : refresh : 55.87s
+02/12/2017 13:05:25.843800 : PC10-PC: loadTime : 5.05s
+02/12/2017 13:05:29.467800 : PC10-PC: loadTime : refresh : 8.55s
+02/12/2017 13:15:04.318800 : PC10-PC: loadTime : 7.31s
+02/12/2017 13:15:04.670800 : PC10-PC: loadTime : refresh : 7.56s
+02/12/2017 13:15:10.791800 : PC10-PC: loadTime : 5.23s
+02/12/2017 13:15:12.886800 : PC10-PC: loadTime : refresh : 7.32s
+02/12/2017 13:15:51.339800 : PC10-PC: loadTime : 3.6s
+02/12/2017 13:15:53.016800 : PC10-PC: loadTime : refresh : 5.2s
+02/12/2017 14:24:31.055000 : PC10-PC: loadTime : 17.71s
+02/12/2017 14:25:13.903000 : PC10-PC: loadTime : 16.07s
+02/12/2017 14:25:16.816000 : PC10-PC: loadTime : refresh : 19.92s
+02/12/2017 14:25:22.246000 : PC10-PC: loadTime : refresh : 13.14s
+02/12/2017 14:27:22.290000 : PC10-PC: loadTime : refresh : 0.95s
+02/12/2017 14:27:22.301000 : PC10-PC: loadTime : 53.87s
+02/12/2017 14:27:23.653000 : PC10-PC: loadTime : 52.88s
+02/12/2017 14:27:26.402000 : PC10-PC: loadTime : refresh : 55.67s
+02/12/2017 14:31:05.490000 : PC10-PC: loadTime : 7.25s
+02/12/2017 14:31:37.270000 : PC10-PC: loadTime : refresh : 39s
+02/12/2017 14:31:43.346000 : PC10-PC: loadTime : 15.11s
+02/12/2017 14:31:47.247000 : PC10-PC: loadTime : refresh : 19.05s
+02/12/2017 14:37:51.282000 : PC10-PC: loadTime : 17.34s
+02/12/2017 14:38:03.644000 : PC10-PC: loadTime : 2.21s
+02/12/2017 14:38:16.358000 : PC10-PC: loadTime : 7.95s
+02/12/2017 14:38:18.113000 : PC10-PC: loadTime : refresh : 9.79s
+02/12/2017 14:39:08.435000 : PC10-PC: loadTime : 4.05s
+02/12/2017 14:39:11.057000 : PC10-PC: loadTime : refresh : 6.86s
+02/12/2017 14:42:46.449000 : PC10-PC: loadTime : 4.85s
+02/12/2017 14:42:57.334000 : PC10-PC: loadTime : refresh : 15.73s
+02/12/2017 14:43:39.178000 : PC10-PC: loadTime : 4.09s
+02/12/2017 14:43:48.005000 : PC10-PC: loadTime : 7.2s
+02/12/2017 14:43:49.421000 : PC10-PC: loadTime : refresh : 8.6s
+02/12/2017 14:51:43.635000 : PC10-PC: loadTime : 5.65s
+02/12/2017 14:51:44.334000 : PC10-PC: loadTime : refresh : 6.39s
+02/12/2017 14:52:09.370000 : PC10-PC: loadTime : 1.63s
+02/12/2017 14:52:09.465000 : PC10-PC: loadTime : refresh : 1.69s
+02/12/2017 14:52:41.172000 : PC10-PC: loadTime : 16.82s
+02/12/2017 14:52:43.133000 : PC10-PC: loadTime : refresh : 18.76s
+02/12/2017 14:58:53.457000 : PC10-PC: loadTime : 5.92s
+02/12/2017 14:59:15.841000 : PC10-PC: loadTime : 19.85s
+02/12/2017 14:59:17.553000 : PC10-PC: loadTime : refresh : 21.57s
+02/12/2017 15:11:08.774000 : PC10-PC: loadTime : 4.65s
+02/12/2017 15:11:33.713000 : PC10-PC: loadTime : 23.36s
+02/12/2017 15:11:35.589000 : PC10-PC: loadTime : refresh : 25.2s
