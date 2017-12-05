@@ -135,7 +135,8 @@ namespace ArabicTextAnalyzer.Controllers
             }
             else
             {
-                Session["_T0k@n_"] = "";
+                Session["_T0k@n_"] = String.Empty;
+                Session["message"] = String.Empty;
                 TempData["showAlertWarning"] = true;
                 TempData["msgAlert"] = errMessage;  // "Not a valid token";
             }
@@ -290,12 +291,24 @@ namespace ArabicTextAnalyzer.Controllers
             // Check before if already main entity
             if (arabicDarijaEntryTextEntities.Find(m => m.ID_ARABICDARIJAENTRY == idArabicDarijaEntry && m.TextEntity.Mention == mainEntity && m.TextEntity.Type == "MAIN ENTITY") != null)
             {
+                // remove old main tag(s) if any 
+                foreach (var tag in arabicDarijaEntryTextEntities.FindAll(m => m.ID_ARABICDARIJAENTRY == idArabicDarijaEntry && m.TextEntity.Mention != mainEntity && m.TextEntity.Type == "MAIN ENTITY"))
+                {
+                    serialize_Delete_M_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(tag);
+                }
+
                 TempData["showAlertWarning"] = true;
                 TempData["msgAlert"] = "'" + mainEntity + "' is already MAIN ENTITY for the post";
                 return RedirectToAction("Index");
             }
 
-            // apply main tag
+            // remove old main tag(s) if any 
+            foreach (var tag in arabicDarijaEntryTextEntities.FindAll(m => m.ID_ARABICDARIJAENTRY == idArabicDarijaEntry && m.TextEntity.Type == "MAIN ENTITY"))
+            {
+                serialize_Delete_M_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(tag);
+            }
+
+            // apply new main tag
             var m_arabicdarijaentry_textentity = new M_ARABICDARIJAENTRY_TEXTENTITY
             {
                 ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
@@ -497,7 +510,6 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             // save
-            // saveserializeM_XTRCTTHEME_KEYWORDs_DELETE_ALL_EFSQL(xtrctThemesKeywords, activeXtrctTheme);
             saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(xtrctThemesKeywords, activeXtrctTheme);
 
             //
@@ -1378,6 +1390,17 @@ namespace ArabicTextAnalyzer.Controllers
             using (var db = new ArabiziDbContext())
             {
                 db.M_ARABICDARIJAENTRY_TEXTENTITYs.Add(textEntity);
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        private void serialize_Delete_M_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(M_ARABICDARIJAENTRY_TEXTENTITY textEntity)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                db.M_ARABICDARIJAENTRY_TEXTENTITYs.Remove(textEntity);
 
                 // commit
                 db.SaveChanges();
