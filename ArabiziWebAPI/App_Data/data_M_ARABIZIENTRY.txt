@@ -100,4 +100,79 @@
     <ArabiziText>أفتاتي: أؤيد بلافريج والمشاريع الملكية ليست فوق المحاسبة</ArabiziText>
     <ArabiziEntryDate>2017-12-02T15:00:24.385+05:30</ArabiziEntryDate>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>1603e7e1-2edd-4dfd-9fad-06238eea647f</ID_ARABIZIENTRY>
+    <ArabiziText>Masa allah</ArabiziText>
+    <ArabiziEntryDate>2017-12-05T15:44:37.413+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b2a85895-d8cc-40f7-bcf7-ecaac3ca424b</ID_ARABIZIENTRY>
+    <ArabiziText>Tamam bhaiyo ko eid miladun nvi a pak ke aamad pe tahe dil se mubark bad</ArabiziText>
+    <ArabiziEntryDate>2017-12-05T15:47:26.7+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>316fc075-4d25-452a-a18b-d88d14460c8e</ID_ARABIZIENTRY>
+    <ArabiziText>Tamam bhaiyo ko eid miladun nvi a pak ke aamad pe tahe dil se mubark bad</ArabiziText>
+    <ArabiziEntryDate>2017-12-05T16:11:21.792+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ceb17044-89fa-46e4-86ef-e1cffe56e99d</ID_ARABIZIENTRY>
+    <ArabiziText>Tamam bhaiyo ko eid miladun nvi a pak ke aamad pe tahe dil se mubark bad</ArabiziText>
+    <ArabiziEntryDate>2017-12-05T16:36:21.497+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2306148f-37fe-4943-96f0-c386413e4262</ID_ARABIZIENTRY>
+    <ArabiziText>Masa allah</ArabiziText>
+    <ArabiziEntryDate>2017-12-05T16:39:30.845+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>2806d8c2-9e27-426b-aef5-fe97a6dd93cd</ID_ARABIZIENTRY>
+    <ArabiziText>Tamam bhaiyo ko eid miladun nvi a pak ke aamad pe tahe dil se mubark bad</ArabiziText>
+    <ArabiziEntryDate>2017-12-05T16:53:22.658+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>8706076e-e394-4592-a407-72717614be2e</ID_ARABIZIENTRY>
+    <ArabiziText>Tamam bhaiyo ko eid miladun nvi a pak ke aamad pe tahe dil se mubark bad</ArabiziText>
+    <ArabiziEntryDate>2017-12-05T17:08:35.676+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>6fc6d230-f1e9-4cd9-bee0-ad0a7437afef</ID_ARABIZIENTRY>
+    <ArabiziText>Masa allah</ArabiziText>
+    <ArabiziEntryDate>2017-12-05T17:10:22.418+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>51b9219c-13e6-4b01-8899-53e3d7991718</ID_ARABIZIENTRY>
+    <ArabiziText>Massaallah</ArabiziText>
+    <ArabiziEntryDate>2017-12-05T17:27:50.426+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ad541950-7bb1-4fbc-942c-28bd6ac58088</ID_ARABIZIENTRY>
+    <ArabiziText>खुशखबरी : मुजफ्फरपुरपटना एनएच होगा आठ लेन - पूरी खबर पढ़े फोटो पे क्लिक करें और शेयर करें।</ArabiziText>
+    <ArabiziEntryDate>2017-12-05T17:38:32.195+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ce7612d0-b250-4041-a584-91f4c7a44947</ID_ARABIZIENTRY>
+    <ArabiziText>खुशखबरी : मुजफ्फरपुरपटना एनएच होगा आठ लेन - पूरी खबर पढ़े फोटो पे क्लिक करें और शेयर करें।</ArabiziText>
+    <ArabiziEntryDate>2017-12-05T17:44:11.579+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>3a368500-f85f-4fc8-89a8-89e5b59fc934</ID_ARABIZIENTRY>
+    <ArabiziText>खुशखबरी : मुजफ्फरपुरपटना एनएच होगा आठ लेन - पूरी खबर पढ़े फोटो पे क्लिक करें और शेयर करें।</ArabiziText>
+    <ArabiziEntryDate>2017-12-05T17:50:01.47+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>7f0d4196-6cba-4bc0-9c03-65f8bfdd0690</ID_ARABIZIENTRY>
+    <ArabiziText>Superb har Bachi ko apke jasa pita mile</ArabiziText>
+    <ArabiziEntryDate>2017-12-05T18:31:14.497+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>11934108-fe03-4b67-9190-6bf4f7147427</ID_ARABIZIENTRY>
+    <ArabiziText>Smart city</ArabiziText>
+    <ArabiziEntryDate>2017-12-05T18:32:27.61+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>fd12ee79-57d1-4cde-86cc-9470dce2d20a</ID_ARABIZIENTRY>
+    <ArabiziText>Opening date 0112-2017</ArabiziText>
+    <ArabiziEntryDate>2017-12-05T18:33:11.369+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>
