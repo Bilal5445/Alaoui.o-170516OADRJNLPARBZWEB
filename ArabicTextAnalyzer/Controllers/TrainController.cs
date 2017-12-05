@@ -101,7 +101,7 @@ namespace ArabicTextAnalyzer.Controllers
             TempData.Remove("msgAlert");
 
             //Fertch the data for fbPage as only for that theme
-            if(token !=null && !string.IsNullOrEmpty(token as string))
+            if (token != null && !string.IsNullOrEmpty(token as string))
             {
                 var fbFluencerAsTheme = loadAllT_Fb_InfluencerAsTheme();
                 ViewBag.AllInfluence = fbFluencerAsTheme;
@@ -166,43 +166,45 @@ namespace ArabicTextAnalyzer.Controllers
 
         //Method for translate the fb posts
         [HttpGet]
-        public async Task<object> TranslateFbPost(String content,string id)
+        public async Task<object> TranslateFbPost(String content, string id)
         {
             string errMessage = string.Empty;
             bool status = false;
             string translatedstring = "";
-          
-          
 
-           // var requestContent = "/?token=" + token + "&methodTocall=TranslateFbPost";
+
+
+            // var requestContent = "/?token=" + token + "&methodTocall=TranslateFbPost";
             //bool istokenvalid = _IAuthenticate.IsTokenValid(Convert.ToString(token), "TranslateFbPost",out errMessage);
 
-             var url = ConfigurationManager.AppSettings["TranslateDomain"] + "/" + "api/Arabizi/GetArabicDarijaEntryForFbPost?text=" + content;
-           // var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken" + requestContent;
-           var result = await HtmlHelpers.PostAPIRequest(url,"",type:"GET");
+            var url = ConfigurationManager.AppSettings["TranslateDomain"] + "/" + "api/Arabizi/GetArabicDarijaEntryForFbPost?text=" + content;
+            // var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken" + requestContent;
+            var result = await HtmlHelpers.PostAPIRequest(url, "", type: "GET");
 
             if (result.Contains("Success"))
             {
                 status = true;
-                translatedstring = result.Replace("Success","");
-               var returndata= SaveTranslatedPost(id, translatedstring);
-                if(returndata>0)
+                translatedstring = result.Replace("Success", "");
+                var @singleQuote = "CHAR(39)";
+                translatedstring = translatedstring.Replace("'", @singleQuote);
+                var returndata = SaveTranslatedPost(id, translatedstring);
+                if (returndata > 0)
                 {
                     //
                 }
-               // return true;
+                // return true;
             }
             else
             {
                 errMessage = result;
                 //return false;
             }
-         
+
             return JsonConvert.SerializeObject(new
             {
                 status = status,
                 recordsFiltered = translatedstring,
-                message=errMessage
+                message = errMessage
             });
 
         }
@@ -219,12 +221,9 @@ namespace ArabicTextAnalyzer.Controllers
 
             string result = null;
 
-            // var requestContent = "/?token=" + token + "&methodTocall=TranslateFbPost";
-            //bool istokenvalid = _IAuthenticate.IsTokenValid(Convert.ToString(token), "TranslateFbPost",out errMessage);
-
-            var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchFBInfluencerPosts?CallFrom="+ influencerurl_name;
+            var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchFBInfluencerPosts?CallFrom=" + influencerurl_name;
             // var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken" + requestContent;
-            result =await HtmlHelpers.PostAPIRequest(url,"", type: "POST");
+            result = await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
 
             if (result.Contains("true"))
             {
@@ -247,14 +246,14 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [HttpGet]
-        public async Task<object> AddFBInfluencer(string url_name,string Pro_or_anti)
+        public async Task<object> AddFBInfluencer(string url_name, string Pro_or_anti)
         {
             T_FB_INFLUENCER influencer = new T_FB_INFLUENCER();
             influencer.id = "";
             influencer.url_name = url_name;
             influencer.pro_or_anti = Pro_or_anti;
             string errMessage = string.Empty;
-            bool status = false;           
+            bool status = false;
             string translatedstring = "";
 
             string result = null;
@@ -266,9 +265,9 @@ namespace ArabicTextAnalyzer.Controllers
 
                 var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "AccountPanel/AddFBInfluencer?url_name=" + url_name + "&pro_or_anti=" + Pro_or_anti + "&id=1&themeid=" + themeid + "&CallFrom=AddFBInfluencer";
                 // var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken" + requestContent;
-                result =await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
+                result = await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
             }
-             else
+            else
             {
                 result = "No theme id can get.";
             }
@@ -291,6 +290,70 @@ namespace ArabicTextAnalyzer.Controllers
                 recordsFiltered = translatedstring,
                 message = errMessage
             });
+        }
+
+        [HttpGet]
+        public async Task<object> TranslateFbComments(String content, string ids)
+        {
+            string errMessage = string.Empty;
+            bool status = false;
+            string translatedstring = "";
+            if(!string.IsNullOrEmpty(ids))
+            {
+                List<FBFeedComment> allComents = GetComments(ids);
+                if(allComents!=null && allComents.Count>0)
+                {
+                    foreach(var item in allComents)
+                    {
+                        var url = ConfigurationManager.AppSettings["TranslateDomain"] + "/" + "api/Arabizi/GetArabicDarijaEntryForFbPost?text=" + item.message;
+                        // var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken" + requestContent;
+                        var result = await HtmlHelpers.PostAPIRequest(url, "", type: "GET");
+
+                        if (result.Contains("Success"))
+                        {
+                            status = true;
+                            translatedstring = result.Replace("Success", "");
+                            var @singleQuote = "CHAR(39)";
+                            translatedstring = translatedstring.Replace("'", @singleQuote);
+                            try
+                            {
+                                var returndata = SaveTranslatedComments(item.Id, translatedstring);
+                                if (returndata > 0)
+                                {
+                                    //
+                                }
+                            }
+                            catch(Exception e)
+                            {
+
+                            }
+                           
+                            // return true;
+                        }
+                        else
+                        {
+                            errMessage = result;
+                            //return false;
+                        }
+                    }
+                }
+                else
+                {
+                    errMessage = "All comments are already translated.";
+                }
+
+                
+            }
+
+           
+
+            return JsonConvert.SerializeObject(new
+            {
+                status = status,
+                recordsFiltered = translatedstring,
+                message = errMessage
+            });
+
         }
 
         [HttpGet]
@@ -801,14 +864,40 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        public object DataTablesNet_ServerSide_FB_GetList( string fluencerid)
+        public object DataTablesNet_ServerSide_FB_GetList(string fluencerid)
         {
             // get main (whole) data from DB first
-            List<FB_POST> items = loaddeserializeT_FB_POST_DAPPERSQL(fluencerid);
-
+            var items = loaddeserializeT_FB_POST_DAPPERSQL(fluencerid).Select(c => new {
+                id = c.id,
+                fk_i = c.fk_influencer,
+                pt = c.post_text,
+                tt=c.translated_text,
+                lc = c.likes_count,
+                cc = c.comments_count,
+                dp = c.date_publishing
+            }).ToList();
             // get the number of entries
             var itemsCount = items.Count;
 
+            //
+            return JsonConvert.SerializeObject(new
+            {
+                recordsTotal = itemsCount.ToString(),
+                recordsFiltered = itemsCount.ToString(),
+                data = items
+            });
+        }
+
+        public object GetFBPostComment(string id)
+        {
+            var items = new List<FBFeedComment>();
+            var itemsCount = 0;
+            if (!string.IsNullOrEmpty(id))
+            {
+                //var idForPost = id.Split('_')[1];
+                items = loaddeserializeT_FB_Comments(id);
+                itemsCount = items.Count;
+            }
             //
             return JsonConvert.SerializeObject(new
             {
@@ -1376,49 +1465,131 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private List<FB_POST> loaddeserializeT_FB_POST_DAPPERSQL(string influencerid="")
+        private List<FB_POST> loaddeserializeT_FB_POST_DAPPERSQL(string influencerid = "")
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 String qry = "";
-                if(!string.IsNullOrEmpty(influencerid))
+                if (!string.IsNullOrEmpty(influencerid))
                 {
-                    qry = "SELECT * FROM T_FB_POST where fk_influencer='"+influencerid+"'";
+                    qry = "SELECT * FROM T_FB_POST where fk_influencer='" + influencerid + "'";
                 }
                 else
                 {
                     qry = "SELECT * FROM T_FB_POST";
                 }
-                
+
 
                 conn.Open();
                 return conn.Query<FB_POST>(qry).ToList();
             }
         }
-
-        private int SaveTranslatedPost(string postid,string TranslatedText)
+        private List<FBFeedComment> loaddeserializeT_FB_Comments(string postid = "")
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 String qry = "";
-                if (!string.IsNullOrEmpty(postid) && !string.IsNullOrEmpty(TranslatedText))
+                if (!string.IsNullOrEmpty(postid))
                 {
-                    qry = "update T_FB_POST set translated_text='"+ TranslatedText + "' where id='" + postid + "'";
+                    qry = "select * from FBFeedComments where id like '"+postid+"%'";
                 }
-                else
-                {
-                    qry = "SELECT * FROM T_FB_POST";
-                }
+                //else
+                //{
+                //    qry = "SELECT * FROM FBFeedComments";
+                //}
 
 
                 conn.Open();
-                return conn.QueryFirst<int>(qry);
-               // return conn.Query<FB_POST>(qry).ToList();
+                return conn.Query<FBFeedComment>(qry).ToList();
             }
+        }
+        private List<FBFeedComment> GetComments(string ids)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "";
+                if (!string.IsNullOrEmpty(ids))
+                {
+                    qry = "select * from FBFeedComments where id in (" + ids + ")and translated_message is null";
+                }
+                //else
+                //{
+                //    qry = "SELECT * FROM FBFeedComments";
+                //}
+
+
+                conn.Open();
+                return conn.Query<FBFeedComment>(qry).ToList();
+            }
+        }
+
+        private int SaveTranslatedPost(string postid, string TranslatedText)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            int returndata = 0;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "";
+                if (!string.IsNullOrEmpty(postid) && !string.IsNullOrEmpty(TranslatedText))
+                {
+                    qry = "update T_FB_POST set translated_text=N'" + TranslatedText + "' where id='" + postid + "'";
+                }
+                using (SqlCommand cmd = new SqlCommand(qry, conn))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    conn.Open();
+                    returndata = cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+              
+            }
+            }
+            catch (Exception e)
+            {
+                returndata = 0;
+            }
+            return returndata;
+        }
+
+        private int SaveTranslatedComments(string postid, string TranslatedText)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            int returndata= 0;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    String qry = "";
+                    if (!string.IsNullOrEmpty(postid) && !string.IsNullOrEmpty(TranslatedText))
+                    {
+                        qry = "update FBFeedComments set translated_message=N'" + TranslatedText + "' where id='" + postid + "'";
+                    }
+                    using (SqlCommand cmd = new SqlCommand(qry, conn))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        conn.Open();
+                        returndata = cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                    // conn.Open();
+                   
+                    // return conn.Query<FB_POST>(qry).ToList();
+                }
+            }
+            catch(Exception e)
+            {
+                returndata = 0;
+            }
+             return returndata;
+
         }
 
         //public Guid GetActiveThemeId()
@@ -1439,31 +1610,31 @@ namespace ArabicTextAnalyzer.Controllers
 
         //}
 
-        private List<T_FB_INFLUENCER> loadAllT_Fb_InfluencerAsTheme(string themeid="")
+        private List<T_FB_INFLUENCER> loadAllT_Fb_InfluencerAsTheme(string themeid = "")
         {
             var t_fb_Influencer = new List<T_FB_INFLUENCER>();
             var themes = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL();
-            M_XTRCTTHEME theme = (themes != null)? themes:new M_XTRCTTHEME();
-                if (theme.ID_XTRCTTHEME != null)
-                {
-                    String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            M_XTRCTTHEME theme = (themes != null) ? themes : new M_XTRCTTHEME();
+            if (theme.ID_XTRCTTHEME != null)
+            {
+                String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
 
-                    using (SqlConnection conn = new SqlConnection(ConnectionString))
-                    {
-                        String qry = "SELECT * FROM T_FB_INFLUENCER where fk_theme='" + theme.ID_XTRCTTHEME + "'";
-
-                        conn.Open();
-                        return conn.Query<T_FB_INFLUENCER>(qry).ToList();
-                    }
-                }
-                else
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
-                    return t_fb_Influencer;
+                    String qry = "SELECT * FROM T_FB_INFLUENCER where fk_theme='" + theme.ID_XTRCTTHEME + "'";
+
+                    conn.Open();
+                    return conn.Query<T_FB_INFLUENCER>(qry).ToList();
                 }
-            
-           
+            }
+            else
+            {
+                return t_fb_Influencer;
+            }
+
+
         }
-    
+
         private List<ArabiziToArabicViewModel> loadArabiziToArabicViewModel_DAPPERSQL()
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
@@ -1806,7 +1977,7 @@ namespace ArabicTextAnalyzer.Controllers
     //Class for call the APIs by html
     public static class HtmlHelpers
     {
-        public  static async Task<string>  PostAPIRequest(string url, string para,string type="POST")
+        public static async Task<string> PostAPIRequest(string url, string para, string type = "POST")
         {
             HttpClient client;
             string result = string.Empty;
@@ -1826,9 +1997,9 @@ namespace ArabicTextAnalyzer.Controllers
                 var content = new ByteArrayContent(messageBytes);
                 content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
                 content.Headers.Add("access-control-allow-origin", "*");
-                if(!string.IsNullOrEmpty(type) && type=="POST")
+                if (!string.IsNullOrEmpty(type) && type == "POST")
                 {
-                    var response = await client.PostAsync(url,content);                    
+                    var response = await client.PostAsync(url, content);
                     if (response.IsSuccessStatusCode)
                     {
                         result = await response.Content.ReadAsStringAsync();
@@ -1843,7 +2014,7 @@ namespace ArabicTextAnalyzer.Controllers
                         result = await response.Content.ReadAsStringAsync();
                     }
                 }
-                if(!string.IsNullOrEmpty(type) && type=="GET")
+                if (!string.IsNullOrEmpty(type) && type == "GET")
                 {
                     try
                     {
@@ -1851,13 +2022,13 @@ namespace ArabicTextAnalyzer.Controllers
                         if (response.IsSuccessStatusCode)
                         {
                             result = await response.Content.ReadAsStringAsync();
-                             //var dynamicObject = JsonConvert.DeserializeObject(result);
+                            //var dynamicObject = JsonConvert.DeserializeObject(result);
                             dynamic dynamicObject = JObject.Parse(result);
-                            if(dynamicObject.M_ARABICDARIJAENTRY !=null)
+                            if (dynamicObject.M_ARABICDARIJAENTRY != null)
                             {
-                                result = "Success"+Convert.ToString(dynamicObject.M_ARABICDARIJAENTRY.ArabicDarijaText) ;
+                                result = "Success" + Convert.ToString(dynamicObject.M_ARABICDARIJAENTRY.ArabicDarijaText);
                             }
-                            
+
                             //Assert.IsTrue(("تجريبى" == trad) || ("تجريبة" == trad));
                         }
                         else
@@ -1865,16 +2036,16 @@ namespace ArabicTextAnalyzer.Controllers
                             result = await response.Content.ReadAsStringAsync();
                         }
                     }
-                    catch(Exception e)
+                    catch (Exception e)
                     {
                         result = e.Message;
                     }
-                    
+
                 }
 
-                
 
-                
+
+
             }
             catch (Exception ex)
             {
