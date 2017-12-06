@@ -175,4 +175,50 @@
     <ArabiziText>Opening date 0112-2017</ArabiziText>
     <ArabiziEntryDate>2017-12-05T18:33:11.369+05:30</ArabiziEntryDate>
   </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>785ba5d8-8342-44af-b1cc-3280ad40e29c</ID_ARABIZIENTRY>
+    <ArabiziText>तस्वीर मुजफ्फरपुर रेलवे जंक्शन की है  पूरी खबर पढ़ने के लिए फ़ोटो पे क्लिक करें और शेयर करें।</ArabiziText>
+    <ArabiziEntryDate>2017-12-06T11:02:00.0858007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b96c6a45-9bad-4f68-b3ed-a1bb46521bd2</ID_ARABIZIENTRY>
+    <ArabiziText>peнele aυтo ѕтand  вanna cнaнaιye .ғιr aυтoмaтιc clean deĸнe ga мυzaғғarpυr ĸa ѕтaтιon oυт ѕιde </ArabiziText>
+    <ArabiziEntryDate>2017-12-06T11:03:47.9058007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>05312184-d43c-4777-a224-f04b2b708124</ID_ARABIZIENTRY>
+    <ArabiziText>Smart city</ArabiziText>
+    <ArabiziEntryDate>2017-12-06T11:04:20.2298007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ae6ab4ed-4cd8-4534-a4fe-8a2ac2f19509</ID_ARABIZIENTRY>
+    <ArabiziText>Very very 
+Smart city</ArabiziText>
+    <ArabiziEntryDate>2017-12-06T11:05:23.4078007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>ce88643f-4b3b-4a63-bb0c-6883e4dfdb47</ID_ARABIZIENTRY>
+    <ArabiziText>Do Before other can think.........</ArabiziText>
+    <ArabiziEntryDate>2017-12-06T11:34:38.6858007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>9888c220-5b0b-45c4-b5f3-dde9f38e3085</ID_ARABIZIENTRY>
+    <ArabiziText>Jai hind</ArabiziText>
+    <ArabiziEntryDate>2017-12-06T12:48:23.0778007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>b8225b90-853a-4e8f-8831-a4aeaf615713</ID_ARABIZIENTRY>
+    <ArabiziText>I am proud of my Indian Army.</ArabiziText>
+    <ArabiziEntryDate>2017-12-06T12:48:43.7928007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>87d698a5-a6e7-4c3d-99bb-9f354384e937</ID_ARABIZIENTRY>
+    <ArabiziText>jai jai hind</ArabiziText>
+    <ArabiziEntryDate>2017-12-06T12:49:11.4518007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
+  <M_ARABIZIENTRY>
+    <ID_ARABIZIENTRY>d9dea017-857e-42fc-a181-825f77b22c46</ID_ARABIZIENTRY>
+    <ArabiziText>Air Chief Marshal Sir Stephen Hillier, Chief of Air Staff, Royal Air Force </ArabiziText>
+    <ArabiziEntryDate>2017-12-06T12:49:38.1228007+05:30</ArabiziEntryDate>
+  </M_ARABIZIENTRY>
 </ArrayOfM_ARABIZIENTRY>

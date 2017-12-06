@@ -228,10 +228,12 @@ function TranslateContent(obj) {
             }
             else {
                 alert("There is no post for translate");
+                TranslateContentIsClicked = false;
             }
         }
         else {
             alert("This post is already translated");
+            TranslateContentIsClicked = false;
         }
     }
     //var token = $('#hdnToken').val();
@@ -261,6 +263,7 @@ function GetComments(obj)
             tr.removeClass('shown');
             GetCommentsIsClicked = false;
         } else {
+           
             $(obj).prop('src', "http://i.imgur.com/d4ICC.png")
             //$(obj).src = "http://i.imgur.com/d4ICC.png";
             if (!$('#tabledetails_' + id).length) {
@@ -269,7 +272,7 @@ function GetComments(obj)
                 // row.insertAfter( tablecontent )
                 row.child(tablecontent).show();
                 GetCommentsForPost(id);
-                $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a>')
+                $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a><h3>Comments</h3>')
                 GetCommentsIsClicked = false;
             }
             else {
@@ -384,6 +387,11 @@ function TranslateComment(obj)
                 var TranlatedCommentId = "'" + mainId + "'";
                 postOnCommentsTranslate(TranlatedCommentId, id)
             }
+            else
+            {
+                alert("There is no comment text for translate.")
+                TranslateCommentIsClicked = false;
+            }
         }
         else {
             alert("The comment is already translated.");
@@ -437,70 +445,85 @@ function AddInfluencer()
         var urlname = $('#txtUrlName').val();
         var pro_or_anti = $('#ddlPro_or_anti').val();
         AddInfluencerIsClicked = true;
+        if (urlname.length > 0 && pro_or_anti.length>0)
+        {
+            $.ajax({
+                "dataType": 'json',
+                "contentType": "application/json; charset=utf-8",
+                "type": "GET",
+                "url": "/Train/AddFBInfluencer",
+                "data": {
+                    "name": "",
+                    "url_name": urlname,
+                    "pro_or_anti": pro_or_anti,
 
+                },
+                "success": function (msg) {
+                    AddInfluencerIsClicked = false;
+                    if (msg.status) {
+                        window.location = '/Train';
+
+                    }
+                    else {
+                        alert("Error " + msg.message);
+                    }
+
+                },
+                "error": function () {
+                    AddInfluencerIsClicked = false;
+                    alert("Error");
+                }
+            });
+        }
+        else
+        {
+            AddInfluencerIsClicked = false;
+            alert("All the fields are required.");
+        }
         //var urlToPost = AddFBInfluencer
-        $.ajax({
-            "dataType": 'json',
-            "contentType": "application/json; charset=utf-8",
-            "type": "GET",
-            "url": "/Train/AddFBInfluencer",
-            "data": {
-                "name": "",
-                "url_name": urlname,
-                "pro_or_anti": pro_or_anti,
-
-            },
-            "success": function (msg) {
-                AddInfluencerIsClicked = false;
-                if (msg.status) {
-                    window.location = '/Train';
-                   
-                }
-                else {
-                    alert("Error " + msg.message);
-                }
-               
-            },
-             "error": function () {
-                 AddInfluencerIsClicked = false;
-                 alert("Error");
-            }
-        });
+      
     }
   
 }
 //End of js of add influencer
 
 //Js for Retreive fb post or refersh button
+var RetrieveFBPostIsClicked = false;
 function RetrieveFBPost(influencerurl_name,influencerid)
 {
-    $.ajax({
-        "dataType": 'json',       
-        "type": "GET",
-        "url": "/Train/RetrieveFBPost",
-        "data": {
-            "influencerurl_name": influencerurl_name
-            //"mainEntity": _tag,
-            // "ArabiziEntryDate": new Date(),
-            // "id": 1
-        },
-        "success": function (msg) {
-            console.log(msg);
-            //var json = JSON.parse(msg);
-            if (msg.status) {
-                ResetDataTable(influencerid);
-                //alert(msg.recordsFiltered)
-                //$('.table_' + influencerid).DataTable().ajax.reload();           
-                //fnCallback(influencerid)
+    if (RetrieveFBPostIsClicked == false) {
+        RetrieveFBPostIsClicked = true;
+        $.ajax({
+            "dataType": 'json',
+            "type": "GET",
+            "url": "/Train/RetrieveFBPost",
+            "data": {
+                "influencerurl_name": influencerurl_name
+                //"mainEntity": _tag,
+                // "ArabiziEntryDate": new Date(),
+                // "id": 1
+            },
+            "success": function (msg) {
+                console.log(msg);
+                RetrieveFBPostIsClicked = false;
+                //var json = JSON.parse(msg);
+                if (msg.status) {
+                    ResetDataTable(influencerid);
+                    //alert(msg.recordsFiltered)
+                    //$('.table_' + influencerid).DataTable().ajax.reload();           
+                    //fnCallback(influencerid)
+                }
+                //customAlertMessages.alerts.success("Lead has been assigned successfully.");
+                //$('#divGridLeads').DataTable().ajax.reload();
+                //$('#grdLeadAssigned').DataTable().ajax.reload();
+            },
+            "error": function () {
+                RetrieveFBPostIsClicked = false;
+                alert("error")
             }
-            //customAlertMessages.alerts.success("Lead has been assigned successfully.");
-            //$('#divGridLeads').DataTable().ajax.reload();
-            //$('#grdLeadAssigned').DataTable().ajax.reload();
-        },
-        "error": function () {
-            alert("error")
-        }
-    });
+        });
+    }
+   
 }
 //end of method of refresh fb post
 //Method for reset data table of influence fb.

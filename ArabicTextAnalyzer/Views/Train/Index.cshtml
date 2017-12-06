@@ -7,7 +7,7 @@
     var user = Session["userId"];
     List<RegisterApp> registerAppList = ViewBag.registerApp;
     var message = Session["message"];
-
+    Session["message"] = "";
     bool showAlertWarning = ViewBag.showAlertWarning;
     bool showAlertSuccess = ViewBag.showAlertSuccess;
     String msgAlert = ViewBag.msgAlert;
@@ -144,7 +144,7 @@
             <div class="col-lg-2"></div>
             <label class="control-label col-lg-1">My Apps</label>
             <div class="col-lg-4">
-                @Html.DropDownList("userId", new SelectList(registerAppList, "UserID", "Name", Convert.ToString(user)), "---Select App---", new { @class = "form-control", @required = "required" })
+                @Html.DropDownList("userId", new SelectList(registerAppList, "UserID", "Name", !string.IsNullOrEmpty(Convert.ToString(token)) ?Convert.ToString(user):""), "---Select App---", new { @class = "form-control", @required = "required" })
             </div>
             <div class="col-lg-4">
                 <input type="submit" value="Genrate Token" class="btn btn-primary" />
@@ -156,13 +156,7 @@
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <strong>Warning!</strong> @msgAlert
                 </div>
-                @if (!string.IsNullOrEmpty(Convert.ToString(message)))
-                {
-                    <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>Warning!</strong> @(Convert.ToString(message))
-                    </div>
-                }
+               
                 <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <strong>Success!</strong> @msgAlert
@@ -300,6 +294,13 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>Success!</strong> @msgAlert
             </div>
+            if (!string.IsNullOrEmpty(Convert.ToString(message)))
+                {
+                    <div class="alert alert-success alert-dismissable div-inline margin-bottom-0">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Success!</strong> @(Convert.ToString(message))
+                    </div>
+                }
         }
     </div>
 
