@@ -186,7 +186,7 @@ namespace ArabicTextAnalyzer.Controllers
                 status = true;
                 translatedstring = result.Replace("Success", "");
                 var @singleQuote = "CHAR(39)";
-                translatedstring = translatedstring.Replace("'", @singleQuote);
+                translatedstring = translatedstring.Replace("'", "");
                 var returndata = SaveTranslatedPost(id, translatedstring);
                 if (returndata > 0)
                 {
@@ -225,7 +225,7 @@ namespace ArabicTextAnalyzer.Controllers
             // var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken" + requestContent;
             result = await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
 
-            if (result.Contains("true"))
+            if (result.ToLower().Contains("true"))
             {
                 status = true;
                 translatedstring = result;
@@ -272,7 +272,7 @@ namespace ArabicTextAnalyzer.Controllers
                 result = "No theme id can get.";
             }
 
-            if (result.Contains("true"))
+            if (result.ToLower().Contains("true"))
             {
                 status = true;
                 translatedstring = result;
@@ -314,7 +314,7 @@ namespace ArabicTextAnalyzer.Controllers
                             status = true;
                             translatedstring = result.Replace("Success", "");
                             var @singleQuote = "CHAR(39)";
-                            translatedstring = translatedstring.Replace("'", @singleQuote);
+                            translatedstring = translatedstring.Replace("'", "");
                             try
                             {
                                 var returndata = SaveTranslatedComments(item.Id, translatedstring);

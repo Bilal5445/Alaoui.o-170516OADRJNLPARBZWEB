@@ -11,9 +11,9 @@
         cursor: pointer;
     }*/
 
-    /*tr.shown td.details-control {
-        background: url("https://datatables.net/examples/resources/details_close.png") no-repeat center center;
-    }*/
+    tr.shown {
+        background-color: #f3c589 !important;
+    }
 </style>
 <ul class="nav nav-pills" role="tablist">
     <li role="presentation" class="active mainUL"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">Working Data</a></li>
@@ -22,12 +22,12 @@
         foreach (var item in FbInfluencer)
         {
             <li role="presentation" class="mainUL" id="@item.id"><a aria-controls="second" role="tab" data-toggle="tab" style="cursor:pointer;" onclick="LoadFacebookPosts('@item.id')">@item.name</a></li>
-        }
-        if (FbInfluencer.Count < MaxFbPageAllowed)
-        {
-            <li role="presentation" class="mainUL"><a data-toggle="modal" data-target="#myModalForaddInfluencer" data-backdrop="static" data-keyboard="false"><span class="glyphicon glyphicon-plus"></span></a></li>
-        }
+        }        
 
+    }
+    @if (FbInfluencer==null || FbInfluencer.Count < MaxFbPageAllowed)
+    {
+    <li role="presentation" class="mainUL"><a data-toggle="modal" data-target="#myModalForaddInfluencer" data-backdrop="static" data-keyboard="false"><span class="glyphicon glyphicon-plus"></span></a></li>
     }
 
     <!--<li role="presentation" class="dropdown">
@@ -120,7 +120,7 @@
                         <label for="lgFormGroupInput" class="col-lg-4 col-sm-4 col-form-label col-form-label-lg">Influencer Bias</label>
                         <div class="col-sm-8 col-lg-8">
                             <select required="required" id="ddlPro_or_anti" class="form-control">
-                                <option>--Select any--</option>
+                                <option value="">--Select any--</option>
                                 <option value="Pro">Pro</option>
                                 <option value="Anti">Anti</option>
                             </select>
