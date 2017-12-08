@@ -1,0 +1,42 @@
+﻿As the exception suggests, it’s time to start using Code First Migrations. The first step is to enable migrations for our context.
+
+Run the Enable-Migrations command in Package Manager Console
+
+This command has added a Migrations folder to our project, this new folder contains two files:
+
+The Configuration class. This class allows you to configure how Migrations behaves for your context. For this walkthrough we will just 
+use the default configuration. Because there is just a single Code First context in your project, Enable-Migrations has automatically 
+filled in the context type this configuration applies to.
+
+An InitialCreate migration. This migration was generated because we already had Code First create a database for us, before we enabled 
+migrations. The code in this scaffolded migration represents the objects that have already been created in the database. The filename 
+includes a timestamp to help with ordering. If the database had not already been created this InitialCreate migration would not have 
+been added to the project. Instead, the first time we call Add-Migration the code to create these tables would be scaffolded to a 
+new migration.
+
+We need to scaffold a migration to take care of the new tems we have added. The Add-Migration command allows us to give these migrations 
+a name, let’s just call ours TokenAuthentication.
+
+The Designer Code for this migration file includes a snapshot of your current Code First model. This snapshot is used to calculate the 
+changes to your model when you scaffold the next migration. If you make additional changes to your model that you want to include in this 
+migration, then you can re-scaffold it by running 'Add-Migration TokenAuthentication' again.
+
+Run the Update-Database command in Package Manager Console to apply this migration to the database.
+
+Specify the '-Verbose' flag to view the SQL statements being applied to the target database.
+Applying explicit migrations: [201711241555349_TokenAuthentication].
+Applying explicit migration: 201711241555349_TokenAuthentication.
+Running Seed method.
+
+Getting a SQL Script
+If another developer wants these changes on their machine they can just sync once we check our changes into source control. Once they have our 
+new migrations they can just run the Update-Database command to have the changes applied locally. However if we want to push these changes out to 
+a test server, and eventually production, we probably want a SQL script we can hand off to our DBA.
+
+Run the Update-Database command but this time specify the –Script flag so that changes are written to a script rather than applied. We’ll also 
+specify a source and target migration to generate the script for. We want a script to go from an empty database ($InitialDatabase) to the latest 
+version (migration TokenAuthentication). If you don’t specify a target migration, Migrations will use the latest migration as the target. If you 
+don't specify a source migrations, Migrations will use the current state of the database.
+Run the Update-Database -Script -SourceMigration: $InitialDatabase -TargetMigration: TokenAuthentication command in Package Manager Console
+Code First Migrations will run the migration pipeline but instead of actually applying the changes it will write them out to a .sql file for you. 
+Once the script is generated, it is opened for you in Visual Studio, ready for you to view or save.
