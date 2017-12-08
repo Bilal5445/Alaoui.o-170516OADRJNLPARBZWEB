@@ -280,6 +280,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
             else
             {
+                status = false;
                 errMessage = result;
                 //return false;
             }
@@ -325,7 +326,8 @@ namespace ArabicTextAnalyzer.Controllers
                             }
                             catch(Exception e)
                             {
-
+                                status = false;
+                                errMessage = e.Message;
                             }
                            
                             // return true;
@@ -2077,7 +2079,7 @@ namespace ArabicTextAnalyzer.Controllers
                 }
                 catch (Exception ex)
                 {
-
+                    result = ex.Message;
 
                 }
 
