@@ -108,16 +108,15 @@ function LoadFacebookPosts(fluencerid) {
         }
         fnCallback(fluencerid)
     }
-   
-   
 }
+
 var vars = {};
 // table for FB post table
 function InitializeFBDataTables(fluencerid) {
     $(function () {
 
         // Initialize DataTables
-        vars[fluencerid]=  $('.table_' + fluencerid).DataTable({
+        vars[fluencerid] = $('.table_' + fluencerid).DataTable({
             // Enable mark.js search term highlighting
             mark: {
                 element: 'span',
@@ -138,22 +137,21 @@ function InitializeFBDataTables(fluencerid) {
             ],
             //
             "columns": [
-                { "data": null, "className": "details-control", "defaultContent": '<img src="http://i.imgur.com/SD7Dz.png" class="imagetag" onclick="' + "GetComments(this)" +'">' },
+                { "data": null, "className": "details-control", "defaultContent": '<img src="http://i.imgur.com/SD7Dz.png" class="imagetag" onclick="' + "GetComments(this)" + '">' },
                     { "data": "id", "className": "center top" },
                     { "data": "fk_i", "className": "arabizi-text top" },
                     { "data": "pt", "className": "arabizi-text top" },
-                    {"data": "tt", "className": "arabizi-text top"},
+                    { "data": "tt", "className": "arabizi-text top" },
                     { "data": "lc", "className": "arabic-text top" },
                     { "data": "cc", "className": "arabic-text top entitiestype" },
                     { "data": "dp", "className": "arabic-text top entities" },
                     {
-                        "data": function (data)
-                        {
+                        "data": function (data) {
                             var str = '';
-                            str = str + '<a class="btn btn-warning btn-xs" onclick="'+"TranslateContent(this)"+'">Translate</a>';
+                            str = str + '<a class="btn btn-warning btn-xs" onclick="' + "TranslateContent(this)" + '">Translate</a>';
                             return str;
                         }
-                        },
+                    },
             ],
             "columnDefs": [{
                 "defaultContent": "-",
@@ -181,7 +179,8 @@ function fnCallback(id) {
     }
     ViewInfluencerIsClicked = false
 }
-//method for translate the fb post 
+
+// method for translate the fb post 
 var TranslateContentIsClicked = false;
 function TranslateContent(obj) {
     if (TranslateContentIsClicked == false) {
@@ -227,7 +226,6 @@ function TranslateContent(obj) {
                         TranslateContentIsClicked = false;
                     }
                 });
-
             }
             else {
                 alert("There is no post for translate");
@@ -240,14 +238,12 @@ function TranslateContent(obj) {
         }
     }
     //var token = $('#hdnToken').val();
-  
-
 }
-//end of method.
+// end of method.
+
 //method for get the comments table under the row of each post table
 var GetCommentsIsClicked = false;
-function GetComments(obj)
-{
+function GetComments(obj) {
     if (GetCommentsIsClicked == false) {
         GetCommentsIsClicked = true;
         var tr = $(obj).closest('tr');
@@ -266,7 +262,7 @@ function GetComments(obj)
             tr.removeClass('shown');
             GetCommentsIsClicked = false;
         } else {
-           
+
             $(obj).prop('src', "http://i.imgur.com/d4ICC.png")
             //$(obj).src = "http://i.imgur.com/d4ICC.png";
             if (!$('#tabledetails_' + id).length) {
@@ -286,15 +282,14 @@ function GetComments(obj)
         }
     }
 
-    
+
 }
 var Comments = "";
 function CommentTable(id) {
     var html = '<table id="tabledetails_' + id + '" class="table table-striped table-hover table-bordered"><thead  class="header"><tr><th></th><th class="center top col50px">ID</th><th class="center top col50prc">Message</th><th class="center top col50prc">Translated Message</th><th class="center top col130px">Created Time</th><th class="center top col75px">Action</th></tr></thead></table>'
     return html;
 }
-function GetCommentsForPost(id)
-{
+function GetCommentsForPost(id) {
     //alert($('#tabledetails_' + id).html())
     $('#tabledetails_' + id).DataTable({
         // Enable mark.js search term highlighting
@@ -316,18 +311,18 @@ function GetCommentsForPost(id)
         //    'copyHtml5', 'excel', 'csv'
         //],
         //
-        "columns": [     
+        "columns": [
             {
-                "data": function (data) {                   
+                "data": function (data) {
                     var str = '';
-                    str = str + '<input type="checkbox" class="cbxComment_' + id+'" value="' + data.Id + '"/>';
+                    str = str + '<input type="checkbox" class="cbxComment_' + id + '" value="' + data.Id + '"/>';
                     return str;
                 }
             },
             { "data": "Id", "className": "center top" },
             { "data": "message", "className": "arabizi-text top" },
             { "data": "translated_message", "className": "arabizi-text top" },
-            { "data": "created_time", "className": "arabizi-text top" },          
+            { "data": "created_time", "className": "arabizi-text top" },
             {
                 "data": function (data) {
                     var str = '';
@@ -378,8 +373,7 @@ function GetTranslateComment(id) {
 
 }
 var TranslateCommentIsClicked = false;
-function TranslateComment(obj)
-{
+function TranslateComment(obj) {
     if (TranslateCommentIsClicked == false) {
         TranslateCommentIsClicked = true;
         if ($($(obj).parent().parent().find("td")[3]).html().trim().replace('-', '').length == 0) {
@@ -390,8 +384,7 @@ function TranslateComment(obj)
                 var TranlatedCommentId = "'" + mainId + "'";
                 postOnCommentsTranslate(TranlatedCommentId, id)
             }
-            else
-            {
+            else {
                 alert("There is no comment text for translate.")
                 TranslateCommentIsClicked = false;
             }
@@ -401,11 +394,10 @@ function TranslateComment(obj)
             TranslateCommentIsClicked = false;
         }
     }
-    
+
 }
 
-function postOnCommentsTranslate(TranlatedCommentId,id)
-{
+function postOnCommentsTranslate(TranlatedCommentId, id) {
     $.ajax({
         "dataType": 'json',
         // "contentType": "application/json; charset=utf-8",
@@ -428,29 +420,24 @@ function postOnCommentsTranslate(TranlatedCommentId,id)
             else {
                 alert("Error " + msg.message);
             }
-            
         },
         "error": function () {
             GetTranslateCommentIsClicked = false;
             TranslateCommentIsClicked = false;
-            alert("Error:" )
+            alert("Error:")
         }
     });
 }
 //end of method.
 
-
-//Js for add  influencer
+// Js for add  influencer
 var AddInfluencerIsClicked = false;
-function AddInfluencer()
-{
-    if (AddInfluencerIsClicked == false)
-    {
+function AddInfluencer() {
+    if (AddInfluencerIsClicked == false) {
         var urlname = $('#txtUrlName').val();
         var pro_or_anti = $('#ddlPro_or_anti').val();
         AddInfluencerIsClicked = true;
-        if (urlname.length > 0 && pro_or_anti.length>0)
-        {
+        if (urlname.length > 0 && pro_or_anti.length > 0) {
             $.ajax({
                 "dataType": 'json',
                 "contentType": "application/json; charset=utf-8",
@@ -460,19 +447,16 @@ function AddInfluencer()
                     "name": "",
                     "url_name": urlname,
                     "pro_or_anti": pro_or_anti,
-
                 },
                 "success": function (msg) {
                     AddInfluencerIsClicked = false;
                     if (msg.status) {
                         alert("Success " + msg.message);
                         window.location = '/Train';
-
                     }
                     else {
                         alert("Error " + msg.message);
                     }
-
                 },
                 "error": function () {
                     AddInfluencerIsClicked = false;
@@ -480,22 +464,18 @@ function AddInfluencer()
                 }
             });
         }
-        else
-        {
+        else {
             AddInfluencerIsClicked = false;
             alert("All the fields are required.");
         }
         //var urlToPost = AddFBInfluencer
-      
     }
-  
 }
-//End of js of add influencer
+// End of js of add influencer
 
-//Js for Retreive fb post or refersh button
+// Js for Retreive fb post or refersh button
 var RetrieveFBPostIsClicked = false;
-function RetrieveFBPost(influencerurl_name,influencerid)
-{
+function RetrieveFBPost(influencerurl_name, influencerid) {
     if (RetrieveFBPostIsClicked == false) {
         RetrieveFBPostIsClicked = true;
         $.ajax({
@@ -504,9 +484,6 @@ function RetrieveFBPost(influencerurl_name,influencerid)
             "url": "/Train/RetrieveFBPost",
             "data": {
                 "influencerurl_name": influencerurl_name
-                //"mainEntity": _tag,
-                // "ArabiziEntryDate": new Date(),
-                // "id": 1
             },
             "success": function (msg) {
                 console.log(msg);
@@ -518,12 +495,12 @@ function RetrieveFBPost(influencerurl_name,influencerid)
                     //$('.table_' + influencerid).DataTable().ajax.reload();           
                     //fnCallback(influencerid)
                 }
-                else {
-                    alert("Error " + msg.message);
-                }
                 //customAlertMessages.alerts.success("Lead has been assigned successfully.");
                 //$('#divGridLeads').DataTable().ajax.reload();
                 //$('#grdLeadAssigned').DataTable().ajax.reload();
+                else {
+                    alert("Error " + msg.message);
+                }
             },
             "error": function () {
                 RetrieveFBPostIsClicked = false;
@@ -531,10 +508,10 @@ function RetrieveFBPost(influencerurl_name,influencerid)
             }
         });
     }
-   
 }
-//end of method of refresh fb post
-//Method for reset data table of influence fb.
+// end of method of refresh fb post
+
+// Method for reset data table of influence fb.
 function ResetDataTable(influencerid) {
     var oTable = $('.table_' + influencerid).dataTable();
     oTable.fnClearTable();
@@ -549,4 +526,4 @@ function ResetDataTableComments(influencerid) {
     oTable.fnDestroy();
     GetCommentsForPost(influencerid)
 }
-//end of mrthod
+//end of method
