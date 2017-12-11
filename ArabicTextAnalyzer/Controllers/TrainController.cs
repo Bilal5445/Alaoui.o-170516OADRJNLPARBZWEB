@@ -156,7 +156,8 @@ namespace ArabicTextAnalyzer.Controllers
             }
             else
             {
-                Session["_T0k@n_"] = "";
+                Session["_T0k@n_"] = String.Empty;
+                Session["message"] = String.Empty;
                 TempData["showAlertWarning"] = true;
                 TempData["msgAlert"] = errMessage;  // "Not a valid token";
             }
@@ -305,10 +306,18 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public ActionResult Train_ApplyNewMainTag(Guid idArabicDarijaEntry, String mainEntity)
         {
+            // Arg mainEntity is the active theme name
+            var activeTheme = mainEntity;
+
+            // MC111217 since we may have in the DB cases where there are more than one main entities for the same post (due to previous bug in code), we need to 
+            // find them and to clean them (delete the extra main entities)
+            var arabicDarijaEntryOtherMainEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL().FindAll(m => m.ID_ARABICDARIJAENTRY == idArabicDarijaEntry && m.TextEntity.Mention != activeTheme && m.TextEntity.Type == "MAIN ENTITY");
+            serialize_Delete_M_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(arabicDarijaEntryOtherMainEntities);
+
             // load M_ARABICDARIJAENTRY_TEXTENTITY
             List<M_ARABICDARIJAENTRY_TEXTENTITY> arabicDarijaEntryTextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
 
-            // Check before if already main entity
+            // Check before if this entry has already a main entity
             if (arabicDarijaEntryTextEntities.Find(m => m.ID_ARABICDARIJAENTRY == idArabicDarijaEntry && m.TextEntity.Mention == mainEntity && m.TextEntity.Type == "MAIN ENTITY") != null)
             {
                 TempData["showAlertWarning"] = true;
@@ -316,7 +325,7 @@ namespace ArabicTextAnalyzer.Controllers
                 return RedirectToAction("Index");
             }
 
-            // apply main tag
+            // apply new main tag
             var m_arabicdarijaentry_textentity = new M_ARABICDARIJAENTRY_TEXTENTITY
             {
                 ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
@@ -722,7 +731,6 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             // save
-            // saveserializeM_XTRCTTHEME_KEYWORDs_DELETE_ALL_EFSQL(xtrctThemesKeywords, activeXtrctTheme);
             saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(xtrctThemesKeywords, activeXtrctTheme);
 
             //
@@ -1846,6 +1854,40 @@ namespace ArabicTextAnalyzer.Controllers
 
                 // commit
                 db.SaveChanges();
+            }
+        }
+
+        private void serialize_Delete_M_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(M_ARABICDARIJAENTRY_TEXTENTITY textEntity)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                // Note: first attach to the entity
+                db.M_ARABICDARIJAENTRY_TEXTENTITYs.Attach(textEntity);
+
+                // remove
+                db.M_ARABICDARIJAENTRY_TEXTENTITYs.Remove(textEntity);
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        private void serialize_Delete_M_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities)
+        {
+            if (textEntities.Count > 0)
+            {
+                using (var db = new ArabiziDbContext())
+                {
+                    // Note: first attach to the entity
+                    foreach(var textEntity in textEntities)
+                        db.M_ARABICDARIJAENTRY_TEXTENTITYs.Attach(textEntity);
+
+                    // remove
+                    db.M_ARABICDARIJAENTRY_TEXTENTITYs.RemoveRange(textEntities);
+
+                    // commit
+                    db.SaveChanges();
+                }
             }
         }
 
