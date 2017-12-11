@@ -1,21 +1,26 @@
-﻿As the exception suggests, it’s time to start using Code First Migrations. The first step is to enable migrations for our context.
+﻿Using Code First Migrations. The first step is to enable migrations for our context.
 
 Run the Enable-Migrations command in Package Manager Console
 
-This command has added a Migrations folder to our project, this new folder contains two files:
+This command has added a Migrations folder to our project.
 
-The Configuration class. This class allows you to configure how Migrations behaves for your context. For this walkthrough we will just 
+The folder includes the Configuration class. This class allows you to configure how Migrations behaves for your context. For this walkthrough we will just 
 use the default configuration. Because there is just a single Code First context in your project, Enable-Migrations has automatically 
 filled in the context type this configuration applies to.
 
-An InitialCreate migration. This migration was generated because we already had Code First create a database for us, before we enabled 
-migrations. The code in this scaffolded migration represents the objects that have already been created in the database. The filename 
-includes a timestamp to help with ordering. If the database had not already been created this InitialCreate migration would not have 
-been added to the project. Instead, the first time we call Add-Migration the code to create these tables would be scaffolded to a 
-new migration.
+Code First Migrations uses a snapshot of the model stored in the most recent migration to detect changes to the model. Since we are going to assume that 
+databases already have the schema of the current model, we will generate an empty (no-op) migration that has the current model as a snapshot.
+
+Add-Migration InitialCreate –IgnoreChanges
+
+Then
+
+Update-Database
 
 We need to scaffold a migration to take care of the new tems we have added. The Add-Migration command allows us to give these migrations 
 a name, let’s just call ours TokenAuthentication.
+
+Add-Migration TokenAuthentication
 
 The Designer Code for this migration file includes a snapshot of your current Code First model. This snapshot is used to calculate the 
 changes to your model when you scaffold the next migration. If you make additional changes to your model that you want to include in this 
@@ -40,3 +45,10 @@ don't specify a source migrations, Migrations will use the current state of the 
 Run the Update-Database -Script -SourceMigration: $InitialDatabase -TargetMigration: TokenAuthentication command in Package Manager Console
 Code First Migrations will run the migration pipeline but instead of actually applying the changes it will write them out to a .sql file for you. 
 Once the script is generated, it is opened for you in Visual Studio, ready for you to view or save.
+
+Ex:
+
+Enable-Migrations
+Add-Migration InitialCreate –IgnoreChanges
+Update-Database
+Add-Migration FBAccess
