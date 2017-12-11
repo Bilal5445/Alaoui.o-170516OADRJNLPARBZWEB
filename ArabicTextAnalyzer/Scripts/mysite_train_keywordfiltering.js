@@ -214,6 +214,9 @@ function TranslateContent(obj) {
                                 $($(obj).parents("tr").find("td")[4]).html(msg.recordsFiltered)
                             }
                         }
+                        else {
+                            alert("Error " + msg.message);
+                        }
                         //customAlertMessages.alerts.success("Lead has been assigned successfully.");
                         //$('#divGridLeads').DataTable().ajax.reload();
                         //$('#grdLeadAssigned').DataTable().ajax.reload();
@@ -414,14 +417,14 @@ function postOnCommentsTranslate(TranlatedCommentId, id) {
             if (msg.status) {
                 ResetDataTableComments(id)
             }
-            //customAlertMessages.alerts.success("Lead has been assigned successfully.");
-            //$('#divGridLeads').DataTable().ajax.reload();
-            //$('#grdLeadAssigned').DataTable().ajax.reload();
+            else {
+                alert("Error " + msg.message);
+            }
         },
         "error": function () {
             GetTranslateCommentIsClicked = false;
             TranslateCommentIsClicked = false;
-            alert("Error")
+            alert("Error:")
         }
     });
 }
@@ -448,6 +451,7 @@ function AddInfluencer() {
                 "success": function (msg) {
                     AddInfluencerIsClicked = false;
                     if (msg.status) {
+                        alert("Success " + msg.message);
                         window.location = '/Train';
                     }
                     else {
@@ -494,6 +498,9 @@ function RetrieveFBPost(influencerurl_name, influencerid) {
                 //customAlertMessages.alerts.success("Lead has been assigned successfully.");
                 //$('#divGridLeads').DataTable().ajax.reload();
                 //$('#grdLeadAssigned').DataTable().ajax.reload();
+                else {
+                    alert("Error " + msg.message);
+                }
             },
             "error": function () {
                 RetrieveFBPostIsClicked = false;
