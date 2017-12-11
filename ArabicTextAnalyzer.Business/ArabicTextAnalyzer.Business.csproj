@@ -64,6 +64,7 @@
     <Compile Include="Provider\TextSentimentAnalyzer.cs" />
     <Compile Include="Provider\TextTools.cs" />
     <Compile Include="Provider\TwinglyTools.cs" />
+    <Compile Include="ScrappyBusiness\clBusiness.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\170215OADRJNLPMLDC\OADRJNLPCommon\OADRJNLPCommon\OADRJNLPCommon.csproj">
