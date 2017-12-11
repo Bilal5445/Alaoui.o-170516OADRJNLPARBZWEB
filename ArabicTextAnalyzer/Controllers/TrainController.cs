@@ -450,13 +450,16 @@ namespace ArabicTextAnalyzer.Controllers
             string result = null;
             var themes = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL();
             M_XTRCTTHEME theme = (themes != null) ? themes : new M_XTRCTTHEME();
+            Tuple<String, String> results = new Tuple<string, string>(String.Empty, String.Empty);
             if (theme.ID_XTRCTTHEME != null)
             {
                 var themeid = theme.ID_XTRCTTHEME;
 
                 var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "AccountPanel/AddFBInfluencer?url_name=" + url_name + "&pro_or_anti=" + Pro_or_anti + "&id=1&themeid=" + themeid + "&CallFrom=AddFBInfluencer";
                 // var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken" + requestContent;
-                result = await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
+                // result = await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
+                results = await HtmlHelpers.PostAPIRequest_message(url, String.Empty, type: "POST");
+                result = results.Item1;
             }
             else
             {
@@ -474,6 +477,7 @@ namespace ArabicTextAnalyzer.Controllers
                 status = false;
                 errMessage = result;
                 //return false;
+                errMessage += " - " + results.Item2;
             }
 
             return JsonConvert.SerializeObject(new
@@ -1879,7 +1883,7 @@ namespace ArabicTextAnalyzer.Controllers
                 using (var db = new ArabiziDbContext())
                 {
                     // Note: first attach to the entity
-                    foreach(var textEntity in textEntities)
+                    foreach (var textEntity in textEntities)
                         db.M_ARABICDARIJAENTRY_TEXTENTITYs.Attach(textEntity);
 
                     // remove
@@ -2053,7 +2057,6 @@ namespace ArabicTextAnalyzer.Controllers
                 client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                 client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
 
-
                 byte[] messageBytes = System.Text.Encoding.UTF8.GetBytes(para);
                 var content = new ByteArrayContent(messageBytes);
                 content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
@@ -2101,19 +2104,62 @@ namespace ArabicTextAnalyzer.Controllers
                     {
                         result = e.Message;
                     }
-
                 }
-
-
-
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
-            return result;
 
+            return result;
+        }
+
+        public static async Task<Tuple<String, String>> PostAPIRequest_message(string url, string para, string type = "POST")
+        {
+            HttpClient client;
+            string result = string.Empty;
+            String message = String.Empty;
+
+            try
+            {
+                client = new HttpClient();
+                client.DefaultRequestHeaders.Clear();
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                // Use SecurityProtocolType.Ssl3 if needed for compatibility reasons
+
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
+
+                byte[] messageBytes = System.Text.Encoding.UTF8.GetBytes(para);
+                var content = new ByteArrayContent(messageBytes);
+                content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                content.Headers.Add("access-control-allow-origin", "*");
+                if (!string.IsNullOrEmpty(type) && type == "POST")
+                {
+                    var response = await client.PostAsync(url, content);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        result = await response.Content.ReadAsStringAsync();
+                        dynamic dynamicObject = JObject.Parse(result);
+                        if (dynamicObject.status != null)
+                        {
+                            result = Convert.ToString(dynamicObject.status);
+                            message = Convert.ToString(dynamicObject.message);
+                        }
+                    }
+                    else
+                    {
+                        result = await response.Content.ReadAsStringAsync();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            return new Tuple<String, String>(result, message);
         }
 
         public static string MakeHttpClientRequest(string requestUrl, Dictionary<string, string> requestContent, HttpMethod verb)

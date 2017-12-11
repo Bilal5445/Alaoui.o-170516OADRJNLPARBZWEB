@@ -52,3 +52,9 @@ Enable-Migrations
 Add-Migration InitialCreate –IgnoreChanges
 Update-Database
 Add-Migration FBAccess
+Update-Database
+
+----
+
+Add-Migration FBAccess_CompositeKey
+Update-Database
