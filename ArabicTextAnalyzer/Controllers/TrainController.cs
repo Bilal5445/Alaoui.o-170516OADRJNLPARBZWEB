@@ -437,49 +437,57 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [HttpGet]
-        public async Task<object> AddFBInfluencer(string url_name, string Pro_or_anti)
+        public async Task<object> AddFBInfluencer(String url_name, String pro_or_anti)
         {
-            T_FB_INFLUENCER influencer = new T_FB_INFLUENCER();
-            influencer.id = "";
-            influencer.url_name = url_name;
-            influencer.pro_or_anti = Pro_or_anti;
-            string errMessage = string.Empty;
+            String errMessage = string.Empty;
             bool status = false;
-            string translatedstring = "";
+            String translatedstring = String.Empty;
+            String result = null;
 
-            string result = null;
-            var themes = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL();
-            M_XTRCTTHEME theme = (themes != null) ? themes : new M_XTRCTTHEME();
+            //
+            M_XTRCTTHEME activeTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL();
+            activeTheme = (activeTheme != null) ? activeTheme : new M_XTRCTTHEME();
+
+            //
             Tuple<String, String> results = new Tuple<string, string>(String.Empty, String.Empty);
-            if (theme.ID_XTRCTTHEME != null)
-            {
-                var themeid = theme.ID_XTRCTTHEME;
 
-                var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "AccountPanel/AddFBInfluencer?url_name=" + url_name + "&pro_or_anti=" + Pro_or_anti + "&id=1&themeid=" + themeid + "&CallFrom=AddFBInfluencer";
-                // var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken" + requestContent;
-                // result = await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
+            //
+            if (activeTheme.ID_XTRCTTHEME != null)
+            {
+                Logging.Write(Server, "AddFBInfluencer - 1");
+                var themeid = activeTheme.ID_XTRCTTHEME;
+                var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "AccountPanel/AddFBInfluencer?url_name=" + url_name + "&pro_or_anti=" + pro_or_anti + "&id=1&themeid=" + themeid + "&CallFrom=AddFBInfluencer";
+                Logging.Write(Server, "AddFBInfluencer - 1.0.1 : " + url);
                 results = await HtmlHelpers.PostAPIRequest_message(url, String.Empty, type: "POST");
                 result = results.Item1;
+                Logging.Write(Server, "AddFBInfluencer - 1.1");
             }
             else
             {
+                Logging.Write(Server, "AddFBInfluencer - 2");
                 result = "No theme id can get.";
+                Logging.Write(Server, "AddFBInfluencer - 2.1");
             }
 
             if (result.ToLower().Contains("true"))
             {
+                Logging.Write(Server, "AddFBInfluencer - 3");
                 status = true;
                 translatedstring = result;
-                // return true;
+                Logging.Write(Server, "AddFBInfluencer - 3.1");
             }
             else
             {
+                Logging.Write(Server, "AddFBInfluencer - 4");
                 status = false;
                 errMessage = result;
-                //return false;
                 errMessage += " - " + results.Item2;
+                Logging.Write(Server, "AddFBInfluencer - 4.0.1 : " + errMessage);
+                Logging.Write(Server, "AddFBInfluencer - 4.1");
             }
 
+            //
+            Logging.Write(Server, "AddFBInfluencer - 5");
             return JsonConvert.SerializeObject(new
             {
                 status = status,

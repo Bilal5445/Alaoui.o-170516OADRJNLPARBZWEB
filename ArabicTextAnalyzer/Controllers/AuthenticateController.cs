@@ -30,38 +30,35 @@ namespace ArabicTextAnalyzer.Controllers
                 response = Request.CreateResponse(HttpStatusCode.NotAcceptable, "Not Valid Request");
                 return response;
             }
-            else
+            else if (_IAuthenticate.ValidateKeys(ClientKeys))
             {
-                if (_IAuthenticate.ValidateKeys(ClientKeys))
-                {
-                    var clientkeys = _IAuthenticate.GetClientKeysDetailsbyCLientIDandClientSecert(ClientKeys.ClientId, ClientKeys.ClientSecret);
+                var clientkeys = _IAuthenticate.GetClientKeysDetailsbyCLientIDandClientSecert(ClientKeys.ClientId, ClientKeys.ClientSecret);
 
-                    if (clientkeys == null)
-                    {
-                        HttpResponseMessage response = new HttpResponseMessage();
-                        response = Request.CreateResponse(HttpStatusCode.NotFound, "InValid Keys");
-                        return response;
-                    }
-                    else
-                    {
-                        if (_IAuthenticate.IsTokenAlreadyExists(clientkeys.RegisterAppId.Value))
-                        {
-                            _IAuthenticate.DeleteGenerateToken(clientkeys.RegisterAppId.Value);
-
-                            return GenerateandSaveToken(clientkeys);
-                        }
-                        else
-                        {
-                            return GenerateandSaveToken(clientkeys);
-                        }
-                    }
-                }
-                else
+                if (clientkeys == null)
                 {
                     HttpResponseMessage response = new HttpResponseMessage();
                     response = Request.CreateResponse(HttpStatusCode.NotFound, "InValid Keys");
                     return response;
                 }
+                else
+                {
+                    if (_IAuthenticate.IsTokenAlreadyExists(clientkeys.RegisterAppId.Value))
+                    {
+                        _IAuthenticate.DeleteGenerateToken(clientkeys.RegisterAppId.Value);
+
+                        return GenerateandSaveToken(clientkeys);
+                    }
+                    else
+                    {
+                        return GenerateandSaveToken(clientkeys);
+                    }
+                }
+            }
+            else
+            {
+                HttpResponseMessage response = new HttpResponseMessage();
+                response = Request.CreateResponse(HttpStatusCode.NotFound, "InValid Keys");
+                return response;
             }
         }
 
