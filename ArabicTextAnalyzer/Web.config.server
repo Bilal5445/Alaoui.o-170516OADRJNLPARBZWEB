@@ -10,8 +10,8 @@
   </configSections>
   <connectionStrings>
     <add name="DefaultConnection" connectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\aspnet-ArabicTextAnalyzer-20170518103120.mdf;Initial Catalog=aspnet-ArabicTextAnalyzer-20170518103120;Integrated Security=True;User Instance=True" providerName="System.Data.SqlClient" />
-    <!-- <add name="ConnLocalDBArabizi" connectionString="Data Source=(localdb)\MSSQLLocalDB;initial catalog=ArabiziDB;Integrated Security=True;" providerName="System.Data.SqlClient" /> -->
-	<add name="ConnLocalDBArabizi" connectionString="Data Source=.\SQLEXPRESS;initial catalog=ArabiziDB;Integrated Security=True;" providerName="System.Data.SqlClient" />
+    <add name="ConnLocalDBArabizi" connectionString="Data Source=.\SQLEXPRESS;initial catalog=ArabiziDB;Integrated Security=True;" providerName="System.Data.SqlClient" />
+    <add name="ScrapyWebEntities" connectionString="Data Source=.\SQLEXPRESS;initial catalog=ScrapyWeb;Integrated Security=True;" providerName="System.Data.SqlClient" />
   </connectionStrings>
   <appSettings>
     <add key="webpages:Version" value="3.0.0.0" />
@@ -22,13 +22,19 @@
     <add key="BingSpellcheckAPIKey" value="1e14edea7a314d469541e8ced0af38c9" />
     <add key="GoogleTranslationApiKey" value="AIzaSyBqnBEi2fRhKRRpcPCJ-kwTl0cJ2WcQRJI" />
     <!-- path to perl -->
-    <!-- <add key="pathToPerlScript" value="C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\" /> -->
-	<add key="pathToPerlScript" value="C:\script\namatedev-17028oadrjnlparbz-991d3268755f\namatedev-17028oadrjnlparbz-991d3268755f\" />
+    <add key="pathToPerlScript" value="C:\script\namatedev-17028oadrjnlparbz-991d3268755f\namatedev-17028oadrjnlparbz-991d3268755f\" />
+    <!-- arabizi api token -->
+    <add key="TotalAppCallLimit" value="100" />
+    <add key="TokenExpiry" value="5" />
+    <add key="NoOfApplicationApplied" value="1" />
+    <add key="TranslateDomain" value="http://localhost:50037" />
+    <add key="FBWorkingAPI" value="http://localhost:49835/" />
   </appSettings>
   <system.web>
     <authentication mode="None" />
     <compilation debug="true" targetFramework="4.5.2" />
     <httpRuntime targetFramework="4.5.2" />
+    <customErrors mode="Off" />
   </system.web>
   <system.webServer>
     <modules>

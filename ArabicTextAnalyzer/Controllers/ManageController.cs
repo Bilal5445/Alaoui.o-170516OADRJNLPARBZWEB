@@ -60,7 +60,6 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-
         //
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)
@@ -359,7 +358,6 @@ namespace ArabicTextAnalyzer.Controllers
 
             if (Request.HttpMethod.ToUpper() == "GET")
             {
-
             }
             else
             {

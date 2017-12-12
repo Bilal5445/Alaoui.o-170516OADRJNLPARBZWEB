@@ -241,7 +241,7 @@ function TranslateContent(obj) {
 }
 // end of method.
 
-//method for get the comments table under the row of each post table
+// method for get the comments table under the row of each post table
 var GetCommentsIsClicked = false;
 function GetComments(obj) {
     if (GetCommentsIsClicked == false) {
@@ -284,11 +284,13 @@ function GetComments(obj) {
 
 
 }
+
 var Comments = "";
 function CommentTable(id) {
     var html = '<table id="tabledetails_' + id + '" class="table table-striped table-hover table-bordered"><thead  class="header"><tr><th></th><th class="center top col50px">ID</th><th class="center top col50prc">Message</th><th class="center top col50prc">Translated Message</th><th class="center top col130px">Created Time</th><th class="center top col75px">Action</th></tr></thead></table>'
     return html;
 }
+
 function GetCommentsForPost(id) {
     //alert($('#tabledetails_' + id).html())
     $('#tabledetails_' + id).DataTable({
@@ -341,9 +343,9 @@ function GetCommentsForPost(id) {
         "ajax": "/Train/GetFBPostComment?id=" + id
     });
 }
-//end of method.
+// end of method.
 
-//method for translate the comments either on bulk translate or on translate button of comment
+// method for translate the comments either on bulk translate or on translate button of comment
 var GetTranslateCommentIsClicked = false;
 function GetTranslateComment(id) {
     if (GetTranslateCommentIsClicked == false) {
@@ -372,6 +374,7 @@ function GetTranslateComment(id) {
     }
 
 }
+
 var TranslateCommentIsClicked = false;
 function TranslateComment(obj) {
     if (TranslateCommentIsClicked == false) {
@@ -428,48 +431,53 @@ function postOnCommentsTranslate(TranlatedCommentId, id) {
         }
     });
 }
-//end of method.
+// end of method.
 
 // Js for add  influencer
 var AddInfluencerIsClicked = false;
 function AddInfluencer() {
-    if (AddInfluencerIsClicked == false) {
-        var urlname = $('#txtUrlName').val();
-        var pro_or_anti = $('#ddlPro_or_anti').val();
-        AddInfluencerIsClicked = true;
-        if (urlname.length > 0 && pro_or_anti.length > 0) {
-            $.ajax({
-                "dataType": 'json',
-                "contentType": "application/json; charset=utf-8",
-                "type": "GET",
-                "url": "/Train/AddFBInfluencer",
-                "data": {
-                    "name": "",
-                    "url_name": urlname,
-                    "pro_or_anti": pro_or_anti,
-                },
-                "success": function (msg) {
-                    AddInfluencerIsClicked = false;
-                    if (msg.status) {
-                        alert("Success " + msg.message);
-                        window.location = '/Train';
-                    }
-                    else {
-                        alert("Error " + msg.message);
-                    }
-                },
-                "error": function () {
-                    AddInfluencerIsClicked = false;
-                    alert("Error");
-                }
-            });
-        }
-        else {
-            AddInfluencerIsClicked = false;
-            alert("All the fields are required.");
-        }
-        //var urlToPost = AddFBInfluencer
+
+    // check before
+    if (AddInfluencerIsClicked == true) {
+        return;
     }
+
+    // check on fields
+    var urlname = $('#txtUrlName').val();
+    var pro_or_anti = $('#ddlPro_or_anti').val();
+    if (urlname.length == 0 || pro_or_anti.length == 0) {
+        alert("All the fields are required.");
+        return;
+    }
+
+    // mark as clicked to avoid double processing
+    AddInfluencerIsClicked = true;
+
+    // real work : call on controller Train action AddFBInfluencer
+    $.ajax({
+        "dataType": 'json',
+        "contentType": "application/json; charset=utf-8",
+        "type": "GET",
+        "url": "/Train/AddFBInfluencer",
+        "data": {
+            "name": "",
+            "url_name": urlname,
+            "pro_or_anti": pro_or_anti,
+        },
+        "success": function (msg) {
+            AddInfluencerIsClicked = false;
+            if (msg.status) {
+                alert("Success " + msg.message);
+                window.location = '/Train';
+            } else {
+                alert("Error " + msg.message);
+            }
+        },
+        "error": function () {
+            AddInfluencerIsClicked = false;
+            alert("Error");
+        }
+    });
 }
 // End of js of add influencer
 
@@ -495,9 +503,9 @@ function RetrieveFBPost(influencerurl_name, influencerid) {
                     //$('.table_' + influencerid).DataTable().ajax.reload();           
                     //fnCallback(influencerid)
                 }
-                //customAlertMessages.alerts.success("Lead has been assigned successfully.");
-                //$('#divGridLeads').DataTable().ajax.reload();
-                //$('#grdLeadAssigned').DataTable().ajax.reload();
+                    //customAlertMessages.alerts.success("Lead has been assigned successfully.");
+                    //$('#divGridLeads').DataTable().ajax.reload();
+                    //$('#grdLeadAssigned').DataTable().ajax.reload();
                 else {
                     alert("Error " + msg.message);
                 }
@@ -519,6 +527,7 @@ function ResetDataTable(influencerid) {
     LoadFacebookPosts(influencerid)
 }
 //end of method
+
 //method for reset the comments table
 function ResetDataTableComments(influencerid) {
     var oTable = $('#tabledetails_' + influencerid).dataTable();
