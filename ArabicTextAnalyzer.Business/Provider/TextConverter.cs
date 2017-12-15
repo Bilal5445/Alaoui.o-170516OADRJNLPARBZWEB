@@ -22,8 +22,10 @@ namespace ArabicTextAnalyzer.Business.Provider
         private string outputFileLocation;
         // -> the input file(saw that the script only works with this file)
         private string inputFileLocation;
+        private String inputFileLocationFileOnly;
         // -> the script : full pipeline
         private string translPipelineScript;
+        private string translPipelineScriptFileNdExtOnly;
 
         // for UT only
         public TextConverter(String utWorkingDirectoryLocation)
@@ -36,6 +38,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             pathToExample = workingDirectoryLocation + @"example\";
             inputFileLocation = pathToExample + "small-example.arabizi";
             outputFileLocation = pathToExample + "small-example.7.charTransl";
+            translPipelineScriptFileNdExtOnly = "RUN_transl_pipeline.sh";
             translPipelineScript = workingDirectoryLocation + @"RUN_transl_pipeline.sh";
         }
 
@@ -59,21 +62,85 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_SilentVowels(source);
             Logging.Write(Server, "train - after train_saveperl > Convert >  Preprocess_SilentVowels : " + watch.ElapsedMilliseconds); // watch.Restart();
 
+            // random naming to avoid access to same file and deadlock eventually
+            String randomsuffix = /*"_" +*/ Guid.NewGuid().ToString();
+            // inputFileLocation = inputFileLocation + randomsuffix;
+            inputFileLocationFileOnly = randomsuffix;
+            inputFileLocation = pathToExample + inputFileLocationFileOnly + ".arabizi";
+
+            // build cygwin cmd with arg included and change slashes
+            // target : ./RUN_transl_pipeline.sh example/small-example_9493cac0-eac6-40db-8be5-1b8a594df13b
+            // translPipelineScript = "\"" + translPipelineScript + "\"" + " " + "\"" + inputFileLocation + "\"";
+            // translPipelineScript = translPipelineScript.Replace("\\", "/");
+            // translPipelineScript = "./" + translPipelineScriptFileNdExtOnly + " " + "example/" + inputFileLocationFileOnly;
+            translPipelineScript = translPipelineScriptFileNdExtOnly + " " + "example/" + inputFileLocationFileOnly;
+
             // to arabizi (INPUT) file
             File.WriteAllText(inputFileLocation, source);
-            Logging.Write(Server, "train - after train_saveperl > Convert >  WriteAllText : " + watch.ElapsedMilliseconds); // watch.Restart();
+            Logging.Write(Server, "train - after train_saveperl > Convert >  WriteAllText : " + watch.ElapsedMilliseconds);
 
             //
             var process = new Process();
-            var processInformation = new ProcessStartInfo(translPipelineScript)
+            var processInformation = new ProcessStartInfo("sh.exe", translPipelineScript)
             {
                 WorkingDirectory = workingDirectoryLocation,
-                UseShellExecute = true
+                UseShellExecute = true,   
             };
             process.StartInfo = processInformation;
             process.Start();
             process.WaitForExit();
-            Logging.Write(Server, "train - after train_saveperl > Convert >  ProcessStartInfo : " + watch.ElapsedMilliseconds); // watch.Restart();
+            Logging.Write(Server, "train - after train_saveperl > Convert >  ProcessStartInfo : " + watch.ElapsedMilliseconds);
+
+            // sh.exe RUN_transl_pipeline.sh fdf
+
+            // var process = new Process();
+            // var processInformation = new ProcessStartInfo("RUN_transl_pipeline.sh", "\"" + "small-example.arabizi" + "\"")
+            // var processInformation = new ProcessStartInfo(@"C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\RUN_transl_pipeline.sh", "\"" + "small-example.arabizi" + "\"")
+            // var processInformation = new ProcessStartInfo("cmd", @"C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\RUN_transl_pipeline.sh"/*, "\"" + "small-example.arabizi" + "\""*/)
+
+            /*var processInformation = new ProcessStartInfo("cmd", "/k \"\"C:\\Users\\Yahia Alaoui\\Desktop\\DEV\\17028OADRJNLPARBZ\RUN_transl_pipeline.sh\" "dffd"")
+            // cmd /k ""c:\batch files\demo.cmd" "Parameter 1 with space" "Parameter2 with space""
+            // cmd /c "C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\RUN_transl_pipeline.sh"
+            // cmd /k ""C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\RUN_transl_pipeline.sh" "C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\example""
+            {
+                WorkingDirectory = workingDirectoryLocation,
+                // UseShellExecute = true,
+                UseShellExecute = false,
+            };
+            process.StartInfo = processInformation;
+            process.Start();
+            process.WaitForExit();*/
+
+            /*var processInformation = new ProcessStartInfo("sh.exe", "RUN_transl_pipeline.sh fdf")
+            {
+                WorkingDirectory = workingDirectoryLocation,
+                UseShellExecute = true,
+            };
+            process.StartInfo = processInformation;
+            process.Start();
+            process.WaitForExit();*/
+
+            /*String cmd = "dir";
+            var escapedArgs = cmd.Replace("\"", "\\\"");
+            var process = new Process()
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "cmd.exe",
+                    Arguments = $"-c \"{escapedArgs}\"",
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                }
+            };
+            process.Start();
+            string result = process.StandardOutput.ReadToEnd();
+            process.WaitForExit();*/
+
+            // random naming to avoid access to same file and deadlock eventually
+            // outputFileLocation = outputFileLocation + randomsuffix;
+            // outputFileLocation = pathToExample + "small-example.7.charTransl";
+            outputFileLocation = pathToExample + randomsuffix + ".7.charTransl";
 
             // read arabic (OUTPUT) file
             var output = File.ReadAllText(outputFileLocation);
