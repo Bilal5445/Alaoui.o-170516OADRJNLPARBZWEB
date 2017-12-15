@@ -13,6 +13,7 @@ namespace ArabicTextAnalyzer.Models.Repository
     public class ClientKeysConcrete:IClientKeys
     {
         ArabiziDbContext _context;
+
         public ClientKeysConcrete()
         {
             _context = new ArabiziDbContext();
@@ -42,6 +43,8 @@ namespace ArabicTextAnalyzer.Models.Repository
         public int SaveClientIDandClientSecert(ClientKeys ClientKeys)
         {
             _context.ClientKeys.Add(ClientKeys);
+
+            //
             return _context.SaveChanges();
         }
 
@@ -50,6 +53,8 @@ namespace ArabicTextAnalyzer.Models.Repository
             var clientkey = (from ckey in _context.ClientKeys
                              where ckey.UserID == UserID
                              select ckey).FirstOrDefault();
+
+            //
             return clientkey;
         }
         
@@ -76,7 +81,6 @@ namespace ArabicTextAnalyzer.Models.Repository
             //}
             
         }
-
 
         public int UpdateClientIDandClientSecert(ClientKeys ClientKeys)
         {

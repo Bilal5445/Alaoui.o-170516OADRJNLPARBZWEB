@@ -416,6 +416,12 @@ namespace ArabicTextAnalyzer.Controllers
                                     clientkeys.ClientSecret = clientSecert;
                                     clientkeys.UserID = userId;
                                     _IClientKeys.SaveClientIDandClientSecert(clientkeys);
+
+                                    // MC121517 quick and dirty hack to address the bug at app creation in ManageApp.cshtml where RegisterApps is null in @clientkeys.RegisterApps.Name
+                                    // otherwise ManageApp.cshtml will crash
+                                    clientkeys.RegisterApps = company;
+
+                                    // passing them back to the view
                                     ViewBag.clientkeys = clientkeys;
                                     ViewBag.clientExist = true;
                                 }
