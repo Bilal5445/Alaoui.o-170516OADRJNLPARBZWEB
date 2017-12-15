@@ -63,16 +63,12 @@ namespace ArabicTextAnalyzer.Business.Provider
             Logging.Write(Server, "train - after train_saveperl > Convert >  Preprocess_SilentVowels : " + watch.ElapsedMilliseconds); // watch.Restart();
 
             // random naming to avoid access to same file and deadlock eventually
-            String randomsuffix = /*"_" +*/ Guid.NewGuid().ToString();
-            // inputFileLocation = inputFileLocation + randomsuffix;
+            String randomsuffix = Guid.NewGuid().ToString();
             inputFileLocationFileOnly = randomsuffix;
             inputFileLocation = pathToExample + inputFileLocationFileOnly + ".arabizi";
 
             // build cygwin cmd with arg included and change slashes
-            // target : ./RUN_transl_pipeline.sh example/small-example_9493cac0-eac6-40db-8be5-1b8a594df13b
-            // translPipelineScript = "\"" + translPipelineScript + "\"" + " " + "\"" + inputFileLocation + "\"";
-            // translPipelineScript = translPipelineScript.Replace("\\", "/");
-            // translPipelineScript = "./" + translPipelineScriptFileNdExtOnly + " " + "example/" + inputFileLocationFileOnly;
+            // target : RUN_transl_pipeline.sh example/small-example_9493cac0-eac6-40db-8be5-1b8a594df13b
             translPipelineScript = translPipelineScriptFileNdExtOnly + " " + "example/" + inputFileLocationFileOnly;
 
             // to arabizi (INPUT) file
@@ -91,60 +87,19 @@ namespace ArabicTextAnalyzer.Business.Provider
             process.WaitForExit();
             Logging.Write(Server, "train - after train_saveperl > Convert >  ProcessStartInfo : " + watch.ElapsedMilliseconds);
 
-            // sh.exe RUN_transl_pipeline.sh fdf
-
-            // var process = new Process();
-            // var processInformation = new ProcessStartInfo("RUN_transl_pipeline.sh", "\"" + "small-example.arabizi" + "\"")
-            // var processInformation = new ProcessStartInfo(@"C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\RUN_transl_pipeline.sh", "\"" + "small-example.arabizi" + "\"")
-            // var processInformation = new ProcessStartInfo("cmd", @"C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\RUN_transl_pipeline.sh"/*, "\"" + "small-example.arabizi" + "\""*/)
-
-            /*var processInformation = new ProcessStartInfo("cmd", "/k \"\"C:\\Users\\Yahia Alaoui\\Desktop\\DEV\\17028OADRJNLPARBZ\RUN_transl_pipeline.sh\" "dffd"")
-            // cmd /k ""c:\batch files\demo.cmd" "Parameter 1 with space" "Parameter2 with space""
-            // cmd /c "C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\RUN_transl_pipeline.sh"
-            // cmd /k ""C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\RUN_transl_pipeline.sh" "C:\Users\Yahia Alaoui\Desktop\DEV\17028OADRJNLPARBZ\example""
-            {
-                WorkingDirectory = workingDirectoryLocation,
-                // UseShellExecute = true,
-                UseShellExecute = false,
-            };
-            process.StartInfo = processInformation;
-            process.Start();
-            process.WaitForExit();*/
-
-            /*var processInformation = new ProcessStartInfo("sh.exe", "RUN_transl_pipeline.sh fdf")
-            {
-                WorkingDirectory = workingDirectoryLocation,
-                UseShellExecute = true,
-            };
-            process.StartInfo = processInformation;
-            process.Start();
-            process.WaitForExit();*/
-
-            /*String cmd = "dir";
-            var escapedArgs = cmd.Replace("\"", "\\\"");
-            var process = new Process()
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = "cmd.exe",
-                    Arguments = $"-c \"{escapedArgs}\"",
-                    RedirectStandardOutput = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-                }
-            };
-            process.Start();
-            string result = process.StandardOutput.ReadToEnd();
-            process.WaitForExit();*/
-
             // random naming to avoid access to same file and deadlock eventually
-            // outputFileLocation = outputFileLocation + randomsuffix;
-            // outputFileLocation = pathToExample + "small-example.7.charTransl";
             outputFileLocation = pathToExample + randomsuffix + ".7.charTransl";
 
             // read arabic (OUTPUT) file
             var output = File.ReadAllText(outputFileLocation);
-            Logging.Write(Server, "train - after train_saveperl > Convert >  ReadAllText : " + watch.ElapsedMilliseconds); // watch.Restart();
+            Logging.Write(Server, "train - after train_saveperl > Convert >  ReadAllText : " + watch.ElapsedMilliseconds);
+
+            // delete output files and input files and interediated
+            var dir = new DirectoryInfo(pathToExample);
+            foreach (var file in dir.EnumerateFiles(randomsuffix + ".*"))
+            {
+                file.Delete();
+            }
 
             // post-process (eg : hna => nahnou)
             output = Postprocess_slash_r_slash_n(output);
