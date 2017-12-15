@@ -8,6 +8,9 @@
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("styles", required: false)
 
+    @* vertical load time *@
+    <link rel="stylesheet" type="text/css" href="~/Content/hlpr.vertical-text.css" />
+
 </head>
 <body onload="getPlainLoadTime()">
     <div class="navbar navbar-inverse navbar-fixed-top">
