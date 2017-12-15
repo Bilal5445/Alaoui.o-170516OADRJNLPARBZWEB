@@ -63,6 +63,9 @@ namespace ArabicTextAnalyzer
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+            // Add role manager
+            app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
         }
     }
 }
