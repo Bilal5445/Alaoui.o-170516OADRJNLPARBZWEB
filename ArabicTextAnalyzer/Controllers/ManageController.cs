@@ -382,7 +382,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                         _IRegister.Add(model);
 
-                        // Genrate Clientid and Secret Key
+                        // Generate Clientid and Secret Key
                         if (model.RegisterAppId > 0)
                         {
                             try
@@ -444,7 +444,6 @@ namespace ArabicTextAnalyzer.Controllers
         {
             if (Request.HttpMethod.ToUpper() == "GET")
             {
-
             }
             else
             {
@@ -466,6 +465,8 @@ namespace ArabicTextAnalyzer.Controllers
                     Session["userId"] = clientkeys.UserID;
                 }
             }
+
+            //
             return RedirectToAction("Index", "Train");
         }
 
