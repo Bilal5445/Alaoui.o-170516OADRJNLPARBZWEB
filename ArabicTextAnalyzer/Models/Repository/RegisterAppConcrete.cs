@@ -1,4 +1,5 @@
-﻿using ArabicTextAnalyzer.Domain.Models;
+﻿using ArabicTextAnalyzer.Contracts;
+using ArabicTextAnalyzer.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
