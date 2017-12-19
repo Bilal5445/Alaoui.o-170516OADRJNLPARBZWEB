@@ -39,28 +39,6 @@ namespace ArabiziWebAPI.Controllers
             return Ok(response);
         }
 
-        /*public IHttpActionResult GetArabicDarijaEntry(string token, int? id)
-        {
-            var errorMessage = string.Empty;
-            if (ValidateToken(token, "GetArabicDarijaEntry", out errorMessage))
-            {
-                // var arabicdarijaentry = _arabicdarijaentries.FirstOrDefault((p) => p.Id == id);
-                var arabicdarijaentry = _arabicdarijaentries[0];
-                if (arabicdarijaentry == null)
-                {
-                    return NotFound();
-                }
-                return Ok(arabicdarijaentry);
-            }
-            else
-            {
-                HttpResponseMessage response = new HttpResponseMessage();
-                response = Request.CreateResponse(HttpStatusCode.NotAcceptable, errorMessage);
-                return Ok(new { Status = "Forbidden", Error = errorMessage });
-            }
-        }
-        */
-
         [HttpGet]
         public IHttpActionResult GetArabicDarijaEntry(/*[FromBody]*/string token, String text)
         {
@@ -267,7 +245,6 @@ namespace ArabiziWebAPI.Controllers
             string result = null;
 
             var requestContent = "/?token=" + token + "&methodTocall=" + methodToCall;
-            // var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken" + requestContent;
             var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken" + requestContent;
             result = HtmlHelpers.PostAPIRequest(url, requestContent);
 

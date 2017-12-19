@@ -51,5 +51,71 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             return clientkeys;
         }
+
+        public string GetToken(ClientKeys clientKeys, IAuthenticate authenticater, String tokenExpiry, out String sessiontoken)
+        {
+            //
+            sessiontoken = null;
+
+            //
+            if (string.IsNullOrEmpty(clientKeys.ClientId) && string.IsNullOrEmpty(clientKeys.ClientSecret))
+                return "Not Valid Request";
+
+            //
+            string result = string.Empty;
+            if (authenticater.ValidateKeys(clientKeys))
+            {
+                var clientkeys = authenticater.GetClientKeysDetailsbyCLientIDandClientSecret(clientKeys.ClientId, clientKeys.ClientSecret);
+                if (clientkeys == null)
+                {
+                    return "InValid Keys";
+                }
+                else
+                {
+                    if (authenticater.IsTokenAlreadyExists(clientkeys.RegisterAppId.Value))
+                    {
+                        authenticater.DeleteGenerateToken(clientkeys.RegisterAppId.Value);
+
+                        var IssuedOn = DateTime.Now;
+                        var newToken = authenticater.GenerateToken(clientkeys, IssuedOn);
+
+                        var status = authenticater.InsertToken(clientkeys, tokenExpiry, newToken);
+                        if (status == 1)
+                        {
+                            // Session["_T0k@n_"] = newToken;
+                            sessiontoken = newToken;
+                            result = "Token generated successfully !!!";
+                        }
+                        else
+                        {
+                            result = "Error in Creating Token";
+                        }
+                    }
+                    else
+                    {
+                        var issuedOn = DateTime.Now;
+                        var newToken = authenticater.GenerateToken(clientkeys, issuedOn);
+
+                        var status = authenticater.InsertToken(clientkeys, tokenExpiry, newToken);
+                        if (status == 1)
+                        {
+                            // Session["_T0k@n_"] = newToken;
+                            sessiontoken = newToken;
+                            result = "Token generated successfully !!!";
+                        }
+                        else
+                        {
+                            result = "Error in Creating Token";
+                        }
+                    }
+                }
+            }
+            else
+            {
+                result = "Invalid Keys!!!";
+            }
+
+            return result;
+        }
     }
 }
