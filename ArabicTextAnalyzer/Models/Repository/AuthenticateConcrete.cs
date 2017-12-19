@@ -144,53 +144,60 @@ namespace ArabicTextAnalyzer.Models.Repository
 
         public bool IsTokenValid(string token, string methodName, out string errMsg)
         {
+            // This code checks if a token is valid, and increases the consumption counter
+
             bool flag = false;
             errMsg = string.Empty;
-            if (!string.IsNullOrEmpty(token))
-            {
-                var tokenExist = _context.TokensManager.Where(c => c.IsDeleted == false).FirstOrDefault(c => c.TokenKey == token);
-                if (tokenExist != null)
-                {
-                    if (tokenExist.ExpiresOn > DateTime.Now)
-                    {
-                        var registerApp = tokenExist.RegisterApps;
-                        if (registerApp != null && registerApp.TotalAppCallLimit > 0)
-                        {
-                            registerApp.TotalAppCallLimit = registerApp.TotalAppCallLimit - 1;
-                            registerApp.TotalAppCallConsumed = registerApp.TotalAppCallConsumed + 1;
 
-                            var apiCallLog = new RegisterAppCallingLog();
-                            apiCallLog.RegisterAppId = registerApp.RegisterAppId;
-                            apiCallLog.TokensManagerID = tokenExist.TokensManagerID;
-                            apiCallLog.UserId = registerApp.UserID;
-                            apiCallLog.MethodName = methodName;
-                            _context.RegisterAppCallingLogs.Add(apiCallLog);
-
-                            _context.SaveChanges();
-                            flag = true;
-                        }
-                        else
-                        {
-                            errMsg = "Your call limit is bounced. Please contact to support team.";
-                        }
-                    }
-                    else
-                    {
-                        tokenExist.IsDeleted = true;
-                        _context.SaveChanges();
-                        errMsg = "Token Expired";
-                    }
-                }
-                else
-                {
-                    errMsg = "Token is invalid.";
-                }
-            }
-            else
+            // null/empty ?
+            if (string.IsNullOrEmpty(token))
             {
                 errMsg = "Token is required.";
+                return flag;
             }
 
+            // exists or not ?
+            var tokenExist = _context.TokensManager.Where(c => c.IsDeleted == false).FirstOrDefault(c => c.TokenKey == token);
+            if (tokenExist == null)
+            {
+                errMsg = "Token is invalid.";
+                return flag;
+            }
+
+            // expired ?
+            if (tokenExist.ExpiresOn <= DateTime.Now)
+            {
+                tokenExist.IsDeleted = true;
+                _context.SaveChanges();
+                errMsg = "Token Expired";
+                return flag;
+            }
+
+            // exceeded limit ?
+            var registerApp = tokenExist.RegisterApps;
+            if (registerApp == null || registerApp.TotalAppCallLimit <= 0)
+            {
+                errMsg = "Your call limit is bounced. Please contact to support team.";
+                return flag;
+            }
+
+            // otherwise increases the consumption counter
+            registerApp.TotalAppCallLimit = registerApp.TotalAppCallLimit - 1;
+            registerApp.TotalAppCallConsumed = registerApp.TotalAppCallConsumed + 1;
+
+            // save info into log
+            var apiCallLog = new RegisterAppCallingLog();
+            apiCallLog.RegisterAppId = registerApp.RegisterAppId;
+            apiCallLog.TokensManagerID = tokenExist.TokensManagerID;
+            apiCallLog.UserId = registerApp.UserID;
+            apiCallLog.MethodName = methodName;
+            _context.RegisterAppCallingLogs.Add(apiCallLog);
+
+            // save into DB consoumption increase change and new log entry
+            _context.SaveChanges();
+            flag = true;
+
+            //
             return flag;
         }
 
