@@ -11,6 +11,9 @@ using Microsoft.Owin.Security;
 using ArabicTextAnalyzer.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Configuration;
+using ArabicTextAnalyzer.Business.Provider;
+using ArabicTextAnalyzer.Models.Repository;
+using ArabicTextAnalyzer.Domain.Models;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -169,8 +172,11 @@ namespace ArabicTextAnalyzer.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    // TODO create app
-
+                    // create app to use the arabizi
+                    var userId = user.Id;
+                    var appLimit = Convert.ToInt32(ConfigurationManager.AppSettings["TotalAppCallLimit"]);
+                    var app = new RegisterApp { Name = userId + ".app" };
+                    new AppManager().CreateApp(app, userId, false, new RegisterAppConcrete(), new ClientKeysConcrete(), appLimit);
 
                     //
                     return RedirectToAction("Index", "Train");
