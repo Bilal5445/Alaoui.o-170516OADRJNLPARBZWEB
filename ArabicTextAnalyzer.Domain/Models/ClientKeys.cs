@@ -16,11 +16,5 @@ namespace ArabicTextAnalyzer.Domain.Models
         public string ClientSecret { get; set; }
         public DateTime? CreatedOn { get; set; }
         public string UserID { get; set; }
-        //[ForeignKey("UserID")]
-        //public virtual RegisterUser RegisterUsers { get; set; }
-
-
-      
-
     }
 }
