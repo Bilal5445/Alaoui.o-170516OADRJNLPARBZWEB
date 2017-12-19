@@ -19,14 +19,14 @@ namespace ArabicTextAnalyzer.Controllers
         private ApplicationUserManager _userManager;
 
         // authentication
-        IRegisterApp _IRegister;
-        IClientKeys _IClientKeys;
+        IRegisterApp _appRegistrar;
+        IClientKeys _clientKeyToolkit;
         IAuthenticate _IAuthenticate;
 
         public ManageController()
         {
-            _IRegister = new RegisterAppConcrete();
-            _IClientKeys = new ClientKeysConcrete();
+            _appRegistrar = new RegisterAppConcrete();
+            _clientKeyToolkit = new ClientKeysConcrete();
             _IAuthenticate = new AuthenticateConcrete();
         }
 
@@ -347,12 +347,12 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult ManageApp(RegisterApp model)
         {
             var userId = User.Identity.GetUserId();
-            var keyExists = _IClientKeys.IsUniqueKeyAlreadyGenerate(userId);
+            var keyExists = _clientKeyToolkit.IsUniqueKeyAlreadyGenerate(userId);
             ViewBag.clientExist = keyExists;
             if (keyExists)
             {
                 // Getting Generate ClientID and ClientSecret Key By UserID
-                ViewBag.clientkeys = _IClientKeys.GetGenerateUniqueKeyByUserID(userId);
+                ViewBag.clientkeys = _clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
             }
 
             // GET access (ie : check app dashbord)
@@ -364,54 +364,19 @@ namespace ArabicTextAnalyzer.Controllers
                 return View("ManageApp", model);
 
             // check app already registered
-            if (_IRegister.ValidateAppName(model))
+            if (_appRegistrar.ValidateAppName(model))
             {
                 ModelState.AddModelError("", "App is Already Registered");
                 return View("ManageApp", model);
             }
 
             // check app already registered
-            var app = _IRegister.CheckIsAppRegistered(userId);
+            var app = _appRegistrar.CheckIsAppRegistered(userId);
             if (app == true)
                 return RedirectToAction("Index");
 
             // register app model coming from html form
-            model.UserID = userId;
-            model.CreatedOn = DateTime.Now;
-            model.TotalAppCallLimit = AppCallLimit;
-            _IRegister.Add(model);  // this code fills RegisterAppId and adds the app to db, and should always auto-increment model.RegisterAppId to > 0
-
-            // Generate Clientid and Secret Key
-            // Validating ClientID and ClientSecret already Exists
-            ClientKeys clientkeys;
-            if (keyExists)
-            {
-                // Getting Generate ClientID and ClientSecret Key By UserID
-                clientkeys = _IClientKeys.GetGenerateUniqueKeyByUserID(userId);
-            }
-            else
-            {
-                var company = _IRegister.FindAppByUserId(userId);
-                int companyId = company.RegisterAppId;
-
-                // Generate Keys
-                String clientSecret, clientID;
-                _IClientKeys.GenerateUniqueKey(out clientID, out clientSecret);
-
-                // Saving Keys Details in Database
-                clientkeys = new ClientKeys();
-                clientkeys.ClientKeysID = 0;
-                clientkeys.RegisterAppId = companyId;
-                clientkeys.CreatedOn = DateTime.Now;
-                clientkeys.ClientId = clientID;
-                clientkeys.ClientSecret = clientSecret;
-                clientkeys.UserID = userId;
-                _IClientKeys.SaveClientIDandClientSecret(clientkeys);
-
-                // MC121517 quick and dirty hack to address the bug at app creation in ManageApp.cshtml where RegisterApps is null in @clientkeys.RegisterApps.Name
-                // otherwise ManageApp.cshtml will crash
-                clientkeys.RegisterApps = company;
-            }
+            ClientKeys clientkeys = CreateApp(model, userId, keyExists, _appRegistrar, _clientKeyToolkit, AppCallLimit);
 
             // passing them back to the view
             ViewBag.clientkeys = clientkeys;
@@ -421,6 +386,48 @@ namespace ArabicTextAnalyzer.Controllers
             return View(model);
         }
 
+        private ClientKeys CreateApp(RegisterApp appFromModel, string userId, bool keyExists, IRegisterApp appRegistrar, IClientKeys clientKeyToolkit, int appCallLimit)
+        {
+            appFromModel.UserID = userId;
+            appFromModel.CreatedOn = DateTime.Now;
+            appFromModel.TotalAppCallLimit = appCallLimit;
+            appRegistrar.Add(appFromModel);  // this code fills RegisterAppId and adds the app to db, and should always auto-increment model.RegisterAppId to > 0
+
+            // Generate Clientid and Secret Key
+            // Validating ClientID and ClientSecret already Exists
+            ClientKeys clientkeys;
+            if (keyExists)
+            {
+                // Getting Generate ClientID and ClientSecret Key By UserID
+                clientkeys = clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
+            }
+            else
+            {
+                var appFromDb = appRegistrar.FindAppByUserId(userId);
+                int companyId = appFromDb.RegisterAppId;
+
+                // Generate Keys
+                String clientSecret, clientID;
+                clientKeyToolkit.GenerateUniqueKey(out clientID, out clientSecret);
+
+                // Saving Keys Details in Database
+                clientkeys = new ClientKeys();
+                clientkeys.ClientKeysID = 0;
+                clientkeys.RegisterAppId = companyId;
+                clientkeys.CreatedOn = DateTime.Now;
+                clientkeys.ClientId = clientID;
+                clientkeys.ClientSecret = clientSecret;
+                clientkeys.UserID = userId;
+                clientKeyToolkit.SaveClientIDandClientSecret(clientkeys);
+
+                // MC121517 quick and dirty hack to address the bug at app creation in ManageApp.cshtml where RegisterApps is null in @clientkeys.RegisterApps.Name
+                // otherwise ManageApp.cshtml will crash
+                clientkeys.RegisterApps = appFromDb;
+            }
+
+            return clientkeys;
+        }
+
         public ActionResult GenerateToken(string userId)
         {
             if (Request.HttpMethod.ToUpper() == "GET")
@@ -428,9 +435,9 @@ namespace ArabicTextAnalyzer.Controllers
             }
             else
             {
-                var clientkeys = _IClientKeys.GetGenerateUniqueKeyByUserID(userId);
+                var clientkeys = _clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
                 string message = string.Empty;
-                bool isAppValid = _IClientKeys.IsAppValid(clientkeys);
+                bool isAppValid = _clientKeyToolkit.IsAppValid(clientkeys);
                 if (isAppValid == false)
                 {
                     message = "No More calls";
@@ -561,6 +568,7 @@ namespace ArabicTextAnalyzer.Controllers
             RemovePhoneSuccess,
             Error
         }
+
         public int AppCallLimit
         {
             get
