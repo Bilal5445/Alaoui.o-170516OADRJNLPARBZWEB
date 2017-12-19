@@ -58,7 +58,7 @@
         <ul class="dropdown-menu">
             @foreach (var xtrctTheme in ViewBag.XtrctThemes)
             {
-                <li class="@xtrctTheme.CurrentActive"><a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = @xtrctTheme.ThemeName })">@xtrctTheme.ThemeName</a></li>
+            <li class="@xtrctTheme.CurrentActive"><a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = @xtrctTheme.ThemeName })">@xtrctTheme.ThemeName</a></li>
             }
         </ul>
     </div>
@@ -85,15 +85,15 @@
             <div class="modal-body">
                 @using (Html.BeginForm("XtrctTheme_AddNew", "Train", FormMethod.Post))
                 {
-                    <div class="form-group">
-                        <label for="themename">Theme Name</label>
-                        @Html.TextBox("themename", "", new { @class = "form-control", placeholder = "Enter new theme name", @required = "required", id = "themename" })
-                    </div>
-                    <div class="form-group">
-                        <label for="themetags">Theme Tags</label>
-                        @Html.TextBox("themetags", "", new { @class = "form-control", @required = "required", id = "themetags", data_role = "tagsinput" })
-                    </div>
-                    <button type="submit" class="btn btn-default btn-success">Add</button>
+                <div class="form-group">
+                    <label for="themename">Theme Name</label>
+                    @Html.TextBox("themename", "", new { @class = "form-control", placeholder = "Enter new theme name", @required = "required", id = "themename" })
+                </div>
+                <div class="form-group">
+                    <label for="themetags">Theme Tags</label>
+                    @Html.TextBox("themetags", "", new { @class = "form-control", @required = "required", id = "themetags", data_role = "tagsinput" })
+                </div>
+                <button type="submit" class="btn btn-default btn-success">Add</button>
                 }
             </div>
         </div>
@@ -113,11 +113,11 @@
         {
             if (ViewBag.ActiveXtrctThemeTags.IndexOf(tag) % 2 == 0)
             {
-                <span class="label label-primary themekeywords">@tag</span>
+        <span class="label label-primary themekeywords">@tag</span>
             }
             else
             {
-                <span class="label label-success themekeywords">@tag</span>
+        <span class="label label-success themekeywords">@tag</span>
             }
         }
     </div>
@@ -130,34 +130,34 @@
 {
     <!-- token generation -->
     <div class="row">
-    @using (Html.BeginForm("GenerateToken", "Manage"))
-    {
-        <div class="form-group"></div>
-        <div class="form-group col-lg-12">
-            <div class="col-lg-2"></div>
-            <label class="control-label col-lg-1">My Apps</label>
-            <div class="col-lg-4">
-                @Html.DropDownList("userId", new SelectList(registerAppList, "UserID", "Name", !string.IsNullOrEmpty(Convert.ToString(token)) ?Convert.ToString(user):""), "---Select App---", new { @class = "form-control", @required = "required" })
-            </div>
-            <div class="col-lg-4">
-                <input type="submit" value="Generate Token" class="btn btn-primary" />
-            </div>
-        </div>
-        <div class="col-lg-12">
-            <div class="form-group">
-                <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>Warning!</strong> @msgAlert
+        @using (Html.BeginForm("GenerateToken", "Manage"))
+        {
+            <div class="form-group"></div>
+            <div class="form-group col-lg-12">
+                <div class="col-lg-2"></div>
+                <label class="control-label col-lg-1">My Apps</label>
+                <div class="col-lg-4">
+                    @Html.DropDownList("userId", new SelectList(registerAppList, "UserID", "Name", !string.IsNullOrEmpty(Convert.ToString(token)) ? Convert.ToString(user) : ""), "---Select App---", new { @class = "form-control", @required = "required" })
                 </div>
-               
-                <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>Success!</strong> @msgAlert
+                <div class="col-lg-4">
+                    <input type="submit" value="Generate Token" class="btn btn-primary" />
                 </div>
             </div>
-        </div>
-    }
-</div>
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Warning!</strong> @msgAlert
+                    </div>
+
+                    <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Success!</strong> @msgAlert
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 }
 else if (token != null && !string.IsNullOrEmpty(token as string))
 {
@@ -182,34 +182,34 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
         <div class="col-md-3 col-sm-6">
             @using (Html.BeginForm("TrainStepOne", "Train", FormMethod.Post))
             {
-                <div class="panel panel-default active">
-                    <div class="panel-heading">Arabizi</div>
-                    <div class="panel-body" style="padding: 0; height: 150px">
-                        @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "height: 100%; width: 100%", @required = "required" })
-                        @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
-                    </div>
+            <div class="panel panel-default active">
+                <div class="panel-heading">Arabizi</div>
+                <div class="panel-body" style="padding: 0; height: 150px">
+                    @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "height: 100%; width: 100%", @required = "required" })
+                    @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
                 </div>
+            </div>
         <!-- button submit -->
-                <div class="row">
-                    <div class="col-md-2">
-                        <button class="btn btn-success btn-md" type="submit" id="train">
-                            Train
-                        </button>
-                    </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <button class="btn btn-success btn-md" type="submit" id="train">
+                        Train
+                    </button>
                 </div>
+            </div>
             }
         </div>
         <!-- column 2 : Twingly/Corpus Res -->
         <div class="col-md-2 col-sm-6">
             @if (String.IsNullOrEmpty(ViewBag.MostPopularVariant) == false)
             {
-                <div class="panel panel-default active arabic ">
-                    <div class="panel-heading">Most Popular Variant : @ViewBag.MostPopularVariant</div>
-                    <div class="panel-body" style="padding: 0; height: 150px; position:relative;">
-                        <div class="loader"></div>
-                        <textarea style="height: 100%; width: 100%" id="arabic-text">@ViewBag.Post</textarea>
-                    </div>
+            <div class="panel panel-default active arabic ">
+                <div class="panel-heading">Most Popular Variant : @ViewBag.MostPopularVariant</div>
+                <div class="panel-body" style="padding: 0; height: 150px; position:relative;">
+                    <div class="loader"></div>
+                    <textarea style="height: 100%; width: 100%" id="arabic-text">@ViewBag.Post</textarea>
                 </div>
+            </div>
             }
         </div>
         <!-- column 3 : corpus info -->
@@ -252,11 +252,11 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
                         <div id="myButtons" class="btn-group-vertical btn-group-sm" data-toggle="buttons">
                             @foreach (var twinglyAccount in @ViewBag.TwinglyAccounts)
                             {
-                                <label class="btn btn-primary @twinglyAccount.CurrentActive" style="font-family: monospace; text-align: left;" data-toggle='tooltip' title='@twinglyAccount.UserName'>
-                                    @Html.RadioButton("name", "value", true, new { id = "id", style = "width: 80%;" }) @twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper()
-                                    <span class='badge'>@twinglyAccount.calls_free</span>
-                                    <a href="@Url.Action("TwinglySetup_deleteAccount", new { id_twinglyaccount_api_key = twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper() })" style="position: absolute; right: 0; top: 0;"><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
-                                </label>
+                            <label class="btn btn-primary @twinglyAccount.CurrentActive" style="font-family: monospace; text-align: left;" data-toggle='tooltip' title='@twinglyAccount.UserName'>
+                                @Html.RadioButton("name", "value", true, new { id = "id", style = "width: 80%;" }) @twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper()
+                                <span class='badge'>@twinglyAccount.calls_free</span>
+                                <a href="@Url.Action("TwinglySetup_deleteAccount", new { id_twinglyaccount_api_key = twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper() })" style="position: absolute; right: 0; top: 0;"><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
+                            </label>
                             }
                         </div>
                     </div>
@@ -287,12 +287,12 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
                 <strong>Success!</strong> @msgAlert
             </div>
             if (!string.IsNullOrEmpty(Convert.ToString(message)))
-                {
-                    <div class="alert alert-success alert-dismissable div-inline margin-bottom-0">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>Success!</strong> @(Convert.ToString(message))
-                    </div>
-                }
+            {
+                <div class="alert alert-success alert-dismissable div-inline margin-bottom-0">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Success!</strong> @(Convert.ToString(message))
+                </div>
+            }
         }
     </div>
 

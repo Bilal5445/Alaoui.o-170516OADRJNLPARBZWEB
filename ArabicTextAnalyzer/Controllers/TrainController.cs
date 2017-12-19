@@ -53,18 +53,46 @@ namespace ArabicTextAnalyzer.Controllers
         [Authorize]
         public ActionResult Index()
         {
+            //
+            var userId = User.Identity.GetUserId();
+
             // token management
             var token = Session["_T0k@n_"];
             bool istokenexpire = _IAuthenticate.IsTokenExpire(Convert.ToString(token));
-            if (istokenexpire)
+            if (token == null || istokenexpire)
             {
-                Session["_T0k@n_"] = String.Empty;
+                // MC191217 tokens are good to track who calls the arabizi function (api or web app), but web app user does not need to generate manually a token,
+                // the fact that he is logged on, means he should be able to use translation, means a token should be always ready for him. Solution (workaround?) generate
+                // on the fly a new token each time the token is expired
+
+                /*Session["_T0k@n_"] = String.Empty;
                 Session["message"] = String.Empty;
                 TempData["showAlertWarning"] = true;
-                TempData["msgAlert"] = "Your token is expired.";
+                TempData["msgAlert"] = "Your token is expired.";*/
+
+                // generate token (and fill session token)
+                var clientKeyToolkit = new ClientKeysConcrete();
+                var clientkeys = clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
+                string message = string.Empty;
+                bool isAppValid = clientKeyToolkit.IsAppValid(clientkeys);
+                if (isAppValid == false)
+                    message = "No More calls";
+                else
+                {
+                    String sessiontoken;
+                    String tokenExpiry = ConfigurationManager.AppSettings["TokenExpiry"];
+                    var tokenmessage = new AppManager().GetToken(clientkeys, _IAuthenticate, tokenExpiry, out sessiontoken);
+                    Session["_T0k@n_"] = sessiontoken;
+                    if (String.IsNullOrEmpty(sessiontoken))
+                        message = tokenmessage; // pass message only if token not generated
+                }
+
+                // fill session data
+                Session["message"] = message;
+                if (clientkeys != null)
+                    Session["userId"] = clientkeys.UserID;
             }
             string errMessage = string.Empty;
-            var userId = User.Identity.GetUserId();
             List<RegisterApp> _registerApp = _IRegister.ListofApps(userId).ToList();
             ViewBag.registerApp = _registerApp;
 
@@ -102,7 +130,7 @@ namespace ArabicTextAnalyzer.Controllers
             TempData.Remove("showAlertSuccess");
             TempData.Remove("msgAlert");
 
-            //Fertch the data for fbPage as only for that theme
+            // Fertch the data for fbPage as only for that theme
             if (token != null && !string.IsNullOrEmpty(token as string))
             {
                 var fbFluencerAsTheme = loadAllT_Fb_InfluencerAsTheme();
@@ -141,7 +169,38 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpPost]
         public ActionResult TrainStepOne(M_ARABIZIENTRY arabiziEntry, String mainEntity)
         {
+            //
+            var userId = User.Identity.GetUserId();
+
+            // token management
             var token = Session["_T0k@n_"];
+            bool istokenexpire = _IAuthenticate.IsTokenExpire(Convert.ToString(token));
+            if (token == null || istokenexpire)
+            {
+                // MC191217 tokens are good to track who calls the arabizi function (api or web app), but web app user does not need to generate manually a token,
+                // the fact that he is logged on, means he should be able to use translation, means a token should be always ready for him. Solution (workaround?) generate
+                // on the fly a new token each time the token is expired
+
+                // generate token (and fill session token)
+                var clientKeyToolkit = new ClientKeysConcrete();
+                var clientkeys = clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
+                string message = string.Empty;
+                bool isAppValid = clientKeyToolkit.IsAppValid(clientkeys);
+                if (isAppValid == false)
+                    message = "No More calls";
+                else
+                {
+                    String sessiontoken;
+                    String tokenExpiry = ConfigurationManager.AppSettings["TokenExpiry"];
+                    var tokenmessage = new AppManager().GetToken(clientkeys, _IAuthenticate, tokenExpiry, out sessiontoken);
+                    Session["_T0k@n_"] = sessiontoken;
+                    token = sessiontoken;
+                    if (String.IsNullOrEmpty(sessiontoken))
+                        message = tokenmessage; // pass message only if token not generated
+                }
+            }
+
+            // 
             string errMessage = string.Empty;
             if (token != null && _IAuthenticate.IsTokenValid(Convert.ToString(token), "TrainStepOne", out errMessage))
             {
@@ -157,8 +216,8 @@ namespace ArabicTextAnalyzer.Controllers
             }
             else
             {
-                Session["_T0k@n_"] = String.Empty;
-                Session["message"] = String.Empty;
+                // Session["_T0k@n_"] = String.Empty;
+                // Session["message"] = String.Empty;
                 TempData["showAlertWarning"] = true;
                 TempData["msgAlert"] = errMessage;  // "Not a valid token";
             }
@@ -356,11 +415,7 @@ namespace ArabicTextAnalyzer.Controllers
             bool status = false;
             string translatedstring = "";
 
-            // var requestContent = "/?token=" + token + "&methodTocall=TranslateFbPost";
-            //bool istokenvalid = _IAuthenticate.IsTokenValid(Convert.ToString(token), "TranslateFbPost",out errMessage);
-
             var url = ConfigurationManager.AppSettings["TranslateDomain"] + "/" + "api/Arabizi/GetArabicDarijaEntryForFbPost?text=" + content;
-            // var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken" + requestContent;
             var result = await HtmlHelpers.PostAPIRequest(url, "", type: "GET");
 
             if (result.Contains("Success"))
@@ -414,7 +469,6 @@ namespace ArabicTextAnalyzer.Controllers
             string result = null;
 
             var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchFBInfluencerPosts?CallFrom=" + influencerurl_name;
-            // var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken" + requestContent;
             result = await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
 
             if (result.ToLower().Contains("true"))
@@ -511,7 +565,6 @@ namespace ArabicTextAnalyzer.Controllers
                     foreach (var item in allComents)
                     {
                         var url = ConfigurationManager.AppSettings["TranslateDomain"] + "/" + "api/Arabizi/GetArabicDarijaEntryForFbPost?text=" + item.message;
-                        // var url = ConfigurationManager.AppSettings["AuththenticationDomain"] + "/" + "api/Authenticate/ValidateToken" + requestContent;
                         var result = await HtmlHelpers.PostAPIRequest(url, "", type: "GET");
 
                         if (result.Contains("Success"))

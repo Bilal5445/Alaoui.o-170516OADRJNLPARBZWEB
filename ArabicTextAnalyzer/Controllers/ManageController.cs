@@ -395,52 +395,64 @@ namespace ArabicTextAnalyzer.Controllers
             if (Request.HttpMethod.ToUpper() == "GET")
                 return RedirectToAction("Index", "Train");
 
-            // otherwise POST case
+            // otherwise POST case : generate token (and fill session token)
             var clientkeys = _clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
             string message = string.Empty;
             bool isAppValid = _clientKeyToolkit.IsAppValid(clientkeys);
             if (isAppValid == false)
                 message = "No More calls";
             else
-                message = GetToken(clientkeys);
+            {
+                String sessiontoken;
+                String tokenExpiry = ConfigurationManager.AppSettings["TokenExpiry"];
+                message = new AppManager().GetToken(clientkeys, _IAuthenticate, tokenExpiry, out sessiontoken);
+                Session["_T0k@n_"] = sessiontoken;
+            }
 
-            // send info back to view
+            // fill session data
             Session["message"] = message;
-            ViewBag.Message = message;
             if (clientkeys != null)
                 Session["userId"] = clientkeys.UserID;
+
+            // send info back to view
+            ViewBag.Message = message;
 
             //
             return RedirectToAction("Index", "Train");
         }
 
-        public string GetToken(ClientKeys clientKeys)
+        /*public string GetToken(ClientKeys clientKeys, IAuthenticate authenticater, String tokenExpiry, out String sessiontoken)
         {
+            //
+            sessiontoken = null;
+
+            //
             if (string.IsNullOrEmpty(clientKeys.ClientId) && string.IsNullOrEmpty(clientKeys.ClientSecret))
                 return "Not Valid Request";
 
             //
             string result = string.Empty;
-            if (_IAuthenticate.ValidateKeys(clientKeys))
+            if (authenticater.ValidateKeys(clientKeys))
             {
-                var clientkeys = _IAuthenticate.GetClientKeysDetailsbyCLientIDandClientSecret(clientKeys.ClientId, clientKeys.ClientSecret);
+                var clientkeys = authenticater.GetClientKeysDetailsbyCLientIDandClientSecret(clientKeys.ClientId, clientKeys.ClientSecret);
                 if (clientkeys == null)
                 {
                     return "InValid Keys";
                 }
                 else
                 {
-                    if (_IAuthenticate.IsTokenAlreadyExists(clientkeys.RegisterAppId.Value))
+                    if (authenticater.IsTokenAlreadyExists(clientkeys.RegisterAppId.Value))
                     {
-                        _IAuthenticate.DeleteGenerateToken(clientkeys.RegisterAppId.Value);
+                        authenticater.DeleteGenerateToken(clientkeys.RegisterAppId.Value);
 
                         var IssuedOn = DateTime.Now;
-                        var newToken = _IAuthenticate.GenerateToken(clientkeys, IssuedOn);
+                        var newToken = authenticater.GenerateToken(clientkeys, IssuedOn);
 
-                        var status = _IAuthenticate.InsertToken(clientkeys, ConfigurationManager.AppSettings["TokenExpiry"], newToken);
+                        var status = authenticater.InsertToken(clientkeys, tokenExpiry, newToken);
                         if (status == 1)
                         {
-                            Session["_T0k@n_"] = newToken;
+                            // Session["_T0k@n_"] = newToken;
+                            sessiontoken = newToken;
                             result = "Token generated successfully !!!";
                         }
                         else
@@ -450,13 +462,14 @@ namespace ArabicTextAnalyzer.Controllers
                     }
                     else
                     {
-                        var IssuedOn = DateTime.Now;
-                        var newToken = _IAuthenticate.GenerateToken(clientkeys, IssuedOn);
+                        var issuedOn = DateTime.Now;
+                        var newToken = authenticater.GenerateToken(clientkeys, issuedOn);
 
-                        var status = _IAuthenticate.InsertToken(clientkeys, ConfigurationManager.AppSettings["TokenExpiry"], newToken);
+                        var status = authenticater.InsertToken(clientkeys, tokenExpiry, newToken);
                         if (status == 1)
                         {
-                            Session["_T0k@n_"] = newToken;
+                            // Session["_T0k@n_"] = newToken;
+                            sessiontoken = newToken;
                             result = "Token generated successfully !!!";
                         }
                         else
@@ -473,7 +486,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             return result;
         }
-
+        */
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";

@@ -1,4 +1,5 @@
-﻿using ArabicTextAnalyzer.Domain.Models;
+﻿using ArabicTextAnalyzer.Contracts;
+using ArabicTextAnalyzer.Domain.Models;
 using ArabicTextAnalyzer.Models.Repository;
 using System;
 using System.Collections.Generic;
@@ -98,13 +99,13 @@ namespace ArabicTextAnalyzer.Controllers
             }
             if (_IAuthenticate.IsTokenValid(Convert.ToString(token), methodTocall, out errMessage))
             {
-
                 response = Request.CreateResponse(HttpStatusCode.OK, "Success");
             }
             else
             {
                 response = Request.CreateResponse(HttpStatusCode.InternalServerError, errMessage);
             }
+
             return response;
         }
     }
