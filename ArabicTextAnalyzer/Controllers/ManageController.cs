@@ -351,7 +351,7 @@ namespace ArabicTextAnalyzer.Controllers
             ViewBag.clientExist = keyExists;
             if (keyExists)
             {
-                // Getting Generate ClientID and ClientSecert Key By UserID
+                // Getting Generate ClientID and ClientSecret Key By UserID
                 ViewBag.clientkeys = _IClientKeys.GetGenerateUniqueKeyByUserID(userId);
             }
 
@@ -363,66 +363,59 @@ namespace ArabicTextAnalyzer.Controllers
             if (!ModelState.IsValid)
                 return View("ManageApp", model);
 
-            // check already registered
+            // check app already registered
             if (_IRegister.ValidateAppName(model))
             {
                 ModelState.AddModelError("", "App is Already Registered");
                 return View("ManageApp", model);
             }
 
-            //
+            // check app already registered
             var app = _IRegister.CheckIsAppRegistered(userId);
             if (app == true)
                 return RedirectToAction("Index");
 
-            //
+            // register app model coming from html form
             model.UserID = userId;
             model.CreatedOn = DateTime.Now;
             model.TotalAppCallLimit = AppCallLimit;
-            _IRegister.Add(model);
+            _IRegister.Add(model);  // this code fills RegisterAppId and adds the app to db, and should always auto-increment model.RegisterAppId to > 0
 
             // Generate Clientid and Secret Key
-            if (model.RegisterAppId > 0)
+            // Validating ClientID and ClientSecret already Exists
+            ClientKeys clientkeys;
+            if (keyExists)
             {
-                ClientKeys clientkeys = new ClientKeys();
-
-                // Validating ClientID and ClientSecert already Exists
-                if (keyExists)
-                {
-                    // Getting Generate ClientID and ClientSecert Key By UserID
-                    clientkeys = _IClientKeys.GetGenerateUniqueKeyByUserID(userId);
-                    ViewBag.clientkeys = clientkeys;
-                }
-                else
-                {
-                    string clientID = string.Empty;
-                    string clientSecret = string.Empty;
-                    int companyId = 0;
-
-                    var company = _IRegister.FindAppByUserId(userId);
-                    companyId = company.RegisterAppId;
-
-                    // Generate Keys
-                    _IClientKeys.GenerateUniqueKey(out clientID, out clientSecret);
-
-                    // Saving Keys Details in Database
-                    clientkeys.ClientKeysID = 0;
-                    clientkeys.RegisterAppId = companyId;
-                    clientkeys.CreatedOn = DateTime.Now;
-                    clientkeys.ClientId = clientID;
-                    clientkeys.ClientSecret = clientSecret;
-                    clientkeys.UserID = userId;
-                    _IClientKeys.SaveClientIDandClientSecert(clientkeys);
-
-                    // MC121517 quick and dirty hack to address the bug at app creation in ManageApp.cshtml where RegisterApps is null in @clientkeys.RegisterApps.Name
-                    // otherwise ManageApp.cshtml will crash
-                    clientkeys.RegisterApps = company;
-
-                    // passing them back to the view
-                    ViewBag.clientkeys = clientkeys;
-                    ViewBag.clientExist = true;
-                }
+                // Getting Generate ClientID and ClientSecret Key By UserID
+                clientkeys = _IClientKeys.GetGenerateUniqueKeyByUserID(userId);
             }
+            else
+            {
+                var company = _IRegister.FindAppByUserId(userId);
+                int companyId = company.RegisterAppId;
+
+                // Generate Keys
+                String clientSecret, clientID;
+                _IClientKeys.GenerateUniqueKey(out clientID, out clientSecret);
+
+                // Saving Keys Details in Database
+                clientkeys = new ClientKeys();
+                clientkeys.ClientKeysID = 0;
+                clientkeys.RegisterAppId = companyId;
+                clientkeys.CreatedOn = DateTime.Now;
+                clientkeys.ClientId = clientID;
+                clientkeys.ClientSecret = clientSecret;
+                clientkeys.UserID = userId;
+                _IClientKeys.SaveClientIDandClientSecret(clientkeys);
+
+                // MC121517 quick and dirty hack to address the bug at app creation in ManageApp.cshtml where RegisterApps is null in @clientkeys.RegisterApps.Name
+                // otherwise ManageApp.cshtml will crash
+                clientkeys.RegisterApps = company;
+            }
+
+            // passing them back to the view
+            ViewBag.clientkeys = clientkeys;
+            ViewBag.clientExist = true;
 
             //
             return View(model);
@@ -467,7 +460,7 @@ namespace ArabicTextAnalyzer.Controllers
             string result = string.Empty;
             if (_IAuthenticate.ValidateKeys(clientKeys))
             {
-                var clientkeys = _IAuthenticate.GetClientKeysDetailsbyCLientIDandClientSecert(clientKeys.ClientId, clientKeys.ClientSecret);
+                var clientkeys = _IAuthenticate.GetClientKeysDetailsbyCLientIDandClientSecret(clientKeys.ClientId, clientKeys.ClientSecret);
                 if (clientkeys == null)
                 {
                     return "InValid Keys";

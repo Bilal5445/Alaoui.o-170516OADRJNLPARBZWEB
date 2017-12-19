@@ -10,9 +10,9 @@ namespace ArabicTextAnalyzer.Models.Repository
     public interface IClientKeys
     {
         bool IsUniqueKeyAlreadyGenerate(string UserID);
-        void GenerateUniqueKey(out string ClientID, out string ClientSecert);
-        int SaveClientIDandClientSecert(ClientKeys ClientKeys);
-        int UpdateClientIDandClientSecert(ClientKeys ClientKeys);
+        void GenerateUniqueKey(out string ClientID, out string ClientSecret);
+        int SaveClientIDandClientSecret(ClientKeys ClientKeys);
+        int UpdateClientIDandClientSecret(ClientKeys ClientKeys);
         ClientKeys GetGenerateUniqueKeyByUserID(string UserID);
         bool IsAppValid(ClientKeys ClientKeys);
     }

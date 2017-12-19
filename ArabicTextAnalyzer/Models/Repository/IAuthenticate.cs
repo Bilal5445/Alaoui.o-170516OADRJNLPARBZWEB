@@ -9,7 +9,7 @@ namespace ArabicTextAnalyzer.Models.Repository
 {
   public   interface IAuthenticate
     {
-        ClientKeys GetClientKeysDetailsbyCLientIDandClientSecert(string clientID, string clientSecert);
+        ClientKeys GetClientKeysDetailsbyCLientIDandClientSecret(string clientID, string clientSecret);
         bool ValidateKeys(ClientKeys ClientKeys);
         bool IsTokenAlreadyExists(int CompanyID);
         int DeleteGenerateToken(int CompanyID);

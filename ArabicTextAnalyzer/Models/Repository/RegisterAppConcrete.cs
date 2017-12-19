@@ -34,15 +34,10 @@ namespace ArabicTextAnalyzer.Models.Repository
 
         public void Add(RegisterApp entity)
         {
-            try
-            {
-                _context.RegisterApps.Add(entity);
-                _context.SaveChanges();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            _context.RegisterApps.Add(entity);
+
+            // save to db
+            _context.SaveChanges();
         }
 
         public void Delete(RegisterApp entity)

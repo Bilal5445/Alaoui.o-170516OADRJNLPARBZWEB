@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ArabicTextAnalyzer.Models.Repository
 {
-    public class ClientKeysConcrete:IClientKeys
+    public class ClientKeysConcrete : IClientKeys
     {
         ArabiziDbContext _context;
 
@@ -19,10 +19,10 @@ namespace ArabicTextAnalyzer.Models.Repository
             _context = new ArabiziDbContext();
         }
 
-        public void GenerateUniqueKey(out string ClientID, out string ClientSecert)
+        public void GenerateUniqueKey(out string ClientID, out string ClientSecret)
         {
             ClientID = EncryptionLibrary.KeyGenerator.GetUniqueKey();
-            ClientSecert = EncryptionLibrary.KeyGenerator.GetUniqueKey();
+            ClientSecret = EncryptionLibrary.KeyGenerator.GetUniqueKey();
         }
 
         public bool IsUniqueKeyAlreadyGenerate(string UserID)
@@ -37,10 +37,9 @@ namespace ArabicTextAnalyzer.Models.Repository
             {
                 return false;
             }
-
         }
 
-        public int SaveClientIDandClientSecert(ClientKeys ClientKeys)
+        public int SaveClientIDandClientSecret(ClientKeys ClientKeys)
         {
             _context.ClientKeys.Add(ClientKeys);
 
@@ -57,32 +56,26 @@ namespace ArabicTextAnalyzer.Models.Repository
             //
             return clientkey;
         }
-        
+
         public bool IsAppValid(ClientKeys clientkeys)
         {
             bool flags = true;
             var app = _context.RegisterApps.Where(c => c.RegisterAppId == clientkeys.RegisterAppId).FirstOrDefault();
-            if(app!=null)
+            if (app != null)
             {
-                if(app.TotalAppCallLimit==0)
+                if (app.TotalAppCallLimit == 0)
                 {
                     flags = false;
                 }
-               
             }
             else
             {
-
             }
+
             return flags;
-            //else
-            //{
-            //    return flags;
-            //}
-            
         }
 
-        public int UpdateClientIDandClientSecert(ClientKeys ClientKeys)
+        public int UpdateClientIDandClientSecret(ClientKeys ClientKeys)
         {
             _context.Entry(ClientKeys).State = EntityState.Modified;
             _context.SaveChanges();

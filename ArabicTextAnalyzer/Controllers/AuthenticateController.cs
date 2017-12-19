@@ -32,7 +32,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
             else if (_IAuthenticate.ValidateKeys(ClientKeys))
             {
-                var clientkeys = _IAuthenticate.GetClientKeysDetailsbyCLientIDandClientSecert(ClientKeys.ClientId, ClientKeys.ClientSecret);
+                var clientkeys = _IAuthenticate.GetClientKeysDetailsbyCLientIDandClientSecret(ClientKeys.ClientId, ClientKeys.ClientSecret);
 
                 if (clientkeys == null)
                 {
