@@ -18,12 +18,12 @@ namespace ArabicTextAnalyzer.Models.Repository
             _context = new ArabiziDbContext();
         }
 
-        public ClientKeys GetClientKeysDetailsbyCLientIDandClientSecert(string clientID, string clientSecert)
+        public ClientKeys GetClientKeysDetailsbyCLientIDandClientSecret(string clientID, string clientSecret)
         {
             try
             {
                 var result = (from clientkeys in _context.ClientKeys
-                              where clientkeys.ClientId == clientID && clientkeys.ClientSecret == clientSecert
+                              where clientkeys.ClientId == clientID && clientkeys.ClientSecret == clientSecret
                               select clientkeys).FirstOrDefault();
                 return result;
             }
