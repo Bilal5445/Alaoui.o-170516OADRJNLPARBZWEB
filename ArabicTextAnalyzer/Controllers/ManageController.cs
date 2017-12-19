@@ -391,29 +391,24 @@ namespace ArabicTextAnalyzer.Controllers
 
         public ActionResult GenerateToken(string userId)
         {
+            // GET case
             if (Request.HttpMethod.ToUpper() == "GET")
-            {
-            }
+                return RedirectToAction("Index", "Train");
+
+            // otherwise POST case
+            var clientkeys = _clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
+            string message = string.Empty;
+            bool isAppValid = _clientKeyToolkit.IsAppValid(clientkeys);
+            if (isAppValid == false)
+                message = "No More calls";
             else
-            {
-                var clientkeys = _clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
-                string message = string.Empty;
-                bool isAppValid = _clientKeyToolkit.IsAppValid(clientkeys);
-                if (isAppValid == false)
-                {
-                    message = "No More calls";
-                }
-                else
-                {
-                    message = GetToken(clientkeys);
-                }
-                Session["message"] = message;
-                ViewBag.Message = message;
-                if (clientkeys != null)
-                {
-                    Session["userId"] = clientkeys.UserID;
-                }
-            }
+                message = GetToken(clientkeys);
+
+            // send info back to view
+            Session["message"] = message;
+            ViewBag.Message = message;
+            if (clientkeys != null)
+                Session["userId"] = clientkeys.UserID;
 
             //
             return RedirectToAction("Index", "Train");
