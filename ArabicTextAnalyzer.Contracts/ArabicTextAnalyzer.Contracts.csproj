@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAnalyzeTextAppService.cs" />
+    <Compile Include="IClientKeys.cs" />
+    <Compile Include="IRegisterApp.cs" />
     <Compile Include="ITextConverter.cs" />
     <Compile Include="ITextEntityExtraction.cs" />
     <Compile Include="ITextSentimentAnalyzer.cs" />

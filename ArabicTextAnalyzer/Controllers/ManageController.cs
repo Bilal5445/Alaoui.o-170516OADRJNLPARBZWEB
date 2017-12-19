@@ -10,6 +10,9 @@ using ArabicTextAnalyzer.Models;
 using ArabicTextAnalyzer.Domain.Models;
 using ArabicTextAnalyzer.Models.Repository;
 using System.Configuration;
+using ArabicTextAnalyzer.Contracts;
+using ArabicTextAnalyzer.Business.Provider;
+
 namespace ArabicTextAnalyzer.Controllers
 {
     [Authorize]
@@ -376,7 +379,7 @@ namespace ArabicTextAnalyzer.Controllers
                 return RedirectToAction("Index");
 
             // register app model coming from html form
-            ClientKeys clientkeys = CreateApp(model, userId, keyExists, _appRegistrar, _clientKeyToolkit, AppCallLimit);
+            ClientKeys clientkeys = new AppManager().CreateApp(model, userId, keyExists, _appRegistrar, _clientKeyToolkit, AppCallLimit);
 
             // passing them back to the view
             ViewBag.clientkeys = clientkeys;
@@ -386,12 +389,12 @@ namespace ArabicTextAnalyzer.Controllers
             return View(model);
         }
 
-        private ClientKeys CreateApp(RegisterApp appFromModel, string userId, bool keyExists, IRegisterApp appRegistrar, IClientKeys clientKeyToolkit, int appCallLimit)
+        /*private ClientKeys CreateApp(RegisterApp app, string userId, bool keyExists, IRegisterApp appRegistrar, IClientKeys clientKeyToolkit, int appCallLimit)
         {
-            appFromModel.UserID = userId;
-            appFromModel.CreatedOn = DateTime.Now;
-            appFromModel.TotalAppCallLimit = appCallLimit;
-            appRegistrar.Add(appFromModel);  // this code fills RegisterAppId and adds the app to db, and should always auto-increment model.RegisterAppId to > 0
+            app.UserID = userId;
+            app.CreatedOn = DateTime.Now;
+            app.TotalAppCallLimit = appCallLimit;
+            appRegistrar.Add(app);  // this code fills RegisterAppId and adds the app to db, and should always auto-increment model.RegisterAppId to > 0
 
             // Generate Clientid and Secret Key
             // Validating ClientID and ClientSecret already Exists
@@ -403,8 +406,8 @@ namespace ArabicTextAnalyzer.Controllers
             }
             else
             {
-                var appFromDb = appRegistrar.FindAppByUserId(userId);
-                int companyId = appFromDb.RegisterAppId;
+                // reload app from DB
+                app = appRegistrar.FindAppByUserId(userId);
 
                 // Generate Keys
                 String clientSecret, clientID;
@@ -413,7 +416,7 @@ namespace ArabicTextAnalyzer.Controllers
                 // Saving Keys Details in Database
                 clientkeys = new ClientKeys();
                 clientkeys.ClientKeysID = 0;
-                clientkeys.RegisterAppId = companyId;
+                clientkeys.RegisterAppId = app.RegisterAppId;
                 clientkeys.CreatedOn = DateTime.Now;
                 clientkeys.ClientId = clientID;
                 clientkeys.ClientSecret = clientSecret;
@@ -422,11 +425,12 @@ namespace ArabicTextAnalyzer.Controllers
 
                 // MC121517 quick and dirty hack to address the bug at app creation in ManageApp.cshtml where RegisterApps is null in @clientkeys.RegisterApps.Name
                 // otherwise ManageApp.cshtml will crash
-                clientkeys.RegisterApps = appFromDb;
+                clientkeys.RegisterApps = app;
             }
 
             return clientkeys;
         }
+        */
 
         public ActionResult GenerateToken(string userId)
         {

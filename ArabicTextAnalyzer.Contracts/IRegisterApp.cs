@@ -1,12 +1,13 @@
-﻿using System;
+﻿using ArabicTextAnalyzer.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ArabicTextAnalyzer.Domain.Models;
-namespace ArabicTextAnalyzer.Models.Repository
+
+namespace ArabicTextAnalyzer.Contracts
 {
-    /*public interface IRegisterApp
+    public interface IRegisterApp
     {
         IEnumerable<RegisterApp> ListofApps(string UserID);
         void Add(RegisterApp entity);
@@ -14,5 +15,5 @@ namespace ArabicTextAnalyzer.Models.Repository
         RegisterApp FindAppByUserId(string UserID);
         bool ValidateAppName(RegisterApp registercompany);
         bool CheckIsAppRegistered(string UserID);
-    }*/
+    }
 }

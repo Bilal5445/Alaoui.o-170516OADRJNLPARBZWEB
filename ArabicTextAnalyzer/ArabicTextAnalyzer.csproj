@@ -227,11 +227,11 @@
     <Compile Include="Models\Repository\AuthenticateConcrete.cs" />
     <Compile Include="Models\Repository\ClientKeysConcrete.cs" />
     <Compile Include="Models\Repository\IAuthenticate.cs" />
-    <Compile Include="Models\Repository\IClientKeys.cs" />
-    <Compile Include="Models\Repository\IRegisterApp.cs" />
-    <Compile Include="Models\Repository\IRegisterUser.cs" />
+    <None Include="Models\Repository\IClientKeys.cs" />
+    <None Include="Models\Repository\IRegisterApp.cs" />
+    <None Include="Models\Repository\IRegisterUser.cs" />
     <Compile Include="Models\Repository\RegisterAppConcrete.cs" />
-    <Compile Include="Models\Repository\RegisterUserConcrete.cs" />
+    <None Include="Models\Repository\RegisterUserConcrete.cs" />
     <Compile Include="Models\TextAnalyze.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

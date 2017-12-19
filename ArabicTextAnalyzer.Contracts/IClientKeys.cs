@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArabicTextAnalyzer.Models.Repository
+namespace ArabicTextAnalyzer.Contracts
 {
-    /*public interface IClientKeys
+    public interface IClientKeys
     {
         bool IsUniqueKeyAlreadyGenerate(string UserID);
         void GenerateUniqueKey(out string ClientID, out string ClientSecret);
@@ -15,5 +15,5 @@ namespace ArabicTextAnalyzer.Models.Repository
         int UpdateClientIDandClientSecret(ClientKeys ClientKeys);
         ClientKeys GetGenerateUniqueKeyByUserID(string UserID);
         bool IsAppValid(ClientKeys ClientKeys);
-    }*/
+    }
 }

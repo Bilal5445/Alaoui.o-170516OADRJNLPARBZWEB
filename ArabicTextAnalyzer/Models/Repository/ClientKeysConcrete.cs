@@ -1,4 +1,5 @@
-﻿using ArabicTextAnalyzer.Domain.AES256Encryption;
+﻿using ArabicTextAnalyzer.Contracts;
+using ArabicTextAnalyzer.Domain.AES256Encryption;
 using ArabicTextAnalyzer.Domain.Models;
 using System;
 using System.Collections.Generic;

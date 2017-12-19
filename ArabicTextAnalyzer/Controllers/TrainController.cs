@@ -27,6 +27,7 @@ using System.Net;
 using System.Collections.Specialized;
 using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
+using ArabicTextAnalyzer.Contracts;
 
 namespace ArabicTextAnalyzer.Controllers
 {
