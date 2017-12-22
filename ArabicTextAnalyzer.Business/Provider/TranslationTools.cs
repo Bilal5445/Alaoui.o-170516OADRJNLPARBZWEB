@@ -103,56 +103,36 @@ namespace ArabicTextAnalyzer.Business.Provider
             client.Headers.Add("Ocp-Apim-Subscription-Key", apiKey);
             client.Encoding = System.Text.Encoding.UTF8;
 
-            try
+            string json = client.DownloadString(url);
+            var jsonresult = JObject.Parse(json).SelectToken("flaggedTokens") as JArray;
+
+            // process : build a string with pieces from suggesestions from bing
+            var peekindex = 0;
+            foreach (var result in jsonresult)
             {
-                string json = client.DownloadString(url);
-                var jsonresult = JObject.Parse(json).SelectToken("flaggedTokens") as JArray;
+                // index of first word with possible spelling correction
+                var stopindex = Convert.ToInt32(result.SelectToken("offset").ToString());
 
-                // process : build a string with pieces from suggesestions from bing
-                var peekindex = 0;
-                foreach (var result in jsonresult)
-                {
-                    // index of first word with possible spelling correction
-                    var stopindex = Convert.ToInt32(result.SelectToken("offset").ToString());
-
-                    // copy string up to this location
-                    correctedText += arabiziWord.Substring(peekindex, (stopindex - peekindex));
-                    supportText += arabiziWord.Substring(peekindex, (stopindex - peekindex));
-
-                    // the token is unknown, so copy it as is, and increase peek index
-                    /*if (result.SelectToken("type").ToString() == "UnknownToken")
-                    {
-                        var unknowtoken = result.SelectToken("token").ToString();
-                        correctedText += unknowtoken;
-                        peekindex = correctedText.Length;
-                    }
-                    else*/
-                    {
-                        var token = result.SelectToken("token").ToString();
-                        var firstsuggestion = result.SelectToken("suggestions[0].suggestion").ToString();
-                        correctedText += firstsuggestion;
-                        supportText += token;
-                        // peekindex = correctedText.Length;
-                        peekindex = supportText.Length;
-                    }
-                }
-
-                // copy the rest
-                correctedText += arabiziWord.Substring(peekindex, (arabiziWord.Length - peekindex));
+                // copy string up to this location
+                correctedText += arabiziWord.Substring(peekindex, (stopindex - peekindex));
+                supportText += arabiziWord.Substring(peekindex, (stopindex - peekindex));
 
                 //
-                if (correctedText != previousText)
-                {
-                    if (correctedText == "")
-                        correctedText = previousText;
-                }
+                var token = result.SelectToken("token").ToString();
+                var firstsuggestion = result.SelectToken("suggestions[0].suggestion").ToString();
+                correctedText += firstsuggestion;
+                supportText += token;
+                peekindex = supportText.Length;
+            }
 
-                return correctedText;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            // copy the rest
+            correctedText += arabiziWord.Substring(peekindex, (arabiziWord.Length - peekindex));
+
+            //
+            if (previousText != String.Empty && correctedText == String.Empty)
+                correctedText = previousText;
+
+            return correctedText;
         }
     }
 

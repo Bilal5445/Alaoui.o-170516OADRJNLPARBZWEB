@@ -109,6 +109,61 @@ namespace ArabicTextAnalyzer.Business.Provider
             return output;
         }
 
+        public string Convert(Stopwatch watch, string source)
+        {
+            // preprocess unicode arabic comma (sould be done at perl level, but somehow does not work)
+            source = Preprocess_arabic_comma(source);
+            source = Preprocess_unicode_special_chars(source);
+
+            // preprocess silent wovelles : create artificially vowells (alef) between consonns because we know that there is no more french words that we can distrurb,
+            // plus any one kept by bidict is converted temp to 001000100, so no risk,
+            // plus we added _VOY_ in ptable to be one of the 3 vowels alef, ya2 or waw
+            source = Preprocess_SilentVowels(source);
+
+            // random naming to avoid access to same file and deadlock eventually
+            String randomsuffix = Guid.NewGuid().ToString();
+            inputFileLocationFileOnly = randomsuffix;
+            inputFileLocation = pathToExample + inputFileLocationFileOnly + ".arabizi";
+
+            // build cygwin cmd with arg included and change slashes
+            // target : RUN_transl_pipeline.sh example/small-example_9493cac0-eac6-40db-8be5-1b8a594df13b
+            translPipelineScript = translPipelineScriptFileNdExtOnly + " " + "example/" + inputFileLocationFileOnly;
+
+            // to arabizi (INPUT) file
+            File.WriteAllText(inputFileLocation, source);
+
+            //
+            var process = new Process();
+            var processInformation = new ProcessStartInfo("sh.exe", translPipelineScript)
+            {
+                WorkingDirectory = workingDirectoryLocation,
+                UseShellExecute = true,
+            };
+            process.StartInfo = processInformation;
+            process.Start();
+            process.WaitForExit();
+
+            // random naming to avoid access to same file and deadlock eventually
+            outputFileLocation = pathToExample + randomsuffix + ".7.charTransl";
+
+            // read arabic (OUTPUT) file
+            var output = File.ReadAllText(outputFileLocation);
+
+            // delete output files and input files and interediated
+            var dir = new DirectoryInfo(pathToExample);
+            foreach (var file in dir.EnumerateFiles(randomsuffix + ".*"))
+            {
+                file.Delete();
+            }
+
+            // post-process (eg : hna => nahnou)
+            output = Postprocess_slash_r_slash_n(output);
+            output = Postprocess_حنا_to_نحن(output);
+            output = Postprocess_هاد_to_هذا(output);
+
+            return output;
+        }
+
         #region BACK YARD Preprocess UPSTREAM
         public string Preprocess_upstream(string source)
         {
@@ -339,6 +394,9 @@ namespace ArabicTextAnalyzer.Business.Provider
         {
             // n d => n _VOY_ d
             arabizi = Regex.Replace(arabizi, "nd", "n_VOW_d", RegexOptions.IgnoreCase);
+
+            // l k => l _VOY_ k
+            arabizi = Regex.Replace(arabizi, "lk", "l_VOW_k", RegexOptions.IgnoreCase);
 
             // final k => k _VOY
             String miniArabiziKeyword = Regex.Replace(arabizi, @"(\w+k\b)", "$1_VOW_", RegexOptions.IgnoreCase);

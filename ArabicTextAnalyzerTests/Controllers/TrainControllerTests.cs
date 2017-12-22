@@ -1000,6 +1000,36 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             Assert.AreEqual(expected, arabizi);
         }
 
-        
+        [TestMethod()]
+        public void ut_171222_test_spellcheck_bing_and_google_on_mispelled_word_ex_uniqement()
+        {
+            String arabizi = "uniqement";
+            String expected = "uniquement";
+
+            // consume bing apis
+            var BingSpellcheckAPIKey = "1e14edea7a314d469541e8ced0af38c9";
+            arabizi = new BingSpellCheckerApiTools().bingSpellcheckApi(arabizi, BingSpellcheckAPIKey);
+
+            Assert.AreEqual(expected, arabizi);
+
+            // google
+            var GoogleTranslationApiKey = "AIzaSyBqnBEi2fRhKRRpcPCJ-kwTl0cJ2WcQRJI";
+            var translatedLatinWord = new GoogleTranslationApiTools(GoogleTranslationApiKey).getArabicTranslatedWord(arabizi);
+
+            expected = "فقط";
+            Assert.AreEqual(expected, translatedLatinWord);
+
+            // 2nd pass : longer
+            arabizi = "apeel urgent uniqement";
+            expected = "appel urgent uniquement";
+            arabizi = new BingSpellCheckerApiTools().bingSpellcheckApi(arabizi, BingSpellcheckAPIKey);
+            Assert.AreEqual(expected, arabizi);
+
+            // 3rd pass : longer
+            arabizi = "katla3li apeel urgent uniqement";
+            expected = "katla3li appel urgent uniquement";
+            arabizi = new BingSpellCheckerApiTools().bingSpellcheckApi(arabizi, BingSpellcheckAPIKey);
+            Assert.AreEqual(expected, arabizi);
+        }
     }
 }

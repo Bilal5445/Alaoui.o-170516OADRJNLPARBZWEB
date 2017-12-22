@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -20,6 +21,11 @@ namespace ArabicTextAnalyzer.Controllers
             _IAuthenticate = new AuthenticateConcrete();
         }
 
+        /// <summary>
+        /// Obtain the authentication token to use the Arabizi api.
+        /// </summary>
+        /// <param name="ClientId">The client id : available in the dashboard</param>
+        /// <param name="ClientSecret">The client secret : available in the dashboard</param>
         // POST: api/Authenticate
         public HttpResponseMessage Authenticate(string ClientId, string ClientSecret)
         {
@@ -87,6 +93,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
+        [ApiExplorerSettings(IgnoreApi = true)]
         public HttpResponseMessage ValidateToken(string token, string methodTocall)
         {
             HttpResponseMessage response = new HttpResponseMessage();
