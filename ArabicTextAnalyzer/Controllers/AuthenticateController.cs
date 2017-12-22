@@ -27,6 +27,7 @@ namespace ArabicTextAnalyzer.Controllers
         /// <param name="ClientId">The client id : available in the dashboard</param>
         /// <param name="ClientSecret">The client secret : available in the dashboard</param>
         // POST: api/Authenticate
+        [ApiExplorerSettings(IgnoreApi = true)]
         public HttpResponseMessage Authenticate(string ClientId, string ClientSecret)
         {
             ClientKeys ClientKeys = new ClientKeys() { ClientId = ClientId, ClientSecret = ClientSecret };
