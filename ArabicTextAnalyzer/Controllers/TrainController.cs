@@ -28,6 +28,7 @@ using System.Collections.Specialized;
 using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
 using ArabicTextAnalyzer.Contracts;
+using ArabicTextAnalyzer.BO;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -202,24 +203,23 @@ namespace ArabicTextAnalyzer.Controllers
 
             // 
             string errMessage = string.Empty;
-            if (token != null && _IAuthenticate.IsTokenValid(Convert.ToString(token), "TrainStepOne", out errMessage))
-            {
-                // Arabizi to arabic script via direct call to perl script
-                var res = train(arabiziEntry, mainEntity);
-
-                if (res == Guid.Empty)
-                {
-                    TempData["showAlertWarning"] = true;
-                    TempData["msgAlert"] = "Text is required.";
-                    return RedirectToAction("Index");
-                }
-            }
-            else
+            if (token == null || !_IAuthenticate.IsTokenValid(Convert.ToString(token), "TrainStepOne", out errMessage))
             {
                 // Session["_T0k@n_"] = String.Empty;
                 // Session["message"] = String.Empty;
                 TempData["showAlertWarning"] = true;
                 TempData["msgAlert"] = errMessage;  // "Not a valid token";
+                return RedirectToAction("Index");
+            }
+
+            // Arabizi to arabic script via direct call to perl script
+            var res = new Arabizer().train(arabiziEntry, mainEntity, thisLock);
+            // if (res == Guid.Empty)
+            if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
+            {
+                TempData["showAlertWarning"] = true;
+                TempData["msgAlert"] = "Text is required.";
+                return RedirectToAction("Index");
             }
 
             //
@@ -336,7 +336,7 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public ActionResult Train_DeleteEntry(Guid arabiziWordGuid)
         {
-            Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
+            new Arabizer().Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
 
             //
             return RedirectToAction("Index");
@@ -355,7 +355,7 @@ namespace ArabicTextAnalyzer.Controllers
                 Guid arabiziWordGuid = new Guid(larabiziWordGuid.TrimStart(new char[] { '=' }));
 
                 // new TextPersist().Serialize_Delete_M_ARABIZIENTRY_Cascading(arabiziWordGuid, dataPath);
-                Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
+                new Arabizer().Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
             }
 
             //
@@ -372,7 +372,7 @@ namespace ArabicTextAnalyzer.Controllers
             // MC111217 since we may have in the DB cases where there are more than one main entities for the same post (due to previous bug in code), we need to 
             // find them and to clean them (delete the extra main entities)
             var arabicDarijaEntryOtherMainEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL().FindAll(m => m.ID_ARABICDARIJAENTRY == idArabicDarijaEntry && m.TextEntity.Mention != activeTheme && m.TextEntity.Type == "MAIN ENTITY");
-            serialize_Delete_M_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(arabicDarijaEntryOtherMainEntities);
+            new Arabizer().serialize_Delete_M_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(arabicDarijaEntryOtherMainEntities);
 
             // load M_ARABICDARIJAENTRY_TEXTENTITY
             List<M_ARABICDARIJAENTRY_TEXTENTITY> arabicDarijaEntryTextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
@@ -397,7 +397,7 @@ namespace ArabicTextAnalyzer.Controllers
                     Type = "MAIN ENTITY"
                 }
             };
-            saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(m_arabicdarijaentry_textentity);
+            new Arabizer().saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(m_arabicdarijaentry_textentity);
 
             //
             TempData["showAlertSuccess"] = true;
@@ -435,11 +435,11 @@ namespace ArabicTextAnalyzer.Controllers
                 // Arabizi to arabic script via direct call to perl script
                 var xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
                 var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
-                train(new M_ARABIZIENTRY
+                new Arabizer().train(new M_ARABIZIENTRY
                 {
                     ArabiziText = content.Trim(),
                     ArabiziEntryDate = DateTime.Now
-                }, activeXtrctTheme.ThemeName);
+                }, activeXtrctTheme.ThemeName, thisLock);
             }
             else
             {
@@ -766,10 +766,10 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult XtrctTheme_ApplyNewActive(String themename)
         {
             // find previous active, and disable it
-            saveserializeM_XTRCTTHEME_EFSQL_Deactivate();
+            new Arabizer().saveserializeM_XTRCTTHEME_EFSQL_Deactivate();
 
             // find to-be-active by name, and make it active
-            saveserializeM_XTRCTTHEME_EFSQL_Active(themename);
+            new Arabizer().saveserializeM_XTRCTTHEME_EFSQL_Active(themename);
 
             //
             return RedirectToAction("Index");
@@ -797,7 +797,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             // save
-            saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(xtrctThemesKeywords, activeXtrctTheme);
+            new Arabizer().saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(xtrctThemesKeywords, activeXtrctTheme);
 
             //
             return RedirectToAction("Index");
@@ -845,11 +845,11 @@ namespace ArabicTextAnalyzer.Controllers
                 var lines = System.IO.File.ReadLines(path).ToList();
                 foreach (string line in lines)
                 {
-                    train(new M_ARABIZIENTRY
+                    new Arabizer().train(new M_ARABIZIENTRY
                     {
                         ArabiziText = line.Trim(),
                         ArabiziEntryDate = DateTime.Now
-                    }, mainEntity);
+                    }, mainEntity, thisLock);
                 }
 
                 // mark how many rows been translated
@@ -1066,7 +1066,7 @@ namespace ArabicTextAnalyzer.Controllers
         }*/
 
         #region BACK YARD BO TRAIN
-        private Guid train(M_ARABIZIENTRY arabiziEntry, String mainEntity)
+        /*private Guid train(M_ARABIZIENTRY arabiziEntry, String mainEntity)
         {
             // Arabizi to arabic from perl script
             if (arabiziEntry.ArabiziText == null)
@@ -1107,18 +1107,21 @@ namespace ArabicTextAnalyzer.Controllers
                 Logging.Write(Server, "train - after train_savener : " + watch.ElapsedMilliseconds); // watch.Restart();
 
                 // apply main tag : add main entity & Save to Serialization
-                var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
+                if (!String.IsNullOrEmpty(mainEntity))
                 {
-                    ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
-                    ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
-                    TextEntity = new TextEntity
+                    var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
                     {
-                        Count = 1,
-                        Mention = mainEntity,
-                        Type = "MAIN ENTITY"
-                    }
-                };
-                saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(textEntity);
+                        ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
+                        ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
+                        TextEntity = new TextEntity
+                        {
+                            Count = 1,
+                            Mention = mainEntity,
+                            Type = "MAIN ENTITY"
+                        }
+                    };
+                    saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(textEntity);
+                }
             }
             Logging.Write(Server, "train - after end of lock : " + watch.ElapsedMilliseconds);
 
@@ -1244,7 +1247,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             // NER manual extraction
             new TextEntityExtraction().NerManualExtraction(arabicText, entities, id_ARABICDARIJAENTRY, Server, saveserializeM_ARABICDARIJAENTRY_TEXTENTITY, accessMode);
-        }
+        }*/
         #endregion
 
         #region BACK YARD BO LOAD
@@ -1817,7 +1820,7 @@ namespace ArabicTextAnalyzer.Controllers
         #endregion
 
         #region BACK YARD BO SAVE / DELETE
-        private void saveserializeM_ARABIZIENTRY(M_ARABIZIENTRY arabiziEntry, AccessMode accessMode)
+        /*private void saveserializeM_ARABIZIENTRY(M_ARABIZIENTRY arabiziEntry, AccessMode accessMode)
         {
             if (accessMode == AccessMode.xml)
                 saveserializeM_ARABIZIENTRY_XML(arabiziEntry);
@@ -2070,7 +2073,7 @@ namespace ArabicTextAnalyzer.Controllers
                 // commit
                 db.SaveChanges();
             }
-        }
+        }*/
         #endregion
 
         #region BACK YARD BO HELPERS
@@ -2101,8 +2104,8 @@ namespace ArabicTextAnalyzer.Controllers
         #endregion
     }
 
-    //Class for call the APIs by html
-    public static class HtmlHelpers
+    // Class for call the APIs by html
+    /*public static class HtmlHelpers
     {
         public static async Task<string> PostAPIRequest(string url, string para, string type = "POST")
         {
@@ -2252,8 +2255,6 @@ namespace ArabicTextAnalyzer.Controllers
 
             }
             return result;
-
-
         }
-    }
+    }*/
 }

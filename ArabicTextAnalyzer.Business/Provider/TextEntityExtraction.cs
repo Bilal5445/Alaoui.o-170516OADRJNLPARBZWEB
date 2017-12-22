@@ -65,7 +65,7 @@ namespace ArabicTextAnalyzer.Business.Provider
         }
 
         public void NerManualExtraction(String arabicText, IEnumerable<TextEntity> entities, Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY, 
-            HttpServerUtilityBase Server,
+            /*HttpServerUtilityBase Server,*/
             Action<M_ARABICDARIJAENTRY_TEXTENTITY, AccessMode> saveserializeM_ARABICDARIJAENTRY_TEXTENTITY,
             AccessMode accessMode
             )

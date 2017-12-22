@@ -3,14 +3,11 @@ using ArabicTextAnalyzer.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Web.Hosting;
 using System.Web.Http;
-using System.Threading.Tasks;
-using System.Net.Http.Headers;
 using System.Configuration;
 using System.Collections.Specialized;
 
@@ -289,12 +286,10 @@ namespace ArabiziWebAPI.Controllers
                 client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                 client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
 
-
                 byte[] messageBytes = System.Text.Encoding.UTF8.GetBytes(para);
                 var content = new ByteArrayContent(messageBytes);
                 content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
                 content.Headers.Add("access-control-allow-origin", "*");
-
 
                 var response = client.PostAsync(url, content).Result;
                 if (response.IsSuccessStatusCode)
@@ -310,8 +305,8 @@ namespace ArabiziWebAPI.Controllers
             {
                 Console.WriteLine(ex);
             }
-            return result;
 
+            return result;
         }
 
         public static string MakeHttpClientRequest(string requestUrl, Dictionary<string, string> requestContent, HttpMethod verb)
@@ -341,9 +336,8 @@ namespace ArabiziWebAPI.Controllers
                 }
 
             }
+
             return result;
-
-
         }
     }
 }

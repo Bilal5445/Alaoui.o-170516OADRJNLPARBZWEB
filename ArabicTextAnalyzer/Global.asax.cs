@@ -18,6 +18,20 @@ namespace ArabicTextAnalyzer
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // limit response to json only
+            ConfigureApi(GlobalConfiguration.Configuration);
+        }
+
+        void ConfigureApi(HttpConfiguration config)
+        {
+            // Remove the JSON formatter
+            // config.Formatters.Remove(config.Formatters.JsonFormatter);
+
+            // or
+
+            // Remove the XML formatter
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
         }
     }
 }

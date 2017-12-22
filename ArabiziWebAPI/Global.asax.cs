@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace ArabiziWebAPI
@@ -11,6 +12,10 @@ namespace ArabiziWebAPI
     {
         protected void Application_Start()
         {
+            // to have access to the API auto-generated help
+            AreaRegistration.RegisterAllAreas();
+
+            //
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
             // limit response to json only

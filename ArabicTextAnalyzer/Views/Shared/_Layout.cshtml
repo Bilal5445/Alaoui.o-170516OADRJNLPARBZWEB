@@ -21,36 +21,42 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Adekwa", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Adekwasy", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Translate", "Index", "Train")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Translate", "Index", "Train")</li>
+                        @* @<li>@Html.ActionLink("Api Doc", "Index", "ApiDoc")</li> *@
+                        <li>@Html.ActionLink("API Doc", "Index", "Help", new { area = "" }, null)</li>
+                        @* <li><a href="@string.Format("http://" + Request.Url.Host + ":{0}/Help", "50037")">Api Doc</a></li> *@
+                    }
                     @if (User.IsInRole("Administrator"))
                     {
-                        <li>@Html.ActionLink("Administration", "Index", "Admin")</li>
+                        <li>@Html.ActionLink("Administration", "Index", "ApiDoc")</li>
                     }
-                </ul>
-                @Html.Partial("_LoginPartial")
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </div>
-    </div>
-    <div id="body">
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Adekwa</p>
-            </footer>
+        <div id="body">
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - Adekwasy</p>
+                </footer>
+            </div>
         </div>
-    </div>
-    
-    <!-- VERTICAL LOADTIME -->
-    <div class="rotated-text"><span class="rotated-text__inner"><strong>v0.1712.15.15 - Load Time : </strong><span id="loadTime"></span></span></div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/custom")
-    @RenderSection("scripts", required: false)
-</body>
+    <!-- VERTICAL LOADTIME -->
+        <div class="rotated-text"><span class="rotated-text__inner"><strong>v0.1712.15.15 - Load Time : </strong><span id="loadTime"></span></span></div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/custom")
+        @RenderSection("scripts", required: false)
+    </body>
 </html>

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ArabicTextAnalyzer.Domain.Models
@@ -19,7 +15,6 @@ namespace ArabicTextAnalyzer.Domain.Models
         [ForeignKey("RegisterAppId")]
         public virtual RegisterApp RegisterApps { get; set; }
 
-public bool IsDeleted { get; set; }
-    
+        public bool IsDeleted { get; set; }
     }
 }
