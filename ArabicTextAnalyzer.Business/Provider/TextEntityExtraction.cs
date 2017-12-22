@@ -64,12 +64,14 @@ namespace ArabicTextAnalyzer.Business.Provider
             return returnValue;
         }
 
-        public void NerManualExtraction(String arabicText, IEnumerable<TextEntity> entities, Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY, 
+        public /*void*/List<M_ARABICDARIJAENTRY_TEXTENTITY> NerManualExtraction(String arabicText, IEnumerable<TextEntity> entities, Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY, 
             /*HttpServerUtilityBase Server,*/
             Action<M_ARABICDARIJAENTRY_TEXTENTITY, AccessMode> saveserializeM_ARABICDARIJAENTRY_TEXTENTITY,
             AccessMode accessMode
             )
         {
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
+
             // clean post-rosette
             var lentities = NerRosetteClean(entities);
 
@@ -97,9 +99,15 @@ namespace ArabicTextAnalyzer.Business.Provider
                     TextEntity = entity
                 };
 
+                //
+                textEntities.Add(textEntity);
+
                 // Save to Serialization
                 saveserializeM_ARABICDARIJAENTRY_TEXTENTITY(textEntity, accessMode);
             }
+
+            //
+            return textEntities;
         }
 
         public List<TextEntity> NerRosetteClean(IEnumerable<TextEntity> entities)
