@@ -111,10 +111,11 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.TwinglyAccounts = loaddeserializeM_TWINGLYACCOUNT_DAPPERSQL();
 
             // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
-            var xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
+            var xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
             // List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL();
-            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL();
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
             var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
+
             @ViewBag.XtrctThemes = xtrctThemes;
             @ViewBag.XtrctThemesPlain = xtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == activeXtrctTheme.ThemeName.Trim() ? true : false });
             @ViewBag.ActiveXtrctTheme = activeXtrctTheme;
@@ -411,6 +412,10 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public async Task<object> TranslateFbPost(String content, string id)
         {
+            //
+            var userId = User.Identity.GetUserId();
+
+            //
             string errMessage = string.Empty;
             bool status = false;
             string translatedstring = "";
@@ -433,7 +438,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                 // MC081217 furthermore translate via train to populate NER, analysis data, ... (TODO LATER : should be the real code instead of API or API should do the real complete work)
                 // Arabizi to arabic script via direct call to perl script
-                var xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
+                var xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
                 var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
                 new Arabizer().train(new M_ARABIZIENTRY
                 {
@@ -494,13 +499,17 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public async Task<object> AddFBInfluencer(String url_name, String pro_or_anti)
         {
+            //
+            var userId = User.Identity.GetUserId();
+
+            //
             String errMessage = string.Empty;
             bool status = false;
             String translatedstring = String.Empty;
             String result = null;
 
             //
-            M_XTRCTTHEME activeTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL();
+            M_XTRCTTHEME activeTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
             activeTheme = (activeTheme != null) ? activeTheme : new M_XTRCTTHEME();
 
             //
@@ -778,11 +787,14 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public ActionResult XtrctTheme_Keywords_Reload(String themename)
         {
+            //
+            var userId = User.Identity.GetUserId();
+
             // List<Tuple<String, int>> tagscounts = loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(themename);
             List<THEMETAGSCOUNT> tagscounts = loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(themename);
 
             //
-            var activeXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL();
+            var activeXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
 
             //
             List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = new List<M_XTRCTTHEME_KEYWORD>();
@@ -881,6 +893,9 @@ namespace ArabicTextAnalyzer.Controllers
             try
             {
                 //
+                var userId = User.Identity.GetUserId();
+
+                //
                 int start = 0;
                 int itemsPerPage = 10;
 
@@ -900,7 +915,7 @@ namespace ArabicTextAnalyzer.Controllers
                 string searchName = this.Request.QueryString["columns[3][search][value]"];
 
                 // get main (whole) data from DB first
-                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL(activeThemeOnly: true);
+                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL(activeThemeOnly: true, userId: userId);
 
                 // get the number of entries
                 var itemsCount = items.Count;
@@ -921,7 +936,7 @@ namespace ArabicTextAnalyzer.Controllers
                 // get other helper data from DB
                 List<M_ARABICDARIJAENTRY_LATINWORD> arabicDarijaEntryLatinWords = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL();
                 List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
-                List<M_XTRCTTHEME> MainEntities = loaddeserializeM_XTRCTTHEME_DAPPERSQL();
+                List<M_XTRCTTHEME> MainEntities = loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
 
                 // Visual formatting before sending back
                 items.ForEach(s =>
@@ -1373,7 +1388,6 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        // private List<Tuple<String, int>> loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(String themename)
         private List<THEMETAGSCOUNT> loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(String themename)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
@@ -1496,26 +1510,26 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private List<M_XTRCTTHEME> loaddeserializeM_XTRCTTHEME_DAPPERSQL()
+        private List<M_XTRCTTHEME> loaddeserializeM_XTRCTTHEME_DAPPERSQL(String userId)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "SELECT * FROM T_XTRCTTHEME ORDER BY ThemeName ";
+                String qry = "SELECT * FROM T_XTRCTTHEME WHERE UserID = '" + userId +"' ORDER BY ThemeName ";
 
                 conn.Open();
                 return conn.Query<M_XTRCTTHEME>(qry).ToList();
             }
         }
 
-        private M_XTRCTTHEME loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL()
+        private M_XTRCTTHEME loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(String userId)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "SELECT * FROM T_XTRCTTHEME WHERE CurrentActive = 'active' ";
+                String qry = "SELECT * FROM T_XTRCTTHEME WHERE CurrentActive = 'active' AND UserID = '" + userId + "'";
 
                 conn.Open();
                 return conn.QueryFirst<M_XTRCTTHEME>(qry);
@@ -1535,13 +1549,13 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private List<M_XTRCTTHEME_KEYWORD> loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL()
+        private List<M_XTRCTTHEME_KEYWORD> loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(String userId)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "SELECT * FROM T_XTRCTTHEME_KEYWORD XK INNER JOIN T_XTRCTTHEME X ON XK.ID_XTRCTTHEME = X.ID_XTRCTTHEME AND X.CurrentActive = 'active' ";
+                String qry = "SELECT * FROM T_XTRCTTHEME_KEYWORD XK INNER JOIN T_XTRCTTHEME X ON XK.ID_XTRCTTHEME = X.ID_XTRCTTHEME AND X.CurrentActive = 'active' AND X.UserID = '" + userId + "' ";
 
                 conn.Open();
                 return conn.Query<M_XTRCTTHEME_KEYWORD>(qry).ToList();
@@ -1688,28 +1702,14 @@ namespace ArabicTextAnalyzer.Controllers
 
         }
 
-        //public Guid GetActiveThemeId()
-        //{          
-        //    using (var db = new ArabiziDbContext())
-        //    {
-        //        var theme = db.M_XTRCTTHEMEs.FirstOrDefault(c => c.CurrentActive == "active");
-        //        if (theme != null)
-        //        {
-        //            var result= theme.ID_XTRCTTHEME;
-        //            return result;
-        //        }
-        //        else
-        //        {
-        //            return new Guid();
-        //        }
-        //    }
-
-        //}
-
         private List<T_FB_INFLUENCER> loadAllT_Fb_InfluencerAsTheme(string themeid = "")
         {
+            //
+            var userId = User.Identity.GetUserId();
+
+            //
             var t_fb_Influencer = new List<T_FB_INFLUENCER>();
-            var themes = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL();
+            var themes = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
             M_XTRCTTHEME theme = (themes != null) ? themes : new M_XTRCTTHEME();
             if (theme.ID_XTRCTTHEME != null)
             {
@@ -1752,30 +1752,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        /*private List<ArabiziToArabicViewModel2> loadArabiziToArabicViewModel2_DAPPERSQL()
-        {
-            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                String qry = "SELECT "
-                        + "ARZ.ID_ARABIZIENTRY, "
-                        + "ARZ.ArabiziEntryDate, "
-                        + "ARZ.ArabiziText, "
-                        + "AR.ID_ARABICDARIJAENTRY, "
-                        + "AR.ArabicDarijaText, "
-                        + "ARTE.TextEntity_Mention "
-                    + "FROM T_ARABIZIENTRY ARZ "
-                    + "INNER JOIN T_ARABICDARIJAENTRY AR ON ARZ.ID_ARABIZIENTRY = AR.ID_ARABIZIENTRY "
-                    + "INNER JOIN T_ARABICDARIJAENTRY_TEXTENTITY ARTE ON AR.ID_ARABICDARIJAENTRY = ARTE.ID_ARABICDARIJAENTRY AND TextEntity_Type = 'MAIN ENTITY' "
-                    + "ORDER BY ARZ.ArabiziEntryDate DESC ";
-
-                conn.Open();
-                return conn.Query<ArabiziToArabicViewModel2>(qry).ToList();
-            }
-        }*/
-
-        private List<ArabiziToArabicViewModel> loadArabiziToArabicViewModel_DAPPERSQL(bool activeThemeOnly)
+        private List<ArabiziToArabicViewModel> loadArabiziToArabicViewModel_DAPPERSQL(bool activeThemeOnly, String userId)
         {
             if (activeThemeOnly)
             {
@@ -1793,7 +1770,7 @@ namespace ArabicTextAnalyzer.Controllers
                         + "FROM T_ARABIZIENTRY ARZ "
                         + "INNER JOIN T_ARABICDARIJAENTRY AR ON ARZ.ID_ARABIZIENTRY = AR.ID_ARABIZIENTRY "
                         + "INNER JOIN T_ARABICDARIJAENTRY_TEXTENTITY ARTE ON AR.ID_ARABICDARIJAENTRY = ARTE.ID_ARABICDARIJAENTRY AND TextEntity_Type = 'MAIN ENTITY' "
-                        + "INNER JOIN T_XTRCTTHEME XT ON XT.ThemeName = ARTE.TextEntity_Mention AND XT.CurrentActive = 'active' "
+                        + "INNER JOIN T_XTRCTTHEME XT ON XT.ThemeName = ARTE.TextEntity_Mention AND XT.CurrentActive = 'active' AND XT.UserID = '" + userId + "' "
                         + "ORDER BY ARZ.ArabiziEntryDate DESC ";
 
                     conn.Open();
@@ -1819,277 +1796,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
         #endregion
 
-        #region BACK YARD BO SAVE / DELETE
-        /*private void saveserializeM_ARABIZIENTRY(M_ARABIZIENTRY arabiziEntry, AccessMode accessMode)
-        {
-            if (accessMode == AccessMode.xml)
-                saveserializeM_ARABIZIENTRY_XML(arabiziEntry);
-            else if (accessMode == AccessMode.efsql)
-            {
-                saveserializeM_ARABIZIENTRY_EFSQL(arabiziEntry);
-            }
-        }
-
-        private void saveserializeM_ARABIZIENTRY_XML(M_ARABIZIENTRY arabiziEntry)
-        {
-            // save
-            String path = Server.MapPath("~/App_Data/data_M_ARABIZIENTRY.txt");
-            new TextPersist().Serialize(arabiziEntry, path);
-        }
-
-        private void saveserializeM_ARABIZIENTRY_EFSQL(M_ARABIZIENTRY arabiziEntry)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                db.M_ARABIZIENTRYs.Add(arabiziEntry);
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        private void saveserializeM_ARABICDARIJAENTRY(M_ARABICDARIJAENTRY arabicDarijaEntry, AccessMode accessMode)
-        {
-            if (accessMode == AccessMode.xml)
-                saveserializeM_ARABICDARIJAENTRY_XML(arabicDarijaEntry);
-            else if (accessMode == AccessMode.efsql)
-            {
-                saveserializeM_ARABICDARIJAENTRY_EFSQL(arabicDarijaEntry);
-            }
-        }
-
-        private void saveserializeM_ARABICDARIJAENTRY_EFSQL(M_ARABICDARIJAENTRY arabicDarijaEntry)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                db.M_ARABICDARIJAENTRYs.Add(arabicDarijaEntry);
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        private void saveserializeM_ARABICDARIJAENTRY_XML(M_ARABICDARIJAENTRY arabicDarijaEntry)
-        {
-            String path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY.txt");
-            new TextPersist().Serialize(arabicDarijaEntry, path);
-        }
-
-        private void saveserializeM_ARABICDARIJAENTRY_LATINWORD(M_ARABICDARIJAENTRY_LATINWORD latinWord, AccessMode accessMode)
-        {
-            if (accessMode == AccessMode.xml)
-                saveserializeM_ARABICDARIJAENTRY_LATINWORD_XML(latinWord);
-            else if (accessMode == AccessMode.efsql)
-                saveserializeM_ARABICDARIJAENTRY_LATINWORD_EFSQL(latinWord);
-        }
-
-        private void saveserializeM_ARABICDARIJAENTRY_LATINWORD_EFSQL(M_ARABICDARIJAENTRY_LATINWORD latinWord)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                db.M_ARABICDARIJAENTRY_LATINWORDs.Add(latinWord);
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        private void saveserializeM_ARABICDARIJAENTRY_LATINWORD_XML(M_ARABICDARIJAENTRY_LATINWORD latinWord)
-        {
-            // Save to Serialization
-            string path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_LATINWORD.txt");
-            new TextPersist().Serialize(latinWord, path);
-        }
-
-        private void saveserializeM_ARABICDARIJAENTRY_LATINWORD_XML(TextSentiment sentiment)
-        {
-            string path = Server.MapPath("~/App_Data/data_TextSentiment.txt");
-            new TextPersist().Serialize(sentiment, path);
-        }
-
-        private void saveserializeM_ARABICDARIJAENTRY_TEXTENTITY(M_ARABICDARIJAENTRY_TEXTENTITY textEntity, AccessMode accessMode)
-        {
-            if (accessMode == AccessMode.xml)
-                saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_XML(textEntity);
-            else if (accessMode == AccessMode.efsql)
-                saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(textEntity);
-        }
-
-        private void saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(M_ARABICDARIJAENTRY_TEXTENTITY textEntity)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                db.M_ARABICDARIJAENTRY_TEXTENTITYs.Add(textEntity);
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        private void serialize_Delete_M_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(M_ARABICDARIJAENTRY_TEXTENTITY textEntity)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                // Note: first attach to the entity
-                db.M_ARABICDARIJAENTRY_TEXTENTITYs.Attach(textEntity);
-
-                // remove
-                db.M_ARABICDARIJAENTRY_TEXTENTITYs.Remove(textEntity);
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        private void serialize_Delete_M_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities)
-        {
-            if (textEntities.Count > 0)
-            {
-                using (var db = new ArabiziDbContext())
-                {
-                    // Note: first attach to the entity
-                    foreach (var textEntity in textEntities)
-                        db.M_ARABICDARIJAENTRY_TEXTENTITYs.Attach(textEntity);
-
-                    // remove
-                    db.M_ARABICDARIJAENTRY_TEXTENTITYs.RemoveRange(textEntities);
-
-                    // commit
-                    db.SaveChanges();
-                }
-            }
-        }
-
-        private void saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_XML(M_ARABICDARIJAENTRY_TEXTENTITY textEntity)
-        {
-            // Save to Serialization
-            var path = Server.MapPath("~/App_Data/data_M_ARABICDARIJAENTRY_TEXTENTITY.txt");
-            new TextPersist().Serialize(textEntity, path);
-        }
-
-        private void saveserializeM_XTRCTTHEME_EFSQL(M_XTRCTTHEME m_xtrcttheme)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                db.M_XTRCTTHEMEs.Add(m_xtrcttheme);
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        public void saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(List<M_XTRCTTHEME_KEYWORD> m_xtrcttheme_keywords)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                //
-                db.Database.ExecuteSqlCommand("DELETE FROM T_XTRCTTHEME_KEYWORD");
-                db.M_XTRCTTHEME_KEYWORDs.AddRange(m_xtrcttheme_keywords);
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        public void saveserializeM_XTRCTTHEME_KEYWORDs_DELETE_ALL_EFSQL(List<M_XTRCTTHEME_KEYWORD> m_xtrcttheme_keywords, M_XTRCTTHEME currentTheme)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                //
-                db.Database.ExecuteSqlCommand("DELETE FROM T_XTRCTTHEME_KEYWORD WHERE ID_XTRCTTHEME = '" + currentTheme.ID_XTRCTTHEME + "' ");
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        public void saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(List<M_XTRCTTHEME_KEYWORD> m_xtrcttheme_keywords, M_XTRCTTHEME currentTheme)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                //
-                db.Database.ExecuteSqlCommand("DELETE FROM T_XTRCTTHEME_KEYWORD WHERE ID_XTRCTTHEME = '" + currentTheme.ID_XTRCTTHEME + "' ");
-
-                // commit
-                db.SaveChanges();
-
-                // reload
-                db.M_XTRCTTHEME_KEYWORDs.AddRange(m_xtrcttheme_keywords);
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        private void saveserializeM_XTRCTTHEME_EFSQL_Active(String themename)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                var xtrctThemes = db.M_XTRCTTHEMEs;
-
-                var tobeactiveXtrctTheme = xtrctThemes.Where(m => m.ThemeName == themename).FirstOrDefault<M_XTRCTTHEME>();
-                tobeactiveXtrctTheme.CurrentActive = "active";
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        private void saveserializeM_XTRCTTHEME_EFSQL_Deactivate()
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                var xtrctThemes = db.M_XTRCTTHEMEs;
-
-                var tobeactiveXtrctTheme = xtrctThemes.Where(m => m.CurrentActive == "active").FirstOrDefault<M_XTRCTTHEME>();
-                tobeactiveXtrctTheme.CurrentActive = String.Empty;
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        public void Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(Guid id_arabizientry)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                // filter on the one linked to current arabizi entry
-                var arabicdarijaentry = db.M_ARABICDARIJAENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry);
-
-                // load/deserialize data_M_ARABICDARIJAENTRY_TEXTENTITY
-                // filter on the ones linked to current arabic darija entry
-                db.M_ARABICDARIJAENTRY_TEXTENTITYs.RemoveRange(db.M_ARABICDARIJAENTRY_TEXTENTITYs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
-
-                // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
-                // filter on the ones linked to current arabic darija entry
-                db.M_ARABICDARIJAENTRY_LATINWORDs.RemoveRange(db.M_ARABICDARIJAENTRY_LATINWORDs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
-
-                // remove arabic darija item
-                db.M_ARABICDARIJAENTRYs.Remove(arabicdarijaentry);
-
-                // remove arabizi
-                db.M_ARABIZIENTRYs.Remove(db.M_ARABIZIENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry));
-
-                // commit
-                db.SaveChanges();
-            }
-        }*/
-        #endregion
-
         #region BACK YARD BO HELPERS
-        /*public static IEnumerable<TSource> DistinctBy<TSource, TKey>
-    (this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
-        {
-            HashSet<TKey> seenKeys = new HashSet<TKey>();
-            foreach (TSource element in source)
-            {
-                if (seenKeys.Add(keySelector(element)))
-                {
-                    yield return element;
-                }
-            }
-        }*/
-
         public static IEnumerable<TSource> DistinctBy<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
         {
             HashSet<TKey> seenKeys = new HashSet<TKey>();

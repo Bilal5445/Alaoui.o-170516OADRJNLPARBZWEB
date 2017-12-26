@@ -255,6 +255,10 @@
     <Compile Include="Migrations\201711241555349_TokenAuthentication.Designer.cs">
       <DependentUpon>201711241555349_TokenAuthentication.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712261109189_ThemePerUser.cs" />
+    <Compile Include="Migrations\201712261109189_ThemePerUser.Designer.cs">
+      <DependentUpon>201712261109189_ThemePerUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArabiziDbContext.cs" />
     <Compile Include="Models\ProcessTextDto.cs" />
@@ -689,6 +693,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711241555349_TokenAuthentication.resx">
       <DependentUpon>201711241555349_TokenAuthentication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712261109189_ThemePerUser.resx">
+      <DependentUpon>201712261109189_ThemePerUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

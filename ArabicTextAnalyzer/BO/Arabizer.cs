@@ -312,7 +312,7 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
-        private void saveserializeM_XTRCTTHEME_EFSQL(M_XTRCTTHEME m_xtrcttheme)
+        public void saveserializeM_XTRCTTHEME_EFSQL(M_XTRCTTHEME m_xtrcttheme)
         {
             using (var db = new ArabiziDbContext())
             {

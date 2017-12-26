@@ -1,7 +1,7 @@
 ﻿@using ArabicTextAnalyzer.Domain.Models
 @model M_ARABIZIENTRY
 @{
-    ViewBag.Title = "Train";
+    ViewBag.Title = "Adekwasy - Translate / NER / SA";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     //
@@ -48,9 +48,6 @@
     @Scripts.Render("~/bundles/js_train")
     @Scripts.Render("~/bundles/js_train_keywordfiltering");
     @Scripts.Render("~/bundles/js_train_tagsinput");
-
-    @* vertical load time *@
-    @* <script type="text/javascript" src="~/Scripts/my.js"></script> *@
 }
 
 <!-- theme menu -->
@@ -59,9 +56,9 @@
         <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
         <ul class="dropdown-menu">
             @foreach (var xtrctTheme in ViewBag.XtrctThemes)
-                {
+            {
                 <li class="@xtrctTheme.CurrentActive"><a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = @xtrctTheme.ThemeName })">@xtrctTheme.ThemeName</a></li>
-                }
+            }
         </ul>
     </div>
     <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#myModal">
@@ -86,7 +83,7 @@
             </div>
             <div class="modal-body">
                 @using (Html.BeginForm("XtrctTheme_AddNew", "Train", FormMethod.Post))
-                    {
+                {
                     <div class="form-group">
                         <label for="themename">Theme Name</label>
                         @Html.TextBox("themename", "", new { @class = "form-control", placeholder = "Enter new theme name", @required = "required", id = "themename" })
@@ -96,47 +93,44 @@
                         @Html.TextBox("themetags", "", new { @class = "form-control", @required = "required", id = "themetags", data_role = "tagsinput" })
                     </div>
                     <button type="submit" class="btn btn-default btn-success">Add</button>
-                    }
+                }
             </div>
         </div>
     </div>
 </div>
 
 <!-- Theme & keywords -->
-@if (@ViewBag.ActiveXtrctTheme != null)
-{
-    <div class="themekeywords card card-inverse card-primary">
-        <h1>
-            <span class="label label-info">
-                @ViewBag.ActiveXtrctTheme.ThemeName.Trim()
-                <a href="" style="position: absolute; right: 0; top: 0;"><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
-            </span>
-        </h1>
-        <div class="container containerthemekeywords">
-            @foreach (var tag in ViewBag.ActiveXtrctThemeTags)
+<div class="themekeywords card card-inverse card-primary">
+    <h1>
+        <span class="label label-info">
+            @ViewBag.ActiveXtrctTheme.ThemeName.Trim()
+            <a href="" style="position: absolute; right: 0; top: 0;"><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
+        </span>
+    </h1>
+    <div class="container containerthemekeywords">
+        @foreach (var tag in ViewBag.ActiveXtrctThemeTags)
             {
                 if (ViewBag.ActiveXtrctThemeTags.IndexOf(tag) % 2 == 0)
                 {
-                    <span class="label label-primary themekeywords">@tag</span>
-                }
-                else
-                {
-                    <span class="label label-success themekeywords">@tag</span>
-                }
+                <span class="label label-primary themekeywords">@tag</span>
             }
-        </div>
-        <a href="@Url.Action("XtrctTheme_Keywords_Reload", new { themename = @ViewBag.ActiveXtrctTheme.ThemeName.Trim() })" class="btn btn-outline-primary btn-xs">
-            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-        </a>
+            else
+            {
+                <span class="label label-success themekeywords">@tag</span>
+            }
+        }
     </div>
-}
+    <a href="@Url.Action("XtrctTheme_Keywords_Reload", new { themename = @ViewBag.ActiveXtrctTheme.ThemeName.Trim() })" class="btn btn-outline-primary btn-xs">
+        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+    </a>
+</div>
 
 @if (token == null || string.IsNullOrEmpty(token as string))
 {
         <!-- token generation -->
     <div class="row">
         @using (Html.BeginForm("GenerateToken", "Manage"))
-            {
+        {
             <div class="form-group"></div>
             <div class="form-group col-lg-12">
                 <div class="col-lg-2"></div>
@@ -161,12 +155,12 @@
                     </div>
                 </div>
             </div>
-            }
+        }
     </div>
 }
 else if (token != null && !string.IsNullOrEmpty(token as string))
 {
-        <!-- aribizi translate -->
+    <!-- aribizi translate -->
     using (Html.BeginForm("TrainStepOne", "Train", new { mainEntity = @ViewBag.ActiveXtrctTheme.ThemeName.Trim() }, FormMethod.Post, new { id = "trainform" }))
     {
         <div class="panel panel-default active">
@@ -271,37 +265,37 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
     </div>
 
         <!-- upload large file of posts -->
-        <div id="row-bulk-input" class="row" style="margin-top: 15px">
-            @using (Html.BeginForm("Data_Upload", "Train", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline" }))
-            {
-                <div class="form-group">
-                    <label for="importposts">Bulk Import:</label>
-                    <input type="file" name="file" class="form-control" id="importposts" />
-                    <label for="mainEntity">Main Tag:</label>
-                    @Html.DropDownList("mainEntity", (IEnumerable<SelectListItem>)ViewBag.XtrctThemesPlain, null, new { @class = "form-control" })
-                </div>
-                <button class="btn btn-success btn-md" type="submit" id="import_posts">
-                    Import Posts
-                </button>
-                <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>Warning!</strong> @msgAlert
-                </div>
+    <div id="row-bulk-input" class="row" style="margin-top: 15px">
+        @using (Html.BeginForm("Data_Upload", "Train", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline" }))
+        {
+            <div class="form-group">
+                <label for="importposts">Bulk Import:</label>
+                <input type="file" name="file" class="form-control" id="importposts" />
+                <label for="mainEntity">Main Tag:</label>
+                @Html.DropDownList("mainEntity", (IEnumerable<SelectListItem>)ViewBag.XtrctThemesPlain, null, new { @class = "form-control" })
+            </div>
+            <button class="btn btn-success btn-md" type="submit" id="import_posts">
+                Import Posts
+            </button>
+            <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Warning!</strong> @msgAlert
+            </div>
                 <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <strong>Success!</strong> @msgAlert
                 </div>
-                if (!string.IsNullOrEmpty(Convert.ToString(message)))
-                {
-                    <div class="alert alert-success alert-dismissable div-inline margin-bottom-0">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>Success!</strong> @(Convert.ToString(message))
-                    </div>
-                }
+            if (!string.IsNullOrEmpty(Convert.ToString(message)))
+            {
+                <div class="alert alert-success alert-dismissable div-inline margin-bottom-0">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Success!</strong> @(Convert.ToString(message))
+                </div>
             }
-        </div>
+        }
+    </div>
 
         <!-- Place where you will insert your partial -->
-        <input type="hidden" id="hdnToken" value="@token" />
-        <div id="partialPlaceHolder" style="display:inline;"> </div>
+    <input type="hidden" id="hdnToken" value="@token" />
+    <div id="partialPlaceHolder" style="display:inline;"> </div>
 }
