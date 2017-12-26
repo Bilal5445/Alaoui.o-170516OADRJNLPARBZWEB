@@ -949,6 +949,9 @@ namespace ArabicTextAnalyzer.Controllers
                 List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
                 List<M_XTRCTTHEME> MainEntities = loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
 
+                // excludes POS NER (PRONOMS, PREPOSITIONS, ...), plus also MAIN
+                TextEntities.RemoveAll(m => m.TextEntity.Type == "PREPOSITION" || m.TextEntity.Type == "PRONOUN" || m.TextEntity.Type == "MAIN ENTITY");
+
                 // Visual formatting before sending back
                 items.ForEach(s =>
                 {
