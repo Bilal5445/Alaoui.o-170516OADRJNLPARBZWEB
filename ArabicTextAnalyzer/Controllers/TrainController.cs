@@ -171,60 +171,70 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpPost]
         public ActionResult TrainStepOne(M_ARABIZIENTRY arabiziEntry, String mainEntity)
         {
-            //
-            var userId = User.Identity.GetUserId();
-
-            // token management
-            var token = Session["_T0k@n_"];
-            bool istokenexpire = _IAuthenticate.IsTokenExpire(Convert.ToString(token));
-            if (token == null || istokenexpire)
+            try
             {
-                // MC191217 tokens are good to track who calls the arabizi function (api or web app), but web app user does not need to generate manually a token,
-                // the fact that he is logged on, means he should be able to use translation, means a token should be always ready for him. Solution (workaround?) generate
-                // on the fly a new token each time the token is expired
+                //
+                var userId = User.Identity.GetUserId();
 
-                // generate token (and fill session token)
-                var clientKeyToolkit = new ClientKeysConcrete();
-                var clientkeys = clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
-                string message = string.Empty;
-                bool isAppValid = clientKeyToolkit.IsAppValid(clientkeys);
-                if (isAppValid == false)
-                    message = "No More calls";
-                else
+                // token management
+                var token = Session["_T0k@n_"];
+                bool istokenexpire = _IAuthenticate.IsTokenExpire(Convert.ToString(token));
+                if (token == null || istokenexpire)
                 {
-                    String sessiontoken;
-                    String tokenExpiry = ConfigurationManager.AppSettings["TokenExpiry"];
-                    var tokenmessage = new AppManager().GetToken(clientkeys, _IAuthenticate, tokenExpiry, out sessiontoken);
-                    Session["_T0k@n_"] = sessiontoken;
-                    token = sessiontoken;
-                    if (String.IsNullOrEmpty(sessiontoken))
-                        message = tokenmessage; // pass message only if token not generated
+                    // MC191217 tokens are good to track who calls the arabizi function (api or web app), but web app user does not need to generate manually a token,
+                    // the fact that he is logged on, means he should be able to use translation, means a token should be always ready for him. Solution (workaround?) generate
+                    // on the fly a new token each time the token is expired
+
+                    // generate token (and fill session token)
+                    var clientKeyToolkit = new ClientKeysConcrete();
+                    var clientkeys = clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
+                    string message = string.Empty;
+                    bool isAppValid = clientKeyToolkit.IsAppValid(clientkeys);
+                    if (isAppValid == false)
+                        message = "No More calls";
+                    else
+                    {
+                        String sessiontoken;
+                        String tokenExpiry = ConfigurationManager.AppSettings["TokenExpiry"];
+                        var tokenmessage = new AppManager().GetToken(clientkeys, _IAuthenticate, tokenExpiry, out sessiontoken);
+                        Session["_T0k@n_"] = sessiontoken;
+                        token = sessiontoken;
+                        if (String.IsNullOrEmpty(sessiontoken))
+                            message = tokenmessage; // pass message only if token not generated
+                    }
                 }
-            }
 
-            // 
-            string errMessage = string.Empty;
-            if (token == null || !_IAuthenticate.IsTokenValid(Convert.ToString(token), "TrainStepOne", out errMessage))
-            {
-                // Session["_T0k@n_"] = String.Empty;
-                // Session["message"] = String.Empty;
-                TempData["showAlertWarning"] = true;
-                TempData["msgAlert"] = errMessage;  // "Not a valid token";
+                // 
+                string errMessage = string.Empty;
+                if (token == null || !_IAuthenticate.IsTokenValid(Convert.ToString(token), "TrainStepOne", out errMessage))
+                {
+                    // Session["_T0k@n_"] = String.Empty;
+                    // Session["message"] = String.Empty;
+                    TempData["showAlertWarning"] = true;
+                    TempData["msgAlert"] = errMessage;  // "Not a valid token";
+                    return RedirectToAction("Index");
+                }
+
+                // Arabizi to arabic script via direct call to perl script
+                var res = new Arabizer().train(arabiziEntry, mainEntity, thisLock);
+                // if (res == Guid.Empty)
+                if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
+                {
+                    TempData["showAlertWarning"] = true;
+                    TempData["msgAlert"] = "Text is required.";
+                    return RedirectToAction("Index");
+                }
+
+                //
                 return RedirectToAction("Index");
             }
-
-            // Arabizi to arabic script via direct call to perl script
-            var res = new Arabizer().train(arabiziEntry, mainEntity, thisLock);
-            // if (res == Guid.Empty)
-            if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
+            catch (Exception ex)
             {
-                TempData["showAlertWarning"] = true;
-                TempData["msgAlert"] = "Text is required.";
-                return RedirectToAction("Index");
-            }
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
 
-            //
-            return RedirectToAction("Index");
+                throw;
+            }
         }
 
         [HttpGet]
