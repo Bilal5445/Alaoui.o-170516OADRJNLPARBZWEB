@@ -14,6 +14,7 @@ using System.Configuration;
 using ArabicTextAnalyzer.Business.Provider;
 using ArabicTextAnalyzer.Models.Repository;
 using ArabicTextAnalyzer.Domain.Models;
+using ArabicTextAnalyzer.BO;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -177,6 +178,15 @@ namespace ArabicTextAnalyzer.Controllers
                     var appLimit = Convert.ToInt32(ConfigurationManager.AppSettings["TotalAppCallLimit"]);
                     var app = new RegisterApp { Name = userId + ".app" };
                     new AppManager().CreateApp(app, userId, false, new RegisterAppConcrete(), new ClientKeysConcrete(), appLimit);
+
+                    // Create default them
+                    new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(new M_XTRCTTHEME
+                    {
+                        ID_XTRCTTHEME = Guid.NewGuid(),
+                        CurrentActive = "active",
+                        ThemeName = "Default",
+                        UserID = userId
+                    });
 
                     //
                     return RedirectToAction("Index", "Train");

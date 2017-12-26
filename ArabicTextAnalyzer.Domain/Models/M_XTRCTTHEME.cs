@@ -15,5 +15,6 @@ namespace ArabicTextAnalyzer.Domain.Models
         public Guid ID_XTRCTTHEME { get; set; }    // PK
         public String ThemeName { get; set; }
         public String CurrentActive { get; set; }
+        public String UserID { get; set; }
     }
 }

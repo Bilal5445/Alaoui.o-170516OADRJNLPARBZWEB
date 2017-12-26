@@ -64,3 +64,9 @@ Update-Database
 
 On a new Server, code-first cannot create DB : err : CREATE DATABASE permission denied in database 'master'.
 but Update-Database creates DB and applies all migrations
+
+---
+
+VS > Tools > NuGet Package Manager > Package Manager Console : Default project : ArabicTextAnalyzer
+Add-Migration ThemePerUser
+Update-Database
