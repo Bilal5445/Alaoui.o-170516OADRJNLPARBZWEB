@@ -9,9 +9,29 @@ using OADRJNLPCommon.Business;
 using System.Text;
 using System.Globalization;
 using System.Web;
+using System.Security;
 
 namespace ArabicTextAnalyzer.Business.Provider
 {
+    public static class Securer
+    {
+        public static SecureString ConvertToSecureString(this string password)
+        {
+            if (password == null)
+                throw new ArgumentNullException("password");
+
+            unsafe
+            {
+                fixed (char* passwordChars = password)
+                {
+                    var securePassword = new SecureString(passwordChars, password.Length);
+                    securePassword.MakeReadOnly();
+                    return securePassword;
+                }
+            }
+        }
+    }
+
     public class TextConverter : ITextConverter
     {
         // -> this is the folder containing the script
@@ -52,15 +72,15 @@ namespace ArabicTextAnalyzer.Business.Provider
         {
             // preprocess unicode arabic comma (sould be done at perl level, but somehow does not work)
             source = Preprocess_arabic_comma(source);
-            Logging.Write(Server, "train - after train_saveperl > Convert >  Preprocess_arabic_comma : " + watch.ElapsedMilliseconds); // watch.Restart();
+            Logging.Write(Server, "train - after train_saveperl > Convert >  Preprocess_arabic_comma : " + watch.ElapsedMilliseconds);
             source = Preprocess_unicode_special_chars(source);
-            Logging.Write(Server, "train - after train_saveperl > Convert >  Preprocess_unicode_special_chars : " + watch.ElapsedMilliseconds); // watch.Restart();
+            Logging.Write(Server, "train - after train_saveperl > Convert >  Preprocess_unicode_special_chars : " + watch.ElapsedMilliseconds);
 
             // preprocess silent wovelles : create artificially vowells (alef) between consonns because we know that there is no more french words that we can distrurb,
             // plus any one kept by bidict is converted temp to 001000100, so no risk,
             // plus we added _VOY_ in ptable to be one of the 3 vowels alef, ya2 or waw
             source = Preprocess_SilentVowels(source);
-            Logging.Write(Server, "train - after train_saveperl > Convert >  Preprocess_SilentVowels : " + watch.ElapsedMilliseconds); // watch.Restart();
+            Logging.Write(Server, "train - after train_saveperl > Convert >  Preprocess_SilentVowels : " + watch.ElapsedMilliseconds);
 
             // random naming to avoid access to same file and deadlock eventually
             String randomsuffix = Guid.NewGuid().ToString();
@@ -77,10 +97,13 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             //
             var process = new Process();
-            var processInformation = new ProcessStartInfo("sh.exe", translPipelineScript)
+            var processInformation = new ProcessStartInfo("c:\\cygwin64\\bin\\sh.exe", translPipelineScript)
             {
                 WorkingDirectory = workingDirectoryLocation,
-                UseShellExecute = true,   
+                UseShellExecute = false,
+                UserName = "user",
+                Password = "Ayasfeli%7".ConvertToSecureString(),
+                LoadUserProfile = true
             };
             process.StartInfo = processInformation;
             process.Start();
@@ -97,64 +120,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             // delete output files and input files and interediated
             var dir = new DirectoryInfo(pathToExample);
             foreach (var file in dir.EnumerateFiles(randomsuffix + ".*"))
-            {
                 file.Delete();
-            }
-
-            // post-process (eg : hna => nahnou)
-            output = Postprocess_slash_r_slash_n(output);
-            output = Postprocess_حنا_to_نحن(output);
-            output = Postprocess_هاد_to_هذا(output);
-
-            return output;
-        }
-
-        public string Convert(Stopwatch watch, string source)
-        {
-            // preprocess unicode arabic comma (sould be done at perl level, but somehow does not work)
-            source = Preprocess_arabic_comma(source);
-            source = Preprocess_unicode_special_chars(source);
-
-            // preprocess silent wovelles : create artificially vowells (alef) between consonns because we know that there is no more french words that we can distrurb,
-            // plus any one kept by bidict is converted temp to 001000100, so no risk,
-            // plus we added _VOY_ in ptable to be one of the 3 vowels alef, ya2 or waw
-            source = Preprocess_SilentVowels(source);
-
-            // random naming to avoid access to same file and deadlock eventually
-            String randomsuffix = Guid.NewGuid().ToString();
-            inputFileLocationFileOnly = randomsuffix;
-            inputFileLocation = pathToExample + inputFileLocationFileOnly + ".arabizi";
-
-            // build cygwin cmd with arg included and change slashes
-            // target : RUN_transl_pipeline.sh example/small-example_9493cac0-eac6-40db-8be5-1b8a594df13b
-            translPipelineScript = translPipelineScriptFileNdExtOnly + " " + "example/" + inputFileLocationFileOnly;
-
-            // to arabizi (INPUT) file
-            File.WriteAllText(inputFileLocation, source);
-
-            //
-            var process = new Process();
-            var processInformation = new ProcessStartInfo("sh.exe", translPipelineScript)
-            {
-                WorkingDirectory = workingDirectoryLocation,
-                UseShellExecute = true,
-            };
-            process.StartInfo = processInformation;
-            process.Start();
-            process.WaitForExit();
-
-            // random naming to avoid access to same file and deadlock eventually
-            outputFileLocation = pathToExample + randomsuffix + ".7.charTransl";
-
-            // read arabic (OUTPUT) file
-            var output = File.ReadAllText(outputFileLocation);
-
-            // delete output files and input files and interediated
-            var dir = new DirectoryInfo(pathToExample);
-            foreach (var file in dir.EnumerateFiles(randomsuffix + ".*"))
-            {
-                file.Delete();
-            }
 
             // post-process (eg : hna => nahnou)
             output = Postprocess_slash_r_slash_n(output);
@@ -456,16 +422,23 @@ namespace ArabicTextAnalyzer.Business.Provider
         public List<String> GetAllTranscriptions(String arabiziWord)
         {
             var output = new List<string>();
+
             //
             File.WriteAllText(workingDirectoryLocation + "arabiziword", arabiziWord);
 
             // script to create all variants only
-            string variantsProcFileLoc = workingDirectoryLocation + @"RUN_transl_transcm.sh";
+            string translTranscmScriptFileNdExtOnly = "RUN_transl_transcm.sh";
+            string variantsProcFileLoc = workingDirectoryLocation + translTranscmScriptFileNdExtOnly;
             string outputVariantsFileLoc = pathToExample + "out.variants.txt";
+
+            // build cygwin cmd with arg included and change slashes
+            // target : RUN_transl_transcm.sh
+            var translTranscmScript = translTranscmScriptFileNdExtOnly;
 
             //
             var process = new Process();
-            var processInformation = new ProcessStartInfo(variantsProcFileLoc)
+            // var processInformation = new ProcessStartInfo(variantsProcFileLoc)
+            var processInformation = new ProcessStartInfo("sh.exe", translTranscmScript)
             {
                 WorkingDirectory = workingDirectoryLocation,
                 UseShellExecute = true,
@@ -473,11 +446,12 @@ namespace ArabicTextAnalyzer.Business.Provider
             process.StartInfo = processInformation;
             process.Start();
             process.WaitForExit();
-            if(File.Exists(outputVariantsFileLoc))
+
+            //
+            if (File.Exists(outputVariantsFileLoc))
             {
-    output = File.ReadAllLines(outputVariantsFileLoc).ToList<String>();
+                output = File.ReadAllLines(outputVariantsFileLoc).ToList<String>();
             }
-      
 
             return output;
         }

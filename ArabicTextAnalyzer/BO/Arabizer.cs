@@ -15,6 +15,17 @@ namespace ArabicTextAnalyzer.BO
 {
     public class Arabizer
     {
+        public HttpServerUtilityBase Server { get; set; }
+
+        public Arabizer()
+        {
+        }
+
+        public Arabizer(HttpServerUtilityBase server)
+        {
+            Server = server;
+        }
+
         #region BACK YARD BO TRAIN
         public dynamic train(M_ARABIZIENTRY arabiziEntry, String mainEntity, Object thisLock)
         {
@@ -106,7 +117,7 @@ namespace ArabicTextAnalyzer.BO
             return new TranslationTools().CorrectTranslate(arabicText);
         }
 
-        private /*String*/M_ARABICDARIJAENTRY train_saveperl(Stopwatch watch, string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
+        private M_ARABICDARIJAENTRY train_saveperl(Stopwatch watch, string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
         {
             // first process buttranslateperl : means those should be cleaned in their without-bracket origan form so they can be translated by perl
             // ex : "<span class='notranslate BUTTRANSLATEPERL'>kolchi</span> katbakkih bl3ani" should become "kolchi katbakkih bl3ani" so perl can translate it
@@ -122,7 +133,7 @@ namespace ArabicTextAnalyzer.BO
             arabicText = regex.Replace(arabicText, "001000100");
 
             // translate arabizi to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
-            arabicText = new TextConverter().Convert(watch, arabicText);
+            arabicText = new TextConverter().Convert(Server, watch, arabicText);
 
             // restore do not translate from 001000100
             var regex2 = new Regex(@"001000100");
