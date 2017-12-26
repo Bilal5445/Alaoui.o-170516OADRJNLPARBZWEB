@@ -586,7 +586,10 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <None Include="Properties\PublishProfiles\VM_137.116.196.7.pubxml" />
     <Content Include="Migrations\201710270934303_InitialCreate_TO_201711241555349_TokenAuthentication.sql" />
+    <Content Include="Migrations\201712141056349_EnableUserInstanceOnSqlExpress.sql" />
+    <Content Include="Migrations\201712141056350_EnableUserInstanceOnSqlExpress_do_on_server.txt" />
     <Content Include="Migrations\howto_migrations.txt" />
+    <Content Include="readme.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
