@@ -216,7 +216,8 @@ namespace ArabicTextAnalyzer.Controllers
                 }
 
                 // Arabizi to arabic script via direct call to perl script
-                var res = new Arabizer().train(arabiziEntry, mainEntity, thisLock);
+                // var res = new Arabizer().train(arabiziEntry, mainEntity, thisLock);
+                var res = new Arabizer(Server).train(arabiziEntry, mainEntity, thisLock);   // count time
                 // if (res == Guid.Empty)
                 if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
                 {
