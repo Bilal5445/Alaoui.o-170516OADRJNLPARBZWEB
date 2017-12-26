@@ -58,3 +58,9 @@ Update-Database
 
 Add-Migration FBAccess_CompositeKey
 Update-Database
+
+
+----
+
+On a new Server, code-first cannot create DB : err : CREATE DATABASE permission denied in database 'master'.
+but Update-Database creates DB and applies all migrations
