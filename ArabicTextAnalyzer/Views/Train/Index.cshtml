@@ -108,17 +108,40 @@
         </span>
     </h1>
     <div class="container containerthemekeywords">
-        @foreach (var tag in ViewBag.ActiveXtrctThemeTags)
-            {
-                if (ViewBag.ActiveXtrctThemeTags.IndexOf(tag) % 2 == 0)
+        <div class="row">
+            <div class="col-lg-4">
+                @foreach (var tag in ViewBag.ActiveXtrctThemeNegTags)
                 {
-                <span class="label label-primary themekeywords">@tag</span>
-            }
-            else
-            {
-                <span class="label label-success themekeywords">@tag</span>
-            }
-        }
+                    if (ViewBag.ActiveXtrctThemeNegTags.IndexOf(tag) % 2 == 0)
+                    {
+                        <span class="label label-danger themekeywords">@tag</span>
+                    }
+                    else
+                    {
+                        <span class="label label-warning themekeywords">@tag</span>
+                    }
+                }
+            </div>
+            <div class="col-lg-4">
+                @foreach (var tag in ViewBag.ActiveXtrctThemeOtherTags)
+                {
+                    <span class="label label-default themekeywords">@tag</span>
+                }
+            </div>
+            <div class="col-lg-4">
+                @foreach (var tag in ViewBag.ActiveXtrctThemePosTags)
+                {
+                    if (ViewBag.ActiveXtrctThemePosTags.IndexOf(tag) % 2 == 0)
+                    {
+                        <span class="label label-info themekeywords">@tag</span>
+                    }
+                    else
+                    {
+                        <span class="label label-success themekeywords">@tag</span>
+                    }
+                }
+            </div>
+        </div>
     </div>
     <a href="@Url.Action("XtrctTheme_Keywords_Reload", new { themename = @ViewBag.ActiveXtrctTheme.ThemeName.Trim() })" class="btn btn-outline-primary btn-xs">
         <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
@@ -127,7 +150,7 @@
 
 @if (token == null || string.IsNullOrEmpty(token as string))
 {
-        <!-- token generation -->
+    <!-- token generation -->
     <div class="row">
         @using (Html.BeginForm("GenerateToken", "Manage"))
         {
@@ -175,7 +198,7 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
         </div>
     }
 
-        <!-- arabizi keying & corpus info & co -->
+    <!-- arabizi keying & corpus info & co -->
     <div id="row-arabizi-input" class="row" style="margin-top: 30px; display: none;">
         <!-- column 1 : arabizi input -->
         <div class="col-md-3 col-sm-6">
@@ -264,7 +287,7 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
         </div>
     </div>
 
-        <!-- upload large file of posts -->
+    <!-- upload large file of posts -->
     <div id="row-bulk-input" class="row" style="margin-top: 15px">
         @using (Html.BeginForm("Data_Upload", "Train", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline" }))
         {
@@ -281,10 +304,10 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>Warning!</strong> @msgAlert
             </div>
-                <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <strong>Success!</strong> @msgAlert
-                </div>
+            <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Success!</strong> @msgAlert
+            </div>
             if (!string.IsNullOrEmpty(Convert.ToString(message)))
             {
                 <div class="alert alert-success alert-dismissable div-inline margin-bottom-0">
@@ -295,7 +318,7 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
         }
     </div>
 
-        <!-- Place where you will insert your partial -->
+    <!-- Place where you will insert your partial -->
     <input type="hidden" id="hdnToken" value="@token" />
     <div id="partialPlaceHolder" style="display:inline;"> </div>
 }

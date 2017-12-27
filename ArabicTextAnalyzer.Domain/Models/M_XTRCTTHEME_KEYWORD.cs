@@ -12,14 +12,16 @@ namespace ArabicTextAnalyzer.Domain.Models
     public class M_XTRCTTHEME_KEYWORD
     {
         [Key]
-        public Guid ID_XTRCTTHEME_KEYWORD { get; set; }    // PK
-        public Guid ID_XTRCTTHEME { get; set; }              // FK one-to-many
+        public Guid ID_XTRCTTHEME_KEYWORD { get; set; } // PK
+        public Guid ID_XTRCTTHEME { get; set; }         // FK one-to-many
         public String Keyword { get; set; }
+        public String Keyword_Type { get; set; }
     }
 
     public class THEMETAGSCOUNT
     { 
         public String TextEntity_Mention { get; set; }
         public int SUM_TextEntity_Count { get; set; }
+        public string TextEntity_Type { get; set; }
     }
 }
