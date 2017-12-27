@@ -259,6 +259,10 @@
     <Compile Include="Migrations\201712261109189_ThemePerUser.Designer.cs">
       <DependentUpon>201712261109189_ThemePerUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712270002342_ThemeKeyWordWithType.cs" />
+    <Compile Include="Migrations\201712270002342_ThemeKeyWordWithType.Designer.cs">
+      <DependentUpon>201712270002342_ThemeKeyWordWithType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArabiziDbContext.cs" />
     <Compile Include="Models\ProcessTextDto.cs" />
@@ -699,6 +703,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712261109189_ThemePerUser.resx">
       <DependentUpon>201712261109189_ThemePerUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712270002342_ThemeKeyWordWithType.resx">
+      <DependentUpon>201712270002342_ThemeKeyWordWithType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

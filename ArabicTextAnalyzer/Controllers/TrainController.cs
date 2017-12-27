@@ -123,6 +123,9 @@ namespace ArabicTextAnalyzer.Controllers
             // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
             // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
             @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Select(m => m.Keyword).ToList();
+            @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE").Select(m => m.Keyword).ToList();
+            @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE").Select(m => m.Keyword).ToList();
+            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "NEGATIVE").Select(m => m.Keyword).ToList();
 
             // file upload communication
             @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
@@ -801,7 +804,7 @@ namespace ArabicTextAnalyzer.Controllers
             //
             var userId = User.Identity.GetUserId();
 
-            // List<Tuple<String, int>> tagscounts = loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(themename);
+            //
             List<THEMETAGSCOUNT> tagscounts = loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(themename);
 
             //
@@ -815,7 +818,8 @@ namespace ArabicTextAnalyzer.Controllers
                 {
                     ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
                     ID_XTRCTTHEME = activeXtrctTheme.ID_XTRCTTHEME,
-                    Keyword = tagcount.TextEntity_Mention
+                    Keyword = tagcount.TextEntity_Mention,
+                    Keyword_Type = tagcount.TextEntity_Type
                 });
             }
 
@@ -1413,9 +1417,10 @@ namespace ArabicTextAnalyzer.Controllers
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 String qry0 = "SELECT "
-                                + "TextEntity_Mention, SUM(TextEntity_Count) SUM_TextEntity_Count "
+                                + "TextEntity_Mention, SUM(TextEntity_Count) SUM_TextEntity_Count, "
+                                + "TextEntity_Type "
                             + "FROM T_ARABICDARIJAENTRY_TEXTENTITY "
-                            + "WHERE ID_ARABICDARIJAENTRY IN( "
+                            + "WHERE ID_ARABICDARIJAENTRY IN ( "
                                 + "SELECT ID_ARABICDARIJAENTRY "
                                 + "FROM T_ARABICDARIJAENTRY_TEXTENTITY "
                                 + "WHERE TextEntity_Type = 'MAIN ENTITY' "
@@ -1424,10 +1429,9 @@ namespace ArabicTextAnalyzer.Controllers
                             + "AND TextEntity_Type != 'MAIN ENTITY' "
                             + "AND TextEntity_Type != 'PREPOSITION' "
                             + "AND TextEntity_Type != 'PRONOUN' "
-                            + "GROUP BY TextEntity_Mention ";
+                            + "GROUP BY TextEntity_Mention, TextEntity_Type ";
 
                 conn.Open();
-                // return conn.Query<Tuple<String, int>>(qry0).ToList();
                 return conn.Query<THEMETAGSCOUNT>(qry0).ToList();
             }
         }
@@ -1530,7 +1534,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "SELECT * FROM T_XTRCTTHEME WHERE UserID = '" + userId +"' ORDER BY ThemeName ";
+                String qry = "SELECT * FROM T_XTRCTTHEME WHERE UserID = '" + userId + "' ORDER BY ThemeName ";
 
                 conn.Open();
                 return conn.Query<M_XTRCTTHEME>(qry).ToList();
