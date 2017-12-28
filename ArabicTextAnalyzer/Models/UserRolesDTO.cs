@@ -16,6 +16,10 @@ namespace ArabicTextAnalyzer.Models
         public int AccessFailedCount { get; set; }
         public string PhoneNumber { get; set; }
         public IEnumerable<UserRolesDTO> Roles { get; set; }
+
+        // join with registerapps
+        public int TotalAppCallLimit { get; set; }
+        public int TotalAppCallConsumed { get; set; }
     }
 
     public class UserRolesDTO

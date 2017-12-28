@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using ArabicTextAnalyzer.Domain.Models;
 using PagedList;
 using ArabicTextAnalyzer.Models;
+using ArabicTextAnalyzer.BO;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -53,12 +54,25 @@ namespace ArabicTextAnalyzer.Controllers
                 intTotalPageCount = UserManager.Users
                     .Where(x => x.UserName.Contains(searchStringUserNameOrEmail))
                     .Count();
-                var result = UserManager.Users
+
+                // 
+                var users = UserManager.Users
                     .Where(x => x.UserName.Contains(searchStringUserNameOrEmail))
                     .OrderBy(x => x.UserName)
                     .Skip(intSkip)
                     .Take(intPageSize)
                     .ToList();
+
+                // get register apps to make a join with users
+                var registerApps = new Arabizer().loaddeserializeRegisterApps_DAPPERSQL();
+                var result = users.Join(registerApps, u => u.Id, a => a.UserID, (usr, app) => new
+                {
+                    usr.UserName,
+                    usr.Email,
+                    usr.LockoutEndDateUtc,
+                    app.TotalAppCallConsumed,
+                    app.TotalAppCallLimit
+                });
 
                 foreach (var item in result)
                 {
@@ -66,15 +80,15 @@ namespace ArabicTextAnalyzer.Controllers
                     objUserDTO.UserName = item.UserName;
                     objUserDTO.Email = item.Email;
                     objUserDTO.LockoutEndDateUtc = item.LockoutEndDateUtc;
+                    objUserDTO.TotalAppCallLimit = item.TotalAppCallLimit;
+                    objUserDTO.TotalAppCallConsumed = item.TotalAppCallConsumed;
                     col_UserDTO.Add(objUserDTO);
                 }
 
                 // Set the number of pages
-                var _UserDTOAsIPagedList = new StaticPagedList<ExpandedUserDTO>
-                    (
-                        col_UserDTO, intPage, intPageSize, intTotalPageCount
-                        );
+                var _UserDTOAsIPagedList = new StaticPagedList<ExpandedUserDTO>(col_UserDTO, intPage, intPageSize, intTotalPageCount);
 
+                //
                 return View(_UserDTOAsIPagedList);
             }
             catch (Exception ex)
@@ -538,9 +552,7 @@ namespace ArabicTextAnalyzer.Controllers
         {
             get
             {
-                return _userManager ??
-                    HttpContext.GetOwinContext()
-                    .GetUserManager<ApplicationUserManager>();
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {

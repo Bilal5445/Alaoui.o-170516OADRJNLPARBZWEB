@@ -23,24 +23,19 @@
 
 <table class="table">
     <tr>
-        <th>
-            Email
-        </th>
-        <th>
-            Locked Out
-        </th>
-        <th></th>
+        <th>Email</th>
+        <th>Locked Out</th>
+        <th>Calls Limit</th>
+        <th>Calls Consumed</th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LockoutEndDateUtc)
-            </td>
+            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+            <td>@Html.DisplayFor(modelItem => item.LockoutEndDateUtc)</td>
+            <td>@Html.DisplayFor(modelItem => item.TotalAppCallLimit)</td>
+            <td>@Html.DisplayFor(modelItem => item.TotalAppCallConsumed)</td>
             <td>
                 @Html.ActionLink("Edit", "EditUser", new { UserName = item.UserName }) |
                 @if ((item.UserName.ToLower() != this.User.Identity.Name.ToLower()))
