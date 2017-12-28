@@ -111,7 +111,7 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.TwinglyAccounts = loaddeserializeM_TWINGLYACCOUNT_DAPPERSQL();
 
             // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
-            var userXtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+            var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
             List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
             var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
 
@@ -450,7 +450,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                 // MC081217 furthermore translate via train to populate NER, analysis data, ... (TODO LATER : should be the real code instead of API or API should do the real complete work)
                 // Arabizi to arabic script via direct call to perl script
-                var xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+                var xtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
                 var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
                 new Arabizer().train(new M_ARABIZIENTRY
                 {
@@ -949,7 +949,7 @@ namespace ArabicTextAnalyzer.Controllers
                 // get other helper data from DB
                 List<M_ARABICDARIJAENTRY_LATINWORD> arabicDarijaEntryLatinWords = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL();
                 List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
-                List<M_XTRCTTHEME> MainEntities = loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+                List<M_XTRCTTHEME> MainEntities = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
 
                 // excludes POS NER (PRONOMS, PREPOSITIONS, ...), plus also MAIN
                 TextEntities.RemoveAll(m => m.TextEntity.Type == "PREPOSITION" || m.TextEntity.Type == "PRONOUN" || m.TextEntity.Type == "MAIN ENTITY");
@@ -1341,7 +1341,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private List<M_XTRCTTHEME> loaddeserializeM_XTRCTTHEME_DAPPERSQL(String userId)
+        /*private List<M_XTRCTTHEME> loaddeserializeM_XTRCTTHEME_DAPPERSQL(String userId)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
 
@@ -1352,7 +1352,7 @@ namespace ArabicTextAnalyzer.Controllers
                 conn.Open();
                 return conn.Query<M_XTRCTTHEME>(qry).ToList();
             }
-        }
+        }*/
 
         private M_XTRCTTHEME loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(String userId)
         {

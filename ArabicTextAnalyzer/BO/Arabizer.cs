@@ -2,9 +2,12 @@
 using ArabicTextAnalyzer.Domain;
 using ArabicTextAnalyzer.Domain.Models;
 using ArabicTextAnalyzer.Models;
+using Dapper;
 using OADRJNLPCommon.Business;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Dynamic;
 using System.Linq;
@@ -441,6 +444,34 @@ namespace ArabicTextAnalyzer.BO
 
                 // commit
                 db.SaveChanges();
+            }
+        }
+        #endregion
+
+        #region BACK YARD BO LOAD
+        public List<M_XTRCTTHEME> loaddeserializeM_XTRCTTHEME_DAPPERSQL(String userId)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_XTRCTTHEME WHERE UserID = '" + userId + "' ORDER BY ThemeName ";
+
+                conn.Open();
+                return conn.Query<M_XTRCTTHEME>(qry).ToList();
+            }
+        }
+
+        public List<RegisterApp> loaddeserializeRegisterApp_DAPPERSQL(String userId)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM RegisterApps WHERE UserID = '" + userId + "' ";
+
+                conn.Open();
+                return conn.Query<RegisterApp>(qry).ToList();
             }
         }
         #endregion
