@@ -76,3 +76,9 @@ Update-Database
 VS > Tools > NuGet Package Manager > Package Manager Console : Default project : ArabicTextAnalyzer
 Add-Migration ThemeKeyWordWithType
 Update-Database
+
+---
+
+VS > Tools > NuGet Package Manager > Package Manager Console : Default project : ArabicTextAnalyzer
+Add-Migration ArabiziIsFR
+Update-Database

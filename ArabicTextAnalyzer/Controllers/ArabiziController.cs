@@ -61,7 +61,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             // call real work
             // use expando to merge the json ouptuts : arabizi + arabic + latin words
-            dynamic expando = new Arabizer().train(arabiziEntry, null, thisLock);
+            dynamic expando = new Arabizer().train(arabiziEntry, null, thisLock: thisLock);
 
             // keep only arabizi + arabic + latin
             expando.M_ARABICDARIJAENTRY_TEXTENTITYs = null;
@@ -98,7 +98,7 @@ namespace ArabicTextAnalyzer.Controllers
             // call real work
             // use expando to merge the json ouptuts : arabizi + arabic + latin words
             // plus also M_ARABICDARIJAENTRY_TEXTENTITYs
-            dynamic expando = new Arabizer().train(arabiziEntry, null, thisLock);
+            dynamic expando = new Arabizer().train(arabiziEntry, null, thisLock: thisLock);
 
             // keep only arabizi + arabic + ner
             expando.M_ARABICDARIJAENTRY_LATINWORDs = null;
@@ -135,7 +135,7 @@ namespace ArabicTextAnalyzer.Controllers
             // call real work
             // use expando to merge the json ouptuts : arabizi + arabic + latin words
             // plus also M_ARABICDARIJAENTRY_TEXTENTITYs
-            dynamic expando = new Arabizer().train(arabiziEntry, null, thisLock);
+            dynamic expando = new Arabizer().train(arabiziEntry, null, thisLock: thisLock);
 
             // keep only arabizi + arabic + ner
             expando.M_ARABICDARIJAENTRY_LATINWORDs = null;
