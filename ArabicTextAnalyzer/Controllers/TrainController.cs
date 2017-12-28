@@ -111,14 +111,13 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.TwinglyAccounts = loaddeserializeM_TWINGLYACCOUNT_DAPPERSQL();
 
             // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
-            var xtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
-            // List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL();
+            var userXtrctThemes = loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
             List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
-            var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
+            var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
 
-            @ViewBag.XtrctThemes = xtrctThemes;
-            @ViewBag.XtrctThemesPlain = xtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == activeXtrctTheme.ThemeName.Trim() ? true : false });
-            @ViewBag.ActiveXtrctTheme = activeXtrctTheme;
+            @ViewBag.UserXtrctThemes = userXtrctThemes;
+            @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
+            @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
             // note the keywords can be many records associated with this theme, plus the original record (filled at creation) contains many kewords seprated by space
             // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
             // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
@@ -1602,7 +1601,7 @@ namespace ArabicTextAnalyzer.Controllers
                         + "FROM T_ARABIZIENTRY ARZ "
                         + "INNER JOIN T_ARABICDARIJAENTRY AR ON ARZ.ID_ARABIZIENTRY = AR.ID_ARABIZIENTRY "
                         + "INNER JOIN T_ARABICDARIJAENTRY_TEXTENTITY ARTE ON AR.ID_ARABICDARIJAENTRY = ARTE.ID_ARABICDARIJAENTRY AND TextEntity_Type = 'MAIN ENTITY' "
-                        + "INNER JOIN T_XTRCTTHEME XT ON XT.ThemeName = ARTE.TextEntity_Mention AND XT.CurrentActive = 'active' AND XT.UserID = '" + userId + "' "
+                        + "INNER JOIN T_XTRCTTHEME XT ON XT.ThemeName = ARTE.TextEntity_Mention AND XT.CurrentActive = 'active' AND XT.UserID = '" + userId + "' AND ARZ.ID_XTRCTTHEME = XT.ID_XTRCTTHEME "
                         + "ORDER BY ARZ.ArabiziEntryDate DESC ";
 
                     conn.Open();

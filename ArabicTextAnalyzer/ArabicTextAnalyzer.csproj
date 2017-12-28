@@ -267,6 +267,10 @@
     <Compile Include="Migrations\201712281300170_ArabiziIsFR.Designer.cs">
       <DependentUpon>201712281300170_ArabiziIsFR.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712281335040_ArabiziTheme.cs" />
+    <Compile Include="Migrations\201712281335040_ArabiziTheme.Designer.cs">
+      <DependentUpon>201712281335040_ArabiziTheme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArabiziDbContext.cs" />
     <Compile Include="Models\ProcessTextDto.cs" />
@@ -713,6 +717,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712281300170_ArabiziIsFR.resx">
       <DependentUpon>201712281300170_ArabiziIsFR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712281335040_ArabiziTheme.resx">
+      <DependentUpon>201712281335040_ArabiziTheme.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

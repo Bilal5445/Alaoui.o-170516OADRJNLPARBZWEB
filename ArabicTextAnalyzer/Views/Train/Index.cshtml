@@ -55,9 +55,9 @@
     <div class="dropdown div-inline">
         <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
         <ul class="dropdown-menu">
-            @foreach (var xtrctTheme in ViewBag.XtrctThemes)
+            @foreach (var userXtrctTheme in ViewBag.UserXtrctThemes)
             {
-                <li class="@xtrctTheme.CurrentActive"><a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = @xtrctTheme.ThemeName })">@xtrctTheme.ThemeName</a></li>
+                <li class="@userXtrctTheme.CurrentActive"><a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = userXtrctTheme.ThemeName })">@userXtrctTheme.ThemeName</a></li>
             }
         </ul>
     </div>
@@ -103,7 +103,7 @@
 <div class="themekeywords card card-inverse card-primary">
     <h1>
         <span class="label label-info">
-            @ViewBag.ActiveXtrctTheme.ThemeName.Trim()
+            @ViewBag.UserActiveXtrctTheme.ThemeName.Trim()
             <a href="" style="position: absolute; right: 0; top: 0;"><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
         </span>
     </h1>
@@ -143,7 +143,7 @@
             </div>
         </div>
     </div>
-    <a href="@Url.Action("XtrctTheme_Keywords_Reload", new { themename = @ViewBag.ActiveXtrctTheme.ThemeName.Trim() })" class="btn btn-outline-primary btn-xs">
+    <a href="@Url.Action("XtrctTheme_Keywords_Reload", new { themename = @ViewBag.UserActiveXtrctTheme.ThemeName.Trim() })" class="btn btn-outline-primary btn-xs">
         <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
     </a>
 </div>
@@ -184,7 +184,7 @@
 else if (token != null && !string.IsNullOrEmpty(token as string))
 {
     <!-- aribizi translate -->
-    using (Html.BeginForm("TrainStepOne", "Train", new { mainEntity = @ViewBag.ActiveXtrctTheme.ThemeName.Trim() }, FormMethod.Post, new { id = "trainform" }))
+    using (Html.BeginForm("TrainStepOne", "Train", new { mainEntity = @ViewBag.UserActiveXtrctTheme.ThemeName.Trim() }, FormMethod.Post, new { id = "trainform" }))
     {
         <div class="panel panel-default active">
             <div class="panel-heading">Arabizi</div>
@@ -193,6 +193,7 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
                     <span class="input-group-addon">@Html.CheckBoxFor(m => m.IsFR) FR</span>
                     @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "resize:none", rows = 2, @class = "form-control custom-control", @required = "required" })
                     @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
+                    @Html.HiddenFor(m => m.ID_XTRCTTHEME, new { @Value = ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME })
                     <span class="input-group-addon btn btn-primary" onclick="document.forms['trainform'].submit();">Translate / Extract NER</span>
                 </div>
             </div>
