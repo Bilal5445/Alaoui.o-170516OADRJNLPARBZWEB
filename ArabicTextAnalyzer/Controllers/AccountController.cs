@@ -89,7 +89,8 @@ namespace ArabicTextAnalyzer.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    goto createDefaultTheme;
+                // return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -99,6 +100,38 @@ namespace ArabicTextAnalyzer.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
+
+        createDefaultTheme:
+            // TMP DEV TIME : Create default theme if there is not any one before
+            var userIdentity = SignInManager.AuthenticationManager.AuthenticationResponseGrant.Identity;
+            String userId = SignInManager.AuthenticationManager.AuthenticationResponseGrant.Identity.GetUserId();
+            var arabizer = new Arabizer();
+            if (arabizer.loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId).Count == 0)
+            {
+                arabizer.saveserializeM_XTRCTTHEME_EFSQL(new M_XTRCTTHEME
+                {
+                    ID_XTRCTTHEME = Guid.NewGuid(),
+                    CurrentActive = "active",
+                    ThemeName = "Default",
+                    UserID = userId
+                });
+            }
+
+            // create Default App For Admin first time (since the admin does not resiter, the app creation can be only here once)
+            // if (userIdentity.Name == "Administrator")
+            if (userIdentity.Claims.SingleOrDefault(m => m.Value == "Administrator") != null)
+            {
+                if (arabizer.loaddeserializeRegisterApp_DAPPERSQL(userId).Count == 0)
+                {
+                    // create app to use the arabizi
+                    var appLimit = Convert.ToInt32(ConfigurationManager.AppSettings["TotalAppCallLimit"]);
+                    var app = new RegisterApp { Name = userId + ".app" };
+                    new AppManager().CreateApp(app, userId, false, new RegisterAppConcrete(), new ClientKeysConcrete(), appLimit);
+                }
+            }
+
+            //
+            return RedirectToLocal(returnUrl);
         }
 
         //
@@ -179,7 +212,7 @@ namespace ArabicTextAnalyzer.Controllers
                     var app = new RegisterApp { Name = userId + ".app" };
                     new AppManager().CreateApp(app, userId, false, new RegisterAppConcrete(), new ClientKeysConcrete(), appLimit);
 
-                    // Create default them
+                    // Create default theme
                     new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(new M_XTRCTTHEME
                     {
                         ID_XTRCTTHEME = Guid.NewGuid(),
