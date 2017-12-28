@@ -15,5 +15,6 @@ namespace ArabicTextAnalyzer.Domain.Models
         public Guid ID_ARABIZIENTRY { get; set; }
         public String ArabiziText { get; set; }
         public DateTime ArabiziEntryDate { get; set; }
+        public bool IsFR { get; set; }
     }
 }

@@ -219,8 +219,7 @@ namespace ArabicTextAnalyzer.Controllers
                 }
 
                 // Arabizi to arabic script via direct call to perl script
-                // var res = new Arabizer().train(arabiziEntry, mainEntity, thisLock);
-                var res = new Arabizer(Server).train(arabiziEntry, mainEntity, thisLock);   // count time
+                var res = new Arabizer(Server).train(arabiziEntry, mainEntity, thisLock: thisLock);   // count time
                 // if (res == Guid.Empty)
                 if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
                 {
@@ -458,7 +457,7 @@ namespace ArabicTextAnalyzer.Controllers
                 {
                     ArabiziText = content.Trim(),
                     ArabiziEntryDate = DateTime.Now
-                }, activeXtrctTheme.ThemeName, thisLock);
+                }, activeXtrctTheme.ThemeName, thisLock: thisLock);
             }
             else
             {
@@ -876,7 +875,7 @@ namespace ArabicTextAnalyzer.Controllers
                     {
                         ArabiziText = line.Trim(),
                         ArabiziEntryDate = DateTime.Now
-                    }, mainEntity, thisLock);
+                    }, mainEntity, thisLock: thisLock);
                 }
 
                 // mark how many rows been translated
@@ -1097,191 +1096,6 @@ namespace ArabicTextAnalyzer.Controllers
                 return View(search);
             }
         }*/
-
-        #region BACK YARD BO TRAIN
-        /*private Guid train(M_ARABIZIENTRY arabiziEntry, String mainEntity)
-        {
-            // Arabizi to arabic from perl script
-            if (arabiziEntry.ArabiziText == null)
-                return Guid.Empty;
-
-            //
-            var id_ARABICDARIJAENTRY = Guid.NewGuid();
-
-            Logging.Write(Server, "train - before lock : 0");
-            var watch = Stopwatch.StartNew();
-            lock (thisLock)
-            {
-                Logging.Write(Server, "train - after lock (thisLock) : " + watch.ElapsedMilliseconds); // watch.Restart();
-
-                String arabicText = train_savearabizi(arabiziEntry, AccessMode.efsql);
-                Logging.Write(Server, "train - after train_savearabizi : " + watch.ElapsedMilliseconds); // watch.Restart();
-
-                //
-                arabicText = new TextConverter().Preprocess_upstream(arabicText);
-                Logging.Write(Server, "train - after train_Preprocess_upstream : " + watch.ElapsedMilliseconds); // watch.Restart();
-
-                arabicText = train_bidict(arabicText);
-                Logging.Write(Server, "train - after train_bidict : " + watch.ElapsedMilliseconds); // watch.Restart();
-
-                arabicText = train_binggoogle(arabicText);
-                Logging.Write(Server, "train - after train_binggoogle : " + watch.ElapsedMilliseconds); // watch.Restart();
-
-                arabicText = train_saveperl(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql);
-                Logging.Write(Server, "train - after train_saveperl : " + watch.ElapsedMilliseconds); // watch.Restart();
-
-                arabicText = train_savelatinwords(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
-                Logging.Write(Server, "train - after train_savelatinwords : " + watch.ElapsedMilliseconds); // watch.Restart();
-
-                train_savesa(arabicText);
-                Logging.Write(Server, "train - after train_savesa : " + watch.ElapsedMilliseconds); // watch.Restart();
-
-                train_savener(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
-                Logging.Write(Server, "train - after train_savener : " + watch.ElapsedMilliseconds); // watch.Restart();
-
-                // apply main tag : add main entity & Save to Serialization
-                if (!String.IsNullOrEmpty(mainEntity))
-                {
-                    var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
-                    {
-                        ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
-                        ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
-                        TextEntity = new TextEntity
-                        {
-                            Count = 1,
-                            Mention = mainEntity,
-                            Type = "MAIN ENTITY"
-                        }
-                    };
-                    saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(textEntity);
-                }
-            }
-            Logging.Write(Server, "train - after end of lock : " + watch.ElapsedMilliseconds);
-
-            //
-            return id_ARABICDARIJAENTRY;
-        }
-
-        private String train_savearabizi(M_ARABIZIENTRY arabiziEntry, AccessMode accessMode)
-        {
-            // complete arabizi entry & Save arabiziEntry to Serialization
-            arabiziEntry.ID_ARABIZIENTRY = Guid.NewGuid();
-
-            // clean
-            arabiziEntry.ArabiziText = arabiziEntry.ArabiziText.Trim(new char[] { ' ', '\t' });
-
-            // save
-            saveserializeM_ARABIZIENTRY(arabiziEntry, accessMode);
-
-            return arabiziEntry.ArabiziText;
-        }
-
-        private static string train_bidict(string arabicText)
-        {
-            // clean before google/bing : o w
-            arabicText = new TextFrequency().ReplaceArzByArFromBidict(arabicText);
-            return arabicText;
-        }
-
-        private static string train_binggoogle(String arabicText)
-        {
-            // first pass : correct/translate the original arabizi into msa arabic using big/google apis (to take care of french/english segments in codeswitch arabizi posts)
-            return new TranslationTools().CorrectTranslate(arabicText);
-        }
-
-        private String train_saveperl(Stopwatch watch, string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
-        {
-            // first process buttranslateperl : means those should be cleaned in their without-bracket origan form so they can be translated by perl
-            // ex : "<span class='notranslate BUTTRANSLATEPERL'>kolchi</span> katbakkih bl3ani" should become "kolchi katbakkih bl3ani" so perl can translate it
-            arabicText = new Regex(@"<span class='notranslate BUTTRANSLATEPERL'>(.*?)</span>").Replace(arabicText, "$1");
-
-            // process notranslate
-            var regex = new Regex(@"<span class='notranslate'>(.*?)</span>");
-
-            // save matches
-            var matches = regex.Matches(arabicText);
-
-            // skip over non-translantable parts
-            arabicText = regex.Replace(arabicText, "001000100");
-
-            // translate arabizi to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
-            Logging.Write(Server, "train - before train_saveperl > Convert : " + watch.ElapsedMilliseconds);
-            arabicText = new TextConverter().Convert(Server, watch, arabicText);
-            Logging.Write(Server, "train - after train_saveperl > Convert : " + watch.ElapsedMilliseconds);
-
-            // restore do not translate from 001000100
-            var regex2 = new Regex(@"001000100");
-            foreach (Match match in matches)
-            {
-                arabicText = regex2.Replace(arabicText, match.Value, 1);
-            }
-            // clean <span class='notranslate'>
-            arabicText = new Regex(@"<span class='notranslate'>(.*?)</span>").Replace(arabicText, "$1");
-
-            //
-            var arabicDarijaEntry = new M_ARABICDARIJAENTRY
-            {
-                ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
-                ID_ARABIZIENTRY = id_ARABIZIENTRY,
-                ArabicDarijaText = arabicText
-            };
-
-            // save to persist
-            saveserializeM_ARABICDARIJAENTRY(arabicDarijaEntry, accessMode);
-
-            //
-            return arabicText;
-        }
-
-        private String train_savelatinwords(String arabicText, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
-        {
-            // extract latin words and save every match of latin words
-            // also calculate on the fly the number of variants
-            MatchCollection matches = TextTools.ExtractLatinWords(arabicText);
-            foreach (Match match in matches)
-            {
-                // do not consider words in the bidict as latin words
-                if (new TextFrequency().BidictContainsWord(match.Value))
-                    continue;
-
-                // count variants
-                String arabiziWord = match.Value;
-                int variantsCount = new TextConverter().GetAllTranscriptions(arabiziWord).Count;
-
-                var latinWord = new M_ARABICDARIJAENTRY_LATINWORD
-                {
-                    ID_ARABICDARIJAENTRY_LATINWORD = Guid.NewGuid(),
-                    ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
-                    LatinWord = arabiziWord,
-                    VariantsCount = variantsCount
-                };
-
-                // Save to Serialization
-                saveserializeM_ARABICDARIJAENTRY_LATINWORD(latinWord, accessMode);
-            }
-
-            return arabicText;
-        }
-
-        private void train_savesa(string arabicText)
-        {
-            // Sentiment analysis from watson https://gateway.watsonplatform.net/" and Save to Serialization
-            var textSentimentAnalyzer = new TextSentimentAnalyzer();
-            TextSentiment sentiment = textSentimentAnalyzer.GetSentiment(arabicText);
-
-            //
-            saveserializeM_ARABICDARIJAENTRY_LATINWORD_XML(sentiment);
-        }
-
-        private void train_savener(string arabicText, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
-        {
-            // Entity extraction from rosette (https://api.rosette.com/rest/v1/)
-            var entities = new TextEntityExtraction().GetEntities(arabicText);
-
-            // NER manual extraction
-            new TextEntityExtraction().NerManualExtraction(arabicText, entities, id_ARABICDARIJAENTRY, Server, saveserializeM_ARABICDARIJAENTRY_TEXTENTITY, accessMode);
-        }*/
-        #endregion
 
         #region BACK YARD BO LOAD
         private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY(AccessMode accessMode)

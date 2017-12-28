@@ -27,7 +27,7 @@ namespace ArabicTextAnalyzer.BO
         }
 
         #region BACK YARD BO TRAIN
-        public dynamic train(M_ARABIZIENTRY arabiziEntry, String mainEntity, Object thisLock)
+        public dynamic train(M_ARABIZIENTRY arabiziEntry, String mainEntity, Object thisLock = null)
         {
             dynamic expando = new ExpandoObject();
             expando.M_ARABIZIENTRY = arabiziEntry;
@@ -49,21 +49,31 @@ namespace ArabicTextAnalyzer.BO
             var watch = Stopwatch.StartNew();
             lock (thisLock)
             {
+                // did we check Fr mode
+                var frMode = arabiziEntry.IsFR;
+
+                //
                 String arabicText = train_savearabizi(arabiziEntry, AccessMode.efsql);
 
                 //
-                arabicText = new TextConverter().Preprocess_upstream(arabicText);
+                if (frMode == false)
+                    arabicText = new TextConverter().Preprocess_upstream(arabicText);
 
-                arabicText = train_bidict(arabicText);
+                if (frMode == false)
+                    arabicText = train_bidict(arabicText);
 
-                arabicText = train_binggoogle(arabicText);
+                if (frMode == false)
+                    arabicText = train_binggoogle(arabicText);
 
-                var arabicDarijaEntry = train_saveperl(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql);
+                var arabicDarijaEntry = train_saveperl(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql, frMode);
                 arabicText = arabicDarijaEntry.ArabicDarijaText;
                 expando.M_ARABICDARIJAENTRY = arabicDarijaEntry;
 
-                var arabicDarijaEntryLatinWords = train_savelatinwords(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
-                expando.M_ARABICDARIJAENTRY_LATINWORDs = arabicDarijaEntryLatinWords;
+                if (frMode == false)
+                {
+                    var arabicDarijaEntryLatinWords = train_savelatinwords(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
+                    expando.M_ARABICDARIJAENTRY_LATINWORDs = arabicDarijaEntryLatinWords;
+                }
 
                 List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = train_savener(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
                 expando.M_ARABICDARIJAENTRY_TEXTENTITYs = textEntities;
@@ -117,32 +127,35 @@ namespace ArabicTextAnalyzer.BO
             return new TranslationTools().CorrectTranslate(arabicText);
         }
 
-        private M_ARABICDARIJAENTRY train_saveperl(Stopwatch watch, string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
+        private M_ARABICDARIJAENTRY train_saveperl(Stopwatch watch, string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY, AccessMode accessMode, bool frMode = false)
         {
-            // first process buttranslateperl : means those should be cleaned in their without-bracket origan form so they can be translated by perl
-            // ex : "<span class='notranslate BUTTRANSLATEPERL'>kolchi</span> katbakkih bl3ani" should become "kolchi katbakkih bl3ani" so perl can translate it
-            arabicText = new Regex(@"<span class='notranslate BUTTRANSLATEPERL'>(.*?)</span>").Replace(arabicText, "$1");
-
-            // process notranslate
-            var regex = new Regex(@"<span class='notranslate'>(.*?)</span>");
-
-            // save matches
-            var matches = regex.Matches(arabicText);
-
-            // skip over non-translantable parts
-            arabicText = regex.Replace(arabicText, "001000100");
-
-            // translate arabizi to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
-            arabicText = new TextConverter().Convert(Server, watch, arabicText);
-
-            // restore do not translate from 001000100
-            var regex2 = new Regex(@"001000100");
-            foreach (Match match in matches)
+            if (frMode == false)
             {
-                arabicText = regex2.Replace(arabicText, match.Value, 1);
+                // first process buttranslateperl : means those should be cleaned in their without-bracket origan form so they can be translated by perl
+                // ex : "<span class='notranslate BUTTRANSLATEPERL'>kolchi</span> katbakkih bl3ani" should become "kolchi katbakkih bl3ani" so perl can translate it
+                arabicText = new Regex(@"<span class='notranslate BUTTRANSLATEPERL'>(.*?)</span>").Replace(arabicText, "$1");
+
+                // process notranslate
+                var regex = new Regex(@"<span class='notranslate'>(.*?)</span>");
+
+                // save matches
+                var matches = regex.Matches(arabicText);
+
+                // skip over non-translantable parts
+                arabicText = regex.Replace(arabicText, "001000100");
+
+                // translate arabizi to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
+                arabicText = new TextConverter().Convert(Server, watch, arabicText);
+
+                // restore do not translate from 001000100
+                var regex2 = new Regex(@"001000100");
+                foreach (Match match in matches)
+                {
+                    arabicText = regex2.Replace(arabicText, match.Value, 1);
+                }
+                // clean <span class='notranslate'>
+                arabicText = new Regex(@"<span class='notranslate'>(.*?)</span>").Replace(arabicText, "$1");
             }
-            // clean <span class='notranslate'>
-            arabicText = new Regex(@"<span class='notranslate'>(.*?)</span>").Replace(arabicText, "$1");
 
             //
             var arabicDarijaEntry = new M_ARABICDARIJAENTRY

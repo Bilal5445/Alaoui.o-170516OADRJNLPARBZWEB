@@ -190,9 +190,10 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
             <div class="panel-heading">Arabizi</div>
             <div class="panel-body" style="padding: 0;">
                 <div class="input-group">
+                    <span class="input-group-addon">@Html.CheckBoxFor(m => m.IsFR) FR</span>
                     @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "resize:none", rows = 2, @class = "form-control custom-control", @required = "required" })
                     @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
-                    <span class="input-group-addon btn btn-primary" onclick="document.forms['trainform'].submit();">Translate</span>
+                    <span class="input-group-addon btn btn-primary" onclick="document.forms['trainform'].submit();">Translate / Extract NER</span>
                 </div>
             </div>
         </div>
