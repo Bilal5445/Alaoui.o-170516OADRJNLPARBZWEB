@@ -121,10 +121,10 @@ namespace ArabicTextAnalyzer.Controllers
             // note the keywords can be many records associated with this theme, plus the original record (filled at creation) contains many kewords seprated by space
             // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
             // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
-            @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Select(m => m.Keyword).ToList();
-            @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE").Select(m => m.Keyword).ToList();
-            @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE").Select(m => m.Keyword).ToList();
-            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "NEGATIVE").Select(m => m.Keyword).ToList();
+            // @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Select(m => m.Keyword).ToList();
+            @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE")/*.Select(m => m.Keyword)*/.ToList();
+            @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE")/*.Select(m => m.Keyword)*/.ToList();
+            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "NEGATIVE")/*.Select(m => m.Keyword)*/.ToList();
 
             // file upload communication
             @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
@@ -806,23 +806,24 @@ namespace ArabicTextAnalyzer.Controllers
             List<THEMETAGSCOUNT> tagscounts = loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(themename);
 
             //
-            var activeXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+            var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
 
             //
-            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = new List<M_XTRCTTHEME_KEYWORD>();
+            List<M_XTRCTTHEME_KEYWORD> userActiveXtrctThemeKeywords = new List<M_XTRCTTHEME_KEYWORD>();
             foreach (var tagcount in tagscounts)
             {
-                xtrctThemesKeywords.Add(new M_XTRCTTHEME_KEYWORD
+                userActiveXtrctThemeKeywords.Add(new M_XTRCTTHEME_KEYWORD
                 {
                     ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
-                    ID_XTRCTTHEME = activeXtrctTheme.ID_XTRCTTHEME,
+                    ID_XTRCTTHEME = userActiveXtrctTheme.ID_XTRCTTHEME,
                     Keyword = tagcount.TextEntity_Mention,
-                    Keyword_Type = tagcount.TextEntity_Type
+                    Keyword_Type = tagcount.TextEntity_Type,
+                    Keyword_Count = tagcount.SUM_TextEntity_Count
                 });
             }
 
             // save
-            new Arabizer().saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(xtrctThemesKeywords, activeXtrctTheme);
+            new Arabizer().saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(userActiveXtrctThemeKeywords, userActiveXtrctTheme);
 
             //
             return RedirectToAction("Index");

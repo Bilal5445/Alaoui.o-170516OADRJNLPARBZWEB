@@ -112,32 +112,35 @@
             <div class="col-lg-4">
                 @foreach (var tag in ViewBag.ActiveXtrctThemeNegTags)
                 {
+                    String badgeCounter = tag.Keyword_Count > 1 ? " (" + tag.Keyword_Count + ")" : String.Empty;
                     if (ViewBag.ActiveXtrctThemeNegTags.IndexOf(tag) % 2 == 0)
                     {
-                        <span class="label label-danger themekeywords">@tag</span>
+                        <span class="label label-danger themekeywords">@tag.Keyword@badgeCounter</span>
                     }
                     else
                     {
-                        <span class="label label-warning themekeywords">@tag</span>
+                        <span class="label label-warning themekeywords">@tag.Keyword@badgeCounter</span>
                     }
                 }
             </div>
             <div class="col-lg-4">
                 @foreach (var tag in ViewBag.ActiveXtrctThemeOtherTags)
                 {
-                    <span class="label label-default themekeywords">@tag</span>
+                    String badgeCounter = tag.Keyword_Count > 1 ? " (" + tag.Keyword_Count + ")" : String.Empty;
+                    <span class="label label-default themekeywords">@tag.Keyword@badgeCounter</span>
                 }
             </div>
             <div class="col-lg-4">
                 @foreach (var tag in ViewBag.ActiveXtrctThemePosTags)
                 {
+                    String badgeCounter = tag.Keyword_Count > 1 ? " (" + tag.Keyword_Count + ")" : String.Empty;
                     if (ViewBag.ActiveXtrctThemePosTags.IndexOf(tag) % 2 == 0)
                     {
-                        <span class="label label-info themekeywords">@tag</span>
+                        <span class="label label-info themekeywords">@tag.Keyword@badgeCounter</span>
                     }
                     else
                     {
-                        <span class="label label-success themekeywords">@tag</span>
+                        <span class="label label-success themekeywords">@tag.Keyword@badgeCounter</span>
                     }
                 }
             </div>

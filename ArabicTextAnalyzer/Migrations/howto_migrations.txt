@@ -59,7 +59,6 @@ Update-Database
 Add-Migration FBAccess_CompositeKey
 Update-Database
 
-
 ----
 
 On a new Server, code-first cannot create DB : err : CREATE DATABASE permission denied in database 'master'.
@@ -87,4 +86,10 @@ Update-Database
 
 VS > Tools > NuGet Package Manager > Package Manager Console : Default project : ArabicTextAnalyzer
 Add-Migration ArabiziTheme
+Update-Database
+
+---
+
+VS > Tools > NuGet Package Manager > Package Manager Console : Default project : ArabicTextAnalyzer
+Add-Migration ThemeKeyWordWithCount
 Update-Database
