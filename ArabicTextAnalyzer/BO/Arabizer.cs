@@ -176,7 +176,7 @@ namespace ArabicTextAnalyzer.BO
             return arabicDarijaEntry;
         }
 
-        private /*String*/List<M_ARABICDARIJAENTRY_LATINWORD> train_savelatinwords(String arabicText, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
+        private List<M_ARABICDARIJAENTRY_LATINWORD> train_savelatinwords(String arabicText, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
         {
             List<M_ARABICDARIJAENTRY_LATINWORD> arabicDarijaEntryLatinWords = new List<M_ARABICDARIJAENTRY_LATINWORD>();
 
@@ -222,7 +222,7 @@ namespace ArabicTextAnalyzer.BO
             saveserializeM_ARABICDARIJAENTRY_LATINWORD_XML(sentiment);
         }*/
 
-        private /*void*/List<M_ARABICDARIJAENTRY_TEXTENTITY> train_savener(string arabicText, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
+        private List<M_ARABICDARIJAENTRY_TEXTENTITY> train_savener(string arabicText, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
         {
             // Entity extraction from rosette (https://api.rosette.com/rest/v1/)
             var entities = new TextEntityExtraction().GetEntities(arabicText);
