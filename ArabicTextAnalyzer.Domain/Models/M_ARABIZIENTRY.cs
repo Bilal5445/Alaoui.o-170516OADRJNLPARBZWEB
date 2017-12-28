@@ -16,5 +16,6 @@ namespace ArabicTextAnalyzer.Domain.Models
         public String ArabiziText { get; set; }
         public DateTime ArabiziEntryDate { get; set; }
         public bool IsFR { get; set; }
+        public Guid ID_XTRCTTHEME { get; set; }    // FK
     }
 }
