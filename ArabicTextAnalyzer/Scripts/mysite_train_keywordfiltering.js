@@ -139,7 +139,7 @@ function InitializeFBDataTables(fluencerid) {
             "columns": [
                 { "data": null, "className": "details-control", "defaultContent": '<img src="http://i.imgur.com/SD7Dz.png" class="imagetag" onclick="' + "GetComments(this)" + '">' },
                     { "data": "id", "className": "center top" },
-                    { "data": "fk_i", "className": "arabizi-text top" },
+                    // { "data": "fk_i", "className": "arabizi-text top" },
                     { "data": "pt", "className": "arabizi-text top" },
                     { "data": "tt", "className": "arabizi-text top" },
                     { "data": "lc", "className": "arabic-text top" },

@@ -989,13 +989,14 @@ namespace ArabicTextAnalyzer.Controllers
             var items = loaddeserializeT_FB_POST_DAPPERSQL(fluencerid).Select(c => new
             {
                 id = c.id,
-                fk_i = c.fk_influencer,
+                // fk_i = c.fk_influencer,
                 pt = c.post_text,
                 tt = c.translated_text,
                 lc = c.likes_count,
                 cc = c.comments_count,
-                dp = c.date_publishing
+                dp = c.date_publishing.ToString("yyyy-MM-dd HH:mm")
             }).ToList();
+
             // get the number of entries
             var itemsCount = items.Count;
 
@@ -1413,21 +1414,22 @@ namespace ArabicTextAnalyzer.Controllers
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "";
+                //
+                String qry = "SELECT * FROM T_FB_POST ";
+
+                //
                 if (!string.IsNullOrEmpty(influencerid))
-                {
-                    qry = "SELECT * FROM T_FB_POST where fk_influencer='" + influencerid + "'";
-                }
-                else
-                {
-                    qry = "SELECT * FROM T_FB_POST";
-                }
+                    qry += "WHERE fk_influencer = '" + influencerid + "' ";
 
+                //
+                qry += "ORDER BY date_publishing DESC ";
 
+                //
                 conn.Open();
                 return conn.Query<FB_POST>(qry).ToList();
             }
         }
+
         private List<FBFeedComment> loaddeserializeT_FB_Comments(string postid = "")
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
@@ -1449,6 +1451,7 @@ namespace ArabicTextAnalyzer.Controllers
                 return conn.Query<FBFeedComment>(qry).ToList();
             }
         }
+
         private List<FBFeedComment> GetComments(string ids)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
