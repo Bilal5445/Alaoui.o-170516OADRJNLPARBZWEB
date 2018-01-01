@@ -139,7 +139,7 @@ function InitializeFBDataTables(fluencerid) {
             "columns": [
                 { "data": null, "className": "details-control", "defaultContent": '<img src="http://i.imgur.com/SD7Dz.png" class="imagetag" onclick="' + "GetComments(this)" + '">' },
                     { "data": "id", "className": "center top" },
-                    // { "data": "fk_i", "className": "arabizi-text top" },
+                    { "data": "fk_i", "className": "arabizi-text top collapsed" },
                     { "data": "pt", "className": "arabizi-text top" },
                     { "data": "tt", "className": "arabizi-text top" },
                     { "data": "lc", "className": "arabic-text top" },
@@ -249,6 +249,10 @@ function GetComments(obj) {
         var tr = $(obj).closest('tr');
         var id = ($($(obj).parents("tr").find("td")[1])).html().toString().split('_')[1];
         var influencerid = ($($(obj).parents("tr").find("td")[2])).html().toString();
+        console.log("influencerid : " + influencerid);
+        console.log("vars : " + vars);
+        console.log("vars.length : " + vars.length);
+        console.log("vars[influencerid] : " + vars[influencerid]);
         // alert(vars[influencerid])
         var table = vars[influencerid];// $('.table_' + influencerid).DataTable({});
         var row = table.row(tr);
@@ -526,13 +530,13 @@ function ResetDataTable(influencerid) {
     oTable.fnDestroy();
     LoadFacebookPosts(influencerid)
 }
-//end of method
+// end of method
 
-//method for reset the comments table
+// method for reset the comments table
 function ResetDataTableComments(influencerid) {
     var oTable = $('#tabledetails_' + influencerid).dataTable();
     oTable.fnClearTable();
     oTable.fnDestroy();
     GetCommentsForPost(influencerid)
 }
-//end of method
+// end of method

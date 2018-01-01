@@ -8,3 +8,12 @@
     border: 1px solid #ddd; /* Add a grey border */
     margin-bottom: 12px; /* Add some space below the input */
 }
+
+.collapsed {
+    /*visibility: collapse;
+    visibility: hidden;
+    width: 1px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;*/
+}
