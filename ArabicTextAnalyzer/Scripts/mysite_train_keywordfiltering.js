@@ -97,7 +97,7 @@ function InitializeDataTables() {
     });
 }
 
-//Table For FB For Particular influencer
+// Table For FB For Particular influencer
 var ViewInfluencerIsClicked = false;
 function LoadFacebookPosts(fluencerid) {
     if (ViewInfluencerIsClicked == false) {
@@ -139,7 +139,7 @@ function InitializeFBDataTables(fluencerid) {
             "columns": [
                 { "data": null, "className": "details-control", "defaultContent": '<img src="http://i.imgur.com/SD7Dz.png" class="imagetag" onclick="' + "GetComments(this)" + '">' },
                     { "data": "id", "className": "center top" },
-                    { "data": "fk_i", "className": "arabizi-text top collapsed" },
+                    /*{ "data": "fk_i", "className": "arabizi-text top collapsed" },*/
                     { "data": "pt", "className": "arabizi-text top" },
                     { "data": "tt", "className": "arabizi-text top" },
                     { "data": "lc", "className": "arabic-text top" },
@@ -361,9 +361,15 @@ function GetTranslateComment(id) {
 var TranslateCommentIsClicked = false;
 function TranslateComment(obj) {
     if (TranslateCommentIsClicked == false) {
+
+        //
         TranslateCommentIsClicked = true;
+
+        //
         if ($($(obj).parent().parent().find("td")[3]).html().trim().replace('-', '').length == 0) {
+
             if ($($(obj).parent().parent().find("td")[2]).html().trim().length > 0) {
+
                 var mainId = ($($(obj).parent().parent().find("td")[1])).html().toString();
                 var id = mainId.split('_')[0];
                 var TranlatedCommentId = "'" + mainId + "'";
