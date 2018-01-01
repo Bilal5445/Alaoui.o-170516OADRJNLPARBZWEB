@@ -189,26 +189,18 @@ function TranslateContent(obj) {
             if ($($(obj).parents("tr").find("td")[3]).html().trim().replace('-', '').length > 0) {
                 var _tag = ($($(obj).parents("tr").find("td")[3])).html().toString().replace('-', '');
                 var id = ($($(obj).parents("tr").find("td")[1])).html().toString();
-                //var urlToPost = "/Train/TranslateFbPost"// 'http://localhost:50037/api/Arabizi/GetArabicDarijaEntry/' + _tag + '?token=' + token// 
-                // alert(_tag)
                 $.ajax({
                     "dataType": 'json',
-                    // "contentType": "application/json; charset=utf-8",
                     "type": "GET",
                     "url": "/Train/TranslateFbPost",
                     "data": {
                         "content": _tag,
                         "id": id
-                        //"mainEntity": _tag,
-                        // "ArabiziEntryDate": new Date(),
-                        // "id": 1
                     },
                     "success": function (msg) {
                         console.log(msg);
                         TranslateContentIsClicked = false;
-                        //var json = JSON.parse(msg);
                         if (msg.status) {
-                            //alert(msg.recordsFiltered)
 
                             if ($($(obj).parents("tr").find("td")[4]).html().trim().replace('-', '').length == 0) {
                                 $($(obj).parents("tr").find("td")[4]).html(msg.recordsFiltered)
@@ -217,9 +209,6 @@ function TranslateContent(obj) {
                         else {
                             alert("Error " + msg.message);
                         }
-                        //customAlertMessages.alerts.success("Lead has been assigned successfully.");
-                        //$('#divGridLeads').DataTable().ajax.reload();
-                        //$('#grdLeadAssigned').DataTable().ajax.reload();
                     },
                     "error": function () {
                         alert("Error")
@@ -237,56 +226,57 @@ function TranslateContent(obj) {
             TranslateContentIsClicked = false;
         }
     }
-    //var token = $('#hdnToken').val();
 }
 // end of method.
 
 // method for get the comments table under the row of each post table
 var GetCommentsIsClicked = false;
+
 function GetComments(obj) {
+
     if (GetCommentsIsClicked == false) {
+
+        // mark as clicked
         GetCommentsIsClicked = true;
+
+        //
         var tr = $(obj).closest('tr');
-        var id = ($($(obj).parents("tr").find("td")[1])).html().toString().split('_')[1];
-        var influencerid = ($($(obj).parents("tr").find("td")[2])).html().toString();
-        console.log("influencerid : " + influencerid);
-        console.log("vars : " + vars);
-        console.log("vars.length : " + vars.length);
-        console.log("vars[influencerid] : " + vars[influencerid]);
-        // alert(vars[influencerid])
-        var table = vars[influencerid];// $('.table_' + influencerid).DataTable({});
+        var tds = $(obj).parents("tr").find("td");
+        var idCol = ($(tds[1])).html().toString().split('_');
+        var id = idCol[1];
+        var influenceridFromIdCol = idCol[0];
+        // var influencerid = ($(tds[2])).html().toString();
+        var influencerid = influenceridFromIdCol;
+        var table = vars[influencerid];
         var row = table.row(tr);
 
         if (row.child.isShown()) {
-            // alert("isShown")
+
             // This row is already open - close it
             $(obj).prop('src', "http://i.imgur.com/SD7Dz.png")
-            //$(obj).src = "http://i.imgur.com/SD7Dz.png";
             row.child.hide();
             tr.removeClass('shown');
             GetCommentsIsClicked = false;
+
         } else {
 
             $(obj).prop('src', "http://i.imgur.com/d4ICC.png")
-            //$(obj).src = "http://i.imgur.com/d4ICC.png";
             if (!$('#tabledetails_' + id).length) {
+
                 var tablecontent = CommentTable(id);
-                // alert(tablecontent)
-                // row.insertAfter( tablecontent )
                 row.child(tablecontent).show();
                 GetCommentsForPost(id);
                 $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a><h3>Comments</h3>')
                 GetCommentsIsClicked = false;
             }
             else {
+
                 row.child($('#tabledetails_' + id).html()).show();
                 GetCommentsIsClicked = false;
             }
             tr.addClass('shown');
         }
     }
-
-
 }
 
 var Comments = "";
@@ -296,7 +286,7 @@ function CommentTable(id) {
 }
 
 function GetCommentsForPost(id) {
-    //alert($('#tabledetails_' + id).html())
+
     $('#tabledetails_' + id).DataTable({
         // Enable mark.js search term highlighting
         mark: {
@@ -309,13 +299,6 @@ function GetCommentsForPost(id) {
             [10, 25, 50, 100, 500, 1000, -1],
             ['10', '25', '50', '100', '500', '1000', 'all']
         ],
-        // dom just to display the design of the fields : search , page , ...
-        //dom: "<'row'<'col-sm-3'B><'col-sm-3'l><'col-sm-6'f>>" +
-        //"<'row'<'col-sm-12'tr>>" +
-        //"<'row'<'col-sm-5'i><'col-sm-7'p>>",
-        //buttons: [
-        //    'copyHtml5', 'excel', 'csv'
-        //],
         //
         "columns": [
             {
@@ -363,10 +346,7 @@ function GetTranslateComment(id) {
                 else {
                     TranlatedCommentId = "'" + $(this).val() + "'"
                 }
-
-                //varientType.push($(this).val());
             }
-
         });
         if (TranlatedCommentId.length > 0) {
             postOnCommentsTranslate(TranlatedCommentId, id)
@@ -376,7 +356,6 @@ function GetTranslateComment(id) {
             GetTranslateCommentIsClicked = false;
         }
     }
-
 }
 
 var TranslateCommentIsClicked = false;
@@ -385,7 +364,6 @@ function TranslateComment(obj) {
         TranslateCommentIsClicked = true;
         if ($($(obj).parent().parent().find("td")[3]).html().trim().replace('-', '').length == 0) {
             if ($($(obj).parent().parent().find("td")[2]).html().trim().length > 0) {
-                //var _tag = ($($(obj).parents("tr").find("td")[2])).html().toString();
                 var mainId = ($($(obj).parent().parent().find("td")[1])).html().toString();
                 var id = mainId.split('_')[0];
                 var TranlatedCommentId = "'" + mainId + "'";
@@ -401,7 +379,6 @@ function TranslateComment(obj) {
             TranslateCommentIsClicked = false;
         }
     }
-
 }
 
 function postOnCommentsTranslate(TranlatedCommentId, id) {
@@ -412,15 +389,11 @@ function postOnCommentsTranslate(TranlatedCommentId, id) {
         "url": "/Train/TranslateFbComments",
         "data": {
             "ids": TranlatedCommentId
-            //"mainEntity": _tag,
-            // "ArabiziEntryDate": new Date(),
-            // "id": 1
         },
         "success": function (msg) {
             console.log(msg);
             GetTranslateCommentIsClicked = false;
             TranslateCommentIsClicked = false;
-            //var json = JSON.parse(msg);
             if (msg.status) {
                 ResetDataTableComments(id)
             }
@@ -500,16 +473,10 @@ function RetrieveFBPost(influencerurl_name, influencerid) {
             "success": function (msg) {
                 console.log(msg);
                 RetrieveFBPostIsClicked = false;
-                //var json = JSON.parse(msg);
+
                 if (msg.status) {
                     ResetDataTable(influencerid);
-                    //alert(msg.recordsFiltered)
-                    //$('.table_' + influencerid).DataTable().ajax.reload();           
-                    //fnCallback(influencerid)
                 }
-                    //customAlertMessages.alerts.success("Lead has been assigned successfully.");
-                    //$('#divGridLeads').DataTable().ajax.reload();
-                    //$('#grdLeadAssigned').DataTable().ajax.reload();
                 else {
                     alert("Error " + msg.message);
                 }
