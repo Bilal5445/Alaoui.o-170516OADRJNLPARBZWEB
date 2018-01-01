@@ -989,7 +989,7 @@ namespace ArabicTextAnalyzer.Controllers
             var items = loaddeserializeT_FB_POST_DAPPERSQL(fluencerid).Select(c => new
             {
                 id = c.id,
-                fk_i = c.fk_influencer,
+                // fk_i = c.fk_influencer,
                 pt = c.post_text,
                 tt = c.translated_text,
                 lc = c.likes_count,
