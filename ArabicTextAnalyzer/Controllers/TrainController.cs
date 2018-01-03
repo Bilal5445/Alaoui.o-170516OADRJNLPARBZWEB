@@ -219,7 +219,6 @@ namespace ArabicTextAnalyzer.Controllers
 
                 // Arabizi to arabic script via direct call to perl script
                 var res = new Arabizer(Server).train(arabiziEntry, mainEntity, thisLock: thisLock);   // count time
-                // if (res == Guid.Empty)
                 if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
                 {
                     TempData["showAlertWarning"] = true;
@@ -830,71 +829,143 @@ namespace ArabicTextAnalyzer.Controllers
         }
         #endregion
 
+        //
+        private static IDictionary<Guid, int> indexForUploadInProgress = new Dictionary<Guid, int>();
+
         // This action handles the form POST and the upload
         [HttpPost]
         public ActionResult Data_Upload(HttpPostedFileBase file, String mainEntity)
         {
-            Logging.Write(Server, "Data_Upload - 1");
-
-            // check before if the user selected a file
-            if (file == null || file.ContentLength == 0)
+            try
             {
-                // we use tempdata instead of viewbag because viewbag can't be passed over to a controller
-                TempData["showAlertWarning"] = true;
-                TempData["msgAlert"] = "No file has been chosen.";
-                return RedirectToAction("Index");
-            }
+                // get current active theme for the current user
+                var userId = User.Identity.GetUserId();
+                var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
 
-            Logging.Write(Server, "Data_Upload - 2");
+                Logging.Write(Server, "Data_Upload - 1");
 
-            // check before if mainEntity is not empty
-            if (String.IsNullOrWhiteSpace(mainEntity))
-            {
-                // we use tempdata instead of viewbag because viewbag can't be passed over to a controller
-                TempData["showAlertWarning"] = true;
-                TempData["msgAlert"] = "No main entity has been entered.";
-                return RedirectToAction("Index");
-            }
-
-            // extract only the filename
-            var fileName = Path.GetFileName(file.FileName);
-
-            // store the file inside ~/App_Data/uploads folder
-            var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
-            file.SaveAs(path);
-
-            var token = Session["_T0k@n_"];
-            string errMessage = string.Empty;
-            if (token != null && _IAuthenticate.IsTokenValid(Convert.ToString(token), "Data_Upload", out errMessage))
-            {
-                // loop and process each one
-                var lines = System.IO.File.ReadLines(path).ToList();
-                foreach (string line in lines)
+                // check before if the user selected a file
+                if (file == null || file.ContentLength == 0)
                 {
-                    new Arabizer().train(new M_ARABIZIENTRY
-                    {
-                        ArabiziText = line.Trim(),
-                        ArabiziEntryDate = DateTime.Now
-                    }, mainEntity, thisLock: thisLock);
+                    // we use tempdata instead of viewbag because viewbag can't be passed over to a controller
+                    TempData["showAlertWarning"] = true;
+                    TempData["msgAlert"] = "No file has been chosen.";
+                    return RedirectToAction("Index");
                 }
 
-                // mark how many rows been translated
-                TempData["showAlertSuccess"] = true;
-                TempData["msgAlert"] = lines.Count.ToString() + " rows has been imported.";
+                Logging.Write(Server, "Data_Upload - 2");
+
+                // check before if mainEntity is not empty
+                if (String.IsNullOrWhiteSpace(mainEntity))
+                {
+                    // we use tempdata instead of viewbag because viewbag can't be passed over to a controller
+                    TempData["showAlertWarning"] = true;
+                    TempData["msgAlert"] = "No main entity has been entered.";
+                    return RedirectToAction("Index");
+                }
+
+                // check extension
+                var allowedExtensions = new[] { ".tsv", ".txt", ".csv" };
+                var checkextension = Path.GetExtension(file.FileName).ToLower();
+                if (!allowedExtensions.Contains(checkextension))
+                {
+                    // we use tempdata instead of viewbag because viewbag can't be passed over to a controller
+                    TempData["showAlertWarning"] = true;
+                    TempData["msgAlert"] = "Select tsv or txt or csv file with one column.";
+                    return RedirectToAction("Index");
+                }
+
+                // extract only the filename
+                var fileName = Path.GetFileName(file.FileName);
+
+                // store the file inside ~/App_Data/uploads folder
+                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                file.SaveAs(path);
+
+                var token = Session["_T0k@n_"];
+                string errMessage = string.Empty;
+                if (token != null && _IAuthenticate.IsTokenValid(Convert.ToString(token), "Data_Upload", out errMessage))
+                {
+                    //
+                    var lines = System.IO.File.ReadLines(path).ToList();
+                    if (lines.Count > 20)
+                    {
+                        // we use tempdata instead of viewbag because viewbag can't be passed over to a controller
+                        TempData["showAlertWarning"] = true;
+                        TempData["msgAlert"] = "Select tsv or txt or csv file with one column with 20 lines max";
+                        return RedirectToAction("Index");
+                    }
+
+                    // the id to track the progress of upload
+                    var uploadInProgressId = new Guid(userId);
+                    indexForUploadInProgress.Add(uploadInProgressId, 0);
+
+                    // loop and process each one
+                    int i = 0;
+                    foreach (string line in lines)
+                    {
+                        if (String.IsNullOrWhiteSpace(line))
+                            continue;
+
+                        // translate
+                        new Arabizer().train(new M_ARABIZIENTRY
+                        {
+                            ArabiziText = line.Trim(),
+                            ArabiziEntryDate = DateTime.Now,
+                            ID_XTRCTTHEME = userActiveXtrctTheme.ID_XTRCTTHEME
+                        }, mainEntity, thisLock: thisLock);
+
+                        // progress
+                        i++;
+                        indexForUploadInProgress[uploadInProgressId] = i; // lines.IndexOf(line);
+                    }
+
+                    // mark how many rows been translated
+                    TempData["showAlertSuccess"] = true;
+                    // TempData["msgAlert"] = lines.Count.ToString() + " rows has been imported.";
+                    TempData["msgAlert"] = i + " rows has been imported.";
+
+                    // end progress
+                    indexForUploadInProgress[uploadInProgressId] = -1;
+                    indexForUploadInProgress.Remove(uploadInProgressId);
+                }
+                else
+                {
+                    Session["_T0k@n_"] = "";
+                    TempData["showAlertWarning"] = true;
+                    TempData["msgAlert"] = errMessage;  // "Not a valid token";
+                }
+
+                // delete just uploaded file in uploads
+                System.IO.File.Delete(path);
+
+                // redirect back to the index action to show the form once again
+                return RedirectToAction("Index");
             }
-            else
+            catch (Exception ex)
             {
-                Session["_T0k@n_"] = "";
-                TempData["showAlertWarning"] = true;
-                TempData["msgAlert"] = errMessage;  // "Not a valid token";
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                throw;
             }
-
-            // delete just uploaded file in uploads
-            System.IO.File.Delete(path);
-
-            // redirect back to the index action to show the form once again
-            return RedirectToAction("Index");
         }
+
+        /*[HttpPost]
+        public ActionResult Data_Upload_Progress()
+        {
+            // get current active theme for the current user
+            var userId = User.Identity.GetUserId();
+            var userGuid = new Guid(userId);
+
+            //
+            int progress = 0;
+            if (indexForUploadInProgress.Keys.Contains(userGuid))
+                progress = indexForUploadInProgress[userGuid];
+
+            //
+            return Json(progress);
+        }*/
 
         [HttpPost]
         public void Log(String message)

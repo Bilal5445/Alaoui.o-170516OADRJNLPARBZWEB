@@ -64,7 +64,7 @@ function InitializeDataTables() {
                 // add it to global array
                 selectedArabiziIds.push(hrefInnerId);
 
-                console.log(hrefInnerId);
+                // console.log(hrefInnerId);
 
                 // save old id in backud
                 $(this).find("td:eq(6)").find("> a").attr('data-backhref', hrefInnerId);

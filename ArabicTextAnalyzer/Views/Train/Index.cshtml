@@ -48,6 +48,34 @@
     @Scripts.Render("~/bundles/js_train")
     @Scripts.Render("~/bundles/js_train_keywordfiltering");
     @Scripts.Render("~/bundles/js_train_tagsinput");
+
+    <script type="text/javascript">
+    /*function updateMonitor(status) {
+        $("#monitors").html("Task : " + status);
+    }
+
+    function monitor() {
+        // Init monitors
+        $("#monitors").append($("<p>0</>"));
+        updateMonitor("Started");
+
+        // Periodically update monitors
+        var intervalId = setInterval(function () {
+            console.log("call Data_Upload_Progress");
+            $.post("Train/Data_Upload_Progress", {}, function (progress) {
+                console.log("call Data_Upload_Progress : " + progress);
+                if (progress == -1) {
+                    updateMonitor("Completed");
+                    clearInterval(intervalId);
+                } else {
+                    updateMonitor(progress);
+                }
+            }).fail(function () {
+                console.log("call Data_Upload_Progress - fail");
+            });
+        }, 1000);
+    }*/
+    </script> 
 }
 
 <!-- theme menu -->
@@ -298,10 +326,11 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
         {
             <div class="form-group">
                 <label for="importposts">Bulk Import:</label>
-                <input type="file" name="file" class="form-control" id="importposts" />
+                <input type="file" name="file" class="form-control" id="importposts" accept=".tsv,.txt,.csv" />
                 <label for="mainEntity">Main Tag:</label>
                 @Html.DropDownList("mainEntity", (IEnumerable<SelectListItem>)ViewBag.XtrctThemesPlain, null, new { @class = "form-control" })
             </div>
+            <!--<button class="btn btn-success btn-md" type="submit" id="import_posts" onclick="monitor();">-->
             <button class="btn btn-success btn-md" type="submit" id="import_posts">
                 Import Posts
             </button>
@@ -321,6 +350,7 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
                 </div>
             }
         }
+        <div id="monitors"></div>
     </div>
 
     <!-- Place where you will insert your partial -->
