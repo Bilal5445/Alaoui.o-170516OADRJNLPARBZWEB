@@ -236,6 +236,11 @@ namespace ArabicTextAnalyzer.Business.Provider
         {
             // wa3acha al malik => wa3acha almalik
             String pattern = RegexConstant.dlRule;
+
+            // buid exceptions : dlam, ...
+            // pattern = @"\b(?!" + "dlam" + @")(dl|del).+?\b";
+            pattern = @"\b(?!" + "dlam" + @")(dl|del)(.+?)\b";
+
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "dyal al$2", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
