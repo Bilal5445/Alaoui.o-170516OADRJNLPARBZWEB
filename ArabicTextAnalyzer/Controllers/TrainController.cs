@@ -802,7 +802,7 @@ namespace ArabicTextAnalyzer.Controllers
             var userId = User.Identity.GetUserId();
 
             //
-            List<THEMETAGSCOUNT> tagscounts = loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(themename);
+            List<THEMETAGSCOUNT> tagscounts = loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(themename, userId);
 
             //
             var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
@@ -1292,7 +1292,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private List<THEMETAGSCOUNT> loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(String themename)
+        private List<THEMETAGSCOUNT> loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(String themename, String userId)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
 
@@ -1303,19 +1303,19 @@ namespace ArabicTextAnalyzer.Controllers
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 String qry0 = "SELECT "
-                                + "TextEntity_Mention, SUM(TextEntity_Count) SUM_TextEntity_Count, "
-                                + "TextEntity_Type "
-                            + "FROM T_ARABICDARIJAENTRY_TEXTENTITY "
-                            + "WHERE ID_ARABICDARIJAENTRY IN ( "
-                                + "SELECT ID_ARABICDARIJAENTRY "
-                                + "FROM T_ARABICDARIJAENTRY_TEXTENTITY "
-                                + "WHERE TextEntity_Type = 'MAIN ENTITY' "
-                                + "AND TextEntity_Mention like '" + themename + "' "
-                            + ") "
-                            + "AND TextEntity_Type != 'MAIN ENTITY' "
-                            + "AND TextEntity_Type != 'PREPOSITION' "
-                            + "AND TextEntity_Type != 'PRONOUN' "
-                            + "GROUP BY TextEntity_Mention, TextEntity_Type ";
+                                + "ARTE.TextEntity_Mention, "
+                                + "SUM(ARTE.TextEntity_Count) SUM_TextEntity_Count, "
+                                + "ARTE.TextEntity_Type "
+                            + "FROM T_ARABICDARIJAENTRY_TEXTENTITY ARTE "
+                            + "INNER JOIN T_ARABICDARIJAENTRY ARDE ON ARTE.ID_ARABICDARIJAENTRY = ARDE.ID_ARABICDARIJAENTRY "
+                            + "INNER JOIN T_ARABIZIENTRY ARBZ ON ARDE.ID_ARABIZIENTRY = ARBZ.ID_ARABIZIENTRY "
+                            + "INNER JOIN T_XTRCTTHEME XT ON ARBZ.ID_XTRCTTHEME = XT.ID_XTRCTTHEME "
+                            + "WHERE XT.ThemeName = '" + themename + "' "
+                            + "AND XT.UserID = '" + userId + "' "
+                            + "AND ARTE.TextEntity_Type != 'MAIN ENTITY' "
+                            + "AND ARTE.TextEntity_Type != 'PREPOSITION' "
+                            + "AND ARTE.TextEntity_Type != 'PRONOUN' "
+                            + "GROUP BY ARTE.TextEntity_Mention, ARTE.TextEntity_Type ";
 
                 conn.Open();
                 return conn.Query<THEMETAGSCOUNT>(qry0).ToList();
