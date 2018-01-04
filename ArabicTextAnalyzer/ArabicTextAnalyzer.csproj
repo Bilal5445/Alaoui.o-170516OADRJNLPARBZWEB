@@ -297,6 +297,10 @@
     <Compile Include="ViewModels\Class1.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-ArabicTextAnalyzer-20170518103120.mdf" />
+    <Content Include="App_Data\aspnet-ArabicTextAnalyzer-20170518103120_log.ldf">
+      <DependentUpon>aspnet-ArabicTextAnalyzer-20170518103120.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\data_M_ARABICDARIJAENTRY.txt" />
     <Content Include="App_Data\data_M_ARABICDARIJAENTRY_LATINWORD.txt" />
     <Content Include="App_Data\data_M_ARABICDARIJAENTRY_TEXTENTITY.txt" />
