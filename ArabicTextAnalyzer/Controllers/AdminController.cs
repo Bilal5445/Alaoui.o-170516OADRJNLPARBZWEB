@@ -11,6 +11,9 @@ using ArabicTextAnalyzer.Domain.Models;
 using PagedList;
 using ArabicTextAnalyzer.Models;
 using ArabicTextAnalyzer.BO;
+using ArabicTextAnalyzer.Models.Repository;
+using System.Configuration;
+using ArabicTextAnalyzer.Business.Provider;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -147,7 +150,6 @@ namespace ArabicTextAnalyzer.Controllers
                 UserName = Email.ToLower();
 
                 // Create user
-
                 var objNewAdminUser = new ApplicationUser { UserName = UserName, Email = Email };
                 var AdminUserCreateResult = UserManager.Create(objNewAdminUser, Password);
 
@@ -155,19 +157,22 @@ namespace ArabicTextAnalyzer.Controllers
                 {
                     string strNewRole = Convert.ToString(Request.Form["Roles"]);
 
+                    // Put user in role
                     if (strNewRole != "0")
-                    {
-                        // Put user in role
                         UserManager.AddToRole(objNewAdminUser.Id, strNewRole);
-                    }
+
+                    // create app to use the arabizi
+                    var userId = objNewAdminUser.Id;
+                    var appLimit = Convert.ToInt32(ConfigurationManager.AppSettings["TotalAppCallLimit"]);
+                    var app = new RegisterApp { Name = userId + ".app" };
+                    new AppManager().CreateApp(app, userId, false, new RegisterAppConcrete(), new ClientKeysConcrete(), appLimit);
 
                     return Redirect("~/Admin");
                 }
                 else
                 {
                     ViewBag.Roles = GetAllRolesAsSelectList();
-                    ModelState.AddModelError(string.Empty,
-                        "Error: Failed to create the user. Check password requirements.");
+                    ModelState.AddModelError(string.Empty, "Error: Failed to create the user. Check password requirements.");
                     return View(paramExpandedUserDTO);
                 }
             }
