@@ -7,29 +7,6 @@ using System.Web;
 
 namespace ArabicTextAnalyzer.ViewModels
 {
-    /*public class ArabiziViewModel
-    {
-        public List<M_ARABIZIENTRY> ArabiziEntrys { get; set; }
-        public List<M_ARABICDARIJAENTRY> ArabicDarijaEntrys { get; set; }
-        public List<M_ARABICDARIJAENTRY_LATINWORD> ArabicDarijaEntryLatinWords { get; set; }
-        public List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities { get; set; }
-        public List<M_XTRCTTHEME> MainEntities { get; set; }
-    }*/
-
-    /*public class Class2
-    {
-        public M_ARABICDARIJAENTRY ArabicDarijaEntry { get; set; }
-        public List<M_ARABICDARIJAENTRY_LATINWORD> ArabicDarijaEntryLatinWords { get; set; }
-        public M_ARABIZIENTRY ArabiziEntry { get; set; }
-        public List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities { get; set; }
-    }
-
-    public class Class1
-    {
-        public List<Class2> Classes2 { get; set; }
-        public IEnumerable<M_XTRCTTHEME> MainEntities { get; set; }
-    }*/
-
     // class for the table in the partialview
     public class ArabiziToArabicViewModel
     {
