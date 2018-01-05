@@ -1,7 +1,12 @@
 ﻿var poststable;
 var selectedArabiziIds = [];
 
-function InitializeDataTables() {
+function InitializeDataTables(adminModeShowAll) {
+
+    // default value for optional parameter adminModeShowAll
+    adminModeShowAll = adminModeShowAll || false;
+
+    //
     $(function () {
 
         // Initialize DataTables
@@ -41,9 +46,15 @@ function InitializeDataTables() {
             // server side
             "processing": true,
             "serverSide": true,
-            "ajax": "/Train/DataTablesNet_ServerSide_GetList/0"
+            // "ajax": "/Train/DataTablesNet_ServerSide_GetList/0",
+            "ajax": {
+                "url": "/Train/DataTablesNet_ServerSide_GetList",
+                "type": "POST",
+                "data": { "adminModeShowAll": adminModeShowAll }
+            },
         });
 
+        // event click to select row
         $('.datatables-table tbody').on('click', 'tr', function (e) {
 
             // if we click on the last column, do not select/unselect

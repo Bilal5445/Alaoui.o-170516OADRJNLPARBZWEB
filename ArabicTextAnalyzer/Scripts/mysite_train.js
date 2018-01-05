@@ -1,4 +1,14 @@
 ﻿$(document).ready(function () {
+
+    // bring new data into the partial view (table of posts)
+    BringNewDataIntoPartialView();
+});
+
+function BringNewDataIntoPartialView(adminModeShowAll) {
+
+    // default value for optional parameter adminModeShowAll
+    adminModeShowAll = adminModeShowAll || false;
+
     // bring new data into the partial view (table of posts)
     $.ajax({
         type: 'POST',
@@ -11,10 +21,10 @@
             refreshPlainLoadTime();
 
             // fct to attach table with search highlight keywords
-            InitializeDataTables();
+            InitializeDataTables(adminModeShowAll);
 
             // fct to attach FB table
-            //InitializeFBDataTables("");
+            // InitializeFBDataTables("");
         }),
         failure: function (response) {
             console.log(response);
@@ -23,7 +33,7 @@
             console.log(response);
         }
     });
-});
+}
 
 // event when we switch between twingly accounts radio buttons
 // $("#myButtons :input").change(function () {
