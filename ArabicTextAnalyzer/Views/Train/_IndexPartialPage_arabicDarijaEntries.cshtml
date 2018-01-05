@@ -5,18 +5,18 @@
 
     int MaxFbPageAllowed = 2;
 }
-<style>
-    /*td.details-control {
-        background: url("https://datatables.net/examples/resources/details_open.png") no-repeat center center;
-        cursor: pointer;
-    }*/
 
+<style>
     tr.shown {
         background-color: #f3c589 !important;
     }
 </style>
+
+<!-- tabs lits -->
 <ul class="nav nav-pills" role="tablist">
+    <!-- first tab : working data -->
     <li role="presentation" class="active mainUL"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">Working Data</a></li>
+    <!-- subsequent tabs : FB pages -->
     @if (FbInfluencer != null && FbInfluencer.Count > 0)
     {
         foreach (var item in FbInfluencer)
@@ -24,18 +24,20 @@
             <li role="presentation" class="mainUL" id="@item.id"><a aria-controls="second" role="tab" data-toggle="tab" style="cursor:pointer;" onclick="LoadFacebookPosts('@item.id')">@item.name</a></li>
         }
     }
+    <!-- Button "Plus" to create new FB page -->
     @if (FbInfluencer == null || FbInfluencer.Count < MaxFbPageAllowed)
     {
-        <!-- Plus -->
         <li role="presentation" class="mainUL"><a data-toggle="modal" data-target="#myModalForaddInfluencer" data-backdrop="static" data-keyboard="false"><span class="glyphicon glyphicon-plus"></span></a></li>
     }
-
-    <!--<li role="presentation" class="dropdown">
-        <a aria-controls="second" role="tab" class="dropdown-toggle" data-toggle="dropdown" href="#second">Facebook Page - Taoufik Bouachrine توفيق بوعشرين<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="#">Retrieve new data</a></li>
-        </ul>
-    </li>-->
+    @if (User.IsInRole("Administrator"))
+    {
+        <li role="presentation" class="mainUL floatright">
+            @*<a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = "" })">
+                <span class="glyphicon glyphicon-unchecked"></span>
+            </a>*@
+            <input type="checkbox" onclick="BringNewDataIntoPartialView(true)">
+        </li>
+    }
 </ul>
 
 <div class="tab-content" style="border: 1px solid black; padding: 15px; background-color: #fffeef;">
@@ -71,12 +73,9 @@
         foreach (var item in FbInfluencer)
         {
             <div role="tabpanel" class="tab-pane" id="second_@item.id">
-                @*@using (Html.BeginForm("FetchFBData", "Train", FormMethod.Post, new { @class = "form-inline", style = "margin-bottom: 15px;" }))
-                    {*@
                 <div class="form-group">
                     <a class="btn btn-outline-primary btn-xs" id="import_posts" onclick="RetrieveFBPost('@item.url_name','@item.id')">Retrieve new data <span class="glyphicon glyphicon-refresh"></span></a>
                 </div>
-                @*}*@
                 <table class="posts-fb datatables-table-fb table table-striped table-hover table-bordered table_@item.id">
                     <thead>
                         <tr class="header">

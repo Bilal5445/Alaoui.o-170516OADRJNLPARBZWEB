@@ -118,13 +118,13 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.UserXtrctThemes = userXtrctThemes;
             @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
             @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
-            // note the keywords can be many records associated with this theme, plus the original record (filled at creation) contains many kewords seprated by space
+            // note the keywords can be many records associated with this theme, plus the original record (filled at creation) contains many keywords seprated by space
             // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
             // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
             // @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Select(m => m.Keyword).ToList();
-            @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE")/*.Select(m => m.Keyword)*/.ToList();
-            @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE")/*.Select(m => m.Keyword)*/.ToList();
-            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "NEGATIVE")/*.Select(m => m.Keyword)*/.ToList();
+            @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE").ToList();
+            @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE").ToList();
+            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "NEGATIVE").ToList();
 
             // file upload communication
             @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
@@ -973,7 +973,8 @@ namespace ArabicTextAnalyzer.Controllers
             Logging.Write(Server, message);
         }
 
-        public object DataTablesNet_ServerSide_GetList()
+        [HttpPost]
+        public object DataTablesNet_ServerSide_GetList(bool adminModeShowAll = false)
         {
             try
             {
@@ -985,22 +986,31 @@ namespace ArabicTextAnalyzer.Controllers
                 int itemsPerPage = 10;
 
                 // get from client side, from where we start the paging
-                int.TryParse(this.Request.QueryString["start"], out start);
+                // int.TryParse(this.Request.QueryString["start"], out start);  // GET 
+                int.TryParse(this.Request.Form["start"], out start);     // POST
 
                 // get from client side, to which length the paging goes
-                int.TryParse(this.Request.QueryString["length"], out itemsPerPage);
+                // int.TryParse(this.Request.QueryString["length"], out itemsPerPage); // GET 
+                int.TryParse(this.Request.Form["length"], out itemsPerPage);// POST
 
                 // get from client search word
-                string searchValue = this.Request.QueryString["search[value]"].ToString();
+                // string searchValue = this.Request.QueryString["search[value]"]/*.ToString()*/;// GET 
+                string searchValue = this.Request.Form["search[value]"]/*.ToString()*/;// POST
 
-                //
-                string searchAccount = this.Request.QueryString["columns[0][search][value]"];
+                // GET
+                /*string searchAccount = this.Request.QueryString["columns[0][search][value]"];
                 string searchSource = this.Request.QueryString["columns[1][search][value]"];
                 string searchEntity = this.Request.QueryString["columns[2][search][value]"];
-                string searchName = this.Request.QueryString["columns[3][search][value]"];
+                string searchName = this.Request.QueryString["columns[3][search][value]"];*/
+
+                // POST
+                string searchAccount = this.Request.Form["columns[0][search][value]"];
+                string searchSource = this.Request.Form["columns[1][search][value]"];
+                string searchEntity = this.Request.Form["columns[2][search][value]"];
+                string searchName = this.Request.Form["columns[3][search][value]"];
 
                 // get main (whole) data from DB first
-                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL(activeThemeOnly: true, userId: userId);
+                List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL(activeThemeOnly: true, userId: userId, adminModeShowAll: adminModeShowAll);
 
                 // get the number of entries
                 var itemsCount = items.Count;
@@ -1011,20 +1021,18 @@ namespace ArabicTextAnalyzer.Controllers
 
                 // filter on search term if any
                 if (!String.IsNullOrEmpty(searchValue))
-                {
                     items = items.Where(a => a.ArabiziText.ToUpper().Contains(searchValue.ToUpper()) || a.ArabicDarijaText.ToUpper().Contains(searchValue.ToUpper())).ToList();
-                }
 
                 // page as per request (index of page and length)
                 items = items.Skip(start).Take(itemsPerPage).ToList();
 
                 // get other helper data from DB
                 List<M_ARABICDARIJAENTRY_LATINWORD> arabicDarijaEntryLatinWords = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL();
-                List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
-                List<M_XTRCTTHEME> MainEntities = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+                List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
+                List<M_XTRCTTHEME> mainEntities = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
 
                 // excludes POS NER (PRONOMS, PREPOSITIONS, ...), plus also MAIN
-                TextEntities.RemoveAll(m => m.TextEntity.Type == "PREPOSITION" || m.TextEntity.Type == "PRONOUN" || m.TextEntity.Type == "MAIN ENTITY");
+                textEntities.RemoveAll(m => m.TextEntity.Type == "PREPOSITION" || m.TextEntity.Type == "PRONOUN" || m.TextEntity.Type == "MAIN ENTITY");
 
                 // Visual formatting before sending back
                 items.ForEach(s =>
@@ -1032,9 +1040,9 @@ namespace ArabicTextAnalyzer.Controllers
                     s.PositionHash = itemsCount - start - items.IndexOf(s);
                     s.FormattedArabiziEntryDate = s.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm");
                     s.FormattedArabicDarijaText = TextTools.HighlightExtractedLatinWords(s.ArabicDarijaText, s.ID_ARABICDARIJAENTRY, arabicDarijaEntryLatinWords);
-                    s.FormattedEntitiesTypes = TextTools.DisplayEntitiesType(s.ID_ARABICDARIJAENTRY, TextEntities);
-                    s.FormattedEntities = TextTools.DisplayEntities(s.ID_ARABICDARIJAENTRY, TextEntities);
-                    s.FormattedRemoveAndApplyTagCol = TextTools.DisplayRemoveAndApplyTagCol(s.ID_ARABIZIENTRY, s.ID_ARABICDARIJAENTRY, MainEntities);
+                    s.FormattedEntitiesTypes = TextTools.DisplayEntitiesType(s.ID_ARABICDARIJAENTRY, textEntities);
+                    s.FormattedEntities = TextTools.DisplayEntities(s.ID_ARABICDARIJAENTRY, textEntities);
+                    s.FormattedRemoveAndApplyTagCol = TextTools.DisplayRemoveAndApplyTagCol(s.ID_ARABIZIENTRY, s.ID_ARABICDARIJAENTRY, mainEntities);
                 });
 
                 //
@@ -1658,9 +1666,32 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private List<ArabiziToArabicViewModel> loadArabiziToArabicViewModel_DAPPERSQL(bool activeThemeOnly, String userId)
+        private List<ArabiziToArabicViewModel> loadArabiziToArabicViewModel_DAPPERSQL(bool activeThemeOnly, String userId, bool adminModeShowAll = false)
         {
-            if (activeThemeOnly)
+            if (adminModeShowAll == true)
+            {
+                String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    String qry = "SELECT "
+                            + "ARZ.ID_ARABIZIENTRY, "
+                            + "ARZ.ArabiziEntryDate, "
+                            + "ARZ.ArabiziText, "
+                            + "AR.ID_ARABICDARIJAENTRY, "
+                            + "AR.ArabicDarijaText, "
+                            + "ARTE.TextEntity_Mention "
+                        + "FROM T_ARABIZIENTRY ARZ "
+                        + "INNER JOIN T_ARABICDARIJAENTRY AR ON ARZ.ID_ARABIZIENTRY = AR.ID_ARABIZIENTRY "
+                        + "INNER JOIN T_ARABICDARIJAENTRY_TEXTENTITY ARTE ON AR.ID_ARABICDARIJAENTRY = ARTE.ID_ARABICDARIJAENTRY AND TextEntity_Type = 'MAIN ENTITY' "
+                        // + "INNER JOIN T_XTRCTTHEME XT ON XT.ThemeName = ARTE.TextEntity_Mention AND XT.CurrentActive = 'active' AND XT.UserID = '" + userId + "' AND ARZ.ID_XTRCTTHEME = XT.ID_XTRCTTHEME "
+                        + "ORDER BY ARZ.ArabiziEntryDate DESC ";
+
+                    conn.Open();
+                    return conn.Query<ArabiziToArabicViewModel>(qry).ToList();
+                }
+            }
+            else if (activeThemeOnly)
             {
                 String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
 
