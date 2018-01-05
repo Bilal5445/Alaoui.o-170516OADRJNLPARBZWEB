@@ -421,7 +421,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             return entitiesString;
         }
 
-        public static String DisplayRemoveAndApplyTagCol(Guid ID_ARABIZIENTRY, Guid ID_ARABICDARIJAENTRY, List<M_XTRCTTHEME> MainEntities)
+        public static String DisplayRemoveAndApplyTagCol(Guid ID_ARABIZIENTRY, Guid ID_ARABICDARIJAENTRY, List<M_XTRCTTHEME> mainEntities)
         {
             // remove button
             String newhtml1 = $@"<a href='/Train/Train_DeleteEntry/?arabiziWordGuid={ID_ARABIZIENTRY}' class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Remove</a>";
@@ -433,7 +433,7 @@ namespace ArabicTextAnalyzer.Business.Provider
                                         <span class='caret'></span>
                                     </button>";
             newhtml2 += "<ul class='dropdown-menu'>";
-            foreach(var mainEntity in MainEntities)
+            foreach(var mainEntity in mainEntities)
             {
                 newhtml2 += $@"<li><a href = '/Train/Train_ApplyNewMainTag/?idArabicDarijaEntry={ID_ARABICDARIJAENTRY}&mainEntity={mainEntity.ThemeName.Trim()}'> {mainEntity.ThemeName.Trim()} </a></li>";
             }
