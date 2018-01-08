@@ -37,7 +37,7 @@ function InitializeDataTables(adminModeShowAll) {
                     { "data": "FormattedArabicDarijaText", "className": "arabic-text top" },
                     { "data": "FormattedEntitiesTypes", "className": "arabic-text top entitiestype" },
                     { "data": "FormattedEntities", "className": "arabic-text top entities" },
-                    { "data": "FormattedRemoveAndApplyTagCol", "className": "controls center top" } // class 'controls' just there to identify the td to prevent click on 'remove' (or any other button in this column) to be considered as selection
+                    { "data": "FormattedRemoveAndApplyTagCol", "className": "controls center top" } // class 'controls' just there to identify the td to prevent click on 'remove' (or any other button in this column) to be considered as selection. MC080118 plus now also for keeping buttons in same line
             ],
             "columnDefs": [{
                 "defaultContent": "-",

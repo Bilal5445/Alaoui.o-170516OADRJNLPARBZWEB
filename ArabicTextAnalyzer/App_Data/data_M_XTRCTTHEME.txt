@@ -131,4 +131,8 @@
     <ID_XTRCTTHEME>81ffdae0-429d-4d67-bd93-09bbfe452195</ID_XTRCTTHEME>
     <ThemeName>Saad Lamjered</ThemeName>
   </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>04ef5695-3d3a-4620-ab1f-3e75161f4e76</ID_XTRCTTHEME>
+    <ThemeName>maroc</ThemeName>
+  </M_XTRCTTHEME>
 </ArrayOfM_XTRCTTHEME>

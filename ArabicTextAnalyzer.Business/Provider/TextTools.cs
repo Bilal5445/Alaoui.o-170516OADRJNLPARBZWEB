@@ -424,16 +424,19 @@ namespace ArabicTextAnalyzer.Business.Provider
         public static String DisplayRemoveAndApplyTagCol(Guid ID_ARABIZIENTRY, Guid ID_ARABICDARIJAENTRY, List<M_XTRCTTHEME> mainEntities)
         {
             // remove button
-            String newhtml1 = $@"<a href='/Train/Train_DeleteEntry/?arabiziWordGuid={ID_ARABIZIENTRY}' class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Remove</a>";
+            // String newhtml1 = $@"<a href='/Train/Train_DeleteEntry/?arabiziWordGuid={ID_ARABIZIENTRY}' class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Remove</a>";
+            String newhtml1 = $@"<a href='/Train/Train_DeleteEntry/?arabiziWordGuid={ID_ARABIZIENTRY}' class='btn btn-danger btn-xs small'><span class='glyphicon glyphicon-remove small' aria-hidden='true'></span></a>";
+
+            // refresh button
+            String newhtml11 = $@"<a href='/Train/Train_RefreshEntry/?arabiziWordGuid={ID_ARABIZIENTRY}' class='btn btn-info btn-xs small'><span class='glyphicon glyphicon-refresh small' aria-hidden='true'></span></a>";
 
             // dropdown tags
             String newhtml2 = $@"<div class='dropdown'>
                                     <button class='btn btn-warning btn-xs dropdown-toggle' type='button' data-toggle='dropdown'>
-                                        Main Tag
                                         <span class='caret'></span>
                                     </button>";
             newhtml2 += "<ul class='dropdown-menu'>";
-            foreach(var mainEntity in mainEntities)
+            foreach (var mainEntity in mainEntities)
             {
                 newhtml2 += $@"<li><a href = '/Train/Train_ApplyNewMainTag/?idArabicDarijaEntry={ID_ARABICDARIJAENTRY}&mainEntity={mainEntity.ThemeName.Trim()}'> {mainEntity.ThemeName.Trim()} </a></li>";
             }
@@ -441,7 +444,7 @@ namespace ArabicTextAnalyzer.Business.Provider
                     </div>";
 
             //
-            return newhtml1+ newhtml2;
+            return newhtml1 + newhtml11 + newhtml2;
         }
     }
 }

@@ -82,6 +82,9 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_SilentVowels(source);
             Logging.Write(Server, "train - after train_saveperl > Convert >  Preprocess_SilentVowels : " + watch.ElapsedMilliseconds);
 
+            // preprocess &quot;
+            source = Preprocess_quotes(source);
+
             // random naming to avoid access to same file and deadlock eventually
             String randomsuffix = Guid.NewGuid().ToString();
             inputFileLocationFileOnly = randomsuffix;
@@ -373,6 +376,16 @@ namespace ArabicTextAnalyzer.Business.Provider
             String miniArabiziKeyword = Regex.Replace(arabizi, @"(\w+k\b)", "$1_VOW_", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
+        }
+        #endregion
+
+        #region Preprocess QUOTE
+        public string Preprocess_quotes(string arabizi)
+        {
+            // quote : bing/google converts " to &quot; so we need to convert it back to "
+            arabizi = Regex.Replace(arabizi, "&quot;", "\"", RegexOptions.IgnoreCase);
+
+            return arabizi;
         }
         #endregion
 
