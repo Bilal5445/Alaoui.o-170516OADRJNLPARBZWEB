@@ -55,7 +55,7 @@ namespace ArabicTextAnalyzer.BO
             var frMode = arabiziEntry.IsFR;
 
             //
-            String arabicText = train_savearabizi(arabiziEntry/*, AccessMode.efsql*/);
+            String arabicText = train_savearabizi(arabiziEntry);
 
             //
             if (frMode == false)

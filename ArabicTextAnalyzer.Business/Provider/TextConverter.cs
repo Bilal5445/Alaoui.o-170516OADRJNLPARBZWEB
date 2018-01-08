@@ -75,6 +75,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             Logging.Write(Server, "train - after train_saveperl > Convert >  Preprocess_arabic_comma : " + watch.ElapsedMilliseconds);
             source = Preprocess_unicode_special_chars(source);
             Logging.Write(Server, "train - after train_saveperl > Convert >  Preprocess_unicode_special_chars : " + watch.ElapsedMilliseconds);
+            source = Preprocess_arabic_questionmark(source);
 
             // preprocess silent wovelles : create artificially vowells (alef) between consonns because we know that there is no more french words that we can distrurb,
             // plus any one kept by bidict is converted temp to 001000100, so no risk,
@@ -150,6 +151,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_3_m_i_f_z_a_j_l_etc(source);
             source = Preprocess_emoticons(source);
             source = Preprocess_underscore(source);
+            source = Preprocess_questionmark(source);
 
             //
             return source;
@@ -342,11 +344,27 @@ namespace ArabicTextAnalyzer.Business.Provider
             return miniArabiziKeyword;
         }
 
+        private string Preprocess_questionmark(string arabizi)
+        {
+            String pattern = @"\b(.+)\b\?";
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, "$1 ?", RegexOptions.IgnoreCase);
+
+            return miniArabiziKeyword;
+        }
+
         // public for UT only
         public string Preprocess_arabic_comma(string arabizi)
         {
             String pattern = @"\u060C+";
             String miniArabiziKeyword = Regex.Replace(arabizi, pattern, " , ", RegexOptions.IgnoreCase);
+
+            return miniArabiziKeyword;
+        }
+
+        private string Preprocess_arabic_questionmark(string arabizi)
+        {
+            String pattern = @"\u061F+";
+            String miniArabiziKeyword = Regex.Replace(arabizi, pattern, " ؟ ", RegexOptions.IgnoreCase);
 
             return miniArabiziKeyword;
         }
