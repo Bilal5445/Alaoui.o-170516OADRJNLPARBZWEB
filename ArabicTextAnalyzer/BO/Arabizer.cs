@@ -50,54 +50,52 @@ namespace ArabicTextAnalyzer.BO
             var id_ARABICDARIJAENTRY = Guid.NewGuid();
 
             var watch = Stopwatch.StartNew();
-            /*lock (thisLock)
-            {*/
-                // did we check Fr mode
-                var frMode = arabiziEntry.IsFR;
 
-                //
-                String arabicText = train_savearabizi(arabiziEntry, AccessMode.efsql);
+            // did we check Fr mode
+            var frMode = arabiziEntry.IsFR;
 
-                //
-                if (frMode == false)
-                    arabicText = new TextConverter().Preprocess_upstream(arabicText);
+            //
+            String arabicText = train_savearabizi(arabiziEntry, AccessMode.efsql);
 
-                if (frMode == false)
-                    arabicText = train_bidict(arabicText);
+            //
+            if (frMode == false)
+                arabicText = new TextConverter().Preprocess_upstream(arabicText);
 
-                if (frMode == false)
-                    arabicText = train_binggoogle(arabicText);
+            if (frMode == false)
+                arabicText = train_bidict(arabicText);
 
-                var arabicDarijaEntry = train_saveperl(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql, frMode);
-                arabicText = arabicDarijaEntry.ArabicDarijaText;
-                expando.M_ARABICDARIJAENTRY = arabicDarijaEntry;
+            if (frMode == false)
+                arabicText = train_binggoogle(arabicText);
 
-                if (frMode == false)
+            var arabicDarijaEntry = train_saveperl(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql, frMode);
+            arabicText = arabicDarijaEntry.ArabicDarijaText;
+            expando.M_ARABICDARIJAENTRY = arabicDarijaEntry;
+
+            if (frMode == false)
+            {
+                var arabicDarijaEntryLatinWords = train_savelatinwords(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
+                expando.M_ARABICDARIJAENTRY_LATINWORDs = arabicDarijaEntryLatinWords;
+            }
+
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = train_savener(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
+            expando.M_ARABICDARIJAENTRY_TEXTENTITYs = textEntities;
+
+            // apply main tag : add main entity & Save to Serialization
+            if (!String.IsNullOrEmpty(mainEntity))
+            {
+                var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
                 {
-                    var arabicDarijaEntryLatinWords = train_savelatinwords(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
-                    expando.M_ARABICDARIJAENTRY_LATINWORDs = arabicDarijaEntryLatinWords;
-                }
-
-                List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = train_savener(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
-                expando.M_ARABICDARIJAENTRY_TEXTENTITYs = textEntities;
-
-                // apply main tag : add main entity & Save to Serialization
-                if (!String.IsNullOrEmpty(mainEntity))
-                {
-                    var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
+                    ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
+                    ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
+                    TextEntity = new TextEntity
                     {
-                        ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
-                        ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
-                        TextEntity = new TextEntity
-                        {
-                            Count = 1,
-                            Mention = mainEntity,
-                            Type = "MAIN ENTITY"
-                        }
-                    };
-                    saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(textEntity);
-                }
-            // }
+                        Count = 1,
+                        Mention = mainEntity,
+                        Type = "MAIN ENTITY"
+                    }
+                };
+                saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(textEntity);
+            }
 
             //
             return expando;
