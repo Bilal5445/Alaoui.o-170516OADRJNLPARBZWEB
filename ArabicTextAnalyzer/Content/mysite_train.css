@@ -98,10 +98,12 @@ td.arabizi-text {
     direction: ltr;
 }
 
+td.controls{
+    display: -webkit-box;
+}
 .center {
     text-align: center;
 }
-
 .top {
     vertical-align: top;
 }

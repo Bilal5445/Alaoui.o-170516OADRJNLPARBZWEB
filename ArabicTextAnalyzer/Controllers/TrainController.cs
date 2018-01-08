@@ -355,6 +355,34 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [HttpGet]
+        public ActionResult Train_RefreshEntry(Guid arabiziWordGuid)
+        {
+            var arabizer = new Arabizer(Server);
+
+            // get data existing arabizi
+            var backupARABIZIENTR = loaddeserializeM_ARABIZIENTRY_DAPPERSQL(arabiziWordGuid);
+            // var backupArabicDarijaText = loaddeserializeM_ARABICDARIJAENTRY_DB(arabiziWordGuid).ArabicDarijaText;
+
+            // get data existing theme
+            var backupXTRCTTHEME = loadDeserializeM_XTRCTTHEME_DAPPERSQL(backupARABIZIENTR.ID_XTRCTTHEME);
+
+            // delete
+            arabizer.Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
+
+            // recreate
+            arabizer.train(new M_ARABIZIENTRY
+            {
+                ArabiziText = backupARABIZIENTR.ArabiziText.Trim(new char[] { ' ', '\t' }),
+                ArabiziEntryDate = backupARABIZIENTR.ArabiziEntryDate,
+                IsFR = backupARABIZIENTR.IsFR,
+                ID_XTRCTTHEME = backupARABIZIENTR.ID_XTRCTTHEME
+            }, backupXTRCTTHEME.ThemeName);
+
+            //
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
         public ActionResult Train_DeleteEntries(String arabiziWordGuids)
         {
             var larabiziWordGuids = arabiziWordGuids.Split(new char[] { ',' });
@@ -1038,7 +1066,8 @@ namespace ArabicTextAnalyzer.Controllers
                 items.ForEach(s =>
                 {
                     s.PositionHash = itemsCount - start - items.IndexOf(s);
-                    s.FormattedArabiziEntryDate = s.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm");
+                    // s.FormattedArabiziEntryDate = s.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm");
+                    s.FormattedArabiziEntryDate = s.ArabiziEntryDate.ToString("yy-MM-dd HH:mm");
                     s.FormattedArabicDarijaText = TextTools.HighlightExtractedLatinWords(s.ArabicDarijaText, s.ID_ARABICDARIJAENTRY, arabicDarijaEntryLatinWords);
                     s.FormattedEntitiesTypes = TextTools.DisplayEntitiesType(s.ID_ARABICDARIJAENTRY, textEntities);
                     s.FormattedEntities = TextTools.DisplayEntities(s.ID_ARABICDARIJAENTRY, textEntities);
@@ -1180,9 +1209,9 @@ namespace ArabicTextAnalyzer.Controllers
         #region BACK YARD BO LOAD
         private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY(AccessMode accessMode)
         {
-            if (accessMode == AccessMode.xml)
+            /*if (accessMode == AccessMode.xml)
                 return loaddeserializeM_ARABICDARIJAENTRY();
-            else if (accessMode == AccessMode.efsql)
+            else*/ if (accessMode == AccessMode.efsql)
                 return loaddeserializeM_ARABICDARIJAENTRY_DB();
             else if (accessMode == AccessMode.dappersql)
                 return loaddeserializeM_ARABICDARIJAENTRY_DAPPERSQL();
@@ -1190,7 +1219,7 @@ namespace ArabicTextAnalyzer.Controllers
             return null;
         }
 
-        private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY()
+        /*private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY()
         {
             List<M_ARABICDARIJAENTRY> entries = new List<M_ARABICDARIJAENTRY>();
             string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY).Name + ".txt");
@@ -1201,13 +1230,21 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             return entries;
-        }
+        }*/
 
         private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY_DB()
         {
             using (var db = new ArabiziDbContext())
             {
                 return db.M_ARABICDARIJAENTRYs.ToList();
+            }
+        }
+
+        private M_ARABICDARIJAENTRY loaddeserializeM_ARABICDARIJAENTRY_DB(Guid arabiziWordGuid)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                return db.M_ARABICDARIJAENTRYs.Where(m => m.ID_ARABIZIENTRY == arabiziWordGuid).SingleOrDefault();
             }
         }
 
@@ -1226,9 +1263,9 @@ namespace ArabicTextAnalyzer.Controllers
 
         private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY(AccessMode accessMode)
         {
-            if (accessMode == AccessMode.xml)
+            /*if (accessMode == AccessMode.xml)
                 return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY();
-            else if (accessMode == AccessMode.efsql)
+            else*/ if (accessMode == AccessMode.efsql)
                 return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB();
             else if (accessMode == AccessMode.dappersql)
                 return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
@@ -1236,7 +1273,7 @@ namespace ArabicTextAnalyzer.Controllers
             return null;
         }
 
-        private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY()
+        /*private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY()
         {
             List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
             string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_TEXTENTITY).Name + ".txt");
@@ -1250,7 +1287,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             return textEntities;
-        }
+        }*/
 
         private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB()
         {
@@ -1332,9 +1369,9 @@ namespace ArabicTextAnalyzer.Controllers
 
         private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY(AccessMode accessMode)
         {
-            if (accessMode == AccessMode.xml)
+            /*if (accessMode == AccessMode.xml)
                 return loaddeserializeM_ARABIZIENTRY();
-            else if (accessMode == AccessMode.efsql)
+            else*/ if (accessMode == AccessMode.efsql)
                 return loaddeserializeM_ARABIZIENTRY_DB();
             else if (accessMode == AccessMode.dappersql)
                 return loaddeserializeM_ARABIZIENTRY_DAPPERSQL();
@@ -1342,7 +1379,7 @@ namespace ArabicTextAnalyzer.Controllers
             return null;
         }
 
-        private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY()
+        /*private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY()
         {
             List<M_ARABIZIENTRY> arabiziEntries = new List<M_ARABIZIENTRY>();
             string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABIZIENTRY).Name + ".txt");
@@ -1353,7 +1390,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             return arabiziEntries;
-        }
+        }*/
 
         private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY_DB()
         {
@@ -1376,11 +1413,24 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
+        private M_ARABIZIENTRY loaddeserializeM_ARABIZIENTRY_DAPPERSQL(Guid arabiziWordGuid)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_ARABIZIENTRY WHERE ID_ARABIZIENTRY = '" + arabiziWordGuid + "'";
+
+                conn.Open();
+                return conn.QueryFirst<M_ARABIZIENTRY>(qry);
+            }
+        }
+
         private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD(AccessMode accessMode)
         {
-            if (accessMode == AccessMode.xml)
+            /*if (accessMode == AccessMode.xml)
                 return loaddeserializeM_ARABICDARIJAENTRY_LATINWORD();
-            else if (accessMode == AccessMode.efsql)
+            else*/ if (accessMode == AccessMode.efsql)
                 return loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DB();
             else if (accessMode == AccessMode.dappersql)
                 return loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL();
@@ -1388,7 +1438,7 @@ namespace ArabicTextAnalyzer.Controllers
             return null;
         }
 
-        private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD()
+        /*private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD()
         {
             List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = new List<M_ARABICDARIJAENTRY_LATINWORD>();
             string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_LATINWORD).Name + ".txt");
@@ -1399,7 +1449,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             return latinWordsEntries;
-        }
+        }*/
 
         private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DB()
         {
@@ -1442,6 +1492,19 @@ namespace ArabicTextAnalyzer.Controllers
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 String qry = "SELECT * FROM T_XTRCTTHEME WHERE CurrentActive = 'active' AND UserID = '" + userId + "'";
+
+                conn.Open();
+                return conn.QueryFirst<M_XTRCTTHEME>(qry);
+            }
+        }
+
+        private M_XTRCTTHEME loadDeserializeM_XTRCTTHEME_DAPPERSQL(Guid idXtrctTheme)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_XTRCTTHEME WHERE ID_XTRCTTHEME = '" + idXtrctTheme + "'";
 
                 conn.Open();
                 return conn.QueryFirst<M_XTRCTTHEME>(qry);

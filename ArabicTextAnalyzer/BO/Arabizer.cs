@@ -50,8 +50,8 @@ namespace ArabicTextAnalyzer.BO
             var id_ARABICDARIJAENTRY = Guid.NewGuid();
 
             var watch = Stopwatch.StartNew();
-            lock (thisLock)
-            {
+            /*lock (thisLock)
+            {*/
                 // did we check Fr mode
                 var frMode = arabiziEntry.IsFR;
 
@@ -97,7 +97,7 @@ namespace ArabicTextAnalyzer.BO
                     };
                     saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(textEntity);
                 }
-            }
+            // }
 
             //
             return expando;
@@ -114,6 +114,7 @@ namespace ArabicTextAnalyzer.BO
             // save
             saveserializeM_ARABIZIENTRY(arabiziEntry, accessMode);
 
+            //
             return arabiziEntry.ArabiziText;
         }
 
