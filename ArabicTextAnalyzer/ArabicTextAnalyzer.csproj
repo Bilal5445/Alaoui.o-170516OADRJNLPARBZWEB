@@ -276,7 +276,7 @@
       <DependentUpon>201712281651487_ThemeKeyWordWithCount.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\ArabiziDbContext.cs" />
+    <None Include="Models\ArabiziDbContext.cs" />
     <Compile Include="Models\ProcessTextDto.cs" />
     <Compile Include="Models\Repository\AuthenticateConcrete.cs" />
     <Compile Include="Models\Repository\ClientKeysConcrete.cs" />
