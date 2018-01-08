@@ -15,6 +15,7 @@ using ArabicTextAnalyzer.Business.Provider;
 using ArabicTextAnalyzer.Models.Repository;
 using ArabicTextAnalyzer.Domain.Models;
 using ArabicTextAnalyzer.BO;
+using OADRJNLPCommon.Business;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -450,8 +451,18 @@ namespace ArabicTextAnalyzer.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            try
+            {
+                AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+                return RedirectToAction("Index", "Home");
+            }
+            catch (Exception ex)
+            {
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                throw;
+            }
         }
 
         //

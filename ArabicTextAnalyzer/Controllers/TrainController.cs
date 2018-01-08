@@ -368,7 +368,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             //
             using (var db = new ArabiziDbContext())
-            {                
+            {
                 // delete
                 arabizer.Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL_uow(arabiziWordGuid, db, isEndOfScope: false);
 
@@ -655,11 +655,7 @@ namespace ArabicTextAnalyzer.Controllers
                 {
                     errMessage = "All comments are already translated.";
                 }
-
-
             }
-
-
 
             return JsonConvert.SerializeObject(new
             {
@@ -1218,7 +1214,8 @@ namespace ArabicTextAnalyzer.Controllers
         {
             /*if (accessMode == AccessMode.xml)
                 return loaddeserializeM_ARABICDARIJAENTRY();
-            else*/ if (accessMode == AccessMode.efsql)
+            else*/
+            if (accessMode == AccessMode.efsql)
                 return loaddeserializeM_ARABICDARIJAENTRY_DB();
             else if (accessMode == AccessMode.dappersql)
                 return loaddeserializeM_ARABICDARIJAENTRY_DAPPERSQL();
@@ -1272,7 +1269,8 @@ namespace ArabicTextAnalyzer.Controllers
         {
             /*if (accessMode == AccessMode.xml)
                 return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY();
-            else*/ if (accessMode == AccessMode.efsql)
+            else*/
+            if (accessMode == AccessMode.efsql)
                 return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB();
             else if (accessMode == AccessMode.dappersql)
                 return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
@@ -1378,7 +1376,8 @@ namespace ArabicTextAnalyzer.Controllers
         {
             /*if (accessMode == AccessMode.xml)
                 return loaddeserializeM_ARABIZIENTRY();
-            else*/ if (accessMode == AccessMode.efsql)
+            else*/
+            if (accessMode == AccessMode.efsql)
                 return loaddeserializeM_ARABIZIENTRY_DB();
             else if (accessMode == AccessMode.dappersql)
                 return loaddeserializeM_ARABIZIENTRY_DAPPERSQL();
@@ -1437,7 +1436,8 @@ namespace ArabicTextAnalyzer.Controllers
         {
             /*if (accessMode == AccessMode.xml)
                 return loaddeserializeM_ARABICDARIJAENTRY_LATINWORD();
-            else*/ if (accessMode == AccessMode.efsql)
+            else*/
+            if (accessMode == AccessMode.efsql)
                 return loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DB();
             else if (accessMode == AccessMode.dappersql)
                 return loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL();
