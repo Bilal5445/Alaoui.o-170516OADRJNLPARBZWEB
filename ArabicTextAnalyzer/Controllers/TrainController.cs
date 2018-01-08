@@ -366,22 +366,23 @@ namespace ArabicTextAnalyzer.Controllers
             // get data existing theme
             var backupXTRCTTHEME = loadDeserializeM_XTRCTTHEME_DAPPERSQL(backupARABIZIENTR.ID_XTRCTTHEME);
 
-            // delete
-            arabizer.Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
+            //
+            using (var db = new ArabiziDbContext())
+            {                
+                // delete
+                arabizer.Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL_uow(arabiziWordGuid, db, isEndOfScope: false);
 
-            // recreate
-            var res = arabizer.train(new M_ARABIZIENTRY
-            {
-                ArabiziText = backupARABIZIENTR.ArabiziText.Trim(new char[] { ' ', '\t' }),
-                ArabiziEntryDate = backupARABIZIENTR.ArabiziEntryDate,
-                IsFR = backupARABIZIENTR.IsFR,
-                ID_XTRCTTHEME = backupARABIZIENTR.ID_XTRCTTHEME
-            }, backupXTRCTTHEME.ThemeName);
-            if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
-            {
-                TempData["showAlertWarning"] = true;
-                TempData["msgAlert"] = "Retranslate did not complete.";
-                return RedirectToAction("Index");
+                // recreate
+                arabizer.train_uow(new M_ARABIZIENTRY
+                {
+                    ArabiziText = backupARABIZIENTR.ArabiziText.Trim(new char[] { ' ', '\t' }),
+                    ArabiziEntryDate = backupARABIZIENTR.ArabiziEntryDate,
+                    IsFR = backupARABIZIENTR.IsFR,
+                    ID_XTRCTTHEME = backupARABIZIENTR.ID_XTRCTTHEME
+                }, backupXTRCTTHEME.ThemeName, db, isEndOfScope: false);
+
+                //
+                db.SaveChanges();
             }
 
             //

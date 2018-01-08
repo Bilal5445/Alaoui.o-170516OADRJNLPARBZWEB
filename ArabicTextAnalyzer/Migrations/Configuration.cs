@@ -5,7 +5,7 @@ namespace ArabicTextAnalyzer.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ArabicTextAnalyzer.Models.ArabiziDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ArabicTextAnalyzer.Domain.Models.ArabiziDbContext>
     {
         public Configuration()
         {
@@ -14,7 +14,7 @@ namespace ArabicTextAnalyzer.Migrations
             ContextKey = "ArabicTextAnalyzer.Models.ArabiziDbContext";
         }
 
-        protected override void Seed(ArabicTextAnalyzer.Models.ArabiziDbContext context)
+        protected override void Seed(ArabicTextAnalyzer.Domain.Models.ArabiziDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

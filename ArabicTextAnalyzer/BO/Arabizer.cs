@@ -55,7 +55,7 @@ namespace ArabicTextAnalyzer.BO
             var frMode = arabiziEntry.IsFR;
 
             //
-            String arabicText = train_savearabizi(arabiziEntry, AccessMode.efsql);
+            String arabicText = train_savearabizi(arabiziEntry/*, AccessMode.efsql*/);
 
             //
             if (frMode == false)
@@ -101,7 +101,78 @@ namespace ArabicTextAnalyzer.BO
             return expando;
         }
 
-        private String train_savearabizi(M_ARABIZIENTRY arabiziEntry, AccessMode accessMode)
+        public dynamic train_uow(M_ARABIZIENTRY arabiziEntry, String mainEntity, ArabiziDbContext db, bool isEndOfScope = false)
+        {
+            dynamic expando = new ExpandoObject();
+            expando.M_ARABIZIENTRY = arabiziEntry;
+
+            // Arabizi to arabic from perl script
+            if (arabiziEntry.ArabiziText == null)
+            {
+                // return Guid.Empty;
+                expando.M_ARABICDARIJAENTRY = new M_ARABICDARIJAENTRY
+                {
+                    ID_ARABICDARIJAENTRY = Guid.Empty
+                };
+                return expando;
+            }
+
+            //
+            var id_ARABICDARIJAENTRY = Guid.NewGuid();
+
+            var watch = Stopwatch.StartNew();
+
+            // did we check Fr mode
+            var frMode = arabiziEntry.IsFR;
+
+            //
+            String arabicText = train_savearabizi_uow(arabiziEntry, db, isEndOfScope: false);
+
+            //
+            if (frMode == false)
+                arabicText = new TextConverter().Preprocess_upstream(arabicText);
+
+            if (frMode == false)
+                arabicText = train_bidict(arabicText);
+
+            if (frMode == false)
+                arabicText = train_binggoogle(arabicText);
+
+            var arabicDarijaEntry = train_saveperl_uow(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, db, isEndOfScope: false, frMode: frMode);
+            arabicText = arabicDarijaEntry.ArabicDarijaText;
+            expando.M_ARABICDARIJAENTRY = arabicDarijaEntry;
+
+            if (frMode == false)
+            {
+                var arabicDarijaEntryLatinWords = train_savelatinwords_uow(arabicText, id_ARABICDARIJAENTRY, db, isEndOfScope: false);
+                expando.M_ARABICDARIJAENTRY_LATINWORDs = arabicDarijaEntryLatinWords;
+            }
+
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = train_savener_uow(arabicText, id_ARABICDARIJAENTRY, db, isEndOfScope: false);
+            expando.M_ARABICDARIJAENTRY_TEXTENTITYs = textEntities;
+
+            // apply main tag : add main entity & Save to Serialization
+            if (!String.IsNullOrEmpty(mainEntity))
+            {
+                var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
+                {
+                    ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
+                    ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
+                    TextEntity = new TextEntity
+                    {
+                        Count = 1,
+                        Mention = mainEntity,
+                        Type = "MAIN ENTITY"
+                    }
+                };
+                saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL_uow(textEntity, db, isEndOfScope: false);
+            }
+
+            //
+            return expando;
+        }
+
+        private String train_savearabizi(M_ARABIZIENTRY arabiziEntry/*, AccessMode accessMode*/)
         {
             // complete arabizi entry & Save arabiziEntry to Serialization
             arabiziEntry.ID_ARABIZIENTRY = Guid.NewGuid();
@@ -110,7 +181,22 @@ namespace ArabicTextAnalyzer.BO
             arabiziEntry.ArabiziText = arabiziEntry.ArabiziText.Trim(new char[] { ' ', '\t' });
 
             // save
-            saveserializeM_ARABIZIENTRY(arabiziEntry, accessMode);
+            saveserializeM_ARABIZIENTRY_EFSQL(arabiziEntry/*, accessMode*/);
+
+            //
+            return arabiziEntry.ArabiziText;
+        }
+
+        private String train_savearabizi_uow(M_ARABIZIENTRY arabiziEntry, ArabiziDbContext db, bool isEndOfScope = false)
+        {
+            // complete arabizi entry & Save arabiziEntry to Serialization
+            arabiziEntry.ID_ARABIZIENTRY = Guid.NewGuid();
+
+            // clean
+            arabiziEntry.ArabiziText = arabiziEntry.ArabiziText.Trim(new char[] { ' ', '\t' });
+
+            // save
+            saveserializeM_ARABIZIENTRY_EFSQL_uow(arabiziEntry, db, isEndOfScope);
 
             //
             return arabiziEntry.ArabiziText;
@@ -168,7 +254,53 @@ namespace ArabicTextAnalyzer.BO
             };
 
             // save to persist
-            saveserializeM_ARABICDARIJAENTRY(arabicDarijaEntry, accessMode);
+            saveserializeM_ARABICDARIJAENTRY_EFSQL(arabicDarijaEntry/*, accessMode*/);
+
+            //
+            // return arabicText;
+            return arabicDarijaEntry;
+        }
+
+        private M_ARABICDARIJAENTRY train_saveperl_uow(Stopwatch watch, string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY, ArabiziDbContext db, bool isEndOfScope = false, bool frMode = false)
+        {
+            if (frMode == false)
+            {
+                // first process buttranslateperl : means those should be cleaned in their without-bracket origan form so they can be translated by perl
+                // ex : "<span class='notranslate BUTTRANSLATEPERL'>kolchi</span> katbakkih bl3ani" should become "kolchi katbakkih bl3ani" so perl can translate it
+                arabicText = new Regex(@"<span class='notranslate BUTTRANSLATEPERL'>(.*?)</span>").Replace(arabicText, "$1");
+
+                // process notranslate
+                var regex = new Regex(@"<span class='notranslate'>(.*?)</span>");
+
+                // save matches
+                var matches = regex.Matches(arabicText);
+
+                // skip over non-translantable parts
+                arabicText = regex.Replace(arabicText, "001000100");
+
+                // translate arabizi to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
+                arabicText = new TextConverter().Convert(Server, watch, arabicText);
+
+                // restore do not translate from 001000100
+                var regex2 = new Regex(@"001000100");
+                foreach (Match match in matches)
+                {
+                    arabicText = regex2.Replace(arabicText, match.Value, 1);
+                }
+                // clean <span class='notranslate'>
+                arabicText = new Regex(@"<span class='notranslate'>(.*?)</span>").Replace(arabicText, "$1");
+            }
+
+            //
+            var arabicDarijaEntry = new M_ARABICDARIJAENTRY
+            {
+                ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
+                ID_ARABIZIENTRY = id_ARABIZIENTRY,
+                ArabicDarijaText = arabicText
+            };
+
+            // save to persist
+            saveserializeM_ARABICDARIJAENTRY_EFSQL_uow(arabicDarijaEntry, db, isEndOfScope: isEndOfScope);
 
             //
             // return arabicText;
@@ -204,7 +336,43 @@ namespace ArabicTextAnalyzer.BO
                 arabicDarijaEntryLatinWords.Add(latinWord);
 
                 // Save to Serialization
-                saveserializeM_ARABICDARIJAENTRY_LATINWORD(latinWord, accessMode);
+                saveserializeM_ARABICDARIJAENTRY_LATINWORD_EFSQL(latinWord/*, accessMode*/);
+            }
+
+            // return arabicText;
+            return arabicDarijaEntryLatinWords;
+        }
+
+        private List<M_ARABICDARIJAENTRY_LATINWORD> train_savelatinwords_uow(String arabicText, Guid id_ARABICDARIJAENTRY, ArabiziDbContext db, bool isEndOfScope = false)
+        {
+            List<M_ARABICDARIJAENTRY_LATINWORD> arabicDarijaEntryLatinWords = new List<M_ARABICDARIJAENTRY_LATINWORD>();
+
+            // extract latin words and save every match of latin words
+            // also calculate on the fly the number of variants
+            MatchCollection matches = TextTools.ExtractLatinWords(arabicText);
+            foreach (Match match in matches)
+            {
+                // do not consider words in the bidict as latin words
+                if (new TextFrequency().BidictContainsWord(match.Value))
+                    continue;
+
+                // count variants
+                String arabiziWord = match.Value;
+                int variantsCount = new TextConverter().GetAllTranscriptions(arabiziWord).Count;
+
+                var latinWord = new M_ARABICDARIJAENTRY_LATINWORD
+                {
+                    ID_ARABICDARIJAENTRY_LATINWORD = Guid.NewGuid(),
+                    ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
+                    LatinWord = arabiziWord,
+                    VariantsCount = variantsCount
+                };
+
+                //
+                arabicDarijaEntryLatinWords.Add(latinWord);
+
+                // Save to Serialization
+                saveserializeM_ARABICDARIJAENTRY_LATINWORD_EFSQL_uow(latinWord, db, isEndOfScope: isEndOfScope);
             }
 
             // return arabicText;
@@ -229,16 +397,22 @@ namespace ArabicTextAnalyzer.BO
             // NER manual extraction
             return new TextEntityExtraction().NerManualExtraction(arabicText, entities, id_ARABICDARIJAENTRY, saveserializeM_ARABICDARIJAENTRY_TEXTENTITY, accessMode);
         }
+
+        private List<M_ARABICDARIJAENTRY_TEXTENTITY> train_savener_uow(string arabicText, Guid id_ARABICDARIJAENTRY, ArabiziDbContext db, bool isEndOfScope = false)
+        {
+            // Entity extraction from rosette (https://api.rosette.com/rest/v1/)
+            var entities = new TextEntityExtraction().GetEntities(arabicText);
+
+            // NER manual extraction
+            return new TextEntityExtraction().NerManualExtraction_uow(arabicText, entities, id_ARABICDARIJAENTRY, saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL_uow, db, isEndOfScope);
+        }
         #endregion
 
         #region BACK YARD BO SAVE / DELETE
-        private void saveserializeM_ARABIZIENTRY(M_ARABIZIENTRY arabiziEntry, AccessMode accessMode)
+        /*private void saveserializeM_ARABIZIENTRY(M_ARABIZIENTRY arabiziEntry)
         {
-            if (accessMode == AccessMode.efsql)
-            {
-                saveserializeM_ARABIZIENTRY_EFSQL(arabiziEntry);
-            }
-        }
+            saveserializeM_ARABIZIENTRY_EFSQL(arabiziEntry);
+        }*/
 
         private void saveserializeM_ARABIZIENTRY_EFSQL(M_ARABIZIENTRY arabiziEntry)
         {
@@ -251,13 +425,25 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
-        private void saveserializeM_ARABICDARIJAENTRY(M_ARABICDARIJAENTRY arabicDarijaEntry, AccessMode accessMode)
+        private void saveserializeM_ARABIZIENTRY_EFSQL_uow(M_ARABIZIENTRY arabiziEntry, ArabiziDbContext db, bool isEndOfScope = false)
+        {
+            // using (var db = new ArabiziDbContext())
+            // {
+            db.M_ARABIZIENTRYs.Add(arabiziEntry);
+
+            // commit
+            if (isEndOfScope == true)
+                db.SaveChanges();
+            // }
+        }
+
+        /*private void saveserializeM_ARABICDARIJAENTRY(M_ARABICDARIJAENTRY arabicDarijaEntry, AccessMode accessMode)
         {
             if (accessMode == AccessMode.efsql)
             {
                 saveserializeM_ARABICDARIJAENTRY_EFSQL(arabicDarijaEntry);
             }
-        }
+        }*/
 
         private void saveserializeM_ARABICDARIJAENTRY_EFSQL(M_ARABICDARIJAENTRY arabicDarijaEntry)
         {
@@ -270,11 +456,23 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
-        private void saveserializeM_ARABICDARIJAENTRY_LATINWORD(M_ARABICDARIJAENTRY_LATINWORD latinWord, AccessMode accessMode)
+        private void saveserializeM_ARABICDARIJAENTRY_EFSQL_uow(M_ARABICDARIJAENTRY arabicDarijaEntry, ArabiziDbContext db, bool isEndOfScope = false)
+        {
+            // using (var db = new ArabiziDbContext())
+            // {
+            db.M_ARABICDARIJAENTRYs.Add(arabicDarijaEntry);
+
+            // commit
+            if (isEndOfScope == true)
+                db.SaveChanges();
+            // }
+        }
+
+        /*private void saveserializeM_ARABICDARIJAENTRY_LATINWORD(M_ARABICDARIJAENTRY_LATINWORD latinWord, AccessMode accessMode)
         {
             if (accessMode == AccessMode.efsql)
                 saveserializeM_ARABICDARIJAENTRY_LATINWORD_EFSQL(latinWord);
-        }
+        }*/
 
         private void saveserializeM_ARABICDARIJAENTRY_LATINWORD_EFSQL(M_ARABICDARIJAENTRY_LATINWORD latinWord)
         {
@@ -285,6 +483,18 @@ namespace ArabicTextAnalyzer.BO
                 // commit
                 db.SaveChanges();
             }
+        }
+
+        private void saveserializeM_ARABICDARIJAENTRY_LATINWORD_EFSQL_uow(M_ARABICDARIJAENTRY_LATINWORD latinWord, ArabiziDbContext db, bool isEndOfScope = false)
+        {
+            // using (var db = new ArabiziDbContext())
+            // {
+            db.M_ARABICDARIJAENTRY_LATINWORDs.Add(latinWord);
+
+            // commit
+            if (isEndOfScope == true)
+                db.SaveChanges();
+            // }
         }
 
         private void saveserializeM_ARABICDARIJAENTRY_TEXTENTITY(M_ARABICDARIJAENTRY_TEXTENTITY textEntity, AccessMode accessMode)
@@ -302,6 +512,18 @@ namespace ArabicTextAnalyzer.BO
                 // commit
                 db.SaveChanges();
             }
+        }
+
+        public void saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL_uow(M_ARABICDARIJAENTRY_TEXTENTITY textEntity, ArabiziDbContext db, bool isEndOfScope = false)
+        {
+            // using (var db = new ArabiziDbContext())
+            // {
+            db.M_ARABICDARIJAENTRY_TEXTENTITYs.Add(textEntity);
+
+            // commit
+            if (isEndOfScope == true)
+                db.SaveChanges();
+            // }
         }
 
         public void serialize_Delete_M_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(M_ARABICDARIJAENTRY_TEXTENTITY textEntity)
@@ -444,6 +666,33 @@ namespace ArabicTextAnalyzer.BO
                 // commit
                 db.SaveChanges();
             }
+        }
+
+        public void Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL_uow(Guid id_arabizientry, ArabiziDbContext db, bool isEndOfScope = false)
+        {
+            // using (var db = new ArabiziDbContext())
+            // {
+            // filter on the one linked to current arabizi entry
+            var arabicdarijaentry = db.M_ARABICDARIJAENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry);
+
+            // load/deserialize data_M_ARABICDARIJAENTRY_TEXTENTITY
+            // filter on the ones linked to current arabic darija entry
+            db.M_ARABICDARIJAENTRY_TEXTENTITYs.RemoveRange(db.M_ARABICDARIJAENTRY_TEXTENTITYs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
+
+            // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
+            // filter on the ones linked to current arabic darija entry
+            db.M_ARABICDARIJAENTRY_LATINWORDs.RemoveRange(db.M_ARABICDARIJAENTRY_LATINWORDs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
+
+            // remove arabic darija item
+            db.M_ARABICDARIJAENTRYs.Remove(arabicdarijaentry);
+
+            // remove arabizi
+            db.M_ARABIZIENTRYs.Remove(db.M_ARABIZIENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry));
+
+            // commit
+            if (isEndOfScope == true)
+                db.SaveChanges();
+            // }
         }
         #endregion
 
