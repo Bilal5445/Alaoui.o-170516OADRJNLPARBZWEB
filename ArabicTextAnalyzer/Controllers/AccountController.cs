@@ -131,6 +131,30 @@ namespace ArabicTextAnalyzer.Controllers
                 }
             }
 
+            // log login time
+            using (var db = new ArabiziDbContext())
+            {
+                var userguid = Guid.Parse(userId);
+                var registeredUser = db.RegisterUsers.SingleOrDefault(m => m.UserGuid == userguid);
+                if (registeredUser == null)
+                {
+                    db.RegisterUsers.Add(new RegisterUser
+                    {
+                        UserGuid = userguid,
+                        LastLoginTime = DateTime.Now,
+                        Username = model.Email,
+                        Password = model.Password,
+                        CreateOn = DateTime.Now,
+                        EmailID = model.Email,
+                    });
+                }
+                else
+                    registeredUser.LastLoginTime = DateTime.Now;
+
+                // commit
+                db.SaveChanges();
+            }
+
             //
             return RedirectToLocal(returnUrl);
         }

@@ -1063,7 +1063,11 @@ namespace ArabicTextAnalyzer.Controllers
                 List<M_XTRCTTHEME> mainEntities = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
 
                 // excludes POS NER (PRONOMS, PREPOSITIONS, ...), plus also MAIN
-                textEntities.RemoveAll(m => m.TextEntity.Type == "PREPOSITION" || m.TextEntity.Type == "PRONOUN" || m.TextEntity.Type == "MAIN ENTITY");
+                textEntities.RemoveAll(m => m.TextEntity.Type == "PREPOSITION" 
+                                    || m.TextEntity.Type == "PRONOUN"
+                                    || m.TextEntity.Type == "ADVERB"
+                                    || m.TextEntity.Type == "CONJUNCTION"
+                                    || m.TextEntity.Type == "MAIN ENTITY");
 
                 // Visual formatting before sending back
                 items.ForEach(s =>
@@ -1365,6 +1369,8 @@ namespace ArabicTextAnalyzer.Controllers
                             + "AND ARTE.TextEntity_Type != 'MAIN ENTITY' "
                             + "AND ARTE.TextEntity_Type != 'PREPOSITION' "
                             + "AND ARTE.TextEntity_Type != 'PRONOUN' "
+                            + "AND ARTE.TextEntity_Type != 'CONJUNCTION' "
+                            + "AND ARTE.TextEntity_Type != 'ADVERB' "
                             + "GROUP BY ARTE.TextEntity_Mention, ARTE.TextEntity_Type ";
 
                 conn.Open();

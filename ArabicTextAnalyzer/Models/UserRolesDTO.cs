@@ -20,6 +20,9 @@ namespace ArabicTextAnalyzer.Models
         // join with registerapps
         public int TotalAppCallLimit { get; set; }
         public int TotalAppCallConsumed { get; set; }
+
+        // to show last login : extend Identity User to save last login time
+        public virtual DateTime? LastLoginTime { get; set; }
     }
 
     public class UserRolesDTO

@@ -735,6 +735,19 @@ namespace ArabicTextAnalyzer.BO
                 return conn.Query<RegisterApp>(qry).ToList();
             }
         }
+
+        public List<RegisterUser> loaddeserializeRegisterUsers_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM RegisterUser ";
+
+                conn.Open();
+                return conn.Query<RegisterUser>(qry).ToList();
+            }
+        }
         #endregion
     }
 }

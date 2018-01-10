@@ -275,8 +275,16 @@
     <Compile Include="Migrations\201712281651487_ThemeKeyWordWithCount.Designer.cs">
       <DependentUpon>201712281651487_ThemeKeyWordWithCount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801101604268_LastLoginTime_ArabiziDbContext.cs" />
+    <Compile Include="Migrations\201801101604268_LastLoginTime_ArabiziDbContext.Designer.cs">
+      <DependentUpon>201801101604268_LastLoginTime_ArabiziDbContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801101619193_UserGuid_ArabiziDbContext.cs" />
+    <Compile Include="Migrations\201801101619193_UserGuid_ArabiziDbContext.Designer.cs">
+      <DependentUpon>201801101619193_UserGuid_ArabiziDbContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ConfigurationApplicationDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <None Include="Models\ArabiziDbContext.cs" />
     <Compile Include="Models\ProcessTextDto.cs" />
     <Compile Include="Models\Repository\AuthenticateConcrete.cs" />
     <Compile Include="Models\Repository\ClientKeysConcrete.cs" />
@@ -731,6 +739,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712281651487_ThemeKeyWordWithCount.resx">
       <DependentUpon>201712281651487_ThemeKeyWordWithCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801101604268_LastLoginTime_ArabiziDbContext.resx">
+      <DependentUpon>201801101604268_LastLoginTime_ArabiziDbContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801101619193_UserGuid_ArabiziDbContext.resx">
+      <DependentUpon>201801101619193_UserGuid_ArabiziDbContext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
