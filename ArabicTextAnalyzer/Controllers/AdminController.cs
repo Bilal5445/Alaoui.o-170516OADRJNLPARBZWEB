@@ -68,6 +68,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                 // get register apps to make a join with users
                 var registerApps = new Arabizer().loaddeserializeRegisterApps_DAPPERSQL();
+                var registerUsers = new Arabizer().loaddeserializeRegisterUsers_DAPPERSQL();
                 var result = users.Join(registerApps, u => u.Id, a => a.UserID, (usr, app) => new
                 {
                     usr.UserName,
@@ -75,6 +76,14 @@ namespace ArabicTextAnalyzer.Controllers
                     usr.LockoutEndDateUtc,
                     app.TotalAppCallConsumed,
                     app.TotalAppCallLimit
+                }).Join(registerUsers, r1 => r1.Email, u => u.EmailID, (res1, regusr) => new
+                {
+                    res1.UserName,
+                    res1.Email,
+                    res1.LockoutEndDateUtc,
+                    res1.TotalAppCallConsumed,
+                    res1.TotalAppCallLimit,
+                    regusr.LastLoginTime
                 });
 
                 foreach (var item in result)
@@ -85,6 +94,7 @@ namespace ArabicTextAnalyzer.Controllers
                     objUserDTO.LockoutEndDateUtc = item.LockoutEndDateUtc;
                     objUserDTO.TotalAppCallLimit = item.TotalAppCallLimit;
                     objUserDTO.TotalAppCallConsumed = item.TotalAppCallConsumed;
+                    objUserDTO.LastLoginTime = item.LastLoginTime;
                     col_UserDTO.Add(objUserDTO);
                 }
 

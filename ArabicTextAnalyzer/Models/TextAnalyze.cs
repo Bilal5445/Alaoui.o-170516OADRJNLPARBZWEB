@@ -6,9 +6,7 @@ namespace ArabicTextAnalyzer.Models
     public class TextAnalyze
     {
         public TextSentiment Sentiment { get; set; }
-
         public List<TextEntity> Entities { get; set; }
-
         public string ArabicText { get; set; }
     }
 }

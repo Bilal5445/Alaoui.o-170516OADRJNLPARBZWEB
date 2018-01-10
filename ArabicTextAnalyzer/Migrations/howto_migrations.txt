@@ -93,3 +93,32 @@ Update-Database
 VS > Tools > NuGet Package Manager > Package Manager Console : Default project : ArabicTextAnalyzer
 Add-Migration ThemeKeyWordWithCount
 Update-Database
+
+---
+
+VS > Tools > NuGet Package Manager > Package Manager Console : Default project : ArabicTextAnalyzer
+rename Configuration.cs to Configuration.orig.cs
+Enable-Migrations -ContextTypeName ArabicTextAnalyzer.Models.ApplicationDbContext
+rename new Configuration.cs to ConfigurationApplicationDbContext.cs
+rename back Configuration.orig.cs to Configuration.cs
+Add-Migration LastLoginTime_ArabiziDbContext -ConfigurationTypeName Configuration
+Update-Database -ConfigurationTypeName Configuration
+
+---
+
+VS > Tools > NuGet Package Manager > Package Manager Console : Default project : ArabicTextAnalyzer
+Add-Migration UserGuid_ArabiziDbContext -ConfigurationTypeName Configuration
+Update-Database -ConfigurationTypeName Configuration
+
+/*
+add-migration InitialCreate_ApplicationDbContext -IgnoreChanges -ConfigurationTypeName ConfigurationApplicationDbContext
+update-database -TargetMigration InitialCreate_ApplicationDbContext -ConfigurationTypeName ConfigurationApplicationDbContext
+Update-Database -Script -SourceMigration: $InitialDatabase -TargetMigration: TokenAuthentication -ConfigurationTypeName ConfigurationApplicationDbContext
+Update-Database -ConfigurationTypeName ConfigurationApplicationDbContext
+add-Migration LastLoginTime_ApplicationDbContext -ConfigurationTypeName ConfigurationApplicationDbContext
+Add-Migration InitialCreate –IgnoreChanges ?
+Add-Migration LastLoginTime -ConnectionString DefaultConnection -Verbose
+Add-Migration LastLoginTime -ConnectionString "Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\aspnet-ArabicTextAnalyzer-20170518103120.mdf;Initial Catalog=aspnet-ArabicTextAnalyzer-20170518103120;Integrated Security=True;User Instance=True" -ConnectionProviderName "System.Data.SqlClient"
+Add-Migration LastLoginTime -ConnectionString "Data Source=.\SQLEXPRESS;Initial Catalog=ArabiziDB;Integrated Security=True" -ConnectionProviderName "System.Data.SqlClient"
+Add-Migration ThemeKeyWordWithCount
+Update-Database*/
