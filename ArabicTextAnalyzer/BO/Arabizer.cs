@@ -61,6 +61,9 @@ namespace ArabicTextAnalyzer.BO
             if (frMode == false)
                 arabicText = new TextConverter().Preprocess_upstream(arabicText);
 
+            // mark as ignore : url 
+            arabicText = train_markAsIgnore(arabicText);
+
             if (frMode == false)
                 arabicText = train_bidict(arabicText);
 
@@ -71,11 +74,13 @@ namespace ArabicTextAnalyzer.BO
             arabicText = arabicDarijaEntry.ArabicDarijaText;
             expando.M_ARABICDARIJAENTRY = arabicDarijaEntry;
 
-            if (frMode == false)
+            // MC110118 we don't need any longer latin words, since we don't use any longer twingly to search for corpus as this one is feeded manually
+            // Plus it disturbs URL handling
+            /*if (frMode == false)
             {
                 var arabicDarijaEntryLatinWords = train_savelatinwords(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
                 expando.M_ARABICDARIJAENTRY_LATINWORDs = arabicDarijaEntryLatinWords;
-            }
+            }*/
 
             List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = train_savener(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
             expando.M_ARABICDARIJAENTRY_TEXTENTITYs = textEntities;
@@ -132,6 +137,9 @@ namespace ArabicTextAnalyzer.BO
             if (frMode == false)
                 arabicText = new TextConverter().Preprocess_upstream(arabicText);
 
+            // mark as ignore : url 
+            arabicText = train_markAsIgnore(arabicText);
+
             if (frMode == false)
                 arabicText = train_bidict(arabicText);
 
@@ -142,11 +150,13 @@ namespace ArabicTextAnalyzer.BO
             arabicText = arabicDarijaEntry.ArabicDarijaText;
             expando.M_ARABICDARIJAENTRY = arabicDarijaEntry;
 
-            if (frMode == false)
+            // MC110118 we don't need any longer latin words, since we don't use any longer twingly to search for corpus as this one is feeded manually
+            // Plus it disturbs URL handling
+            /*if (frMode == false)
             {
                 var arabicDarijaEntryLatinWords = train_savelatinwords_uow(arabicText, id_ARABICDARIJAENTRY, db, isEndOfScope: false);
                 expando.M_ARABICDARIJAENTRY_LATINWORDs = arabicDarijaEntryLatinWords;
-            }
+            }*/
 
             List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = train_savener_uow(arabicText, id_ARABICDARIJAENTRY, db, isEndOfScope: false);
             expando.M_ARABICDARIJAENTRY_TEXTENTITYs = textEntities;
@@ -206,6 +216,13 @@ namespace ArabicTextAnalyzer.BO
         {
             // clean before google/bing : o w
             arabicText = new TextFrequency().ReplaceArzByArFromBidict(arabicText);
+            return arabicText;
+        }
+
+        private static string train_markAsIgnore(string arabicText)
+        {
+            // clean before google/bing : url
+            arabicText = new TextFrequency().MarkAsIgnore_URL(arabicText);
             return arabicText;
         }
 
@@ -336,7 +353,7 @@ namespace ArabicTextAnalyzer.BO
                 arabicDarijaEntryLatinWords.Add(latinWord);
 
                 // Save to Serialization
-                saveserializeM_ARABICDARIJAENTRY_LATINWORD_EFSQL(latinWord/*, accessMode*/);
+                saveserializeM_ARABICDARIJAENTRY_LATINWORD_EFSQL(latinWord);
             }
 
             // return arabicText;
