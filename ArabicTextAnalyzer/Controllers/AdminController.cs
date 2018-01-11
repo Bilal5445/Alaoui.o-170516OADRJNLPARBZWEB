@@ -33,43 +33,46 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 int intPage = 1;
                 int intPageSize = 5;
-                int intTotalPageCount = 0;
+                int intTotalItemCount = 0;
+
+                //
                 if (searchStringUserNameOrEmail != null)
-                {
                     intPage = 1;
+                else if (currentFilter != null)
+                {
+                    searchStringUserNameOrEmail = currentFilter;
+                    intPage = page ?? 1;
                 }
                 else
                 {
-                    if (currentFilter != null)
-                    {
-                        searchStringUserNameOrEmail = currentFilter;
-                        intPage = page ?? 1;
-                    }
-                    else
-                    {
-                        searchStringUserNameOrEmail = "";
-                        intPage = page ?? 1;
-                    }
+                    searchStringUserNameOrEmail = "";
+                    intPage = page ?? 1;
                 }
+
+                //
                 ViewBag.CurrentFilter = searchStringUserNameOrEmail;
                 List<ExpandedUserDTO> col_UserDTO = new List<ExpandedUserDTO>();
                 int intSkip = (intPage - 1) * intPageSize;
-                intTotalPageCount = UserManager.Users
-                    .Where(x => x.UserName.Contains(searchStringUserNameOrEmail))
-                    .Count();
+
+                //
+                var users = UserManager.Users
+                    .Where(x => x.UserName.Contains(searchStringUserNameOrEmail));
+
+                //
+                /*intTotalPageCount = users
+                    .Count();*/
 
                 // 
-                var users = UserManager.Users
-                    .Where(x => x.UserName.Contains(searchStringUserNameOrEmail))
+                var lusers = users
                     .OrderBy(x => x.UserName)
-                    .Skip(intSkip)
-                    .Take(intPageSize)
+                    /*.Skip(intSkip)
+                    .Take(intPageSize)*/
                     .ToList();
 
                 // get register apps to make a join with users
                 var registerApps = new Arabizer().loaddeserializeRegisterApps_DAPPERSQL();
                 var registerUsers = new Arabizer().loaddeserializeRegisterUsers_DAPPERSQL();
-                var result = users.Join(registerApps, u => u.Id, a => a.UserID, (usr, app) => new
+                var result = lusers.Join(registerApps, u => u.Id, a => a.UserID, (usr, app) => new
                 {
                     usr.UserName,
                     usr.Email,
@@ -86,6 +89,11 @@ namespace ArabicTextAnalyzer.Controllers
                     regusr.LastLoginTime
                 });
 
+                result = result.Skip(intSkip)
+                    .Take(intPageSize)
+                    /*.ToList()*/;
+
+                //
                 foreach (var item in result)
                 {
                     ExpandedUserDTO objUserDTO = new ExpandedUserDTO();
@@ -98,8 +106,11 @@ namespace ArabicTextAnalyzer.Controllers
                     col_UserDTO.Add(objUserDTO);
                 }
 
+                intTotalItemCount = /*users*/result
+                    .Count();
+
                 // Set the number of pages
-                var _UserDTOAsIPagedList = new StaticPagedList<ExpandedUserDTO>(col_UserDTO, intPage, intPageSize, intTotalPageCount);
+                var _UserDTOAsIPagedList = new StaticPagedList<ExpandedUserDTO>(col_UserDTO, intPage, intPageSize, intTotalItemCount);
 
                 //
                 return View(_UserDTOAsIPagedList);
