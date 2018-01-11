@@ -157,16 +157,23 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public List<TextEntity> NerRosetteClean(IEnumerable<TextEntity> entities)
         {
+            var lentities = entities.ToList();
+
+            // clean rosette ners : type url (IDENTIFIER:URL)
+            lentities.RemoveAll(m => m.Type == "IDENTIFIER:URL");
+
             // clean 2 rosette ners : drop self containing
-            foreach (var entity in entities)
+            // foreach (var entity in entities)
+            foreach (var entity in lentities)
             {
-                var entitiesToDrop = entities.ToList().FindAll(m => m.Mention != entity.Mention && m.Mention.Contains(entity.Mention));
+                // var entitiesToDrop = entities.ToList().FindAll(m => m.Mention != entity.Mention && m.Mention.Contains(entity.Mention));
+                var entitiesToDrop = lentities.FindAll(m => m.Mention != entity.Mention && m.Mention.Contains(entity.Mention));
                 foreach (var entityToDrop in entitiesToDrop)
                 {
                     entityToDrop.Type = "TODROP";
                 }
             }
-            var lentities = entities.ToList();
+            // var lentities = entities.ToList();
             lentities.RemoveAll(m => m.Type == "TODROP");
 
             // clean 3 rosette ners : drop entities from exlusion files (ex:allah : irrelevant for us)
