@@ -13,7 +13,8 @@ function BringNewDataIntoPartialView(adminModeShowAll) {
     $.ajax({
         type: 'POST',
         url: "/Train/ArabicDarijaEntryPartialView",
-        data: null,
+        // data: null,
+        "data": { "adminModeShowAll": adminModeShowAll },
         success: (function (result) {
             $('#partialPlaceHolder').html(result);
 

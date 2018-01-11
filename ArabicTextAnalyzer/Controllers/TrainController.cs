@@ -146,7 +146,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [HttpPost]
-        public ActionResult ArabicDarijaEntryPartialView()
+        public ActionResult ArabicDarijaEntryPartialView(bool adminModeShowAll = false)
         {
             try
             {
@@ -155,7 +155,11 @@ namespace ArabicTextAnalyzer.Controllers
                 {
                     var fbFluencerAsTheme = loadAllT_Fb_InfluencerAsTheme();
                     ViewBag.AllInfluence = fbFluencerAsTheme;
+
+                    // pass adminModeShowAll
+                    ViewBag.AdminModeShowAll = adminModeShowAll;
                 }
+
                 // pass entries to partial view via the model (instead of the bag for a view)
                 return PartialView("_IndexPartialPage_arabicDarijaEntries");
             }
