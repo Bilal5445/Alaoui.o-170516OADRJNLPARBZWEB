@@ -193,50 +193,64 @@ function fnCallback(id) {
 
 // method for translate the fb post 
 var TranslateContentIsClicked = false;
-function TranslateContent(obj) {
-    if (TranslateContentIsClicked == false) {
-        TranslateContentIsClicked = true;
-        if ($($(obj).parents("tr").find("td")[4]).html().trim().replace('-', '').length == 0) {
-            if ($($(obj).parents("tr").find("td")[3]).html().trim().replace('-', '').length > 0) {
-                var _tag = ($($(obj).parents("tr").find("td")[3])).html().toString().replace('-', '');
-                var id = ($($(obj).parents("tr").find("td")[1])).html().toString();
-                $.ajax({
-                    "dataType": 'json',
-                    "type": "GET",
-                    "url": "/Train/TranslateFbPost",
-                    "data": {
-                        "content": _tag,
-                        "id": id
-                    },
-                    "success": function (msg) {
-                        console.log(msg);
-                        TranslateContentIsClicked = false;
-                        if (msg.status) {
 
-                            if ($($(obj).parents("tr").find("td")[4]).html().trim().replace('-', '').length == 0) {
-                                $($(obj).parents("tr").find("td")[4]).html(msg.recordsFiltered)
-                            }
-                        }
-                        else {
-                            alert("Error " + msg.message);
-                        }
-                    },
-                    "error": function () {
-                        alert("Error")
-                        TranslateContentIsClicked = false;
-                    }
-                });
+function TranslateContent(obj) {
+
+    // check before
+    if (TranslateContentIsClicked == true)
+        return;
+
+    // mark as clicked
+    TranslateContentIsClicked = true;
+
+    //
+    var tds = $(obj).parents("tr").find("td");
+    var id = ($(tds[1])).html().toString();
+    var postText = $(tds[/*3*/2]).html().trim().replace('-', '');
+    // var _tag = ($(tds[/*3*/2])).html().toString().replace('-', '');
+    var translatedTextTd = tds[/*4*/3];
+    var translatedText = $(translatedTextTd).html().trim().replace('-', '');
+
+    //
+    /*if (translatedText.length != 0) {
+        alert("This post is already translated");
+        TranslateContentIsClicked = false;
+        return;
+    }*/
+
+    if (postText.length <= 0) {
+        alert("There is no post for translate");
+        TranslateContentIsClicked = false;
+        return;
+    }
+
+    $.ajax({
+        "dataType": 'json',
+        "type": "GET",
+        "url": "/Train/TranslateFbPost",
+        "data": {
+            "content": /*_tag*/postText,
+            "id": id
+        },
+        "success": function (msg) {
+            // console.log(msg);
+            TranslateContentIsClicked = false;
+            if (msg.status) {
+
+                if (translatedText.length == 0) {
+                    // if succesfully transalted, remplace translatedText column by result text
+                    $(translatedTextTd).html(msg.recordsFiltered)
+                }
             }
             else {
-                alert("There is no post for translate");
-                TranslateContentIsClicked = false;
+                alert("Error " + msg.message);
             }
-        }
-        else {
-            alert("This post is already translated");
+        },
+        "error": function () {
+            alert("Error")
             TranslateContentIsClicked = false;
         }
-    }
+    });
 }
 // end of method.
 
@@ -245,48 +259,53 @@ var GetCommentsIsClicked = false;
 
 function GetComments(obj) {
 
-    if (GetCommentsIsClicked == false) {
+    // check before
+    if (GetCommentsIsClicked == true)
+        return;
 
-        // mark as clicked
-        GetCommentsIsClicked = true;
+    // mark as clicked
+    GetCommentsIsClicked = true;
 
-        //
-        var tr = $(obj).closest('tr');
-        var tds = $(obj).parents("tr").find("td");
-        var idCol = ($(tds[1])).html().toString().split('_');
-        var id = idCol[1];
-        var influenceridFromIdCol = idCol[0];
-        // var influencerid = ($(tds[2])).html().toString();
-        var influencerid = influenceridFromIdCol;
-        var table = vars[influencerid];
-        var row = table.row(tr);
+    //
+    var tr = $(obj).closest('tr');
+    var tds = $(obj).parents("tr").find("td");
+    var idCol = ($(tds[1])).html().toString().split('_');
+    var id = idCol[1];
+    var influenceridFromIdCol = idCol[0];
+    // var influencerid = ($(tds[2])).html().toString();
+    var influencerid = influenceridFromIdCol;
+    var table = vars[influencerid];
+    var row = table.row(tr);
 
-        if (row.child.isShown()) {
+    //
+    if (row.child.isShown()) {
 
-            // This row is already open - close it
-            $(obj).prop('src', "http://i.imgur.com/SD7Dz.png")
-            row.child.hide();
-            tr.removeClass('shown');
+        // This row is already open - close it
+        $(obj).prop('src', "http://i.imgur.com/SD7Dz.png")
+        row.child.hide();
+        tr.removeClass('shown');
+        GetCommentsIsClicked = false;
+
+    } else {
+
+        $(obj).prop('src', "http://i.imgur.com/d4ICC.png")
+
+        if (!$('#tabledetails_' + id).length) {
+
+            var tablecontent = CommentTable(id);
+            row.child(tablecontent).show();
+            GetCommentsForPost(id);
+            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a><h3>Comments</h3>')
             GetCommentsIsClicked = false;
 
         } else {
 
-            $(obj).prop('src', "http://i.imgur.com/d4ICC.png")
-            if (!$('#tabledetails_' + id).length) {
-
-                var tablecontent = CommentTable(id);
-                row.child(tablecontent).show();
-                GetCommentsForPost(id);
-                $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a><h3>Comments</h3>')
-                GetCommentsIsClicked = false;
-            }
-            else {
-
-                row.child($('#tabledetails_' + id).html()).show();
-                GetCommentsIsClicked = false;
-            }
-            tr.addClass('shown');
+            row.child($('#tabledetails_' + id).html()).show();
+            GetCommentsIsClicked = false;
         }
+
+        //
+        tr.addClass('shown');
     }
 }
 

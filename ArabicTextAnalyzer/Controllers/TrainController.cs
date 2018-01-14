@@ -462,45 +462,58 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public async Task<object> TranslateFbPost(String content, string id)
         {
-            //
+            // get current active theme for the current user
             var userId = User.Identity.GetUserId();
+            var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
 
             //
             string errMessage = string.Empty;
             bool status = false;
-            string translatedstring = "";
+            String translatedstring = string.Empty;
 
-            var url = ConfigurationManager.AppSettings["TranslateDomain"] + "/" + "api/Arabizi/GetArabicDarijaEntryForFbPost?text=" + content;
-            var result = await HtmlHelpers.PostAPIRequest(url, "", type: "GET");
+            // MC140118 skip call to API via URL, use directly local function Arabizer.train()) instead
+            // var url = ConfigurationManager.AppSettings["TranslateDomain"] + "/" + "api/Arabizi/GetArabicDarijaEntryForFbPost?text=" + content;
+            // var result = await HtmlHelpers.PostAPIRequest(url, "", type: "GET");
 
-            if (result.Contains("Success"))
+            // MC081217 furthermore translate via train to populate NER, analysis data, ... (TODO LATER : should be the real code instead of API or API should do the real complete work)
+            // Arabizi to arabic script via direct call to perl script
+            // var xtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+            // var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
+            var res = new Arabizer().train(new M_ARABIZIENTRY
+            {
+                ArabiziText = content.Trim(),
+                ArabiziEntryDate = DateTime.Now,
+                ID_XTRCTTHEME = userActiveXtrctTheme.ID_XTRCTTHEME
+            }, /*activeXtrctTheme*/userActiveXtrctTheme.ThemeName, thisLock: thisLock);
+
+            if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY != Guid.Empty)
+            // if (result.Contains("Success"))
             {
                 status = true;
-                translatedstring = result.Replace("Success", "");
-                var @singleQuote = "CHAR(39)";
-                translatedstring = translatedstring.Replace("'", "");
-                var returndata = SaveTranslatedPost(id, translatedstring);
-                if (returndata > 0)
+                // translatedstring = result.Replace("Success", "");
+                // var @singleQuote = "CHAR(39)";
+                // translatedstring = translatedstring.Replace("'", "");
+                translatedstring = res.M_ARABICDARIJAENTRY.ArabicDarijaText;
+                /*var returndata = */SaveTranslatedPost(id, translatedstring);
+                /*if (returndata > 0)
                 {
                     //
-                }
+                }*/
                 // return true;
 
                 // MC081217 furthermore translate via train to populate NER, analysis data, ... (TODO LATER : should be the real code instead of API or API should do the real complete work)
                 // Arabizi to arabic script via direct call to perl script
-                var xtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+                /*var xtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
                 var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
                 new Arabizer().train(new M_ARABIZIENTRY
                 {
                     ArabiziText = content.Trim(),
                     ArabiziEntryDate = DateTime.Now
-                }, activeXtrctTheme.ThemeName, thisLock: thisLock);
+                }, activeXtrctTheme.ThemeName, thisLock: thisLock);*/
             }
             else
-            {
-                errMessage = result;
-                //return false;
-            }
+                // errMessage = result;
+                errMessage = "Text is required.";
 
             return JsonConvert.SerializeObject(new
             {
@@ -508,7 +521,6 @@ namespace ArabicTextAnalyzer.Controllers
                 recordsFiltered = translatedstring,
                 message = errMessage
             });
-
         }
 
         [HttpGet]
@@ -795,7 +807,7 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 ID_XTRCTTHEME = Guid.NewGuid(),
                 ThemeName = themename.Trim(),
-                 UserID = userId
+                UserID = userId
             };
 
             // Save to Serialization
@@ -1070,7 +1082,7 @@ namespace ArabicTextAnalyzer.Controllers
                 List<M_XTRCTTHEME> mainEntities = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
 
                 // excludes POS NER (PRONOMS, PREPOSITIONS, ...), plus also MAIN
-                textEntities.RemoveAll(m => m.TextEntity.Type == "PREPOSITION" 
+                textEntities.RemoveAll(m => m.TextEntity.Type == "PREPOSITION"
                                     || m.TextEntity.Type == "PRONOUN"
                                     || m.TextEntity.Type == "ADVERB"
                                     || m.TextEntity.Type == "CONJUNCTION"
@@ -1635,34 +1647,37 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private int SaveTranslatedPost(string postid, string TranslatedText)
+        private /*int*/void SaveTranslatedPost(string postid, string TranslatedText)
         {
-            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
-            int returndata = 0;
-            try
+            // int returndata = 0;
+
+            /*try
+            {*/
+            if (!string.IsNullOrEmpty(postid) && !string.IsNullOrEmpty(TranslatedText))
             {
+                String qry = "UPDATE T_FB_POST SET translated_text = N'" + TranslatedText + "' WHERE id = '" + postid + "'";
+
+                String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
-                    String qry = "";
-                    if (!string.IsNullOrEmpty(postid) && !string.IsNullOrEmpty(TranslatedText))
-                    {
-                        qry = "update T_FB_POST set translated_text=N'" + TranslatedText + "' where id='" + postid + "'";
-                    }
                     using (SqlCommand cmd = new SqlCommand(qry, conn))
                     {
                         cmd.CommandType = CommandType.Text;
                         conn.Open();
-                        returndata = cmd.ExecuteNonQuery();
+                        /*returndata = */
+                        cmd.ExecuteNonQuery();
                         conn.Close();
                     }
-
                 }
             }
+            /*}
             catch (Exception e)
             {
                 returndata = 0;
             }
-            return returndata;
+
+            return returndata;*/
         }
 
         private int SaveTranslatedComments(string postid, string TranslatedText)
