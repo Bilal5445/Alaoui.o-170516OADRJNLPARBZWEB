@@ -471,50 +471,24 @@ namespace ArabicTextAnalyzer.Controllers
             bool status = false;
             String translatedstring = string.Empty;
 
-            // MC140118 skip call to API via URL, use directly local function Arabizer.train()) instead
-            // var url = ConfigurationManager.AppSettings["TranslateDomain"] + "/" + "api/Arabizi/GetArabicDarijaEntryForFbPost?text=" + content;
-            // var result = await HtmlHelpers.PostAPIRequest(url, "", type: "GET");
-
-            // MC081217 furthermore translate via train to populate NER, analysis data, ... (TODO LATER : should be the real code instead of API or API should do the real complete work)
+            // MC081217 translate via train to populate NER, analysis data, ...
             // Arabizi to arabic script via direct call to perl script
-            // var xtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
-            // var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
             var res = new Arabizer().train(new M_ARABIZIENTRY
             {
                 ArabiziText = content.Trim(),
                 ArabiziEntryDate = DateTime.Now,
                 ID_XTRCTTHEME = userActiveXtrctTheme.ID_XTRCTTHEME
-            }, /*activeXtrctTheme*/userActiveXtrctTheme.ThemeName, thisLock: thisLock);
+            }, userActiveXtrctTheme.ThemeName, thisLock: thisLock);
 
             if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY != Guid.Empty)
-            // if (result.Contains("Success"))
             {
                 status = true;
-                // translatedstring = result.Replace("Success", "");
-                // var @singleQuote = "CHAR(39)";
-                // translatedstring = translatedstring.Replace("'", "");
                 translatedstring = res.M_ARABICDARIJAENTRY.ArabicDarijaText;
-                /*var returndata = */SaveTranslatedPost(id, translatedstring);
-                /*if (returndata > 0)
-                {
-                    //
-                }*/
-                // return true;
-
-                // MC081217 furthermore translate via train to populate NER, analysis data, ... (TODO LATER : should be the real code instead of API or API should do the real complete work)
-                // Arabizi to arabic script via direct call to perl script
-                /*var xtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
-                var activeXtrctTheme = xtrctThemes.Find(m => m.CurrentActive == "active");
-                new Arabizer().train(new M_ARABIZIENTRY
-                {
-                    ArabiziText = content.Trim(),
-                    ArabiziEntryDate = DateTime.Now
-                }, activeXtrctTheme.ThemeName, thisLock: thisLock);*/
             }
             else
-                // errMessage = result;
                 errMessage = "Text is required.";
 
+            //
             return JsonConvert.SerializeObject(new
             {
                 status = status,
