@@ -206,9 +206,8 @@ function TranslateContent(obj) {
     //
     var tds = $(obj).parents("tr").find("td");
     var id = ($(tds[1])).html().toString();
-    var postText = $(tds[/*3*/2]).html().trim().replace('-', '');
-    // var _tag = ($(tds[/*3*/2])).html().toString().replace('-', '');
-    var translatedTextTd = tds[/*4*/3];
+    var postText = $(tds[2]).html().trim().replace('-', '');
+    var translatedTextTd = tds[3];
     var translatedText = $(translatedTextTd).html().trim().replace('-', '');
 
     //
@@ -229,12 +228,14 @@ function TranslateContent(obj) {
         "type": "GET",
         "url": "/Train/TranslateFbPost",
         "data": {
-            "content": /*_tag*/postText,
+            "content": postText,
             "id": id
         },
         "success": function (msg) {
-            // console.log(msg);
+
+            // reset to not clicked
             TranslateContentIsClicked = false;
+
             if (msg.status) {
 
                 if (translatedText.length == 0) {
