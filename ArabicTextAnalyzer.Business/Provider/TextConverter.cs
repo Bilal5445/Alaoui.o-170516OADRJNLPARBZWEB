@@ -390,6 +390,9 @@ namespace ArabicTextAnalyzer.Business.Provider
             // l k => l _VOY_ k
             arabizi = Regex.Replace(arabizi, "lk", "l_VOW_k", RegexOptions.IgnoreCase);
 
+            // h l => h _VOY_ l
+            arabizi = Regex.Replace(arabizi, "hl", "h_VOW_l", RegexOptions.IgnoreCase);
+
             // final k => k _VOY
             String miniArabiziKeyword = Regex.Replace(arabizi, @"(\w+k\b)", "$1_VOW_", RegexOptions.IgnoreCase);
 
