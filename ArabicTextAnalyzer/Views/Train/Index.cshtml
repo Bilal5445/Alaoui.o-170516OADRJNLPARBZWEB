@@ -89,18 +89,21 @@
             }
         </ul>
     </div>
+    <!-- theme menu : add new theme -->
     <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#myModal">
         <span class="glyphicon glyphicon-plus"></span>
     </button>
+    <!-- theme menu : edit theme -->
     <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#myModal">
         <span class="glyphicon glyphicon-edit"></span>
     </button>
+    <!-- theme menu : remove theme -->
     <button type="button" class="btn btn-outline-primary btn-xs">
         <span class="glyphicon glyphicon-remove"></span>
     </button>
 </div>
 
-<!-- modal new theme dialogbox -->
+<!-- modal new theme dialogbox #myModal -->
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
@@ -116,10 +119,10 @@
                         <label for="themename">Theme Name</label>
                         @Html.TextBox("themename", "", new { @class = "form-control", placeholder = "Enter new theme name", @required = "required", id = "themename" })
                     </div>
-                    <div class="form-group">
+                    @*<div class="form-group">
                         <label for="themetags">Theme Tags</label>
                         @Html.TextBox("themetags", "", new { @class = "form-control", @required = "required", id = "themetags", data_role = "tagsinput" })
-                    </div>
+                    </div>*@
                     <button type="submit" class="btn btn-default btn-success">Add</button>
                 }
             </div>
