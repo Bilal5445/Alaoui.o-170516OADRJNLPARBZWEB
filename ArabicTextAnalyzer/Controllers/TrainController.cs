@@ -1033,22 +1033,13 @@ namespace ArabicTextAnalyzer.Controllers
                 int itemsPerPage = 10;
 
                 // get from client side, from where we start the paging
-                // int.TryParse(this.Request.QueryString["start"], out start);  // GET 
                 int.TryParse(this.Request.Form["start"], out start);     // POST
 
                 // get from client side, to which length the paging goes
-                // int.TryParse(this.Request.QueryString["length"], out itemsPerPage); // GET 
                 int.TryParse(this.Request.Form["length"], out itemsPerPage);// POST
 
                 // get from client search word
-                // string searchValue = this.Request.QueryString["search[value]"]/*.ToString()*/;// GET 
-                string searchValue = this.Request.Form["search[value]"]/*.ToString()*/;// POST
-
-                // GET
-                /*string searchAccount = this.Request.QueryString["columns[0][search][value]"];
-                string searchSource = this.Request.QueryString["columns[1][search][value]"];
-                string searchEntity = this.Request.QueryString["columns[2][search][value]"];
-                string searchName = this.Request.QueryString["columns[3][search][value]"];*/
+                string searchValue = this.Request.Form["search[value]"];// POST
 
                 // POST
                 string searchAccount = this.Request.Form["columns[0][search][value]"];
@@ -1089,7 +1080,6 @@ namespace ArabicTextAnalyzer.Controllers
                 items.ForEach(s =>
                 {
                     s.PositionHash = itemsCount - start - items.IndexOf(s);
-                    // s.FormattedArabiziEntryDate = s.ArabiziEntryDate.ToString("yyyy-MM-dd HH:mm");
                     s.FormattedArabiziEntryDate = s.ArabiziEntryDate.ToString("yy-MM-dd HH:mm");
                     s.FormattedArabicDarijaText = TextTools.HighlightExtractedLatinWords(s.ArabicDarijaText, s.ID_ARABICDARIJAENTRY, arabicDarijaEntryLatinWords);
                     s.FormattedEntitiesTypes = TextTools.DisplayEntitiesType(s.ID_ARABICDARIJAENTRY, textEntities);
@@ -1125,7 +1115,7 @@ namespace ArabicTextAnalyzer.Controllers
                 tt = c.translated_text,
                 lc = c.likes_count,
                 cc = c.comments_count,
-                dp = c.date_publishing.ToString("yyyy-MM-dd HH:mm")
+                dp = c.date_publishing.ToString("yy-MM-dd HH:mm")
             }).ToList();
 
             // get the number of entries

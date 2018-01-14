@@ -26,6 +26,11 @@
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
 }
 
+ .posts-fb {
+    font-size: 13px;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+}
+
 tr.header {
     background: darkblue;
     color: white;
