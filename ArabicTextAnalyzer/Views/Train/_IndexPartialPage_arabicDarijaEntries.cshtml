@@ -8,7 +8,6 @@
 
     string htmlchecked = Convert.ToBoolean(ViewBag.AdminModeShowAll) == true ? "checked" : String.Empty;
     bool NegatedAdminModeShowAll = !Convert.ToBoolean(ViewBag.AdminModeShowAll);
-    // bool NegatedAdminModeShowAll = false;
 }
 
 <style>
@@ -45,7 +44,7 @@
 
 <div class="tab-content" style="border: 1px solid black; padding: 15px; background-color: #fffeef;">
     <div role="tabpanel" class="tab-pane active" id="first">
-        <!-- table of posts -->
+        <!-- table of working data posts -->
         <table class="posts datatables-table table table-striped table-hover table-bordered">
             <thead>
                 <tr class="header">
@@ -79,6 +78,7 @@
                 <div class="form-group">
                     <a class="btn btn-outline-primary btn-xs" id="import_posts" onclick="RetrieveFBPost('@item.url_name','@item.id')">Retrieve new data <span class="glyphicon glyphicon-refresh"></span></a>
                 </div>
+                <!-- table of FB page posts -->
                 <table class="posts-fb datatables-table-fb table table-striped table-hover table-bordered table_@item.id">
                     <thead>
                         <tr class="header">
@@ -121,8 +121,9 @@
                         <div class="col-sm-8 col-lg-8">
                             <select required="required" id="ddlPro_or_anti" class="form-control">
                                 <option value="">--Select any--</option>
-                                <option value="Pro">Pro</option>
-                                <option value="Anti">Anti</option>
+                                <option value="pro">Pro</option>
+                                <option value="anti">Anti</option>
+                                <option value="n/a">Not Applicable</option>
                             </select>
                         </div>
                     </div>
