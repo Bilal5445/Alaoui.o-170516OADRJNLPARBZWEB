@@ -588,6 +588,18 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
+        public void saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(M_XTRCTTHEME_KEYWORD m_xtrcttheme_keyword)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                //
+                db.M_XTRCTTHEME_KEYWORDs.Add(m_xtrcttheme_keyword);
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
         public void saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(List<M_XTRCTTHEME_KEYWORD> m_xtrcttheme_keywords)
         {
             using (var db = new ArabiziDbContext())
@@ -631,13 +643,13 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
-        public void saveserializeM_XTRCTTHEME_EFSQL_Active(String themename)
+        public void saveserializeM_XTRCTTHEME_EFSQL_Active(String themename, String userId)
         {
             using (var db = new ArabiziDbContext())
             {
                 var xtrctThemes = db.M_XTRCTTHEMEs;
 
-                var tobeactiveXtrctTheme = xtrctThemes.Where(m => m.ThemeName == themename).FirstOrDefault<M_XTRCTTHEME>();
+                var tobeactiveXtrctTheme = xtrctThemes.Where(m => m.ThemeName == themename && m.UserID == userId).FirstOrDefault<M_XTRCTTHEME>();
                 tobeactiveXtrctTheme.CurrentActive = "active";
 
                 // commit
@@ -645,13 +657,13 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
-        public void saveserializeM_XTRCTTHEME_EFSQL_Deactivate()
+        public void saveserializeM_XTRCTTHEME_EFSQL_Deactivate(String userId)
         {
             using (var db = new ArabiziDbContext())
             {
                 var xtrctThemes = db.M_XTRCTTHEMEs;
 
-                var tobeactiveXtrctTheme = xtrctThemes.Where(m => m.CurrentActive == "active").FirstOrDefault<M_XTRCTTHEME>();
+                var tobeactiveXtrctTheme = xtrctThemes.Where(m => m.CurrentActive == "active" && m.UserID == userId).FirstOrDefault<M_XTRCTTHEME>();
                 tobeactiveXtrctTheme.CurrentActive = String.Empty;
 
                 // commit

@@ -787,30 +787,39 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpPost]
         public ActionResult XtrctTheme_AddNew(String themename, String themetags)
         {
+            //
+            var userId = User.Identity.GetUserId();
+
             // create the theme
             var newXtrctTheme = new M_XTRCTTHEME
             {
                 ID_XTRCTTHEME = Guid.NewGuid(),
-                ThemeName = themename.Trim()
+                ThemeName = themename.Trim(),
+                 UserID = userId
             };
 
             // Save to Serialization
-            var path = Server.MapPath("~/App_Data/data_M_XTRCTTHEME.txt");
-            new TextPersist().Serialize(newXtrctTheme, path);
+            /*var path = Server.MapPath("~/App_Data/data_M_XTRCTTHEME.txt");
+            new TextPersist().Serialize(newXtrctTheme, path);*/
+            new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(newXtrctTheme);
 
             // create the associated tags
-            foreach (var themetag in themetags.Split(new char[] { ',' }))
+            if (themetags != null)
             {
-                var newXrtctThemeKeyword = new M_XTRCTTHEME_KEYWORD
+                foreach (var themetag in themetags.Split(new char[] { ',' }))
                 {
-                    ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
-                    ID_XTRCTTHEME = newXtrctTheme.ID_XTRCTTHEME,
-                    Keyword = themetag
-                };
+                    var newXrtctThemeKeyword = new M_XTRCTTHEME_KEYWORD
+                    {
+                        ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
+                        ID_XTRCTTHEME = newXtrctTheme.ID_XTRCTTHEME,
+                        Keyword = themetag
+                    };
 
-                // Save to Serialization
-                path = Server.MapPath("~/App_Data/data_M_XTRCTTHEME_KEYWORD.txt");
-                new TextPersist().Serialize(newXrtctThemeKeyword, path);
+                    // Save to Serialization
+                    /*path = Server.MapPath("~/App_Data/data_M_XTRCTTHEME_KEYWORD.txt");
+                    new TextPersist().Serialize(newXrtctThemeKeyword, path);*/
+                    new Arabizer().saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(newXrtctThemeKeyword);
+                }
             }
 
             //
@@ -820,11 +829,14 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public ActionResult XtrctTheme_ApplyNewActive(String themename)
         {
+            //
+            var userId = User.Identity.GetUserId();
+
             // find previous active, and disable it
-            new Arabizer().saveserializeM_XTRCTTHEME_EFSQL_Deactivate();
+            new Arabizer().saveserializeM_XTRCTTHEME_EFSQL_Deactivate(userId);
 
             // find to-be-active by name, and make it active
-            new Arabizer().saveserializeM_XTRCTTHEME_EFSQL_Active(themename);
+            new Arabizer().saveserializeM_XTRCTTHEME_EFSQL_Active(themename, userId);
 
             //
             return RedirectToAction("Index");
