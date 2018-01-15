@@ -558,7 +558,7 @@ namespace ArabicTextAnalyzer.Controllers
 
         // Method for translate the fb posts
         [HttpGet]
-        public async Task<object> TranslateFbPost(String content, string id)
+        public async Task<object> TranslateFbPost(String content/*, string id*/)
         {
             // get current active theme for the current user
             var userId = User.Identity.GetUserId();
@@ -596,59 +596,70 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [HttpGet]
-        public async Task<object> TranslateFbComments(String content, string ids)
+        public async Task<object> TranslateFbComments(string ids)
         {
-            // get current active theme for the current user
-            var userId = User.Identity.GetUserId();
-            var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
-
-            //
-            string errMessage = string.Empty;
-            bool status = false;
-            string translatedstring = "";
-            if (!string.IsNullOrEmpty(ids))
+            try
             {
-                // get list of not yet translated comments with the specified ids (can be one comment to translate or can be many checked) 
-                List<FBFeedComment> allComments = GetComments(ids);
+                // get current active theme for the current user
+                var userId = User.Identity.GetUserId();
+                var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
 
                 //
-                if (allComments != null && allComments.Count > 0)
+                string errMessage = string.Empty;
+                bool status = false;
+                string translatedstring = "";
+                if (!string.IsNullOrEmpty(ids))
                 {
-                    foreach (var item in allComments)
+                    // get list of not yet translated comments with the specified ids (can be one comment to translate or can be many checked) 
+                    List<FBFeedComment> allComments = GetComments(ids);
+
+                    //
+                    if (allComments != null && allComments.Count > 0)
                     {
-                        // MC081217 translate via train to populate NER, analysis data, ...
-                        // Arabizi to arabic script via direct call to perl script
-                        var res = new Arabizer().train(new M_ARABIZIENTRY
+                        foreach (var item in allComments)
                         {
-                            ArabiziText = content.Trim(),
-                            ArabiziEntryDate = DateTime.Now,
-                            ID_XTRCTTHEME = userActiveXtrctTheme.ID_XTRCTTHEME
-                        }, userActiveXtrctTheme.ThemeName, thisLock: thisLock);
+                            // MC081217 translate via train to populate NER, analysis data, ...
+                            // Arabizi to arabic script via direct call to perl script
+                            var res = new Arabizer().train(new M_ARABIZIENTRY
+                            {
+                                ArabiziText = item.message.Trim(),
+                                ArabiziEntryDate = DateTime.Now,
+                                ID_XTRCTTHEME = userActiveXtrctTheme.ID_XTRCTTHEME
+                            }, userActiveXtrctTheme.ThemeName, thisLock: thisLock);
 
-                        // var url = ConfigurationManager.AppSettings["TranslateDomain"] + "/" + "api/Arabizi/GetArabicDarijaEntryForFbPost?text=" + item.message;
-                        // var result = await HtmlHelpers.PostAPIRequest(url, "", type: "GET");
+                            // var url = ConfigurationManager.AppSettings["TranslateDomain"] + "/" + "api/Arabizi/GetArabicDarijaEntryForFbPost?text=" + item.message;
+                            // var result = await HtmlHelpers.PostAPIRequest(url, "", type: "GET");
 
-                        // if (result.Contains("Success"))
-                        if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY != Guid.Empty)
-                        {
-                            status = true;
-                            SaveTranslatedComments(item.Id, translatedstring);
+                            // if (result.Contains("Success"))
+                            if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY != Guid.Empty)
+                            {
+                                status = true;
+                                translatedstring = res.M_ARABICDARIJAENTRY.ArabicDarijaText;
+                                SaveTranslatedComments(item.Id, translatedstring);
+                            }
+                            else
+                                errMessage = "Text is required.";
                         }
-                        else
-                            errMessage = "Text is required.";
                     }
+                    else
+                        errMessage = "All selected comments are already translated.";
                 }
-                else
-                    errMessage = "All selected comments are already translated.";
-            }
 
-            //
-            return JsonConvert.SerializeObject(new
+                //
+                return JsonConvert.SerializeObject(new
+                {
+                    status = status,
+                    // recordsFiltered = translatedstring,
+                    message = errMessage
+                });
+            }
+            catch (Exception ex)
             {
-                status = status,
-                // recordsFiltered = translatedstring,
-                message = errMessage
-            });
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                return null;
+            }
         }
         #endregion
 
