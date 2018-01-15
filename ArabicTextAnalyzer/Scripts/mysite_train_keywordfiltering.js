@@ -235,7 +235,7 @@ function TranslateContent(obj) {
         "url": "/Train/TranslateFbPost",
         "data": {
             "content": postText,
-            "id": id
+            // "id": id
         },
         "success": function (msg) {
 
@@ -310,7 +310,7 @@ function GetComments(obj) {
             $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a>')
 
             // add a global bulk check all button
-            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="CheckUnCheckAllComments(' + id + ')">Check All</a><h3>Comments</h3>')
+            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="CheckUnCheckAllComments(' + id + ')">Check/Uncheck All</a><h3>Comments</h3>')
 
             //
             GetCommentsIsClicked = false;
