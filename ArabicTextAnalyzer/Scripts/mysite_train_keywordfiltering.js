@@ -171,7 +171,7 @@ function InitializeFBDataTables(fluencerid) {
             // server side
             "processing": true,
             "serverSide": true,
-            "ajax": "/Train/DataTablesNet_ServerSide_FB_GetList?fluencerid=" + fluencerid
+            "ajax": "/Train/DataTablesNet_ServerSide_FB_Posts_GetList?fluencerid=" + fluencerid
         });
     });
 }
@@ -311,8 +311,10 @@ function GetComments(obj) {
 }
 
 var Comments = "";
+
 function CommentTable(id) {
-    var html = '<table id="tabledetails_' + id + '" class="table table-striped table-hover table-bordered"><thead  class="header"><tr><th></th><th class="center top col50px">ID</th><th class="center top col50prc">Message</th><th class="center top col50prc">Translated Message</th><th class="center top col130px">Created Time</th><th class="center top col75px">Action</th></tr></thead></table>'
+    var html = '<table id="tabledetails_' + id + '" class="table table-striped table-hover table-bordered"><thead class="header"><tr><th></th><th class="center top col50px">ID</th><th class="center top col50prc">Message</th><th class="center top col50prc">Translated Message</th><th class="center top col130px">Created Time</th><th class="center top col75px">Action</th></tr></thead></table>'
+    
     return html;
 }
 
@@ -358,7 +360,7 @@ function GetCommentsForPost(id) {
         // server side
         "processing": true,
         "serverSide": true,
-        "ajax": "/Train/GetFBPostComment?id=" + id
+        "ajax": "/Train/DataTablesNet_ServerSide_FB_Comments_GetList?id=" + id
     });
 }
 // end of method.
