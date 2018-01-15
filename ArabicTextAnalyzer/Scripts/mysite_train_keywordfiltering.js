@@ -1,5 +1,14 @@
 ﻿var poststable;
 var selectedArabiziIds = [];
+var ViewInfluencerIsClicked = false;
+var vars = {};
+var TranslateContentIsClicked = false;
+var GetCommentsIsClicked = false;
+var Comments = "";
+var GetTranslateCommentIsClicked = false;
+var TranslateCommentIsClicked = false;
+var AddInfluencerIsClicked = false;
+var RetrieveFBPostIsClicked = false;
 
 function InitializeDataTables(adminModeShowAll) {
 
@@ -109,7 +118,6 @@ function InitializeDataTables(adminModeShowAll) {
 }
 
 // Table For FB For Particular influencer
-var ViewInfluencerIsClicked = false;
 function LoadFacebookPosts(fluencerid) {
     if (ViewInfluencerIsClicked == false) {
         ViewInfluencerIsClicked = true;
@@ -121,7 +129,6 @@ function LoadFacebookPosts(fluencerid) {
     }
 }
 
-var vars = {};
 // table for FB post table
 function InitializeFBDataTables(fluencerid) {
     $(function () {
@@ -192,15 +199,13 @@ function fnCallback(id) {
 }
 
 // method for translate the fb post 
-var TranslateContentIsClicked = false;
-
 function TranslateContent(obj) {
 
     // check before
     if (TranslateContentIsClicked == true)
         return;
 
-    // mark as clicked
+    // mark as clicked to avoid double processing
     TranslateContentIsClicked = true;
 
     //
@@ -223,6 +228,7 @@ function TranslateContent(obj) {
         return;
     }
 
+    //
     $.ajax({
         "dataType": 'json',
         "type": "GET",
@@ -239,32 +245,28 @@ function TranslateContent(obj) {
             if (msg.status) {
 
                 if (translatedText.length == 0) {
-                    // if succesfully transalted, remplace translatedText column by result text
+                    // if succesfully translated, remplace translatedText column by result text
                     $(translatedTextTd).html(msg.recordsFiltered)
                 }
-            }
-            else {
+            } else {
                 alert("Error " + msg.message);
             }
         },
         "error": function () {
-            alert("Error")
             TranslateContentIsClicked = false;
+            alert("Error");
         }
     });
 }
-// end of method.
 
 // method for get the comments table under the row of each post table
-var GetCommentsIsClicked = false;
-
 function GetComments(obj) {
 
     // check before
     if (GetCommentsIsClicked == true)
         return;
 
-    // mark as clicked
+    // mark as clicked to avoid double processing
     GetCommentsIsClicked = true;
 
     //
@@ -293,15 +295,24 @@ function GetComments(obj) {
 
         if (!$('#tabledetails_' + id).length) {
 
+            // create on the fly a sub table (html table + theader) for the comments associated with a post in a page
             var tablecontent = CommentTable(id);
             row.child(tablecontent).show();
+
+            // get using server size ajax to datatables.net the actual comments
             GetCommentsForPost(id);
+
+            // add a global bulk translatee button
             $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a><h3>Comments</h3>')
+
+            //
             GetCommentsIsClicked = false;
 
         } else {
 
             row.child($('#tabledetails_' + id).html()).show();
+
+            //
             GetCommentsIsClicked = false;
         }
 
@@ -310,14 +321,16 @@ function GetComments(obj) {
     }
 }
 
-var Comments = "";
-
+// method used by GetComments above to get table up to theader
 function CommentTable(id) {
+
+    // build the html table up to the header (the content is brought vis server side controller)
     var html = '<table id="tabledetails_' + id + '" class="table table-striped table-hover table-bordered"><thead class="header"><tr><th></th><th class="center top col50px">ID</th><th class="center top col50prc">Message</th><th class="center top col50prc">Translated Message</th><th class="center top col130px">Created Time</th><th class="center top col75px">Action</th></tr></thead></table>'
-    
+
     return html;
 }
 
+// method used by GetComments above to get table actual comments
 function GetCommentsForPost(id) {
 
     $('#tabledetails_' + id).DataTable({
@@ -363,35 +376,41 @@ function GetCommentsForPost(id) {
         "ajax": "/Train/DataTablesNet_ServerSide_FB_Comments_GetList?id=" + id
     });
 }
-// end of method.
 
-// method for translate the comments either on bulk translate or on translate button of comment
-var GetTranslateCommentIsClicked = false;
+// method for translate the comments when clicking on bulk translate of all comments under a post
 function GetTranslateComment(id) {
-    if (GetTranslateCommentIsClicked == false) {
-        GetTranslateCommentIsClicked = true;
-        var TranlatedCommentId = '';
-        $('.cbxComment_' + id).each(function () {
-            if ($(this).is(':checked')) {
-                if (TranlatedCommentId.length > 0) {
-                    TranlatedCommentId = TranlatedCommentId + ",'" + $(this).val() + "'";
-                }
-                else {
-                    TranlatedCommentId = "'" + $(this).val() + "'"
-                }
+
+    // check before
+    if (GetTranslateCommentIsClicked == true)
+        return;
+
+    // mark as clicked to avoid double processing
+    GetTranslateCommentIsClicked = true;
+
+    //
+    var translatedCommentId = '';
+
+    // loop on all checked comments
+    $('.cbxComment_' + id).each(function () {
+        if ($(this).is(':checked')) {
+            if (translatedCommentId.length > 0) {
+                translatedCommentId = translatedCommentId + ",'" + $(this).val() + "'";
+            } else {
+                translatedCommentId = "'" + $(this).val() + "'"
             }
-        });
-        if (TranlatedCommentId.length > 0) {
-            postOnCommentsTranslate(TranlatedCommentId, id)
         }
-        else {
-            alert("Error: Please check atleast one cheackbox.")
-            GetTranslateCommentIsClicked = false;
-        }
+    });
+
+    // bulk translate comments
+    if (translatedCommentId.length > 0) {
+        postOnCommentsTranslate(translatedCommentId, id)
+    } else {
+        alert("Error: Please check at least one cheackbox.")
+        GetTranslateCommentIsClicked = false;
     }
 }
 
-var TranslateCommentIsClicked = false;
+// method for translate the comments when clicking on translate button of comment
 function TranslateComment(obj) {
     if (TranslateCommentIsClicked == false) {
 
@@ -399,64 +418,69 @@ function TranslateComment(obj) {
         TranslateCommentIsClicked = true;
 
         //
-        if ($($(obj).parent().parent().find("td")[3]).html().trim().replace('-', '').length == 0) {
+        var tds = $(obj).parent().parent().find("td");
+        var mainId = ($(tds[1])).html().toString();
+        var id = mainId.split('_')[0];
+        var translatedCommentId = "'" + mainId + "'";
+        var commentText = $(tds[2]).html().trim();
+        var translatedComment = $(tds[3]).html().trim().replace('-', '');
 
-            if ($($(obj).parent().parent().find("td")[2]).html().trim().length > 0) {
-
-                var mainId = ($($(obj).parent().parent().find("td")[1])).html().toString();
-                var id = mainId.split('_')[0];
-                var TranlatedCommentId = "'" + mainId + "'";
-                postOnCommentsTranslate(TranlatedCommentId, id)
-            }
-            else {
-                alert("There is no comment text for translate.")
-                TranslateCommentIsClicked = false;
-            }
-        }
-        else {
-            alert("The comment is already translated.");
+        //
+        /*if (translatedComment.length != 0) {
+            alert("The comment is already translated");
             TranslateCommentIsClicked = false;
+            return;
+        }*/
+
+        //
+
+        if (commentText.length <= 0) {
+            alert("There is no comment text for translate.")
+            TranslateCommentIsClicked = false;
+            return;
         }
+
+        //
+        postOnCommentsTranslate(translatedCommentId, id)
     }
 }
 
-function postOnCommentsTranslate(TranlatedCommentId, id) {
+function postOnCommentsTranslate(translatedCommentId, id) {
+
     $.ajax({
         "dataType": 'json',
-        // "contentType": "application/json; charset=utf-8",
         "type": "GET",
         "url": "/Train/TranslateFbComments",
         "data": {
-            "ids": TranlatedCommentId
+            "ids": translatedCommentId
         },
         "success": function (msg) {
             console.log(msg);
+
+            // reset to not clicked
             GetTranslateCommentIsClicked = false;
             TranslateCommentIsClicked = false;
+
             if (msg.status) {
                 ResetDataTableComments(id)
-            }
-            else {
+            } else {
                 alert("Error " + msg.message);
             }
         },
         "error": function () {
             GetTranslateCommentIsClicked = false;
             TranslateCommentIsClicked = false;
-            alert("Error:")
+            alert("Error");
         }
     });
 }
-// end of method.
 
 // Js for add  influencer
-var AddInfluencerIsClicked = false;
 function AddInfluencer() {
 
     // check before
-    if (AddInfluencerIsClicked == true) {
+    if (AddInfluencerIsClicked == true)
         return;
-    }
 
     // check on fields
     var urlname = $('#txtUrlName').val();
@@ -495,39 +519,42 @@ function AddInfluencer() {
         }
     });
 }
-// End of js of add influencer
 
-// Js for Retreive fb post or refersh button
-var RetrieveFBPostIsClicked = false;
+// Js for Retrieve fb post or refresh button
 function RetrieveFBPost(influencerurl_name, influencerid) {
-    if (RetrieveFBPostIsClicked == false) {
-        RetrieveFBPostIsClicked = true;
-        $.ajax({
-            "dataType": 'json',
-            "type": "GET",
-            "url": "/Train/RetrieveFBPost",
-            "data": {
-                "influencerurl_name": influencerurl_name
-            },
-            "success": function (msg) {
-                console.log(msg);
-                RetrieveFBPostIsClicked = false;
 
-                if (msg.status) {
-                    ResetDataTable(influencerid);
-                }
-                else {
-                    alert("Error " + msg.message);
-                }
-            },
-            "error": function () {
-                RetrieveFBPostIsClicked = false;
-                alert("error")
+    //
+    if (RetrieveFBPostIsClicked == true)
+        return;
+
+    //
+    RetrieveFBPostIsClicked = true;
+
+    //
+    $.ajax({
+        "dataType": 'json',
+        "type": "GET",
+        "url": "/Train/RetrieveFBPost",
+        "data": {
+            "influencerurl_name": influencerurl_name
+        },
+        "success": function (msg) {
+            console.log(msg);
+            RetrieveFBPostIsClicked = false;
+
+            if (msg.status) {
+                ResetDataTable(influencerid);
             }
-        });
-    }
+            else {
+                alert("Error " + msg.message);
+            }
+        },
+        "error": function () {
+            RetrieveFBPostIsClicked = false;
+            alert("error")
+        }
+    });
 }
-// end of method of refresh fb post
 
 // Method for reset data table of influence fb.
 function ResetDataTable(influencerid) {
@@ -536,7 +563,6 @@ function ResetDataTable(influencerid) {
     oTable.fnDestroy();
     LoadFacebookPosts(influencerid)
 }
-// end of method
 
 // method for reset the comments table
 function ResetDataTableComments(influencerid) {
@@ -545,4 +571,3 @@ function ResetDataTableComments(influencerid) {
     oTable.fnDestroy();
     GetCommentsForPost(influencerid)
 }
-// end of method
