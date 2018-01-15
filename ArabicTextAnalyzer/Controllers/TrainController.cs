@@ -1090,7 +1090,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        public object DataTablesNet_ServerSide_FB_GetList(string fluencerid)
+        public object DataTablesNet_ServerSide_FB_Posts_GetList(string fluencerid)
         {
             // get main (whole) data from DB first
             var items = loaddeserializeT_FB_POST_DAPPERSQL(fluencerid).Select(c => new
@@ -1116,16 +1116,27 @@ namespace ArabicTextAnalyzer.Controllers
             });
         }
 
-        public object GetFBPostComment(string id)
+        public object DataTablesNet_ServerSide_FB_Comments_GetList(string id)
         {
-            var items = new List<FBFeedComment>();
-            var itemsCount = 0;
-            if (!string.IsNullOrEmpty(id))
+            //
+            if (string.IsNullOrEmpty(id))
+                return null;
+
+            // var items = new List<FBFeedComment>();
+            // var itemsCount = 0;
+
+            // items = loaddeserializeT_FB_Comments_DAPPERSQL(id);
+            var items = loaddeserializeT_FB_Comments_DAPPERSQL(id).Select(c => new
             {
-                //var idForPost = id.Split('_')[1];
-                items = loaddeserializeT_FB_Comments(id);
-                itemsCount = items.Count;
-            }
+                Id = c.Id,
+                message = c.message,
+                translated_message = c.translated_message,
+                created_time = c.created_time.ToString("yy-MM-dd HH:mm")
+            }).ToList();
+
+            // get the number of entries
+            var itemsCount = items.Count;
+
             //
             return JsonConvert.SerializeObject(new
             {
@@ -1577,22 +1588,21 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private List<FBFeedComment> loaddeserializeT_FB_Comments(string postid = "")
+        private List<FBFeedComment> loaddeserializeT_FB_Comments_DAPPERSQL(string postid = "")
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "";
-                if (!string.IsNullOrEmpty(postid))
-                {
-                    qry = "select * from FBFeedComments where id like '" + postid + "%'";
-                }
-                //else
-                //{
-                //    qry = "SELECT * FROM FBFeedComments";
-                //}
+                //
+                String qry = "SELECT * FROM FBFeedComments ";
 
+                //
+                if (!string.IsNullOrEmpty(postid))
+                    qry += "WHERE id LIKE '" + postid + "%' ";
+
+                //
+                qry += "ORDER BY created_time DESC ";
 
                 conn.Open();
                 return conn.Query<FBFeedComment>(qry).ToList();
