@@ -541,7 +541,7 @@ namespace ArabicTextAnalyzer.Controllers
             //
             String errMessage = string.Empty;
             bool status = false;
-            String translatedstring = String.Empty;
+            String translatedString = String.Empty;
             String result = null;
 
             //
@@ -558,6 +558,7 @@ namespace ArabicTextAnalyzer.Controllers
                 var themeid = activeTheme.ID_XTRCTTHEME;
                 var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "AccountPanel/AddFBInfluencer?url_name=" + url_name + "&pro_or_anti=" + pro_or_anti + "&id=1&themeid=" + themeid + "&CallFrom=AddFBInfluencer";
                 Logging.Write(Server, "AddFBInfluencer - 1.0.1 : " + url);
+                // ex : url : http://localhost:8081//AccountPanel/AddFBInfluencer?url_name=telquelofficiel&pro_or_anti=Anti&id=1&themeid=fd6590b9-dbd1-4341-9329-4a9cae8047eb&CallFrom=AddFBInfluencer
                 results = await HtmlHelpers.PostAPIRequest_message(url, String.Empty, type: "POST");
                 result = results.Item1;
                 Logging.Write(Server, "AddFBInfluencer - 1.1");
@@ -573,7 +574,7 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 Logging.Write(Server, "AddFBInfluencer - 3");
                 status = true;
-                translatedstring = result;
+                translatedString = result;
                 Logging.Write(Server, "AddFBInfluencer - 3.1");
             }
             else
@@ -591,7 +592,7 @@ namespace ArabicTextAnalyzer.Controllers
             return JsonConvert.SerializeObject(new
             {
                 status = status,
-                recordsFiltered = translatedstring,
+                recordsFiltered = translatedString,
                 message = errMessage
             });
         }
@@ -599,61 +600,57 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public async Task<object> TranslateFbComments(String content, string ids)
         {
+            // get current active theme for the current user
+            var userId = User.Identity.GetUserId();
+            var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+
+            //
             string errMessage = string.Empty;
             bool status = false;
             string translatedstring = "";
             if (!string.IsNullOrEmpty(ids))
             {
-                List<FBFeedComment> allComents = GetComments(ids);
-                if (allComents != null && allComents.Count > 0)
-                {
-                    foreach (var item in allComents)
-                    {
-                        var url = ConfigurationManager.AppSettings["TranslateDomain"] + "/" + "api/Arabizi/GetArabicDarijaEntryForFbPost?text=" + item.message;
-                        var result = await HtmlHelpers.PostAPIRequest(url, "", type: "GET");
+                // get list of not yet translated comments with the specified ids (can be one comment to translate or can be many checked) 
+                List<FBFeedComment> allComments = GetComments(ids);
 
-                        if (result.Contains("Success"))
+                //
+                if (allComments != null && allComments.Count > 0)
+                {
+                    foreach (var item in allComments)
+                    {
+                        // MC081217 translate via train to populate NER, analysis data, ...
+                        // Arabizi to arabic script via direct call to perl script
+                        var res = new Arabizer().train(new M_ARABIZIENTRY
+                        {
+                            ArabiziText = content.Trim(),
+                            ArabiziEntryDate = DateTime.Now,
+                            ID_XTRCTTHEME = userActiveXtrctTheme.ID_XTRCTTHEME
+                        }, userActiveXtrctTheme.ThemeName, thisLock: thisLock);
+
+                        // var url = ConfigurationManager.AppSettings["TranslateDomain"] + "/" + "api/Arabizi/GetArabicDarijaEntryForFbPost?text=" + item.message;
+                        // var result = await HtmlHelpers.PostAPIRequest(url, "", type: "GET");
+
+                        // if (result.Contains("Success"))
+                        if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY != Guid.Empty)
                         {
                             status = true;
-                            translatedstring = result.Replace("Success", "");
-                            var @singleQuote = "CHAR(39)";
-                            translatedstring = translatedstring.Replace("'", "");
-                            try
-                            {
-                                var returndata = SaveTranslatedComments(item.Id, translatedstring);
-                                if (returndata > 0)
-                                {
-                                    //
-                                }
-                            }
-                            catch (Exception e)
-                            {
-                                status = false;
-                                errMessage = e.Message;
-                            }
-
-                            // return true;
+                            SaveTranslatedComments(item.Id, translatedstring);
                         }
                         else
-                        {
-                            errMessage = result;
-                            //return false;
-                        }
+                            errMessage = "Text is required.";
                     }
                 }
                 else
-                {
-                    errMessage = "All comments are already translated.";
-                }
+                    errMessage = "All selected comments are already translated.";
             }
 
+            //
             return JsonConvert.SerializeObject(new
             {
                 status = status,
-                recordsFiltered = translatedstring,
+                // recordsFiltered = translatedstring,
                 message = errMessage
             });
-
         }
         #endregion
 
@@ -1618,13 +1615,8 @@ namespace ArabicTextAnalyzer.Controllers
                 String qry = "";
                 if (!string.IsNullOrEmpty(ids))
                 {
-                    qry = "select * from FBFeedComments where id in (" + ids + ")and translated_message is null";
+                    qry = "SELECT * FROM FBFeedComments WHERE id IN (" + ids + ") AND translated_message IS NULL ";
                 }
-                //else
-                //{
-                //    qry = "SELECT * FROM FBFeedComments";
-                //}
-
 
                 conn.Open();
                 return conn.Query<FBFeedComment>(qry).ToList();
@@ -1664,37 +1656,35 @@ namespace ArabicTextAnalyzer.Controllers
             return returndata;*/
         }
 
-        private int SaveTranslatedComments(string postid, string TranslatedText)
+        private /*int*/void SaveTranslatedComments(string postid, string TranslatedText)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
-            int returndata = 0;
-            try
+            // int returndata = 0;
+            /*try
+            {*/
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                String qry = "";
+                if (!string.IsNullOrEmpty(postid) && !string.IsNullOrEmpty(TranslatedText))
                 {
-                    String qry = "";
-                    if (!string.IsNullOrEmpty(postid) && !string.IsNullOrEmpty(TranslatedText))
-                    {
-                        qry = "update FBFeedComments set translated_message=N'" + TranslatedText + "' where id='" + postid + "'";
-                    }
-                    using (SqlCommand cmd = new SqlCommand(qry, conn))
-                    {
-                        cmd.CommandType = CommandType.Text;
-                        conn.Open();
-                        returndata = cmd.ExecuteNonQuery();
-                        conn.Close();
-                    }
-                    // conn.Open();
-
-                    // return conn.Query<FB_POST>(qry).ToList();
+                    qry = "UPDATE FBFeedComments SET translated_message = N'" + TranslatedText + "' WHERE id='" + postid + "'";
+                }
+                using (SqlCommand cmd = new SqlCommand(qry, conn))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    conn.Open();
+                    /*returndata = */
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
                 }
             }
+            /*}
             catch (Exception e)
             {
                 returndata = 0;
             }
-            return returndata;
 
+            return returndata;*/
         }
 
         private List<T_FB_INFLUENCER> loadAllT_Fb_InfluencerAsTheme(string themeid = "")

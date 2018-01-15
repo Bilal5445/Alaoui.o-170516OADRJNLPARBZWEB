@@ -75,6 +75,7 @@
         foreach (var item in FbInfluencer)
         {
             <div role="tabpanel" class="tab-pane" id="second_@item.id">
+                <!-- Button "Retrieve" to retreive FB page posts and associated comments -->
                 <div class="form-group">
                     <a class="btn btn-outline-primary btn-xs" id="import_posts" onclick="RetrieveFBPost('@item.url_name','@item.id')">Retrieve new data <span class="glyphicon glyphicon-refresh"></span></a>
                 </div>
