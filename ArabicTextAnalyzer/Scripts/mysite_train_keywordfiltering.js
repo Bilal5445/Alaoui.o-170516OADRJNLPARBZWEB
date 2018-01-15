@@ -284,12 +284,15 @@ function GetComments(obj) {
     if (row.child.isShown()) {
 
         // This row is already open - close it
+
         $(obj).prop('src', "http://i.imgur.com/SD7Dz.png")
         row.child.hide();
         tr.removeClass('shown');
         GetCommentsIsClicked = false;
 
     } else {
+
+        // This row is closed - show it
 
         $(obj).prop('src', "http://i.imgur.com/d4ICC.png")
 
@@ -302,8 +305,12 @@ function GetComments(obj) {
             // get using server size ajax to datatables.net the actual comments
             GetCommentsForPost(id);
 
-            // add a global bulk translatee button
-            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a><h3>Comments</h3>')
+            // add a global bulk translate button
+            // $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a><h3>Comments</h3>')
+            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a>')
+
+            // add a global bulk check all button
+            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="CheckUnCheckAllComments(' + id + ')">Check All</a><h3>Comments</h3>')
 
             //
             GetCommentsIsClicked = false;
@@ -345,6 +352,21 @@ function GetCommentsForPost(id) {
             [10, 25, 50, 100, 500, 1000, -1],
             ['10', '25', '50', '100', '500', '1000', 'all']
         ],
+        /*
+        // dom just to display the design of the fields : search , page , ...
+        dom: "<'row'<'col-sm-3'B><'col-sm-3'l><'col-sm-6'f>>" +
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+        buttons: [
+        'selectAll',
+        'selectNone'
+        ],
+        language: {
+            buttons: {
+                selectAll: "Select all items",
+                selectNone: "Select none"
+            }
+        },*/
         //
         "columns": [
             {
@@ -390,7 +412,7 @@ function GetTranslateComment(id) {
     //
     var translatedCommentId = '';
 
-    // loop on all checked comments
+    // loop on all comments row and for checked ones save the ids
     $('.cbxComment_' + id).each(function () {
         if ($(this).is(':checked')) {
             if (translatedCommentId.length > 0) {
@@ -408,6 +430,22 @@ function GetTranslateComment(id) {
         alert("Error: Please check at least one cheackbox.")
         GetTranslateCommentIsClicked = false;
     }
+}
+
+// method for check/uncheck all
+function CheckUnCheckAllComments(id) {
+
+    // loop on all comments row and check (or uncheck) each one
+    var firstIsChecked = false;
+    $('.cbxComment_' + id).each(function (index, value) {
+        if (index == 0 && $(this).is(':checked'))
+            firstIsChecked = true;
+
+        if (firstIsChecked == true)
+            $(this).prop('checked', false);
+        else
+            $(this).prop('checked', true);
+    });
 }
 
 // method for translate the comments when clicking on translate button of comment
