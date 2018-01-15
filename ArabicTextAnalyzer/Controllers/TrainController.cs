@@ -542,12 +542,10 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 status = true;
                 translatedstring = result;
-                // return true;
             }
             else
             {
                 errMessage = result;
-                //return false;
             }
 
             return JsonConvert.SerializeObject(new
