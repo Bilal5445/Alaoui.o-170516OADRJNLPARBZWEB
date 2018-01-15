@@ -1087,6 +1087,9 @@ namespace ArabicTextAnalyzer.Controllers
 
         public object DataTablesNet_ServerSide_FB_Posts_GetList(string fluencerid)
         {
+            // get from client search word
+            string searchValue = this.Request.QueryString["search[value]"]; // GET
+
             // get main (whole) data from DB first
             var items = loaddeserializeT_FB_POST_DAPPERSQL(fluencerid).Select(c => new
             {
@@ -1101,6 +1104,10 @@ namespace ArabicTextAnalyzer.Controllers
 
             // get the number of entries
             var itemsCount = items.Count;
+
+            // filter on search term if any
+            if (!String.IsNullOrEmpty(searchValue))
+                items = items.Where(a => a.pt.ToUpper().Contains(searchValue.ToUpper()) || (a.tt != null && a.tt.ToUpper().Contains(searchValue.ToUpper()))).ToList();
 
             //
             return JsonConvert.SerializeObject(new
