@@ -458,80 +458,6 @@ namespace ArabicTextAnalyzer.Controllers
         #endregion
 
         #region FRONT YARD ACTIONS FB
-        // Method for translate the fb posts
-        [HttpGet]
-        public async Task<object> TranslateFbPost(String content, string id)
-        {
-            // get current active theme for the current user
-            var userId = User.Identity.GetUserId();
-            var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
-
-            //
-            string errMessage = string.Empty;
-            bool status = false;
-            String translatedstring = string.Empty;
-
-            // MC081217 translate via train to populate NER, analysis data, ...
-            // Arabizi to arabic script via direct call to perl script
-            var res = new Arabizer().train(new M_ARABIZIENTRY
-            {
-                ArabiziText = content.Trim(),
-                ArabiziEntryDate = DateTime.Now,
-                ID_XTRCTTHEME = userActiveXtrctTheme.ID_XTRCTTHEME
-            }, userActiveXtrctTheme.ThemeName, thisLock: thisLock);
-
-            if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY != Guid.Empty)
-            {
-                status = true;
-                translatedstring = res.M_ARABICDARIJAENTRY.ArabicDarijaText;
-            }
-            else
-                errMessage = "Text is required.";
-
-            //
-            return JsonConvert.SerializeObject(new
-            {
-                status = status,
-                recordsFiltered = translatedstring,
-                message = errMessage
-            });
-        }
-
-        [HttpGet]
-        public async Task<object> RetrieveFBPost(string influencerurl_name)
-        {
-            T_FB_INFLUENCER influencer = new T_FB_INFLUENCER();
-            influencer.id = "";
-            influencer.url_name = influencerurl_name;
-            string errMessage = string.Empty;
-            bool status = false;
-            string translatedstring = "";
-
-            string result = null;
-
-            var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchFBInfluencerPosts?CallFrom=" + influencerurl_name;
-            result = await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
-
-            if (result.ToLower().Contains("true"))
-            {
-                status = true;
-                translatedstring = result;
-                // return true;
-            }
-            else
-            {
-                errMessage = result;
-                //return false;
-            }
-
-            return JsonConvert.SerializeObject(new
-            {
-                status = status,
-                recordsFiltered = translatedstring,
-                message = errMessage
-            });
-        }
-
         [HttpGet]
         public async Task<object> AddFBInfluencer(String url_name, String pro_or_anti)
         {
@@ -593,6 +519,80 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 status = status,
                 recordsFiltered = translatedString,
+                message = errMessage
+            });
+        }
+
+        [HttpGet]
+        public async Task<object> RetrieveFBPost(string influencerurl_name)
+        {
+            T_FB_INFLUENCER influencer = new T_FB_INFLUENCER();
+            influencer.id = "";
+            influencer.url_name = influencerurl_name;
+            string errMessage = string.Empty;
+            bool status = false;
+            string translatedstring = "";
+
+            string result = null;
+
+            var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchFBInfluencerPosts?CallFrom=" + influencerurl_name;
+            result = await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
+
+            if (result.ToLower().Contains("true"))
+            {
+                status = true;
+                translatedstring = result;
+                // return true;
+            }
+            else
+            {
+                errMessage = result;
+                //return false;
+            }
+
+            return JsonConvert.SerializeObject(new
+            {
+                status = status,
+                recordsFiltered = translatedstring,
+                message = errMessage
+            });
+        }
+
+        // Method for translate the fb posts
+        [HttpGet]
+        public async Task<object> TranslateFbPost(String content, string id)
+        {
+            // get current active theme for the current user
+            var userId = User.Identity.GetUserId();
+            var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+
+            //
+            string errMessage = string.Empty;
+            bool status = false;
+            String translatedstring = string.Empty;
+
+            // MC081217 translate via train to populate NER, analysis data, ...
+            // Arabizi to arabic script via direct call to perl script
+            var res = new Arabizer().train(new M_ARABIZIENTRY
+            {
+                ArabiziText = content.Trim(),
+                ArabiziEntryDate = DateTime.Now,
+                ID_XTRCTTHEME = userActiveXtrctTheme.ID_XTRCTTHEME
+            }, userActiveXtrctTheme.ThemeName, thisLock: thisLock);
+
+            if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY != Guid.Empty)
+            {
+                status = true;
+                translatedstring = res.M_ARABICDARIJAENTRY.ArabicDarijaText;
+            }
+            else
+                errMessage = "Text is required.";
+
+            //
+            return JsonConvert.SerializeObject(new
+            {
+                status = status,
+                recordsFiltered = translatedstring,
                 message = errMessage
             });
         }
