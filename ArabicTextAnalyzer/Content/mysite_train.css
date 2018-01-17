@@ -1,0 +1,141 @@
+﻿th {
+    font-size: 1.2em;
+    text-align: left;
+    border: none 0px;
+    padding-left: 0;
+}
+
+#body {
+    background-color: #efeeef;
+    clear: both;
+    padding-bottom: 35px;
+}
+
+/* MC092617 to make sure table takes 100% width */
+@media (min-width: 1200px) {
+    #body > .container {
+        width: 95%;
+    }
+}
+
+.posts {
+    table-layout: fixed;
+    width: 100%;
+    font-size: 13px;
+    overflow-x: scroll;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+}
+
+ .posts-fb {
+    font-size: 13px;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+}
+
+tr.header {
+    background: darkblue;
+    color: white;
+    text-align: left;
+    padding: 2px 5px;
+}
+
+.posts td, .posts th {
+    border: 1px solid black;
+    padding-left: 2px !important /* to prioritize over tables.less*/;
+    padding-right: 2px !important /* to prioritize over tables.less*/;
+    padding-top: 2px !important /* to prioritize over tables.less*/;
+    padding-bottom: 2px !important /* to prioritize over tables.less*/;
+}
+
+.posts th.col50prc {
+    width: 50%;
+}
+.posts th.col20px {
+    width: 20px;
+}
+.posts th.col40px {
+    width: 40px;
+}
+.posts th.col50px {
+    width: 50px;
+}
+.posts th.col75px {
+    width: 75px;
+}
+.posts th.col100px {
+    width: 100px;
+}
+.posts th.col110px {
+    width: 110px;
+}
+.posts th.col120px {
+    width: 120px;
+}
+.posts th.col130px {
+    width: 130px;
+}
+
+.posts td.entities span.label {
+    font-size: 12px;
+    margin: 2px;
+    line-height:14px;
+    font-weight: 500;
+    display: block;
+}
+
+.posts td.entitiestype span.label {
+    font-size: 12px;
+    margin: 2px;
+    line-height:14px;
+    font-weight: lighter;
+    letter-spacing: -0.5px;
+    display: block;
+}
+
+td.arabic-text {
+    direction: rtl;
+}
+
+td.arabic-text mark, td.arabic-text .mark {
+    padding: 0;
+}
+
+td.arabizi-text {
+    direction: ltr;
+}
+
+td.controls{
+    display: -webkit-box;
+}
+.center {
+    text-align: center;
+}
+.top {
+    vertical-align: top;
+}
+
+span.highlight {
+    background-color: #FFFF00;
+}
+
+#row-arabizi-input {
+    background-color:#e1e0e1;
+    border-radius: 4px;
+    margin-left:0px; 
+    margin-right:0px; 
+    margin-bottom:5px; 
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#row-bulk-input {
+    background-color:#e1e0e1;
+    border-radius: 4px;
+    margin-left:0px; 
+    margin-right:0px; 
+    margin-bottom:15px; 
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+

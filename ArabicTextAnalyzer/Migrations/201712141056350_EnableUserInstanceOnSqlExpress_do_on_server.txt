@@ -1,0 +1,10 @@
+﻿Restart your SQL Server instance
+
+Delete the following folder:
+
+C:\Users\oadrjnlparbzprl\Local Settings\Application Data\Microsoft\Microsoft SQL Server Data\SQLEXPRESS
+
+Control Panel > Administrative Tools > Services
+Right-click on SQL Server (SQLEXPRESS)
+Select the Log On tab
+Select the Local System account and then click OK
