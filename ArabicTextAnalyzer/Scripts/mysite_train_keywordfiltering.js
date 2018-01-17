@@ -106,6 +106,11 @@ function InitializeDataTables(adminModeShowAll) {
                 var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + hrefBackInnerId;
                 deleteButton.attr("href", newhref);
 
+                // same for refresh button (2nd button)
+                var refreshButton = controlsTd.find("> a").eq(1);
+                var newrefreshhref = "/Train/Train_RefreshEntry/?arabiziWordGuid=" + hrefBackInnerId;
+                refreshButton.attr("href", newrefreshhref);
+
                 // remove backup
                 deleteButton.removeAttr('data-backhref');
             }
@@ -115,19 +120,31 @@ function InitializeDataTables(adminModeShowAll) {
             if (selectedControlsTds.length > 1) {
                 selectedControlsTds.each(function (index) {
                     // new value href
-                    var newhref = "/Train/Train_DeleteEntries/?arabiziWordGuids=" + selectedArabiziIds.join();
+                    var arabiziWordGuids = selectedArabiziIds.join();
+                    var newhref = "/Train/Train_DeleteEntries/?arabiziWordGuids=" + arabiziWordGuids;
 
                     // set new value in delete button
                     var deleteButton = $(this).find("> a").eq(0);
                     deleteButton.attr("href", newhref);
+
+                    // same for refresh button (2nd button)
+                    var refreshButton = $(this).find("> a").eq(1);
+                    var newrefreshhref = "/Train/Train_RefreshEntries/?arabiziWordGuids=" + arabiziWordGuids;
+                    refreshButton.attr("href", newrefreshhref);
                 });
             } else if (selectedControlsTds.length == 1) {
                 // new value href
-                var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + selectedArabiziIds.join();
+                var arabiziWordGuid = selectedArabiziIds.join();
+                var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + arabiziWordGuid;
 
                 // set new value in delete button
                 var deleteButton = selectedControlsTds.find("> a").eq(0);
                 deleteButton.attr("href", newhref);
+
+                // same for refresh button (2nd button)
+                var refreshButton = selectedControlsTds.find("> a").eq(1);
+                var newrefreshhref = "/Train/Train_RefreshEntry/?arabiziWordGuid=" + arabiziWordGuid;
+                refreshButton.attr("href", newrefreshhref);
             }
         });
     });
