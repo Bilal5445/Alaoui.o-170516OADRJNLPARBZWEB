@@ -586,6 +586,9 @@ var TimeintervalforFBMerthods = 1000 * 10;//Time interval for method run for get
 
 //Method for schedule a task for retrieve the fb posts and comments in a time interval
 var FBDataVM = function () {//Data model for 
+    this.CallMethod = false;
+    this.CallTranslateMethod = false;
+    this.RetrieveFBPostIsClicked = false;
     this.GetFBPostAndComments = function (influencerUrl, influencerid) {
         var currentInstance = this;
         var intervalFlag = true;
@@ -608,17 +611,14 @@ var FBDataVM = function () {//Data model for
                 },
                 "success": function (msg) {
                     console.log(msg);
-                    currentInstance.CallTranslateMethod = false;
-                    CallMethod = false;
+                    currentInstance.CallTranslateMethod = false;                    
                     if (msg.status) {
                         if ($('#' + influencerid).hasClass('active')) {
                             ResetDataTable(influencerid);
 
                         }
                     }
-                    //else {
-                    //    alert("Error " + msg.message);
-                    //}
+                   
                 },
                 "error": function () {
                     alert("error")
@@ -628,13 +628,12 @@ var FBDataVM = function () {//Data model for
         }
 
     };
-    this.CallMethod = false;
-    this.CallTranslateMethod = false;
-    this.RetrieveFBPostIsClicked = false;
+ 
     this.RetrieveFBPost = function (influencerurl_name, influencerid, intervalFlag) {
         var currentInstance = this;
-        if (currentInstance.RetrieveFBPostIsClicked == false || intervalFlag == true) {
+        if ((currentInstance.RetrieveFBPostIsClicked == false && currentInstance.CallMethod ==false)|| intervalFlag == true) {
             currentInstance.RetrieveFBPostIsClicked = true;
+            currentInstance.CallMethod = true;
             $.ajax({
                 "dataType": 'json',
                 "type": "GET",
@@ -645,8 +644,7 @@ var FBDataVM = function () {//Data model for
                 "success": function (msg) {
                     console.log(msg);
                     currentInstance.RetrieveFBPostIsClicked = false;
-                    currentInstance.CallMethod = false;
-                    CallMethod = false;
+                    currentInstance.CallMethod = false;                   
                     if (intervalFlag == true) {
 
                         if ($('#' + influencerid).hasClass('active')) {
@@ -698,7 +696,7 @@ function RefreshFBPOstAndComments() {
                 model.init(influencerUrl, influencerid);
             }
 
-            // model.init();
+            
         }
 
     }
@@ -729,7 +727,7 @@ $(document).ready(function () {
     var intervalFB = setInterval(function () {
         if (fbTabPagesLoaded == false) {
             RefreshFBPOstAndComments();
-            TranslateFBPostsAndComments();
+            //TranslateFBPostsAndComments();
         }
         else {
             intervalFB.clearInterval();
