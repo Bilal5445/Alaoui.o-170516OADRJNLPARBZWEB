@@ -135,4 +135,8 @@
     <ID_XTRCTTHEME>04ef5695-3d3a-4620-ab1f-3e75161f4e76</ID_XTRCTTHEME>
     <ThemeName>maroc</ThemeName>
   </M_XTRCTTHEME>
+  <M_XTRCTTHEME>
+    <ID_XTRCTTHEME>6688f96e-0fd1-4edc-988e-f6a8be29b3d8</ID_XTRCTTHEME>
+    <ThemeName>MOUNIB</ThemeName>
+  </M_XTRCTTHEME>
 </ArrayOfM_XTRCTTHEME>
