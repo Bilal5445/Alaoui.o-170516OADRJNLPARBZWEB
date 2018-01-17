@@ -61,6 +61,7 @@
     <Compile Include="Models\M_XTRCTTHEME_KEYWORD.cs" />
     <Compile Include="Models\RegisterApp.cs" />
     <Compile Include="Models\RegisterUser.cs" />
+    <Compile Include="Models\ScheduleTask.cs" />
     <Compile Include="Models\TokensManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextEntity.cs" />
