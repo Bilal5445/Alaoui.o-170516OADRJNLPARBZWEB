@@ -560,39 +560,11 @@ function AddInfluencer() {
 
 // Js for Retrieve fb post or refresh button
 function RetrieveFBPost(influencerurl_name, influencerid) {
-
-    //
-    if (RetrieveFBPostIsClicked == true)
-        return;
-
-    //
-    RetrieveFBPostIsClicked = true;
-
-    //
-    $.ajax({
-        "dataType": 'json',
-        "type": "GET",
-        "url": "/Train/RetrieveFBPost",
-        "data": {
-            "influencerurl_name": influencerurl_name
-        },
-        "success": function (msg) {
-            console.log(msg);
-            RetrieveFBPostIsClicked = false;
-
-            if (msg.status) {
-                ResetDataTable(influencerid);
-            }
-            else {
-                alert("Error " + msg.message);
-            }
-        },
-        "error": function () {
-            RetrieveFBPostIsClicked = false;
-            alert("error")
-        }
-    });
+    var model = new FBDataVM();
+    model.RetrieveFBPostIsClicked = false;
+    model.RetrieveFBPost(influencerurl_name, influencerid)
 }
+
 
 // Method for reset data table of influence fb.
 function ResetDataTable(influencerid) {
@@ -609,3 +581,158 @@ function ResetDataTableComments(influencerid) {
     oTable.fnDestroy();
     GetCommentsForPost(influencerid)
 }
+
+var TimeintervalforFBMerthods = 1000 * 10;//Time interval for method run for get fb posts and comments and translate posts and comments
+
+//Method for schedule a task for retrieve the fb posts and comments in a time interval
+var FBDataVM = function () {//Data model for 
+    this.GetFBPostAndComments = function (influencerUrl, influencerid) {
+        var currentInstance = this;
+        var intervalFlag = true;
+        if (currentInstance.CallMethod == false) {
+            currentInstance.CallMethod = true;
+            currentInstance.RetrieveFBPost(influencerUrl, influencerid, intervalFlag);
+        }
+
+    };
+    this.TranslateFBPostAndComments = function (influencerid) {
+        var currentInstance = this;
+        if (currentInstance.CallTranslateMethod == false) {
+            currentInstance.CallTranslateMethod = true;
+            $.ajax({
+                "dataType": 'json',
+                "type": "GET",
+                "url": "/Train/TranslateAndExtractNERFBPostAndComments",
+                "data": {
+                    "influencerid": influencerid
+                },
+                "success": function (msg) {
+                    console.log(msg);
+                    currentInstance.CallTranslateMethod = false;
+                    CallMethod = false;
+                    if (msg.status) {
+                        if ($('#' + influencerid).hasClass('active')) {
+                            ResetDataTable(influencerid);
+
+                        }
+                    }
+                    //else {
+                    //    alert("Error " + msg.message);
+                    //}
+                },
+                "error": function () {
+                    alert("error")
+                    currentInstance.CallTranslateMethod = false;
+                }
+            });
+        }
+
+    };
+    this.CallMethod = false;
+    this.CallTranslateMethod = false;
+    this.RetrieveFBPostIsClicked = false;
+    this.RetrieveFBPost = function (influencerurl_name, influencerid, intervalFlag) {
+        var currentInstance = this;
+        if (currentInstance.RetrieveFBPostIsClicked == false || intervalFlag == true) {
+            currentInstance.RetrieveFBPostIsClicked = true;
+            $.ajax({
+                "dataType": 'json',
+                "type": "GET",
+                "url": "/Train/RetrieveFBPost",
+                "data": {
+                    "influencerurl_name": influencerurl_name
+                },
+                "success": function (msg) {
+                    console.log(msg);
+                    currentInstance.RetrieveFBPostIsClicked = false;
+                    currentInstance.CallMethod = false;
+                    CallMethod = false;
+                    if (intervalFlag == true) {
+
+                        if ($('#' + influencerid).hasClass('active')) {
+                            ResetDataTable(influencerid);
+                        }
+                    }
+                    else {
+                        if (msg.status) {
+                            ResetDataTable(influencerid);
+                        }
+                        else {
+                            alert("Error " + msg.message);
+                        }
+                    }
+
+                },
+                "error": function () {
+                    currentInstance.RetrieveFBPostIsClicked = false;
+                    alert("error")
+                }
+            });
+        }
+    }
+    this.init = function (influencerUrl, influencerid) {
+
+        var currentInstance = this;
+        setInterval(function () {
+            currentInstance.GetFBPostAndComments(influencerUrl, influencerid);
+        }, TimeintervalforFBMerthods);
+        setInterval(function () {
+            currentInstance.TranslateFBPostAndComments(influencerUrl, influencerid);
+        }, TimeintervalforFBMerthods);
+    };
+};
+//Method for get the fbpost and comments of all pages.
+function RefreshFBPOstAndComments() {
+    var totalFbpages = $('#hdnToatlInfluencer').val();
+    var noOfFbPages = parseInt(totalFbpages);
+    //alert(noOfFbPages);
+    if (noOfFbPages > 0) {
+        for (var i = 1; i <= noOfFbPages; i++) {
+            var model = new FBDataVM();
+            var influencerUrl = $('#hdnURLName_' + i).val();
+            var influencerid = $('#hdnId_' + i).val();
+           // alert(influencerUrl + "\n" + influencerid);
+            if (influencerUrl != null && influencerUrl != undefined && influencerid != null && influencerid != undefined) {
+                model.init(influencerUrl, influencerid);
+            }
+
+            // model.init();
+        }
+
+    }
+
+}
+//Method for translate the FbPost and Commentsw of all pages.
+function TranslateFBPostsAndComments() {
+    var totalFbpages = $('#hdnToatlInfluencer').val();
+    var noOfFbPages = parseInt(totalFbpages);
+   // alert(noOfFbPages);
+    if (noOfFbPages > 0) {
+        for (var i = 1; i <= noOfFbPages; i++) {
+            var model = new FBDataVM();
+            var influencerUrl = $('#hdnURLName_' + i).val();
+            var influencerid = $('#hdnId_' + i).val();
+            //alert(influencerUrl + "\n" + influencerid);
+            if (influencerUrl != null && influencerUrl != undefined && influencerid != null && influencerid != undefined) {
+                model.init(influencerid);
+            }
+            // model.init();
+        }
+    }
+}
+
+$(window).load(function () {
+    RefreshFBPOstAndComments();
+    TranslateFBPostsAndComments();
+});
+
+//setInterval(function () {
+//  alert("hello");    
+// RefreshFBPOstAndComments();
+//TranslateFBPostsAndComments();
+//}, TimeintervalforFBMerthods);
+
+//setInterval(function () {
+//   alert("hello");    
+//   TranslateFBPostsAndComments();
+//}, TimeintervalforFBMerthods);

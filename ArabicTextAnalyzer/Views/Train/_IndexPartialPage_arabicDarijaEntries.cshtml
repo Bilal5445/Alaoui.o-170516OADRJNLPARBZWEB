@@ -22,10 +22,17 @@
     <li role="presentation" class="active mainUL"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">Working Data</a></li>
     @if (FbInfluencer != null && FbInfluencer.Count > 0)
     {
+        var count = 1;
+        <li class="hide"><input type="hidden" id="hdnToatlInfluencer" value="@FbInfluencer.Count" /></li>
         <!-- subsequent tabs : FB pages -->
         foreach (var item in FbInfluencer)
         {
+            <li class="hide">
+                <input type="hidden" id="hdnURLName_@count" value="@item.url_name" />
+                <input type="hidden" id="hdnId_@count" value="@item.id" />
+            </li>
             <li role="presentation" class="mainUL" id="@item.id"><a aria-controls="second" role="tab" data-toggle="tab" style="cursor:pointer;" onclick="LoadFacebookPosts('@item.id')">@item.name</a></li>
+            count = count + 1;
         }
     }
     @if (FbInfluencer == null || FbInfluencer.Count < MaxFbPageAllowed)

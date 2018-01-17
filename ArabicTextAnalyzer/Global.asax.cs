@@ -20,7 +20,7 @@ namespace ArabicTextAnalyzer
             // limit response to json only
             ConfigureApi(GlobalConfiguration.Configuration);
             // Auto Scheduing to Cancel All Reservations between the 3 hours.
-            new SchedulingOperations(HttpContext.Current.Server.MapPath("~")).RunAllAutoSchedulingTasks();
+            //new SchedulingOperations(HttpContext.Current.Server.MapPath("~")).RunAllAutoSchedulingTasks();
         }
 
         void ConfigureApi(HttpConfiguration config)

@@ -29,6 +29,8 @@ using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
 using ArabicTextAnalyzer.Contracts;
 using ArabicTextAnalyzer.BO;
+using System.Net.Mail;
+using IcoApp.WebUI.Helpers;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -534,18 +536,24 @@ namespace ArabicTextAnalyzer.Controllers
             string translatedstring = "";
 
             string result = null;
-
-            var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchFBInfluencerPosts?CallFrom=" + influencerurl_name;
-            result = await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
-
-            if (result.ToLower().Contains("true"))
+            if (!string.IsNullOrEmpty(influencerurl_name))
             {
-                status = true;
-                translatedstring = result;
+                var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchFBInfluencerPosts?CallFrom=" + influencerurl_name;
+                result = await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
+
+                if (result.ToLower().Contains("true"))
+                {
+                    status = true;
+                    translatedstring = result;
+                }
+                else
+                {
+                    errMessage = result;
+                }
             }
             else
             {
-                errMessage = result;
+                errMessage = "Influencer url is null.";
             }
 
             return JsonConvert.SerializeObject(new
@@ -660,6 +668,246 @@ namespace ArabicTextAnalyzer.Controllers
 
                 return null;
             }
+        }
+
+        //Translate and extract Ner from FB Post and Comments on a time interval.
+        [HttpGet]
+        public async Task<object> TranslateAndExtractNERFBPostAndComments(string influencerid)
+        {
+            bool isNegative = false;
+            bool isNegativeComments = false;
+            bool status = false;
+            string errMessage = string.Empty;
+            if (!string.IsNullOrEmpty(influencerid))
+            {
+                T_FB_INFLUENCER influencer = loadT_Fb_InfluencerAsId(influencerid);
+                List<FB_POST> fbPosts = new List<FB_POST>();
+                fbPosts = loaddeserializeT_FB_POST_DAPPERSQL(influencerid).ToList();
+                if (fbPosts != null && fbPosts.Count() > 0)
+                {                  
+                        foreach (var FbPostForTranslate in fbPosts)
+                        {
+                        if(!string.IsNullOrEmpty(FbPostForTranslate.post_text) && string.IsNullOrEmpty(FbPostForTranslate.translated_text))
+                        {
+                            try
+                            {
+                                var returndata = await TranlslateFBPostAndComents(content: FbPostForTranslate.post_text, PostId: FbPostForTranslate.id);
+                                if (returndata != null)
+                                {
+                                    if (returndata.Status == true)
+                                    {
+                                        if (returndata.TextEntity.Count() > 0)
+                                        {
+                                            if (returndata.TextEntity.Where(c => c.TextEntity.Type == "NEGATIVE").Count() > 0)
+                                            {
+                                                isNegative = true;
+                                            }
+                                        }
+                                        status = true;
+                                    }
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                status = false;
+                                errMessage = e.Message;
+                            }
+                        }
+ 
+                            var fbComments = new List<FBFeedComment>();
+                            if (!string.IsNullOrEmpty(FbPostForTranslate.id))
+                            {
+                                string id = FbPostForTranslate.id.Split('_')[1];
+                                fbComments = loaddeserializeT_FB_Comments_DAPPERSQL(id);
+                                if (fbComments != null && fbComments.Count() > 0)
+                                {
+                                    var fbCommentsForTranslate = fbComments.Where(c => c.message != null && c.translated_message == null).ToList();
+                                    if (fbCommentsForTranslate != null && fbCommentsForTranslate.Count() > 0)
+                                    {
+                                        foreach (var fbCommentForTranslate in fbCommentsForTranslate)
+                                        {
+                                        if(!string.IsNullOrEmpty(fbCommentForTranslate.message))
+                                        {
+                                            try
+                                            {
+                                                var returndataOfCooment = await TranlslateFBPostAndComents(content: fbCommentForTranslate.message, CommentId: fbCommentForTranslate.Id);
+                                                if (returndataOfCooment != null)
+                                                {
+                                                    if (returndataOfCooment.Status == true)
+                                                    {
+                                                        if (returndataOfCooment.TextEntity.Count() > 0)
+                                                        {
+                                                            if (returndataOfCooment.TextEntity.Where(c => c.TextEntity.Type == "NEGATIVE").Count() > 0)
+                                                            {
+                                                                isNegativeComments = true;
+                                                            }
+                                                        }
+                                                        status = true;
+                                                    }
+                                                }
+                                            }
+                                            catch (Exception e)
+                                            {
+                                                status = false;
+                                                errMessage = e.Message;
+                                            }
+                                        }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+
+                        if (isNegative == true || isNegativeComments == true)
+                        {
+                            var userid = User.Identity.GetUserId();
+                            var db1 = new ApplicationDbContext();
+                            var user = db1.Users.FirstOrDefault(c => c.Id == userid);
+                            if (user != null)
+                            {
+                                try
+                                {
+                                    var email = user.Email;
+                                    if (!string.IsNullOrEmpty(email))
+                                    {
+                                        string influencerName = string.Empty;
+                                        if (influencer != null)
+                                        {
+                                            influencerName = influencer.name;
+                                        }
+                                        bool resultmail = false;
+                                        string subject = "Negative word on fb post";
+                                        string body = "Hello user,<br/>You have some negative words on posts on your facebook page" + influencerName + ".<br/>Please remove the words from the posts.<br/>Thanks.";
+                                        resultmail = SendEmail(email, subject, body);
+                                        if (resultmail == true)
+                                        {
+                                            status = true;
+                                            // errMessage = "Mail sent successfully";
+                                        }
+                                        else
+                                        {
+                                            status = false;
+                                        }
+                                    }
+                                }
+                                catch (Exception e)
+                                {
+                                    status = false;
+                                    errMessage = e.Message;
+                                }
+
+                            }
+                        }                   
+                }
+            }
+            return JsonConvert.SerializeObject(new
+            {
+                status = status,
+                message = errMessage
+            });
+        }
+
+
+        //Method for translateFbPosts in generalize way.
+        public async Task<ReturnData> TranlslateFBPostAndComents(String content, string PostId = "", string CommentId = "")
+        {
+            var userId = User.Identity.GetUserId();
+            string errMessage = string.Empty;
+            bool status = false;
+            string translatedstring = "";
+            ReturnData returndata = new ReturnData();
+            var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
+            try
+            {
+                // MC081217 translate via train to populate NER, analysis data, ...
+                // Arabizi to arabic script via direct call to perl script
+                var res = new Arabizer().train(new M_ARABIZIENTRY
+                {
+                    ArabiziText = content.Trim(),
+                    ArabiziEntryDate = DateTime.Now,
+                    ID_XTRCTTHEME = userActiveXtrctTheme.ID_XTRCTTHEME
+                }, userActiveXtrctTheme.ThemeName, thisLock: thisLock);
+
+                textEntities = res.M_ARABICDARIJAENTRY_TEXTENTITYs;
+                if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY != Guid.Empty)
+                {
+                    status = true;
+                    translatedstring = res.M_ARABICDARIJAENTRY.ArabicDarijaText;
+                    if (!string.IsNullOrEmpty(PostId))
+                    {
+                        SaveTranslatedPost(PostId, translatedstring);
+                    }
+                    else if (!string.IsNullOrEmpty(CommentId))
+                    {
+                        SaveTranslatedComments(CommentId, translatedstring);
+                    }
+                }
+                else
+                    errMessage = "Text is required.";
+            }
+            catch (Exception e)
+            {
+                status = false;
+                errMessage = e.Message.ToString();
+            }
+
+            returndata.TextEntity = textEntities;
+            returndata.Status = status;
+            returndata.Message = errMessage;
+            returndata.TranslatedText = translatedstring;
+            return returndata;
+        }
+
+        public bool SendEmail(string toEmailAddress, string subject, string body)
+        {
+            bool status = false;
+            try
+            {
+                var emailsetting = UtilityFunctions.GetEmailSetting();
+                var username = emailsetting.SMTPServerLoginName;
+                string password = emailsetting.SMTPServerPassword;
+
+                MailMessage msg = new MailMessage();
+                msg.Subject = subject;
+
+
+                msg.From = new MailAddress(emailsetting.NoReplyEmailAddress);
+
+                foreach (var email in toEmailAddress.Split(','))
+                {
+                    msg.To.Add(new MailAddress(email));
+                }
+                var bccAddress = ConfigurationManager.AppSettings["BCCEmailAddress"];
+                if (!string.IsNullOrEmpty(bccAddress))
+                {
+                    msg.Bcc.Add(new MailAddress(bccAddress));
+                }
+
+                msg.IsBodyHtml = true;
+                msg.Body = body;
+
+
+                SmtpClient smtpClient = new SmtpClient();
+                smtpClient.Host = emailsetting.SMTPServerUrl;
+                smtpClient.Port = emailsetting.SMTPServerPort;
+
+
+
+                smtpClient.EnableSsl = false;
+                smtpClient.UseDefaultCredentials = emailsetting.SMTPSecureConnectionRequired;
+                smtpClient.Credentials = new System.Net.NetworkCredential(username, password);
+                smtpClient.Send(msg);
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                // throw ex;
+            }
+            return status;
+
         }
         #endregion
 
@@ -1601,6 +1849,32 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
+        //Get Inrfluencer details on the influencerId 
+        private T_FB_INFLUENCER loadT_Fb_InfluencerAsId(string influencerid = "")
+        {
+
+            T_FB_INFLUENCER t_fb_Influencer = new T_FB_INFLUENCER();
+            if (!string.IsNullOrEmpty(influencerid))
+            {
+                String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    String qry = "SELECT * FROM T_FB_INFLUENCER where id='" + influencerid + "'";
+
+                    conn.Open();
+                    t_fb_Influencer = conn.QueryFirst<T_FB_INFLUENCER>(qry);
+                    return t_fb_Influencer;
+                }
+            }
+            else
+            {
+                return t_fb_Influencer;
+            }
+
+
+        }
+
         private List<FBFeedComment> loaddeserializeT_FB_Comments_DAPPERSQL(string postid = "")
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
@@ -1835,6 +2109,15 @@ namespace ArabicTextAnalyzer.Controllers
         #endregion
     }
 
+    //Class for return the method call afetr translate Fb Posts and comments
+    public class ReturnData
+    {
+        public string Message { get; set; }
+        public bool Status { get; set; }
+        public string TranslatedText { get; set; }
+        public List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntity { get; set; }
+
+    }
     // Class for call the APIs by html
     /*public static class HtmlHelpers
     {
