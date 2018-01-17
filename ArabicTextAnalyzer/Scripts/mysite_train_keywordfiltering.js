@@ -32,7 +32,7 @@ function InitializeDataTables(adminModeShowAll) {
                 ['10', '25', '50', '100', '500', '1000', 'all']
             ],
             // dom just to display the design of the fields : search , page , ...
-            dom: "<'row'<'col-sm-3'B><'col-sm-3'l><'col-sm-6'f>>" +
+            dom: "<'row'<'col-sm-6'B><'col-sm-3'l><'col-sm-3'f>>" +
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-5'i><'col-sm-7'p>>",
             buttons: [
