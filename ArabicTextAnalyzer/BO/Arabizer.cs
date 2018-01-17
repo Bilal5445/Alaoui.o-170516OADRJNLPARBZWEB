@@ -13,6 +13,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
+using static ArabicTextAnalyzer.Business.Provider.RosetteMultiLanguageDetections;
 
 namespace ArabicTextAnalyzer.BO
 {
@@ -57,8 +58,51 @@ namespace ArabicTextAnalyzer.BO
             //
             String arabicText = train_savearabizi(arabiziEntry);
 
+            // Detecte ranges of language with new rosette API 1.9
+            List<String> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
+            arabicText = String.Empty; // reset 
+            foreach (String langueRange in languagesRanges)
+            {
+                LanguageDetection language = new TextEntityExtraction().GetLanguageForRange(langueRange);
+                if (language.language == "fra" /*&& language.confidence > 0.5*/)
+                    frMode = true;
+                if (language.language == "eng" && language.confidence > 0.7)    // it thinks arabizi is 'eng' with 0.65 confid
+                    frMode = true;
+
+                String larabicText = langueRange;
+
+                if (frMode == false)
+                    larabicText = new TextConverter().Preprocess_upstream(larabicText);
+
+                // mark as ignore : url 
+                larabicText = train_markAsIgnore(larabicText);
+
+                if (frMode == false)
+                    larabicText = train_bidict(larabicText);
+
+                /*if (frMode == false)
+                    larabicText = train_binggoogle(larabicText);*/
+
+                // var arabicDarijaEntry = train_saveperl(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql, frMode);
+                if (frMode == false)
+                    larabicText = train_perl(watch, larabicText);
+
+                arabicText += larabicText;
+            }
+
             //
-            if (frMode == false)
+            var arabicDarijaEntry = new M_ARABICDARIJAENTRY
+            {
+                ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
+                ID_ARABIZIENTRY = arabiziEntry.ID_ARABIZIENTRY,
+                ArabicDarijaText = arabicText
+            };
+
+            // save to persist
+            saveserializeM_ARABICDARIJAENTRY_EFSQL(arabicDarijaEntry);
+
+            //
+            /*if (frMode == false)
                 arabicText = new TextConverter().Preprocess_upstream(arabicText);
 
             // mark as ignore : url 
@@ -70,17 +114,10 @@ namespace ArabicTextAnalyzer.BO
             if (frMode == false)
                 arabicText = train_binggoogle(arabicText);
 
-            var arabicDarijaEntry = train_saveperl(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql, frMode);
+            var arabicDarijaEntry = train_saveperl(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql, frMode);*/
+
             arabicText = arabicDarijaEntry.ArabicDarijaText;
             expando.M_ARABICDARIJAENTRY = arabicDarijaEntry;
-
-            // MC110118 we don't need any longer latin words, since we don't use any longer twingly to search for corpus as this one is feeded manually
-            // Plus it disturbs URL handling
-            /*if (frMode == false)
-            {
-                var arabicDarijaEntryLatinWords = train_savelatinwords(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
-                expando.M_ARABICDARIJAENTRY_LATINWORDs = arabicDarijaEntryLatinWords;
-            }*/
 
             List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = train_savener(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
             expando.M_ARABICDARIJAENTRY_TEXTENTITYs = textEntities;
@@ -133,8 +170,50 @@ namespace ArabicTextAnalyzer.BO
             //
             String arabicText = train_savearabizi_uow(arabiziEntry, db, isEndOfScope: false);
 
+                        // Detecte ranges of language with new rosette API 1.9
+            List<String> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
+            arabicText = String.Empty; // reset 
+            foreach (String langueRange in languagesRanges)
+            {
+                LanguageDetection language = new TextEntityExtraction().GetLanguageForRange(langueRange);
+                if (language.language == "fra" /*&& language.confidence > 0.5*/)
+                    frMode = true;
+                if (language.language == "eng" && language.confidence > 0.7)    // it thinks arabizi is 'eng' with 0.65 confid
+                    frMode = true;
+
+                String larabicText = langueRange;
+
+                if (frMode == false)
+                    larabicText = new TextConverter().Preprocess_upstream(larabicText);
+
+                // mark as ignore : url 
+                arabicText = train_markAsIgnore(arabicText);
+
+                if (frMode == false)
+                    arabicText = train_bidict(arabicText);
+
+                /*if (frMode == false)
+                    arabicText = train_binggoogle(arabicText);*/
+
+                if (frMode == false)
+                    larabicText = train_perl(watch, larabicText);
+
+                arabicText += larabicText;
+            }
+
             //
-            if (frMode == false)
+            var arabicDarijaEntry = new M_ARABICDARIJAENTRY
+            {
+                ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
+                ID_ARABIZIENTRY = arabiziEntry.ID_ARABIZIENTRY,
+                ArabicDarijaText = arabicText
+            };
+
+            // save to persist
+            saveserializeM_ARABICDARIJAENTRY_EFSQL_uow(arabicDarijaEntry, db, isEndOfScope: false);
+
+            //
+            /*if (frMode == false)
                 arabicText = new TextConverter().Preprocess_upstream(arabicText);
 
             // mark as ignore : url 
@@ -146,17 +225,10 @@ namespace ArabicTextAnalyzer.BO
             if (frMode == false)
                 arabicText = train_binggoogle(arabicText);
 
-            var arabicDarijaEntry = train_saveperl_uow(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, db, isEndOfScope: false, frMode: frMode);
+            var arabicDarijaEntry = train_saveperl_uow(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, db, isEndOfScope: false, frMode: frMode);*/
+
             arabicText = arabicDarijaEntry.ArabicDarijaText;
             expando.M_ARABICDARIJAENTRY = arabicDarijaEntry;
-
-            // MC110118 we don't need any longer latin words, since we don't use any longer twingly to search for corpus as this one is feeded manually
-            // Plus it disturbs URL handling
-            /*if (frMode == false)
-            {
-                var arabicDarijaEntryLatinWords = train_savelatinwords_uow(arabicText, id_ARABICDARIJAENTRY, db, isEndOfScope: false);
-                expando.M_ARABICDARIJAENTRY_LATINWORDs = arabicDarijaEntryLatinWords;
-            }*/
 
             List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = train_savener_uow(arabicText, id_ARABICDARIJAENTRY, db, isEndOfScope: false);
             expando.M_ARABICDARIJAENTRY_TEXTENTITYs = textEntities;
@@ -271,11 +343,41 @@ namespace ArabicTextAnalyzer.BO
             };
 
             // save to persist
-            saveserializeM_ARABICDARIJAENTRY_EFSQL(arabicDarijaEntry/*, accessMode*/);
+            saveserializeM_ARABICDARIJAENTRY_EFSQL(arabicDarijaEntry);
 
             //
-            // return arabicText;
             return arabicDarijaEntry;
+        }
+
+        private String train_perl(Stopwatch watch, string arabicText)
+        {
+                // first process buttranslateperl : means those should be cleaned in their without-bracket origan form so they can be translated by perl
+                // ex : "<span class='notranslate BUTTRANSLATEPERL'>kolchi</span> katbakkih bl3ani" should become "kolchi katbakkih bl3ani" so perl can translate it
+                arabicText = new Regex(@"<span class='notranslate BUTTRANSLATEPERL'>(.*?)</span>").Replace(arabicText, "$1");
+
+                // process notranslate
+                var regex = new Regex(@"<span class='notranslate'>(.*?)</span>");
+
+                // save matches
+                var matches = regex.Matches(arabicText);
+
+                // skip over non-translantable parts
+                arabicText = regex.Replace(arabicText, "001000100");
+
+                // translate arabizi to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
+                arabicText = new TextConverter().Convert(Server, watch, arabicText);
+
+                // restore do not translate from 001000100
+                var regex2 = new Regex(@"001000100");
+                foreach (Match match in matches)
+                {
+                    arabicText = regex2.Replace(arabicText, match.Value, 1);
+                }
+                // clean <span class='notranslate'>
+                arabicText = new Regex(@"<span class='notranslate'>(.*?)</span>").Replace(arabicText, "$1");
+
+            //
+            return arabicText;
         }
 
         private M_ARABICDARIJAENTRY train_saveperl_uow(Stopwatch watch, string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY, ArabiziDbContext db, bool isEndOfScope = false, bool frMode = false)
