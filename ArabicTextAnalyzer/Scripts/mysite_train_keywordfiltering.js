@@ -1,5 +1,5 @@
 ﻿var poststable;
-var selectedArabiziIds = [];
+var selectedArabiziIds = [];    // array of arabizi entries ids that have been selected by the user each he clicks on a row
 var ViewInfluencerIsClicked = false;
 var vars = {};
 var TranslateContentIsClicked = false;
@@ -66,7 +66,7 @@ function InitializeDataTables(adminModeShowAll) {
         // event click to select row
         $('.datatables-table tbody').on('click', 'tr', function (e) {
 
-            // if we click on the last column, do not select/unselect
+            // if we click on the last column (the controles column), do not select/unselect
             if ($(e.target).closest("td").attr('class').includes("controls"))
                 return;
 
@@ -79,22 +79,24 @@ function InitializeDataTables(adminModeShowAll) {
                 // we select
 
                 // find the guid of arabiz entry from the href in delete button
-                var hrefInnerId = $(this).find("td:eq(6)").find("> a").eq(0).attr("href").substring("/Train/Train_DeleteEntry/?arabiziWordGuid=".length);
+                var controlsTd = $(this).find("td:eq(6)");
+                var deleteButton = controlsTd.find("> a").eq(0);
+                var hrefInnerId = deleteButton.attr("href").substring("/Train/Train_DeleteEntry/?arabiziWordGuid=".length);
 
                 // add it to global array
                 selectedArabiziIds.push(hrefInnerId);
 
-                // console.log(hrefInnerId);
-
                 // save old id in backup in delete button
-                $(this).find("td:eq(6)").find("> a").eq(0).attr('data-backhref', hrefInnerId);
+                deleteButton.attr('data-backhref', hrefInnerId);
 
             } else {
 
                 // we deselect
 
                 // find the guid of arabiz entry from the backup href in delete button
-                var hrefBackInnerId = $(this).find("td:eq(6)").find("> a").eq(0).attr("data-backhref");
+                var controlsTd = $(this).find("td:eq(6)");
+                var deleteButton = controlsTd.find("> a").eq(0);
+                var hrefBackInnerId = deleteButton.attr("data-backhref");
 
                 // drop it from global (we know it is there)
                 var index = selectedArabiziIds.indexOf(hrefBackInnerId);
@@ -102,17 +104,31 @@ function InitializeDataTables(adminModeShowAll) {
 
                 // set new value href (from backup) in delete button
                 var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + hrefBackInnerId;
-                $(this).find("td:eq(6)").find("> a").eq(0).attr("href", newhref);
+                deleteButton.attr("href", newhref);
+
+                // remove backup
+                deleteButton.removeAttr('data-backhref');
             }
 
-            // loop over selected to concatenate the arabizi entries ids
-            $('tr.selected td:last-child').each(function (index) {
+            // loop over selected to concatenate the arabizi entries ids but only if more than one
+            var selectedControlsTds = $('tr.selected td:last-child');
+            if (selectedControlsTds.length > 1) {
+                selectedControlsTds.each(function (index) {
+                    // new value href
+                    var newhref = "/Train/Train_DeleteEntries/?arabiziWordGuids=" + selectedArabiziIds.join();
+
+                    // set new value in delete button
+                    var deleteButton = $(this).find("> a").eq(0);
+                    deleteButton.attr("href", newhref);
+                });
+            } else if (selectedControlsTds.length == 1) {
                 // new value href
-                var newhref = "/Train/Train_DeleteEntries/?arabiziWordGuids=" + selectedArabiziIds.join();
+                var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + selectedArabiziIds.join();
 
                 // set new value in delete button
-                $(this).find("> a").eq(0).attr("href", newhref);
-            });
+                var deleteButton = selectedControlsTds.find("> a").eq(0);
+                deleteButton.attr("href", newhref);
+            }
         });
     });
 }
