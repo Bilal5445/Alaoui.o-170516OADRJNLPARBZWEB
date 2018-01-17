@@ -687,11 +687,12 @@ function RefreshFBPOstAndComments() {
     var noOfFbPages = parseInt(totalFbpages);
     //alert(noOfFbPages);
     if (noOfFbPages > 0) {
+        fbTabPagesLoaded = true;
         for (var i = 1; i <= noOfFbPages; i++) {
             var model = new FBDataVM();
             var influencerUrl = $('#hdnURLName_' + i).val();
             var influencerid = $('#hdnId_' + i).val();
-           // alert(influencerUrl + "\n" + influencerid);
+            //alert(influencerUrl + "\n" + influencerid);
             if (influencerUrl != null && influencerUrl != undefined && influencerid != null && influencerid != undefined) {
                 model.init(influencerUrl, influencerid);
             }
@@ -706,8 +707,9 @@ function RefreshFBPOstAndComments() {
 function TranslateFBPostsAndComments() {
     var totalFbpages = $('#hdnToatlInfluencer').val();
     var noOfFbPages = parseInt(totalFbpages);
-   // alert(noOfFbPages);
+    //alert(noOfFbPages);
     if (noOfFbPages > 0) {
+        fbTabPagesLoaded = true;
         for (var i = 1; i <= noOfFbPages; i++) {
             var model = new FBDataVM();
             var influencerUrl = $('#hdnURLName_' + i).val();
@@ -720,10 +722,18 @@ function TranslateFBPostsAndComments() {
         }
     }
 }
+var fbTabPagesLoaded = false;
 
-$(window).load(function () {
-    RefreshFBPOstAndComments();
-    TranslateFBPostsAndComments();
+$(document).ready(function () {
+    var intervalFB = setInterval(function () {
+        if (fbTabPagesLoaded == false) {
+            RefreshFBPOstAndComments();
+            TranslateFBPostsAndComments();
+        }
+        else {
+            intervalFB.clearInterval();
+        }
+    }, 2000);
 });
 
 //setInterval(function () {
