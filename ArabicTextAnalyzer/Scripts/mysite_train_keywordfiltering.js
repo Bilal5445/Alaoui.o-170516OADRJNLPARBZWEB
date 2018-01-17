@@ -615,13 +615,12 @@ var FBDataVM = function () {//Data model for
                     if (msg.status) {
                         if ($('#' + influencerid).hasClass('active')) {
                             ResetDataTable(influencerid);
-
                         }
                     }
                    
                 },
                 "error": function () {
-                    alert("error")
+                    console.log("error in TranslateFBPostAndComments");
                     currentInstance.CallTranslateMethod = false;
                 }
             });
@@ -656,14 +655,14 @@ var FBDataVM = function () {//Data model for
                             ResetDataTable(influencerid);
                         }
                         else {
-                            alert("Error " + msg.message);
+                            console.log("Error " + msg.message);
                         }
                     }
 
                 },
                 "error": function () {
                     currentInstance.RetrieveFBPostIsClicked = false;
-                    alert("error")
+                    console.log("error in RetrieveFBPost");
                 }
             });
         }
@@ -730,7 +729,7 @@ $(document).ready(function () {
             //TranslateFBPostsAndComments();
         }
         else {
-            intervalFB.clearInterval();
+            clearInterval(intervalFB);
         }
     }, 2000);
 });
