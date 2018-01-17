@@ -59,35 +59,64 @@ namespace ArabicTextAnalyzer.BO
             String arabicText = train_savearabizi(arabiziEntry);
 
             // Detecte ranges of language with new rosette API 1.9
-            List<String> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
-            arabicText = String.Empty; // reset 
-            foreach (String langueRange in languagesRanges)
+            // List<String> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
+            List<LanguageRange> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
+            if (languagesRanges.Count > 1)
             {
-                LanguageDetection language = new TextEntityExtraction().GetLanguageForRange(langueRange);
+
+                arabicText = String.Empty; // reset 
+                                           // foreach (String langueRange in languagesRanges)
+                foreach (LanguageRange langueRange in languagesRanges)
+                {
+                    // LanguageDetection language = new TextEntityExtraction().GetLanguageForRange(langueRange);
+                    LanguageDetection language = new TextEntityExtraction().GetLanguageForRange(langueRange.Region);
+                    if (language.language == "fra" /*&& language.confidence > 0.5*/)
+                        frMode = true;
+                    if (language.language == "eng" && language.confidence > 0.7)    // it thinks arabizi is 'eng' with 0.65 confid
+                        frMode = true;
+
+                    // String larabicText = langueRange;
+                    String larabicText = langueRange.Region;
+
+                    if (frMode == false)
+                        larabicText = new TextConverter().Preprocess_upstream(larabicText);
+
+                    // mark as ignore : url 
+                    larabicText = train_markAsIgnore(larabicText);
+
+                    if (frMode == false)
+                        larabicText = train_bidict(larabicText);
+
+                    if (frMode == false)
+                        larabicText = train_perl(watch, larabicText);
+
+                    arabicText += larabicText;
+                }
+            }
+            else
+            {
+                LanguageDetection language = languagesRanges[0].Language;
                 if (language.language == "fra" /*&& language.confidence > 0.5*/)
                     frMode = true;
                 if (language.language == "eng" && language.confidence > 0.7)    // it thinks arabizi is 'eng' with 0.65 confid
                     frMode = true;
 
-                String larabicText = langueRange;
+                // String larabicText = langueRange;
+                String larabicText = languagesRanges[0].Region;
 
                 if (frMode == false)
                     larabicText = new TextConverter().Preprocess_upstream(larabicText);
 
                 // mark as ignore : url 
-                larabicText = train_markAsIgnore(larabicText);
+                arabicText = train_markAsIgnore(arabicText);
 
                 if (frMode == false)
-                    larabicText = train_bidict(larabicText);
+                    arabicText = train_bidict(arabicText);
 
-                /*if (frMode == false)
-                    larabicText = train_binggoogle(larabicText);*/
-
-                // var arabicDarijaEntry = train_saveperl(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql, frMode);
                 if (frMode == false)
                     larabicText = train_perl(watch, larabicText);
 
-                arabicText += larabicText;
+                arabicText = larabicText;
             }
 
             //
@@ -170,18 +199,50 @@ namespace ArabicTextAnalyzer.BO
             //
             String arabicText = train_savearabizi_uow(arabiziEntry, db, isEndOfScope: false);
 
-                        // Detecte ranges of language with new rosette API 1.9
-            List<String> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
-            arabicText = String.Empty; // reset 
-            foreach (String langueRange in languagesRanges)
+            // Detecte ranges of language with new rosette API 1.9
+            // List<String> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
+            List<LanguageRange> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
+            if (languagesRanges.Count > 1)
             {
-                LanguageDetection language = new TextEntityExtraction().GetLanguageForRange(langueRange);
+                arabicText = String.Empty; // reset 
+                // foreach (String langueRange in languagesRanges)
+                foreach (LanguageRange langueRange in languagesRanges)
+                {
+                    // LanguageDetection language = new TextEntityExtraction().GetLanguageForRange(langueRange);
+                    LanguageDetection language = new TextEntityExtraction().GetLanguageForRange(langueRange.Region);
+                    if (language.language == "fra" /*&& language.confidence > 0.5*/)
+                        frMode = true;
+                    if (language.language == "eng" && language.confidence > 0.7)    // it thinks arabizi is 'eng' with 0.65 confid
+                        frMode = true;
+
+                    // String larabicText = langueRange;
+                    String larabicText = langueRange.Region;
+
+                    if (frMode == false)
+                        larabicText = new TextConverter().Preprocess_upstream(larabicText);
+
+                    // mark as ignore : url 
+                    arabicText = train_markAsIgnore(arabicText);
+
+                    if (frMode == false)
+                        arabicText = train_bidict(arabicText);
+
+                    if (frMode == false)
+                        larabicText = train_perl(watch, larabicText);
+
+                    arabicText += larabicText;
+                }
+            }
+            else
+            {
+                LanguageDetection language = languagesRanges[0].Language;
                 if (language.language == "fra" /*&& language.confidence > 0.5*/)
                     frMode = true;
                 if (language.language == "eng" && language.confidence > 0.7)    // it thinks arabizi is 'eng' with 0.65 confid
                     frMode = true;
 
-                String larabicText = langueRange;
+                // String larabicText = langueRange;
+                String larabicText = languagesRanges[0].Region;
 
                 if (frMode == false)
                     larabicText = new TextConverter().Preprocess_upstream(larabicText);
@@ -192,13 +253,10 @@ namespace ArabicTextAnalyzer.BO
                 if (frMode == false)
                     arabicText = train_bidict(arabicText);
 
-                /*if (frMode == false)
-                    arabicText = train_binggoogle(arabicText);*/
-
                 if (frMode == false)
                     larabicText = train_perl(watch, larabicText);
 
-                arabicText += larabicText;
+                arabicText = larabicText;
             }
 
             //
@@ -213,20 +271,6 @@ namespace ArabicTextAnalyzer.BO
             saveserializeM_ARABICDARIJAENTRY_EFSQL_uow(arabicDarijaEntry, db, isEndOfScope: false);
 
             //
-            /*if (frMode == false)
-                arabicText = new TextConverter().Preprocess_upstream(arabicText);
-
-            // mark as ignore : url 
-            arabicText = train_markAsIgnore(arabicText);
-
-            if (frMode == false)
-                arabicText = train_bidict(arabicText);
-
-            if (frMode == false)
-                arabicText = train_binggoogle(arabicText);
-
-            var arabicDarijaEntry = train_saveperl_uow(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, db, isEndOfScope: false, frMode: frMode);*/
-
             arabicText = arabicDarijaEntry.ArabicDarijaText;
             expando.M_ARABICDARIJAENTRY = arabicDarijaEntry;
 
@@ -351,30 +395,30 @@ namespace ArabicTextAnalyzer.BO
 
         private String train_perl(Stopwatch watch, string arabicText)
         {
-                // first process buttranslateperl : means those should be cleaned in their without-bracket origan form so they can be translated by perl
-                // ex : "<span class='notranslate BUTTRANSLATEPERL'>kolchi</span> katbakkih bl3ani" should become "kolchi katbakkih bl3ani" so perl can translate it
-                arabicText = new Regex(@"<span class='notranslate BUTTRANSLATEPERL'>(.*?)</span>").Replace(arabicText, "$1");
+            // first process buttranslateperl : means those should be cleaned in their without-bracket origan form so they can be translated by perl
+            // ex : "<span class='notranslate BUTTRANSLATEPERL'>kolchi</span> katbakkih bl3ani" should become "kolchi katbakkih bl3ani" so perl can translate it
+            arabicText = new Regex(@"<span class='notranslate BUTTRANSLATEPERL'>(.*?)</span>").Replace(arabicText, "$1");
 
-                // process notranslate
-                var regex = new Regex(@"<span class='notranslate'>(.*?)</span>");
+            // process notranslate
+            var regex = new Regex(@"<span class='notranslate'>(.*?)</span>");
 
-                // save matches
-                var matches = regex.Matches(arabicText);
+            // save matches
+            var matches = regex.Matches(arabicText);
 
-                // skip over non-translantable parts
-                arabicText = regex.Replace(arabicText, "001000100");
+            // skip over non-translantable parts
+            arabicText = regex.Replace(arabicText, "001000100");
 
-                // translate arabizi to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
-                arabicText = new TextConverter().Convert(Server, watch, arabicText);
+            // translate arabizi to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
+            arabicText = new TextConverter().Convert(Server, watch, arabicText);
 
-                // restore do not translate from 001000100
-                var regex2 = new Regex(@"001000100");
-                foreach (Match match in matches)
-                {
-                    arabicText = regex2.Replace(arabicText, match.Value, 1);
-                }
-                // clean <span class='notranslate'>
-                arabicText = new Regex(@"<span class='notranslate'>(.*?)</span>").Replace(arabicText, "$1");
+            // restore do not translate from 001000100
+            var regex2 = new Regex(@"001000100");
+            foreach (Match match in matches)
+            {
+                arabicText = regex2.Replace(arabicText, match.Value, 1);
+            }
+            // clean <span class='notranslate'>
+            arabicText = new Regex(@"<span class='notranslate'>(.*?)</span>").Replace(arabicText, "$1");
 
             //
             return arabicText;

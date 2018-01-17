@@ -25,7 +25,8 @@ namespace ArabicTextAnalyzer.Business.Provider
             client = new RestClient(endpoint);
         }
 
-        public List<String> GetLanguagesRanges(String source)
+        // public List<String> GetLanguagesRanges(String source)
+        public List<LanguageRange> GetLanguagesRanges(String source)
         {
             var request = new RestRequest("language", Method.POST);
 
@@ -53,7 +54,12 @@ namespace ArabicTextAnalyzer.Business.Provider
             {
                 RosetteMultiLanguageDetections responseObject = new JavaScriptSerializer().Deserialize<RosetteMultiLanguageDetections>(response.Content);
 
-                return responseObject.regionalDetections.Select(m => m.region).ToList();
+                // return responseObject.regionalDetections.Select(m => m.region).ToList();
+                return responseObject.regionalDetections.Select(m => new LanguageRange
+                {
+                    Region = m.region,
+                    Language = m.languages[0]
+                }).ToList();
             }
 
             // return returnValue;
