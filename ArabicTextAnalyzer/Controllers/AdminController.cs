@@ -64,7 +64,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                 // 
                 var lusers = users
-                    .OrderBy(x => x.UserName)
+                    // .OrderBy(x => x.UserName)
                     /*.Skip(intSkip)
                     .Take(intPageSize)*/
                     .ToList();
@@ -89,7 +89,9 @@ namespace ArabicTextAnalyzer.Controllers
                     regusr.LastLoginTime
                 });
 
-                result = result.Skip(intSkip)
+                result = result
+                    .OrderByDescending(x => x.LastLoginTime)
+                    .Skip(intSkip)
                     .Take(intPageSize)
                     /*.ToList()*/;
 
