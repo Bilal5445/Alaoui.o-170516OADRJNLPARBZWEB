@@ -23,9 +23,6 @@ function BringNewDataIntoPartialView(adminModeShowAll) {
 
             // fct to attach table with search highlight keywords
             InitializeDataTables(adminModeShowAll);
-
-            // fct to attach FB table
-            // InitializeFBDataTables("");
         }),
         failure: function (response) {
             console.log(response);
