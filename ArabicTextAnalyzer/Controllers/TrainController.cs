@@ -365,7 +365,6 @@ namespace ArabicTextAnalyzer.Controllers
 
             // get data existing arabizi
             var backupARABIZIENTR = loaddeserializeM_ARABIZIENTRY_DAPPERSQL(arabiziWordGuid);
-            // var backupArabicDarijaText = loaddeserializeM_ARABICDARIJAENTRY_DB(arabiziWordGuid).ArabicDarijaText;
 
             // get data existing theme
             var backupXTRCTTHEME = loadDeserializeM_XTRCTTHEME_DAPPERSQL(backupARABIZIENTR.ID_XTRCTTHEME);
@@ -398,15 +397,61 @@ namespace ArabicTextAnalyzer.Controllers
         {
             var larabiziWordGuids = arabiziWordGuids.Split(new char[] { ',' });
 
-            // var dataPath = Server.MapPath("~/App_Data/");
-
             foreach (var larabiziWordGuid in larabiziWordGuids)
             {
                 // minor : trim leading '='
                 Guid arabiziWordGuid = new Guid(larabiziWordGuid.TrimStart(new char[] { '=' }));
 
-                // new TextPersist().Serialize_Delete_M_ARABIZIENTRY_Cascading(arabiziWordGuid, dataPath);
                 new Arabizer().Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
+            }
+
+            //
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Train_RefreshEntries(String arabiziWordGuids)
+        {
+            var larabiziWordGuids = arabiziWordGuids.Split(new char[] { ',' });
+
+            var arabizer = new Arabizer(Server);
+
+            // get data existing theme : all posts are under same theme, so use first
+            // minor : trim leading '='
+            var firstLArabiziWordGuid = larabiziWordGuids[0];
+            Guid firstArabiziWordGuid = new Guid(firstLArabiziWordGuid.TrimStart(new char[] { '=' }));
+            var backupFirstARABIZIENTR = loaddeserializeM_ARABIZIENTRY_DAPPERSQL(firstArabiziWordGuid);
+            var backupXTRCTTHEME = loadDeserializeM_XTRCTTHEME_DAPPERSQL(backupFirstARABIZIENTR.ID_XTRCTTHEME);
+
+            //
+            using (var db = new ArabiziDbContext())
+            {
+                foreach (var larabiziWordGuid in larabiziWordGuids)
+                {
+                    // minor : trim leading '='
+                    Guid arabiziWordGuid = new Guid(larabiziWordGuid.TrimStart(new char[] { '=' }));
+
+                    // get data existing arabizi
+                    var backupARABIZIENTR = loaddeserializeM_ARABIZIENTRY_EFSQL_uow(arabiziWordGuid, db);
+
+                    // get data existing theme
+                    // var backupXTRCTTHEME = loadDeserializeM_XTRCTTHEME_DAPPERSQL(backupARABIZIENTR.ID_XTRCTTHEME);
+
+                    // delete
+                    arabizer.Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL_uow(arabiziWordGuid, db, isEndOfScope: false);
+
+                    // recreate
+                    arabizer.train_uow(new M_ARABIZIENTRY
+                    {
+                        ArabiziText = backupARABIZIENTR.ArabiziText.Trim(new char[] { ' ', '\t' }),
+                        ArabiziEntryDate = backupARABIZIENTR.ArabiziEntryDate,
+                        IsFR = backupARABIZIENTR.IsFR,
+                        ID_XTRCTTHEME = backupARABIZIENTR.ID_XTRCTTHEME
+                    }, backupXTRCTTHEME.ThemeName, db, isEndOfScope: false);
+                }
+
+                //
+                db.SaveChanges();
             }
 
             //
@@ -1426,6 +1471,14 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 return db.M_ARABIZIENTRYs.ToList();
             }
+        }
+
+        private M_ARABIZIENTRY loaddeserializeM_ARABIZIENTRY_EFSQL_uow(Guid arabiziWordGuid, ArabiziDbContext db)
+        {
+            // using (var db = new ArabiziDbContext())
+            // {
+            return db.M_ARABIZIENTRYs.SingleOrDefault(m => m.ID_ARABIZIENTRY == arabiziWordGuid);
+            // }
         }
 
         private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY_DAPPERSQL()
