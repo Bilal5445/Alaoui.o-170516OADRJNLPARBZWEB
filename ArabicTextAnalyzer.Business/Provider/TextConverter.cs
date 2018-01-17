@@ -152,7 +152,8 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_emoticons(source);
             source = Preprocess_underscore(source);
             source = Preprocess_questionmark(source);
-
+            source = Preprocess_wierdquote(source);
+            
             //
             return source;
         }
@@ -352,6 +353,13 @@ namespace ArabicTextAnalyzer.Business.Provider
             return miniArabiziKeyword;
         }
 
+        private string Preprocess_wierdquote(string arabizi)
+        {
+            String miniArabiziKeyword = arabizi.Replace("´", "'");
+
+            return miniArabiziKeyword;
+        }
+
         // public for UT only
         public string Preprocess_arabic_comma(string arabizi)
         {
@@ -404,7 +412,7 @@ namespace ArabicTextAnalyzer.Business.Provider
         public string Preprocess_quotes(string arabizi)
         {
             // quote : bing/google converts " to &quot; so we need to convert it back to "
-            arabizi = Regex.Replace(arabizi, "&quot;", "\"", RegexOptions.IgnoreCase);
+            arabizi = Regex.Replace(arabizi, "&quot;", "\'", RegexOptions.IgnoreCase);
 
             return arabizi;
         }
