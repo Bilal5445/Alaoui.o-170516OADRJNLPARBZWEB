@@ -123,8 +123,8 @@ namespace ArabicTextAnalyzer.Controllers
             // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
             // @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Select(m => m.Keyword).ToList();
             @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE").ToList();
-            @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE").ToList();
-            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "NEGATIVE").ToList();
+            @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
+            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE").ToList();
 
             // file upload communication
             @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;

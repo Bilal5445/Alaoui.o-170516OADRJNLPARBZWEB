@@ -142,7 +142,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             // limit to positive/negative ner
             List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = expando.M_ARABICDARIJAENTRY_TEXTENTITYs;
-            textEntities.RemoveAll(m => m.TextEntity.Type != "NEGATIVE" && m.TextEntity.Type != "POSITIVE");
+            textEntities.RemoveAll(m => m.TextEntity.Type != "NEGATIVE" && m.TextEntity.Type != "POSITIVE" && m.TextEntity.Type != "SUPPORT");
             expando.M_ARABICDARIJAENTRY_TEXTENTITYs = textEntities;
 
             //
