@@ -681,13 +681,14 @@ var FBDataVM = function () {//Data model for
         }, TimeintervalforFBMerthods);
     };
 };
+var fbTabPagesLoaded = false;
 //Method for get the fbpost and comments of all pages.
 function RefreshFBPOstAndComments() {
     var totalFbpages = $('#hdnToatlInfluencer').val();
     var noOfFbPages = parseInt(totalFbpages);
     //alert(noOfFbPages);
     if (noOfFbPages > 0) {
-        fbTabPagesLoaded = true;
+        fbTabPagesLoaded = true; // this flag will maintain the Loading of the tabs to appear the threading.
         for (var i = 1; i <= noOfFbPages; i++) {
             var model = new FBDataVM();
             var influencerUrl = $('#hdnURLName_' + i).val();
@@ -718,11 +719,11 @@ function TranslateFBPostsAndComments() {
             if (influencerUrl != null && influencerUrl != undefined && influencerid != null && influencerid != undefined) {
                 model.init(influencerid);
             }
-            // model.init();
+          
         }
     }
 }
-var fbTabPagesLoaded = false;
+
 
 $(document).ready(function () {
     var intervalFB = setInterval(function () {
@@ -735,14 +736,3 @@ $(document).ready(function () {
         }
     }, 2000);
 });
-
-//setInterval(function () {
-//  alert("hello");    
-// RefreshFBPOstAndComments();
-//TranslateFBPostsAndComments();
-//}, TimeintervalforFBMerthods);
-
-//setInterval(function () {
-//   alert("hello");    
-//   TranslateFBPostsAndComments();
-//}, TimeintervalforFBMerthods);
