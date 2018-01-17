@@ -156,14 +156,14 @@ function LoadFacebookPosts(fluencerid) {
         ViewInfluencerIsClicked = true;
         var $checkedBoxes = $('.table_' + fluencerid + ' tbody tr');
         if ($checkedBoxes.length == 0) {
-            InitializeFBDataTables(fluencerid)
+            InitializeFBPostsDataTables(fluencerid)
         }
         fnCallback(fluencerid)
     }
 }
 
 // table for FB post table
-function InitializeFBDataTables(fluencerid) {
+function InitializeFBPostsDataTables(fluencerid) {
     $(function () {
 
         // Initialize DataTables
@@ -336,7 +336,7 @@ function GetComments(obj) {
             row.child(tablecontent).show();
 
             // get using server size ajax to datatables.net the actual comments
-            GetCommentsForPost(id);
+            InitializeFBCommentsForPostDataTables(id);
 
             // add a global bulk translate button
             // $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a><h3>Comments</h3>')
@@ -371,7 +371,7 @@ function CommentTable(id) {
 }
 
 // method used by GetComments above to get table actual comments
-function GetCommentsForPost(id) {
+function InitializeFBCommentsForPostDataTables(id) {
 
     $('#tabledetails_' + id).DataTable({
         // Enable mark.js search term highlighting
@@ -640,5 +640,5 @@ function ResetDataTableComments(influencerid) {
     var oTable = $('#tabledetails_' + influencerid).dataTable();
     oTable.fnClearTable();
     oTable.fnDestroy();
-    GetCommentsForPost(influencerid)
+    InitializeFBCommentsForPostDataTables(influencerid)
 }
