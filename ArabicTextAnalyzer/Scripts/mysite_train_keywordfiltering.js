@@ -74,78 +74,11 @@ function InitializeDataTables(adminModeShowAll) {
             // now muli-select needs ctrl+click (separate multiclick) or shift + click (range multiclick)
         });
 
+        // user event click on select row controls column
         poststable.on('user-select', function (e, dt, type, cell, originalEvent) {
-            /*if ($(cell.node()).parent().hasClass('selected')) {
-                e.preventDefault();
-            }*/
-            if ($(cell.node()).attr('class').includes("controls"))
-            {
+            if ($(cell.node()).attr('class').includes("controls")) {
                 e.preventDefault();
             }
-        });
-
-        // event click on select row controls column
-        // $(poststable.table().body()).find("td.controls").on('click', 'a', function (e) {
-        $(poststable.table().body()).on('click', 'td a', function (e) {
-            // e.stopPropagation();
-            // e.preventDefault();
-        });
-
-        // event click to select row
-        $(poststable.table().body()).on('click', 'tr', function (e) {
-
-            // if we click on the last column (the controles column), do not select/unselect
-            /*if ($(e.target).closest("td").attr('class').includes("controls"))
-                return;
-
-            // select/unselect the row
-            $(this).toggleClass('selected');*/
-
-            // add/remove guid to array
-            /*if ($(this).hasClass('selected')) {
-
-                // we select
-
-                // find the guid of arabiz entry from the href in delete button
-                var controlsTd = $(this).find("td:eq(6)");
-                var deleteButton = controlsTd.find("> a").eq(0);
-                var hrefInnerId = deleteButton.attr("href").substring("/Train/Train_DeleteEntry/?arabiziWordGuid=".length);
-
-                // add it to global array
-                selectedArabiziIds.push(hrefInnerId);
-
-                // save old id in backup in delete button
-                deleteButton.attr('data-backhref', hrefInnerId);
-
-            } else {
-
-                // we deselect
-
-                // find the guid of arabiz entry from the backup href in delete button
-                var controlsTd = $(this).find("td:eq(6)");
-                var deleteButton = controlsTd.find("> a").eq(0);
-                var hrefBackInnerId = deleteButton.attr("data-backhref");
-
-                // drop it from global (we know it is there)
-                var index = selectedArabiziIds.indexOf(hrefBackInnerId);
-                selectedArabiziIds.splice(index, 1);
-
-                // set new value href (from backup) in delete button
-                var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + hrefBackInnerId;
-                deleteButton.attr("href", newhref);
-
-                // same for refresh button (2nd button)
-                var refreshButton = controlsTd.find("> a").eq(1);
-                var newrefreshhref = "/Train/Train_RefreshEntry/?arabiziWordGuid=" + hrefBackInnerId;
-                refreshButton.attr("href", newrefreshhref);
-
-                // remove backup
-                deleteButton.removeAttr('data-backhref');
-            }
-
-            // loop over selected to concatenate the arabizi entries ids but only if more than one
-            var selectedControlsTds = $(this).parent().find('tr.selected td:last-child');
-            BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds);*/
         });
 
         // event select
@@ -211,6 +144,24 @@ function InitializeDataTables(adminModeShowAll) {
                 BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds);
             }
         });
+
+        // capturing the click on a-href because href can not take too many args (when multi-deletes or multu-refresh)
+        /*$(".plyshr").click(function() {
+            var id = $(this).attr('id');
+            var dataString = 'id='+ id ;
+            var parent = $(this);
+            //alert (data);
+            $.ajax({
+                type: "POST",
+                url: "playlist.php",
+                success: function(html)
+                    data:  dataString,
+                    cache: false,
+                    success: function(html)
+                    }).done(function( msg ) {
+                        parent.html(html);
+                    });
+                });*/
     });
 }
 
