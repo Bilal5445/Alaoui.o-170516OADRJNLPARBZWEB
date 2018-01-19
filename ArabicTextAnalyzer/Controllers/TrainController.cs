@@ -1107,7 +1107,6 @@ namespace ArabicTextAnalyzer.Controllers
                 // Visual formatting before sending back
                 items.ForEach(s =>
                 {
-                    // s.PositionHash = itemsCount - start - items.IndexOf(s);
                     s.PositionHash = s.Rank;
                     s.FormattedArabiziEntryDate = s.ArabiziEntryDate.ToString("yy-MM-dd HH:mm");
                     s.FormattedArabicDarijaText = TextTools.HighlightExtractedLatinWords(s.ArabicDarijaText, s.ID_ARABICDARIJAENTRY, arabicDarijaEntryLatinWords);
