@@ -41,7 +41,8 @@ function InitializeDataTables(adminModeShowAll) {
                 {
                     text: 'Select All',
                     action: function () {
-                        this.rows().select();
+                        // this.rows().select();
+                        this.rows().click();
                     }
                 },
                 'selectNone'
@@ -77,7 +78,7 @@ function InitializeDataTables(adminModeShowAll) {
         });
 
         // event click to select row
-        $('.datatables-table tbody').on('click', 'tr', function (e) {
+        $(poststable.table().body()).on('click', 'tr', function (e) {
 
             // if we click on the last column (the controles column), do not select/unselect
             if ($(e.target).closest("td").attr('class').includes("controls"))
@@ -132,6 +133,15 @@ function InitializeDataTables(adminModeShowAll) {
             var selectedControlsTds = $(this).parent().find('tr.selected td:last-child');
             BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds);
         });
+
+        // event select
+        /*table.on('select', function (e, dt, type, indexes) {
+            if (type === 'row') {
+                var data = table.rows(indexes).data().pluck('id');
+
+                // do something with the ID of the selected items
+            }
+        });*/
     });
 }
 
