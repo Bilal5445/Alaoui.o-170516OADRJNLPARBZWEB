@@ -352,7 +352,7 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public ActionResult Train_DeleteEntry(Guid arabiziWordGuid)
         {
-            new Arabizer().Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
+            // new Arabizer().Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
 
             //
             return RedirectToAction("Index");
@@ -392,7 +392,7 @@ namespace ArabicTextAnalyzer.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult Train_DeleteEntries(String arabiziWordGuids)
         {
             var larabiziWordGuids = arabiziWordGuids.Split(new char[] { ',' });
@@ -402,7 +402,7 @@ namespace ArabicTextAnalyzer.Controllers
                 // minor : trim leading '='
                 Guid arabiziWordGuid = new Guid(larabiziWordGuid.TrimStart(new char[] { '=' }));
 
-                new Arabizer().Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
+                // new Arabizer().Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
             }
 
             //
@@ -525,41 +525,30 @@ namespace ArabicTextAnalyzer.Controllers
             //
             if (activeTheme.ID_XTRCTTHEME != null)
             {
-                Logging.Write(Server, "AddFBInfluencer - 1");
                 var themeid = activeTheme.ID_XTRCTTHEME;
                 var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "AccountPanel/AddFBInfluencer?url_name=" + url_name + "&pro_or_anti=" + pro_or_anti + "&id=1&themeid=" + themeid + "&CallFrom=AddFBInfluencer";
-                Logging.Write(Server, "AddFBInfluencer - 1.0.1 : " + url);
                 // ex : url : http://localhost:8081//AccountPanel/AddFBInfluencer?url_name=telquelofficiel&pro_or_anti=Anti&id=1&themeid=fd6590b9-dbd1-4341-9329-4a9cae8047eb&CallFrom=AddFBInfluencer
                 results = await HtmlHelpers.PostAPIRequest_message(url, String.Empty, type: "POST");
                 result = results.Item1;
-                Logging.Write(Server, "AddFBInfluencer - 1.1");
             }
             else
             {
-                Logging.Write(Server, "AddFBInfluencer - 2");
                 result = "No theme id can get.";
-                Logging.Write(Server, "AddFBInfluencer - 2.1");
             }
 
             if (result.ToLower().Contains("true"))
             {
-                Logging.Write(Server, "AddFBInfluencer - 3");
                 status = true;
                 translatedString = result;
-                Logging.Write(Server, "AddFBInfluencer - 3.1");
             }
             else
             {
-                Logging.Write(Server, "AddFBInfluencer - 4");
                 status = false;
                 errMessage = result;
                 errMessage += " - " + results.Item2;
-                Logging.Write(Server, "AddFBInfluencer - 4.0.1 : " + errMessage);
-                Logging.Write(Server, "AddFBInfluencer - 4.1");
             }
 
             //
-            Logging.Write(Server, "AddFBInfluencer - 5");
             return JsonConvert.SerializeObject(new
             {
                 status = status,
@@ -1098,6 +1087,8 @@ namespace ArabicTextAnalyzer.Controllers
                 if (!String.IsNullOrEmpty(searchValue))
                     items = items.Where(a => a.ArabiziText.ToUpper().Contains(searchValue.ToUpper()) || a.ArabicDarijaText.ToUpper().Contains(searchValue.ToUpper())).ToList();
 
+                var itemsFilteredCount = items.Count;
+
                 // page as per request (index of page and length)
                 items = items.Skip(start).Take(itemsPerPage).ToList();
 
@@ -1116,7 +1107,8 @@ namespace ArabicTextAnalyzer.Controllers
                 // Visual formatting before sending back
                 items.ForEach(s =>
                 {
-                    s.PositionHash = itemsCount - start - items.IndexOf(s);
+                    // s.PositionHash = itemsCount - start - items.IndexOf(s);
+                    s.PositionHash = s.Rank;
                     s.FormattedArabiziEntryDate = s.ArabiziEntryDate.ToString("yy-MM-dd HH:mm");
                     s.FormattedArabicDarijaText = TextTools.HighlightExtractedLatinWords(s.ArabicDarijaText, s.ID_ARABICDARIJAENTRY, arabicDarijaEntryLatinWords);
                     s.FormattedEntitiesTypes = TextTools.DisplayEntitiesType(s.ID_ARABICDARIJAENTRY, textEntities);
@@ -1128,7 +1120,7 @@ namespace ArabicTextAnalyzer.Controllers
                 return JsonConvert.SerializeObject(new
                 {
                     recordsTotal = itemsCount.ToString(),
-                    recordsFiltered = itemsCount.ToString(),
+                    recordsFiltered = itemsFilteredCount.ToString(),
                     data = items
                 });
             }
@@ -1165,11 +1157,13 @@ namespace ArabicTextAnalyzer.Controllers
             if (!String.IsNullOrEmpty(searchValue))
                 items = items.Where(a => a.pt.ToUpper().Contains(searchValue.ToUpper()) || (a.tt != null && a.tt.ToUpper().Contains(searchValue.ToUpper()))).ToList();
 
+            var itemsFilteredCount = items.Count;
+
             //
             return JsonConvert.SerializeObject(new
             {
                 recordsTotal = itemsCount.ToString(),
-                recordsFiltered = itemsCount.ToString(),
+                recordsFiltered = itemsFilteredCount.ToString(),
                 data = items
             });
         }
@@ -1792,6 +1786,7 @@ namespace ArabicTextAnalyzer.Controllers
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 String qry = "SELECT "
+                        + "ROW_NUMBER() OVER (ORDER BY ARZ.ArabiziEntryDate) AS Rank, "
                         + "ARZ.ID_ARABIZIENTRY, "
                         + "ARZ.ArabiziEntryDate, "
                         + "ARZ.ArabiziText, "
@@ -1815,6 +1810,7 @@ namespace ArabicTextAnalyzer.Controllers
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     String qry = "SELECT "
+                            + "ROW_NUMBER() OVER (ORDER BY ARZ.ArabiziEntryDate) AS Rank, "
                             + "ARZ.ID_ARABIZIENTRY, "
                             + "ARZ.ArabiziEntryDate, "
                             + "ARZ.ArabiziText, "
@@ -1824,7 +1820,6 @@ namespace ArabicTextAnalyzer.Controllers
                         + "FROM T_ARABIZIENTRY ARZ "
                         + "INNER JOIN T_ARABICDARIJAENTRY AR ON ARZ.ID_ARABIZIENTRY = AR.ID_ARABIZIENTRY "
                         + "INNER JOIN T_ARABICDARIJAENTRY_TEXTENTITY ARTE ON AR.ID_ARABICDARIJAENTRY = ARTE.ID_ARABICDARIJAENTRY AND TextEntity_Type = 'MAIN ENTITY' "
-                        // + "INNER JOIN T_XTRCTTHEME XT ON XT.ThemeName = ARTE.TextEntity_Mention AND XT.CurrentActive = 'active' AND XT.UserID = '" + userId + "' AND ARZ.ID_XTRCTTHEME = XT.ID_XTRCTTHEME "
                         + "ORDER BY ARZ.ArabiziEntryDate DESC ";
 
                     conn.Open();
@@ -1838,6 +1833,7 @@ namespace ArabicTextAnalyzer.Controllers
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     String qry = "SELECT "
+                            + "ROW_NUMBER() OVER (ORDER BY ARZ.ArabiziEntryDate) AS Rank, "
                             + "ARZ.ID_ARABIZIENTRY, "
                             + "ARZ.ArabiziEntryDate, "
                             + "ARZ.ArabiziText, "

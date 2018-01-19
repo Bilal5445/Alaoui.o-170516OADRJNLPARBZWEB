@@ -36,23 +36,18 @@ function InitializeDataTables(adminModeShowAll) {
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-5'i><'col-sm-7'p>>",
             buttons: [
-                'copyHtml5', 'excel', 'csv', 
-                // 'selectAll', 
-                {
+                'copyHtml5', 'excel', 'csv',
+                'selectAll',
+                /*{
                     text: 'Select All',
                     action: function () {
+                        this.rows().deselect();
                         // this.rows().select();
                         this.rows().click();
                     }
-                },
+                },*/
                 'selectNone'
             ],
-            language: {
-                buttons: {
-                    // selectAll: "Select All",
-                    selectNone: "Select None"
-                }
-            },
             //
             "columns": [
                     { "data": "PositionHash", "className": "center top" },
@@ -75,21 +70,39 @@ function InitializeDataTables(adminModeShowAll) {
                 "type": "POST",
                 "data": { "adminModeShowAll": adminModeShowAll }
             },
-            select: true
+            select: true    // warning : before this, previous multi-select was just clicking on many rows, 
+            // now muli-select needs ctrl+click (separate multiclick) or shift + click (range multiclick)
+        });
+
+        poststable.on('user-select', function (e, dt, type, cell, originalEvent) {
+            /*if ($(cell.node()).parent().hasClass('selected')) {
+                e.preventDefault();
+            }*/
+            if ($(cell.node()).attr('class').includes("controls"))
+            {
+                e.preventDefault();
+            }
+        });
+
+        // event click on select row controls column
+        // $(poststable.table().body()).find("td.controls").on('click', 'a', function (e) {
+        $(poststable.table().body()).on('click', 'td a', function (e) {
+            // e.stopPropagation();
+            // e.preventDefault();
         });
 
         // event click to select row
-        /*$(poststable.table().body()).on('click', 'tr', function (e) {
+        $(poststable.table().body()).on('click', 'tr', function (e) {
 
             // if we click on the last column (the controles column), do not select/unselect
-            if ($(e.target).closest("td").attr('class').includes("controls"))
+            /*if ($(e.target).closest("td").attr('class').includes("controls"))
                 return;
 
             // select/unselect the row
-            $(this).toggleClass('selected');
+            $(this).toggleClass('selected');*/
 
             // add/remove guid to array
-            if ($(this).hasClass('selected')) {
+            /*if ($(this).hasClass('selected')) {
 
                 // we select
 
@@ -132,8 +145,8 @@ function InitializeDataTables(adminModeShowAll) {
 
             // loop over selected to concatenate the arabizi entries ids but only if more than one
             var selectedControlsTds = $(this).parent().find('tr.selected td:last-child');
-            BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds);
-        });*/
+            BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds);*/
+        });
 
         // event select
         poststable.on('select', function (e, dt, type, indexes) {
@@ -141,52 +154,67 @@ function InitializeDataTables(adminModeShowAll) {
             if (type === 'row') {
 
                 // we select
+                dt.rows(indexes).every(function (rowIdx, tableLoop, rowLoop) {
 
-                // find the guid of arabiz entry from the href in delete button
-                var controlsTd = $(this).find("td:eq(6)");
-                var deleteButton = controlsTd.find("> a").eq(0);
-                var hrefInnerId = deleteButton.attr("href").substring("/Train/Train_DeleteEntry/?arabiziWordGuid=".length);
+                    // find the guid of arabiz entry from the href in delete button
+                    var thisTr = this.node();
+                    var controlsTd = $(thisTr).find("td:eq(6)");
+                    var deleteButton = controlsTd.find("> a").eq(0);
+                    var hrefInnerId = deleteButton.attr("href").substring("/Train/Train_DeleteEntry/?arabiziWordGuid=".length);
 
-                // add it to global array
-                selectedArabiziIds.push(hrefInnerId);
+                    // add it to global array if not already there (shift select add the first row even if already there)
+                    if (selectedArabiziIds.indexOf(hrefInnerId) === -1)
+                        selectedArabiziIds.push(hrefInnerId);
 
-                // save old id in backup in delete button
-                deleteButton.attr('data-backhref', hrefInnerId);
+                    // save old id in backup in delete button
+                    deleteButton.attr('data-backhref', hrefInnerId);
+                });
+
+                // loop over selected to concatenate the arabizi entries ids but only if more than one
+                var thisTbody = dt.table().body();
+                var selectedControlsTds = $(thisTbody).find('tr.selected td:last-child');
+                BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds);
             }
-        })
-        poststable.on('deselect', function (e, dt, type, indexes) {
+        }).on('deselect', function (e, dt, type, indexes) {
 
             if (type === 'row') {
 
                 // we deselect
+                dt.rows(indexes).every(function (rowIdx, tableLoop, rowLoop) {
 
-                // find the guid of arabiz entry from the backup href in delete button
-                var controlsTd = $(this).find("td:eq(6)");
-                var deleteButton = controlsTd.find("> a").eq(0);
-                var hrefBackInnerId = deleteButton.attr("data-backhref");
+                    // find the guid of arabiz entry from the backup href in delete button
+                    var thisTr = this.node();
+                    var controlsTd = $(thisTr).find("td:eq(6)");
+                    var deleteButton = controlsTd.find("> a").eq(0);
+                    var hrefBackInnerId = deleteButton.attr("data-backhref");
 
-                // drop it from global (we know it is there)
-                var index = selectedArabiziIds.indexOf(hrefBackInnerId);
-                selectedArabiziIds.splice(index, 1);
+                    // drop it from global (we know it is there)
+                    var index = selectedArabiziIds.indexOf(hrefBackInnerId);
+                    selectedArabiziIds.splice(index, 1);
 
-                // set new value href (from backup) in delete button
-                var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + hrefBackInnerId;
-                deleteButton.attr("href", newhref);
+                    // set new value href (from backup) in delete button
+                    var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + hrefBackInnerId;
+                    deleteButton.attr("href", newhref);
 
-                // same for refresh button (2nd button)
-                var refreshButton = controlsTd.find("> a").eq(1);
-                var newrefreshhref = "/Train/Train_RefreshEntry/?arabiziWordGuid=" + hrefBackInnerId;
-                refreshButton.attr("href", newrefreshhref);
+                    // same for refresh button (2nd button)
+                    var refreshButton = controlsTd.find("> a").eq(1);
+                    var newrefreshhref = "/Train/Train_RefreshEntry/?arabiziWordGuid=" + hrefBackInnerId;
+                    refreshButton.attr("href", newrefreshhref);
 
-                // remove backup
-                deleteButton.removeAttr('data-backhref');
+                    // remove backup
+                    deleteButton.removeAttr('data-backhref');
+                });
+
+                // loop over selected to concatenate the arabizi entries ids but only if more than one
+                var thisTbody = dt.table().body();
+                var selectedControlsTds = $(thisTbody).find('tr.selected td:last-child');
+                BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds);
             }
         });
     });
 }
 
-function BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds)
-{
+function BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds) {
     // loop over selected to concatenate the arabizi entries ids but only if more than one
     if (selectedControlsTds.length > 1) {
         selectedControlsTds.each(function (index) {
