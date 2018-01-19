@@ -582,7 +582,7 @@ function ResetDataTableComments(influencerid) {
     GetCommentsForPost(influencerid)
 }
 
-var TimeintervalforFBMerthods = 1000 * 10;//Time interval for method run for get fb posts and comments and translate posts and comments
+var TimeintervalforFBMerthods = 1000 * 60*2;//Time interval for method run for get fb posts and comments and translate posts and comments
 
 //Method for schedule a task for retrieve the fb posts and comments in a time interval
 var FBDataVM = function () {//Data model for 
@@ -592,14 +592,16 @@ var FBDataVM = function () {//Data model for
     this.GetFBPostAndComments = function (influencerUrl, influencerid) {
         var currentInstance = this;
         var intervalFlag = true;
+        //alert(influencerUrl + "\n" + influencerid);
         if (currentInstance.CallMethod == false) {
             currentInstance.CallMethod = true;
             currentInstance.RetrieveFBPost(influencerUrl, influencerid, intervalFlag);
         }
 
     };
-    this.TranslateFBPostAndComments = function (influencerid) {
+    this.TranslateFBPostAndComments = function (influencerUrl, influencerid) {
         var currentInstance = this;
+        //alert(influencerid);
         if (currentInstance.CallTranslateMethod == false) {
             currentInstance.CallTranslateMethod = true;
             $.ajax({
@@ -668,12 +670,13 @@ var FBDataVM = function () {//Data model for
         }
     }
     this.init = function (influencerUrl, influencerid) {
-
         var currentInstance = this;
+      
         setInterval(function () {
             currentInstance.GetFBPostAndComments(influencerUrl, influencerid);
         }, TimeintervalforFBMerthods);
         setInterval(function () {
+           // alert(influencerUrl + "\n" + influencerid);
             currentInstance.TranslateFBPostAndComments(influencerUrl, influencerid);
         }, TimeintervalforFBMerthods);
     };
@@ -690,7 +693,7 @@ function RefreshFBPOstAndComments() {
             var model = new FBDataVM();
             var influencerUrl = $('#hdnURLName_' + i).val();
             var influencerid = $('#hdnId_' + i).val();
-            //alert(influencerUrl + "\n" + influencerid);
+           // alert(influencerUrl + "\n" + influencerid);
             if (influencerUrl != null && influencerUrl != undefined && influencerid != null && influencerid != undefined) {
                 model.init(influencerUrl, influencerid);
             }
@@ -725,8 +728,7 @@ function TranslateFBPostsAndComments() {
 $(document).ready(function () {
     var intervalFB = setInterval(function () {
         if (fbTabPagesLoaded == false) {
-            RefreshFBPOstAndComments();
-            //TranslateFBPostsAndComments();
+            RefreshFBPOstAndComments();           
         }
         else {
             clearInterval(intervalFB);

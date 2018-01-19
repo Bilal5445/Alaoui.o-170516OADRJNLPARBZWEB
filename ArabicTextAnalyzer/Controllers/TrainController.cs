@@ -30,7 +30,7 @@ using System.Threading.Tasks;
 using ArabicTextAnalyzer.Contracts;
 using ArabicTextAnalyzer.BO;
 using System.Net.Mail;
-using IcoApp.WebUI.Helpers;
+
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -2271,4 +2271,30 @@ namespace ArabicTextAnalyzer.Controllers
             return result;
         }
     }*/
+
+    public static class UtilityFunctions
+    {
+        public static EmailSettings GetEmailSetting()
+        {
+            EmailSettings emailsetting = new EmailSettings();
+            emailsetting.SMTPServerUrl = ConfigurationManager.AppSettings["SMTPServerUrl1"];
+            emailsetting.SMTPServerPort = Convert.ToInt16(ConfigurationManager.AppSettings["SMTPServerPort1"]);
+            emailsetting.SMTPSecureConnectionRequired = Convert.ToBoolean(ConfigurationManager.AppSettings["SMTPSecureConnectionRequired1"]);
+            emailsetting.SMTPServerLoginName = ConfigurationManager.AppSettings["SMTPServerLoginName1"];
+            emailsetting.SMTPServerPassword = ConfigurationManager.AppSettings["SMTPServerPassword1"];
+            emailsetting.NoReplyEmailAddress = ConfigurationManager.AppSettings["NoReplyEmailAddress1"];
+            return emailsetting;
+        }
+    }
+
+    public class EmailSettings
+    {
+        public string SMTPServerUrl { get; set; }
+        public int SMTPServerPort { get; set; }
+        public bool SMTPSecureConnectionRequired { get; set; }
+        public string SMTPServerLoginName { get; set; }
+        public string SMTPServerPassword { get; set; }
+        public string NoReplyEmailAddress { get; set; }
+    }
 }
+

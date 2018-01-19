@@ -1,5 +1,4 @@
-﻿using IcoApp.WebUI.Helpers;
-using System.Web;
+﻿using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -18,9 +17,7 @@ namespace ArabicTextAnalyzer
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             // limit response to json only
-            ConfigureApi(GlobalConfiguration.Configuration);
-            // Auto Scheduing to Cancel All Reservations between the 3 hours.
-            //new SchedulingOperations(HttpContext.Current.Server.MapPath("~")).RunAllAutoSchedulingTasks();
+            ConfigureApi(GlobalConfiguration.Configuration);           
         }
 
         void ConfigureApi(HttpConfiguration config)
