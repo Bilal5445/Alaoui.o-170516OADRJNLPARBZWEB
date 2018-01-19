@@ -36,8 +36,22 @@ function InitializeDataTables(adminModeShowAll) {
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-5'i><'col-sm-7'p>>",
             buttons: [
-                'copyHtml5', 'excel', 'csv'
+                'copyHtml5', 'excel', 'csv', 
+                // 'selectAll', 
+                {
+                    text: 'Select All',
+                    action: function () {
+                        this.rows().select();
+                    }
+                },
+                'selectNone'
             ],
+            language: {
+                buttons: {
+                    // selectAll: "Select All",
+                    selectNone: "Select None"
+                }
+            },
             //
             "columns": [
                     { "data": "PositionHash", "className": "center top" },
@@ -55,7 +69,6 @@ function InitializeDataTables(adminModeShowAll) {
             // server side
             "processing": true,
             "serverSide": true,
-            // "ajax": "/Train/DataTablesNet_ServerSide_GetList/0",
             "ajax": {
                 "url": "/Train/DataTablesNet_ServerSide_GetList",
                 "type": "POST",
@@ -70,7 +83,7 @@ function InitializeDataTables(adminModeShowAll) {
             if ($(e.target).closest("td").attr('class').includes("controls"))
                 return;
 
-            // select the row
+            // select/unselect the row
             $(this).toggleClass('selected');
 
             // add/remove guid to array
@@ -116,7 +129,10 @@ function InitializeDataTables(adminModeShowAll) {
             }
 
             // loop over selected to concatenate the arabizi entries ids but only if more than one
-            var selectedControlsTds = $('tr.selected td:last-child');
+            // var selectedControlsTds = $('tr.selected td:last-child');
+            var selectedControlsTds = $(this).parent().find('tr.selected td:last-child');
+            BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds);
+            /*var selectedControlsTds = $(this).parent().find('tr.selected td:last-child');
             if (selectedControlsTds.length > 1) {
                 selectedControlsTds.each(function (index) {
                     // new value href
@@ -145,9 +161,45 @@ function InitializeDataTables(adminModeShowAll) {
                 var refreshButton = selectedControlsTds.find("> a").eq(1);
                 var newrefreshhref = "/Train/Train_RefreshEntry/?arabiziWordGuid=" + arabiziWordGuid;
                 refreshButton.attr("href", newrefreshhref);
-            }
+            }*/
         });
     });
+}
+
+function BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds)
+{
+    // loop over selected to concatenate the arabizi entries ids but only if more than one
+    // var selectedControlsTds = $('tr.selected td:last-child');
+    // var selectedControlsTds = $(this).parent().find('tr.selected td:last-child');
+    if (selectedControlsTds.length > 1) {
+        selectedControlsTds.each(function (index) {
+            // new value href
+            var arabiziWordGuids = selectedArabiziIds.join();
+            var newhref = "/Train/Train_DeleteEntries/?arabiziWordGuids=" + arabiziWordGuids;
+
+            // set new value in delete button
+            var deleteButton = $(this).find("> a").eq(0);
+            deleteButton.attr("href", newhref);
+
+            // same for refresh button (2nd button)
+            var refreshButton = $(this).find("> a").eq(1);
+            var newrefreshhref = "/Train/Train_RefreshEntries/?arabiziWordGuids=" + arabiziWordGuids;
+            refreshButton.attr("href", newrefreshhref);
+        });
+    } else if (selectedControlsTds.length == 1) {
+        // new value href
+        var arabiziWordGuid = selectedArabiziIds.join();
+        var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + arabiziWordGuid;
+
+        // set new value in delete button
+        var deleteButton = selectedControlsTds.find("> a").eq(0);
+        deleteButton.attr("href", newhref);
+
+        // same for refresh button (2nd button)
+        var refreshButton = selectedControlsTds.find("> a").eq(1);
+        var newrefreshhref = "/Train/Train_RefreshEntry/?arabiziWordGuid=" + arabiziWordGuid;
+        refreshButton.attr("href", newrefreshhref);
+    }
 }
 
 // Table For FB For Particular influencer
