@@ -129,39 +129,8 @@ function InitializeDataTables(adminModeShowAll) {
             }
 
             // loop over selected to concatenate the arabizi entries ids but only if more than one
-            // var selectedControlsTds = $('tr.selected td:last-child');
             var selectedControlsTds = $(this).parent().find('tr.selected td:last-child');
             BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds);
-            /*var selectedControlsTds = $(this).parent().find('tr.selected td:last-child');
-            if (selectedControlsTds.length > 1) {
-                selectedControlsTds.each(function (index) {
-                    // new value href
-                    var arabiziWordGuids = selectedArabiziIds.join();
-                    var newhref = "/Train/Train_DeleteEntries/?arabiziWordGuids=" + arabiziWordGuids;
-
-                    // set new value in delete button
-                    var deleteButton = $(this).find("> a").eq(0);
-                    deleteButton.attr("href", newhref);
-
-                    // same for refresh button (2nd button)
-                    var refreshButton = $(this).find("> a").eq(1);
-                    var newrefreshhref = "/Train/Train_RefreshEntries/?arabiziWordGuids=" + arabiziWordGuids;
-                    refreshButton.attr("href", newrefreshhref);
-                });
-            } else if (selectedControlsTds.length == 1) {
-                // new value href
-                var arabiziWordGuid = selectedArabiziIds.join();
-                var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + arabiziWordGuid;
-
-                // set new value in delete button
-                var deleteButton = selectedControlsTds.find("> a").eq(0);
-                deleteButton.attr("href", newhref);
-
-                // same for refresh button (2nd button)
-                var refreshButton = selectedControlsTds.find("> a").eq(1);
-                var newrefreshhref = "/Train/Train_RefreshEntry/?arabiziWordGuid=" + arabiziWordGuid;
-                refreshButton.attr("href", newrefreshhref);
-            }*/
         });
     });
 }
@@ -169,8 +138,6 @@ function InitializeDataTables(adminModeShowAll) {
 function BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds)
 {
     // loop over selected to concatenate the arabizi entries ids but only if more than one
-    // var selectedControlsTds = $('tr.selected td:last-child');
-    // var selectedControlsTds = $(this).parent().find('tr.selected td:last-child');
     if (selectedControlsTds.length > 1) {
         selectedControlsTds.each(function (index) {
             // new value href
