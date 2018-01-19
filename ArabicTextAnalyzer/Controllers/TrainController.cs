@@ -352,7 +352,7 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public ActionResult Train_DeleteEntry(Guid arabiziWordGuid)
         {
-            // new Arabizer().Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
+            new Arabizer().Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
 
             //
             return RedirectToAction("Index");
@@ -392,7 +392,7 @@ namespace ArabicTextAnalyzer.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult Train_DeleteEntries(String arabiziWordGuids)
         {
             var larabiziWordGuids = arabiziWordGuids.Split(new char[] { ',' });
@@ -402,7 +402,7 @@ namespace ArabicTextAnalyzer.Controllers
                 // minor : trim leading '='
                 Guid arabiziWordGuid = new Guid(larabiziWordGuid.TrimStart(new char[] { '=' }));
 
-                // new Arabizer().Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
+                new Arabizer().Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
             }
 
             //
