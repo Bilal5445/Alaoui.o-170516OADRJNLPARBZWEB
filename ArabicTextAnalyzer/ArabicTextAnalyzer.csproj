@@ -247,7 +247,6 @@
     <Compile Include="Controllers\ArabiziController.cs" />
     <Compile Include="Controllers\AuthenticateController.cs" />
     <Compile Include="Controllers\TrainController.cs" />
-    <Compile Include="Helpers\SchedulingOperations.cs" />
     <Compile Include="Migrations\201710270934303_InitialCreate.cs" />
     <Compile Include="Migrations\201710270934303_InitialCreate.Designer.cs">
       <DependentUpon>201710270934303_InitialCreate.cs</DependentUpon>
