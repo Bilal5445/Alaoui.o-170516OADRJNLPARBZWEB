@@ -562,7 +562,7 @@ function AddInfluencer() {
 function RetrieveFBPost(influencerurl_name, influencerid) {
     var model = new FBDataVM();
     model.RetrieveFBPostIsClicked = false;
-    model.RetrieveFBPost(influencerurl_name, influencerid)
+    model.RetrieveFBPost(influencerurl_name, influencerid);
 }
 
 
@@ -693,33 +693,10 @@ function RefreshFBPOstAndComments() {
             var model = new FBDataVM();
             var influencerUrl = $('#hdnURLName_' + i).val();
             var influencerid = $('#hdnId_' + i).val();
-           // alert(influencerUrl + "\n" + influencerid);
+             console.log(influencerUrl + "\n" + influencerid);          
             if (influencerUrl != null && influencerUrl != undefined && influencerid != null && influencerid != undefined) {
                 model.init(influencerUrl, influencerid);
-            }
-
-            
-        }
-
-    }
-
-}
-//Method for translate the FbPost and Commentsw of all pages.
-function TranslateFBPostsAndComments() {
-    var totalFbpages = $('#hdnToatlInfluencer').val();
-    var noOfFbPages = parseInt(totalFbpages);
-    //alert(noOfFbPages);
-    if (noOfFbPages > 0) {
-        fbTabPagesLoaded = true;
-        for (var i = 1; i <= noOfFbPages; i++) {
-            var model = new FBDataVM();
-            var influencerUrl = $('#hdnURLName_' + i).val();
-            var influencerid = $('#hdnId_' + i).val();
-            //alert(influencerUrl + "\n" + influencerid);
-            if (influencerUrl != null && influencerUrl != undefined && influencerid != null && influencerid != undefined) {
-                model.init(influencerid);
-            }
-          
+            }            
         }
     }
 }
@@ -731,6 +708,7 @@ $(document).ready(function () {
             RefreshFBPOstAndComments();           
         }
         else {
+            console.log("Found the tabs");
             clearInterval(intervalFB);
         }
     }, 2000);
