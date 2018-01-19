@@ -36,17 +36,7 @@ function InitializeDataTables(adminModeShowAll) {
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-5'i><'col-sm-7'p>>",
             buttons: [
-                'copyHtml5', 'excel', 'csv',
-                'selectAll',
-                /*{
-                    text: 'Select All',
-                    action: function () {
-                        this.rows().deselect();
-                        // this.rows().select();
-                        this.rows().click();
-                    }
-                },*/
-                'selectNone'
+                'copyHtml5', 'excel', 'csv', 'selectAll', 'selectNone'
             ],
             //
             "columns": [
@@ -144,24 +134,6 @@ function InitializeDataTables(adminModeShowAll) {
                 BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds);
             }
         });
-
-        // capturing the click on a-href because href can not take too many args (when multi-deletes or multu-refresh)
-        /*$(".plyshr").click(function() {
-            var id = $(this).attr('id');
-            var dataString = 'id='+ id ;
-            var parent = $(this);
-            //alert (data);
-            $.ajax({
-                type: "POST",
-                url: "playlist.php",
-                success: function(html)
-                    data:  dataString,
-                    cache: false,
-                    success: function(html)
-                    }).done(function( msg ) {
-                        parent.html(html);
-                    });
-                });*/
     });
 }
 
