@@ -75,10 +75,11 @@ function InitializeDataTables(adminModeShowAll) {
                 "type": "POST",
                 "data": { "adminModeShowAll": adminModeShowAll }
             },
+            select: true
         });
 
         // event click to select row
-        $(poststable.table().body()).on('click', 'tr', function (e) {
+        /*$(poststable.table().body()).on('click', 'tr', function (e) {
 
             // if we click on the last column (the controles column), do not select/unselect
             if ($(e.target).closest("td").attr('class').includes("controls"))
@@ -132,16 +133,55 @@ function InitializeDataTables(adminModeShowAll) {
             // loop over selected to concatenate the arabizi entries ids but only if more than one
             var selectedControlsTds = $(this).parent().find('tr.selected td:last-child');
             BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds);
-        });
+        });*/
 
         // event select
-        /*table.on('select', function (e, dt, type, indexes) {
-            if (type === 'row') {
-                var data = table.rows(indexes).data().pluck('id');
+        poststable.on('select', function (e, dt, type, indexes) {
 
-                // do something with the ID of the selected items
+            if (type === 'row') {
+
+                // we select
+
+                // find the guid of arabiz entry from the href in delete button
+                var controlsTd = $(this).find("td:eq(6)");
+                var deleteButton = controlsTd.find("> a").eq(0);
+                var hrefInnerId = deleteButton.attr("href").substring("/Train/Train_DeleteEntry/?arabiziWordGuid=".length);
+
+                // add it to global array
+                selectedArabiziIds.push(hrefInnerId);
+
+                // save old id in backup in delete button
+                deleteButton.attr('data-backhref', hrefInnerId);
             }
-        });*/
+        })
+        poststable.on('deselect', function (e, dt, type, indexes) {
+
+            if (type === 'row') {
+
+                // we deselect
+
+                // find the guid of arabiz entry from the backup href in delete button
+                var controlsTd = $(this).find("td:eq(6)");
+                var deleteButton = controlsTd.find("> a").eq(0);
+                var hrefBackInnerId = deleteButton.attr("data-backhref");
+
+                // drop it from global (we know it is there)
+                var index = selectedArabiziIds.indexOf(hrefBackInnerId);
+                selectedArabiziIds.splice(index, 1);
+
+                // set new value href (from backup) in delete button
+                var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + hrefBackInnerId;
+                deleteButton.attr("href", newhref);
+
+                // same for refresh button (2nd button)
+                var refreshButton = controlsTd.find("> a").eq(1);
+                var newrefreshhref = "/Train/Train_RefreshEntry/?arabiziWordGuid=" + hrefBackInnerId;
+                refreshButton.attr("href", newrefreshhref);
+
+                // remove backup
+                deleteButton.removeAttr('data-backhref');
+            }
+        });
     });
 }
 
