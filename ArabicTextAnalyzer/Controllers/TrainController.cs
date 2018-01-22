@@ -1059,13 +1059,14 @@ namespace ArabicTextAnalyzer.Controllers
                 int itemsPerPage = 10;
 
                 // get from client side, from where we start the paging
-                int.TryParse(this.Request.Form["start"], out start);     // POST
+                int.TryParse(this.Request.Form["start"], out start);            // POST
 
                 // get from client side, to which length the paging goes
-                int.TryParse(this.Request.Form["length"], out itemsPerPage);// POST
+                int.TryParse(this.Request.Form["length"], out itemsPerPage);    // POST
 
                 // get from client search word
-                string searchValue = this.Request.Form["search[value]"];// POST
+                string searchValue = this.Request.Form["search[value]"];        // POST
+                if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'' });
 
                 // POST
                 string searchAccount = this.Request.Form["columns[0][search][value]"];
