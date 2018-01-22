@@ -532,9 +532,7 @@ namespace ArabicTextAnalyzer.Controllers
                 result = results.Item1;
             }
             else
-            {
                 result = "No theme id can get.";
-            }
 
             if (result.ToLower().Contains("true"))
             {
@@ -570,6 +568,7 @@ namespace ArabicTextAnalyzer.Controllers
             string result = null;
 
             var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchFBInfluencerPosts?CallFrom=" + influencerurl_name;
+            // ex : url : http://localhost:8081//Data/FetchFBInfluencerPosts?...
             result = await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
 
             if (result.ToLower().Contains("true"))
