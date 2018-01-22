@@ -694,6 +694,13 @@ namespace ArabicTextAnalyzer.Controllers
                 return null;
             }
         }
+
+        [HttpPost]
+        public async Task<object> RetrieveFBPostComments()
+        {
+            // INPROGRESS
+            return null;
+        }
         #endregion
 
         #region FRONT YARD ACTIONS TWINGLY
@@ -1053,14 +1060,12 @@ namespace ArabicTextAnalyzer.Controllers
                 //
                 var userId = User.Identity.GetUserId();
 
-                //
-                int start = 0;
-                int itemsPerPage = 10;
-
                 // get from client side, from where we start the paging
+                int start = 0;
                 int.TryParse(this.Request.Form["start"], out start);            // POST
 
                 // get from client side, to which length the paging goes
+                int itemsPerPage = 10;
                 int.TryParse(this.Request.Form["length"], out itemsPerPage);    // POST
 
                 // get from client search word
@@ -1134,6 +1139,14 @@ namespace ArabicTextAnalyzer.Controllers
 
         public object DataTablesNet_ServerSide_FB_Posts_GetList(string fluencerid)
         {
+            // get from client side, from where we start the paging
+            int start = 0;
+            int.TryParse(this.Request.QueryString["start"], out start);            // POST
+
+            // get from client side, to which length the paging goes
+            int itemsPerPage = 10;
+            int.TryParse(this.Request.QueryString["length"], out itemsPerPage);    // POST
+
             // get from client search word
             string searchValue = this.Request.QueryString["search[value]"]; // GET
 
@@ -1152,11 +1165,18 @@ namespace ArabicTextAnalyzer.Controllers
             // get the number of entries
             var itemsCount = items.Count;
 
+            // adjust itemsPerPage case show all
+            if (itemsPerPage == -1)
+                itemsPerPage = itemsCount;
+
             // filter on search term if any
             if (!String.IsNullOrEmpty(searchValue))
                 items = items.Where(a => a.pt.ToUpper().Contains(searchValue.ToUpper()) || (a.tt != null && a.tt.ToUpper().Contains(searchValue.ToUpper()))).ToList();
 
             var itemsFilteredCount = items.Count;
+
+            // page as per request (index of page and length)
+            items = items.Skip(start).Take(itemsPerPage).ToList();
 
             //
             return JsonConvert.SerializeObject(new
@@ -1173,10 +1193,7 @@ namespace ArabicTextAnalyzer.Controllers
             if (string.IsNullOrEmpty(id))
                 return null;
 
-            // var items = new List<FBFeedComment>();
-            // var itemsCount = 0;
-
-            // items = loaddeserializeT_FB_Comments_DAPPERSQL(id);
+            //
             var items = loaddeserializeT_FB_Comments_DAPPERSQL(id).Select(c => new
             {
                 Id = c.Id,
