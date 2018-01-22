@@ -37,7 +37,7 @@ namespace ArabicTextAnalyzer.BO
             expando.M_ARABIZIENTRY = arabiziEntry;
 
             // Arabizi to arabic from perl script
-            if (arabiziEntry.ArabiziText == null)
+            if (String.IsNullOrWhiteSpace(arabiziEntry.ArabiziText))
             {
                 // return Guid.Empty;
                 expando.M_ARABICDARIJAENTRY = new M_ARABICDARIJAENTRY
@@ -59,11 +59,9 @@ namespace ArabicTextAnalyzer.BO
             String arabicText = train_savearabizi(arabiziEntry);
 
             // Detecte ranges of language with new rosette API 1.9
-            // List<String> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
             List<LanguageRange> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
             if (languagesRanges.Count > 1)
             {
-
                 arabicText = String.Empty; // reset 
                                            // foreach (String langueRange in languagesRanges)
                 foreach (LanguageRange langueRange in languagesRanges)
@@ -178,7 +176,7 @@ namespace ArabicTextAnalyzer.BO
             expando.M_ARABIZIENTRY = arabiziEntry;
 
             // Arabizi to arabic from perl script
-            if (arabiziEntry.ArabiziText == null)
+            if (String.IsNullOrWhiteSpace(arabiziEntry.ArabiziText))
             {
                 // return Guid.Empty;
                 expando.M_ARABICDARIJAENTRY = new M_ARABICDARIJAENTRY
@@ -200,7 +198,6 @@ namespace ArabicTextAnalyzer.BO
             String arabicText = train_savearabizi_uow(arabiziEntry, db, isEndOfScope: false);
 
             // Detecte ranges of language with new rosette API 1.9
-            // List<String> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
             List<LanguageRange> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
             if (languagesRanges.Count > 1)
             {

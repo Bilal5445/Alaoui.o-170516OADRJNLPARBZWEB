@@ -643,7 +643,7 @@ namespace ArabicTextAnalyzer.Controllers
                 string translatedstring = "";
                 if (!string.IsNullOrEmpty(ids))
                 {
-                    // get list of not yet translated comments with the specified ids (can be one comment to translate or can be many checked) 
+                    // get list of translated or not yet translated comments with the specified ids (can be one comment to translate or can be many checked) 
                     List<FBFeedComment> allComments = GetComments(ids);
 
                     //
@@ -651,6 +651,10 @@ namespace ArabicTextAnalyzer.Controllers
                     {
                         foreach (var item in allComments)
                         {
+                            // in FB, some posts text can be empty (image, ...)
+                            if (String.IsNullOrWhiteSpace(item.message))
+                                continue;
+
                             // MC081217 translate via train to populate NER, analysis data, ...
                             // Arabizi to arabic script via direct call to perl script
                             var res = new Arabizer().train(new M_ARABIZIENTRY
@@ -660,10 +664,6 @@ namespace ArabicTextAnalyzer.Controllers
                                 ID_XTRCTTHEME = userActiveXtrctTheme.ID_XTRCTTHEME
                             }, userActiveXtrctTheme.ThemeName, thisLock: thisLock);
 
-                            // var url = ConfigurationManager.AppSettings["TranslateDomain"] + "/" + "api/Arabizi/GetArabicDarijaEntryForFbPost?text=" + item.message;
-                            // var result = await HtmlHelpers.PostAPIRequest(url, "", type: "GET");
-
-                            // if (result.Contains("Success"))
                             if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY != Guid.Empty)
                             {
                                 status = true;
@@ -1694,7 +1694,8 @@ namespace ArabicTextAnalyzer.Controllers
                 String qry = "";
                 if (!string.IsNullOrEmpty(ids))
                 {
-                    qry = "SELECT * FROM FBFeedComments WHERE id IN (" + ids + ") AND translated_message IS NULL ";
+                    // qry = "SELECT * FROM FBFeedComments WHERE id IN (" + ids + ") AND translated_message IS NULL ";
+                    qry = "SELECT * FROM FBFeedComments WHERE id IN (" + ids + ") ";
                 }
 
                 conn.Open();
@@ -1735,35 +1736,28 @@ namespace ArabicTextAnalyzer.Controllers
             return returndata;*/
         }
 
-        private /*int*/void SaveTranslatedComments(string postid, string TranslatedText)
+        private void SaveTranslatedComments(string postid, string TranslatedText)
         {
+            // Check before
+            if (!string.IsNullOrEmpty(postid) && !string.IsNullOrEmpty(TranslatedText))
+                return;
+
+            // clean 
+            TranslatedText = TranslatedText.Replace("'", "''");
+
+            //
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
-            // int returndata = 0;
-            /*try
-            {*/
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "";
-                if (!string.IsNullOrEmpty(postid) && !string.IsNullOrEmpty(TranslatedText))
-                {
-                    qry = "UPDATE FBFeedComments SET translated_message = N'" + TranslatedText + "' WHERE id='" + postid + "'";
-                }
+                String qry = "UPDATE FBFeedComments SET translated_message = N'" + TranslatedText + "' WHERE id = '" + postid + "'";
                 using (SqlCommand cmd = new SqlCommand(qry, conn))
                 {
                     cmd.CommandType = CommandType.Text;
                     conn.Open();
-                    /*returndata = */
                     cmd.ExecuteNonQuery();
                     conn.Close();
                 }
             }
-            /*}
-            catch (Exception e)
-            {
-                returndata = 0;
-            }
-
-            return returndata;*/
         }
 
         private List<T_FB_INFLUENCER> loadAllT_Fb_InfluencerAsTheme(string themeid = "")

@@ -9,6 +9,7 @@ var GetTranslateCommentIsClicked = false;
 var TranslateCommentIsClicked = false;
 var AddInfluencerIsClicked = false;
 var RetrieveFBPostIsClicked = false;
+var RetrieveFBPostCommentsIsClicked = false;
 
 function InitializeDataTables(adminModeShowAll) {
 
@@ -328,7 +329,6 @@ function GetComments(obj) {
     var idCol = ($(tds[1])).html().toString().split('_');
     var id = idCol[1];
     var influenceridFromIdCol = idCol[0];
-    // var influencerid = ($(tds[2])).html().toString();
     var influencerid = influenceridFromIdCol;
     var table = vars[influencerid];
     var row = table.row(tr);
@@ -358,12 +358,13 @@ function GetComments(obj) {
             // get using server size ajax to datatables.net the actual comments
             InitializeFBCommentsForPostDataTables(id);
 
-            // add a global bulk translate button
-            // $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a><h3>Comments</h3>')
-            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a>')
+            // add a global bulk translate button for comments
+            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info btn-xs" style="margin-left:5px" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a>')
 
-            // add a global bulk check all button
-            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="CheckUnCheckAllComments(' + id + ')">Check/Uncheck All</a><h3>Comments</h3>')
+            // add a global bulk check all button for comments
+            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info btn-xs" style="margin-left:5px" onclick="CheckUnCheckAllComments(' + id + ')">Check/Uncheck All</a>')
+
+            $('#tabledetails_' + id + '_length').append('<a class="btn btn-outline-primary btn-xs" style="margin-left:5px" onclick="RetrieveFBPostComments(' + id + ')">Retrieve new/more comments <span class="glyphicon glyphicon-refresh"></span></a><h3>Comments</h3>')
 
             //
             GetCommentsIsClicked = false;
@@ -453,7 +454,7 @@ function InitializeFBCommentsForPostDataTables(id) {
 }
 
 // method for translate the comments when clicking on bulk translate of all comments under a post
-function GetTranslateComment(id) {
+function GetTranslateComment(postid) {
 
     // check before
     if (GetTranslateCommentIsClicked == true)
@@ -466,7 +467,7 @@ function GetTranslateComment(id) {
     var translatedCommentId = '';
 
     // loop on all comments row and for checked ones save the ids
-    $('.cbxComment_' + id).each(function () {
+    $('.cbxComment_' + postid).each(function () {
         if ($(this).is(':checked')) {
             if (translatedCommentId.length > 0) {
                 translatedCommentId = translatedCommentId + ",'" + $(this).val() + "'";
@@ -478,19 +479,19 @@ function GetTranslateComment(id) {
 
     // bulk translate comments
     if (translatedCommentId.length > 0) {
-        postOnCommentsTranslate(translatedCommentId, id)
+        postOnCommentsTranslate(translatedCommentId, postid)
     } else {
         alert("Error: Please check at least one cheackbox.")
         GetTranslateCommentIsClicked = false;
     }
 }
 
-// method for check/uncheck all
-function CheckUnCheckAllComments(id) {
+// method for check/uncheck all comments for the post with id
+function CheckUnCheckAllComments(postid) {
 
     // loop on all comments row and check (or uncheck) each one
     var firstIsChecked = false;
-    $('.cbxComment_' + id).each(function (index, value) {
+    $('.cbxComment_' + postid).each(function (index, value) {
         if (index == 0 && $(this).is(':checked'))
             firstIsChecked = true;
 
@@ -498,6 +499,42 @@ function CheckUnCheckAllComments(id) {
             $(this).prop('checked', false);
         else
             $(this).prop('checked', true);
+    });
+}
+
+// INPROGRESS method to get comments for a FB post in a public FB page
+function RetrieveFBPostComments(postid) {
+
+    // check before
+    if (RetrieveFBPostCommentsIsClicked == true)
+        return;
+
+    // mark as clicked to avoid double processing
+    RetrieveFBPostCommentsIsClicked = true;
+
+    // real work : call on controller Train action RetrieveFBPostComments
+    $.ajax({
+        "dataType": 'json',
+        "type": "POST",
+        "url": "/Train/RetrieveFBPostComments",
+        /*"data": {
+            "influencerurl_name": influencerurl_name
+        },
+        "success": function (msg) {
+            console.log(msg);
+            RetrieveFBPostIsClicked = false;
+
+            if (msg.status) {
+                ResetDataTable(influencerid);
+            }
+            else {
+                alert("Error " + msg.message);
+            }
+        },
+        "error": function () {
+            RetrieveFBPostIsClicked = false;
+            alert("error")
+        }*/
     });
 }
 
@@ -614,14 +651,14 @@ function AddInfluencer() {
 // Js for Retrieve fb post or refresh button
 function RetrieveFBPost(influencerurl_name, influencerid) {
 
-    //
+    // check before
     if (RetrieveFBPostIsClicked == true)
         return;
 
-    //
+    // mark as clicked to avoid double processing
     RetrieveFBPostIsClicked = true;
 
-    //
+    // real work : call on controller Train action RetrieveFBPost
     $.ajax({
         "dataType": 'json',
         "type": "GET",
