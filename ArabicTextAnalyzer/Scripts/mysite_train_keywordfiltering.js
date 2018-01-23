@@ -582,7 +582,7 @@ function ResetDataTableComments(influencerid) {
     GetCommentsForPost(influencerid)
 }
 
-var TimeintervalforFBMerthods = 1000 * 60*2;//Time interval for method run for get fb posts and comments and translate posts and comments
+var TimeintervalforFBMerthods = 1000 * 60 * 2;//Time interval for method run for get fb posts and comments and translate posts and comments
 
 //Method for schedule a task for retrieve the fb posts and comments in a time interval
 var FBDataVM = function () {//Data model for 
@@ -613,13 +613,13 @@ var FBDataVM = function () {//Data model for
                 },
                 "success": function (msg) {
                     console.log(msg);
-                    currentInstance.CallTranslateMethod = false;                    
+                    currentInstance.CallTranslateMethod = false;
                     if (msg.status) {
                         if ($('#' + influencerid).hasClass('active')) {
                             ResetDataTable(influencerid);
                         }
                     }
-                   
+
                 },
                 "error": function () {
                     console.log("error in TranslateFBPostAndComments");
@@ -629,10 +629,10 @@ var FBDataVM = function () {//Data model for
         }
 
     };
- 
+
     this.RetrieveFBPost = function (influencerurl_name, influencerid, intervalFlag) {
         var currentInstance = this;
-        if ((currentInstance.RetrieveFBPostIsClicked == false && currentInstance.CallMethod ==false)|| intervalFlag == true) {
+        if ((currentInstance.RetrieveFBPostIsClicked == false && currentInstance.CallMethod == false) || intervalFlag == true) {
             currentInstance.RetrieveFBPostIsClicked = true;
             currentInstance.CallMethod = true;
             $.ajax({
@@ -645,7 +645,7 @@ var FBDataVM = function () {//Data model for
                 "success": function (msg) {
                     console.log(msg);
                     currentInstance.RetrieveFBPostIsClicked = false;
-                    currentInstance.CallMethod = false;                   
+                    currentInstance.CallMethod = false;
                     if (intervalFlag == true) {
 
                         if ($('#' + influencerid).hasClass('active')) {
@@ -671,12 +671,12 @@ var FBDataVM = function () {//Data model for
     }
     this.init = function (influencerUrl, influencerid) {
         var currentInstance = this;
-      
+
         setInterval(function () {
             currentInstance.GetFBPostAndComments(influencerUrl, influencerid);
         }, TimeintervalforFBMerthods);
         setInterval(function () {
-           // alert(influencerUrl + "\n" + influencerid);
+            // alert(influencerUrl + "\n" + influencerid);
             currentInstance.TranslateFBPostAndComments(influencerUrl, influencerid);
         }, TimeintervalforFBMerthods);
     };
@@ -693,10 +693,10 @@ function RefreshFBPOstAndComments() {
             var model = new FBDataVM();
             var influencerUrl = $('#hdnURLName_' + i).val();
             var influencerid = $('#hdnId_' + i).val();
-             console.log(influencerUrl + "\n" + influencerid);          
+            console.log(influencerUrl + "\n" + influencerid);
             if (influencerUrl != null && influencerUrl != undefined && influencerid != null && influencerid != undefined) {
                 model.init(influencerUrl, influencerid);
-            }            
+            }
         }
     }
 }
@@ -705,7 +705,7 @@ function RefreshFBPOstAndComments() {
 $(document).ready(function () {
     var intervalFB = setInterval(function () {
         if (fbTabPagesLoaded == false) {
-            RefreshFBPOstAndComments();           
+            RefreshFBPOstAndComments();
         }
         else {
             console.log("Found the tabs");
