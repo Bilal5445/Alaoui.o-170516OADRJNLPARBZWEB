@@ -664,83 +664,64 @@ namespace ArabicTextAnalyzer.Controllers
             if (!string.IsNullOrEmpty(influencerid))
             {
                 T_FB_INFLUENCER influencer = loadT_Fb_InfluencerAsId(influencerid);
-                List<FB_POST> fbPosts = new List<FB_POST>();
-                fbPosts = loaddeserializeT_FB_POST_DAPPERSQL(influencerid).ToList();
+                List<FB_POST> fbPosts = loaddeserializeT_FB_POST_DAPPERSQL(influencerid).ToList();
                 if (fbPosts != null && fbPosts.Count() > 0)
                 {
-                    foreach (var FbPostForTranslate in fbPosts)
+                    foreach (var fbPostForTranslate in fbPosts)
                     {
-                        if (!string.IsNullOrEmpty(FbPostForTranslate.post_text) && string.IsNullOrEmpty(FbPostForTranslate.translated_text))
-                        {
+                        // for each post, translate and detect if there is negativity
+                        if (!string.IsNullOrEmpty(fbPostForTranslate.post_text) && string.IsNullOrEmpty(fbPostForTranslate.translated_text))
                             try
                             {
-                                var returndata = await TranslateFBPostAndComents(content: FbPostForTranslate.post_text, PostId: FbPostForTranslate.id);
+                                var returndata = await TranslateFBPostAndComments(content: fbPostForTranslate.post_text, PostId: fbPostForTranslate.id);
                                 if (returndata != null)
-                                {
                                     if (returndata.Status == true)
                                     {
                                         if (returndata.TextEntity.Count() > 0)
-                                        {
                                             if (returndata.TextEntity.Where(c => c.TextEntity.Type == "NEGATIVE").Count() > 0)
-                                            {
                                                 isNegative = true;
-                                            }
-                                        }
                                         status = true;
                                     }
-                                }
                             }
                             catch (Exception e)
                             {
                                 status = false;
                                 errMessage = e.Message;
                             }
-                        }
 
-                        var fbComments = new List<FBFeedComment>();
-                        if (!string.IsNullOrEmpty(FbPostForTranslate.id))
+                        // for each comment, translate and detect if there is negativity
+                        if (!string.IsNullOrEmpty(fbPostForTranslate.id))
                         {
-                            string id = FbPostForTranslate.id.Split('_')[1];
-                            fbComments = loaddeserializeT_FB_Comments_DAPPERSQL(id);
+                            string id = fbPostForTranslate.id.Split('_')[1];
+                            var fbComments = loaddeserializeT_FB_Comments_DAPPERSQL(id);
                             if (fbComments != null && fbComments.Count() > 0)
                             {
                                 var fbCommentsForTranslate = fbComments.Where(c => c.message != null && c.translated_message == null).ToList();
                                 if (fbCommentsForTranslate != null && fbCommentsForTranslate.Count() > 0)
-                                {
                                     foreach (var fbCommentForTranslate in fbCommentsForTranslate)
-                                    {
                                         if (!string.IsNullOrEmpty(fbCommentForTranslate.message))
-                                        {
                                             try
                                             {
-                                                var returndataOfCooment = await TranslateFBPostAndComents(content: fbCommentForTranslate.message, CommentId: fbCommentForTranslate.Id);
+                                                var returndataOfCooment = await TranslateFBPostAndComments(content: fbCommentForTranslate.message, CommentId: fbCommentForTranslate.Id);
                                                 if (returndataOfCooment != null)
-                                                {
                                                     if (returndataOfCooment.Status == true)
                                                     {
                                                         if (returndataOfCooment.TextEntity.Count() > 0)
-                                                        {
                                                             if (returndataOfCooment.TextEntity.Where(c => c.TextEntity.Type == "NEGATIVE").Count() > 0)
-                                                            {
                                                                 isNegativeComments = true;
-                                                            }
-                                                        }
                                                         status = true;
                                                     }
-                                                }
                                             }
                                             catch (Exception e)
                                             {
                                                 status = false;
                                                 errMessage = e.Message;
                                             }
-                                        }
-                                    }
-                                }
                             }
                         }
                     }
 
+                    // sending mail about negative NERs
                     if (isNegative == true || isNegativeComments == true)
                     {
                         var userid = User.Identity.GetUserId();
@@ -755,22 +736,11 @@ namespace ArabicTextAnalyzer.Controllers
                                 {
                                     string influencerName = string.Empty;
                                     if (influencer != null)
-                                    {
                                         influencerName = influencer.name;
-                                    }
-                                    bool resultmail = false;
+
                                     string subject = "Negative word on fb post";
                                     string body = "Hello user,<br/>You have some negative words on posts on your facebook page" + influencerName + ".<br/>Please remove the words from the posts.<br/>Thanks.";
-                                    resultmail = SendEmail(email, subject, body);
-                                    if (resultmail == true)
-                                    {
-                                        status = true;
-                                        // errMessage = "Mail sent successfully";
-                                    }
-                                    else
-                                    {
-                                        status = false;
-                                    }
+                                    status = SendEmail(email, subject, body);
                                 }
                             }
                             catch (Exception e)
@@ -791,8 +761,8 @@ namespace ArabicTextAnalyzer.Controllers
         #endregion
 
         #region BACK YARD ACTIONS FB
-        // Method for translateFbPosts in generalize way.
-        private async Task<ReturnData> TranslateFBPostAndComents(String content, string PostId = "", string CommentId = "")
+        // Method for translate Fb Posts in generalize way.
+        private async Task<ReturnData> TranslateFBPostAndComments(String content, string PostId = "", string CommentId = "")
         {
             var userId = User.Identity.GetUserId();
             string errMessage = string.Empty;
