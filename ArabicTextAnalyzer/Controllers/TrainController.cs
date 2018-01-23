@@ -2102,7 +2102,6 @@ namespace ArabicTextAnalyzer.Controllers
         public bool Status { get; set; }
         public string TranslatedText { get; set; }
         public List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntity { get; set; }
-
     }
 
     // Class for call the APIs by html

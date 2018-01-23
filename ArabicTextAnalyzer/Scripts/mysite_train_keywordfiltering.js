@@ -1,5 +1,5 @@
 ﻿var poststable;
-var selectedArabiziIds = [];
+var selectedArabiziIds = [];    // array of arabizi entries ids that have been selected by the user each he clicks on a row
 var ViewInfluencerIsClicked = false;
 var vars = {};
 var TranslateContentIsClicked = false;
@@ -55,7 +55,6 @@ function InitializeDataTables(adminModeShowAll) {
             // server side
             "processing": true,
             "serverSide": true,
-            // "ajax": "/Train/DataTablesNet_ServerSide_GetList/0",
             "ajax": {
                 "url": "/Train/DataTablesNet_ServerSide_GetList",
                 "type": "POST",
@@ -275,7 +274,6 @@ function GetComments(obj) {
     var idCol = ($(tds[1])).html().toString().split('_');
     var id = idCol[1];
     var influenceridFromIdCol = idCol[0];
-    // var influencerid = ($(tds[2])).html().toString();
     var influencerid = influenceridFromIdCol;
     var table = vars[influencerid];
     var row = table.row(tr);
@@ -303,13 +301,12 @@ function GetComments(obj) {
             row.child(tablecontent).show();
 
             // get using server size ajax to datatables.net the actual comments
-            GetCommentsForPost(id);
+            InitializeFBCommentsForPostDataTables(id);
 
-            // add a global bulk translate button
-            // $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a><h3>Comments</h3>')
+            // add a global bulk translate button for comments
             $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a>')
 
-            // add a global bulk check all button
+            // add a global bulk check all button for comments
             $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="CheckUnCheckAllComments(' + id + ')">Check/Uncheck All</a><h3>Comments</h3>')
 
             //
@@ -338,7 +335,7 @@ function CommentTable(id) {
 }
 
 // method used by GetComments above to get table actual comments
-function GetCommentsForPost(id) {
+function InitializeFBCommentsForPostDataTables(id) {
 
     $('#tabledetails_' + id).DataTable({
         // Enable mark.js search term highlighting
@@ -400,7 +397,7 @@ function GetCommentsForPost(id) {
 }
 
 // method for translate the comments when clicking on bulk translate of all comments under a post
-function GetTranslateComment(id) {
+function GetTranslateComment(postid) {
 
     // check before
     if (GetTranslateCommentIsClicked == true)
@@ -413,7 +410,7 @@ function GetTranslateComment(id) {
     var translatedCommentId = '';
 
     // loop on all comments row and for checked ones save the ids
-    $('.cbxComment_' + id).each(function () {
+    $('.cbxComment_' + postid).each(function () {
         if ($(this).is(':checked')) {
             if (translatedCommentId.length > 0) {
                 translatedCommentId = translatedCommentId + ",'" + $(this).val() + "'";
@@ -425,19 +422,19 @@ function GetTranslateComment(id) {
 
     // bulk translate comments
     if (translatedCommentId.length > 0) {
-        postOnCommentsTranslate(translatedCommentId, id)
+        postOnCommentsTranslate(translatedCommentId, postid)
     } else {
         alert("Error: Please check at least one cheackbox.")
         GetTranslateCommentIsClicked = false;
     }
 }
 
-// method for check/uncheck all
-function CheckUnCheckAllComments(id) {
+// method for check/uncheck all comments for the post with id
+function CheckUnCheckAllComments(postid) {
 
     // loop on all comments row and check (or uncheck) each one
     var firstIsChecked = false;
-    $('.cbxComment_' + id).each(function (index, value) {
+    $('.cbxComment_' + postid).each(function (index, value) {
         if (index == 0 && $(this).is(':checked'))
             firstIsChecked = true;
 
@@ -565,7 +562,6 @@ function RetrieveFBPost(influencerurl_name, influencerid) {
     model.RetrieveFBPost(influencerurl_name, influencerid);
 }
 
-
 // Method for reset data table of influence fb.
 function ResetDataTable(influencerid) {
     var oTable = $('.table_' + influencerid).dataTable();
@@ -579,7 +575,7 @@ function ResetDataTableComments(influencerid) {
     var oTable = $('#tabledetails_' + influencerid).dataTable();
     oTable.fnClearTable();
     oTable.fnDestroy();
-    GetCommentsForPost(influencerid)
+    InitializeFBCommentsForPostDataTables(influencerid)
 }
 
 var TimeintervalforFBMerthods = 1000 * 60 * 2;//Time interval for method run for get fb posts and comments and translate posts and comments
@@ -700,7 +696,6 @@ function RefreshFBPOstAndComments() {
         }
     }
 }
-
 
 $(document).ready(function () {
     var intervalFB = setInterval(function () {
