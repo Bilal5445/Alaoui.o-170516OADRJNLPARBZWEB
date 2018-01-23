@@ -9,7 +9,7 @@ var GetTranslateCommentIsClicked = false;
 var TranslateCommentIsClicked = false;
 var AddInfluencerIsClicked = false;
 var RetrieveFBPostIsClicked = false;
-var TimeintervalforFBMerthods = 1000 * 60 * 2; // Time interval for method run for get fb posts and comments and translate posts and comments
+var TimeintervalforFBMethods = 1000 * 60 * 2; // Time interval for method run for get fb posts and comments and translate posts and comments
 var fbTabPagesLoaded = false;
 
 function InitializeDataTables(adminModeShowAll) {
@@ -559,8 +559,14 @@ function AddInfluencer() {
 
 // Js for Retrieve fb post or refresh button
 function RetrieveFBPost(influencerurl_name, influencerid) {
+
+    //
     var model = new FBDataVM();
+
+    //
     model.RetrieveFBPostIsClicked = false;
+
+    // call function
     model.RetrieveFBPost(influencerurl_name, influencerid);
 }
 
@@ -581,10 +587,14 @@ function ResetDataTableComments(influencerid) {
 }
 
 // Method for schedule a task for retrieve the fb posts and comments in a time interval
-var FBDataVM = function () {//Data model for 
+var FBDataVM = function () {
+
+    // init
     this.CallMethod = false;
     this.CallTranslateMethod = false;
     this.RetrieveFBPostIsClicked = false;
+
+    //
     this.GetFBPostAndComments = function (influencerUrl, influencerid) {
         var currentInstance = this;
         var intervalFlag = true;
@@ -594,11 +604,15 @@ var FBDataVM = function () {//Data model for
             currentInstance.RetrieveFBPost(influencerUrl, influencerid, intervalFlag);
         }
     };
+
+    //
     this.TranslateFBPostAndComments = function (influencerUrl, influencerid) {
         var currentInstance = this;
         //alert(influencerid);
         if (currentInstance.CallTranslateMethod == false) {
             currentInstance.CallTranslateMethod = true;
+
+            //
             $.ajax({
                 "dataType": 'json',
                 "type": "GET",
@@ -624,11 +638,16 @@ var FBDataVM = function () {//Data model for
         }
     };
 
+    // original function to retrieve fb posts (and comments as well) 
     this.RetrieveFBPost = function (influencerurl_name, influencerid, intervalFlag) {
         var currentInstance = this;
         if ((currentInstance.RetrieveFBPostIsClicked == false && currentInstance.CallMethod == false) || intervalFlag == true) {
+
+            // mark as clicked to avoid double processing
             currentInstance.RetrieveFBPostIsClicked = true;
             currentInstance.CallMethod = true;
+
+            // real work : call on controller Train action RetrieveFBPost
             $.ajax({
                 "dataType": 'json',
                 "type": "GET",
@@ -663,16 +682,23 @@ var FBDataVM = function () {//Data model for
             });
         }
     }
+
+    //
     this.init = function (influencerUrl, influencerid) {
+
+        //
         var currentInstance = this;
 
+        //
         setInterval(function () {
             currentInstance.GetFBPostAndComments(influencerUrl, influencerid);
-        }, TimeintervalforFBMerthods);
+        }, TimeintervalforFBMethods);
+
+        //
         setInterval(function () {
             // alert(influencerUrl + "\n" + influencerid);
             currentInstance.TranslateFBPostAndComments(influencerUrl, influencerid);
-        }, TimeintervalforFBMerthods);
+        }, TimeintervalforFBMethods);
     };
 };
 
