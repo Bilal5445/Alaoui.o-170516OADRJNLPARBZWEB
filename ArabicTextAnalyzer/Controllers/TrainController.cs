@@ -684,10 +684,10 @@ namespace ArabicTextAnalyzer.Controllers
                 List<FB_POST> fbPosts = new List<FB_POST>();
                 fbPosts = loaddeserializeT_FB_POST_DAPPERSQL(influencerid).ToList();
                 if (fbPosts != null && fbPosts.Count() > 0)
-                {                  
-                        foreach (var FbPostForTranslate in fbPosts)
-                        {
-                        if(!string.IsNullOrEmpty(FbPostForTranslate.post_text) && string.IsNullOrEmpty(FbPostForTranslate.translated_text))
+                {
+                    foreach (var FbPostForTranslate in fbPosts)
+                    {
+                        if (!string.IsNullOrEmpty(FbPostForTranslate.post_text) && string.IsNullOrEmpty(FbPostForTranslate.translated_text))
                         {
                             try
                             {
@@ -713,20 +713,20 @@ namespace ArabicTextAnalyzer.Controllers
                                 errMessage = e.Message;
                             }
                         }
- 
-                            var fbComments = new List<FBFeedComment>();
-                            if (!string.IsNullOrEmpty(FbPostForTranslate.id))
+
+                        var fbComments = new List<FBFeedComment>();
+                        if (!string.IsNullOrEmpty(FbPostForTranslate.id))
+                        {
+                            string id = FbPostForTranslate.id.Split('_')[1];
+                            fbComments = loaddeserializeT_FB_Comments_DAPPERSQL(id);
+                            if (fbComments != null && fbComments.Count() > 0)
                             {
-                                string id = FbPostForTranslate.id.Split('_')[1];
-                                fbComments = loaddeserializeT_FB_Comments_DAPPERSQL(id);
-                                if (fbComments != null && fbComments.Count() > 0)
+                                var fbCommentsForTranslate = fbComments.Where(c => c.message != null && c.translated_message == null).ToList();
+                                if (fbCommentsForTranslate != null && fbCommentsForTranslate.Count() > 0)
                                 {
-                                    var fbCommentsForTranslate = fbComments.Where(c => c.message != null && c.translated_message == null).ToList();
-                                    if (fbCommentsForTranslate != null && fbCommentsForTranslate.Count() > 0)
+                                    foreach (var fbCommentForTranslate in fbCommentsForTranslate)
                                     {
-                                        foreach (var fbCommentForTranslate in fbCommentsForTranslate)
-                                        {
-                                        if(!string.IsNullOrEmpty(fbCommentForTranslate.message))
+                                        if (!string.IsNullOrEmpty(fbCommentForTranslate.message))
                                         {
                                             try
                                             {
@@ -752,53 +752,53 @@ namespace ArabicTextAnalyzer.Controllers
                                                 errMessage = e.Message;
                                             }
                                         }
-                                        }
                                     }
                                 }
+                            }
+                        }
+
+                    }
+
+                    if (isNegative == true || isNegativeComments == true)
+                    {
+                        var userid = User.Identity.GetUserId();
+                        var db1 = new ApplicationDbContext();
+                        var user = db1.Users.FirstOrDefault(c => c.Id == userid);
+                        if (user != null)
+                        {
+                            try
+                            {
+                                var email = user.Email;
+                                if (!string.IsNullOrEmpty(email))
+                                {
+                                    string influencerName = string.Empty;
+                                    if (influencer != null)
+                                    {
+                                        influencerName = influencer.name;
+                                    }
+                                    bool resultmail = false;
+                                    string subject = "Negative word on fb post";
+                                    string body = "Hello user,<br/>You have some negative words on posts on your facebook page" + influencerName + ".<br/>Please remove the words from the posts.<br/>Thanks.";
+                                    resultmail = SendEmail(email, subject, body);
+                                    if (resultmail == true)
+                                    {
+                                        status = true;
+                                        // errMessage = "Mail sent successfully";
+                                    }
+                                    else
+                                    {
+                                        status = false;
+                                    }
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                status = false;
+                                errMessage = e.Message;
                             }
 
                         }
-
-                        if (isNegative == true || isNegativeComments == true)
-                        {
-                            var userid = User.Identity.GetUserId();
-                            var db1 = new ApplicationDbContext();
-                            var user = db1.Users.FirstOrDefault(c => c.Id == userid);
-                            if (user != null)
-                            {
-                                try
-                                {
-                                    var email = user.Email;
-                                    if (!string.IsNullOrEmpty(email))
-                                    {
-                                        string influencerName = string.Empty;
-                                        if (influencer != null)
-                                        {
-                                            influencerName = influencer.name;
-                                        }
-                                        bool resultmail = false;
-                                        string subject = "Negative word on fb post";
-                                        string body = "Hello user,<br/>You have some negative words on posts on your facebook page" + influencerName + ".<br/>Please remove the words from the posts.<br/>Thanks.";
-                                        resultmail = SendEmail(email, subject, body);
-                                        if (resultmail == true)
-                                        {
-                                            status = true;
-                                            // errMessage = "Mail sent successfully";
-                                        }
-                                        else
-                                        {
-                                            status = false;
-                                        }
-                                    }
-                                }
-                                catch (Exception e)
-                                {
-                                    status = false;
-                                    errMessage = e.Message;
-                                }
-
-                            }
-                        }                   
+                    }
                 }
             }
             return JsonConvert.SerializeObject(new
