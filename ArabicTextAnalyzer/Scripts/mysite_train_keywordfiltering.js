@@ -9,6 +9,8 @@ var GetTranslateCommentIsClicked = false;
 var TranslateCommentIsClicked = false;
 var AddInfluencerIsClicked = false;
 var RetrieveFBPostIsClicked = false;
+var TimeintervalforFBMerthods = 1000 * 60 * 2; // Time interval for method run for get fb posts and comments and translate posts and comments
+var fbTabPagesLoaded = false;
 
 function InitializeDataTables(adminModeShowAll) {
 
@@ -578,9 +580,7 @@ function ResetDataTableComments(influencerid) {
     InitializeFBCommentsForPostDataTables(influencerid)
 }
 
-var TimeintervalforFBMerthods = 1000 * 60 * 2;//Time interval for method run for get fb posts and comments and translate posts and comments
-
-//Method for schedule a task for retrieve the fb posts and comments in a time interval
+// Method for schedule a task for retrieve the fb posts and comments in a time interval
 var FBDataVM = function () {//Data model for 
     this.CallMethod = false;
     this.CallTranslateMethod = false;
@@ -593,7 +593,6 @@ var FBDataVM = function () {//Data model for
             currentInstance.CallMethod = true;
             currentInstance.RetrieveFBPost(influencerUrl, influencerid, intervalFlag);
         }
-
     };
     this.TranslateFBPostAndComments = function (influencerUrl, influencerid) {
         var currentInstance = this;
@@ -623,7 +622,6 @@ var FBDataVM = function () {//Data model for
                 }
             });
         }
-
     };
 
     this.RetrieveFBPost = function (influencerurl_name, influencerid, intervalFlag) {
@@ -677,8 +675,8 @@ var FBDataVM = function () {//Data model for
         }, TimeintervalforFBMerthods);
     };
 };
-var fbTabPagesLoaded = false;
-//Method for get the fbpost and comments of all pages.
+
+// Method for get the fbpost and comments of all pages.
 function RefreshFBPOstAndComments() {
     var totalFbpages = $('#hdnToatlInfluencer').val();
     var noOfFbPages = parseInt(totalFbpages);
@@ -701,8 +699,7 @@ $(document).ready(function () {
     var intervalFB = setInterval(function () {
         if (fbTabPagesLoaded == false) {
             RefreshFBPOstAndComments();
-        }
-        else {
+        } else {
             console.log("Found the tabs");
             clearInterval(intervalFB);
         }
