@@ -555,6 +555,9 @@ namespace ArabicTextAnalyzer.Controllers
             });
         }
 
+        /// <summary>
+        /// Method for retrieving the fb posts (and comments as well) from ScrappyWeb
+        /// </summary>
         [HttpGet]
         public async Task<object> RetrieveFBPost(string influencerurl_name)
         {
