@@ -31,7 +31,6 @@ using ArabicTextAnalyzer.Contracts;
 using ArabicTextAnalyzer.BO;
 using System.Net.Mail;
 
-
 namespace ArabicTextAnalyzer.Controllers
 {
     [Authorize]
@@ -125,8 +124,8 @@ namespace ArabicTextAnalyzer.Controllers
             // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
             // @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Select(m => m.Keyword).ToList();
             @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE").ToList();
-            @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE").ToList();
-            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "NEGATIVE").ToList();
+            @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
+            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE").ToList();
 
             // file upload communication
             @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
@@ -675,7 +674,7 @@ namespace ArabicTextAnalyzer.Controllers
                         {
                             try
                             {
-                                var returndata = await TranlslateFBPostAndComents(content: FbPostForTranslate.post_text, PostId: FbPostForTranslate.id);
+                                var returndata = await TranslateFBPostAndComents(content: FbPostForTranslate.post_text, PostId: FbPostForTranslate.id);
                                 if (returndata != null)
                                 {
                                     if (returndata.Status == true)
@@ -714,7 +713,7 @@ namespace ArabicTextAnalyzer.Controllers
                                         {
                                             try
                                             {
-                                                var returndataOfCooment = await TranlslateFBPostAndComents(content: fbCommentForTranslate.message, CommentId: fbCommentForTranslate.Id);
+                                                var returndataOfCooment = await TranslateFBPostAndComents(content: fbCommentForTranslate.message, CommentId: fbCommentForTranslate.Id);
                                                 if (returndataOfCooment != null)
                                                 {
                                                     if (returndataOfCooment.Status == true)
@@ -740,7 +739,6 @@ namespace ArabicTextAnalyzer.Controllers
                                 }
                             }
                         }
-
                     }
 
                     if (isNegative == true || isNegativeComments == true)
@@ -780,7 +778,6 @@ namespace ArabicTextAnalyzer.Controllers
                                 status = false;
                                 errMessage = e.Message;
                             }
-
                         }
                     }
                 }
@@ -791,9 +788,11 @@ namespace ArabicTextAnalyzer.Controllers
                 message = errMessage
             });
         }
+        #endregion
 
+        #region BACK YARD ACTIONS FB
         // Method for translateFbPosts in generalize way.
-        public async Task<ReturnData> TranlslateFBPostAndComents(String content, string PostId = "", string CommentId = "")
+        private async Task<ReturnData> TranslateFBPostAndComents(String content, string PostId = "", string CommentId = "")
         {
             var userId = User.Identity.GetUserId();
             string errMessage = string.Empty;
@@ -843,7 +842,7 @@ namespace ArabicTextAnalyzer.Controllers
             return returndata;
         }
 
-        public bool SendEmail(string toEmailAddress, string subject, string body)
+        private bool SendEmail(string toEmailAddress, string subject, string body)
         {
             bool status = false;
             try
