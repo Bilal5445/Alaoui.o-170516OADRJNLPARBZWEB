@@ -594,21 +594,21 @@ var FBDataVM = function () {
     this.CallTranslateMethod = false;
     this.RetrieveFBPostIsClicked = false;
 
-    //
+    // wrap function to call original function RetrieveFBPost
     this.GetFBPostAndComments = function (influencerUrl, influencerid) {
         var currentInstance = this;
         var intervalFlag = true;
-        //alert(influencerUrl + "\n" + influencerid);
+        // alert(influencerUrl + "\n" + influencerid);
         if (currentInstance.CallMethod == false) {
             currentInstance.CallMethod = true;
             currentInstance.RetrieveFBPost(influencerUrl, influencerid, intervalFlag);
         }
     };
 
-    //
+    // function to translate posts/comments and extract NERs from them and filter over negative NER
     this.TranslateFBPostAndComments = function (influencerUrl, influencerid) {
         var currentInstance = this;
-        //alert(influencerid);
+        // alert(influencerid);
         if (currentInstance.CallTranslateMethod == false) {
             currentInstance.CallTranslateMethod = true;
 
@@ -628,7 +628,6 @@ var FBDataVM = function () {
                             ResetDataTable(influencerid);
                         }
                     }
-
                 },
                 "error": function () {
                     console.log("error in TranslateFBPostAndComments");
@@ -683,7 +682,7 @@ var FBDataVM = function () {
         }
     }
 
-    //
+    // function to start retrieving posts and posts from FB and translating them
     this.init = function (influencerUrl, influencerid) {
 
         //
@@ -702,14 +701,16 @@ var FBDataVM = function () {
     };
 };
 
-// Method for get the fbpost and comments of all pages.
-function RefreshFBPOstAndComments() {
+// Method for get the fb posts and comments of all pages.
+function RefreshFBPostsAndComments() {
     var totalFbpages = $('#hdnToatlInfluencer').val();
     var noOfFbPages = parseInt(totalFbpages);
-    //alert(noOfFbPages);
+
+    // alert(noOfFbPages);
     if (noOfFbPages > 0) {
-        fbTabPagesLoaded = true; // this flag will maintain the Loading of the tabs to appear the threading.
+        fbTabPagesLoaded = true; // this flag will maintain the loading of the tabs to appear the threading.
         for (var i = 1; i <= noOfFbPages; i++) {
+
             var model = new FBDataVM();
             var influencerUrl = $('#hdnURLName_' + i).val();
             var influencerid = $('#hdnId_' + i).val();
@@ -721,10 +722,13 @@ function RefreshFBPOstAndComments() {
     }
 }
 
+// starting the timer to collect FB data
 $(document).ready(function () {
+
+    // every 2 secs, refresh posts and comments from FB
     var intervalFB = setInterval(function () {
         if (fbTabPagesLoaded == false) {
-            RefreshFBPOstAndComments();
+            RefreshFBPostsAndComments();
         } else {
             console.log("Found the tabs");
             clearInterval(intervalFB);
