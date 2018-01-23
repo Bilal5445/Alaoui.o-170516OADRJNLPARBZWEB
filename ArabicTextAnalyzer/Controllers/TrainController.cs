@@ -1141,11 +1141,11 @@ namespace ArabicTextAnalyzer.Controllers
         {
             // get from client side, from where we start the paging
             int start = 0;
-            int.TryParse(this.Request.QueryString["start"], out start);            // POST
+            int.TryParse(this.Request.QueryString["start"], out start);            // GET
 
             // get from client side, to which length the paging goes
             int itemsPerPage = 10;
-            int.TryParse(this.Request.QueryString["length"], out itemsPerPage);    // POST
+            int.TryParse(this.Request.QueryString["length"], out itemsPerPage);    // GET
 
             // get from client search word
             string searchValue = this.Request.QueryString["search[value]"]; // GET
