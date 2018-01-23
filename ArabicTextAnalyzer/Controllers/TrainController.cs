@@ -367,7 +367,6 @@ namespace ArabicTextAnalyzer.Controllers
 
             // get data existing arabizi
             var backupARABIZIENTR = loaddeserializeM_ARABIZIENTRY_DAPPERSQL(arabiziWordGuid);
-            // var backupArabicDarijaText = loaddeserializeM_ARABICDARIJAENTRY_DB(arabiziWordGuid).ArabicDarijaText;
 
             // get data existing theme
             var backupXTRCTTHEME = loadDeserializeM_XTRCTTHEME_DAPPERSQL(backupARABIZIENTR.ID_XTRCTTHEME);
@@ -400,14 +399,11 @@ namespace ArabicTextAnalyzer.Controllers
         {
             var larabiziWordGuids = arabiziWordGuids.Split(new char[] { ',' });
 
-            // var dataPath = Server.MapPath("~/App_Data/");
-
             foreach (var larabiziWordGuid in larabiziWordGuids)
             {
                 // minor : trim leading '='
                 Guid arabiziWordGuid = new Guid(larabiziWordGuid.TrimStart(new char[] { '=' }));
 
-                // new TextPersist().Serialize_Delete_M_ARABIZIENTRY_Cascading(arabiziWordGuid, dataPath);
                 new Arabizer().Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(arabiziWordGuid);
             }
 
@@ -482,41 +478,28 @@ namespace ArabicTextAnalyzer.Controllers
             //
             if (activeTheme.ID_XTRCTTHEME != null)
             {
-                Logging.Write(Server, "AddFBInfluencer - 1");
                 var themeid = activeTheme.ID_XTRCTTHEME;
                 var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "AccountPanel/AddFBInfluencer?url_name=" + url_name + "&pro_or_anti=" + pro_or_anti + "&id=1&themeid=" + themeid + "&CallFrom=AddFBInfluencer";
-                Logging.Write(Server, "AddFBInfluencer - 1.0.1 : " + url);
                 // ex : url : http://localhost:8081//AccountPanel/AddFBInfluencer?url_name=telquelofficiel&pro_or_anti=Anti&id=1&themeid=fd6590b9-dbd1-4341-9329-4a9cae8047eb&CallFrom=AddFBInfluencer
                 results = await HtmlHelpers.PostAPIRequest_message(url, String.Empty, type: "POST");
                 result = results.Item1;
-                Logging.Write(Server, "AddFBInfluencer - 1.1");
             }
             else
-            {
-                Logging.Write(Server, "AddFBInfluencer - 2");
                 result = "No theme id can get.";
-                Logging.Write(Server, "AddFBInfluencer - 2.1");
-            }
 
             if (result.ToLower().Contains("true"))
             {
-                Logging.Write(Server, "AddFBInfluencer - 3");
                 status = true;
                 translatedString = result;
-                Logging.Write(Server, "AddFBInfluencer - 3.1");
             }
             else
             {
-                Logging.Write(Server, "AddFBInfluencer - 4");
                 status = false;
                 errMessage = result;
                 errMessage += " - " + results.Item2;
-                Logging.Write(Server, "AddFBInfluencer - 4.0.1 : " + errMessage);
-                Logging.Write(Server, "AddFBInfluencer - 4.1");
             }
 
             //
-            Logging.Write(Server, "AddFBInfluencer - 5");
             return JsonConvert.SerializeObject(new
             {
                 status = status,
@@ -539,6 +522,7 @@ namespace ArabicTextAnalyzer.Controllers
             if (!string.IsNullOrEmpty(influencerurl_name))
             {
                 var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchFBInfluencerPosts?CallFrom=" + influencerurl_name;
+                // ex : url : http://localhost:8081//Data/FetchFBInfluencerPosts?...
                 result = await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
 
                 if (result.ToLower().Contains("true"))
@@ -626,6 +610,10 @@ namespace ArabicTextAnalyzer.Controllers
                     {
                         foreach (var item in allComments)
                         {
+                            // in FB, some posts text can be empty (image, ...)
+                            if (String.IsNullOrWhiteSpace(item.message))
+                                continue;
+
                             // MC081217 translate via train to populate NER, analysis data, ...
                             // Arabizi to arabic script via direct call to perl script
                             var res = new Arabizer().train(new M_ARABIZIENTRY
@@ -635,10 +623,6 @@ namespace ArabicTextAnalyzer.Controllers
                                 ID_XTRCTTHEME = userActiveXtrctTheme.ID_XTRCTTHEME
                             }, userActiveXtrctTheme.ThemeName, thisLock: thisLock);
 
-                            // var url = ConfigurationManager.AppSettings["TranslateDomain"] + "/" + "api/Arabizi/GetArabicDarijaEntryForFbPost?text=" + item.message;
-                            // var result = await HtmlHelpers.PostAPIRequest(url, "", type: "GET");
-
-                            // if (result.Contains("Success"))
                             if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY != Guid.Empty)
                             {
                                 status = true;
@@ -670,7 +654,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        //Translate and extract Ner from FB Post and Comments on a time interval.
+        // Translate and extract Ner from FB Post and Comments on a time interval.
         [HttpGet]
         public async Task<object> TranslateAndExtractNERFBPostAndComments(string influencerid)
         {
@@ -808,8 +792,7 @@ namespace ArabicTextAnalyzer.Controllers
             });
         }
 
-
-        //Method for translateFbPosts in generalize way.
+        // Method for translateFbPosts in generalize way.
         public async Task<ReturnData> TranlslateFBPostAndComents(String content, string PostId = "", string CommentId = "")
         {
             var userId = User.Identity.GetUserId();
@@ -1268,18 +1251,17 @@ namespace ArabicTextAnalyzer.Controllers
                 //
                 var userId = User.Identity.GetUserId();
 
-                //
-                int start = 0;
-                int itemsPerPage = 10;
-
                 // get from client side, from where we start the paging
-                int.TryParse(this.Request.Form["start"], out start);     // POST
+                int start = 0;
+                int.TryParse(this.Request.Form["start"], out start);            // POST
 
                 // get from client side, to which length the paging goes
-                int.TryParse(this.Request.Form["length"], out itemsPerPage);// POST
+                int itemsPerPage = 10;
+                int.TryParse(this.Request.Form["length"], out itemsPerPage);    // POST
 
                 // get from client search word
-                string searchValue = this.Request.Form["search[value]"];// POST
+                string searchValue = this.Request.Form["search[value]"];        // POST
+                if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'' });
 
                 // POST
                 string searchAccount = this.Request.Form["columns[0][search][value]"];
@@ -1300,6 +1282,8 @@ namespace ArabicTextAnalyzer.Controllers
                 // filter on search term if any
                 if (!String.IsNullOrEmpty(searchValue))
                     items = items.Where(a => a.ArabiziText.ToUpper().Contains(searchValue.ToUpper()) || a.ArabicDarijaText.ToUpper().Contains(searchValue.ToUpper())).ToList();
+
+                var itemsFilteredCount = items.Count;
 
                 // page as per request (index of page and length)
                 items = items.Skip(start).Take(itemsPerPage).ToList();
@@ -1331,7 +1315,7 @@ namespace ArabicTextAnalyzer.Controllers
                 return JsonConvert.SerializeObject(new
                 {
                     recordsTotal = itemsCount.ToString(),
-                    recordsFiltered = itemsCount.ToString(),
+                    recordsFiltered = itemsFilteredCount.ToString(),
                     data = items
                 });
             }
@@ -1346,6 +1330,14 @@ namespace ArabicTextAnalyzer.Controllers
 
         public object DataTablesNet_ServerSide_FB_Posts_GetList(string fluencerid)
         {
+            // get from client side, from where we start the paging
+            int start = 0;
+            int.TryParse(this.Request.QueryString["start"], out start);            // GET
+
+            // get from client side, to which length the paging goes
+            int itemsPerPage = 10;
+            int.TryParse(this.Request.QueryString["length"], out itemsPerPage);    // GET
+
             // get from client search word
             string searchValue = this.Request.QueryString["search[value]"]; // GET
 
@@ -1364,15 +1356,24 @@ namespace ArabicTextAnalyzer.Controllers
             // get the number of entries
             var itemsCount = items.Count;
 
+            // adjust itemsPerPage case show all
+            if (itemsPerPage == -1)
+                itemsPerPage = itemsCount;
+
             // filter on search term if any
             if (!String.IsNullOrEmpty(searchValue))
                 items = items.Where(a => a.pt.ToUpper().Contains(searchValue.ToUpper()) || (a.tt != null && a.tt.ToUpper().Contains(searchValue.ToUpper()))).ToList();
+
+            var itemsFilteredCount = items.Count;
+
+            // page as per request (index of page and length)
+            items = items.Skip(start).Take(itemsPerPage).ToList();
 
             //
             return JsonConvert.SerializeObject(new
             {
                 recordsTotal = itemsCount.ToString(),
-                recordsFiltered = itemsCount.ToString(),
+                recordsFiltered = itemsFilteredCount.ToString(),
                 data = items
             });
         }
@@ -1383,10 +1384,7 @@ namespace ArabicTextAnalyzer.Controllers
             if (string.IsNullOrEmpty(id))
                 return null;
 
-            // var items = new List<FBFeedComment>();
-            // var itemsCount = 0;
-
-            // items = loaddeserializeT_FB_Comments_DAPPERSQL(id);
+            //
             var items = loaddeserializeT_FB_Comments_DAPPERSQL(id).Select(c => new
             {
                 Id = c.Id,
@@ -1849,10 +1847,9 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        //Get Inrfluencer details on the influencerId 
+        // Get Influencer details on the influencerId 
         private T_FB_INFLUENCER loadT_Fb_InfluencerAsId(string influencerid = "")
         {
-
             T_FB_INFLUENCER t_fb_Influencer = new T_FB_INFLUENCER();
             if (!string.IsNullOrEmpty(influencerid))
             {
@@ -1871,8 +1868,6 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 return t_fb_Influencer;
             }
-
-
         }
 
         private List<FBFeedComment> loaddeserializeT_FB_Comments_DAPPERSQL(string postid = "")
@@ -1946,35 +1941,28 @@ namespace ArabicTextAnalyzer.Controllers
             return returndata;*/
         }
 
-        private /*int*/void SaveTranslatedComments(string postid, string TranslatedText)
+        private void SaveTranslatedComments(string postid, string TranslatedText)
         {
+            // Check before
+            if (!string.IsNullOrEmpty(postid) && !string.IsNullOrEmpty(TranslatedText))
+                return;
+
+            // clean 
+            TranslatedText = TranslatedText.Replace("'", "''");
+
+            //
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
-            // int returndata = 0;
-            /*try
-            {*/
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "";
-                if (!string.IsNullOrEmpty(postid) && !string.IsNullOrEmpty(TranslatedText))
-                {
-                    qry = "UPDATE FBFeedComments SET translated_message = N'" + TranslatedText + "' WHERE id='" + postid + "'";
-                }
+                String qry = "UPDATE FBFeedComments SET translated_message = N'" + TranslatedText + "' WHERE id = '" + postid + "'";
                 using (SqlCommand cmd = new SqlCommand(qry, conn))
                 {
                     cmd.CommandType = CommandType.Text;
                     conn.Open();
-                    /*returndata = */
                     cmd.ExecuteNonQuery();
                     conn.Close();
                 }
             }
-            /*}
-            catch (Exception e)
-            {
-                returndata = 0;
-            }
-
-            return returndata;*/
         }
 
         private List<T_FB_INFLUENCER> loadAllT_Fb_InfluencerAsTheme(string themeid = "")
@@ -2045,7 +2033,6 @@ namespace ArabicTextAnalyzer.Controllers
                         + "FROM T_ARABIZIENTRY ARZ "
                         + "INNER JOIN T_ARABICDARIJAENTRY AR ON ARZ.ID_ARABIZIENTRY = AR.ID_ARABIZIENTRY "
                         + "INNER JOIN T_ARABICDARIJAENTRY_TEXTENTITY ARTE ON AR.ID_ARABICDARIJAENTRY = ARTE.ID_ARABICDARIJAENTRY AND TextEntity_Type = 'MAIN ENTITY' "
-                        // + "INNER JOIN T_XTRCTTHEME XT ON XT.ThemeName = ARTE.TextEntity_Mention AND XT.CurrentActive = 'active' AND XT.UserID = '" + userId + "' AND ARZ.ID_XTRCTTHEME = XT.ID_XTRCTTHEME "
                         + "ORDER BY ARZ.ArabiziEntryDate DESC ";
 
                     conn.Open();
@@ -2109,7 +2096,7 @@ namespace ArabicTextAnalyzer.Controllers
         #endregion
     }
 
-    //Class for return the method call afetr translate Fb Posts and comments
+    // Class for return the method call afetr translate Fb Posts and comments
     public class ReturnData
     {
         public string Message { get; set; }
@@ -2118,6 +2105,7 @@ namespace ArabicTextAnalyzer.Controllers
         public List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntity { get; set; }
 
     }
+
     // Class for call the APIs by html
     /*public static class HtmlHelpers
     {
