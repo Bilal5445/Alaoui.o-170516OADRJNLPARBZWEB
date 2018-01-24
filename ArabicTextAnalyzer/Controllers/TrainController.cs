@@ -661,6 +661,7 @@ namespace ArabicTextAnalyzer.Controllers
             bool isNegativeComments = false;
             bool status = false;
             string errMessage = string.Empty;
+            string urlForMail = "";//string for send the url with the negative word for send email.
             if (!string.IsNullOrEmpty(influencerid))
             {
                 T_FB_INFLUENCER influencer = loadT_Fb_InfluencerAsId(influencerid);
@@ -673,15 +674,41 @@ namespace ArabicTextAnalyzer.Controllers
                         if (!string.IsNullOrEmpty(fbPostForTranslate.post_text) && string.IsNullOrEmpty(fbPostForTranslate.translated_text))
                             try
                             {
+                                bool isMatch = false;
                                 var returndata = await TranslateFBPostAndComments(content: fbPostForTranslate.post_text, PostId: fbPostForTranslate.id);
                                 if (returndata != null)
+                                { 
                                     if (returndata.Status == true)
-                                    {
+                                    {                                      
                                         if (returndata.TextEntity.Count() > 0)
-                                            if (returndata.TextEntity.Where(c => c.TextEntity.Type == "NEGATIVE").Count() > 0)
-                                                isNegative = true;
+                                        {
+                                            if (returndata.TextEntity.Where(c => c.TextEntity.Type == "NEGATIVE" || c.TextEntity.Type == "EXPLETIVE").Count() > 0)
+                                            {
+                                                var targetText = influencer.TargetEntities;
+                                                if (!string.IsNullOrEmpty(targetText))
+                                                {
+                                                    if (!string.IsNullOrEmpty(returndata.TranslatedText))
+                                                    { 
+                                                    foreach (var text in targetText.Split(',').ToList())
+                                                    {
+                                                        foreach (var item in returndata.TextEntity)
+                                                        {
+                                                            var strToFind = text + " " + item.TextEntity.Mention;
+                                                            if (returndata.TranslatedText.Contains(strToFind))
+                                                            {
+                                                                isNegative = true;
+                                                                urlForMail = urlForMail + "<tr><a href=\"www.facebook.com/" + influencer.url_name + "/posts/" + fbPostForTranslate.id.Split('_')[1] + "\">" + strToFind + " </a></tr>";
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                }
+                                            }                                          
+                                        }
+                                            
                                         status = true;
                                     }
+                            }
                             }
                             catch (Exception e)
                             {
@@ -699,18 +726,43 @@ namespace ArabicTextAnalyzer.Controllers
                                 var fbCommentsForTranslate = fbComments.Where(c => c.message != null && c.translated_message == null).ToList();
                                 if (fbCommentsForTranslate != null && fbCommentsForTranslate.Count() > 0)
                                     foreach (var fbCommentForTranslate in fbCommentsForTranslate)
-                                        if (!string.IsNullOrEmpty(fbCommentForTranslate.message))
+                                        if (!string.IsNullOrEmpty(fbCommentForTranslate.message) && string.IsNullOrEmpty(fbCommentForTranslate.translated_message))
                                             try
                                             {
+                                                bool isMatch = false;
                                                 var returndataOfCooment = await TranslateFBPostAndComments(content: fbCommentForTranslate.message, CommentId: fbCommentForTranslate.Id);
                                                 if (returndataOfCooment != null)
+                                                { 
                                                     if (returndataOfCooment.Status == true)
                                                     {
+
                                                         if (returndataOfCooment.TextEntity.Count() > 0)
-                                                            if (returndataOfCooment.TextEntity.Where(c => c.TextEntity.Type == "NEGATIVE").Count() > 0)
-                                                                isNegativeComments = true;
+                                                            if (returndataOfCooment.TextEntity.Where(c => c.TextEntity.Type == "NEGATIVE" || c.TextEntity.Type== "EXPLETIVE").Count() > 0)
+                                                            {
+                                                                var targetText = influencer.TargetEntities;
+                                                                if (!string.IsNullOrEmpty(targetText))
+                                                                {
+                                                                    if (!string.IsNullOrEmpty(returndataOfCooment.TranslatedText))
+                                                                    {
+                                                                        foreach (var text in targetText.Split(',').ToList())
+                                                                    {
+                                                                        foreach (var item in returndataOfCooment.TextEntity)
+                                                                        {
+                                                                            var strToFind = text + " " + item.TextEntity.Mention;
+                                                                            if (returndataOfCooment.TranslatedText.Contains(strToFind))
+                                                                            {
+                                                                                isNegativeComments = true;
+                                                                                urlForMail = urlForMail + "<tr><a href=\"www.facebook.com/" + influencer.url_name + "/posts/" + id + "?comment_id=" + fbCommentForTranslate.Id.Split(',')[1] + "\">" + strToFind + " </a></tr>";
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                                }                                                            
+                                                            }
+                                                        
                                                         status = true;
                                                     }
+                                            }
                                             }
                                             catch (Exception e)
                                             {
@@ -739,7 +791,7 @@ namespace ArabicTextAnalyzer.Controllers
                                         influencerName = influencer.name;
 
                                     string subject = "Negative word on fb post";
-                                    string body = "Hello user,<br/>You have some negative words on posts on your facebook page" + influencerName + ".<br/>Please remove the words from the posts.<br/>Thanks.";
+                                    string body = "Hello user,<br/>You have some negative words on posts on your facebook page" + influencerName + ".<br/><table>"+urlForMail+"</table></br>Please remove the words from the posts.<br/>Thanks.";
                                     status = SendEmail(email, subject, body);
                                 }
                             }
@@ -755,6 +807,39 @@ namespace ArabicTextAnalyzer.Controllers
             return JsonConvert.SerializeObject(new
             {
                 status = status,
+                message = errMessage
+            });
+        }
+
+        // Method for Add target entities on the influencer table.
+        [HttpGet]
+        public async Task<object> AddTextEntity(string influencerid, string targetText)
+        {
+            string errMessage = string.Empty;
+            bool status = false;
+            //Get the influencer if it exist.
+            try
+            {
+                var influencer = loadT_Fb_InfluencerAsId(influencerid);
+                if (influencer != null && influencer.id != null)
+                {
+                    //Update influencer target entities value.
+                    if (!string.IsNullOrEmpty(targetText))
+                    {
+                        updateT_Fb_InfluencerAsId(influencerid, targetText);
+                        status = true;
+                        errMessage = "Target text added successfully.";
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                errMessage = e.Message;
+            }
+        
+            return JsonConvert.SerializeObject(new
+            {
+                status = status,              
                 message = errMessage
             });
         }
@@ -1837,6 +1922,26 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 return t_fb_Influencer;
             }
+        }
+
+        private void updateT_Fb_InfluencerAsId(string influencerid = "",string Text="")
+        {           
+            if (!string.IsNullOrEmpty(influencerid) && !string.IsNullOrEmpty(Text))
+            {
+                String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    String qry = "UPDATE T_FB_INFLUENCER SET TargetEntities='"+Text+"' where id='" + influencerid + "'";
+                    using (SqlCommand cmd = new SqlCommand(qry, conn))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }                                     
+                }
+            }        
         }
 
         private List<FBFeedComment> loaddeserializeT_FB_Comments_DAPPERSQL(string postid = "")

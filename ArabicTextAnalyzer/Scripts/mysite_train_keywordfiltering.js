@@ -735,3 +735,47 @@ $(document).ready(function () {
         }
     }, 2000);
 });
+
+//Function for add the text entity as per user influencer.
+var AddTextEntityClicked = false;
+function AddTextEntity(influencerid)
+{
+    if (AddTextEntityClicked == false)
+    {
+        var targetText = $('#txtTxetEntity').val();
+        if (targetText.length > 0)
+        {
+            AddTextEntityClicked = true;
+            $.ajax({
+                "dataType": 'json',
+                "type": "GET",
+                "url": "/Train/AddTextEntity",
+                "data": {
+                    "influencerid": influencerid, "targetText": targetText
+                },
+                "success": function (msg) {
+                    console.log(msg);
+
+                    // reset to not clicked
+                    AddTextEntityClicked = false;
+
+                    if (msg.status) {
+                        $('#myModal_' + influencerid).modal('hide');
+                    } else {
+                        alert("Error " + msg.message);
+                    }
+                },
+                "error": function () {
+                    AddTextEntityClicked = false;
+                    alert("Error");
+                }
+            });
+        }
+        else
+        {
+            alert("Please enter target text.");
+        }
+
+    }
+
+}
