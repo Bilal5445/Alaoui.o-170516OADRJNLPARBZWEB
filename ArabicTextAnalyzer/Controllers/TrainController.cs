@@ -834,8 +834,6 @@ namespace ArabicTextAnalyzer.Controllers
             };
 
             // Save to Serialization
-            /*var path = Server.MapPath("~/App_Data/data_M_XTRCTTHEME.txt");
-            new TextPersist().Serialize(newXtrctTheme, path);*/
             new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(newXtrctTheme);
 
             // create the associated tags
@@ -850,14 +848,29 @@ namespace ArabicTextAnalyzer.Controllers
                         Keyword = themetag
                     };
 
-                    // Save to Serialization
-                    /*path = Server.MapPath("~/App_Data/data_M_XTRCTTHEME_KEYWORD.txt");
-                    new TextPersist().Serialize(newXrtctThemeKeyword, path);*/
+                    // Save to Serialization to DB
                     new Arabizer().saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(newXrtctThemeKeyword);
                 }
             }
 
             //
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult XtrctTheme_Delete(Guid idXtrctTheme)
+        {
+            //
+            var result = new Arabizer().Serialize_Delete_M_XTRCTTHEME_Cascading_EFSQL(idXtrctTheme);
+
+            //
+            if (result.Result == false)
+            {
+                TempData["showAlertWarning"] = true;
+                TempData["msgAlert"] = result.ErrMessage;
+                return RedirectToAction("Index");
+            }
+
             return RedirectToAction("Index");
         }
 
@@ -1301,19 +1314,6 @@ namespace ArabicTextAnalyzer.Controllers
             return null;
         }
 
-        /*private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY()
-        {
-            List<M_ARABICDARIJAENTRY> entries = new List<M_ARABICDARIJAENTRY>();
-            string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY).Name + ".txt");
-            XmlSerializer serializer = new XmlSerializer(entries.GetType());
-            using (var reader = new System.IO.StreamReader(path))
-            {
-                entries = (List<M_ARABICDARIJAENTRY>)serializer.Deserialize(reader);
-            }
-
-            return entries;
-        }*/
-
         private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY_DB()
         {
             using (var db = new ArabiziDbContext())
@@ -1355,22 +1355,6 @@ namespace ArabicTextAnalyzer.Controllers
 
             return null;
         }
-
-        /*private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY()
-        {
-            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
-            string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_TEXTENTITY).Name + ".txt");
-            XmlSerializer serializer = new XmlSerializer(textEntities.GetType());
-            if (System.IO.File.Exists(path))
-            {
-                using (var reader = new System.IO.StreamReader(path))
-                {
-                    textEntities = (List<M_ARABICDARIJAENTRY_TEXTENTITY>)serializer.Deserialize(reader);
-                }
-            }
-
-            return textEntities;
-        }*/
 
         private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB()
         {
@@ -1465,19 +1449,6 @@ namespace ArabicTextAnalyzer.Controllers
             return null;
         }
 
-        /*private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY()
-        {
-            List<M_ARABIZIENTRY> arabiziEntries = new List<M_ARABIZIENTRY>();
-            string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABIZIENTRY).Name + ".txt");
-            XmlSerializer serializer = new XmlSerializer(arabiziEntries.GetType());
-            using (var reader = new System.IO.StreamReader(path))
-            {
-                arabiziEntries = (List<M_ARABIZIENTRY>)serializer.Deserialize(reader);
-            }
-
-            return arabiziEntries;
-        }*/
-
         private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY_DB()
         {
             using (var db = new ArabiziDbContext())
@@ -1533,19 +1504,6 @@ namespace ArabicTextAnalyzer.Controllers
             return null;
         }
 
-        /*private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD()
-        {
-            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = new List<M_ARABICDARIJAENTRY_LATINWORD>();
-            string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_LATINWORD).Name + ".txt");
-            XmlSerializer serializer = new XmlSerializer(latinWordsEntries.GetType());
-            using (var reader = new System.IO.StreamReader(path))
-            {
-                latinWordsEntries = (List<M_ARABICDARIJAENTRY_LATINWORD>)serializer.Deserialize(reader);
-            }
-
-            return latinWordsEntries;
-        }*/
-
         private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DB()
         {
             using (var db = new ArabiziDbContext())
@@ -1566,19 +1524,6 @@ namespace ArabicTextAnalyzer.Controllers
                 return conn.Query<M_ARABICDARIJAENTRY_LATINWORD>(qry).ToList();
             }
         }
-
-        /*private List<M_XTRCTTHEME> loaddeserializeM_XTRCTTHEME_DAPPERSQL(String userId)
-        {
-            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                String qry = "SELECT * FROM T_XTRCTTHEME WHERE UserID = '" + userId + "' ORDER BY ThemeName ";
-
-                conn.Open();
-                return conn.Query<M_XTRCTTHEME>(qry).ToList();
-            }
-        }*/
 
         private M_XTRCTTHEME loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(String userId)
         {
@@ -1706,7 +1651,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private /*int*/void SaveTranslatedPost(string postid, string TranslatedText)
+        private void SaveTranslatedPost(string postid, string TranslatedText)
         {
             // int returndata = 0;
 

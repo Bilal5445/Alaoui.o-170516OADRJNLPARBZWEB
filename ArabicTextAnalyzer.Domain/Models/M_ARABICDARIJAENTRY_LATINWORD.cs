@@ -18,5 +18,6 @@ namespace ArabicTextAnalyzer.Domain.Models
         public int VariantsCount { get; set; }
         public String MostPopularVariant { get; set; }
         public String Translation { get; set; }
+        public int IsDeleted { get; set; }
     }
 }
