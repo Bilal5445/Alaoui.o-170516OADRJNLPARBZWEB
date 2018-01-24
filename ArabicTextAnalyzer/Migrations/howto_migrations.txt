@@ -122,3 +122,9 @@ Add-Migration LastLoginTime -ConnectionString "Data Source=.\SQLEXPRESS;AttachDb
 Add-Migration LastLoginTime -ConnectionString "Data Source=.\SQLEXPRESS;Initial Catalog=ArabiziDB;Integrated Security=True" -ConnectionProviderName "System.Data.SqlClient"
 Add-Migration ThemeKeyWordWithCount
 Update-Database*/
+
+---
+
+VS > Tools > NuGet Package Manager > Package Manager Console : Default project : ArabicTextAnalyzer
+Add-Migration isDeleted_ArabiziDbContext -ConfigurationTypeName Configuration
+Update-Database -ConfigurationTypeName Configuration

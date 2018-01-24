@@ -283,6 +283,10 @@
     <Compile Include="Migrations\201801101619193_UserGuid_ArabiziDbContext.Designer.cs">
       <DependentUpon>201801101619193_UserGuid_ArabiziDbContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801241502234_isDeleted_ArabiziDbContext.cs" />
+    <Compile Include="Migrations\201801241502234_isDeleted_ArabiziDbContext.Designer.cs">
+      <DependentUpon>201801241502234_isDeleted_ArabiziDbContext.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ConfigurationApplicationDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ProcessTextDto.cs" />
@@ -745,6 +749,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801101619193_UserGuid_ArabiziDbContext.resx">
       <DependentUpon>201801101619193_UserGuid_ArabiziDbContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801241502234_isDeleted_ArabiziDbContext.resx">
+      <DependentUpon>201801241502234_isDeleted_ArabiziDbContext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

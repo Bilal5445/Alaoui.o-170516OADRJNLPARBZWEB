@@ -16,5 +16,6 @@ namespace ArabicTextAnalyzer.Domain.Models
         public String ThemeName { get; set; }
         public String CurrentActive { get; set; }
         public String UserID { get; set; }
+        public int IsDeleted { get; set; }
     }
 }
