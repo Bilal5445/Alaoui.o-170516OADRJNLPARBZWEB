@@ -561,14 +561,10 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public async Task<object> RetrieveFBPost(string influencerurl_name)
         {
-            T_FB_INFLUENCER influencer = new T_FB_INFLUENCER();
-            influencer.id = "";
-            influencer.url_name = influencerurl_name;
-            string errMessage = string.Empty;
+            String errMessage = string.Empty;
             bool status = false;
-            string translatedstring = "";
-
-            string result = null;
+            String translatedstring = "";
+            String result = null;
 
             var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchFBInfluencerPosts?CallFrom=" + influencerurl_name;
             // ex : url : http://localhost:8081//Data/FetchFBInfluencerPosts?...
@@ -580,9 +576,7 @@ namespace ArabicTextAnalyzer.Controllers
                 translatedstring = result;
             }
             else
-            {
                 errMessage = result;
-            }
 
             return JsonConvert.SerializeObject(new
             {
@@ -594,7 +588,7 @@ namespace ArabicTextAnalyzer.Controllers
 
         // Method for translate the fb posts
         [HttpGet]
-        public async Task<object> TranslateFbPost(String content/*, string id*/)
+        public async Task<object> TranslateFbPost(String content)
         {
             // get current active theme for the current user
             var userId = User.Identity.GetUserId();

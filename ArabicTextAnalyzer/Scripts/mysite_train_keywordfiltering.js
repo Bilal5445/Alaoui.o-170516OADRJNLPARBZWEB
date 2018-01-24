@@ -649,7 +649,7 @@ function AddInfluencer() {
 }
 
 // Js for Retrieve fb post or refresh button
-function RetrieveFBPost(influencerurl_name, influencerid) {
+function JsRetrieveFBPost(influencerurl_name, influencerid) {
 
     // check before
     if (RetrieveFBPostIsClicked == true)
@@ -658,7 +658,7 @@ function RetrieveFBPost(influencerurl_name, influencerid) {
     // mark as clicked to avoid double processing
     RetrieveFBPostIsClicked = true;
 
-    // real work : call on controller Train action RetrieveFBPost
+    // real work : call on controller Train action Retrieve FB Posts
     $.ajax({
         "dataType": 'json',
         "type": "GET",
@@ -667,13 +667,15 @@ function RetrieveFBPost(influencerurl_name, influencerid) {
             "influencerurl_name": influencerurl_name
         },
         "success": function (msg) {
+
             console.log(msg);
+
+            //
             RetrieveFBPostIsClicked = false;
 
             if (msg.status) {
                 ResetDataTable(influencerid);
-            }
-            else {
+            } else {
                 alert("Error " + msg.message);
             }
         },
