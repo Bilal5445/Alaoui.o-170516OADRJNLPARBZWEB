@@ -62,11 +62,9 @@ namespace ArabicTextAnalyzer.BO
             List<LanguageRange> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
             if (languagesRanges.Count > 1)
             {
-                arabicText = String.Empty; // reset 
-                                           // foreach (String langueRange in languagesRanges)
+                arabicText = String.Empty;  // reset 
                 foreach (LanguageRange langueRange in languagesRanges)
                 {
-                    // LanguageDetection language = new TextEntityExtraction().GetLanguageForRange(langueRange);
                     LanguageDetection language = new TextEntityExtraction().GetLanguageForRange(langueRange.Region);
                     if (language.language == "fra" /*&& language.confidence > 0.5*/)
                         frMode = true;
@@ -98,7 +96,6 @@ namespace ArabicTextAnalyzer.BO
                 if (language.language == "eng" && language.confidence > 0.7)    // it thinks arabizi is 'eng' with 0.65 confid
                     frMode = true;
 
-                // String larabicText = langueRange;
                 String larabicText = languagesRanges[0].Region;
 
                 if (frMode == false)
@@ -186,28 +183,25 @@ namespace ArabicTextAnalyzer.BO
             List<LanguageRange> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
             if (languagesRanges.Count > 1)
             {
-                arabicText = String.Empty; // reset 
-                // foreach (String langueRange in languagesRanges)
+                arabicText = String.Empty;  // reset 
                 foreach (LanguageRange langueRange in languagesRanges)
                 {
-                    // LanguageDetection language = new TextEntityExtraction().GetLanguageForRange(langueRange);
                     LanguageDetection language = new TextEntityExtraction().GetLanguageForRange(langueRange.Region);
                     if (language.language == "fra" /*&& language.confidence > 0.5*/)
                         frMode = true;
                     if (language.language == "eng" && language.confidence > 0.7)    // it thinks arabizi is 'eng' with 0.65 confid
                         frMode = true;
 
-                    // String larabicText = langueRange;
                     String larabicText = langueRange.Region;
 
                     if (frMode == false)
                         larabicText = new TextConverter().Preprocess_upstream(larabicText);
 
                     // mark as ignore : url 
-                    arabicText = train_markAsIgnore(arabicText);
+                    larabicText = train_markAsIgnore(larabicText);
 
                     if (frMode == false)
-                        arabicText = train_bidict(arabicText);
+                        larabicText = train_bidict(larabicText);
 
                     if (frMode == false)
                         larabicText = train_perl(watch, larabicText);
@@ -223,17 +217,16 @@ namespace ArabicTextAnalyzer.BO
                 if (language.language == "eng" && language.confidence > 0.7)    // it thinks arabizi is 'eng' with 0.65 confid
                     frMode = true;
 
-                // String larabicText = langueRange;
                 String larabicText = languagesRanges[0].Region;
 
                 if (frMode == false)
                     larabicText = new TextConverter().Preprocess_upstream(larabicText);
 
                 // mark as ignore : url 
-                arabicText = train_markAsIgnore(arabicText);
+                larabicText = train_markAsIgnore(larabicText);
 
                 if (frMode == false)
-                    arabicText = train_bidict(arabicText);
+                    larabicText = train_bidict(larabicText);
 
                 if (frMode == false)
                     larabicText = train_perl(watch, larabicText);
