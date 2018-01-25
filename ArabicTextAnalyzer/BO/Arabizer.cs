@@ -73,7 +73,6 @@ namespace ArabicTextAnalyzer.BO
                     if (language.language == "eng" && language.confidence > 0.7)    // it thinks arabizi is 'eng' with 0.65 confid
                         frMode = true;
 
-                    // String larabicText = langueRange;
                     String larabicText = langueRange.Region;
 
                     if (frMode == false)
@@ -106,10 +105,10 @@ namespace ArabicTextAnalyzer.BO
                     larabicText = new TextConverter().Preprocess_upstream(larabicText);
 
                 // mark as ignore : url 
-                arabicText = train_markAsIgnore(arabicText);
+                larabicText = train_markAsIgnore(larabicText);
 
                 if (frMode == false)
-                    arabicText = train_bidict(arabicText);
+                    larabicText = train_bidict(larabicText);
 
                 if (frMode == false)
                     larabicText = train_perl(watch, larabicText);
@@ -129,20 +128,6 @@ namespace ArabicTextAnalyzer.BO
             saveserializeM_ARABICDARIJAENTRY_EFSQL(arabicDarijaEntry);
 
             //
-            /*if (frMode == false)
-                arabicText = new TextConverter().Preprocess_upstream(arabicText);
-
-            // mark as ignore : url 
-            arabicText = train_markAsIgnore(arabicText);
-
-            if (frMode == false)
-                arabicText = train_bidict(arabicText);
-
-            if (frMode == false)
-                arabicText = train_binggoogle(arabicText);
-
-            var arabicDarijaEntry = train_saveperl(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql, frMode);*/
-
             arabicText = arabicDarijaEntry.ArabicDarijaText;
             expando.M_ARABICDARIJAENTRY = arabicDarijaEntry;
 
