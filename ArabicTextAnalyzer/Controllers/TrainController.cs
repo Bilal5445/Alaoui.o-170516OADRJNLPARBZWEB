@@ -755,7 +755,7 @@ namespace ArabicTextAnalyzer.Controllers
                                                                                 {
                                                                                     var strToFind = text + " " + item.TextEntity.Mention;
                                                                                     isNegativeComments = true;
-                                                                                    urlForMail = urlForMail + "<tr><a href=\"www.facebook.com/" + influencer.url_name + "/posts/" + id + "?comment_id=" + fbCommentForTranslate.Id.Split(',')[1] + "\">" + strToFind + " </a></tr>";
+                                                                                    urlForMail = urlForMail + "<tr><a href=\"www.facebook.com/" + influencer.url_name + "/posts/" + id + "?comment_id=" + fbCommentForTranslate.Id.Split('_')[1] + "\">" + strToFind + " </a></tr>";
                                                                                 }
                                                                             }
                                                                         }
