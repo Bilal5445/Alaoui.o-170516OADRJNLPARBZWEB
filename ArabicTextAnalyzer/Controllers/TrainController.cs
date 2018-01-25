@@ -2,7 +2,6 @@
 using ArabicTextAnalyzer.Domain;
 using ArabicTextAnalyzer.Domain.Models;
 using ArabicTextAnalyzer.Models.Repository;
-using ArabicTextAnalyzer.Models;
 using ArabicTextAnalyzer.ViewModels;
 using Dapper;
 using Newtonsoft.Json;
@@ -12,20 +11,12 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
-using System.Xml.Serialization;
 using Microsoft.AspNet.Identity;
 using OADRJNLPCommon.Models;
-using ArabicTextAnalyzer.Business.ScrappyBusiness;
-using System.Net.Http;
-using System.Net;
-using System.Collections.Specialized;
-using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
 using ArabicTextAnalyzer.Contracts;
 using ArabicTextAnalyzer.BO;
@@ -1267,32 +1258,6 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
         #endregion
-
-        // MC112917 TMP COMMENT SO IT CAN COMPILE
-        /*[HttpPost]
-        public ActionResult FetchFBData(Search search, int id)
-        {
-            @ViewBag.Message = "";
-            string Error = string.Empty;
-
-            //
-            var fbApp = clBusiness.GetFbApplication(id);
-
-            //
-            search.FbAccessToken = clBusiness.FacebookGetAccessToken(fbApp);
-
-            //
-            clBusiness.getFacebookGroupFeed(search, fbApp, ref Error);
-
-            //
-            if (string.IsNullOrEmpty(Error))
-                return RedirectToAction("Index", "Home");
-            else
-            {
-                @ViewBag.Message = Error;
-                return View(search);
-            }
-        }*/
 
         #region BACK YARD BO LOAD
         private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY(AccessMode accessMode)
