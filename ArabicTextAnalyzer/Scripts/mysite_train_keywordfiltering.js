@@ -593,6 +593,7 @@ var FBDataVM = function () {
     this.CallMethod = false;
     this.CallTranslateMethod = false;
     this.RetrieveFBPostIsClicked = false;
+    this.isAutoRetrieveFBPostAndComments = false;
 
     // wrap function to call original function RetrieveFBPost
     this.GetFBPostAndComments = function (influencerUrl, influencerid) {
@@ -683,21 +684,47 @@ var FBDataVM = function () {
     }
 
     // function to start retrieving posts and posts from FB and translating them
-    this.init = function (influencerUrl, influencerid) {
+    this.init = function (influencerUrl, influencerid, isAutoRetrieveFBPostAndComments) {
 
         //
         var currentInstance = this;
+     
+        //      
+            setInterval(function () {
+                if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
+                    currentInstance.isAutoRetrieveFBPostAndComments = true;
+                }
+                else
+                {
+                    currentInstance.isAutoRetrieveFBPostAndComments = false;
+                }
+              
+                if (currentInstance.isAutoRetrieveFBPostAndComments == true)
+                {
+                    currentInstance.GetFBPostAndComments(influencerUrl, influencerid);
+                }
+                
+            }, TimeintervalforFBMethods);
+      
+       
 
         //
-        setInterval(function () {
-            currentInstance.GetFBPostAndComments(influencerUrl, influencerid);
-        }, TimeintervalforFBMethods);
-
-        //
-        setInterval(function () {
-            // alert(influencerUrl + "\n" + influencerid);
-            currentInstance.TranslateFBPostAndComments(influencerUrl, influencerid);
-        }, TimeintervalforFBMethods);
+     
+            setInterval(function () {
+            
+                if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
+                    currentInstance.isAutoRetrieveFBPostAndComments = true;
+                }
+                else {
+                    currentInstance.isAutoRetrieveFBPostAndComments = false;
+                }
+               
+                if (currentInstance.isAutoRetrieveFBPostAndComments == true) {
+                    currentInstance.TranslateFBPostAndComments(influencerUrl, influencerid);
+                }
+                
+            }, TimeintervalforFBMethods);
+  
     };
 };
 
@@ -714,9 +741,14 @@ function RefreshFBPostsAndComments() {
             var model = new FBDataVM();
             var influencerUrl = $('#hdnURLName_' + i).val();
             var influencerid = $('#hdnId_' + i).val();
+            var isAutoRetrieveFBPostAndComments=false;
+            if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked"))
+            {
+                isAutoRetrieveFBPostAndComments = true;
+            }          
             console.log(influencerUrl + "\n" + influencerid);
             if (influencerUrl != null && influencerUrl != undefined && influencerid != null && influencerid != undefined) {
-                model.init(influencerUrl, influencerid);
+                model.init(influencerUrl, influencerid, isAutoRetrieveFBPostAndComments);
             }
         }
     }
@@ -742,7 +774,17 @@ function AddTextEntity(influencerid)
 {
     if (AddTextEntityClicked == false)
     {
-        var targetText = $('#txtTxetEntity').val();
+        var targetText = $('#txtTxetEntity_' + influencerid).val();
+        var isAutoRetrieveFBPostandComments = false;
+       
+        if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked"))
+        {
+            $('#cbxAutoRetrieveFBPostAndComments_' + influencerid).prop("checked",true)
+            isAutoRetrieveFBPostandComments = true;
+        }
+        else {
+            $('#cbxAutoRetrieveFBPostAndComments_' + influencerid).prop("checked", false)
+        }
         if (targetText.length > 0)
         {
             AddTextEntityClicked = true;
@@ -751,7 +793,7 @@ function AddTextEntity(influencerid)
                 "type": "GET",
                 "url": "/Train/AddTextEntity",
                 "data": {
-                    "influencerid": influencerid, "targetText": targetText
+                    "influencerid": influencerid, "targetText": targetText, "isAutoRetrieveFBPostandComments": isAutoRetrieveFBPostandComments
                 },
                 "success": function (msg) {
                     console.log(msg);
