@@ -676,17 +676,43 @@ function JsRetrieveFBPosts(influencerurl_name, influencerid) {
             RetrieveFBPostIsClicked = false;
 
             if (msg.status) {
+
                 console.log("retrievedPostsCount : " + msg.retrievedPostsCount);   // DBG
                 console.log("retrievedCommentsCount : " + msg.retrievedCommentsCount);   // DBG
+
+                // refresh
                 ResetDataTable(influencerid);
+
             } else {
+
+                console.log("Success Msg Status Error : " + msg.message);
                 alert("Success Msg Status Error : " + msg.message);
             }
         },
-        "error": function () {
+        "error": function (jqXHR, exception) {
 
             RetrieveFBPostIsClicked = false;
-            alert("Error")
+
+            //
+            var msg = '';
+            if (jqXHR.status === 0) {
+                msg = 'Not connect.\n Verify Network.';
+            } else if (jqXHR.status == 404) {
+                msg = 'Requested page not found. [404]';
+            } else if (jqXHR.status == 500) {
+                msg = 'Internal Server Error [500].';
+            } else if (exception === 'parsererror') {
+                msg = 'Requested JSON parse failed.';
+            } else if (exception === 'timeout') {
+                msg = 'Time out error.';
+            } else if (exception === 'abort') {
+                msg = 'Ajax request aborted.';
+            } else {
+                msg = 'Uncaught Error.\n' + jqXHR.responseText;
+            }
+            // $('#post').html(msg);
+            console.log("Error : " + msg);
+            alert("Error : " + msg);
         }
     });
 }

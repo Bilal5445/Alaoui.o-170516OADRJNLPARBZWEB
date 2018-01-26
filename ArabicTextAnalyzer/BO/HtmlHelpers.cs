@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -60,6 +61,9 @@ namespace ArabicTextAnalyzer.BO
                 client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                 client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
 
+                // increase timeout to avoid err: "A task was cancelled."
+                client.Timeout = TimeSpan.FromMinutes(30);
+
                 byte[] messageBytes = System.Text.Encoding.UTF8.GetBytes(para);
                 var content = new ByteArrayContent(messageBytes);
                 content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
@@ -73,7 +77,13 @@ namespace ArabicTextAnalyzer.BO
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                // Console.WriteLine(ex);
+                // result = ex.Message;
+                result = JsonConvert.SerializeObject(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
             }
 
             return result;

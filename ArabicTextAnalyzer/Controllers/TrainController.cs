@@ -553,6 +553,8 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public async Task<object> RetrieveFBPosts(string influencerurl_name)
         {
+            String result = String.Empty;
+
             try
             {
                 String errMessage = string.Empty;
@@ -562,7 +564,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                 var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchFBInfluencerPosts?CallFrom=" + influencerurl_name;
                 // ex : url : http://localhost:8081//Data/FetchFBInfluencerPosts?...
-                String result = await HtmlHelpers.PostAPIRequest_result(url, "");
+                result = await HtmlHelpers.PostAPIRequest_result(url, "");
 
                 // parse result
                 JObject jObject = JObject.Parse(result);
@@ -595,8 +597,18 @@ namespace ArabicTextAnalyzer.Controllers
                     message = errMessage
                 });
             }
+            catch (JsonReaderException ex)
+            {
+                Logging.Write(Server, ex.GetType().Name);
+                Logging.Write(Server, result);
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                return null;
+            }
             catch (Exception ex)
             {
+                Logging.Write(Server, ex.GetType().Name);
                 Logging.Write(Server, ex.Message);
                 Logging.Write(Server, ex.StackTrace);
 
