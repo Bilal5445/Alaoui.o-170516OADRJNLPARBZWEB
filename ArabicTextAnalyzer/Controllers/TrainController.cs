@@ -550,7 +550,7 @@ namespace ArabicTextAnalyzer.Controllers
         /// Method for retrieving the fb posts (and comments as well) from ScrappyWeb
         /// </summary>
         [HttpGet]
-        public async Task<object> RetrieveFBPost(string influencerurl_name)
+        public async Task<object> RetrieveFBPosts(string influencerurl_name)
         {
             String errMessage = string.Empty;
             bool status = false;
