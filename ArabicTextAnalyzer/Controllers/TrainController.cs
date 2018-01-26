@@ -561,23 +561,23 @@ namespace ArabicTextAnalyzer.Controllers
 
                 var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchFBInfluencerPosts?CallFrom=" + influencerurl_name;
                 // ex : url : http://localhost:8081//Data/FetchFBInfluencerPosts?...
-                // String result = await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
                 String result = await HtmlHelpers.PostAPIRequest_result(url, "");
 
+                // parse result
+                JObject jObject = JObject.Parse(result);
+
+                //
                 if (result.ToLower().Contains("true"))
                 {
                     status = true;
-                    // translatedstring = result;
 
-                    // parse result
-                    JObject jObject = JObject.Parse(result);
+                    // parse for retrieved posts count
                     JValue jretrievedPostsCount = (JValue)jObject["retrievedPostsCount"];
                     retrievedPostsCount = Convert.ToInt32(jretrievedPostsCount);
                 }
                 else
                 {
-                    // parse result
-                    JObject jObject = JObject.Parse(result);
+                    // parse for error message
                     JValue jmessage = (JValue)jObject["message"];
                     errMessage = Convert.ToString(jmessage);
                 }
@@ -585,7 +585,6 @@ namespace ArabicTextAnalyzer.Controllers
                 return JsonConvert.SerializeObject(new
                 {
                     status = status,
-                    // recordsFiltered = translatedstring,
                     retrievedPostsCount = retrievedPostsCount,
                     message = errMessage
                 });
