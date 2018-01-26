@@ -516,7 +516,7 @@
             <param name="ClientId">The client id : available in the dashboard</param>
             <param name="ClientSecret">The client secret : available in the dashboard</param>
         </member>
-        <member name="M:ArabicTextAnalyzer.Controllers.TrainController.RetrieveFBPost(System.String)">
+        <member name="M:ArabicTextAnalyzer.Controllers.TrainController.RetrieveFBPosts(System.String)">
             <summary>
             Method for retrieving the fb posts (and comments as well) from ScrappyWeb
             </summary>

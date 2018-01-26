@@ -649,7 +649,7 @@ function AddInfluencer() {
 }
 
 // Js for Retrieve fb post or refresh button
-function JsRetrieveFBPost(influencerurl_name, influencerid) {
+function JsRetrieveFBPosts(influencerurl_name, influencerid) {
 
     // check before
     if (RetrieveFBPostIsClicked == true)
@@ -662,13 +662,14 @@ function JsRetrieveFBPost(influencerurl_name, influencerid) {
     $.ajax({
         "dataType": 'json',
         "type": "GET",
-        "url": "/Train/RetrieveFBPost",
+        "url": "/Train/RetrieveFBPosts",
         "data": {
             "influencerurl_name": influencerurl_name
         },
         "success": function (msg) {
 
-            console.log(msg);
+            console.log("msg : " + msg);
+            console.log("msg.status : " + msg.status);
 
             //
             RetrieveFBPostIsClicked = false;
@@ -676,12 +677,12 @@ function JsRetrieveFBPost(influencerurl_name, influencerid) {
             if (msg.status) {
                 ResetDataTable(influencerid);
             } else {
-                alert("Error " + msg.message);
+                alert("Success Msg Status Error : " + msg.message);
             }
         },
         "error": function () {
             RetrieveFBPostIsClicked = false;
-            alert("error")
+            alert("Error")
         }
     });
 }
