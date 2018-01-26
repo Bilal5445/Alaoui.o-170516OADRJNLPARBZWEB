@@ -173,6 +173,7 @@ function BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds) {
 
 // Table For FB For Particular influencer
 function LoadFacebookPosts(fluencerid) {
+
     if (ViewInfluencerIsClicked == false) {
         ViewInfluencerIsClicked = true;
         var $checkedBoxes = $('.table_' + fluencerid + ' tbody tr');
@@ -675,12 +676,14 @@ function JsRetrieveFBPosts(influencerurl_name, influencerid) {
             RetrieveFBPostIsClicked = false;
 
             if (msg.status) {
+                console.log(msg.retrievedPostsCount);   // DBG
                 ResetDataTable(influencerid);
             } else {
                 alert("Success Msg Status Error : " + msg.message);
             }
         },
         "error": function () {
+
             RetrieveFBPostIsClicked = false;
             alert("Error")
         }
@@ -689,9 +692,13 @@ function JsRetrieveFBPosts(influencerurl_name, influencerid) {
 
 // Method for reset data table of influence fb.
 function ResetDataTable(influencerid) {
+
+    // clean table
     var oTable = $('.table_' + influencerid).dataTable();
     oTable.fnClearTable();
     oTable.fnDestroy();
+
+    // Re-load FB posts table
     LoadFacebookPosts(influencerid)
 }
 

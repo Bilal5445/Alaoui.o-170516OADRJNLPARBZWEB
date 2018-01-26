@@ -33,13 +33,43 @@ namespace ArabicTextAnalyzer.BO
 
                 var response = client.PostAsync(url, content).Result;
                 if (response.IsSuccessStatusCode)
-                {
                     result = response.Content.ReadAsStringAsync().Result;
-                }
                 else
-                {
                     result = response.Content.ReadAsStringAsync().Result;
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            return result;
+        }
+
+        public static async Task<string> PostAPIRequest_result(string url, string para)
+        {
+            HttpClient client;
+            string result = string.Empty;
+            try
+            {
+                client = new HttpClient();
+                client.DefaultRequestHeaders.Clear();
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                // Use SecurityProtocolType.Ssl3 if needed for compatibility reasons
+
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
+
+                byte[] messageBytes = System.Text.Encoding.UTF8.GetBytes(para);
+                var content = new ByteArrayContent(messageBytes);
+                content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                content.Headers.Add("access-control-allow-origin", "*");
+
+                var response = await client.PostAsync(url, content);
+                if (response.IsSuccessStatusCode)
+                    result = await response.Content.ReadAsStringAsync();
+                else
+                    result = await response.Content.ReadAsStringAsync();
             }
             catch (Exception ex)
             {
