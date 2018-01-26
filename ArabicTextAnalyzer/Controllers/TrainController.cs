@@ -558,6 +558,7 @@ namespace ArabicTextAnalyzer.Controllers
                 String errMessage = string.Empty;
                 bool status = false;
                 int retrievedPostsCount = -1;
+                int retrievedCommentsCount = -1;
 
                 var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchFBInfluencerPosts?CallFrom=" + influencerurl_name;
                 // ex : url : http://localhost:8081//Data/FetchFBInfluencerPosts?...
@@ -574,6 +575,10 @@ namespace ArabicTextAnalyzer.Controllers
                     // parse for retrieved posts count
                     JValue jretrievedPostsCount = (JValue)jObject["retrievedPostsCount"];
                     retrievedPostsCount = Convert.ToInt32(jretrievedPostsCount);
+
+                    // parse for retrieved posts count
+                    JValue jretrievedCommentsCount = (JValue)jObject["retrievedCommentsCount"];
+                    retrievedCommentsCount = Convert.ToInt32(jretrievedCommentsCount);
                 }
                 else
                 {
@@ -586,6 +591,7 @@ namespace ArabicTextAnalyzer.Controllers
                 {
                     status = status,
                     retrievedPostsCount = retrievedPostsCount,
+                    retrievedCommentsCount = retrievedCommentsCount,
                     message = errMessage
                 });
             }

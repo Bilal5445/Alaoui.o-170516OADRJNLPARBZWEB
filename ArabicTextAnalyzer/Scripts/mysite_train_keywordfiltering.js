@@ -676,7 +676,8 @@ function JsRetrieveFBPosts(influencerurl_name, influencerid) {
             RetrieveFBPostIsClicked = false;
 
             if (msg.status) {
-                console.log(msg.retrievedPostsCount);   // DBG
+                console.log("retrievedPostsCount : " + msg.retrievedPostsCount);   // DBG
+                console.log("retrievedCommentsCount : " + msg.retrievedCommentsCount);   // DBG
                 ResetDataTable(influencerid);
             } else {
                 alert("Success Msg Status Error : " + msg.message);
