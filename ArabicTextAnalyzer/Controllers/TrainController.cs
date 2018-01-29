@@ -700,7 +700,8 @@ namespace ArabicTextAnalyzer.Controllers
                                                                 {
                                                                     var strToFind = text + " " + item.TextEntity.Mention;
                                                                     isNegative = true;
-                                                                    urlForMail = urlForMail + "<tr><a href=\"www.facebook.com/" + influencer.url_name + "/posts/" + fbPostForTranslate.id.Split('_')[1] + "\">" + strToFind + " </a></tr>";
+                                                                    urlForMail = urlForMail + "<tr>" + strToFind + "</tr>";
+                                                                    //urlForMail = urlForMail + "<tr><a href=\"www.facebook.com/" + influencer.url_name + "/posts/" + fbPostForTranslate.id.Split('_')[1] + "\">" + strToFind + " </a></tr>";
                                                                 }
                                                             }
                                                         }
@@ -755,7 +756,8 @@ namespace ArabicTextAnalyzer.Controllers
                                                                                 {
                                                                                     var strToFind = text + " " + item.TextEntity.Mention;
                                                                                     isNegativeComments = true;
-                                                                                    urlForMail = urlForMail + "<tr><a href=\"www.facebook.com/" + influencer.url_name + "/posts/" + id + "?comment_id=" + fbCommentForTranslate.Id.Split('_')[1] + "\">" + strToFind + " </a></tr>";
+                                                                                    urlForMail = urlForMail + "<tr>" + strToFind + "</tr>";
+                                                                                    //urlForMail = urlForMail + "<tr><a href=\"www.facebook.com/" + influencer.url_name + "/posts/" + id + "?comment_id=" + fbCommentForTranslate.Id.Split('_')[1] + "\">" + strToFind + " </a></tr>";
                                                                                 }
                                                                             }
                                                                         }
@@ -776,8 +778,9 @@ namespace ArabicTextAnalyzer.Controllers
                         }
                         if (isNegative == true || isNegativeComments == true)
                         {
-                            string body = "Hello user,<br/>You have some negative words has been detected on your facebook page" + influencer.name + ".<br/><table>" + urlForMail + "</table></br>Please remove the words from the page.<br/>Thanks.";
-                            if(!string.IsNullOrEmpty(fbPostForTranslate.MailBody))
+                            string postURL = "<a href ='www.facebook.com/" + influencer.url_name + "/posts/" + fbPostForTranslate.id.Split('_')[1] + "'>www.facebook.com/" + influencer.url_name + "/posts/" + fbPostForTranslate.id.Split('_')[1] + " </a>";
+                            string body = "Hello user,<br/>Some bad words has been detected on your facebook page" + influencer.name + ".<br/>"+postURL+"<br/><table>" + urlForMail + "</table></br>Please remove the words from the page.<br/>Thanks.";
+                            if(string.IsNullOrEmpty(fbPostForTranslate.MailBody))
                             {
                                 upadateFb_PostMailBody(fbPostForTranslate.id,mailBody:body);
                             }
@@ -806,7 +809,7 @@ namespace ArabicTextAnalyzer.Controllers
                                         string subject = "Warning! Some bad words has been detected in your page.";
                                         string body = posts.MailBody;
                                         int n = 0;
-                                        if(posts.NoOfTimeMailSend<2)
+                                        if(posts.NoOfTimeMailSend<2 || posts.NoOfTimeMailSend==null)
                                         {
                                             try
                                             {
@@ -818,7 +821,7 @@ namespace ArabicTextAnalyzer.Controllers
                                                 else if (posts.LastMailSendOn <= DateTime.Now.AddHours(-6))//send mail on second time in a day after 6 hours of first mail.
                                                 {
                                                     status = SendEmail(email, subject, body);
-                                                    n = posts.NoOfTimeMailSend??0 + 1;
+                                                    n = 2;
                                                 }
                                                 if(status==true)
                                                 {
@@ -973,7 +976,7 @@ namespace ArabicTextAnalyzer.Controllers
 
 
 
-                smtpClient.EnableSsl = false;
+                smtpClient.EnableSsl = true;
                 smtpClient.UseDefaultCredentials = emailsetting.SMTPSecureConnectionRequired;
                 smtpClient.Credentials = new System.Net.NetworkCredential(username, password);
                 smtpClient.Send(msg);
@@ -1934,11 +1937,11 @@ namespace ArabicTextAnalyzer.Controllers
                     qry += "WHERE fk_influencer = '" + influencerid + "' ";
                 if(isForSendMail==true)
                 {
-                    qry += "and MailBody is not null and NoOfTimeMailSend<2";
+                    qry += " and MailBody is not null and (nooftimemailsend is null or NoOfTimeMailSend<2) ";
                 }
 
                 //
-                qry += "ORDER BY date_publishing DESC ";
+                qry += " ORDER BY date_publishing DESC ";
 
                 //
                 conn.Open();
@@ -1977,7 +1980,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
-                    String qry = "UPDATE T_FB_INFLUENCER SET TargetEntities='"+Text+ "',AutoRetrieveFBPostAndComments='"+isAutoRetrieveFBPostandComments+"' where id='" + influencerid + "'";
+                    String qry = "UPDATE T_FB_INFLUENCER SET TargetEntities=N'"+Text+ "',AutoRetrieveFBPostAndComments='"+isAutoRetrieveFBPostandComments+"' where id='" + influencerid + "'";
                     using (SqlCommand cmd = new SqlCommand(qry, conn))
                     {
                         cmd.CommandType = CommandType.Text;
@@ -2065,14 +2068,14 @@ namespace ArabicTextAnalyzer.Controllers
            
             if (!string.IsNullOrEmpty(postid))
             {
-                String qry = "UPDATE T_FB_POST SET";
+                String qry = "UPDATE T_FB_POST SET ";
                     if(!string.IsNullOrEmpty(mailBody))
                 {
-                    qry =qry+ "MailBody='" + mailBody + "'";
+                    qry =qry+ " MailBody=N'" + mailBody + "' ";
                 }
                     if(nooftimemailsend>0)
                 {
-                    qry = qry + "NoOfTimeMailSend='" + mailBody + "',LastMailSendOn='"+DateTime.Now+"";
+                    qry = qry + " NoOfTimeMailSend='" + nooftimemailsend + "', LastMailSendOn='"+DateTime.Now+"' ";
                 }
                 qry = qry + " WHERE id = '" + postid + "'";
 
@@ -2095,7 +2098,7 @@ namespace ArabicTextAnalyzer.Controllers
         private void SaveTranslatedComments(string postid, string TranslatedText)
         {
             // Check before
-            if (!string.IsNullOrEmpty(postid) && !string.IsNullOrEmpty(TranslatedText))
+            if (string.IsNullOrEmpty(postid) && string.IsNullOrEmpty(TranslatedText))
                 return;
 
             // clean 
