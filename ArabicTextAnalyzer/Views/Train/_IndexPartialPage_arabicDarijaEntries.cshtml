@@ -36,6 +36,7 @@
 
             <!-- FB page -->
             <li role="presentation" class="mainUL" id="@item.id"><a aria-controls="second" role="tab" data-toggle="tab" style="cursor:pointer;" onclick="LoadFacebookPosts('@item.id')">@item.name</a></li>
+            count = count + 1;
         }
     }
     @if (FbInfluencer == null || FbInfluencer.Count < MaxFbPageAllowed)
@@ -105,6 +106,56 @@
                         </tr>
                     </thead>
                 </table>
+            </div>
+
+            <!-- modal to add entities to cross-match against negative NER detected in the FB Filter module -->
+            <div class="modal fade" id="myModal_@item.id" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+                            <h4 class="modal-title text-left" id="myModalLabelR1_4">
+                                Add Text Entity Type
+                            </h4>
+                        </div>
+                        <div class="modal-body text-left">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="col-lg-3">
+                                        <label for="txtTxetEntity" class="control-label">Target Text</label>
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <input type="text" id="txtTxetEntity_@item.id" class="form-control" name="txtTxetEntity" value="@item.TargetEntities">
+                                    </div>
+                                </div>
+                                <p><small>*Enter , separated text.</small></p>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="col-lg-7">
+                                        <label for="cbxAutoRetrieveFBPostAndComments" class="control-label">Auto retrieve FB post and comments </label>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        @if (item.AutoRetrieveFBPostAndComments == false)
+                                        {
+                                            <input type="checkbox" id="cbxAutoRetrieveFBPostAndComments_@item.id" />
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" id="cbxAutoRetrieveFBPostAndComments_@item.id" checked="checked" />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" value="Add Options" class="btn btn-primary" id="btnAddOption" onclick="AddTextEntity('@item.id');" />
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         }
     }
