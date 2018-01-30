@@ -800,7 +800,8 @@ var FBDataVM = function () {
 
 // Method for get the fb posts and comments of all pages.
 function RefreshFBPostsAndComments() {
-    var totalFbpages = $('#hdnToatlInfluencer').val();
+
+    var totalFbpages = $('#hdnTotalInfluencer').val();
     var noOfFbPages = parseInt(totalFbpages);
 
     // alert(noOfFbPages);
