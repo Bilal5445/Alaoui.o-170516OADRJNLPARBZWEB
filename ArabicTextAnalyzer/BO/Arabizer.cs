@@ -799,6 +799,30 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
+        public void Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL_uow(Guid id_arabizientry, ArabiziDbContext db, bool isEndOfScope = false)
+        {
+            // filter on the one linked to current arabizi entry
+            var arabicdarijaentry = db.M_ARABICDARIJAENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry);
+
+            // load/deserialize data_M_ARABICDARIJAENTRY_TEXTENTITY
+            // filter on the ones linked to current arabic darija entry
+            db.M_ARABICDARIJAENTRY_TEXTENTITYs.RemoveRange(db.M_ARABICDARIJAENTRY_TEXTENTITYs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
+
+            // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
+            // filter on the ones linked to current arabic darija entry
+            db.M_ARABICDARIJAENTRY_LATINWORDs.RemoveRange(db.M_ARABICDARIJAENTRY_LATINWORDs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
+
+            // remove arabic darija item
+            db.M_ARABICDARIJAENTRYs.Remove(arabicdarijaentry);
+
+            // remove arabizi
+            db.M_ARABIZIENTRYs.Remove(db.M_ARABIZIENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry));
+
+            // commit
+            if (isEndOfScope == true)
+                db.SaveChanges();
+        }
+
         public dynamic Serialize_SoftDelete_M_XTRCTTHEME_Cascading_EFSQL(Guid idXtrctTheme)
         {
             // cascade but working upside down
@@ -936,30 +960,6 @@ namespace ArabicTextAnalyzer.BO
                 expando.Result = true;
                 return expando;
             }
-        }
-
-        public void Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL_uow(Guid id_arabizientry, ArabiziDbContext db, bool isEndOfScope = false)
-        {
-            // filter on the one linked to current arabizi entry
-            var arabicdarijaentry = db.M_ARABICDARIJAENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry);
-
-            // load/deserialize data_M_ARABICDARIJAENTRY_TEXTENTITY
-            // filter on the ones linked to current arabic darija entry
-            db.M_ARABICDARIJAENTRY_TEXTENTITYs.RemoveRange(db.M_ARABICDARIJAENTRY_TEXTENTITYs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
-
-            // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
-            // filter on the ones linked to current arabic darija entry
-            db.M_ARABICDARIJAENTRY_LATINWORDs.RemoveRange(db.M_ARABICDARIJAENTRY_LATINWORDs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
-
-            // remove arabic darija item
-            db.M_ARABICDARIJAENTRYs.Remove(arabicdarijaentry);
-
-            // remove arabizi
-            db.M_ARABIZIENTRYs.Remove(db.M_ARABIZIENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry));
-
-            // commit
-            if (isEndOfScope == true)
-                db.SaveChanges();
         }
         #endregion
 
