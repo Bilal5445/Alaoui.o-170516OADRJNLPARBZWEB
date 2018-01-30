@@ -932,6 +932,65 @@ $(document).ready(function () {
     }, 2000);
 });
 
+// Js Function for add the target text entities as per user influencer. The target text entities are used to cross-match against with the 
+// Negative/Explative NER in the FB filter module
+function AddTextEntity(influencerid) {
+
+    if (AddTextEntityClicked == false) {
+
+        var targetText = $('#txtTxetEntity_' + influencerid).val();
+        var isAutoRetrieveFBPostandComments = false;
+
+        if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
+
+            $('#cbxAutoRetrieveFBPostAndComments_' + influencerid).prop("checked", true)
+            isAutoRetrieveFBPostandComments = true;
+
+        } else {
+
+            $('#cbxAutoRetrieveFBPostAndComments_' + influencerid).prop("checked", false)
+        }
+
+        if (targetText.length > 0) {
+
+            AddTextEntityClicked = true;
+
+            $.ajax({
+                "dataType": 'json',
+                "type": "GET",
+                "url": "/Train/AddTextEntity",
+                "data": {
+                    "influencerid": influencerid, "targetText": targetText, "isAutoRetrieveFBPostandComments": isAutoRetrieveFBPostandComments
+                },
+                "success": function (msg) {
+
+                    console.log(msg);
+
+                    // reset to not clicked
+                    AddTextEntityClicked = false;
+
+                    if (msg.status) {
+
+                        $('#myModal_' + influencerid).modal('hide');
+
+                    } else {
+
+                        alert("Error " + msg.message);
+                    }
+                },
+                "error": function () {
+
+                    AddTextEntityClicked = false;
+                    alert("Error");
+                }
+            });
+        } else {
+
+            alert("Please enter target text.");
+        }
+    }
+}
+
 // Method for reset data table of influence fb.
 function ResetDataTable(influencerid) {
 
