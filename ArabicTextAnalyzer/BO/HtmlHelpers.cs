@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -49,7 +50,7 @@ namespace ArabicTextAnalyzer.BO
             return result;
         }
 
-        public static async Task<string> PostAPIRequest(string url, string para, string type = "POST")
+        public static async Task<string> PostAPIRequest_result(string url, string para)
         {
             HttpClient client;
             string result = string.Empty;
@@ -64,56 +65,29 @@ namespace ArabicTextAnalyzer.BO
                 client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                 client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
 
+                // increase timeout to avoid err: "A task was cancelled."
+                client.Timeout = TimeSpan.FromMinutes(30);
+
                 byte[] messageBytes = System.Text.Encoding.UTF8.GetBytes(para);
                 var content = new ByteArrayContent(messageBytes);
                 content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
                 content.Headers.Add("access-control-allow-origin", "*");
-                if (!string.IsNullOrEmpty(type) && type == "POST")
-                {
-                    var response = await client.PostAsync(url, content);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        result = await response.Content.ReadAsStringAsync();
-                        dynamic dynamicObject = JObject.Parse(result);
-                        if (dynamicObject.status != null)
-                        {
-                            result = Convert.ToString(dynamicObject.status);
-                        }
-                    }
-                    else
-                    {
-                        result = await response.Content.ReadAsStringAsync();
-                    }
-                }
-                if (!string.IsNullOrEmpty(type) && type == "GET")
-                {
-                    try
-                    {
-                        var response = await new HttpClient().GetAsync(url);
-                        if (response.IsSuccessStatusCode)
-                        {
-                            result = await response.Content.ReadAsStringAsync();
-                            //var dynamicObject = JsonConvert.DeserializeObject(result);
-                            dynamic dynamicObject = JObject.Parse(result);
-                            if (dynamicObject.M_ARABICDARIJAENTRY != null)
-                            {
-                                result = "Success" + Convert.ToString(dynamicObject.M_ARABICDARIJAENTRY.ArabicDarijaText);
-                            }
-                        }
-                        else
-                        {
-                            result = await response.Content.ReadAsStringAsync();
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        result = e.Message;
-                    }
-                }
+
+                var response = await client.PostAsync(url, content);
+                if (response.IsSuccessStatusCode)
+                    result = await response.Content.ReadAsStringAsync();
+                else
+                    result = await response.Content.ReadAsStringAsync();
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                // Console.WriteLine(ex);
+                // result = ex.Message;
+                result = JsonConvert.SerializeObject(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
             }
 
             return result;
