@@ -619,8 +619,6 @@ function JsRetrieveFBPosts(influencerurl_name, influencerid) {
 
     //
     var model = new FBDataVM();
-
-    //
     model.RetrieveFBPostIsClicked = false;
 
     // call function
