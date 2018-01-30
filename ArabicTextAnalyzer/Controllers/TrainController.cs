@@ -913,13 +913,13 @@ namespace ArabicTextAnalyzer.Controllers
         {
             string errMessage = string.Empty;
             bool status = false;
-            //Get the influencer if it exist.
+            // Get the influencer if it exist.
             try
             {
                 var influencer = loadT_Fb_InfluencerAsId(influencerid);
                 if (influencer != null && influencer.id != null)
                 {
-                    //Update influencer target entities value.
+                    // Update influencer target entities value.
                     if (!string.IsNullOrEmpty(targetText))
                     {
                         updateT_Fb_InfluencerAsId(influencerid, targetText, isAutoRetrieveFBPostandComments);
@@ -1959,7 +1959,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
-                    String qry = "UPDATE T_FB_INFLUENCER SET TargetEntities=N'" + Text + "',AutoRetrieveFBPostAndComments='" + isAutoRetrieveFBPostandComments + "' where id='" + influencerid + "'";
+                    String qry = "UPDATE T_FB_INFLUENCER SET TargetEntities = N'" + Text + "', AutoRetrieveFBPostAndComments = '" + isAutoRetrieveFBPostandComments + "' where id='" + influencerid + "'";
                     using (SqlCommand cmd = new SqlCommand(qry, conn))
                     {
                         cmd.CommandType = CommandType.Text;
