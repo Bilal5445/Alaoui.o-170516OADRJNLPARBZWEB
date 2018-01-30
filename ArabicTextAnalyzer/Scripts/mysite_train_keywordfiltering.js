@@ -11,6 +11,7 @@ var AddInfluencerIsClicked = false;
 var RetrieveFBPostIsClicked = false;
 var TimeintervalforFBMethods = 1000 * 60 * 2; // Time interval for method run for get fb posts and comments and translate posts and comments
 var fbTabPagesLoaded = false;
+var AddTextEntityClicked = false;
 
 function InitializeDataTables(adminModeShowAll) {
 
@@ -34,11 +35,11 @@ function InitializeDataTables(adminModeShowAll) {
                 ['10', '25', '50', '100', '500', '1000', 'all']
             ],
             // dom just to display the design of the fields : search , page , ...
-            dom: "<'row'<'col-sm-3'B><'col-sm-3'l><'col-sm-6'f>>" +
+            dom: "<'row'<'col-sm-6'B><'col-sm-3'l><'col-sm-3'f>>" +
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-5'i><'col-sm-7'p>>",
             buttons: [
-                'copyHtml5', 'excel', 'csv'
+                'copyHtml5', 'excel', 'csv', 'selectAll', 'selectNone'
             ],
             //
             "columns": [
@@ -62,76 +63,131 @@ function InitializeDataTables(adminModeShowAll) {
                 "type": "POST",
                 "data": { "adminModeShowAll": adminModeShowAll }
             },
+            select: true    // warning : before this, previous multi-select was just clicking on many rows, 
+            // now muli-select needs ctrl+click (separate multiclick) or shift + click (range multiclick)
         });
 
-        // event click to select row
-        $('.datatables-table tbody').on('click', 'tr', function (e) {
+        // user event click on select row controls column
+        poststable.on('user-select', function (e, dt, type, cell, originalEvent) {
+            if ($(cell.node()).attr('class').includes("controls")) {
+                e.preventDefault();
+            }
+        });
 
-            // if we click on the last column, do not select/unselect
-            if ($(e.target).closest("td").attr('class').includes("controls"))
-                return;
+        // event select
+        poststable.on('select', function (e, dt, type, indexes) {
 
-            // select the row
-            $(this).toggleClass('selected');
-
-            // add/remove guid to array
-            if ($(this).hasClass('selected')) {
+            if (type === 'row') {
 
                 // we select
+                dt.rows(indexes).every(function (rowIdx, tableLoop, rowLoop) {
 
-                // find the guid of arabiz entry from the href in delete button
-                var hrefInnerId = $(this).find("td:eq(6)").find("> a").eq(0).attr("href").substring("/Train/Train_DeleteEntry/?arabiziWordGuid=".length);
+                    // find the guid of arabiz entry from the href in delete button
+                    var thisTr = this.node();
+                    var controlsTd = $(thisTr).find("td:eq(6)");
+                    var deleteButton = controlsTd.find("> a").eq(0);
+                    var hrefInnerId = deleteButton.attr("href").substring("/Train/Train_DeleteEntry/?arabiziWordGuid=".length);
 
-                // add it to global array
-                selectedArabiziIds.push(hrefInnerId);
+                    // add it to global array if not already there (shift select add the first row even if already there)
+                    if (selectedArabiziIds.indexOf(hrefInnerId) === -1)
+                        selectedArabiziIds.push(hrefInnerId);
 
-                // console.log(hrefInnerId);
+                    // save old id in backup in delete button
+                    deleteButton.attr('data-backhref', hrefInnerId);
+                });
 
-                // save old id in backup in delete button
-                $(this).find("td:eq(6)").find("> a").eq(0).attr('data-backhref', hrefInnerId);
+                // loop over selected to concatenate the arabizi entries ids but only if more than one
+                var thisTbody = dt.table().body();
+                var selectedControlsTds = $(thisTbody).find('tr.selected td:last-child');
+                BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds);
+            }
+        }).on('deselect', function (e, dt, type, indexes) {
 
-            } else {
+            if (type === 'row') {
 
                 // we deselect
+                dt.rows(indexes).every(function (rowIdx, tableLoop, rowLoop) {
 
-                // find the guid of arabiz entry from the backup href in delete button
-                var hrefBackInnerId = $(this).find("td:eq(6)").find("> a").eq(0).attr("data-backhref");
+                    // find the guid of arabiz entry from the backup href in delete button
+                    var thisTr = this.node();
+                    var controlsTd = $(thisTr).find("td:eq(6)");
+                    var deleteButton = controlsTd.find("> a").eq(0);
+                    var hrefBackInnerId = deleteButton.attr("data-backhref");
 
-                // drop it from global (we know it is there)
-                var index = selectedArabiziIds.indexOf(hrefBackInnerId);
-                selectedArabiziIds.splice(index, 1);
+                    // drop it from global (we know it is there)
+                    var index = selectedArabiziIds.indexOf(hrefBackInnerId);
+                    selectedArabiziIds.splice(index, 1);
 
-                // set new value href (from backup) in delete button
-                var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + hrefBackInnerId;
-                $(this).find("td:eq(6)").find("> a").eq(0).attr("href", newhref);
+                    // set new value href (from backup) in delete button
+                    var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + hrefBackInnerId;
+                    deleteButton.attr("href", newhref);
+
+                    // same for refresh button (2nd button)
+                    var refreshButton = controlsTd.find("> a").eq(1);
+                    var newrefreshhref = "/Train/Train_RefreshEntry/?arabiziWordGuid=" + hrefBackInnerId;
+                    refreshButton.attr("href", newrefreshhref);
+
+                    // remove backup
+                    deleteButton.removeAttr('data-backhref');
+                });
+
+                // loop over selected to concatenate the arabizi entries ids but only if more than one
+                var thisTbody = dt.table().body();
+                var selectedControlsTds = $(thisTbody).find('tr.selected td:last-child');
+                BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds);
             }
-
-            // loop over selected to concatenate the arabizi entries ids
-            $('tr.selected td:last-child').each(function (index) {
-                // new value href
-                var newhref = "/Train/Train_DeleteEntries/?arabiziWordGuids=" + selectedArabiziIds.join();
-
-                // set new value in delete button
-                $(this).find("> a").eq(0).attr("href", newhref);
-            });
         });
     });
 }
 
+function BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds) {
+    // loop over selected to concatenate the arabizi entries ids but only if more than one
+    if (selectedControlsTds.length > 1) {
+        selectedControlsTds.each(function (index) {
+            // new value href
+            var arabiziWordGuids = selectedArabiziIds.join();
+            var newhref = "/Train/Train_DeleteEntries/?arabiziWordGuids=" + arabiziWordGuids;
+
+            // set new value in delete button
+            var deleteButton = $(this).find("> a").eq(0);
+            deleteButton.attr("href", newhref);
+
+            // same for refresh button (2nd button)
+            var refreshButton = $(this).find("> a").eq(1);
+            var newrefreshhref = "/Train/Train_RefreshEntries/?arabiziWordGuids=" + arabiziWordGuids;
+            refreshButton.attr("href", newrefreshhref);
+        });
+    } else if (selectedControlsTds.length == 1) {
+        // new value href
+        var arabiziWordGuid = selectedArabiziIds.join();
+        var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + arabiziWordGuid;
+
+        // set new value in delete button
+        var deleteButton = selectedControlsTds.find("> a").eq(0);
+        deleteButton.attr("href", newhref);
+
+        // same for refresh button (2nd button)
+        var refreshButton = selectedControlsTds.find("> a").eq(1);
+        var newrefreshhref = "/Train/Train_RefreshEntry/?arabiziWordGuid=" + arabiziWordGuid;
+        refreshButton.attr("href", newrefreshhref);
+    }
+}
+
 // Table For FB For Particular influencer
 function LoadFacebookPosts(fluencerid) {
+
     if (ViewInfluencerIsClicked == false) {
         ViewInfluencerIsClicked = true;
         var $checkedBoxes = $('.table_' + fluencerid + ' tbody tr');
         if ($checkedBoxes.length == 0) {
-            InitializeFBDataTables(fluencerid)
+            InitializeFBPostsDataTables(fluencerid)
         }
         fnCallback(fluencerid)
     }
 }
 
 // table for FB post table
-function InitializeFBDataTables(fluencerid) {
+function InitializeFBPostsDataTables(fluencerid) {
     $(function () {
 
         // Initialize DataTables
@@ -558,7 +614,7 @@ function AddInfluencer() {
 }
 
 // Js for Retrieve fb post or refresh button
-function RetrieveFBPost(influencerurl_name, influencerid) {
+function JsRetrieveFBPosts(influencerurl_name, influencerid) {
 
     //
     var model = new FBDataVM();
@@ -567,23 +623,7 @@ function RetrieveFBPost(influencerurl_name, influencerid) {
     model.RetrieveFBPostIsClicked = false;
 
     // call function
-    model.RetrieveFBPost(influencerurl_name, influencerid);
-}
-
-// Method for reset data table of influence fb.
-function ResetDataTable(influencerid) {
-    var oTable = $('.table_' + influencerid).dataTable();
-    oTable.fnClearTable();
-    oTable.fnDestroy();
-    LoadFacebookPosts(influencerid)
-}
-
-// method for reset the comments table
-function ResetDataTableComments(influencerid) {
-    var oTable = $('#tabledetails_' + influencerid).dataTable();
-    oTable.fnClearTable();
-    oTable.fnDestroy();
-    InitializeFBCommentsForPostDataTables(influencerid)
+    model.JsRetrieveFBPosts(influencerurl_name, influencerid);
 }
 
 // Method for schedule a task for retrieve the fb posts and comments in a time interval
@@ -595,14 +635,14 @@ var FBDataVM = function () {
     this.RetrieveFBPostIsClicked = false;
     this.isAutoRetrieveFBPostAndComments = false;
 
-    // wrap function to call original function RetrieveFBPost
+    // wrap function to call original function JsRetrieveFBPosts
     this.GetFBPostAndComments = function (influencerUrl, influencerid) {
         var currentInstance = this;
         var intervalFlag = true;
         // alert(influencerUrl + "\n" + influencerid);
         if (currentInstance.CallMethod == false) {
             currentInstance.CallMethod = true;
-            currentInstance.RetrieveFBPost(influencerUrl, influencerid, intervalFlag);
+            currentInstance.JsRetrieveFBPosts(influencerUrl, influencerid, intervalFlag);
         }
     };
 
@@ -639,7 +679,7 @@ var FBDataVM = function () {
     };
 
     // original function to retrieve fb posts (and comments as well) 
-    this.RetrieveFBPost = function (influencerurl_name, influencerid, intervalFlag) {
+    this.JsRetrieveFBPosts = function (influencerurl_name, influencerid, intervalFlag) {
         var currentInstance = this;
         if ((currentInstance.RetrieveFBPostIsClicked == false && currentInstance.CallMethod == false) || intervalFlag == true) {
 
@@ -647,37 +687,69 @@ var FBDataVM = function () {
             currentInstance.RetrieveFBPostIsClicked = true;
             currentInstance.CallMethod = true;
 
-            // real work : call on controller Train action RetrieveFBPost
+            // real work : call on controller Train action Retrieve FB Posts
             $.ajax({
                 "dataType": 'json',
                 "type": "GET",
-                "url": "/Train/RetrieveFBPost",
+                "url": "/Train/RetrieveFBPosts",
                 "data": {
                     "influencerurl_name": influencerurl_name
                 },
                 "success": function (msg) {
-                    console.log(msg);
+
+                    console.log("msg : " + msg);
+                    console.log("msg.status : " + msg.status);
+
+                    //
                     currentInstance.RetrieveFBPostIsClicked = false;
                     currentInstance.CallMethod = false;
+
                     if (intervalFlag == true) {
 
                         if ($('#' + influencerid).hasClass('active')) {
-                            ResetDataTable(influencerid);
-                        }
-                    }
-                    else {
-                        if (msg.status) {
-                            ResetDataTable(influencerid);
-                        }
-                        else {
-                            console.log("Error " + msg.message);
-                        }
-                    }
 
+                            // refresh
+                            ResetDataTable(influencerid);
+                        }
+
+                    } else if (msg.status) {
+
+                        console.log("retrievedPostsCount : " + msg.retrievedPostsCount);   // DBG
+                        console.log("retrievedCommentsCount : " + msg.retrievedCommentsCount);   // DBG
+
+                        // refresh
+                        ResetDataTable(influencerid);
+
+                    } else {
+                        
+                        console.log("Success Msg Status Error : " + msg.message);
+                        alert("Success Msg Status Error : " + msg.message);
+                    }
                 },
-                "error": function () {
+                "error": function (jqXHR, exception) {
+
                     currentInstance.RetrieveFBPostIsClicked = false;
-                    console.log("error in RetrieveFBPost");
+
+                    //
+                    var msg = '';
+                    if (jqXHR.status === 0) {
+                        msg = 'Not connect.\n Verify Network.';
+                    } else if (jqXHR.status == 404) {
+                        msg = 'Requested page not found. [404]';
+                    } else if (jqXHR.status == 500) {
+                        msg = 'Internal Server Error [500].';
+                    } else if (exception === 'parsererror') {
+                        msg = 'Requested JSON parse failed.';
+                    } else if (exception === 'timeout') {
+                        msg = 'Time out error.';
+                    } else if (exception === 'abort') {
+                        msg = 'Ajax request aborted.';
+                    } else {
+                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                    }
+                    // $('#post').html(msg);
+                    console.log("Error : " + msg);
+                    alert("Error : " + msg);
                 }
             });
         }
@@ -688,43 +760,41 @@ var FBDataVM = function () {
 
         //
         var currentInstance = this;
-     
+
         //      
-            setInterval(function () {
-                if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
-                    currentInstance.isAutoRetrieveFBPostAndComments = true;
-                }
-                else
-                {
-                    currentInstance.isAutoRetrieveFBPostAndComments = false;
-                }
-              
-                if (currentInstance.isAutoRetrieveFBPostAndComments == true)
-                {
-                    currentInstance.GetFBPostAndComments(influencerUrl, influencerid);
-                }
-                
-            }, TimeintervalforFBMethods);
-      
-       
+        setInterval(function () {
+            if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
+                currentInstance.isAutoRetrieveFBPostAndComments = true;
+            }
+            else {
+                currentInstance.isAutoRetrieveFBPostAndComments = false;
+            }
+
+            if (currentInstance.isAutoRetrieveFBPostAndComments == true) {
+                currentInstance.GetFBPostAndComments(influencerUrl, influencerid);
+            }
+
+        }, TimeintervalforFBMethods);
+
+
 
         //
-     
-            setInterval(function () {
-            
-                if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
-                    currentInstance.isAutoRetrieveFBPostAndComments = true;
-                }
-                else {
-                    currentInstance.isAutoRetrieveFBPostAndComments = false;
-                }
-               
-                if (currentInstance.isAutoRetrieveFBPostAndComments == true) {
-                    currentInstance.TranslateFBPostAndComments(influencerUrl, influencerid);
-                }
-                
-            }, TimeintervalforFBMethods);
-  
+
+        setInterval(function () {
+
+            if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
+                currentInstance.isAutoRetrieveFBPostAndComments = true;
+            }
+            else {
+                currentInstance.isAutoRetrieveFBPostAndComments = false;
+            }
+
+            if (currentInstance.isAutoRetrieveFBPostAndComments == true) {
+                currentInstance.TranslateFBPostAndComments(influencerUrl, influencerid);
+            }
+
+        }, TimeintervalforFBMethods);
+
     };
 };
 
@@ -741,11 +811,10 @@ function RefreshFBPostsAndComments() {
             var model = new FBDataVM();
             var influencerUrl = $('#hdnURLName_' + i).val();
             var influencerid = $('#hdnId_' + i).val();
-            var isAutoRetrieveFBPostAndComments=false;
-            if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked"))
-            {
+            var isAutoRetrieveFBPostAndComments = false;
+            if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
                 isAutoRetrieveFBPostAndComments = true;
-            }          
+            }
             console.log(influencerUrl + "\n" + influencerid);
             if (influencerUrl != null && influencerUrl != undefined && influencerid != null && influencerid != undefined) {
                 model.init(influencerUrl, influencerid, isAutoRetrieveFBPostAndComments);
@@ -768,25 +837,20 @@ $(document).ready(function () {
     }, 2000);
 });
 
-//Function for add the text entity as per user influencer.
-var AddTextEntityClicked = false;
-function AddTextEntity(influencerid)
-{
-    if (AddTextEntityClicked == false)
-    {
+// Function for add the text entity as per user influencer.
+function AddTextEntity(influencerid) {
+    if (AddTextEntityClicked == false) {
         var targetText = $('#txtTxetEntity_' + influencerid).val();
         var isAutoRetrieveFBPostandComments = false;
-       
-        if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked"))
-        {
-            $('#cbxAutoRetrieveFBPostAndComments_' + influencerid).prop("checked",true)
+
+        if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
+            $('#cbxAutoRetrieveFBPostAndComments_' + influencerid).prop("checked", true)
             isAutoRetrieveFBPostandComments = true;
         }
         else {
             $('#cbxAutoRetrieveFBPostAndComments_' + influencerid).prop("checked", false)
         }
-        if (targetText.length > 0)
-        {
+        if (targetText.length > 0) {
             AddTextEntityClicked = true;
             $.ajax({
                 "dataType": 'json',
@@ -813,11 +877,30 @@ function AddTextEntity(influencerid)
                 }
             });
         }
-        else
-        {
+        else {
             alert("Please enter target text.");
         }
 
     }
 
+}
+
+// Method for reset data table of influence fb.
+function ResetDataTable(influencerid) {
+
+    // clean table
+    var oTable = $('.table_' + influencerid).dataTable();
+    oTable.fnClearTable();
+    oTable.fnDestroy();
+
+    // Re-load FB posts table
+    LoadFacebookPosts(influencerid)
+}
+
+// method for reset the comments table
+function ResetDataTableComments(influencerid) {
+    var oTable = $('#tabledetails_' + influencerid).dataTable();
+    oTable.fnClearTable();
+    oTable.fnDestroy();
+    InitializeFBCommentsForPostDataTables(influencerid)
 }
