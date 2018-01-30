@@ -11,6 +11,7 @@ var AddInfluencerIsClicked = false;
 var RetrieveFBPostIsClicked = false;
 var RetrieveFBPostCommentsIsClicked = false;
 var fbTabPagesLoaded = false;
+var AddTextEntityClicked = false;
 
 function InitializeDataTables(adminModeShowAll) {
 
