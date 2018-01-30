@@ -10,6 +10,7 @@ var TranslateCommentIsClicked = false;
 var AddInfluencerIsClicked = false;
 var RetrieveFBPostIsClicked = false;
 var RetrieveFBPostCommentsIsClicked = false;
+var fbTabPagesLoaded = false;
 
 function InitializeDataTables(adminModeShowAll) {
 
@@ -717,6 +718,52 @@ function JsRetrieveFBPosts(influencerurl_name, influencerid) {
         }
     });
 }
+
+// Method for get the fb posts and comments of all pages.
+function RefreshFBPostsAndComments() {
+
+    var totalFbpages = $('#hdnTotalInfluencer').val();
+    var noOfFbPages = parseInt(totalFbpages);
+
+    // alert(noOfFbPages);
+    if (noOfFbPages > 0) {
+        fbTabPagesLoaded = true; // this flag will maintain the loading of the tabs to appear the threading.
+        for (var i = 1; i <= noOfFbPages; i++) {
+
+            // create a model per FB page
+            var model = new FBDataVM();
+
+            // get fb page url & id
+            var influencerUrl = $('#hdnURLName_' + i).val();
+            var influencerid = $('#hdnId_' + i).val();
+
+            // get fb page auto retrieve y/n
+            var isAutoRetrieveFBPostAndComments = false;
+            if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
+                isAutoRetrieveFBPostAndComments = true;
+            }
+
+            console.log(influencerUrl + "\n" + influencerid);
+            /*if (influencerUrl != null && influencerUrl != undefined && influencerid != null && influencerid != undefined) {
+                model.init(influencerUrl, influencerid, isAutoRetrieveFBPostAndComments);
+            }*/
+        }
+    }
+}
+
+// starting the timer to collect FB data
+$(document).ready(function () {
+
+    // every 2 secs, refresh posts and comments from FB
+    var intervalFB = setInterval(function () {
+        if (fbTabPagesLoaded == false) {
+            RefreshFBPostsAndComments();
+        } else {
+            console.log("Found the tabs");
+            clearInterval(intervalFB);
+        }
+    }, 2000);
+});
 
 // Method for reset data table of influence fb.
 function ResetDataTable(influencerid) {
