@@ -410,6 +410,55 @@ namespace ArabicTextAnalyzer.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult Train_RefreshEntries(String arabiziWordGuids)
+        {
+            var larabiziWordGuids = arabiziWordGuids.Split(new char[] { ',' });
+
+            var arabizer = new Arabizer(Server);
+
+            // get data existing theme : all posts are under same theme, so use first
+            // minor : trim leading '='
+            var firstLArabiziWordGuid = larabiziWordGuids[0];
+            Guid firstArabiziWordGuid = new Guid(firstLArabiziWordGuid.TrimStart(new char[] { '=' }));
+            var backupFirstARABIZIENTR = loaddeserializeM_ARABIZIENTRY_DAPPERSQL(firstArabiziWordGuid);
+            var backupXTRCTTHEME = loadDeserializeM_XTRCTTHEME_DAPPERSQL(backupFirstARABIZIENTR.ID_XTRCTTHEME);
+
+            //
+            using (var db = new ArabiziDbContext())
+            {
+                foreach (var larabiziWordGuid in larabiziWordGuids)
+                {
+                    // minor : trim leading '='
+                    Guid arabiziWordGuid = new Guid(larabiziWordGuid.TrimStart(new char[] { '=' }));
+
+                    // get data existing arabizi
+                    var backupARABIZIENTR = loaddeserializeM_ARABIZIENTRY_EFSQL_uow(arabiziWordGuid, db);
+
+                    // get data existing theme
+                    // var backupXTRCTTHEME = loadDeserializeM_XTRCTTHEME_DAPPERSQL(backupARABIZIENTR.ID_XTRCTTHEME);
+
+                    // delete
+                    arabizer.Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL_uow(arabiziWordGuid, db, isEndOfScope: false);
+
+                    // recreate
+                    arabizer.train_uow(new M_ARABIZIENTRY
+                    {
+                        ArabiziText = backupARABIZIENTR.ArabiziText.Trim(new char[] { ' ', '\t' }),
+                        ArabiziEntryDate = backupARABIZIENTR.ArabiziEntryDate,
+                        IsFR = backupARABIZIENTR.IsFR,
+                        ID_XTRCTTHEME = backupARABIZIENTR.ID_XTRCTTHEME
+                    }, backupXTRCTTHEME.ThemeName, db, isEndOfScope: false);
+                }
+
+                //
+                db.SaveChanges();
+            }
+
+            //
+            return RedirectToAction("Index");
+        }
+
         // This action applies a new main tag/entity/theme/keyword to a post
         [HttpGet]
         public ActionResult Train_ApplyNewMainTag(Guid idArabicDarijaEntry, String mainEntity)
@@ -507,6 +556,9 @@ namespace ArabicTextAnalyzer.Controllers
             });
         }
 
+        /// <summary>
+        /// Method for retrieving the fb posts (and comments as well) from ScrappyWeb
+        /// </summary>
         [HttpGet]
         public async Task<object> RetrieveFBPosts(string influencerurl_name)
         {
@@ -549,7 +601,7 @@ namespace ArabicTextAnalyzer.Controllers
 
         // Method for translate the fb posts
         [HttpGet]
-        public async Task<object> TranslateFbPost(String content/*, string id*/)
+        public async Task<object> TranslateFbPost(String content)
         {
             // get current active theme for the current user
             var userId = User.Identity.GetUserId();
@@ -1120,8 +1172,6 @@ namespace ArabicTextAnalyzer.Controllers
             };
 
             // Save to Serialization
-            /*var path = Server.MapPath("~/App_Data/data_M_XTRCTTHEME.txt");
-            new TextPersist().Serialize(newXtrctTheme, path);*/
             new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(newXtrctTheme);
 
             // create the associated tags
@@ -1136,14 +1186,29 @@ namespace ArabicTextAnalyzer.Controllers
                         Keyword = themetag
                     };
 
-                    // Save to Serialization
-                    /*path = Server.MapPath("~/App_Data/data_M_XTRCTTHEME_KEYWORD.txt");
-                    new TextPersist().Serialize(newXrtctThemeKeyword, path);*/
+                    // Save to Serialization to DB
                     new Arabizer().saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(newXrtctThemeKeyword);
                 }
             }
 
             //
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult XtrctTheme_Delete(Guid idXtrctTheme)
+        {
+            //
+            var result = new Arabizer().Serialize_Delete_M_XTRCTTHEME_Cascading_EFSQL(idXtrctTheme);
+
+            //
+            if (result.Result == false)
+            {
+                TempData["showAlertWarning"] = true;
+                TempData["msgAlert"] = result.ErrMessage;
+                return RedirectToAction("Index");
+            }
+
             return RedirectToAction("Index");
         }
 
@@ -1547,32 +1612,6 @@ namespace ArabicTextAnalyzer.Controllers
         }
         #endregion
 
-        // MC112917 TMP COMMENT SO IT CAN COMPILE
-        /*[HttpPost]
-        public ActionResult FetchFBData(Search search, int id)
-        {
-            @ViewBag.Message = "";
-            string Error = string.Empty;
-
-            //
-            var fbApp = clBusiness.GetFbApplication(id);
-
-            //
-            search.FbAccessToken = clBusiness.FacebookGetAccessToken(fbApp);
-
-            //
-            clBusiness.getFacebookGroupFeed(search, fbApp, ref Error);
-
-            //
-            if (string.IsNullOrEmpty(Error))
-                return RedirectToAction("Index", "Home");
-            else
-            {
-                @ViewBag.Message = Error;
-                return View(search);
-            }
-        }*/
-
         #region BACK YARD BO LOAD
         private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY(AccessMode accessMode)
         {
@@ -1586,19 +1625,6 @@ namespace ArabicTextAnalyzer.Controllers
 
             return null;
         }
-
-        /*private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY()
-        {
-            List<M_ARABICDARIJAENTRY> entries = new List<M_ARABICDARIJAENTRY>();
-            string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY).Name + ".txt");
-            XmlSerializer serializer = new XmlSerializer(entries.GetType());
-            using (var reader = new System.IO.StreamReader(path))
-            {
-                entries = (List<M_ARABICDARIJAENTRY>)serializer.Deserialize(reader);
-            }
-
-            return entries;
-        }*/
 
         private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY_DB()
         {
@@ -1641,22 +1667,6 @@ namespace ArabicTextAnalyzer.Controllers
 
             return null;
         }
-
-        /*private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY()
-        {
-            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
-            string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_TEXTENTITY).Name + ".txt");
-            XmlSerializer serializer = new XmlSerializer(textEntities.GetType());
-            if (System.IO.File.Exists(path))
-            {
-                using (var reader = new System.IO.StreamReader(path))
-                {
-                    textEntities = (List<M_ARABICDARIJAENTRY_TEXTENTITY>)serializer.Deserialize(reader);
-                }
-            }
-
-            return textEntities;
-        }*/
 
         private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB()
         {
@@ -1751,25 +1761,20 @@ namespace ArabicTextAnalyzer.Controllers
             return null;
         }
 
-        /*private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY()
-        {
-            List<M_ARABIZIENTRY> arabiziEntries = new List<M_ARABIZIENTRY>();
-            string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABIZIENTRY).Name + ".txt");
-            XmlSerializer serializer = new XmlSerializer(arabiziEntries.GetType());
-            using (var reader = new System.IO.StreamReader(path))
-            {
-                arabiziEntries = (List<M_ARABIZIENTRY>)serializer.Deserialize(reader);
-            }
-
-            return arabiziEntries;
-        }*/
-
         private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY_DB()
         {
             using (var db = new ArabiziDbContext())
             {
                 return db.M_ARABIZIENTRYs.ToList();
             }
+        }
+
+        private M_ARABIZIENTRY loaddeserializeM_ARABIZIENTRY_EFSQL_uow(Guid arabiziWordGuid, ArabiziDbContext db)
+        {
+            // using (var db = new ArabiziDbContext())
+            // {
+            return db.M_ARABIZIENTRYs.SingleOrDefault(m => m.ID_ARABIZIENTRY == arabiziWordGuid);
+            // }
         }
 
         private List<M_ARABIZIENTRY> loaddeserializeM_ARABIZIENTRY_DAPPERSQL()
@@ -1811,19 +1816,6 @@ namespace ArabicTextAnalyzer.Controllers
             return null;
         }
 
-        /*private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD()
-        {
-            List<M_ARABICDARIJAENTRY_LATINWORD> latinWordsEntries = new List<M_ARABICDARIJAENTRY_LATINWORD>();
-            string path = Server.MapPath("~/App_Data/data_" + typeof(M_ARABICDARIJAENTRY_LATINWORD).Name + ".txt");
-            XmlSerializer serializer = new XmlSerializer(latinWordsEntries.GetType());
-            using (var reader = new System.IO.StreamReader(path))
-            {
-                latinWordsEntries = (List<M_ARABICDARIJAENTRY_LATINWORD>)serializer.Deserialize(reader);
-            }
-
-            return latinWordsEntries;
-        }*/
-
         private List<M_ARABICDARIJAENTRY_LATINWORD> loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DB()
         {
             using (var db = new ArabiziDbContext())
@@ -1844,19 +1836,6 @@ namespace ArabicTextAnalyzer.Controllers
                 return conn.Query<M_ARABICDARIJAENTRY_LATINWORD>(qry).ToList();
             }
         }
-
-        /*private List<M_XTRCTTHEME> loaddeserializeM_XTRCTTHEME_DAPPERSQL(String userId)
-        {
-            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                String qry = "SELECT * FROM T_XTRCTTHEME WHERE UserID = '" + userId + "' ORDER BY ThemeName ";
-
-                conn.Open();
-                return conn.Query<M_XTRCTTHEME>(qry).ToList();
-            }
-        }*/
 
         private M_XTRCTTHEME loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(String userId)
         {
@@ -2030,7 +2009,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private /*int*/void SaveTranslatedPost(string postid, string TranslatedText)
+        private void SaveTranslatedPost(string postid, string TranslatedText)
         {
             // int returndata = 0;
 
@@ -2063,7 +2042,7 @@ namespace ArabicTextAnalyzer.Controllers
             return returndata;*/
         }
 
-        private /*int*/void upadateFb_PostMailBody(string postid, string mailBody="",int? nooftimemailsend=0)
+        private void upadateFb_PostMailBody(string postid, string mailBody="",int? nooftimemailsend=0)
         {
            
             if (!string.IsNullOrEmpty(postid))
@@ -2258,160 +2237,6 @@ namespace ArabicTextAnalyzer.Controllers
         public string TranslatedText { get; set; }
         public List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntity { get; set; }
     }
-
-    // Class for call the APIs by html
-    /*public static class HtmlHelpers
-    {
-        public static async Task<string> PostAPIRequest(string url, string para, string type = "POST")
-        {
-            HttpClient client;
-            string result = string.Empty;
-            try
-            {
-                client = new HttpClient();
-                client.DefaultRequestHeaders.Clear();
-                ServicePointManager.Expect100Continue = true;
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                // Use SecurityProtocolType.Ssl3 if needed for compatibility reasons
-
-                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
-
-                byte[] messageBytes = System.Text.Encoding.UTF8.GetBytes(para);
-                var content = new ByteArrayContent(messageBytes);
-                content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-                content.Headers.Add("access-control-allow-origin", "*");
-                if (!string.IsNullOrEmpty(type) && type == "POST")
-                {
-                    var response = await client.PostAsync(url, content);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        result = await response.Content.ReadAsStringAsync();
-                        dynamic dynamicObject = JObject.Parse(result);
-                        if (dynamicObject.status != null)
-                        {
-                            result = Convert.ToString(dynamicObject.status);
-                        }
-                    }
-                    else
-                    {
-                        result = await response.Content.ReadAsStringAsync();
-                    }
-                }
-                if (!string.IsNullOrEmpty(type) && type == "GET")
-                {
-                    try
-                    {
-                        var response = await new HttpClient().GetAsync(url);
-                        if (response.IsSuccessStatusCode)
-                        {
-                            result = await response.Content.ReadAsStringAsync();
-                            //var dynamicObject = JsonConvert.DeserializeObject(result);
-                            dynamic dynamicObject = JObject.Parse(result);
-                            if (dynamicObject.M_ARABICDARIJAENTRY != null)
-                            {
-                                result = "Success" + Convert.ToString(dynamicObject.M_ARABICDARIJAENTRY.ArabicDarijaText);
-                            }
-
-                            //Assert.IsTrue(("تجريبى" == trad) || ("تجريبة" == trad));
-                        }
-                        else
-                        {
-                            result = await response.Content.ReadAsStringAsync();
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        result = e.Message;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-
-            return result;
-        }
-
-        public static async Task<Tuple<String, String>> PostAPIRequest_message(string url, string para, string type = "POST")
-        {
-            HttpClient client;
-            string result = string.Empty;
-            String message = String.Empty;
-
-            try
-            {
-                client = new HttpClient();
-                client.DefaultRequestHeaders.Clear();
-                ServicePointManager.Expect100Continue = true;
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                // Use SecurityProtocolType.Ssl3 if needed for compatibility reasons
-
-                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
-
-                byte[] messageBytes = System.Text.Encoding.UTF8.GetBytes(para);
-                var content = new ByteArrayContent(messageBytes);
-                content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-                content.Headers.Add("access-control-allow-origin", "*");
-                if (!string.IsNullOrEmpty(type) && type == "POST")
-                {
-                    var response = await client.PostAsync(url, content);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        result = await response.Content.ReadAsStringAsync();
-                        dynamic dynamicObject = JObject.Parse(result);
-                        if (dynamicObject.status != null)
-                        {
-                            result = Convert.ToString(dynamicObject.status);
-                            message = Convert.ToString(dynamicObject.message);
-                        }
-                    }
-                    else
-                    {
-                        result = await response.Content.ReadAsStringAsync();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-
-            return new Tuple<String, String>(result, message);
-        }
-
-        public static string MakeHttpClientRequest(string requestUrl, Dictionary<string, string> requestContent, HttpMethod verb)
-        {
-            string result = string.Empty;
-            using (WebClient client1 = new WebClient())
-            {
-                try
-                {
-
-                    var requestData = new NameValueCollection();
-                    if (requestContent != null)
-                    {
-                        foreach (var item in requestContent)
-                        {
-                            requestData.Add(item.Key, item.Value);
-                        }
-                    }
-                    byte[] response1 = client1.UploadValues(requestUrl, requestData);
-
-                    result = System.Text.Encoding.UTF8.GetString(response1);
-                }
-                catch (Exception ex)
-                {
-                    result = ex.Message;
-
-                }
-
-            }
-            return result;
-        }
-    }*/
 
     public static class UtilityFunctions
     {
