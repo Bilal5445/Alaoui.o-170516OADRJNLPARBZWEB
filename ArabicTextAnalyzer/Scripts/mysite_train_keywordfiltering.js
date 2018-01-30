@@ -923,6 +923,7 @@ $(document).ready(function () {
     // every 2 secs, refresh posts and comments from FB
     var intervalFB = setInterval(function () {
         if (fbTabPagesLoaded == false) {
+            console.log("Before RefreshFBPostsAndComments()");
             RefreshFBPostsAndComments();
         } else {
             console.log("Found the tabs");
