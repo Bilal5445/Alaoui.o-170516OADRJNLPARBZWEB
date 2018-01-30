@@ -10,6 +10,7 @@ var TranslateCommentIsClicked = false;
 var AddInfluencerIsClicked = false;
 var RetrieveFBPostIsClicked = false;
 var RetrieveFBPostCommentsIsClicked = false;
+var TimeintervalforFBMethods = 1000 * 60 * 2; // Time interval for method run for get fb posts and comments and translate posts and comments
 var fbTabPagesLoaded = false;
 var AddTextEntityClicked = false;
 
@@ -655,69 +656,12 @@ function AddInfluencer() {
 // Js for Retrieve fb post or refresh button
 function JsRetrieveFBPosts(influencerurl_name, influencerid) {
 
-    // check before
-    if (RetrieveFBPostIsClicked == true)
-        return;
+    //
+    var model = new FBDataVM();
+    model.RetrieveFBPostIsClicked = false;
 
-    // mark as clicked to avoid double processing
-    RetrieveFBPostIsClicked = true;
-
-    // real work : call on controller Train action Retrieve FB Posts
-    $.ajax({
-        "dataType": 'json',
-        "type": "GET",
-        "url": "/Train/RetrieveFBPosts",
-        "data": {
-            "influencerurl_name": influencerurl_name
-        },
-        "success": function (msg) {
-
-            console.log("msg : " + msg);
-            console.log("msg.status : " + msg.status);
-
-            //
-            RetrieveFBPostIsClicked = false;
-
-            if (msg.status) {
-
-                console.log("retrievedPostsCount : " + msg.retrievedPostsCount);   // DBG
-                console.log("retrievedCommentsCount : " + msg.retrievedCommentsCount);   // DBG
-
-                // refresh
-                ResetDataTable(influencerid);
-
-            } else {
-
-                console.log("Success Msg Status Error : " + msg.message);
-                alert("Success Msg Status Error : " + msg.message);
-            }
-        },
-        "error": function (jqXHR, exception) {
-
-            RetrieveFBPostIsClicked = false;
-
-            //
-            var msg = '';
-            if (jqXHR.status === 0) {
-                msg = 'Not connect.\n Verify Network.';
-            } else if (jqXHR.status == 404) {
-                msg = 'Requested page not found. [404]';
-            } else if (jqXHR.status == 500) {
-                msg = 'Internal Server Error [500].';
-            } else if (exception === 'parsererror') {
-                msg = 'Requested JSON parse failed.';
-            } else if (exception === 'timeout') {
-                msg = 'Time out error.';
-            } else if (exception === 'abort') {
-                msg = 'Ajax request aborted.';
-            } else {
-                msg = 'Uncaught Error.\n' + jqXHR.responseText;
-            }
-            // $('#post').html(msg);
-            console.log("Error : " + msg);
-            alert("Error : " + msg);
-        }
-    });
+    // call function
+    model.JsRetrieveFBPosts(influencerurl_name, influencerid);
 }
 
 // Method for schedule a task for retrieve the fb posts and comments in a time interval
@@ -911,9 +855,9 @@ function RefreshFBPostsAndComments() {
             }
 
             console.log(influencerUrl + "\n" + influencerid);
-            /*if (influencerUrl != null && influencerUrl != undefined && influencerid != null && influencerid != undefined) {
+            if (influencerUrl != null && influencerUrl != undefined && influencerid != null && influencerid != undefined) {
                 model.init(influencerUrl, influencerid, isAutoRetrieveFBPostAndComments);
-            }*/
+            }
         }
     }
 }
