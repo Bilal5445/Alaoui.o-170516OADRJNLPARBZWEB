@@ -728,6 +728,39 @@ namespace ArabicTextAnalyzer.Controllers
             // INPROGRESS
             return null;
         }
+
+        // Method for Add target entities on the influencer table.
+        [HttpGet]
+        public async Task<object> AddTextEntity(string influencerid, string targetText, bool? isAutoRetrieveFBPostandComments)
+        {
+            string errMessage = string.Empty;
+            bool status = false;
+            // Get the influencer if it exist.
+            try
+            {
+                var influencer = loadT_Fb_InfluencerAsId(influencerid);
+                if (influencer != null && influencer.id != null)
+                {
+                    // Update influencer target entities value.
+                    if (!string.IsNullOrEmpty(targetText))
+                    {
+                        updateT_Fb_InfluencerAsId(influencerid, targetText, isAutoRetrieveFBPostandComments);
+                        status = true;
+                        errMessage = "Target text added successfully.";
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                errMessage = e.Message;
+            }
+
+            return JsonConvert.SerializeObject(new
+            {
+                status = status,
+                message = errMessage
+            });
+        }
         #endregion
 
         #region FRONT YARD ACTIONS TWINGLY
@@ -1633,6 +1666,49 @@ namespace ArabicTextAnalyzer.Controllers
                 //
                 conn.Open();
                 return conn.Query<FB_POST>(qry).ToList();
+            }
+        }
+
+        // Get Influencer details on the influencerId 
+        private T_FB_INFLUENCER loadT_Fb_InfluencerAsId(string influencerid = "")
+        {
+            T_FB_INFLUENCER t_fb_Influencer = new T_FB_INFLUENCER();
+            if (!string.IsNullOrEmpty(influencerid))
+            {
+                String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    String qry = "SELECT * FROM T_FB_INFLUENCER where id='" + influencerid + "'";
+
+                    conn.Open();
+                    t_fb_Influencer = conn.QueryFirst<T_FB_INFLUENCER>(qry);
+                    return t_fb_Influencer;
+                }
+            }
+            else
+            {
+                return t_fb_Influencer;
+            }
+        }
+
+        private void updateT_Fb_InfluencerAsId(string influencerid = "", string Text = "", bool? isAutoRetrieveFBPostandComments = false)
+        {
+            if (!string.IsNullOrEmpty(influencerid) && !string.IsNullOrEmpty(Text))
+            {
+                String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    String qry = "UPDATE T_FB_INFLUENCER SET TargetEntities = N'" + Text + "', AutoRetrieveFBPostAndComments = '" + isAutoRetrieveFBPostandComments + "' where id='" + influencerid + "'";
+                    using (SqlCommand cmd = new SqlCommand(qry, conn))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                }
             }
         }
 
