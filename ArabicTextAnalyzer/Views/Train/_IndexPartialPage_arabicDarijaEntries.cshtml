@@ -87,6 +87,7 @@
         {
             <div role="tabpanel" class="tab-pane" id="second_@item.id">
                 <!-- Button "Retrieve" to retreive FB page posts and associated comments -->
+                <!-- And button add entities to cross-match against -->
                 <div class="form-group">
                     <a class="btn btn-outline-primary btn-xs" id="import_posts" onclick="JsRetrieveFBPosts('@item.url_name','@item.id')">Retrieve new posts <span class="glyphicon glyphicon-refresh"></span></a>
                     <a class="btn btn-danger btn-xs pull-right" id="insert_list" data-toggle='modal' data-target='#myModal_@item.id'>Add Text Entity Type <span class="glyphicon glyphicon-refresh"></span></a>
