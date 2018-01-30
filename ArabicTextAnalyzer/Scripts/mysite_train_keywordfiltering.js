@@ -830,6 +830,7 @@ $(document).ready(function () {
     // every 2 secs, refresh posts and comments from FB
     var intervalFB = setInterval(function () {
         if (fbTabPagesLoaded == false) {
+            console.log("Before RefreshFBPostsAndComments()");
             RefreshFBPostsAndComments();
         } else {
             console.log("Found the tabs");
@@ -838,21 +839,29 @@ $(document).ready(function () {
     }, 2000);
 });
 
-// Function for add the text entity as per user influencer.
+// Js Function for add the target text entities as per user influencer. The target text entities are used to cross-match against with the 
+// Negative/Explative NER in the FB filter module
 function AddTextEntity(influencerid) {
+
     if (AddTextEntityClicked == false) {
+
         var targetText = $('#txtTxetEntity_' + influencerid).val();
         var isAutoRetrieveFBPostandComments = false;
 
         if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
+
             $('#cbxAutoRetrieveFBPostAndComments_' + influencerid).prop("checked", true)
             isAutoRetrieveFBPostandComments = true;
-        }
-        else {
+
+        } else {
+
             $('#cbxAutoRetrieveFBPostAndComments_' + influencerid).prop("checked", false)
         }
+
         if (targetText.length > 0) {
+
             AddTextEntityClicked = true;
+
             $.ajax({
                 "dataType": 'json',
                 "type": "GET",
@@ -861,29 +870,32 @@ function AddTextEntity(influencerid) {
                     "influencerid": influencerid, "targetText": targetText, "isAutoRetrieveFBPostandComments": isAutoRetrieveFBPostandComments
                 },
                 "success": function (msg) {
+
                     console.log(msg);
 
                     // reset to not clicked
                     AddTextEntityClicked = false;
 
                     if (msg.status) {
+
                         $('#myModal_' + influencerid).modal('hide');
+
                     } else {
+
                         alert("Error " + msg.message);
                     }
                 },
                 "error": function () {
+
                     AddTextEntityClicked = false;
                     alert("Error");
                 }
             });
-        }
-        else {
+        } else {
+
             alert("Please enter target text.");
         }
-
     }
-
 }
 
 // Method for reset data table of influence fb.
