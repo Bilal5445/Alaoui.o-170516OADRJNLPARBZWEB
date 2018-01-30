@@ -765,8 +765,7 @@ var FBDataVM = function () {
         setInterval(function () {
             if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
                 currentInstance.isAutoRetrieveFBPostAndComments = true;
-            }
-            else {
+            } else {
                 currentInstance.isAutoRetrieveFBPostAndComments = false;
             }
 
@@ -776,16 +775,12 @@ var FBDataVM = function () {
 
         }, TimeintervalforFBMethods);
 
-
-
         //
-
         setInterval(function () {
 
             if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
                 currentInstance.isAutoRetrieveFBPostAndComments = true;
-            }
-            else {
+            } else {
                 currentInstance.isAutoRetrieveFBPostAndComments = false;
             }
 
@@ -794,7 +789,6 @@ var FBDataVM = function () {
             }
 
         }, TimeintervalforFBMethods);
-
     };
 };
 
