@@ -1,7 +1,7 @@
 ﻿<!-- Nav tabs -->
 @using OADRJNLPCommon.Models;
 
-@{ 
+@{
     List<T_FB_INFLUENCER> FbInfluencer = ViewBag.AllInfluence;
 
     int MaxFbPageAllowed = 5;
@@ -48,7 +48,7 @@
     {
         <!-- admin checkbox to show all posts -->
         <li role="presentation" class="mainUL floatright">
-            <label><input type="checkbox" onclick="BringNewDataIntoPartialView(@(NegatedAdminModeShowAll.ToString().ToLower()));" @htmlchecked > Show all posts/comments for all users</label>
+            <label><input type="checkbox" onclick="BringNewDataIntoPartialView(@(NegatedAdminModeShowAll.ToString().ToLower()));" @htmlchecked> Show all posts/comments for all users</label>
         </li>
     }
 </ul>
