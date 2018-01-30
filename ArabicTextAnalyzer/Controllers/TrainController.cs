@@ -22,6 +22,7 @@ using System.Threading.Tasks;
 using ArabicTextAnalyzer.Contracts;
 using ArabicTextAnalyzer.BO;
 using System.Net.Mail;
+using Newtonsoft.Json.Linq;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -554,41 +555,67 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public async Task<object> RetrieveFBPosts(string influencerurl_name)
         {
-            T_FB_INFLUENCER influencer = new T_FB_INFLUENCER();
-            influencer.id = "";
-            influencer.url_name = influencerurl_name;
-            string errMessage = string.Empty;
-            bool status = false;
-            string translatedstring = "";
+            String result = String.Empty;
 
-            string result = null;
-            if (!string.IsNullOrEmpty(influencerurl_name))
+            try
             {
+                String errMessage = string.Empty;
+                bool status = false;
+                int retrievedPostsCount = -1;
+                int retrievedCommentsCount = -1;
+
                 var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchFBInfluencerPosts?CallFrom=" + influencerurl_name;
                 // ex : url : http://localhost:8081//Data/FetchFBInfluencerPosts?...
-                result = await HtmlHelpers.PostAPIRequest(url, "", type: "POST");
+                result = await HtmlHelpers.PostAPIRequest_result(url, "");
 
+                // parse result
+                JObject jObject = JObject.Parse(result);
+
+                //
                 if (result.ToLower().Contains("true"))
                 {
                     status = true;
-                    translatedstring = result;
+
+                    // parse for retrieved posts count
+                    JValue jretrievedPostsCount = (JValue)jObject["retrievedPostsCount"];
+                    retrievedPostsCount = Convert.ToInt32(jretrievedPostsCount);
+
+                    // parse for retrieved posts count
+                    JValue jretrievedCommentsCount = (JValue)jObject["retrievedCommentsCount"];
+                    retrievedCommentsCount = Convert.ToInt32(jretrievedCommentsCount);
                 }
                 else
                 {
-                    errMessage = result;
+                    // parse for error message
+                    JValue jmessage = (JValue)jObject["message"];
+                    errMessage = Convert.ToString(jmessage);
                 }
-            }
-            else
-            {
-                errMessage = "Influencer url is null.";
-            }
 
-            return JsonConvert.SerializeObject(new
+                return JsonConvert.SerializeObject(new
+                {
+                    status = status,
+                    retrievedPostsCount = retrievedPostsCount,
+                    retrievedCommentsCount = retrievedCommentsCount,
+                    message = errMessage
+                });
+            }
+            catch (JsonReaderException ex)
             {
-                status = status,
-                recordsFiltered = translatedstring,
-                message = errMessage
-            });
+                Logging.Write(Server, ex.GetType().Name);
+                Logging.Write(Server, result);
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Logging.Write(Server, ex.GetType().Name);
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                return null;
+            }
         }
 
         // Method for translate the fb posts
@@ -701,13 +728,17 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public async Task<object> TranslateAndExtractNERFBPostAndComments(string influencerid)
         {
+            // get current theme id
+            var userId = User.Identity.GetUserId();
+            var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+            var themeId = userActiveXtrctTheme.ID_XTRCTTHEME;
 
             bool status = false;
             string errMessage = string.Empty;
             string urlForMail = "";//string for send the url with the negative word for send email.
             if (!string.IsNullOrEmpty(influencerid))
             {
-                T_FB_INFLUENCER influencer = loadT_Fb_InfluencerAsId(influencerid);
+                T_FB_INFLUENCER influencer = loadDeserializeT_FB_INFLUENCER(influencerid, themeId);
                 List<FB_POST> fbPosts = loaddeserializeT_FB_POST_DAPPERSQL(influencerid).ToList();
                 if (fbPosts != null && fbPosts.Count() > 0)
                 {
