@@ -186,6 +186,7 @@ function LoadFacebookPosts(fluencerid) {
 
 // table for FB post table
 function InitializeFBPostsDataTables(fluencerid) {
+
     $(function () {
 
         // Initialize DataTables

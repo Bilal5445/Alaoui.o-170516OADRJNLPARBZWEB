@@ -1177,6 +1177,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
+        [HttpGet]
         public object DataTablesNet_ServerSide_FB_Posts_GetList(string fluencerid)
         {
             // get from client side, from where we start the paging
@@ -1227,13 +1228,25 @@ namespace ArabicTextAnalyzer.Controllers
             });
         }
 
+        [HttpGet]
         public object DataTablesNet_ServerSide_FB_Comments_GetList(string id)
         {
             //
             if (string.IsNullOrEmpty(id))
                 return null;
 
-            //
+            // get from client side, from where we start the paging
+            int start = 0;
+            int.TryParse(this.Request.QueryString["start"], out start);            // GET
+
+            // get from client side, to which length the paging goes
+            int itemsPerPage = 10;
+            int.TryParse(this.Request.QueryString["length"], out itemsPerPage);    // GET
+
+            // get from client search word
+            string searchValue = this.Request.QueryString["search[value]"]; // GET
+
+            // get main (whole) data from DB first
             var items = loaddeserializeT_FB_Comments_DAPPERSQL(id).Select(c => new
             {
                 Id = c.Id,
@@ -1245,11 +1258,24 @@ namespace ArabicTextAnalyzer.Controllers
             // get the number of entries
             var itemsCount = items.Count;
 
+            // adjust itemsPerPage case show all
+            if (itemsPerPage == -1)
+                itemsPerPage = itemsCount;
+
+            // filter on search term if any
+            if (!String.IsNullOrEmpty(searchValue))
+                items = items.Where(a => a.message.ToUpper().Contains(searchValue.ToUpper()) || (a.translated_message != null && a.translated_message.ToUpper().Contains(searchValue.ToUpper()))).ToList();
+
+            var itemsFilteredCount = items.Count;
+
+            // page as per request (index of page and length)
+            items = items.Skip(start).Take(itemsPerPage).ToList();
+
             //
             return JsonConvert.SerializeObject(new
             {
                 recordsTotal = itemsCount.ToString(),
-                recordsFiltered = itemsCount.ToString(),
+                recordsFiltered = itemsFilteredCount.ToString(),
                 data = items
             });
         }
