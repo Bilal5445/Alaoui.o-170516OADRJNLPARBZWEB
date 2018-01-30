@@ -735,31 +735,42 @@ namespace ArabicTextAnalyzer.Controllers
         {
             string errMessage = string.Empty;
             bool status = false;
-            // Get the influencer if it exist.
+
             try
             {
-                var influencer = loadT_Fb_InfluencerAsId(influencerid);
+                // get current theme id
+                var userId = User.Identity.GetUserId();
+                var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+                var themeId = userActiveXtrctTheme.ID_XTRCTTHEME;
+
+                // Get the influencer if it exists
+                var influencer = loadDeserializeT_FB_INFLUENCER(influencerid, themeId);
                 if (influencer != null && influencer.id != null)
                 {
                     // Update influencer target entities value.
                     if (!string.IsNullOrEmpty(targetText))
                     {
-                        updateT_Fb_InfluencerAsId(influencerid, targetText, isAutoRetrieveFBPostandComments);
+                        updateT_FB_INFLUENCERAsId(influencerid, influencer.fk_theme, targetText, isAutoRetrieveFBPostandComments);
                         status = true;
                         errMessage = "Target text added successfully.";
                     }
                 }
-            }
-            catch (Exception e)
-            {
-                errMessage = e.Message;
-            }
 
-            return JsonConvert.SerializeObject(new
+                //
+                return JsonConvert.SerializeObject(new
+                {
+                    status = status,
+                    message = errMessage
+                });
+            }
+            catch (Exception ex)
             {
-                status = status,
-                message = errMessage
-            });
+                Logging.Write(Server, ex.GetType().Name);
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                return null;
+            }
         }
         #endregion
 
@@ -1670,29 +1681,23 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         // Get Influencer details on the influencerId 
-        private T_FB_INFLUENCER loadT_Fb_InfluencerAsId(string influencerid = "")
+        private T_FB_INFLUENCER loadDeserializeT_FB_INFLUENCER(string influencerid, Guid themeid)
         {
-            T_FB_INFLUENCER t_fb_Influencer = new T_FB_INFLUENCER();
-            if (!string.IsNullOrEmpty(influencerid))
-            {
-                String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
 
-                using (SqlConnection conn = new SqlConnection(ConnectionString))
-                {
-                    String qry = "SELECT * FROM T_FB_INFLUENCER where id='" + influencerid + "'";
-
-                    conn.Open();
-                    t_fb_Influencer = conn.QueryFirst<T_FB_INFLUENCER>(qry);
-                    return t_fb_Influencer;
-                }
-            }
-            else
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                return t_fb_Influencer;
+                String qry = "SELECT * FROM T_FB_INFLUENCER "
+                        + "WHERE id = '" + influencerid + "' "
+                        + "AND fk_theme = '" + themeid + "'";
+
+                //
+                conn.Open();
+                return conn.QuerySingle<T_FB_INFLUENCER>(qry);
             }
         }
 
-        private void updateT_Fb_InfluencerAsId(string influencerid = "", string Text = "", bool? isAutoRetrieveFBPostandComments = false)
+        private void updateT_FB_INFLUENCERAsId(string influencerid, string themeId, string Text, bool? isAutoRetrieveFBPostandComments = false)
         {
             if (!string.IsNullOrEmpty(influencerid) && !string.IsNullOrEmpty(Text))
             {
@@ -1700,7 +1705,10 @@ namespace ArabicTextAnalyzer.Controllers
 
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
-                    String qry = "UPDATE T_FB_INFLUENCER SET TargetEntities = N'" + Text + "', AutoRetrieveFBPostAndComments = '" + isAutoRetrieveFBPostandComments + "' where id='" + influencerid + "'";
+                    // MC300118 update target entities for the current FB page and the current theme
+                    String qry = "UPDATE T_FB_INFLUENCER SET TargetEntities = N'" + Text + "', AutoRetrieveFBPostAndComments = '" + isAutoRetrieveFBPostandComments + "' "
+                                + "WHERE id = '" + influencerid + "' "
+                                + "AND fk_theme = '" + themeId + "' ";
                     using (SqlCommand cmd = new SqlCommand(qry, conn))
                     {
                         cmd.CommandType = CommandType.Text;
@@ -1753,10 +1761,6 @@ namespace ArabicTextAnalyzer.Controllers
 
         private void SaveTranslatedPost(string postid, string TranslatedText)
         {
-            // int returndata = 0;
-
-            /*try
-            {*/
             if (!string.IsNullOrEmpty(postid) && !string.IsNullOrEmpty(TranslatedText))
             {
                 String qry = "UPDATE T_FB_POST SET translated_text = N'" + TranslatedText + "' WHERE id = '" + postid + "'";
@@ -1769,19 +1773,11 @@ namespace ArabicTextAnalyzer.Controllers
                     {
                         cmd.CommandType = CommandType.Text;
                         conn.Open();
-                        /*returndata = */
                         cmd.ExecuteNonQuery();
                         conn.Close();
                     }
                 }
             }
-            /*}
-            catch (Exception e)
-            {
-                returndata = 0;
-            }
-
-            return returndata;*/
         }
 
         private void SaveTranslatedComments(string postid, string TranslatedText)
@@ -1823,7 +1819,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
-                    String qry = "SELECT * FROM T_FB_INFLUENCER where fk_theme='" + theme.ID_XTRCTTHEME + "'";
+                    String qry = "SELECT * FROM T_FB_INFLUENCER WHERE fk_theme = '" + theme.ID_XTRCTTHEME + "'";
 
                     conn.Open();
                     return conn.Query<T_FB_INFLUENCER>(qry).ToList();
@@ -1833,8 +1829,6 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 return t_fb_Influencer;
             }
-
-
         }
 
         private List<ArabiziToArabicViewModel> loadArabiziToArabicViewModel_DAPPERSQL()
