@@ -27,11 +27,14 @@
         <!-- subsequent tabs : FB pages -->
         foreach (var item in FbInfluencer)
         {
+            <!-- hidden info about the fb page : urlname, id, auto retrieve y/n -->
             <li class="hide">
                 <input type="hidden" id="hdnURLName_@count" value="@item.url_name" />
                 <input type="hidden" id="hdnId_@count" value="@item.id" />
                 <input type="hidden" id="hdnIsAutoStart_@count" value="@item.AutoRetrieveFBPostAndComments" />
             </li>
+
+            <!-- FB page -->
             <li role="presentation" class="mainUL" id="@item.id"><a aria-controls="second" role="tab" data-toggle="tab" style="cursor:pointer;" onclick="LoadFacebookPosts('@item.id')">@item.name</a></li>
             count = count + 1;
         }

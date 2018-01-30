@@ -809,13 +809,19 @@ function RefreshFBPostsAndComments() {
         fbTabPagesLoaded = true; // this flag will maintain the loading of the tabs to appear the threading.
         for (var i = 1; i <= noOfFbPages; i++) {
 
+            // create a model per FB page
             var model = new FBDataVM();
+
+            // get fb page url & id
             var influencerUrl = $('#hdnURLName_' + i).val();
             var influencerid = $('#hdnId_' + i).val();
+
+            // get fb page auto retrieve y/n
             var isAutoRetrieveFBPostAndComments = false;
             if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
                 isAutoRetrieveFBPostAndComments = true;
             }
+
             console.log(influencerUrl + "\n" + influencerid);
             if (influencerUrl != null && influencerUrl != undefined && influencerid != null && influencerid != undefined) {
                 model.init(influencerUrl, influencerid, isAutoRetrieveFBPostAndComments);
