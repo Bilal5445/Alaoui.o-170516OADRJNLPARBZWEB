@@ -508,7 +508,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [HttpGet]
-        public async Task<object> RetrieveFBPost(string influencerurl_name)
+        public async Task<object> RetrieveFBPosts(string influencerurl_name)
         {
             T_FB_INFLUENCER influencer = new T_FB_INFLUENCER();
             influencer.id = "";
