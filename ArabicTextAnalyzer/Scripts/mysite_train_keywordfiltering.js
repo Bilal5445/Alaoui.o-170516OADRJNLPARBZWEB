@@ -721,7 +721,7 @@ var FBDataVM = function () {
                         ResetDataTable(influencerid);
 
                     } else {
-                        
+
                         console.log("Success Msg Status Error : " + msg.message);
                         alert("Success Msg Status Error : " + msg.message);
                     }

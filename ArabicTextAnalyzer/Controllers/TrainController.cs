@@ -709,7 +709,7 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public async Task<object> TranslateAndExtractNERFBPostAndComments(string influencerid)
         {
-           
+
             bool status = false;
             string errMessage = string.Empty;
             string urlForMail = "";//string for send the url with the negative word for send email.
@@ -719,7 +719,7 @@ namespace ArabicTextAnalyzer.Controllers
                 List<FB_POST> fbPosts = loaddeserializeT_FB_POST_DAPPERSQL(influencerid).ToList();
                 if (fbPosts != null && fbPosts.Count() > 0)
                 {
-                    fbPosts = fbPosts.OrderByDescending(c=>c.date_publishing).Take(100).ToList();
+                    fbPosts = fbPosts.OrderByDescending(c => c.date_publishing).Take(100).ToList();
                     foreach (var fbPostForTranslate in fbPosts)
                     {
                         bool isNegative = false;
@@ -779,7 +779,7 @@ namespace ArabicTextAnalyzer.Controllers
                             var fbComments = loaddeserializeT_FB_Comments_DAPPERSQL(id);
                             if (fbComments != null && fbComments.Count() > 0)
                             {
-                                var fbCommentsForTranslate = fbComments.Where(c => c.message != null && c.translated_message == null).OrderByDescending(c=>c.created_time).Take(100).ToList();
+                                var fbCommentsForTranslate = fbComments.Where(c => c.message != null && c.translated_message == null).OrderByDescending(c => c.created_time).Take(100).ToList();
                                 if (fbCommentsForTranslate != null && fbCommentsForTranslate.Count() > 0)
                                     foreach (var fbCommentForTranslate in fbCommentsForTranslate)
                                         if (!string.IsNullOrEmpty(fbCommentForTranslate.message) && string.IsNullOrEmpty(fbCommentForTranslate.translated_message))
@@ -831,37 +831,37 @@ namespace ArabicTextAnalyzer.Controllers
                         if (isNegative == true || isNegativeComments == true)
                         {
                             string postURL = "<a href ='www.facebook.com/" + influencer.url_name + "/posts/" + fbPostForTranslate.id.Split('_')[1] + "'>www.facebook.com/" + influencer.url_name + "/posts/" + fbPostForTranslate.id.Split('_')[1] + " </a>";
-                            string body = "Hello user,<br/>Some bad words has been detected on your facebook page" + influencer.name + ".<br/>"+postURL+"<br/><table>" + urlForMail + "</table></br>Please remove the words from the page.<br/>Thanks.";
-                            if(string.IsNullOrEmpty(fbPostForTranslate.MailBody))
+                            string body = "Hello user,<br/>Some bad words has been detected on your facebook page" + influencer.name + ".<br/>" + postURL + "<br/><table>" + urlForMail + "</table></br>Please remove the words from the page.<br/>Thanks.";
+                            if (string.IsNullOrEmpty(fbPostForTranslate.MailBody))
                             {
-                                upadateFb_PostMailBody(fbPostForTranslate.id,mailBody:body);
+                                upadateFb_PostMailBody(fbPostForTranslate.id, mailBody: body);
                             }
-                            
+
                         }
                     }
                 }
                 // sending mail about negative NERs
-                List<FB_POST> sendMailPosts = loaddeserializeT_FB_POST_DAPPERSQL(influencerid,isForSendMail:true);
-                if (sendMailPosts!=null && sendMailPosts.Count>0)
+                List<FB_POST> sendMailPosts = loaddeserializeT_FB_POST_DAPPERSQL(influencerid, isForSendMail: true);
+                if (sendMailPosts != null && sendMailPosts.Count > 0)
+                {
+                    var userid = User.Identity.GetUserId();
+                    var db1 = new ApplicationDbContext();
+                    var user = db1.Users.FirstOrDefault(c => c.Id == userid);
+                    if (user != null)
                     {
-                        var userid = User.Identity.GetUserId();
-                        var db1 = new ApplicationDbContext();
-                        var user = db1.Users.FirstOrDefault(c => c.Id == userid);
-                        if (user != null)
+                        try
                         {
-                            try
+                            var email = user.Email;
+                            if (!string.IsNullOrEmpty(email))
                             {
-                                var email = user.Email;
-                                if (!string.IsNullOrEmpty(email))
-                                {      
-                                foreach(var posts in sendMailPosts)
+                                foreach (var posts in sendMailPosts)
                                 {
-                                    if(!string.IsNullOrEmpty(posts.MailBody))
+                                    if (!string.IsNullOrEmpty(posts.MailBody))
                                     {
                                         string subject = "Warning! Some bad words has been detected in your page.";
                                         string body = posts.MailBody;
                                         int n = 0;
-                                        if(posts.NoOfTimeMailSend<2 || posts.NoOfTimeMailSend==null)
+                                        if (posts.NoOfTimeMailSend < 2 || posts.NoOfTimeMailSend == null)
                                         {
                                             try
                                             {
@@ -875,31 +875,31 @@ namespace ArabicTextAnalyzer.Controllers
                                                     status = SendEmail(email, subject, body);
                                                     n = 2;
                                                 }
-                                                if(status==true)
+                                                if (status == true)
                                                 {
-                                                    upadateFb_PostMailBody(posts.id, nooftimemailsend:n);                                                 
+                                                    upadateFb_PostMailBody(posts.id, nooftimemailsend: n);
                                                 }
                                             }
-                                            catch(Exception e)
+                                            catch (Exception e)
                                             {
                                                 status = false;
                                                 errMessage = e.Message;
                                             }
-                                           
+
                                         }
                                     }
-                                }                                                               
                                 }
                             }
-                            catch (Exception e)
-                            {
-                                status = false;
-                                errMessage = e.Message;
-                            }
+                        }
+                        catch (Exception e)
+                        {
+                            status = false;
+                            errMessage = e.Message;
                         }
                     }
                 }
-            
+            }
+
             return JsonConvert.SerializeObject(new
             {
                 status = status,
@@ -909,7 +909,7 @@ namespace ArabicTextAnalyzer.Controllers
 
         // Method for Add target entities on the influencer table.
         [HttpGet]
-        public async Task<object> AddTextEntity(string influencerid, string targetText,bool? isAutoRetrieveFBPostandComments)
+        public async Task<object> AddTextEntity(string influencerid, string targetText, bool? isAutoRetrieveFBPostandComments)
         {
             string errMessage = string.Empty;
             bool status = false;
@@ -932,10 +932,10 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 errMessage = e.Message;
             }
-        
+
             return JsonConvert.SerializeObject(new
             {
-                status = status,              
+                status = status,
                 message = errMessage
             });
         }
@@ -1902,7 +1902,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private List<FB_POST> loaddeserializeT_FB_POST_DAPPERSQL(string influencerid = "",bool isForSendMail=false)
+        private List<FB_POST> loaddeserializeT_FB_POST_DAPPERSQL(string influencerid = "", bool isForSendMail = false)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
 
@@ -1914,7 +1914,7 @@ namespace ArabicTextAnalyzer.Controllers
                 //
                 if (!string.IsNullOrEmpty(influencerid))
                     qry += "WHERE fk_influencer = '" + influencerid + "' ";
-                if(isForSendMail==true)
+                if (isForSendMail == true)
                 {
                     qry += " and MailBody is not null and (nooftimemailsend is null or NoOfTimeMailSend<2) ";
                 }
@@ -1951,24 +1951,24 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private void updateT_Fb_InfluencerAsId(string influencerid = "",string Text="",bool? isAutoRetrieveFBPostandComments=false)
-        {           
+        private void updateT_Fb_InfluencerAsId(string influencerid = "", string Text = "", bool? isAutoRetrieveFBPostandComments = false)
+        {
             if (!string.IsNullOrEmpty(influencerid) && !string.IsNullOrEmpty(Text))
             {
                 String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
 
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
-                    String qry = "UPDATE T_FB_INFLUENCER SET TargetEntities=N'"+Text+ "',AutoRetrieveFBPostAndComments='"+isAutoRetrieveFBPostandComments+"' where id='" + influencerid + "'";
+                    String qry = "UPDATE T_FB_INFLUENCER SET TargetEntities=N'" + Text + "',AutoRetrieveFBPostAndComments='" + isAutoRetrieveFBPostandComments + "' where id='" + influencerid + "'";
                     using (SqlCommand cmd = new SqlCommand(qry, conn))
                     {
                         cmd.CommandType = CommandType.Text;
                         conn.Open();
                         cmd.ExecuteNonQuery();
                         conn.Close();
-                    }                                     
+                    }
                 }
-            }        
+            }
         }
 
         private List<FBFeedComment> loaddeserializeT_FB_Comments_DAPPERSQL(string postid = "")
@@ -2042,19 +2042,19 @@ namespace ArabicTextAnalyzer.Controllers
             return returndata;*/
         }
 
-        private void upadateFb_PostMailBody(string postid, string mailBody="",int? nooftimemailsend=0)
+        private void upadateFb_PostMailBody(string postid, string mailBody = "", int? nooftimemailsend = 0)
         {
-           
+
             if (!string.IsNullOrEmpty(postid))
             {
                 String qry = "UPDATE T_FB_POST SET ";
-                    if(!string.IsNullOrEmpty(mailBody))
+                if (!string.IsNullOrEmpty(mailBody))
                 {
-                    qry =qry+ " MailBody=N'" + mailBody + "' ";
+                    qry = qry + " MailBody=N'" + mailBody + "' ";
                 }
-                    if(nooftimemailsend>0)
+                if (nooftimemailsend > 0)
                 {
-                    qry = qry + " NoOfTimeMailSend='" + nooftimemailsend + "', LastMailSendOn='"+DateTime.Now+"' ";
+                    qry = qry + " NoOfTimeMailSend='" + nooftimemailsend + "', LastMailSendOn='" + DateTime.Now + "' ";
                 }
                 qry = qry + " WHERE id = '" + postid + "'";
 
@@ -2071,7 +2071,7 @@ namespace ArabicTextAnalyzer.Controllers
                         conn.Close();
                     }
                 }
-            }           
+            }
         }
 
         private void SaveTranslatedComments(string postid, string TranslatedText)
