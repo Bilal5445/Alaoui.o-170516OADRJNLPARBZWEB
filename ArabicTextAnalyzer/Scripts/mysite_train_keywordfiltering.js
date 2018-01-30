@@ -675,11 +675,16 @@ var FBDataVM = function () {
 
     // wrap function to call original function JsRetrieveFBPosts
     this.GetFBPostAndComments = function (influencerUrl, influencerid) {
+
         var currentInstance = this;
         var intervalFlag = true;
         // alert(influencerUrl + "\n" + influencerid);
         if (currentInstance.CallMethod == false) {
+
+            //
             currentInstance.CallMethod = true;
+
+            //
             currentInstance.JsRetrieveFBPosts(influencerUrl, influencerid, intervalFlag);
         }
     };
@@ -718,6 +723,7 @@ var FBDataVM = function () {
 
     // original function to retrieve fb posts (and comments as well) 
     this.JsRetrieveFBPosts = function (influencerurl_name, influencerid, intervalFlag) {
+
         var currentInstance = this;
         if ((currentInstance.RetrieveFBPostIsClicked == false && currentInstance.CallMethod == false) || intervalFlag == true) {
 
@@ -801,6 +807,7 @@ var FBDataVM = function () {
 
         //      
         setInterval(function () {
+
             if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
                 currentInstance.isAutoRetrieveFBPostAndComments = true;
             } else {
