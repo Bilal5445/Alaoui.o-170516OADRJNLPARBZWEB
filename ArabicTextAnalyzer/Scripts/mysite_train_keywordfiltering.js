@@ -719,6 +719,172 @@ function JsRetrieveFBPosts(influencerurl_name, influencerid) {
     });
 }
 
+// Method for schedule a task for retrieve the fb posts and comments in a time interval
+var FBDataVM = function () {
+
+    // init
+    this.CallMethod = false;
+    this.CallTranslateMethod = false;
+    this.RetrieveFBPostIsClicked = false;
+    this.isAutoRetrieveFBPostAndComments = false;
+
+    // wrap function to call original function JsRetrieveFBPosts
+    this.GetFBPostAndComments = function (influencerUrl, influencerid) {
+        var currentInstance = this;
+        var intervalFlag = true;
+        // alert(influencerUrl + "\n" + influencerid);
+        if (currentInstance.CallMethod == false) {
+            currentInstance.CallMethod = true;
+            currentInstance.JsRetrieveFBPosts(influencerUrl, influencerid, intervalFlag);
+        }
+    };
+
+    // function to translate posts/comments and extract NERs from them and filter over negative NER
+    this.TranslateFBPostAndComments = function (influencerUrl, influencerid) {
+        var currentInstance = this;
+        // alert(influencerid);
+        if (currentInstance.CallTranslateMethod == false) {
+            currentInstance.CallTranslateMethod = true;
+
+            //
+            $.ajax({
+                "dataType": 'json',
+                "type": "GET",
+                "url": "/Train/TranslateAndExtractNERFBPostAndComments",
+                "data": {
+                    "influencerid": influencerid
+                },
+                "success": function (msg) {
+                    console.log(msg);
+                    currentInstance.CallTranslateMethod = false;
+                    if (msg.status) {
+                        if ($('#' + influencerid).hasClass('active')) {
+                            ResetDataTable(influencerid);
+                        }
+                    }
+                },
+                "error": function () {
+                    console.log("error in TranslateFBPostAndComments");
+                    currentInstance.CallTranslateMethod = false;
+                }
+            });
+        }
+    };
+
+    // original function to retrieve fb posts (and comments as well) 
+    this.JsRetrieveFBPosts = function (influencerurl_name, influencerid, intervalFlag) {
+        var currentInstance = this;
+        if ((currentInstance.RetrieveFBPostIsClicked == false && currentInstance.CallMethod == false) || intervalFlag == true) {
+
+            // mark as clicked to avoid double processing
+            currentInstance.RetrieveFBPostIsClicked = true;
+            currentInstance.CallMethod = true;
+
+            // real work : call on controller Train action Retrieve FB Posts
+            $.ajax({
+                "dataType": 'json',
+                "type": "GET",
+                "url": "/Train/RetrieveFBPosts",
+                "data": {
+                    "influencerurl_name": influencerurl_name
+                },
+                "success": function (msg) {
+
+                    console.log("msg : " + msg);
+                    console.log("msg.status : " + msg.status);
+
+                    //
+                    currentInstance.RetrieveFBPostIsClicked = false;
+                    currentInstance.CallMethod = false;
+
+                    if (intervalFlag == true) {
+
+                        if ($('#' + influencerid).hasClass('active')) {
+
+                            // refresh
+                            ResetDataTable(influencerid);
+                        }
+
+                    } else if (msg.status) {
+
+                        console.log("retrievedPostsCount : " + msg.retrievedPostsCount);   // DBG
+                        console.log("retrievedCommentsCount : " + msg.retrievedCommentsCount);   // DBG
+
+                        // refresh
+                        ResetDataTable(influencerid);
+
+                    } else {
+
+                        console.log("Success Msg Status Error : " + msg.message);
+                        alert("Success Msg Status Error : " + msg.message);
+                    }
+                },
+                "error": function (jqXHR, exception) {
+
+                    currentInstance.RetrieveFBPostIsClicked = false;
+
+                    //
+                    var msg = '';
+                    if (jqXHR.status === 0) {
+                        msg = 'Not connect.\n Verify Network.';
+                    } else if (jqXHR.status == 404) {
+                        msg = 'Requested page not found. [404]';
+                    } else if (jqXHR.status == 500) {
+                        msg = 'Internal Server Error [500].';
+                    } else if (exception === 'parsererror') {
+                        msg = 'Requested JSON parse failed.';
+                    } else if (exception === 'timeout') {
+                        msg = 'Time out error.';
+                    } else if (exception === 'abort') {
+                        msg = 'Ajax request aborted.';
+                    } else {
+                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                    }
+                    // $('#post').html(msg);
+                    console.log("Error : " + msg);
+                    alert("Error : " + msg);
+                }
+            });
+        }
+    }
+
+    // function to start retrieving posts and posts from FB and translating them
+    this.init = function (influencerUrl, influencerid, isAutoRetrieveFBPostAndComments) {
+
+        //
+        var currentInstance = this;
+
+        //      
+        setInterval(function () {
+            if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
+                currentInstance.isAutoRetrieveFBPostAndComments = true;
+            } else {
+                currentInstance.isAutoRetrieveFBPostAndComments = false;
+            }
+
+            if (currentInstance.isAutoRetrieveFBPostAndComments == true) {
+                currentInstance.GetFBPostAndComments(influencerUrl, influencerid);
+            }
+
+        }, TimeintervalforFBMethods);
+
+        //
+        setInterval(function () {
+
+            if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
+                currentInstance.isAutoRetrieveFBPostAndComments = true;
+            } else {
+                currentInstance.isAutoRetrieveFBPostAndComments = false;
+            }
+
+            if (currentInstance.isAutoRetrieveFBPostAndComments == true) {
+                currentInstance.TranslateFBPostAndComments(influencerUrl, influencerid);
+            }
+
+        }, TimeintervalforFBMethods);
+    };
+};
+
 // Method for get the fb posts and comments of all pages.
 function RefreshFBPostsAndComments() {
 
