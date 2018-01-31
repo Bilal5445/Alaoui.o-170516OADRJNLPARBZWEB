@@ -2,6 +2,7 @@
 using ArabicTextAnalyzer.Domain;
 using ArabicTextAnalyzer.Domain.Models;
 using ArabicTextAnalyzer.Models.Repository;
+using ArabicTextAnalyzer.Models;
 using ArabicTextAnalyzer.ViewModels;
 using Dapper;
 using Newtonsoft.Json;
@@ -20,6 +21,7 @@ using OADRJNLPCommon.Models;
 using System.Threading.Tasks;
 using ArabicTextAnalyzer.Contracts;
 using ArabicTextAnalyzer.BO;
+using System.Net.Mail;
 using Newtonsoft.Json.Linq;
 
 namespace ArabicTextAnalyzer.Controllers
@@ -729,6 +731,212 @@ namespace ArabicTextAnalyzer.Controllers
             return null;
         }
 
+        // Translate and extract Ner from FB Post and Comments on a time interval.
+        [HttpGet]
+        public async Task<object> TranslateAndExtractNERFBPostAndComments(string influencerid)
+        {
+            // get current theme id
+            var userId = User.Identity.GetUserId();
+            var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+            var themeId = userActiveXtrctTheme.ID_XTRCTTHEME;
+
+            bool status = false;
+            string errMessage = string.Empty;
+            string urlForMail = "";//string for send the url with the negative word for send email.
+            if (!string.IsNullOrEmpty(influencerid))
+            {
+                T_FB_INFLUENCER influencer = loadDeserializeT_FB_INFLUENCER(influencerid, themeId);
+                List<FB_POST> fbPosts = loaddeserializeT_FB_POST_DAPPERSQL(influencerid).ToList();
+                if (fbPosts != null && fbPosts.Count() > 0)
+                {
+                    fbPosts = fbPosts.OrderByDescending(c => c.date_publishing).Take(100).ToList();
+                    foreach (var fbPostForTranslate in fbPosts)
+                    {
+                        bool isNegative = false;
+                        bool isNegativeComments = false;
+                        // for each post, translate and detect if there is negativity
+                        if (!string.IsNullOrEmpty(fbPostForTranslate.post_text) && string.IsNullOrEmpty(fbPostForTranslate.translated_text))
+                            try
+                            {
+                                bool isMatch = false;
+                                var returndata = await TranslateFBPostAndComments(content: fbPostForTranslate.post_text, PostId: fbPostForTranslate.id);
+                                if (returndata != null)
+                                {
+                                    if (returndata.Status == true)
+                                    {
+                                        if (returndata.TextEntity.Count() > 0)
+                                        {
+                                            if (returndata.TextEntity.Where(c => c.TextEntity.Type == "NEGATIVE" || c.TextEntity.Type == "EXPLETIVE").Count() > 0)
+                                            {
+                                                var targetText = influencer.TargetEntities;
+                                                if (!string.IsNullOrEmpty(targetText))
+                                                {
+                                                    if (!string.IsNullOrEmpty(returndata.TranslatedText))
+                                                    {
+                                                        foreach (var text in targetText.Split(',').ToList())
+                                                        {
+                                                            foreach (var item in returndata.TextEntity)
+                                                            {
+
+                                                                if (returndata.TranslatedText.Contains(text) && returndata.TranslatedText.Contains(item.TextEntity.Mention))
+                                                                {
+                                                                    var strToFind = text + " " + item.TextEntity.Mention;
+                                                                    isNegative = true;
+                                                                    urlForMail = urlForMail + "<tr>" + strToFind + "</tr>";
+                                                                    //urlForMail = urlForMail + "<tr><a href=\"www.facebook.com/" + influencer.url_name + "/posts/" + fbPostForTranslate.id.Split('_')[1] + "\">" + strToFind + " </a></tr>";
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        status = true;
+                                    }
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                status = false;
+                                errMessage = e.Message;
+                            }
+
+                        // for each comment, translate and detect if there is negativity
+                        if (!string.IsNullOrEmpty(fbPostForTranslate.id))
+                        {
+                            string id = fbPostForTranslate.id.Split('_')[1];
+                            var fbComments = loaddeserializeT_FB_Comments_DAPPERSQL(id);
+                            if (fbComments != null && fbComments.Count() > 0)
+                            {
+                                var fbCommentsForTranslate = fbComments.Where(c => c.message != null && c.translated_message == null).OrderByDescending(c => c.created_time).Take(100).ToList();
+                                if (fbCommentsForTranslate != null && fbCommentsForTranslate.Count() > 0)
+                                    foreach (var fbCommentForTranslate in fbCommentsForTranslate)
+                                        if (!string.IsNullOrEmpty(fbCommentForTranslate.message) && string.IsNullOrEmpty(fbCommentForTranslate.translated_message))
+                                            try
+                                            {
+                                                bool isMatch = false;
+                                                var returndataOfCooment = await TranslateFBPostAndComments(content: fbCommentForTranslate.message, CommentId: fbCommentForTranslate.Id);
+                                                if (returndataOfCooment != null)
+                                                {
+                                                    if (returndataOfCooment.Status == true)
+                                                    {
+
+                                                        if (returndataOfCooment.TextEntity.Count() > 0)
+                                                            if (returndataOfCooment.TextEntity.Where(c => c.TextEntity.Type == "NEGATIVE" || c.TextEntity.Type == "EXPLETIVE").Count() > 0)
+                                                            {
+                                                                var targetText = influencer.TargetEntities;
+                                                                if (!string.IsNullOrEmpty(targetText))
+                                                                {
+                                                                    if (!string.IsNullOrEmpty(returndataOfCooment.TranslatedText))
+                                                                    {
+                                                                        foreach (var text in targetText.Split(',').ToList())
+                                                                        {
+                                                                            foreach (var item in returndataOfCooment.TextEntity)
+                                                                            {
+                                                                                if (returndataOfCooment.TranslatedText.Contains(text) && returndataOfCooment.TranslatedText.Contains(item.TextEntity.Mention))
+                                                                                {
+                                                                                    var strToFind = text + " " + item.TextEntity.Mention;
+                                                                                    isNegativeComments = true;
+                                                                                    urlForMail = urlForMail + "<tr>" + strToFind + "</tr>";
+                                                                                    //urlForMail = urlForMail + "<tr><a href=\"www.facebook.com/" + influencer.url_name + "/posts/" + id + "?comment_id=" + fbCommentForTranslate.Id.Split('_')[1] + "\">" + strToFind + " </a></tr>";
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+
+                                                        status = true;
+                                                    }
+                                                }
+                                            }
+                                            catch (Exception e)
+                                            {
+                                                status = false;
+                                                errMessage = e.Message;
+                                            }
+                            }
+                        }
+                        if (isNegative == true || isNegativeComments == true)
+                        {
+                            string postURL = "<a href ='www.facebook.com/" + influencer.url_name + "/posts/" + fbPostForTranslate.id.Split('_')[1] + "'>www.facebook.com/" + influencer.url_name + "/posts/" + fbPostForTranslate.id.Split('_')[1] + " </a>";
+                            string body = "Hello user,<br/>Some bad words has been detected on your facebook page" + influencer.name + ".<br/>" + postURL + "<br/><table>" + urlForMail + "</table></br>Please remove the words from the page.<br/>Thanks.";
+                            if (string.IsNullOrEmpty(fbPostForTranslate.MailBody))
+                            {
+                                upadateFb_PostMailBody(fbPostForTranslate.id, mailBody: body);
+                            }
+
+                        }
+                    }
+                }
+                // sending mail about negative NERs
+                List<FB_POST> sendMailPosts = loaddeserializeT_FB_POST_DAPPERSQL(influencerid, isForSendMail: true);
+                if (sendMailPosts != null && sendMailPosts.Count > 0)
+                {
+                    var userid = User.Identity.GetUserId();
+                    var db1 = new ApplicationDbContext();
+                    var user = db1.Users.FirstOrDefault(c => c.Id == userid);
+                    if (user != null)
+                    {
+                        try
+                        {
+                            var email = user.Email;
+                            if (!string.IsNullOrEmpty(email))
+                            {
+                                foreach (var posts in sendMailPosts)
+                                {
+                                    if (!string.IsNullOrEmpty(posts.MailBody))
+                                    {
+                                        string subject = "Warning! Some bad words has been detected in your page.";
+                                        string body = posts.MailBody;
+                                        int n = 0;
+                                        if (posts.NoOfTimeMailSend < 2 || posts.NoOfTimeMailSend == null)
+                                        {
+                                            try
+                                            {
+                                                if (posts.NoOfTimeMailSend == null || posts.NoOfTimeMailSend == 0)//send mail on first time to the user if there is any negative/expletive words on posts and comments.
+                                                {
+                                                    status = SendEmail(email, subject, body);
+                                                    n = 1;
+                                                }
+                                                else if (posts.LastMailSendOn <= DateTime.Now.AddHours(-6))//send mail on second time in a day after 6 hours of first mail.
+                                                {
+                                                    status = SendEmail(email, subject, body);
+                                                    n = 2;
+                                                }
+                                                if (status == true)
+                                                {
+                                                    upadateFb_PostMailBody(posts.id, nooftimemailsend: n);
+                                                }
+                                            }
+                                            catch (Exception e)
+                                            {
+                                                status = false;
+                                                errMessage = e.Message;
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            status = false;
+                            errMessage = e.Message;
+                        }
+                    }
+                }
+            }
+
+            return JsonConvert.SerializeObject(new
+            {
+                status = status,
+                message = errMessage
+            });
+        }
+
         // Method for Add target entities on the influencer table.
         [HttpGet]
         public async Task<object> AddTextEntity(string influencerid, string targetText, bool? isAutoRetrieveFBPostandComments)
@@ -771,6 +979,109 @@ namespace ArabicTextAnalyzer.Controllers
 
                 return null;
             }
+        }
+        #endregion
+
+        #region BACK YARD ACTIONS FB
+        // Method for translate Fb Posts in generalize way.
+        private async Task<ReturnData> TranslateFBPostAndComments(String content, string PostId = "", string CommentId = "")
+        {
+            var userId = User.Identity.GetUserId();
+            string errMessage = string.Empty;
+            bool status = false;
+            string translatedstring = "";
+            ReturnData returndata = new ReturnData();
+            var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
+            try
+            {
+                // MC081217 translate via train to populate NER, analysis data, ...
+                // Arabizi to arabic script via direct call to perl script
+                var res = new Arabizer().train(new M_ARABIZIENTRY
+                {
+                    ArabiziText = content.Trim(),
+                    ArabiziEntryDate = DateTime.Now,
+                    ID_XTRCTTHEME = userActiveXtrctTheme.ID_XTRCTTHEME
+                }, userActiveXtrctTheme.ThemeName, thisLock: thisLock);
+
+                textEntities = res.M_ARABICDARIJAENTRY_TEXTENTITYs;
+                if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY != Guid.Empty)
+                {
+                    status = true;
+                    translatedstring = res.M_ARABICDARIJAENTRY.ArabicDarijaText;
+                    if (!string.IsNullOrEmpty(PostId))
+                    {
+                        SaveTranslatedPost(PostId, translatedstring);
+                    }
+                    else if (!string.IsNullOrEmpty(CommentId))
+                    {
+                        SaveTranslatedComments(CommentId, translatedstring);
+                    }
+                }
+                else
+                    errMessage = "Text is required.";
+            }
+            catch (Exception e)
+            {
+                status = false;
+                errMessage = e.Message.ToString();
+            }
+
+            returndata.TextEntity = textEntities;
+            returndata.Status = status;
+            returndata.Message = errMessage;
+            returndata.TranslatedText = translatedstring;
+            return returndata;
+        }
+
+        private bool SendEmail(string toEmailAddress, string subject, string body)
+        {
+            bool status = false;
+            try
+            {
+                var emailsetting = UtilityFunctions.GetEmailSetting();
+                var username = emailsetting.SMTPServerLoginName;
+                string password = emailsetting.SMTPServerPassword;
+
+                MailMessage msg = new MailMessage();
+                msg.Subject = subject;
+
+
+                msg.From = new MailAddress(emailsetting.NoReplyEmailAddress);
+
+                foreach (var email in toEmailAddress.Split(','))
+                {
+                    msg.To.Add(new MailAddress(email));
+                }
+                var bccAddress = ConfigurationManager.AppSettings["BCCEmailAddress"];
+                if (!string.IsNullOrEmpty(bccAddress))
+                {
+                    msg.Bcc.Add(new MailAddress(bccAddress));
+                }
+
+                msg.IsBodyHtml = true;
+                msg.Body = body;
+
+
+                SmtpClient smtpClient = new SmtpClient();
+                smtpClient.Host = emailsetting.SMTPServerUrl;
+                smtpClient.Port = emailsetting.SMTPServerPort;
+
+
+
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = emailsetting.SMTPSecureConnectionRequired;
+                smtpClient.Credentials = new System.Net.NetworkCredential(username, password);
+                smtpClient.Send(msg);
+                status = true;
+            }
+            catch (Exception ex)
+            {
+                status = false;
+                // throw ex;
+            }
+            return status;
+
         }
         #endregion
 
@@ -1658,25 +1969,27 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private List<FB_POST> loaddeserializeT_FB_POST_DAPPERSQL(string influencerid = "")
+        private List<FB_POST> loaddeserializeT_FB_POST_DAPPERSQL(string influencerid, bool isForSendMail = false)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 //
-                String qry = "SELECT * FROM T_FB_POST ";
+                String qry0 = "SELECT * "
+                            + "FROM T_FB_POST "
+                            + "WHERE fk_influencer = '" + influencerid + "' ";
 
                 //
-                if (!string.IsNullOrEmpty(influencerid))
-                    qry += "WHERE fk_influencer = '" + influencerid + "' ";
+                if (isForSendMail == true)
+                    qry0 += "AND MailBody IS NOT NULL AND (NoOfTimeMailSend IS NULL OR NoOfTimeMailSend < 2) ";
 
                 //
-                qry += "ORDER BY date_publishing DESC ";
+                qry0 += "ORDER BY date_publishing DESC ";
 
                 //
                 conn.Open();
-                return conn.Query<FB_POST>(qry).ToList();
+                return conn.Query<FB_POST>(qry0).ToList();
             }
         }
 
@@ -1773,6 +2086,38 @@ namespace ArabicTextAnalyzer.Controllers
                     {
                         cmd.CommandType = CommandType.Text;
                         conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                }
+            }
+        }
+
+        private void upadateFb_PostMailBody(string postid, string mailBody = "", int? nooftimemailsend = 0)
+        {
+
+            if (!string.IsNullOrEmpty(postid))
+            {
+                String qry = "UPDATE T_FB_POST SET ";
+                if (!string.IsNullOrEmpty(mailBody))
+                {
+                    qry = qry + " MailBody=N'" + mailBody + "' ";
+                }
+                if (nooftimemailsend > 0)
+                {
+                    qry = qry + " NoOfTimeMailSend='" + nooftimemailsend + "', LastMailSendOn='" + DateTime.Now + "' ";
+                }
+                qry = qry + " WHERE id = '" + postid + "'";
+
+                String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(qry, conn))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        conn.Open();
+                        /*returndata = */
                         cmd.ExecuteNonQuery();
                         conn.Close();
                     }
@@ -1934,5 +2279,39 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
         #endregion
+    }
+
+    // Class for return the method call afetr translate Fb Posts and comments
+    public class ReturnData
+    {
+        public string Message { get; set; }
+        public bool Status { get; set; }
+        public string TranslatedText { get; set; }
+        public List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntity { get; set; }
+    }
+
+    public static class UtilityFunctions
+    {
+        public static EmailSettings GetEmailSetting()
+        {
+            EmailSettings emailsetting = new EmailSettings();
+            emailsetting.SMTPServerUrl = ConfigurationManager.AppSettings["SMTPServerUrl1"];
+            emailsetting.SMTPServerPort = Convert.ToInt16(ConfigurationManager.AppSettings["SMTPServerPort1"]);
+            emailsetting.SMTPSecureConnectionRequired = Convert.ToBoolean(ConfigurationManager.AppSettings["SMTPSecureConnectionRequired1"]);
+            emailsetting.SMTPServerLoginName = ConfigurationManager.AppSettings["SMTPServerLoginName1"];
+            emailsetting.SMTPServerPassword = ConfigurationManager.AppSettings["SMTPServerPassword1"];
+            emailsetting.NoReplyEmailAddress = ConfigurationManager.AppSettings["NoReplyEmailAddress1"];
+            return emailsetting;
+        }
+    }
+
+    public class EmailSettings
+    {
+        public string SMTPServerUrl { get; set; }
+        public int SMTPServerPort { get; set; }
+        public bool SMTPSecureConnectionRequired { get; set; }
+        public string SMTPServerLoginName { get; set; }
+        public string SMTPServerPassword { get; set; }
+        public string NoReplyEmailAddress { get; set; }
     }
 }

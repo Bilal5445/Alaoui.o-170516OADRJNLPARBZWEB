@@ -10,7 +10,7 @@ var TranslateCommentIsClicked = false;
 var AddInfluencerIsClicked = false;
 var RetrieveFBPostIsClicked = false;
 var RetrieveFBPostCommentsIsClicked = false;
-var TimeintervalforFBMethods = 1000 * 60 * 2; // Time interval for method run for get fb posts and comments and translate posts and comments
+var TimeintervalforFBMethods = 1000 * 60 * 2; // 2 minutes : Time interval for method run for get fb posts and comments and translate posts and comments
 var fbTabPagesLoaded = false;
 var AddTextEntityClicked = false;
 
@@ -676,6 +676,9 @@ var FBDataVM = function () {
     // wrap function to call original function JsRetrieveFBPosts
     this.GetFBPostAndComments = function (influencerUrl, influencerid) {
 
+        // DBG
+        console.log("GetFBPostAndComments - begin");
+
         var currentInstance = this;
         var intervalFlag = true;
         // alert(influencerUrl + "\n" + influencerid);
@@ -691,6 +694,10 @@ var FBDataVM = function () {
 
     // function to translate posts/comments and extract NERs from them and filter over negative NER
     this.TranslateFBPostAndComments = function (influencerUrl, influencerid) {
+
+        // DBG
+        console.log("TranslateFBPostAndComments - begin");
+
         var currentInstance = this;
         // alert(influencerid);
         if (currentInstance.CallTranslateMethod == false) {
@@ -724,6 +731,9 @@ var FBDataVM = function () {
     // original function to retrieve fb posts (and comments as well) 
     this.JsRetrieveFBPosts = function (influencerurl_name, influencerid, intervalFlag) {
 
+        // DBG
+        console.log("JsRetrieveFBPosts - begin");
+
         var currentInstance = this;
         if ((currentInstance.RetrieveFBPostIsClicked == false && currentInstance.CallMethod == false) || intervalFlag == true) {
 
@@ -741,8 +751,10 @@ var FBDataVM = function () {
                 },
                 "success": function (msg) {
 
-                    console.log("msg : " + msg);
-                    console.log("msg.status : " + msg.status);
+                    console.log("JsRetrieveFBPosts - msg : " + msg);
+                    console.log("JsRetrieveFBPosts - msg.status : " + msg.status);
+                    console.log("retrievedPostsCount : " + msg.retrievedPostsCount);   // DBG
+                    console.log("retrievedCommentsCount : " + msg.retrievedCommentsCount);   // DBG
 
                     //
                     currentInstance.RetrieveFBPostIsClicked = false;
@@ -757,9 +769,6 @@ var FBDataVM = function () {
                         }
 
                     } else if (msg.status) {
-
-                        console.log("retrievedPostsCount : " + msg.retrievedPostsCount);   // DBG
-                        console.log("retrievedCommentsCount : " + msg.retrievedCommentsCount);   // DBG
 
                         // refresh
                         ResetDataTable(influencerid);
@@ -792,7 +801,7 @@ var FBDataVM = function () {
                         msg = 'Uncaught Error.\n' + jqXHR.responseText;
                     }
                     // $('#post').html(msg);
-                    console.log("Error : " + msg);
+                    console.log("JsRetrieveFBPosts - Error : " + msg);
                     alert("Error : " + msg);
                 }
             });
@@ -802,10 +811,13 @@ var FBDataVM = function () {
     // function to start retrieving posts and posts from FB and translating them
     this.init = function (influencerUrl, influencerid, isAutoRetrieveFBPostAndComments) {
 
+        console.log("init - begin");
+
         //
         var currentInstance = this;
 
-        //      
+        //    
+        console.log("setinterval - GetFBPostAndComments");
         setInterval(function () {
 
             if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
@@ -821,6 +833,7 @@ var FBDataVM = function () {
         }, TimeintervalforFBMethods);
 
         //
+        console.log("setinterval - TranslateFBPostAndComments");
         setInterval(function () {
 
             if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
