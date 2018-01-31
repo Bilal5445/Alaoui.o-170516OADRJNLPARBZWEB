@@ -1962,29 +1962,27 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private List<FB_POST> loaddeserializeT_FB_POST_DAPPERSQL(string influencerid = "", bool isForSendMail = false)
+        private List<FB_POST> loaddeserializeT_FB_POST_DAPPERSQL(string influencerid, bool isForSendMail = false)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 //
-                String qry = "SELECT * FROM T_FB_POST ";
+                String qry0 = "SELECT * "
+                            + "FROM T_FB_POST "
+                            + "WHERE fk_influencer = '" + influencerid + "' ";
 
                 //
-                if (!string.IsNullOrEmpty(influencerid))
-                    qry += "WHERE fk_influencer = '" + influencerid + "' ";
                 if (isForSendMail == true)
-                {
-                    qry += " and MailBody is not null and (nooftimemailsend is null or NoOfTimeMailSend<2) ";
-                }
+                    qry0 += "AND MailBody IS NOT NULL AND (NoOfTimeMailSend IS NULL OR NoOfTimeMailSend < 2) ";
 
                 //
-                qry += " ORDER BY date_publishing DESC ";
+                qry0 += "ORDER BY date_publishing DESC ";
 
                 //
                 conn.Open();
-                return conn.Query<FB_POST>(qry).ToList();
+                return conn.Query<FB_POST>(qry0).ToList();
             }
         }
 
