@@ -674,10 +674,10 @@ var FBDataVM = function () {
     this.isAutoRetrieveFBPostAndComments = false;
 
     // wrap function to call original function JsRetrieveFBPosts
-    this.GetFBPostAndComments = function (influencerUrl, influencerid) {
+    this.GetFBPostsAndComments = function (influencerUrl, influencerid) {
 
         // DBG
-        console.log("GetFBPostAndComments - begin");
+        console.log("GetFBPostsAndComments - begin");
 
         var currentInstance = this;
         var intervalFlag = true;
@@ -693,10 +693,10 @@ var FBDataVM = function () {
     };
 
     // function to translate posts/comments and extract NERs from them and filter over negative NER
-    this.TranslateFBPostAndComments = function (influencerUrl, influencerid) {
+    this.TranslateFBPostsAndComments = function (influencerUrl, influencerid) {
 
         // DBG
-        console.log("TranslateFBPostAndComments - begin");
+        console.log("TranslateFBPostsAndComments - begin");
 
         var currentInstance = this;
         // alert(influencerid);
@@ -707,7 +707,7 @@ var FBDataVM = function () {
             $.ajax({
                 "dataType": 'json',
                 "type": "GET",
-                "url": "/Train/TranslateAndExtractNERFBPostAndComments",
+                "url": "/Train/TranslateAndExtractNERFBPostsAndComments",
                 "data": {
                     "influencerid": influencerid
                 },
@@ -721,7 +721,7 @@ var FBDataVM = function () {
                     }
                 },
                 "error": function () {
-                    console.log("error in TranslateFBPostAndComments");
+                    console.log("error in TranslateFBPostsAndComments");
                     currentInstance.CallTranslateMethod = false;
                 }
             });
@@ -817,7 +817,7 @@ var FBDataVM = function () {
         var currentInstance = this;
 
         //    
-        console.log("setinterval - GetFBPostAndComments");
+        console.log("setinterval - GetFBPostsAndComments");
         setInterval(function () {
 
             if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
@@ -827,13 +827,13 @@ var FBDataVM = function () {
             }
 
             if (currentInstance.isAutoRetrieveFBPostAndComments == true) {
-                currentInstance.GetFBPostAndComments(influencerUrl, influencerid);
+                currentInstance.GetFBPostsAndComments(influencerUrl, influencerid);
             }
 
         }, TimeintervalforFBMethods);
 
         //
-        console.log("setinterval - TranslateFBPostAndComments");
+        console.log("setinterval - TranslateFBPostsAndComments");
         setInterval(function () {
 
             if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
@@ -843,7 +843,7 @@ var FBDataVM = function () {
             }
 
             if (currentInstance.isAutoRetrieveFBPostAndComments == true) {
-                currentInstance.TranslateFBPostAndComments(influencerUrl, influencerid);
+                currentInstance.TranslateFBPostsAndComments(influencerUrl, influencerid);
             }
 
         }, TimeintervalforFBMethods);
