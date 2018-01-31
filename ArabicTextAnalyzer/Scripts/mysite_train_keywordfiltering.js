@@ -653,6 +653,32 @@ function AddInfluencer() {
     });
 }
 
+function JsTestFBFilter(influencerid) {
+
+    //
+    $.ajax({
+        "dataType": 'json',
+        "type": "GET",
+        "url": "/Train/TranslateAndExtractNERFBPostsAndComments",
+        "data": {
+            "influencerid": influencerid
+        },
+        "success": function (msg) {
+            console.log(msg);
+            currentInstance.CallTranslateMethod = false;
+            if (msg.status) {
+                if ($('#' + influencerid).hasClass('active')) {
+                    ResetDataTable(influencerid);
+                }
+            }
+        },
+        "error": function () {
+            console.log("error in TranslateFBPostsAndComments");
+            currentInstance.CallTranslateMethod = false;
+        }
+    });
+}
+
 // Js for Retrieve fb post or refresh button
 function JsRetrieveFBPosts(influencerurl_name, influencerid) {
 
@@ -681,7 +707,6 @@ var FBDataVM = function () {
 
         var currentInstance = this;
         var intervalFlag = true;
-        // alert(influencerUrl + "\n" + influencerid);
         if (currentInstance.CallMethod == false) {
 
             //
@@ -693,7 +718,7 @@ var FBDataVM = function () {
     };
 
     // function to translate posts/comments and extract NERs from them and filter over negative NER
-    this.TranslateFBPostsAndComments = function (influencerUrl, influencerid) {
+    this.TranslateFBPostsAndComments = function (influencerid) {
 
         // DBG
         console.log("TranslateFBPostsAndComments - begin");
@@ -843,7 +868,7 @@ var FBDataVM = function () {
             }
 
             if (currentInstance.isAutoRetrieveFBPostAndComments == true) {
-                currentInstance.TranslateFBPostsAndComments(influencerUrl, influencerid);
+                currentInstance.TranslateFBPostsAndComments(influencerid);
             }
 
         }, TimeintervalforFBMethods);
