@@ -768,7 +768,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                         // for each post, translate and detect if there is negativity
                         if (!string.IsNullOrEmpty(fbPostForTranslate.post_text) && string.IsNullOrEmpty(fbPostForTranslate.translated_text))
-                            TranslatePostAndCatchExpletive(influencer, fbPostForTranslate, ref status, ref urlForMail, ref isNegative);
+                            TranslatePostAndCatchExpletive(fbPostForTranslate, influencer.TargetEntities, ref status, ref urlForMail, ref isNegative);
 
                         // for each comment, translate and detect if there is negativity
                         if (!string.IsNullOrEmpty(fbPostForTranslate.id))
@@ -781,7 +781,7 @@ namespace ArabicTextAnalyzer.Controllers
                                 if (fbCommentsForTranslate != null && fbCommentsForTranslate.Count() > 0)
                                     foreach (var fbCommentForTranslate in fbCommentsForTranslate)
                                         if (!string.IsNullOrEmpty(fbCommentForTranslate.message) && string.IsNullOrEmpty(fbCommentForTranslate.translated_message))
-                                            TranslateCommentAndCatchExpletive(influencer, fbCommentForTranslate, ref status, ref urlForMail, ref isNegativeComments);
+                                            TranslateCommentAndCatchExpletive(fbCommentForTranslate, influencer.TargetEntities, ref status, ref urlForMail, ref isNegativeComments);
                             }
                         }
 
@@ -970,7 +970,7 @@ namespace ArabicTextAnalyzer.Controllers
             return returndata;
         }
 
-        private void TranslatePostAndCatchExpletive(T_FB_INFLUENCER influencer, FB_POST fbPostForTranslate, ref bool status, ref string urlForMail, ref bool isNegative)
+        private void TranslatePostAndCatchExpletive(FB_POST fbPostForTranslate, String targetWatchEntities, ref bool status, ref string urlForMail, ref bool isNegative)
         {
             // translate
             var returndata = TranslateFBPostOrFBComment(content: fbPostForTranslate.post_text, postId: fbPostForTranslate.id);
@@ -980,7 +980,6 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 if (returndata.TextEntities.Count() > 0 && returndata.TextEntities.Where(c => c.TextEntity.Type == "NEGATIVE" || c.TextEntity.Type == "EXPLETIVE").Count() > 0)
                 {
-                    var targetWatchEntities = influencer.TargetEntities;
                     if (!string.IsNullOrEmpty(targetWatchEntities) && !string.IsNullOrEmpty(returndata.TranslatedText))
                     {
                         foreach (var targetWatchEntity in targetWatchEntities.Split(',').ToList())
@@ -1002,7 +1001,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private void TranslateCommentAndCatchExpletive(T_FB_INFLUENCER influencer, FBFeedComment fbCommentForTranslate, ref bool status, ref string urlForMail, ref bool isNegative)
+        private void TranslateCommentAndCatchExpletive(FBFeedComment fbCommentForTranslate, String targetWatchEntities, ref bool status, ref string urlForMail, ref bool isNegative)
         {
             // translate
             var returndata = TranslateFBPostOrFBComment(content: fbCommentForTranslate.message, commentId: fbCommentForTranslate.Id);
@@ -1012,7 +1011,6 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 if (returndata.TextEntities.Count() > 0 && returndata.TextEntities.Where(c => c.TextEntity.Type == "NEGATIVE" || c.TextEntity.Type == "EXPLETIVE").Count() > 0)
                 {
-                    var targetWatchEntities = influencer.TargetEntities;
                     if (!string.IsNullOrEmpty(targetWatchEntities) && !string.IsNullOrEmpty(returndata.TranslatedText))
                     {
                         foreach (var targetWatchEntity in targetWatchEntities.Split(',').ToList())
