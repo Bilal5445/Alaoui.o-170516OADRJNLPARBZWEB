@@ -9,7 +9,6 @@ var GetTranslateCommentIsClicked = false;
 var TranslateCommentIsClicked = false;
 var AddInfluencerIsClicked = false;
 var RetrieveFBPostIsClicked = false;
-var RetrieveFBPostCommentsIsClicked = false;
 var TimeintervalforFBMethods = 1000 * 60 * 2; // 2 minutes : Time interval for method run for get fb posts and comments and translate posts and comments
 var fbTabPagesLoaded = false;
 var AddTextEntityClicked = false;
@@ -367,9 +366,7 @@ function GetComments(obj) {
             $('#tabledetails_' + id + '_length').append('<a class="btn btn-info btn-xs" style="margin-left:5px" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a>')
 
             // add a global bulk check all button for comments
-            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info btn-xs" style="margin-left:5px" onclick="CheckUnCheckAllComments(' + id + ')">Check/Uncheck All</a>')
-
-            $('#tabledetails_' + id + '_length').append('<a class="btn btn-outline-primary btn-xs" style="margin-left:5px" onclick="RetrieveFBPostComments(' + id + ')">Retrieve new/more comments <span class="glyphicon glyphicon-refresh"></span></a><h3>Comments</h3>')
+            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info btn-xs" style="margin-left:5px" onclick="CheckUnCheckAllComments(' + id + ')">Check/Uncheck All</a><h3>Comments</h3>')
 
             //
             GetCommentsIsClicked = false;
@@ -504,42 +501,6 @@ function CheckUnCheckAllComments(postid) {
             $(this).prop('checked', false);
         else
             $(this).prop('checked', true);
-    });
-}
-
-// INPROGRESS method to get comments for a FB post in a public FB page
-function RetrieveFBPostComments(postid) {
-
-    // check before
-    if (RetrieveFBPostCommentsIsClicked == true)
-        return;
-
-    // mark as clicked to avoid double processing
-    RetrieveFBPostCommentsIsClicked = true;
-
-    // real work : call on controller Train action RetrieveFBPostComments
-    $.ajax({
-        "dataType": 'json',
-        "type": "POST",
-        "url": "/Train/RetrieveFBPostComments",
-        /*"data": {
-            "influencerurl_name": influencerurl_name
-        },
-        "success": function (msg) {
-            console.log(msg);
-            RetrieveFBPostIsClicked = false;
-
-            if (msg.status) {
-                ResetDataTable(influencerid);
-            }
-            else {
-                alert("Error " + msg.message);
-            }
-        },
-        "error": function () {
-            RetrieveFBPostIsClicked = false;
-            alert("error")
-        }*/
     });
 }
 
