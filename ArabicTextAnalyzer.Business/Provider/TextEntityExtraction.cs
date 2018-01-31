@@ -10,6 +10,7 @@ using System.Linq;
 using System.Web;
 using OADRJNLPCommon.Business;
 using static ArabicTextAnalyzer.Business.Provider.RosetteMultiLanguageDetections;
+using Newtonsoft.Json.Linq;
 
 namespace ArabicTextAnalyzer.Business.Provider
 {
@@ -20,6 +21,9 @@ namespace ArabicTextAnalyzer.Business.Provider
         private const string endpoint = "https://api.rosette.com/rest/v1/";
         private const string rosetteApiKey = "ce51b85cd7c17f407f2ab16799896808";
 
+        // DBG
+        private const bool doNotUseRosette = true;
+
         public TextEntityExtraction()
         {
             client = new RestClient(endpoint);
@@ -27,6 +31,23 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public List<LanguageRange> GetLanguagesRanges(String source)
         {
+            if (doNotUseRosette == true)
+            {
+                // In this case, we consider the text as one language that should be considered as arabizi (no FR)
+                var languageRanges = new List<LanguageRange>();
+                languageRanges.Add(new LanguageRange
+                {
+                    Language = new LanguageDetection
+                    {
+                        language = "arz",
+                        confidence = 1.0
+                    },
+                    Region = source
+                });
+                return languageRanges;
+            }
+
+            //
             var request = new RestRequest("language", Method.POST);
 
             request.AddHeader("X-RosetteAPI-Key", rosetteApiKey);
@@ -62,12 +83,32 @@ namespace ArabicTextAnalyzer.Business.Provider
             }
             else
             {
-                throw new Exception(response.Content);
+                JObject jResponseContent = JObject.Parse(response.Content);
+                var code = Convert.ToString(jResponseContent["code"]);
+                if (code == "forbidden" || code == "tooManyRequests")
+                {
+                    // Probably you have either provided an invalid API key, or are not authorized to call the endpoint, or have exceeded the daily or monthly API call limits
+                    // In this case, we consider the text as one language that should be considered as arabizi (no FR)
+                    var languageRanges = new List<LanguageRange>();
+                    languageRanges.Add(new LanguageRange
+                    {
+                        Language = new LanguageDetection
+                        {
+                            language = "arz",
+                            confidence = 1.0
+                        },
+                        Region = source
+                    });
+                    return languageRanges;
+                }
+                else
+                    throw new Exception(response.Content);
             }
         }
 
         public LanguageDetection GetLanguageForRange(String source)
         {
+            //
             var request = new RestRequest("language", Method.POST);
 
             request.AddHeader("X-RosetteAPI-Key", rosetteApiKey);
@@ -98,6 +139,11 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public IEnumerable<TextEntity> GetEntities(string source)
         {
+            List<TextEntity> returnValue = new List<TextEntity>();
+            
+            if (doNotUseRosette == true)
+                return returnValue;
+
             //
             var request = new RestRequest("entities", Method.POST);
 
@@ -116,8 +162,6 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             // MC301117 rosette can return badrequest if it does not recognize the language : {"code":"unsupportedLanguage","message":"Language swe not supported"}
             // It happenned with "macharmla"
-            List<TextEntity> returnValue = new List<TextEntity>();
-
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 var responseObject = new JavaScriptSerializer().Deserialize<RosetteEntityResponse>(response.Content);

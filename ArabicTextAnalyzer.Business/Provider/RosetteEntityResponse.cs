@@ -45,6 +45,6 @@ namespace ArabicTextAnalyzer.Business.Provider
     public class LanguageRange
     {
         public String Region { get; set; }
-        public /*Language*/LanguageDetection Language { get; set; }
+        public LanguageDetection Language { get; set; }
     }
 }
