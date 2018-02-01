@@ -776,7 +776,7 @@ namespace ArabicTextAnalyzer.Controllers
                             var fbComments = loaddeserializeT_FB_Comments_DAPPERSQL(postid);
                             var fbCommentsForTranslate = fbComments.Where(c => c.message != null && c.translated_message == null).OrderByDescending(c => c.created_time).Take(100).ToList();
                             foreach (var fbCommentForTranslate in fbCommentsForTranslate)
-                                TranslateCommentAndCatchExpletive(fbCommentForTranslate, targetEntities, ref status, ref urlForMail, ref isNegativeComments);
+                                TranslateCommentAndCatchExpletive(fbCommentForTranslate, targetEntities, out status, ref urlForMail, out isNegativeComments);
                         }
 
                         //
@@ -785,7 +785,7 @@ namespace ArabicTextAnalyzer.Controllers
                             string postURL = "<a href='www.facebook.com/" + urlName + "/posts/" + fbPostForTranslate.id.Split('_')[1] + "'>www.facebook.com/" + urlName + "/posts/" + fbPostForTranslate.id.Split('_')[1] + "</a>";
                             string body = "Hello user,<br/>Some bad words has been detected on your facebook page " + pageName + ".<br/>" + postURL + "<br/><table>" + urlForMail + "</table></br>Please remove the words from the page.<br/>Thanks.";
                             if (string.IsNullOrEmpty(fbPostForTranslate.MailBody))
-                                upadateFb_PostMailBody(fbPostForTranslate.id, mailBody: body);
+                                updateFb_PostMailBody(fbPostForTranslate.id, mailBody: body);
                         }
                     }
                 }
@@ -870,23 +870,23 @@ namespace ArabicTextAnalyzer.Controllers
                         {
                             if (!string.IsNullOrEmpty(posts.MailBody))
                             {
-                                string subject = "Warning! Some bad words has been detected in your page.";
+                                string subject = "Adekwasy Warning! Some bad words has been detected in your page.";
                                 string body = posts.MailBody;
                                 int n = 0;
                                 if (posts.NoOfTimeMailSend < 2 || posts.NoOfTimeMailSend == null)
                                 {
-                                    if (posts.NoOfTimeMailSend == null || posts.NoOfTimeMailSend == 0)//send mail on first time to the user if there is any negative/expletive words on posts and comments.
+                                    if (posts.NoOfTimeMailSend == null || posts.NoOfTimeMailSend == 0)  // send mail on first time to the user if there is any negative/expletive words on posts and comments.
                                     {
                                         status = SendEmail(email, subject, body);
                                         n = 1;
                                     }
-                                    else if (posts.LastMailSendOn <= DateTime.Now.AddHours(-6))//send mail on second time in a day after 6 hours of first mail.
+                                    else if (posts.LastMailSendOn <= DateTime.Now.AddHours(-6)) // send mail on second time in a day after 6 hours of first mail.
                                     {
                                         status = SendEmail(email, subject, body);
                                         n = 2;
                                     }
                                     if (status == true)
-                                        upadateFb_PostMailBody(posts.id, noOfTimeMailSend: n);
+                                        updateFb_PostMailBody(posts.id, noOfTimeMailSend: n);
                                 }
                             }
                         }
@@ -959,7 +959,7 @@ namespace ArabicTextAnalyzer.Controllers
             var extractedNERs = returndata.TextEntities.Select(m => new { Mention = m.TextEntity.Mention, Type = m.TextEntity.Type });
             var extractedNegExplNERs = extractedNERs.Where(c => c.Type == "NEGATIVE" || c.Type == "EXPLETIVE");
             var targetWatchEntityes = targetWatchEntitiesStr.Split(',').ToList();
-            var originalPost = fbPostForTranslate.post_text;
+            var originalText = fbPostForTranslate.post_text;
             var translatedText = returndata.TranslatedText;
 
             // process if any expletive NER
@@ -967,7 +967,7 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 foreach (var targetWatchEntity in targetWatchEntityes)
                 {
-                    if (originalPost.ToUpper().Contains(targetWatchEntity.ToUpper()) || translatedText.ToUpper().Contains(targetWatchEntity.ToUpper()))
+                    if (originalText.ToUpper().Contains(targetWatchEntity.ToUpper()) || translatedText.ToUpper().Contains(targetWatchEntity.ToUpper()))
                     {
                         var strToFind = targetWatchEntity; // + " " + item.TextEntity.Mention;
                         isNegative = true;
@@ -982,35 +982,46 @@ namespace ArabicTextAnalyzer.Controllers
             status = true;
         }
 
-        private void TranslateCommentAndCatchExpletive(FBFeedComment fbCommentForTranslate, String targetWatchEntities, ref bool status, ref string urlForMail, ref bool isNegative)
+        private void TranslateCommentAndCatchExpletive(FBFeedComment fbCommentForTranslate, String targetWatchEntitiesStr, out bool status, ref string urlForMail, out bool isNegative)
         {
+            //
+            status = false;
+            isNegative = false;
+
+            // check before
+            if (string.IsNullOrEmpty(targetWatchEntitiesStr))
+                return;
+
             // translate and save translation to db
             var returndata = TranslateFBPostOrFBComment(content: fbCommentForTranslate.message, commentId: fbCommentForTranslate.Id);
+            if (returndata.Status != true)
+                return;
+
+            //
+            var extractedNERs = returndata.TextEntities.Select(m => new { Mention = m.TextEntity.Mention, Type = m.TextEntity.Type });
+            var extractedNegExplNERs = extractedNERs.Where(c => c.Type == "NEGATIVE" || c.Type == "EXPLETIVE");
+            var targetWatchEntityes = targetWatchEntitiesStr.Split(',').ToList();
+            var originalText = fbCommentForTranslate.message;
+            var translatedText = returndata.TranslatedText;
 
             // process if any expletive NER
-            if (returndata.Status == true)
+            if (extractedNegExplNERs.Count() > 0)
             {
-                if (returndata.TextEntities.Where(c => c.TextEntity.Type == "NEGATIVE" || c.TextEntity.Type == "EXPLETIVE").Count() > 0)
+                foreach (var targetWatchEntity in targetWatchEntityes)
                 {
-                    if (!string.IsNullOrEmpty(targetWatchEntities) && !string.IsNullOrEmpty(returndata.TranslatedText))
+                    if (originalText.ToUpper().Contains(targetWatchEntity.ToUpper()) || translatedText.ToUpper().Contains(targetWatchEntity.ToUpper()))
                     {
-                        foreach (var targetWatchEntity in targetWatchEntities.Split(',').ToList())
-                        {
-                            foreach (var item in returndata.TextEntities)
-                            {
-                                if (returndata.TranslatedText.Contains(targetWatchEntity) && returndata.TranslatedText.Contains(item.TextEntity.Mention))
-                                {
-                                    var strToFind = targetWatchEntity + " " + item.TextEntity.Mention;
-                                    isNegative = true;
-                                    urlForMail = urlForMail + "<tr>" + strToFind + "</tr>";
-                                }
-                            }
-                        }
+                        var strToFind = targetWatchEntity; // + " " + item.TextEntity.Mention;
+                        isNegative = true;
+                        urlForMail = urlForMail + "<tr>" + strToFind + "</tr>";
+
+                        // one negative/expletive match is enough
+                        break;
                     }
                 }
-
-                status = true;
             }
+
+            status = true;
         }
 
         private bool SendEmail(string toEmailAddress, string subject, string body)
@@ -2089,37 +2100,43 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private void upadateFb_PostMailBody(string postid, string mailBody = "", int? noOfTimeMailSend = 0)
+        private void updateFb_PostMailBody(string postid, string mailBody = "", int? noOfTimeMailSend = 0)
         {
-            if (!string.IsNullOrEmpty(postid))
+            // Check before
+            if (string.IsNullOrEmpty(mailBody) && (noOfTimeMailSend <= 0))
+                return;
+
+            // Check before
+            if (string.IsNullOrEmpty(postid))
+                return;
+
+            //
+            String qry = "UPDATE T_FB_POST SET ";
+
+            // clean 
+            mailBody = mailBody.Replace("'", "''");
+
+            //
+            if (!string.IsNullOrEmpty(mailBody))
+                qry = qry + "MailBody = N'" + mailBody + "' ";
+
+            //
+            if (noOfTimeMailSend > 0)
+                qry = qry + "NoOfTimeMailSend = '" + noOfTimeMailSend + "', LastMailSendOn = '" + DateTime.Now + "' ";
+
+            //
+            qry = qry + "WHERE id = '" + postid + "'";
+
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "UPDATE T_FB_POST SET ";
-
-                // clean 
-                mailBody = mailBody.Replace("'", "''");
-
-                //
-                if (!string.IsNullOrEmpty(mailBody))
-                    qry = qry + "MailBody = N'" + mailBody + "' ";
-
-                //
-                if (noOfTimeMailSend > 0)
-                    qry = qry + "NoOfTimeMailSend = '" + noOfTimeMailSend + "', LastMailSendOn = '" + DateTime.Now + "' ";
-
-                //
-                qry = qry + "WHERE id = '" + postid + "'";
-
-                String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
-
-                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                using (SqlCommand cmd = new SqlCommand(qry, conn))
                 {
-                    using (SqlCommand cmd = new SqlCommand(qry, conn))
-                    {
-                        cmd.CommandType = CommandType.Text;
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
-                    }
+                    cmd.CommandType = CommandType.Text;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
                 }
             }
         }
