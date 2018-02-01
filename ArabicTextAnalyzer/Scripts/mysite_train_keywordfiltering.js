@@ -626,16 +626,9 @@ function JsTestFBFilter(influencerid) {
         },
         "success": function (msg) {
             console.log(msg);
-            currentInstance.CallTranslateMethod = false;
-            if (msg.status) {
-                if ($('#' + influencerid).hasClass('active')) {
-                    ResetDataTable(influencerid);
-                }
-            }
         },
         "error": function () {
             console.log("error in TranslateFBPostsAndComments");
-            currentInstance.CallTranslateMethod = false;
         }
     });
 }
