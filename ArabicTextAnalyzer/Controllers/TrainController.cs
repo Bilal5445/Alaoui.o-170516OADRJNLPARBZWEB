@@ -767,7 +767,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                         // for each post, translate and detect if there is negativity
                         if (!string.IsNullOrEmpty(fbPostForTranslate.post_text) && string.IsNullOrEmpty(fbPostForTranslate.translated_text))
-                            TranslatePostAndCatchExpletive(fbPostForTranslate, targetEntities, ref status, ref urlForMail, ref isNegative);
+                            TranslatePostAndCatchExpletive(fbPostForTranslate, targetEntities, out status, ref urlForMail, out isNegative);
 
                         // for each comment, translate and detect if there is negativity
                         if (!string.IsNullOrEmpty(fbPostForTranslate.id))
@@ -782,8 +782,8 @@ namespace ArabicTextAnalyzer.Controllers
                         //
                         if (isNegative == true || isNegativeComments == true)
                         {
-                            string postURL = "<a href ='www.facebook.com/" + urlName + "/posts/" + fbPostForTranslate.id.Split('_')[1] + "'>www.facebook.com/" + urlName + "/posts/" + fbPostForTranslate.id.Split('_')[1] + " </a>";
-                            string body = "Hello user,<br/>Some bad words has been detected on your facebook page" + pageName + ".<br/>" + postURL + "<br/><table>" + urlForMail + "</table></br>Please remove the words from the page.<br/>Thanks.";
+                            string postURL = "<a href='www.facebook.com/" + urlName + "/posts/" + fbPostForTranslate.id.Split('_')[1] + "'>www.facebook.com/" + urlName + "/posts/" + fbPostForTranslate.id.Split('_')[1] + "</a>";
+                            string body = "Hello user,<br/>Some bad words has been detected on your facebook page " + pageName + ".<br/>" + postURL + "<br/><table>" + urlForMail + "</table></br>Please remove the words from the page.<br/>Thanks.";
                             if (string.IsNullOrEmpty(fbPostForTranslate.MailBody))
                                 upadateFb_PostMailBody(fbPostForTranslate.id, mailBody: body);
                         }
@@ -863,49 +863,33 @@ namespace ArabicTextAnalyzer.Controllers
                 var user = db1.Users.FirstOrDefault(c => c.Id == userid);
                 if (user != null)
                 {
-                    try
+                    var email = user.Email;
+                    if (!string.IsNullOrEmpty(email))
                     {
-                        var email = user.Email;
-                        if (!string.IsNullOrEmpty(email))
+                        foreach (var posts in sendMailPosts)
                         {
-                            foreach (var posts in sendMailPosts)
+                            if (!string.IsNullOrEmpty(posts.MailBody))
                             {
-                                if (!string.IsNullOrEmpty(posts.MailBody))
+                                string subject = "Warning! Some bad words has been detected in your page.";
+                                string body = posts.MailBody;
+                                int n = 0;
+                                if (posts.NoOfTimeMailSend < 2 || posts.NoOfTimeMailSend == null)
                                 {
-                                    string subject = "Warning! Some bad words has been detected in your page.";
-                                    string body = posts.MailBody;
-                                    int n = 0;
-                                    if (posts.NoOfTimeMailSend < 2 || posts.NoOfTimeMailSend == null)
+                                    if (posts.NoOfTimeMailSend == null || posts.NoOfTimeMailSend == 0)//send mail on first time to the user if there is any negative/expletive words on posts and comments.
                                     {
-                                        try
-                                        {
-                                            if (posts.NoOfTimeMailSend == null || posts.NoOfTimeMailSend == 0)//send mail on first time to the user if there is any negative/expletive words on posts and comments.
-                                            {
-                                                status = SendEmail(email, subject, body);
-                                                n = 1;
-                                            }
-                                            else if (posts.LastMailSendOn <= DateTime.Now.AddHours(-6))//send mail on second time in a day after 6 hours of first mail.
-                                            {
-                                                status = SendEmail(email, subject, body);
-                                                n = 2;
-                                            }
-                                            if (status == true)
-                                                upadateFb_PostMailBody(posts.id, nooftimemailsend: n);
-                                        }
-                                        catch (Exception e)
-                                        {
-                                            status = false;
-                                            errMessage = e.Message;
-                                        }
+                                        status = SendEmail(email, subject, body);
+                                        n = 1;
                                     }
+                                    else if (posts.LastMailSendOn <= DateTime.Now.AddHours(-6))//send mail on second time in a day after 6 hours of first mail.
+                                    {
+                                        status = SendEmail(email, subject, body);
+                                        n = 2;
+                                    }
+                                    if (status == true)
+                                        upadateFb_PostMailBody(posts.id, noOfTimeMailSend: n);
                                 }
                             }
                         }
-                    }
-                    catch (Exception e)
-                    {
-                        status = false;
-                        errMessage = e.Message;
                     }
                 }
             }
@@ -956,46 +940,57 @@ namespace ArabicTextAnalyzer.Controllers
             return returndata;
         }
 
-        private void TranslatePostAndCatchExpletive(FB_POST fbPostForTranslate, String targetWatchEntities, ref bool status, ref string urlForMail, ref bool isNegative)
+        private void TranslatePostAndCatchExpletive(FB_POST fbPostForTranslate, String targetWatchEntitiesStr, out bool status, ref string urlForMail, out bool isNegative)
         {
-            // translate
+            //
+            status = false;
+            isNegative = false;
+
+            // check before
+            if (string.IsNullOrEmpty(targetWatchEntitiesStr))
+                return;
+
+            // translate and save translation to db
             var returndata = TranslateFBPostOrFBComment(content: fbPostForTranslate.post_text, postId: fbPostForTranslate.id);
+            if (returndata.Status != true)
+                return;
+
+            //
+            var extractedNERs = returndata.TextEntities.Select(m => new { Mention = m.TextEntity.Mention, Type = m.TextEntity.Type });
+            var extractedNegExplNERs = extractedNERs.Where(c => c.Type == "NEGATIVE" || c.Type == "EXPLETIVE");
+            var targetWatchEntityes = targetWatchEntitiesStr.Split(',').ToList();
+            var originalPost = fbPostForTranslate.post_text;
+            var translatedText = returndata.TranslatedText;
 
             // process if any expletive NER
-            if (returndata != null && returndata.Status == true)
+            if (extractedNegExplNERs.Count() > 0)
             {
-                if (returndata.TextEntities.Count() > 0 && returndata.TextEntities.Where(c => c.TextEntity.Type == "NEGATIVE" || c.TextEntity.Type == "EXPLETIVE").Count() > 0)
+                foreach (var targetWatchEntity in targetWatchEntityes)
                 {
-                    if (!string.IsNullOrEmpty(targetWatchEntities) && !string.IsNullOrEmpty(returndata.TranslatedText))
+                    if (originalPost.ToUpper().Contains(targetWatchEntity.ToUpper()) || translatedText.ToUpper().Contains(targetWatchEntity.ToUpper()))
                     {
-                        foreach (var targetWatchEntity in targetWatchEntities.Split(',').ToList())
-                        {
-                            foreach (var item in returndata.TextEntities)
-                            {
-                                if (returndata.TranslatedText.Contains(targetWatchEntity) && returndata.TranslatedText.Contains(item.TextEntity.Mention))
-                                {
-                                    var strToFind = targetWatchEntity + " " + item.TextEntity.Mention;
-                                    isNegative = true;
-                                    urlForMail = urlForMail + "<tr>" + strToFind + "</tr>";
-                                }
-                            }
-                        }
+                        var strToFind = targetWatchEntity; // + " " + item.TextEntity.Mention;
+                        isNegative = true;
+                        urlForMail = urlForMail + "<tr>" + strToFind + "</tr>";
+
+                        // one negative/expletive match is enough
+                        break;
                     }
                 }
-
-                status = true;
             }
+
+            status = true;
         }
 
         private void TranslateCommentAndCatchExpletive(FBFeedComment fbCommentForTranslate, String targetWatchEntities, ref bool status, ref string urlForMail, ref bool isNegative)
         {
-            // translate
+            // translate and save translation to db
             var returndata = TranslateFBPostOrFBComment(content: fbCommentForTranslate.message, commentId: fbCommentForTranslate.Id);
 
             // process if any expletive NER
-            if (returndata != null && returndata.Status == true)
+            if (returndata.Status == true)
             {
-                if (returndata.TextEntities.Count() > 0 && returndata.TextEntities.Where(c => c.TextEntity.Type == "NEGATIVE" || c.TextEntity.Type == "EXPLETIVE").Count() > 0)
+                if (returndata.TextEntities.Where(c => c.TextEntity.Type == "NEGATIVE" || c.TextEntity.Type == "EXPLETIVE").Count() > 0)
                 {
                     if (!string.IsNullOrEmpty(targetWatchEntities) && !string.IsNullOrEmpty(returndata.TranslatedText))
                     {
@@ -1022,43 +1017,39 @@ namespace ArabicTextAnalyzer.Controllers
         {
             bool status = false;
 
-            try
+            var emailsetting = UtilityFunctions.GetEmailSetting();
+            var username = emailsetting.SMTPServerLoginName;
+            string password = emailsetting.SMTPServerPassword;
+
+            MailMessage msg = new MailMessage();
+            msg.Subject = subject;
+
+            msg.From = new MailAddress(emailsetting.NoReplyEmailAddress);
+
+            foreach (var email in toEmailAddress.Split(','))
             {
-                var emailsetting = UtilityFunctions.GetEmailSetting();
-                var username = emailsetting.SMTPServerLoginName;
-                string password = emailsetting.SMTPServerPassword;
-
-                MailMessage msg = new MailMessage();
-                msg.Subject = subject;
-
-                msg.From = new MailAddress(emailsetting.NoReplyEmailAddress);
-
-                foreach (var email in toEmailAddress.Split(','))
-                {
-                    msg.To.Add(new MailAddress(email));
-                }
-                var bccAddress = ConfigurationManager.AppSettings["BCCEmailAddress"];
-                if (!string.IsNullOrEmpty(bccAddress))
-                {
-                    msg.Bcc.Add(new MailAddress(bccAddress));
-                }
-
-                msg.IsBodyHtml = true;
-                msg.Body = body;
-
-                SmtpClient smtpClient = new SmtpClient();
-                smtpClient.Host = emailsetting.SMTPServerUrl;
-                smtpClient.Port = emailsetting.SMTPServerPort;
-                smtpClient.EnableSsl = true;
-                smtpClient.UseDefaultCredentials = emailsetting.SMTPSecureConnectionRequired;
-                smtpClient.Credentials = new System.Net.NetworkCredential(username, password);
-                smtpClient.Send(msg);
-                status = true;
+                msg.To.Add(new MailAddress(email));
             }
-            catch (Exception ex)
+            var bccAddress = ConfigurationManager.AppSettings["BCCEmailAddress"];
+            if (!string.IsNullOrEmpty(bccAddress))
             {
-                status = false;
+                msg.Bcc.Add(new MailAddress(bccAddress));
             }
+
+            msg.IsBodyHtml = true;
+            msg.Body = body;
+
+            SmtpClient smtpClient = new SmtpClient();
+            smtpClient.Host = emailsetting.SMTPServerUrl;
+            smtpClient.Port = emailsetting.SMTPServerPort;
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtpClient.EnableSsl = true;
+            // smtpClient.UseDefaultCredentials = emailsetting.SMTPSecureConnectionRequired;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Credentials = new System.Net.NetworkCredential(username, password);
+            smtpClient.Send(msg);
+            status = true;
+
             return status;
         }
         #endregion
@@ -2098,21 +2089,25 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private void upadateFb_PostMailBody(string postid, string mailBody = "", int? nooftimemailsend = 0)
+        private void upadateFb_PostMailBody(string postid, string mailBody = "", int? noOfTimeMailSend = 0)
         {
-
             if (!string.IsNullOrEmpty(postid))
             {
                 String qry = "UPDATE T_FB_POST SET ";
+
+                // clean 
+                mailBody = mailBody.Replace("'", "''");
+
+                //
                 if (!string.IsNullOrEmpty(mailBody))
-                {
-                    qry = qry + " MailBody=N'" + mailBody + "' ";
-                }
-                if (nooftimemailsend > 0)
-                {
-                    qry = qry + " NoOfTimeMailSend='" + nooftimemailsend + "', LastMailSendOn='" + DateTime.Now + "' ";
-                }
-                qry = qry + " WHERE id = '" + postid + "'";
+                    qry = qry + "MailBody = N'" + mailBody + "' ";
+
+                //
+                if (noOfTimeMailSend > 0)
+                    qry = qry + "NoOfTimeMailSend = '" + noOfTimeMailSend + "', LastMailSendOn = '" + DateTime.Now + "' ";
+
+                //
+                qry = qry + "WHERE id = '" + postid + "'";
 
                 String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
 
@@ -2122,7 +2117,6 @@ namespace ArabicTextAnalyzer.Controllers
                     {
                         cmd.CommandType = CommandType.Text;
                         conn.Open();
-                        /*returndata = */
                         cmd.ExecuteNonQuery();
                         conn.Close();
                     }
