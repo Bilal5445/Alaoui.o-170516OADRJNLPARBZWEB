@@ -743,7 +743,8 @@ namespace ArabicTextAnalyzer.Controllers
                 return JsonConvert.SerializeObject(new
                 {
                     status = status,
-                    message = "Param influencer id empty"
+                    message = "Param influencer id empty",
+                    fct = "TranslateAndExtractNERFBPostsAndComments"
                 });
             }
 
@@ -802,7 +803,8 @@ namespace ArabicTextAnalyzer.Controllers
             return JsonConvert.SerializeObject(new
             {
                 status = status,
-                message = errMessage
+                message = errMessage,
+                fct = "TranslateAndExtractNERFBPostsAndComments"
             });
         }
 
