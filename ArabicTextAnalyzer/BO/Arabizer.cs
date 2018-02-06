@@ -441,7 +441,6 @@ namespace ArabicTextAnalyzer.BO
             saveserializeM_ARABICDARIJAENTRY_EFSQL_uow(arabicDarijaEntry, db, isEndOfScope: isEndOfScope);
 
             //
-            // return arabicText;
             return arabicDarijaEntry;
         }
 
@@ -477,7 +476,6 @@ namespace ArabicTextAnalyzer.BO
                 saveserializeM_ARABICDARIJAENTRY_LATINWORD_EFSQL(latinWord);
             }
 
-            // return arabicText;
             return arabicDarijaEntryLatinWords;
         }
 
@@ -513,7 +511,6 @@ namespace ArabicTextAnalyzer.BO
                 saveserializeM_ARABICDARIJAENTRY_LATINWORD_EFSQL_uow(latinWord, db, isEndOfScope: isEndOfScope);
             }
 
-            // return arabicText;
             return arabicDarijaEntryLatinWords;
         }
 
