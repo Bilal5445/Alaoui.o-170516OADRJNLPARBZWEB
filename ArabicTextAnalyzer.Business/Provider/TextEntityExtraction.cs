@@ -139,6 +139,12 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public IEnumerable<TextEntity> GetEntities(string source)
         {
+            List<TextEntity> returnValue = new List<TextEntity>();
+
+            if (doNotUseRosette == true)
+                return returnValue;
+
+            //
             var request = new RestRequest("entities", Method.POST);
 
             request.AddHeader("X-RosetteAPI-Key", rosetteApiKey);
