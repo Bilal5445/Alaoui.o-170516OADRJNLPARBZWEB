@@ -58,15 +58,9 @@ namespace ArabicTextAnalyzer.Controllers
                 var users = UserManager.Users
                     .Where(x => x.UserName.Contains(searchStringUserNameOrEmail));
 
-                //
-                /*intTotalPageCount = users
-                    .Count();*/
-
                 // 
                 var lusers = users
                     .OrderBy(x => x.UserName)
-                    /*.Skip(intSkip)
-                    .Take(intPageSize)*/
                     .ToList();
 
                 // get register apps to make a join with users
@@ -90,8 +84,7 @@ namespace ArabicTextAnalyzer.Controllers
                 });
 
                 result = result.Skip(intSkip)
-                    .Take(intPageSize)
-                    /*.ToList()*/;
+                    .Take(intPageSize);
 
                 //
                 foreach (var item in result)
@@ -106,7 +99,7 @@ namespace ArabicTextAnalyzer.Controllers
                     col_UserDTO.Add(objUserDTO);
                 }
 
-                intTotalItemCount = /*users*/result
+                intTotalItemCount = result
                     .Count();
 
                 // Set the number of pages
