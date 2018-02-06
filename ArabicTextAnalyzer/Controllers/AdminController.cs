@@ -59,9 +59,7 @@ namespace ArabicTextAnalyzer.Controllers
                     .Where(x => x.UserName.Contains(searchStringUserNameOrEmail));
 
                 // 
-                var lusers = users
-                    .OrderBy(x => x.UserName)
-                    .ToList();
+                var lusers = users.ToList();
 
                 // get register apps to make a join with users
                 var registerApps = new Arabizer().loaddeserializeRegisterApps_DAPPERSQL();
@@ -83,7 +81,9 @@ namespace ArabicTextAnalyzer.Controllers
                     regusr.LastLoginTime
                 });
 
-                result = result.Skip(intSkip)
+                result = result
+                    .OrderByDescending(x => x.LastLoginTime)
+                    .Skip(intSkip)
                     .Take(intPageSize);
 
                 //
