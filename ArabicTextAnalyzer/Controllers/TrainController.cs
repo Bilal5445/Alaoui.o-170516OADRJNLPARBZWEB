@@ -672,7 +672,7 @@ namespace ArabicTextAnalyzer.Controllers
                 string translatedstring = "";
                 if (!string.IsNullOrEmpty(ids))
                 {
-                    // get list of translated or not yet translated comments with the specified ids (can be one comment to translate or can be many checked) 
+                    // get list of not yet translated comments with the specified ids (can be one comment to translate or can be many checked)
                     List<FBFeedComment> allComments = GetComments(ids);
 
                     //
@@ -2045,8 +2045,7 @@ namespace ArabicTextAnalyzer.Controllers
                 String qry = "";
                 if (!string.IsNullOrEmpty(ids))
                 {
-                    // qry = "SELECT * FROM FBFeedComments WHERE id IN (" + ids + ") AND translated_message IS NULL ";
-                    qry = "SELECT * FROM FBFeedComments WHERE id IN (" + ids + ") ";
+                    qry = "SELECT * FROM FBFeedComments WHERE id IN (" + ids + ") AND translated_message IS NULL ";
                 }
 
                 conn.Open();
