@@ -424,7 +424,6 @@ namespace ArabicTextAnalyzer.Business.Provider
         public static String DisplayRemoveAndApplyTagCol(Guid ID_ARABIZIENTRY, Guid ID_ARABICDARIJAENTRY, List<M_XTRCTTHEME> mainEntities)
         {
             // remove button
-            // String newhtml1 = $@"<a href='/Train/Train_DeleteEntry/?arabiziWordGuid={ID_ARABIZIENTRY}' class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Remove</a>";
             String newhtml1 = $@"<a href='/Train/Train_DeleteEntry/?arabiziWordGuid={ID_ARABIZIENTRY}' class='btn btn-danger btn-xs small'><span class='glyphicon glyphicon-remove small' aria-hidden='true'></span></a>";
 
             // refresh button
