@@ -2167,8 +2167,6 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 return t_fb_Influencer;
             }
-
-
         }
 
         private List<ArabiziToArabicViewModel> loadArabiziToArabicViewModel_DAPPERSQL()
