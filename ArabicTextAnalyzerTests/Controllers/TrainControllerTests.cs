@@ -1031,11 +1031,5 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             arabizi = new BingSpellCheckerApiTools().bingSpellcheckApi(arabizi, BingSpellcheckAPIKey);
             Assert.AreEqual(expected, arabizi);
         }
-
-        [TestMethod()]
-        public void ut_180131_test_fb_filter()
-        {
-            // new TrainController().TranslateAndExtractNERFBPostsAndComments();
-        }
     }
 }
