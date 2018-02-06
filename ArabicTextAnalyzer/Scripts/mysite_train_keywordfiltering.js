@@ -363,10 +363,10 @@ function GetComments(obj) {
             InitializeFBCommentsForPostDataTables(id);
 
             // add a global bulk translate button for comments
-            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a>')
+            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info btn-xs" style="margin-left:5px" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a>')
 
             // add a global bulk check all button for comments
-            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info" style="margin-left:5%" onclick="CheckUnCheckAllComments(' + id + ')">Check/Uncheck All</a><h3>Comments</h3>')
+            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info btn-xs" style="margin-left:5px" onclick="CheckUnCheckAllComments(' + id + ')">Check/Uncheck All</a><h3>Comments</h3>')
 
             //
             GetCommentsIsClicked = false;
@@ -614,6 +614,25 @@ function AddInfluencer() {
     });
 }
 
+function JsTestFBFilter(influencerid) {
+
+    //
+    $.ajax({
+        "dataType": 'json',
+        "type": "GET",
+        "url": "/Train/TranslateAndExtractNERFBPostsAndComments",
+        "data": {
+            "influencerid": influencerid
+        },
+        "success": function (msg) {
+            console.log(msg);
+        },
+        "error": function () {
+            console.log("error in TranslateFBPostsAndComments");
+        }
+    });
+}
+
 // Js for Retrieve fb post or refresh button
 function JsRetrieveFBPosts(influencerurl_name, influencerid) {
 
@@ -635,18 +654,29 @@ var FBDataVM = function () {
     this.isAutoRetrieveFBPostAndComments = false;
 
     // wrap function to call original function JsRetrieveFBPosts
-    this.GetFBPostAndComments = function (influencerUrl, influencerid) {
+    this.GetFBPostsAndComments = function (influencerUrl, influencerid) {
+
+        // DBG
+        console.log("GetFBPostsAndComments - begin");
+
         var currentInstance = this;
         var intervalFlag = true;
-        // alert(influencerUrl + "\n" + influencerid);
         if (currentInstance.CallMethod == false) {
+
+            //
             currentInstance.CallMethod = true;
+
+            //
             currentInstance.JsRetrieveFBPosts(influencerUrl, influencerid, intervalFlag);
         }
     };
 
     // function to translate posts/comments and extract NERs from them and filter over negative NER
-    this.TranslateFBPostAndComments = function (influencerUrl, influencerid) {
+    this.TranslateFBPostsAndComments = function (influencerid) {
+
+        // DBG
+        console.log("TranslateFBPostsAndComments - begin");
+
         var currentInstance = this;
         // alert(influencerid);
         if (currentInstance.CallTranslateMethod == false) {
@@ -656,7 +686,7 @@ var FBDataVM = function () {
             $.ajax({
                 "dataType": 'json',
                 "type": "GET",
-                "url": "/Train/TranslateAndExtractNERFBPostAndComments",
+                "url": "/Train/TranslateAndExtractNERFBPostsAndComments",
                 "data": {
                     "influencerid": influencerid
                 },
@@ -670,7 +700,7 @@ var FBDataVM = function () {
                     }
                 },
                 "error": function () {
-                    console.log("error in TranslateFBPostAndComments");
+                    console.log("error in TranslateFBPostsAndComments");
                     currentInstance.CallTranslateMethod = false;
                 }
             });
@@ -679,6 +709,10 @@ var FBDataVM = function () {
 
     // original function to retrieve fb posts (and comments as well) 
     this.JsRetrieveFBPosts = function (influencerurl_name, influencerid, intervalFlag) {
+
+        // DBG
+        console.log("JsRetrieveFBPosts - begin");
+
         var currentInstance = this;
         if ((currentInstance.RetrieveFBPostIsClicked == false && currentInstance.CallMethod == false) || intervalFlag == true) {
 
@@ -696,8 +730,10 @@ var FBDataVM = function () {
                 },
                 "success": function (msg) {
 
-                    console.log("msg : " + msg);
-                    console.log("msg.status : " + msg.status);
+                    console.log("JsRetrieveFBPosts - msg : " + msg);
+                    console.log("JsRetrieveFBPosts - msg.status : " + msg.status);
+                    console.log("retrievedPostsCount : " + msg.retrievedPostsCount);   // DBG
+                    console.log("retrievedCommentsCount : " + msg.retrievedCommentsCount);   // DBG
 
                     //
                     currentInstance.RetrieveFBPostIsClicked = false;
@@ -712,9 +748,6 @@ var FBDataVM = function () {
                         }
 
                     } else if (msg.status) {
-
-                        console.log("retrievedPostsCount : " + msg.retrievedPostsCount);   // DBG
-                        console.log("retrievedCommentsCount : " + msg.retrievedCommentsCount);   // DBG
 
                         // refresh
                         ResetDataTable(influencerid);
@@ -747,7 +780,7 @@ var FBDataVM = function () {
                         msg = 'Uncaught Error.\n' + jqXHR.responseText;
                     }
                     // $('#post').html(msg);
-                    console.log("Error : " + msg);
+                    console.log("JsRetrieveFBPosts - Error : " + msg);
                     alert("Error : " + msg);
                 }
             });
@@ -757,11 +790,15 @@ var FBDataVM = function () {
     // function to start retrieving posts and posts from FB and translating them
     this.init = function (influencerUrl, influencerid, isAutoRetrieveFBPostAndComments) {
 
+        console.log("init - begin");
+
         //
         var currentInstance = this;
 
-        //      
+        //    
+        console.log("setinterval - GetFBPostsAndComments");
         setInterval(function () {
+
             if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
                 currentInstance.isAutoRetrieveFBPostAndComments = true;
             } else {
@@ -769,12 +806,13 @@ var FBDataVM = function () {
             }
 
             if (currentInstance.isAutoRetrieveFBPostAndComments == true) {
-                currentInstance.GetFBPostAndComments(influencerUrl, influencerid);
+                currentInstance.GetFBPostsAndComments(influencerUrl, influencerid);
             }
 
         }, TimeintervalforFBMethods);
 
         //
+        console.log("setinterval - TranslateFBPostsAndComments");
         setInterval(function () {
 
             if ($('#cbxAutoRetrieveFBPostAndComments_' + influencerid).is(":checked")) {
@@ -784,7 +822,7 @@ var FBDataVM = function () {
             }
 
             if (currentInstance.isAutoRetrieveFBPostAndComments == true) {
-                currentInstance.TranslateFBPostAndComments(influencerUrl, influencerid);
+                currentInstance.TranslateFBPostsAndComments(influencerid);
             }
 
         }, TimeintervalforFBMethods);
