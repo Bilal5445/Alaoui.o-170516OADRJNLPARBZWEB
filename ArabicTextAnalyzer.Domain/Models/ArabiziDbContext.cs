@@ -29,7 +29,6 @@ namespace ArabicTextAnalyzer.Domain.Models
         public DbSet<TokensManager> TokensManager { get; set; }
         public DbSet<ClientKeys> ClientKeys { get; set; }
         public DbSet<RegisterAppCallingLog> RegisterAppCallingLogs { get; set; }
-        public DbSet<ScheduleTask> ScheduleTasks { get; set; }
     }
 
     public class ScrappyWebDbContext : DbContext
