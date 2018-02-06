@@ -2308,4 +2308,3 @@ namespace ArabicTextAnalyzer.Controllers
         public string NoReplyEmailAddress { get; set; }
     }
 }
-
