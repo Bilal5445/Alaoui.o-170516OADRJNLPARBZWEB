@@ -130,6 +130,9 @@ namespace ArabicTextAnalyzer.Business.Provider
             output = Postprocess_slash_r_slash_n(output);
             output = Postprocess_حنا_to_نحن(output);
             output = Postprocess_هاد_to_هذا(output);
+            output = Postprocess_هادي_to_هذه(output);
+            output = Postprocess_وهيا_to_وهي(output);
+            output = Postprocess_أل_to_ال(output);
 
             return output;
         }
@@ -152,6 +155,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_emoticons(source);
             source = Preprocess_underscore(source);
             source = Preprocess_questionmark(source);
+            source = Preprocess_wierdquote(source);
 
             //
             return source;
@@ -352,6 +356,13 @@ namespace ArabicTextAnalyzer.Business.Provider
             return miniArabiziKeyword;
         }
 
+        private string Preprocess_wierdquote(string arabizi)
+        {
+            String miniArabiziKeyword = arabizi.Replace("´", "'");
+
+            return miniArabiziKeyword;
+        }
+
         // public for UT only
         public string Preprocess_arabic_comma(string arabizi)
         {
@@ -404,7 +415,7 @@ namespace ArabicTextAnalyzer.Business.Provider
         public string Preprocess_quotes(string arabizi)
         {
             // quote : bing/google converts " to &quot; so we need to convert it back to "
-            arabizi = Regex.Replace(arabizi, "&quot;", "\"", RegexOptions.IgnoreCase);
+            arabizi = Regex.Replace(arabizi, "&quot;", "\'", RegexOptions.IgnoreCase);
 
             return arabizi;
         }
@@ -430,6 +441,25 @@ namespace ArabicTextAnalyzer.Business.Provider
             return Regex.Replace(arabic, @"\bهاد\b", "هذا");
         }
 
+        public string Postprocess_هادي_to_هذه(string arabic)
+        {
+            // replace whole-word only
+            // return arabic.Replace("هاد", "هذا");
+            return Regex.Replace(arabic, @"\bهادي\b", "هذه");
+        }
+
+        public string Postprocess_وهيا_to_وهي(string arabic)
+        {
+            // replace whole-word only
+            // return arabic.Replace("هاد", "هذا");
+            return Regex.Replace(arabic, @"\bوهيا\b", "وهي");
+        }
+
+        public string Postprocess_أل_to_ال(string arabic)
+        {
+            // replace whole-word only
+            return Regex.Replace(arabic, @"\bأل", "ال");
+        }
         #endregion
 
         static string RemoveOtherSymbols(string text)
