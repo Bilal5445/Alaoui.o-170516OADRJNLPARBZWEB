@@ -14,11 +14,11 @@ namespace ArabicTextAnalyzer.Business.Provider
 {
     public class TranslationTools
     {
-        // String spellCheckAPi = "https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?text=";
-        String bingSpellApiKey; // = ConfigurationManager.AppSettings["BingSpellcheckAPIKey"].ToString();
+        // bing spellcheck api key
+        String bingSpellApiKey;
 
         // google translation api key
-        String translationApiKey; // = ConfigurationManager.AppSettings["GoogleTranslationApiKey"].ToString();
+        String translationApiKey;
 
         // for UT only
         public TranslationTools(String bingSpellApiKey, String googleTranslationApiKey)
