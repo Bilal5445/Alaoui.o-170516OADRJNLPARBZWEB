@@ -10,6 +10,7 @@ namespace ArabicTextAnalyzer.ViewModels
     // class for the table in the partialview
     public class ArabiziToArabicViewModel
     {
+        public int Rank { get; set; }
         public Guid ID_ARABIZIENTRY { get; set; }
         public DateTime ArabiziEntryDate { get; set; }
         public String ArabiziText { get; set; }
