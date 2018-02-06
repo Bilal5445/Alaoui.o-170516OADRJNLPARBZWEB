@@ -140,7 +140,7 @@ namespace ArabicTextAnalyzer.Business.Provider
         public IEnumerable<TextEntity> GetEntities(string source)
         {
             List<TextEntity> returnValue = new List<TextEntity>();
-            
+
             if (doNotUseRosette == true)
                 return returnValue;
 
