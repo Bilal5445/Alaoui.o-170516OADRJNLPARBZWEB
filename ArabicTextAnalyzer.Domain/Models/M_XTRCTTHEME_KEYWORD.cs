@@ -17,6 +17,7 @@ namespace ArabicTextAnalyzer.Domain.Models
         public String Keyword { get; set; }
         public String Keyword_Type { get; set; }
         public int Keyword_Count { get; set; }
+        public int IsDeleted { get; set; }
     }
 
     public class THEMETAGSCOUNT

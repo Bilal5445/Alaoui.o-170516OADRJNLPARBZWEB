@@ -15,6 +15,7 @@ namespace ArabicTextAnalyzer.Domain.Models
         public Guid ID_ARABICDARIJAENTRY_TEXTENTITY { get; set; }    // PK
         public Guid ID_ARABICDARIJAENTRY { get; set; }              // FK one-to-many
         public TextEntity TextEntity { get; set; }
+        public int IsDeleted { get; set; }
     }
 
     [Table("T_ARABICDARIJAENTRY_TEXTENTITY")]

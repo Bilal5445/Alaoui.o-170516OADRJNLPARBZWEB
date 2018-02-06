@@ -13,6 +13,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
+using static ArabicTextAnalyzer.Business.Provider.RosetteMultiLanguageDetections;
 
 namespace ArabicTextAnalyzer.BO
 {
@@ -57,30 +58,75 @@ namespace ArabicTextAnalyzer.BO
             //
             String arabicText = train_savearabizi(arabiziEntry);
 
+            // Detecte ranges of language with new rosette API 1.9
+            List<LanguageRange> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
+            if (languagesRanges.Count > 1)
+            {
+                arabicText = String.Empty;  // reset 
+                foreach (LanguageRange langueRange in languagesRanges)
+                {
+                    LanguageDetection language = new TextEntityExtraction().GetLanguageForRange(langueRange.Region);
+                    if (language.language == "fra" /*&& language.confidence > 0.5*/)
+                        frMode = true;
+                    if (language.language == "eng" && language.confidence > 0.7)    // it thinks arabizi is 'eng' with 0.65 confid
+                        frMode = true;
+
+                    String larabicText = langueRange.Region;
+
+                    if (frMode == false)
+                        larabicText = new TextConverter().Preprocess_upstream(larabicText);
+
+                    // mark as ignore : url 
+                    larabicText = train_markAsIgnore(larabicText);
+
+                    if (frMode == false)
+                        larabicText = train_bidict(larabicText);
+
+                    if (frMode == false)
+                        larabicText = train_perl(watch, larabicText);
+
+                    arabicText += larabicText;
+                }
+            }
+            else
+            {
+                LanguageDetection language = languagesRanges[0].Language;
+                if (language.language == "fra" /*&& language.confidence > 0.5*/)
+                    frMode = true;
+                if (language.language == "eng" && language.confidence > 0.7)    // it thinks arabizi is 'eng' with 0.65 confid
+                    frMode = true;
+
+                String larabicText = languagesRanges[0].Region;
+
+                if (frMode == false)
+                    larabicText = new TextConverter().Preprocess_upstream(larabicText);
+
+                // mark as ignore : url 
+                larabicText = train_markAsIgnore(larabicText);
+
+                if (frMode == false)
+                    larabicText = train_bidict(larabicText);
+
+                if (frMode == false)
+                    larabicText = train_perl(watch, larabicText);
+
+                arabicText = larabicText;
+            }
+
             //
-            if (frMode == false)
-                arabicText = new TextConverter().Preprocess_upstream(arabicText);
+            var arabicDarijaEntry = new M_ARABICDARIJAENTRY
+            {
+                ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
+                ID_ARABIZIENTRY = arabiziEntry.ID_ARABIZIENTRY,
+                ArabicDarijaText = arabicText
+            };
 
-            // mark as ignore : url 
-            arabicText = train_markAsIgnore(arabicText);
+            // save to persist
+            saveserializeM_ARABICDARIJAENTRY_EFSQL(arabicDarijaEntry);
 
-            if (frMode == false)
-                arabicText = train_bidict(arabicText);
-
-            if (frMode == false)
-                arabicText = train_binggoogle(arabicText);
-
-            var arabicDarijaEntry = train_saveperl(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, AccessMode.efsql, frMode);
+            //
             arabicText = arabicDarijaEntry.ArabicDarijaText;
             expando.M_ARABICDARIJAENTRY = arabicDarijaEntry;
-
-            // MC110118 we don't need any longer latin words, since we don't use any longer twingly to search for corpus as this one is feeded manually
-            // Plus it disturbs URL handling
-            /*if (frMode == false)
-            {
-                var arabicDarijaEntryLatinWords = train_savelatinwords(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
-                expando.M_ARABICDARIJAENTRY_LATINWORDs = arabicDarijaEntryLatinWords;
-            }*/
 
             List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = train_savener(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql);
             expando.M_ARABICDARIJAENTRY_TEXTENTITYs = textEntities;
@@ -133,30 +179,75 @@ namespace ArabicTextAnalyzer.BO
             //
             String arabicText = train_savearabizi_uow(arabiziEntry, db, isEndOfScope: false);
 
+            // Detecte ranges of language with new rosette API 1.9
+            List<LanguageRange> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
+            if (languagesRanges.Count > 1)
+            {
+                arabicText = String.Empty;  // reset 
+                foreach (LanguageRange langueRange in languagesRanges)
+                {
+                    LanguageDetection language = new TextEntityExtraction().GetLanguageForRange(langueRange.Region);
+                    if (language.language == "fra" /*&& language.confidence > 0.5*/)
+                        frMode = true;
+                    if (language.language == "eng" && language.confidence > 0.7)    // it thinks arabizi is 'eng' with 0.65 confid
+                        frMode = true;
+
+                    String larabicText = langueRange.Region;
+
+                    if (frMode == false)
+                        larabicText = new TextConverter().Preprocess_upstream(larabicText);
+
+                    // mark as ignore : url 
+                    larabicText = train_markAsIgnore(larabicText);
+
+                    if (frMode == false)
+                        larabicText = train_bidict(larabicText);
+
+                    if (frMode == false)
+                        larabicText = train_perl(watch, larabicText);
+
+                    arabicText += larabicText;
+                }
+            }
+            else
+            {
+                LanguageDetection language = languagesRanges[0].Language;
+                if (language.language == "fra" /*&& language.confidence > 0.5*/)
+                    frMode = true;
+                if (language.language == "eng" && language.confidence > 0.7)    // it thinks arabizi is 'eng' with 0.65 confid
+                    frMode = true;
+
+                String larabicText = languagesRanges[0].Region;
+
+                if (frMode == false)
+                    larabicText = new TextConverter().Preprocess_upstream(larabicText);
+
+                // mark as ignore : url 
+                larabicText = train_markAsIgnore(larabicText);
+
+                if (frMode == false)
+                    larabicText = train_bidict(larabicText);
+
+                if (frMode == false)
+                    larabicText = train_perl(watch, larabicText);
+
+                arabicText = larabicText;
+            }
+
             //
-            if (frMode == false)
-                arabicText = new TextConverter().Preprocess_upstream(arabicText);
+            var arabicDarijaEntry = new M_ARABICDARIJAENTRY
+            {
+                ID_ARABICDARIJAENTRY = id_ARABICDARIJAENTRY,
+                ID_ARABIZIENTRY = arabiziEntry.ID_ARABIZIENTRY,
+                ArabicDarijaText = arabicText
+            };
 
-            // mark as ignore : url 
-            arabicText = train_markAsIgnore(arabicText);
+            // save to persist
+            saveserializeM_ARABICDARIJAENTRY_EFSQL_uow(arabicDarijaEntry, db, isEndOfScope: false);
 
-            if (frMode == false)
-                arabicText = train_bidict(arabicText);
-
-            if (frMode == false)
-                arabicText = train_binggoogle(arabicText);
-
-            var arabicDarijaEntry = train_saveperl_uow(watch, arabicText, arabiziEntry.ID_ARABIZIENTRY, id_ARABICDARIJAENTRY, db, isEndOfScope: false, frMode: frMode);
+            //
             arabicText = arabicDarijaEntry.ArabicDarijaText;
             expando.M_ARABICDARIJAENTRY = arabicDarijaEntry;
-
-            // MC110118 we don't need any longer latin words, since we don't use any longer twingly to search for corpus as this one is feeded manually
-            // Plus it disturbs URL handling
-            /*if (frMode == false)
-            {
-                var arabicDarijaEntryLatinWords = train_savelatinwords_uow(arabicText, id_ARABICDARIJAENTRY, db, isEndOfScope: false);
-                expando.M_ARABICDARIJAENTRY_LATINWORDs = arabicDarijaEntryLatinWords;
-            }*/
 
             List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = train_savener_uow(arabicText, id_ARABICDARIJAENTRY, db, isEndOfScope: false);
             expando.M_ARABICDARIJAENTRY_TEXTENTITYs = textEntities;
@@ -271,10 +362,41 @@ namespace ArabicTextAnalyzer.BO
             };
 
             // save to persist
-            saveserializeM_ARABICDARIJAENTRY_EFSQL(arabicDarijaEntry/*, accessMode*/);
+            saveserializeM_ARABICDARIJAENTRY_EFSQL(arabicDarijaEntry);
 
             //
             return arabicDarijaEntry;
+        }
+
+        private String train_perl(Stopwatch watch, string arabicText)
+        {
+            // first process buttranslateperl : means those should be cleaned in their without-bracket origan form so they can be translated by perl
+            // ex : "<span class='notranslate BUTTRANSLATEPERL'>kolchi</span> katbakkih bl3ani" should become "kolchi katbakkih bl3ani" so perl can translate it
+            arabicText = new Regex(@"<span class='notranslate BUTTRANSLATEPERL'>(.*?)</span>").Replace(arabicText, "$1");
+
+            // process notranslate
+            var regex = new Regex(@"<span class='notranslate'>(.*?)</span>");
+
+            // save matches
+            var matches = regex.Matches(arabicText);
+
+            // skip over non-translantable parts
+            arabicText = regex.Replace(arabicText, "001000100");
+
+            // translate arabizi to darija arabic script using perl script via direct call and save arabicDarijaEntry to Serialization
+            arabicText = new TextConverter().Convert(Server, watch, arabicText);
+
+            // restore do not translate from 001000100
+            var regex2 = new Regex(@"001000100");
+            foreach (Match match in matches)
+            {
+                arabicText = regex2.Replace(arabicText, match.Value, 1);
+            }
+            // clean <span class='notranslate'>
+            arabicText = new Regex(@"<span class='notranslate'>(.*?)</span>").Replace(arabicText, "$1");
+
+            //
+            return arabicText;
         }
 
         private M_ARABICDARIJAENTRY train_saveperl_uow(Stopwatch watch, string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY, ArabiziDbContext db, bool isEndOfScope = false, bool frMode = false)
@@ -676,8 +798,6 @@ namespace ArabicTextAnalyzer.BO
 
         public void Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL_uow(Guid id_arabizientry, ArabiziDbContext db, bool isEndOfScope = false)
         {
-            // using (var db = new ArabiziDbContext())
-            // {
             // filter on the one linked to current arabizi entry
             var arabicdarijaentry = db.M_ARABICDARIJAENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry);
 
@@ -698,7 +818,77 @@ namespace ArabicTextAnalyzer.BO
             // commit
             if (isEndOfScope == true)
                 db.SaveChanges();
-            // }
+        }
+
+        public dynamic Serialize_SoftDelete_M_XTRCTTHEME_Cascading_EFSQL(Guid idXtrctTheme)
+        {
+            // cascade but working upside down
+
+            using (var db = new ArabiziDbContext())
+            {
+                dynamic expando = new ExpandoObject();
+
+                // get theme
+                var xtrctTheme = db.M_XTRCTTHEMEs.Single(m => m.ID_XTRCTTHEME == idXtrctTheme);
+
+                // save associated user
+                var userId = xtrctTheme.UserID;
+
+                // check before : should not be the default
+                if (xtrctTheme.ThemeName == "Default")
+                {
+                    expando.Result = false;
+                    expando.ErrMessage = "Default theme cannot be deleted";
+                    return expando;
+                }
+
+                // get associated theme keywords
+                var xtrctThemeKeywords = db.M_XTRCTTHEME_KEYWORDs.Where(m => m.ID_XTRCTTHEME == idXtrctTheme);
+
+                // associated theme keywords can be (soft)deleted
+                foreach (var xtrctThemeKeyword in xtrctThemeKeywords) xtrctThemeKeyword.IsDeleted = 1;
+
+                // get associated arabizi entries
+                var arabiziEntrys = db.M_ARABIZIENTRYs.Where(m => m.ID_XTRCTTHEME == idXtrctTheme);
+
+                // get associated arabic darija items
+                var arabicDarijaEntrys = db.M_ARABICDARIJAENTRYs.Join(arabiziEntrys, j => j.ID_ARABIZIENTRY, z => z.ID_ARABIZIENTRY, (j, z) => j);
+
+                // get associated text entities
+                var arabicDarijaEntryTextEntitys = db.M_ARABICDARIJAENTRY_TEXTENTITYs.Join(arabicDarijaEntrys, te => te.ID_ARABICDARIJAENTRY, j => j.ID_ARABICDARIJAENTRY, (te, j) => te);
+
+                // associated text entities can be (soft)deleted
+                foreach (var arabicDarijaEntryTextEntity in arabicDarijaEntryTextEntitys) arabicDarijaEntryTextEntity.IsDeleted = 1;
+
+                // get associated latin word
+                var arabicDarijaEntryLatinWords = db.M_ARABICDARIJAENTRY_LATINWORDs.Join(arabicDarijaEntrys, lw => lw.ID_ARABICDARIJAENTRY, j => j.ID_ARABICDARIJAENTRY, (lw, j) => lw);
+
+                // associated latin word can be (soft)deleted
+                foreach (var arabicDarijaEntryLatinWord in arabicDarijaEntryLatinWords) arabicDarijaEntryLatinWord.IsDeleted = 1;
+
+                // associated arabic darija items can be (soft)deleted
+                foreach (var arabicDarijaEntry in arabicDarijaEntrys) arabicDarijaEntry.IsDeleted = 1;
+
+                // associated arabizi entries can be (soft)deleted
+                foreach (var arabiziEntry in arabiziEntrys) arabiziEntry.IsDeleted = 1;
+
+                // theme can be (soft)deleted
+                xtrctTheme.IsDeleted = 1;
+
+                // de activate theme
+                xtrctTheme.CurrentActive = String.Empty;
+
+                // set default back to active
+                var defaultXtrctTheme = db.M_XTRCTTHEMEs.Single(m => m.ThemeName == "Default" && m.UserID == userId);
+                defaultXtrctTheme.CurrentActive = "active";
+
+                // commit
+                db.SaveChanges();
+
+                // return success
+                expando.Result = true;
+                return expando;
+            }
         }
 
         public dynamic Serialize_Delete_M_XTRCTTHEME_Cascading_EFSQL(Guid idXtrctTheme)
