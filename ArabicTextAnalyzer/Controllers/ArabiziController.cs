@@ -19,21 +19,6 @@ namespace ArabicTextAnalyzer.Controllers
     {
         private static Object thisLock = new Object();
 
-        /*M_ARABICDARIJAENTRY[] _arabicdarijaentries = new M_ARABICDARIJAENTRY[]
-        {
-            new M_ARABICDARIJAENTRY { ID_ARABIZIENTRY = Guid.NewGuid(), ID_ARABICDARIJAENTRY = Guid.NewGuid(), ArabicDarijaText = "السلام" },
-            new M_ARABICDARIJAENTRY { ID_ARABIZIENTRY = Guid.NewGuid(), ID_ARABICDARIJAENTRY = Guid.NewGuid(), ArabicDarijaText = "سلام" }
-        };*/
-
-        /*
-        /// <summary>
-        /// Gets some very important data from the server.
-        /// </summary>
-        public IEnumerable<M_ARABICDARIJAENTRY> GetAllArabicDarijaEntries()
-        {
-            return _arabicdarijaentries;
-        }*/
-
         /// <summary>
         /// Translate Arabizi text to Arabic text.
         /// </summary>
