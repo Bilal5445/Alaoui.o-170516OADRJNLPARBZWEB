@@ -16,7 +16,7 @@ namespace ArabicTextAnalyzer
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             // limit response to json only
-            ConfigureApi(GlobalConfiguration.Configuration);           
+            ConfigureApi(GlobalConfiguration.Configuration);
         }
 
         void ConfigureApi(HttpConfiguration config)
