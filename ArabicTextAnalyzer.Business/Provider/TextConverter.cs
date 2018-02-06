@@ -156,7 +156,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             source = Preprocess_underscore(source);
             source = Preprocess_questionmark(source);
             source = Preprocess_wierdquote(source);
-            
+
             //
             return source;
         }
