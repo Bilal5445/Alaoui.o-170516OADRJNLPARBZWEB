@@ -182,7 +182,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             return returnValue;
         }
 
-        public List<M_ARABICDARIJAENTRY_TEXTENTITY> NerManualExtraction(String arabicText, IEnumerable<TextEntity> entities, Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY, 
+        public List<M_ARABICDARIJAENTRY_TEXTENTITY> NerManualExtraction(String arabicText, IEnumerable<TextEntity> entities, Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY,
             Action<M_ARABICDARIJAENTRY_TEXTENTITY, AccessMode> saveserializeM_ARABICDARIJAENTRY_TEXTENTITY,
             AccessMode accessMode
             )
