@@ -36,7 +36,7 @@ namespace ArabicTextAnalyzer.BO
             expando.M_ARABIZIENTRY = arabiziEntry;
 
             // Arabizi to arabic from perl script
-            if (arabiziEntry.ArabiziText == null)
+            if (String.IsNullOrWhiteSpace(arabiziEntry.ArabiziText))
             {
                 // return Guid.Empty;
                 expando.M_ARABICDARIJAENTRY = new M_ARABICDARIJAENTRY
@@ -112,7 +112,7 @@ namespace ArabicTextAnalyzer.BO
             expando.M_ARABIZIENTRY = arabiziEntry;
 
             // Arabizi to arabic from perl script
-            if (arabiziEntry.ArabiziText == null)
+            if (String.IsNullOrWhiteSpace(arabiziEntry.ArabiziText))
             {
                 // return Guid.Empty;
                 expando.M_ARABICDARIJAENTRY = new M_ARABICDARIJAENTRY
@@ -274,7 +274,6 @@ namespace ArabicTextAnalyzer.BO
             saveserializeM_ARABICDARIJAENTRY_EFSQL(arabicDarijaEntry/*, accessMode*/);
 
             //
-            // return arabicText;
             return arabicDarijaEntry;
         }
 
@@ -320,7 +319,6 @@ namespace ArabicTextAnalyzer.BO
             saveserializeM_ARABICDARIJAENTRY_EFSQL_uow(arabicDarijaEntry, db, isEndOfScope: isEndOfScope);
 
             //
-            // return arabicText;
             return arabicDarijaEntry;
         }
 
@@ -356,7 +354,6 @@ namespace ArabicTextAnalyzer.BO
                 saveserializeM_ARABICDARIJAENTRY_LATINWORD_EFSQL(latinWord);
             }
 
-            // return arabicText;
             return arabicDarijaEntryLatinWords;
         }
 
@@ -392,7 +389,6 @@ namespace ArabicTextAnalyzer.BO
                 saveserializeM_ARABICDARIJAENTRY_LATINWORD_EFSQL_uow(latinWord, db, isEndOfScope: isEndOfScope);
             }
 
-            // return arabicText;
             return arabicDarijaEntryLatinWords;
         }
 
