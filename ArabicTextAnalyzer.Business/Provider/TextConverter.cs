@@ -448,7 +448,6 @@ namespace ArabicTextAnalyzer.Business.Provider
             return Regex.Replace(arabic, @"\bهادي\b", "هذه");
         }
 
-        
         public string Postprocess_وهيا_to_وهي(string arabic)
         {
             // replace whole-word only
@@ -461,8 +460,6 @@ namespace ArabicTextAnalyzer.Business.Provider
             // replace whole-word only
             return Regex.Replace(arabic, @"\bأل", "ال");
         }
-        
-
         #endregion
 
         static string RemoveOtherSymbols(string text)
