@@ -2157,7 +2157,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
-                    String qry = "SELECT * FROM T_FB_INFLUENCER WHERE fk_theme='" + theme.ID_XTRCTTHEME + "'";
+                    String qry = "SELECT * FROM T_FB_INFLUENCER WHERE fk_theme = '" + theme.ID_XTRCTTHEME + "'";
 
                     conn.Open();
                     return conn.Query<T_FB_INFLUENCER>(qry).ToList();
