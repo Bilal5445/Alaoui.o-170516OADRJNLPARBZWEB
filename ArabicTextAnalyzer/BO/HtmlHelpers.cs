@@ -34,13 +34,9 @@ namespace ArabicTextAnalyzer.BO
 
                 var response = client.PostAsync(url, content).Result;
                 if (response.IsSuccessStatusCode)
-                {
                     result = response.Content.ReadAsStringAsync().Result;
-                }
                 else
-                {
                     result = response.Content.ReadAsStringAsync().Result;
-                }
             }
             catch (Exception ex)
             {
