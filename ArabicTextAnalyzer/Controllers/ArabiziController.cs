@@ -19,21 +19,6 @@ namespace ArabicTextAnalyzer.Controllers
     {
         private static Object thisLock = new Object();
 
-        /*M_ARABICDARIJAENTRY[] _arabicdarijaentries = new M_ARABICDARIJAENTRY[]
-        {
-            new M_ARABICDARIJAENTRY { ID_ARABIZIENTRY = Guid.NewGuid(), ID_ARABICDARIJAENTRY = Guid.NewGuid(), ArabicDarijaText = "السلام" },
-            new M_ARABICDARIJAENTRY { ID_ARABIZIENTRY = Guid.NewGuid(), ID_ARABICDARIJAENTRY = Guid.NewGuid(), ArabicDarijaText = "سلام" }
-        };*/
-
-        /*
-        /// <summary>
-        /// Gets some very important data from the server.
-        /// </summary>
-        public IEnumerable<M_ARABICDARIJAENTRY> GetAllArabicDarijaEntries()
-        {
-            return _arabicdarijaentries;
-        }*/
-
         /// <summary>
         /// Translate Arabizi text to Arabic text.
         /// </summary>
@@ -296,79 +281,4 @@ namespace ArabicTextAnalyzer.Controllers
             return result;
         }
     }
-
-    /*public static class HtmlHelpers
-    {
-        public static string PostAPIRequest(string url, string para)
-        {
-            HttpClient client;
-            string result = string.Empty;
-            try
-            {
-                client = new HttpClient();
-                client.DefaultRequestHeaders.Clear();
-                ServicePointManager.Expect100Continue = true;
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                // Use SecurityProtocolType.Ssl3 if needed for compatibility reasons
-
-                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
-
-
-                byte[] messageBytes = System.Text.Encoding.UTF8.GetBytes(para);
-                var content = new ByteArrayContent(messageBytes);
-                content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-                content.Headers.Add("access-control-allow-origin", "*");
-
-
-                var response = client.PostAsync(url, content).Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    result = response.Content.ReadAsStringAsync().Result;
-                }
-                else
-                {
-                    result = response.Content.ReadAsStringAsync().Result;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-            return result;
-
-        }
-
-        public static string MakeHttpClientRequest(string requestUrl, Dictionary<string, string> requestContent, HttpMethod verb)
-        {
-            string result = string.Empty;
-            using (WebClient client1 = new WebClient())
-            {
-                try
-                {
-
-                    var requestData = new NameValueCollection();
-                    if (requestContent != null)
-                    {
-                        foreach (var item in requestContent)
-                        {
-                            requestData.Add(item.Key, item.Value);
-                        }
-                    }
-                    byte[] response1 = client1.UploadValues(requestUrl, requestData);
-
-                    result = System.Text.Encoding.UTF8.GetString(response1);
-                }
-                catch (Exception ex)
-                {
-
-
-                }
-
-            }
-            return result;
-
-
-        }
-    }*/
 }
