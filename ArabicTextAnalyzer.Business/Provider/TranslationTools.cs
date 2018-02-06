@@ -84,62 +84,55 @@ namespace ArabicTextAnalyzer.Business.Provider
     {
         public string bingSpellcheckApi(String arabiziWord, string apiKey)
         {
-            try
+            String spellCheckAPi = "https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?text=";
+
+            // clean
+            arabiziWord = arabiziWord.Trim(new char[] { ' ', '\t' });
+
+            var previousText = arabiziWord;
+            string spellcheckUrl = spellCheckAPi + WebUtility.UrlEncode(previousText)
+                + "&cc=FR"
+                + "&mkt=fr-FR"
+                + "&mode=spell";
+
+            String url = spellcheckUrl;
+
+            var correctedText = String.Empty;
+            var supportText = String.Empty;
+            WebClient client = new WebClient();
+            client.Headers.Add("Ocp-Apim-Subscription-Key", apiKey);
+            client.Encoding = System.Text.Encoding.UTF8;
+
+            string json = client.DownloadString(url);
+            var jsonresult = JObject.Parse(json).SelectToken("flaggedTokens") as JArray;
+
+            // process : build a string with pieces from suggesestions from bing
+            var peekindex = 0;
+            foreach (var result in jsonresult)
             {
-                String spellCheckAPi = "https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?text=";
+                // index of first word with possible spelling correction
+                var stopindex = Convert.ToInt32(result.SelectToken("offset").ToString());
 
-                // clean
-                arabiziWord = arabiziWord.Trim(new char[] { ' ', '\t' });
-
-                var previousText = arabiziWord;
-                string spellcheckUrl = spellCheckAPi + WebUtility.UrlEncode(previousText)
-                    + "&cc=FR"
-                    + "&mkt=fr-FR"
-                    + "&mode=spell";
-
-                String url = spellcheckUrl;
-
-                var correctedText = String.Empty;
-                var supportText = String.Empty;
-                WebClient client = new WebClient();
-                client.Headers.Add("Ocp-Apim-Subscription-Key", apiKey);
-                client.Encoding = System.Text.Encoding.UTF8;
-
-                string json = client.DownloadString(url);
-                var jsonresult = JObject.Parse(json).SelectToken("flaggedTokens") as JArray;
-
-                // process : build a string with pieces from suggesestions from bing
-                var peekindex = 0;
-                foreach (var result in jsonresult)
-                {
-                    // index of first word with possible spelling correction
-                    var stopindex = Convert.ToInt32(result.SelectToken("offset").ToString());
-
-                    // copy string up to this location
-                    correctedText += arabiziWord.Substring(peekindex, (stopindex - peekindex));
-                    supportText += arabiziWord.Substring(peekindex, (stopindex - peekindex));
-
-                    //
-                    var token = result.SelectToken("token").ToString();
-                    var firstsuggestion = result.SelectToken("suggestions[0].suggestion").ToString();
-                    correctedText += firstsuggestion;
-                    supportText += token;
-                    peekindex = supportText.Length;
-                }
-
-                // copy the rest
-                correctedText += arabiziWord.Substring(peekindex, (arabiziWord.Length - peekindex));
+                // copy string up to this location
+                correctedText += arabiziWord.Substring(peekindex, (stopindex - peekindex));
+                supportText += arabiziWord.Substring(peekindex, (stopindex - peekindex));
 
                 //
-                if (previousText != String.Empty && correctedText == String.Empty)
-                    correctedText = previousText;
+                var token = result.SelectToken("token").ToString();
+                var firstsuggestion = result.SelectToken("suggestions[0].suggestion").ToString();
+                correctedText += firstsuggestion;
+                supportText += token;
+                peekindex = supportText.Length;
+            }
 
-                return correctedText;
-            }
-            catch (Exception ex)
-            {
-                return arabiziWord;
-            }
+            // copy the rest
+            correctedText += arabiziWord.Substring(peekindex, (arabiziWord.Length - peekindex));
+
+            //
+            if (previousText != String.Empty && correctedText == String.Empty)
+                correctedText = previousText;
+
+            return correctedText;
         }
     }
 
