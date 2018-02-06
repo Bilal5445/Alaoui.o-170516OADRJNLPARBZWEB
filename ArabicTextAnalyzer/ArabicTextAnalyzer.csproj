@@ -313,15 +313,6 @@
     <Content Include="App_Data\aspnet-ArabicTextAnalyzer-20170518103120_log.ldf">
       <DependentUpon>aspnet-ArabicTextAnalyzer-20170518103120.mdf</DependentUpon>
     </Content>
-    <Content Include="App_Data\data_M_ARABICDARIJAENTRY.txt" />
-    <Content Include="App_Data\data_M_ARABICDARIJAENTRY_LATINWORD.txt" />
-    <Content Include="App_Data\data_M_ARABICDARIJAENTRY_TEXTENTITY.txt" />
-    <Content Include="App_Data\data_M_ARABIZIENTRY.txt" />
-    <Content Include="App_Data\data_M_TWINGLYACCOUNT.txt" />
-    <Content Include="App_Data\data_M_XTRCTTHEME.txt" />
-    <Content Include="App_Data\data_M_XTRCTTHEME_KEYWORD.txt" />
-    <Content Include="App_Data\data_TextEntity.txt" />
-    <Content Include="App_Data\data_TextSentiment.txt" />
     <Content Include="App_Data\log.txt" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="bower_components\bootstrap-tagsinput\dist\bootstrap-tagsinput-angular.js" />
