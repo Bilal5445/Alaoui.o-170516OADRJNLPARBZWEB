@@ -15,11 +15,6 @@ namespace ArabicTextAnalyzer.Domain.Models
         {
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
-
         public DbSet<M_ARABICDARIJAENTRY> M_ARABICDARIJAENTRYs { get; set; }
         public DbSet<M_ARABICDARIJAENTRY_LATINWORD> M_ARABICDARIJAENTRY_LATINWORDs { get; set; }
         public DbSet<M_ARABICDARIJAENTRY_TEXTENTITY> M_ARABICDARIJAENTRY_TEXTENTITYs { get; set; }
