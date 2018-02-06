@@ -9,6 +9,8 @@ using ArabicTextAnalyzer.Domain.Models;
 using System.Linq;
 using System.Web;
 using OADRJNLPCommon.Business;
+using static ArabicTextAnalyzer.Business.Provider.RosetteMultiLanguageDetections;
+using Newtonsoft.Json.Linq;
 
 namespace ArabicTextAnalyzer.Business.Provider
 {
@@ -17,17 +19,129 @@ namespace ArabicTextAnalyzer.Business.Provider
         private readonly RestClient client;
 
         private const string endpoint = "https://api.rosette.com/rest/v1/";
+        private const string rosetteApiKey = "ce51b85cd7c17f407f2ab16799896808";
+
+        // DBG
+        private const bool doNotUseRosette = true;
 
         public TextEntityExtraction()
         {
             client = new RestClient(endpoint);
         }
 
+        public List<LanguageRange> GetLanguagesRanges(String source)
+        {
+            if (doNotUseRosette == true)
+            {
+                // In this case, we consider the text as one language that should be considered as arabizi (no FR)
+                var languageRanges = new List<LanguageRange>();
+                languageRanges.Add(new LanguageRange
+                {
+                    Language = new LanguageDetection
+                    {
+                        language = "arz",
+                        confidence = 1.0
+                    },
+                    Region = source
+                });
+                return languageRanges;
+            }
+
+            //
+            var request = new RestRequest("language", Method.POST);
+
+            request.AddHeader("X-RosetteAPI-Key", rosetteApiKey);
+            request.AddHeader("Accept", "application/json");
+
+            var content = new JavaScriptSerializer().Serialize(
+                    new
+                    {
+                        content = source,
+                        options = new
+                        {
+                            multilingual = true
+                        }
+                    });
+
+            request.AddParameter("application/json", content, ParameterType.RequestBody);
+
+            var response = client.Execute(request);
+
+            //
+            var ranges = new List<String>();
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                RosetteMultiLanguageDetections responseObject = new JavaScriptSerializer().Deserialize<RosetteMultiLanguageDetections>(response.Content);
+
+                //
+                return responseObject.regionalDetections.Select(m => new LanguageRange
+                {
+                    Region = m.region,
+                    Language = m.languages[0]
+                }).ToList();
+            }
+            else
+            {
+                JObject jResponseContent = JObject.Parse(response.Content);
+                var code = Convert.ToString(jResponseContent["code"]);
+                if (code == "forbidden" || code == "tooManyRequests")
+                {
+                    // Probably you have either provided an invalid API key, or are not authorized to call the endpoint, or have exceeded the daily or monthly API call limits
+                    // In this case, we consider the text as one language that should be considered as arabizi (no FR)
+                    var languageRanges = new List<LanguageRange>();
+                    languageRanges.Add(new LanguageRange
+                    {
+                        Language = new LanguageDetection
+                        {
+                            language = "arz",
+                            confidence = 1.0
+                        },
+                        Region = source
+                    });
+                    return languageRanges;
+                }
+                else
+                    throw new Exception(response.Content);
+            }
+        }
+
+        public LanguageDetection GetLanguageForRange(String source)
+        {
+            //
+            var request = new RestRequest("language", Method.POST);
+
+            request.AddHeader("X-RosetteAPI-Key", rosetteApiKey);
+            request.AddHeader("Accept", "application/json");
+
+            var content = new JavaScriptSerializer().Serialize(
+                    new
+                    {
+                        content = source,
+                    });
+
+            request.AddParameter("application/json", content, ParameterType.RequestBody);
+
+            var response = client.Execute(request);
+
+            //
+            var ranges = new List<String>();
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                RosetteMultiLanguageDetections responseObject = new JavaScriptSerializer().Deserialize<RosetteMultiLanguageDetections>(response.Content);
+
+                return responseObject.languageDetections[0];
+            }
+
+            return null;
+        }
+
         public IEnumerable<TextEntity> GetEntities(string source)
         {
             var request = new RestRequest("entities", Method.POST);
 
-            request.AddHeader("X-RosetteAPI-Key", "5021a32a1791e801856d0f4d01f694be");
+            request.AddHeader("X-RosetteAPI-Key", rosetteApiKey);
             request.AddHeader("Accept", "application/json");
 
             var content = new JavaScriptSerializer().Serialize(
