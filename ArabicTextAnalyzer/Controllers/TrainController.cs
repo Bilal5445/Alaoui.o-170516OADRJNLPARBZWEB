@@ -672,7 +672,7 @@ namespace ArabicTextAnalyzer.Controllers
                 string translatedstring = "";
                 if (!string.IsNullOrEmpty(ids))
                 {
-                    // get list of not yet translated comments with the specified ids (can be one comment to translate or can be many checked) 
+                    // get list of not yet translated comments with the specified ids (can be one comment to translate or can be many checked)
                     List<FBFeedComment> allComments = GetComments(ids);
 
                     //
