@@ -961,6 +961,32 @@ namespace ArabicTextAnalyzer.BO
         #endregion
 
         #region BACK YARD BO LOAD
+        public List<LM_CountPerUser> loaddeserializeM_XTRCTTHEME_CountPerUser_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT UserID, COUNT(*) CountPerUser FROM T_XTRCTTHEME GROUP BY UserID ";
+
+                conn.Open();
+                return conn.Query<LM_CountPerUser>(qry).ToList();
+            }
+        }
+        
+        public List<M_XTRCTTHEME> loaddeserializeM_XTRCTTHEME_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_XTRCTTHEME ORDER BY ThemeName ";
+
+                conn.Open();
+                return conn.Query<M_XTRCTTHEME>(qry).ToList();
+            }
+        }
+
         public List<M_XTRCTTHEME> loaddeserializeM_XTRCTTHEME_DAPPERSQL(String userId)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
@@ -971,6 +997,32 @@ namespace ArabicTextAnalyzer.BO
 
                 conn.Open();
                 return conn.Query<M_XTRCTTHEME>(qry).ToList();
+            }
+        }
+
+        public M_XTRCTTHEME loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(String userId)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_XTRCTTHEME WHERE CurrentActive = 'active' AND UserID = '" + userId + "'";
+
+                conn.Open();
+                return conn.QueryFirst<M_XTRCTTHEME>(qry);
+            }
+        }
+
+        public M_XTRCTTHEME loadDeserializeM_XTRCTTHEME_DAPPERSQL(Guid idXtrctTheme)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_XTRCTTHEME WHERE ID_XTRCTTHEME = '" + idXtrctTheme + "'";
+
+                conn.Open();
+                return conn.QueryFirst<M_XTRCTTHEME>(qry);
             }
         }
 

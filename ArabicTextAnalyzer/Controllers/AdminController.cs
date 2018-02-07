@@ -63,8 +63,9 @@ namespace ArabicTextAnalyzer.Controllers
                 // get register apps to make a join with users and with registerusers to get get last login time
                 var registerApps = new Arabizer().loaddeserializeRegisterApps_DAPPERSQL();
                 var registerUsers = new Arabizer().loaddeserializeRegisterUsers_DAPPERSQL();
-                var result = lusers.Join(registerApps, u => u.Id.ToUpper(), a => a.UserID.ToUpper(), (usr, app) => new
+                var result0 = lusers.Join(registerApps, u => u.Id.ToUpper(), a => a.UserID.ToUpper(), (usr, app) => new
                 {
+                    app.UserID,
                     usr.UserName,
                     usr.Email,
                     usr.LockoutEndDateUtc,
@@ -72,12 +73,28 @@ namespace ArabicTextAnalyzer.Controllers
                     app.TotalAppCallLimit
                 }).Join(registerUsers, r1 => r1.Email, u => u.EmailID, (res1, regusr) => new
                 {
+                    res1.UserID,
                     res1.UserName,
                     res1.Email,
                     res1.LockoutEndDateUtc,
                     res1.TotalAppCallConsumed,
                     res1.TotalAppCallLimit,
                     regusr.LastLoginTime
+                });
+
+                // themes count for the user
+                // var xtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL();
+                var xtrctThemesCountPerUser = new Arabizer().loaddeserializeM_XTRCTTHEME_CountPerUser_DAPPERSQL();
+                var result = result0.Join(xtrctThemesCountPerUser, r => r.UserID.ToUpper(), x => x.UserID.ToUpper(), (res2, xtcpu) => new
+                {
+                    res2.UserID,
+                    res2.UserName,
+                    res2.Email,
+                    res2.LockoutEndDateUtc,
+                    res2.TotalAppCallConsumed,
+                    res2.TotalAppCallLimit,
+                    res2.LastLoginTime,
+                    xtcpu.CountPerUser
                 });
 
                 // items count
@@ -99,6 +116,7 @@ namespace ArabicTextAnalyzer.Controllers
                     objUserDTO.TotalAppCallLimit = item.TotalAppCallLimit;
                     objUserDTO.TotalAppCallConsumed = item.TotalAppCallConsumed;
                     objUserDTO.LastLoginTime = item.LastLoginTime;
+                    objUserDTO.ThemesCountPerUser = item.CountPerUser;
                     col_UserDTO.Add(objUserDTO);
                 }
 
