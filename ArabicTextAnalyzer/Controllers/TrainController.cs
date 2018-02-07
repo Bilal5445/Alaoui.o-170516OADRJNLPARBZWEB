@@ -131,7 +131,7 @@ namespace ArabicTextAnalyzer.Controllers
             // Fertch the data for fbPage as only for that theme
             if (token != null && !string.IsNullOrEmpty(token as string))
             {
-                var fbFluencerAsTheme = loadAllT_Fb_InfluencerAsTheme();
+                var fbFluencerAsTheme = new Arabizer().loadAllT_Fb_InfluencerAsTheme(userId);
                 ViewBag.AllInfluence = fbFluencerAsTheme;
             }
 
@@ -147,7 +147,11 @@ namespace ArabicTextAnalyzer.Controllers
                 var token = Session["_T0k@n_"];
                 if (token != null && !string.IsNullOrEmpty(token as string))
                 {
-                    var fbFluencerAsTheme = loadAllT_Fb_InfluencerAsTheme();
+                    //
+                    var userId = User.Identity.GetUserId();
+
+                    //
+                    var fbFluencerAsTheme = new Arabizer().loadAllT_Fb_InfluencerAsTheme(userId);
                     ViewBag.AllInfluence = fbFluencerAsTheme;
 
                     // pass adminModeShowAll
@@ -751,13 +755,13 @@ namespace ArabicTextAnalyzer.Controllers
             try
             {
                 //
-                T_FB_INFLUENCER influencer = loadDeserializeT_FB_INFLUENCER(influencerid, themeId);
+                T_FB_INFLUENCER influencer = new Arabizer().loadDeserializeT_FB_INFLUENCER(influencerid, themeId);
                 string targetEntities = influencer.TargetEntities;
                 String urlName = influencer.url_name;
                 string pageName = influencer.name;
 
                 //
-                List<FB_POST> fbPosts = loaddeserializeT_FB_POST_DAPPERSQL(influencerid).ToList();
+                List<FB_POST> fbPosts = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL(influencerid).ToList();
                 if (fbPosts != null && fbPosts.Count() > 0)
                 {
                     fbPosts = fbPosts.OrderByDescending(c => c.date_publishing).Take(100).ToList();
@@ -774,7 +778,7 @@ namespace ArabicTextAnalyzer.Controllers
                         if (!string.IsNullOrEmpty(fbPostForTranslate.id))
                         {
                             string postid = fbPostForTranslate.id.Split('_')[1];
-                            var fbComments = loaddeserializeT_FB_Comments_DAPPERSQL(postid);
+                            var fbComments = new Arabizer().loaddeserializeT_FB_Comments_DAPPERSQL(postid);
                             var fbCommentsForTranslate = fbComments.Where(c => c.message != null && c.translated_message == null).OrderByDescending(c => c.created_time).Take(100).ToList();
                             foreach (var fbCommentForTranslate in fbCommentsForTranslate)
                                 TranslateCommentAndCatchExpletive(fbCommentForTranslate, targetEntities, out status, ref urlForMail, out isNegativeComments);
@@ -823,7 +827,7 @@ namespace ArabicTextAnalyzer.Controllers
                 var themeId = userActiveXtrctTheme.ID_XTRCTTHEME;
 
                 // Get the influencer if it exists
-                var influencer = loadDeserializeT_FB_INFLUENCER(influencerid, themeId);
+                var influencer = new Arabizer().loadDeserializeT_FB_INFLUENCER(influencerid, themeId);
                 if (influencer != null && influencer.id != null)
                 {
                     // Update influencer target entities value.
@@ -857,7 +861,7 @@ namespace ArabicTextAnalyzer.Controllers
         private void SendingMailAboutNegativeNERs(String influencerid, ref bool status, ref String errMessage)
         {
             // sending mail about negative NERs
-            List<FB_POST> sendMailPosts = loaddeserializeT_FB_POST_DAPPERSQL(influencerid, isForSendMail: true);
+            List<FB_POST> sendMailPosts = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL(influencerid, isForSendMail: true);
             if (sendMailPosts != null && sendMailPosts.Count > 0)
             {
                 var userid = User.Identity.GetUserId();
@@ -1529,7 +1533,7 @@ namespace ArabicTextAnalyzer.Controllers
             string searchValue = this.Request.QueryString["search[value]"]; // GET
 
             // get main (whole) data from DB first
-            var items = loaddeserializeT_FB_POST_DAPPERSQL(fluencerid).Select(c => new
+            var items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL(fluencerid).Select(c => new
             {
                 id = c.id,
                 // fk_i = c.fk_influencer,
@@ -1584,7 +1588,7 @@ namespace ArabicTextAnalyzer.Controllers
             string searchValue = this.Request.QueryString["search[value]"]; // GET
 
             // get main (whole) data from DB first
-            var items = loaddeserializeT_FB_Comments_DAPPERSQL(id).Select(c => new
+            var items = new Arabizer().loaddeserializeT_FB_Comments_DAPPERSQL(id).Select(c => new
             {
                 Id = c.Id,
                 message = c.message,
@@ -1925,47 +1929,6 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private List<FB_POST> loaddeserializeT_FB_POST_DAPPERSQL(string influencerid, bool isForSendMail = false)
-        {
-            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                //
-                String qry0 = "SELECT * "
-                            + "FROM T_FB_POST "
-                            + "WHERE fk_influencer = '" + influencerid + "' ";
-
-                //
-                if (isForSendMail == true)
-                    qry0 += "AND MailBody IS NOT NULL AND (NoOfTimeMailSend IS NULL OR NoOfTimeMailSend < 2) ";
-
-                //
-                qry0 += "ORDER BY date_publishing DESC ";
-
-                //
-                conn.Open();
-                return conn.Query<FB_POST>(qry0).ToList();
-            }
-        }
-
-        // Get Influencer details on the influencerId 
-        private T_FB_INFLUENCER loadDeserializeT_FB_INFLUENCER(string influencerid, Guid themeid)
-        {
-            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                String qry = "SELECT * FROM T_FB_INFLUENCER "
-                        + "WHERE id = '" + influencerid + "' "
-                        + "AND fk_theme = '" + themeid + "'";
-
-                //
-                conn.Open();
-                return conn.QuerySingle<T_FB_INFLUENCER>(qry);
-            }
-        }
-
         private void updateT_FB_INFLUENCERAsId(string influencerid, string themeId, string Text, bool? isAutoRetrieveFBPostandComments = false)
         {
             if (!string.IsNullOrEmpty(influencerid) && !string.IsNullOrEmpty(Text))
@@ -1986,27 +1949,6 @@ namespace ArabicTextAnalyzer.Controllers
                         conn.Close();
                     }
                 }
-            }
-        }
-
-        private List<FBFeedComment> loaddeserializeT_FB_Comments_DAPPERSQL(string postid = "")
-        {
-            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                //
-                String qry = "SELECT * FROM FBFeedComments ";
-
-                //
-                if (!string.IsNullOrEmpty(postid))
-                    qry += "WHERE id LIKE '" + postid + "%' ";
-
-                //
-                qry += "ORDER BY created_time DESC ";
-
-                conn.Open();
-                return conn.Query<FBFeedComment>(qry).ToList();
             }
         }
 
@@ -2113,33 +2055,6 @@ namespace ArabicTextAnalyzer.Controllers
                     cmd.ExecuteNonQuery();
                     conn.Close();
                 }
-            }
-        }
-
-        private List<T_FB_INFLUENCER> loadAllT_Fb_InfluencerAsTheme(string themeid = "")
-        {
-            //
-            var userId = User.Identity.GetUserId();
-
-            //
-            var t_fb_Influencer = new List<T_FB_INFLUENCER>();
-            var themes = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
-            M_XTRCTTHEME theme = (themes != null) ? themes : new M_XTRCTTHEME();
-            if (theme.ID_XTRCTTHEME != null)
-            {
-                String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
-
-                using (SqlConnection conn = new SqlConnection(ConnectionString))
-                {
-                    String qry = "SELECT * FROM T_FB_INFLUENCER WHERE fk_theme = '" + theme.ID_XTRCTTHEME + "'";
-
-                    conn.Open();
-                    return conn.Query<T_FB_INFLUENCER>(qry).ToList();
-                }
-            }
-            else
-            {
-                return t_fb_Influencer;
             }
         }
 
