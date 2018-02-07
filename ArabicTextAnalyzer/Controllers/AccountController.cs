@@ -118,10 +118,10 @@ namespace ArabicTextAnalyzer.Controllers
                 });
             }
 
-            // create Default App For Admin first time (since the admin does not resiter, the app creation can be only here once)
+            // create Default App For Admin first time (since the admin does not register, the app creation can be only here once)
             // if (userIdentity.Name == "Administrator")
-            if (userIdentity.Claims.SingleOrDefault(m => m.Value == "Administrator") != null)
-            {
+            /*if (userIdentity.Claims.SingleOrDefault(m => m.Value == "Administrator") != null)
+            {*/
                 if (arabizer.loaddeserializeRegisterApp_DAPPERSQL(userId).Count == 0)
                 {
                     // create app to use the arabizi
@@ -129,7 +129,7 @@ namespace ArabicTextAnalyzer.Controllers
                     var app = new RegisterApp { Name = userId + ".app" };
                     new AppManager().CreateApp(app, userId, false, new RegisterAppConcrete(), new ClientKeysConcrete(), appLimit);
                 }
-            }
+            //}
 
             // log login time
             using (var db = new ArabiziDbContext())
@@ -236,6 +236,30 @@ namespace ArabicTextAnalyzer.Controllers
                     var appLimit = Convert.ToInt32(ConfigurationManager.AppSettings["TotalAppCallLimit"]);
                     var app = new RegisterApp { Name = userId + ".app" };
                     new AppManager().CreateApp(app, userId, false, new RegisterAppConcrete(), new ClientKeysConcrete(), appLimit);
+
+                    // create registered user
+                    using (var db = new ArabiziDbContext())
+                    {
+                        var userguid = Guid.Parse(userId);
+                        var registeredUser = db.RegisterUsers.SingleOrDefault(m => m.UserGuid == userguid);
+                        if (registeredUser == null)
+                        {
+                            db.RegisterUsers.Add(new RegisterUser
+                            {
+                                UserGuid = userguid,
+                                LastLoginTime = DateTime.Now,
+                                Username = model.Email,
+                                Password = model.Password,
+                                CreateOn = DateTime.Now,
+                                EmailID = model.Email,
+                            });
+                        }
+                        else
+                            registeredUser.LastLoginTime = DateTime.Now;
+
+                        // commit
+                        db.SaveChanges();
+                    }
 
                     // Create default theme
                     new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(new M_XTRCTTHEME

@@ -61,10 +61,10 @@ namespace ArabicTextAnalyzer.Controllers
                 // 
                 var lusers = users.ToList();
 
-                // get register apps to make a join with users
+                // get register apps to make a join with users and with registerusers to get get last login time
                 var registerApps = new Arabizer().loaddeserializeRegisterApps_DAPPERSQL();
                 var registerUsers = new Arabizer().loaddeserializeRegisterUsers_DAPPERSQL();
-                var result = lusers.Join(registerApps, u => u.Id, a => a.UserID, (usr, app) => new
+                var result = lusers.Join(registerApps, u => u.Id.ToUpper(), a => a.UserID.ToUpper(), (usr, app) => new
                 {
                     usr.UserName,
                     usr.Email,
@@ -81,6 +81,10 @@ namespace ArabicTextAnalyzer.Controllers
                     regusr.LastLoginTime
                 });
 
+                // items count
+                intTotalItemCount = result.Count();
+
+                // take the items for the current page only
                 result = result
                     .OrderByDescending(x => x.LastLoginTime)
                     .Skip(intSkip)
@@ -98,9 +102,6 @@ namespace ArabicTextAnalyzer.Controllers
                     objUserDTO.LastLoginTime = item.LastLoginTime;
                     col_UserDTO.Add(objUserDTO);
                 }
-
-                intTotalItemCount = result
-                    .Count();
 
                 // Set the number of pages
                 var _UserDTOAsIPagedList = new StaticPagedList<ExpandedUserDTO>(col_UserDTO, intPage, intPageSize, intTotalItemCount);
@@ -180,6 +181,30 @@ namespace ArabicTextAnalyzer.Controllers
                     var appLimit = Convert.ToInt32(ConfigurationManager.AppSettings["TotalAppCallLimit"]);
                     var app = new RegisterApp { Name = userId + ".app" };
                     new AppManager().CreateApp(app, userId, false, new RegisterAppConcrete(), new ClientKeysConcrete(), appLimit);
+
+                    // create registered user
+                    using (var db = new ArabiziDbContext())
+                    {
+                        var userguid = Guid.Parse(userId);
+                        var registeredUser = db.RegisterUsers.SingleOrDefault(m => m.UserGuid == userguid);
+                        if (registeredUser == null)
+                        {
+                            db.RegisterUsers.Add(new RegisterUser
+                            {
+                                UserGuid = userguid,
+                                LastLoginTime = DateTime.Now,
+                                Username = Email,
+                                Password = Password,
+                                CreateOn = DateTime.Now,
+                                EmailID = Email,
+                            });
+                        }
+                        else
+                            registeredUser.LastLoginTime = DateTime.Now;
+
+                        // commit
+                        db.SaveChanges();
+                    }
 
                     return Redirect("~/Admin");
                 }
@@ -262,8 +287,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                 if (UserName.ToLower() == this.User.Identity.Name.ToLower())
                 {
-                    ModelState.AddModelError(
-                        string.Empty, "Error: Cannot delete the current user");
+                    ModelState.AddModelError(string.Empty, "Error: Cannot delete the current user");
 
                     return View("EditUser");
                 }
@@ -700,8 +724,7 @@ namespace ArabicTextAnalyzer.Controllers
         #region private void DeleteUser(ExpandedUserDTO paramExpandedUserDTO)
         private void DeleteUser(ExpandedUserDTO paramExpandedUserDTO)
         {
-            ApplicationUser user =
-                UserManager.FindByName(paramExpandedUserDTO.UserName);
+            ApplicationUser user = UserManager.FindByName(paramExpandedUserDTO.UserName);
 
             // If we could not find the user, throw an exception
             if (user == null)
