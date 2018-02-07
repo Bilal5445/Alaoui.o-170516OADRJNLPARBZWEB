@@ -361,7 +361,7 @@ namespace ArabicTextAnalyzer.Controllers
             var backupARABIZIENTR = loaddeserializeM_ARABIZIENTRY_DAPPERSQL(arabiziWordGuid);
 
             // get data existing theme
-            var backupXTRCTTHEME = loadDeserializeM_XTRCTTHEME_DAPPERSQL(backupARABIZIENTR.ID_XTRCTTHEME);
+            var backupXTRCTTHEME = arabizer.loadDeserializeM_XTRCTTHEME_DAPPERSQL(backupARABIZIENTR.ID_XTRCTTHEME);
 
             //
             using (var db = new ArabiziDbContext())
@@ -415,7 +415,7 @@ namespace ArabicTextAnalyzer.Controllers
             var firstLArabiziWordGuid = larabiziWordGuids[0];
             Guid firstArabiziWordGuid = new Guid(firstLArabiziWordGuid.TrimStart(new char[] { '=' }));
             var backupFirstARABIZIENTR = loaddeserializeM_ARABIZIENTRY_DAPPERSQL(firstArabiziWordGuid);
-            var backupXTRCTTHEME = loadDeserializeM_XTRCTTHEME_DAPPERSQL(backupFirstARABIZIENTR.ID_XTRCTTHEME);
+            var backupXTRCTTHEME = arabizer.loadDeserializeM_XTRCTTHEME_DAPPERSQL(backupFirstARABIZIENTR.ID_XTRCTTHEME);
 
             //
             using (var db = new ArabiziDbContext())
@@ -510,7 +510,7 @@ namespace ArabicTextAnalyzer.Controllers
             String result = null;
 
             //
-            M_XTRCTTHEME activeTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+            M_XTRCTTHEME activeTheme = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
             activeTheme = (activeTheme != null) ? activeTheme : new M_XTRCTTHEME();
 
             //
@@ -624,7 +624,7 @@ namespace ArabicTextAnalyzer.Controllers
         {
             // get current active theme for the current user
             var userId = User.Identity.GetUserId();
-            var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+            var userActiveXtrctTheme = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
 
             //
             string errMessage = string.Empty;
@@ -664,7 +664,7 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 // get current active theme for the current user
                 var userId = User.Identity.GetUserId();
-                var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+                var userActiveXtrctTheme = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
 
                 //
                 string errMessage = string.Empty;
@@ -730,7 +730,7 @@ namespace ArabicTextAnalyzer.Controllers
         {
             // get current theme id
             var userId = User.Identity.GetUserId();
-            var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+            var userActiveXtrctTheme = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
             var themeId = userActiveXtrctTheme.ID_XTRCTTHEME;
 
             bool status = false;
@@ -819,7 +819,7 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 // get current theme id
                 var userId = User.Identity.GetUserId();
-                var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+                var userActiveXtrctTheme = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
                 var themeId = userActiveXtrctTheme.ID_XTRCTTHEME;
 
                 // Get the influencer if it exists
@@ -904,7 +904,7 @@ namespace ArabicTextAnalyzer.Controllers
             string errMessage = string.Empty;
             bool status = false;
             string translatedstring = "";
-            var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+            var userActiveXtrctTheme = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
             List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
 
             // MC081217 translate via train to populate NER, analysis data, ...
@@ -1261,7 +1261,7 @@ namespace ArabicTextAnalyzer.Controllers
             List<THEMETAGSCOUNT> tagscounts = loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(themename, userId);
 
             //
-            var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+            var userActiveXtrctTheme = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
 
             //
             List<M_XTRCTTHEME_KEYWORD> userActiveXtrctThemeKeywords = new List<M_XTRCTTHEME_KEYWORD>();
@@ -1296,7 +1296,7 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 // get current active theme for the current user
                 var userId = User.Identity.GetUserId();
-                var userActiveXtrctTheme = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+                var userActiveXtrctTheme = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
 
                 Logging.Write(Server, "Data_Upload - 1");
 
@@ -1886,32 +1886,6 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private M_XTRCTTHEME loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(String userId)
-        {
-            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                String qry = "SELECT * FROM T_XTRCTTHEME WHERE CurrentActive = 'active' AND UserID = '" + userId + "'";
-
-                conn.Open();
-                return conn.QueryFirst<M_XTRCTTHEME>(qry);
-            }
-        }
-
-        private M_XTRCTTHEME loadDeserializeM_XTRCTTHEME_DAPPERSQL(Guid idXtrctTheme)
-        {
-            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                String qry = "SELECT * FROM T_XTRCTTHEME WHERE ID_XTRCTTHEME = '" + idXtrctTheme + "'";
-
-                conn.Open();
-                return conn.QueryFirst<M_XTRCTTHEME>(qry);
-            }
-        }
-
         private List<M_XTRCTTHEME_KEYWORD> loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL()
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
@@ -2149,7 +2123,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             //
             var t_fb_Influencer = new List<T_FB_INFLUENCER>();
-            var themes = loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+            var themes = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
             M_XTRCTTHEME theme = (themes != null) ? themes : new M_XTRCTTHEME();
             if (theme.ID_XTRCTTHEME != null)
             {

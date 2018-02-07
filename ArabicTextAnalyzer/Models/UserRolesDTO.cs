@@ -23,6 +23,9 @@ namespace ArabicTextAnalyzer.Models
 
         // to show last login : extend Identity User to save last login time
         public virtual DateTime? LastLoginTime { get; set; }
+
+        // to show nbr of themes created by the user
+        public virtual int ThemesCountPerUser { get; set; }
     }
 
     public class UserRolesDTO
