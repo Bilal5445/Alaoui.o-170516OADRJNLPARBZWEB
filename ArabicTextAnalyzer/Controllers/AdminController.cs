@@ -55,8 +55,7 @@ namespace ArabicTextAnalyzer.Controllers
                 int intSkip = (intPage - 1) * intPageSize;
 
                 //
-                var users = UserManager.Users
-                    .Where(x => x.UserName.Contains(searchStringUserNameOrEmail));
+                var users = UserManager.Users.Where(x => x.UserName.Contains(searchStringUserNameOrEmail));
 
                 // 
                 var lusers = users.ToList();
