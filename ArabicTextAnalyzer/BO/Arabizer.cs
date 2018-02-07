@@ -4,6 +4,7 @@ using ArabicTextAnalyzer.Domain.Models;
 using ArabicTextAnalyzer.Models;
 using Dapper;
 using OADRJNLPCommon.Business;
+using OADRJNLPCommon.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -960,7 +961,7 @@ namespace ArabicTextAnalyzer.BO
         }
         #endregion
 
-        #region BACK YARD BO LOAD
+        #region BACK YARD BO LOAD XTRCTTHEME
         public List<LM_CountPerUser> loaddeserializeM_XTRCTTHEME_CountPerUser_DAPPERSQL()
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
@@ -1025,7 +1026,9 @@ namespace ArabicTextAnalyzer.BO
                 return conn.QueryFirst<M_XTRCTTHEME>(qry);
             }
         }
+        #endregion
 
+        #region BACK YARD BO LOAD REGISTER_APPS_USERS
         public List<RegisterApp> loaddeserializeRegisterApp_DAPPERSQL(String userId)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
@@ -1065,5 +1068,95 @@ namespace ArabicTextAnalyzer.BO
             }
         }
         #endregion
+
+        #region BACK YARD BO LOAD FB_PAGES_POSTS_COMMENTS
+        public List<FB_POST> loaddeserializeT_FB_POST_DAPPERSQL(string influencerid, bool isForSendMail = false)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                //
+                String qry0 = "SELECT * "
+                            + "FROM T_FB_POST "
+                            + "WHERE fk_influencer = '" + influencerid + "' ";
+
+                //
+                if (isForSendMail == true)
+                    qry0 += "AND MailBody IS NOT NULL AND (NoOfTimeMailSend IS NULL OR NoOfTimeMailSend < 2) ";
+
+                //
+                qry0 += "ORDER BY date_publishing DESC ";
+
+                //
+                conn.Open();
+                return conn.Query<FB_POST>(qry0).ToList();
+            }
+        }
+
+        // Get Influencer details on the influencerId 
+        public T_FB_INFLUENCER loadDeserializeT_FB_INFLUENCER(string influencerid, Guid themeid)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_FB_INFLUENCER "
+                        + "WHERE id = '" + influencerid + "' "
+                        + "AND fk_theme = '" + themeid + "'";
+
+                //
+                conn.Open();
+                return conn.QuerySingle<T_FB_INFLUENCER>(qry);
+            }
+        }
+
+        public List<FBFeedComment> loaddeserializeT_FB_Comments_DAPPERSQL(string postid = "")
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                //
+                String qry = "SELECT * FROM FBFeedComments ";
+
+                //
+                if (!string.IsNullOrEmpty(postid))
+                    qry += "WHERE id LIKE '" + postid + "%' ";
+
+                //
+                qry += "ORDER BY created_time DESC ";
+
+                conn.Open();
+                return conn.Query<FBFeedComment>(qry).ToList();
+            }
+        }
+
+        public List<T_FB_INFLUENCER> loadAllT_Fb_InfluencerAsTheme(String userId, string themeid = "")
+        {
+            //
+            var t_fb_Influencer = new List<T_FB_INFLUENCER>();
+            var themes = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+            M_XTRCTTHEME theme = (themes != null) ? themes : new M_XTRCTTHEME();
+            if (theme.ID_XTRCTTHEME != null)
+            {
+                String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    String qry = "SELECT * FROM T_FB_INFLUENCER WHERE fk_theme = '" + theme.ID_XTRCTTHEME + "'";
+
+                    conn.Open();
+                    return conn.Query<T_FB_INFLUENCER>(qry).ToList();
+                }
+            }
+            else
+            {
+                return t_fb_Influencer;
+            }
+        }
+        #endregion
+
+        // select fk_theme, count(*) from T_FB_INFLUENCER GROUP BY fk_theme
     }
 }
