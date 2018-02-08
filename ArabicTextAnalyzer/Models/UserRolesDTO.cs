@@ -26,6 +26,9 @@ namespace ArabicTextAnalyzer.Models
 
         // to show nbr of themes created by the user
         public virtual int ThemesCountPerUser { get; set; }
+
+        // to show nbr of FB pages added by the user
+        public virtual int FBPagesCountPerUser { get; set; }
     }
 
     public class UserRolesDTO

@@ -14,6 +14,7 @@ using ArabicTextAnalyzer.BO;
 using ArabicTextAnalyzer.Models.Repository;
 using System.Configuration;
 using ArabicTextAnalyzer.Business.Provider;
+using OADRJNLPCommon.Models;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -83,9 +84,8 @@ namespace ArabicTextAnalyzer.Controllers
                 });
 
                 // themes count for the user
-                // var xtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL();
                 var xtrctThemesCountPerUser = new Arabizer().loaddeserializeM_XTRCTTHEME_CountPerUser_DAPPERSQL();
-                var result = result0.Join(xtrctThemesCountPerUser, r => r.UserID.ToUpper(), x => x.UserID.ToUpper(), (res2, xtcpu) => new
+                var result1 = result0.Join(xtrctThemesCountPerUser, r => r.UserID.ToUpper(), x => x.UserID.ToUpper(), (res2, xtcpu) => new
                 {
                     res2.UserID,
                     res2.UserName,
@@ -95,6 +95,58 @@ namespace ArabicTextAnalyzer.Controllers
                     res2.TotalAppCallLimit,
                     res2.LastLoginTime,
                     xtcpu.CountPerUser
+                });
+
+                // fb pages count for the user
+                List<LM_CountPerTheme> fbPageCountPerTheme = new Arabizer().loaddeserializeT_FB_INFLUENCER_CountPerTheme_DAPPERSQL();
+                List<M_XTRCTTHEME> xtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL();
+                var usersToThemesToFbPagesCount = fbPageCountPerTheme.Join(
+                    xtrctThemes,
+                    fb => fb.fk_theme,
+                    xt => xt.ID_XTRCTTHEME.ToString(),
+                    (fb, xt) => new
+                    {
+                        fb.fk_theme,
+                        fb.CountPerTheme,
+                        fkUserID = xt.UserID
+                    });
+                /*var usersToThemesToFbPagesCount = xtrctThemes.GroupJoin(
+                    fbPageCountPerTheme,
+                    x => x.ID_XTRCTTHEME.ToString(),
+                    f => f.fk_theme,
+                    (xt, fbpcpt) => new
+                    {
+                        xt.UserID,
+                        CountPerUser = fbpcpt.Sum(m => m.CountPerTheme)
+                    });*/
+                /*var result = result1.Join(usersToThemesToFbPagesCount, x => x.UserID, y => y.UserID, (x, y) => new
+                {
+                    x.UserID,
+                    x.UserName,
+                    x.Email,
+                    x.LockoutEndDateUtc,
+                    x.TotalAppCallConsumed,
+                    x.TotalAppCallLimit,
+                    x.LastLoginTime,
+                    ThemesCountPerUser = x.CountPerUser,
+                    // FBPagesCountPerUser = y.CountPerUser.Sum(m => m.CountPerTheme)
+                    FBPagesCountPerUser = y.CountPerUser
+                });*/
+                var result = result1.GroupJoin(usersToThemesToFbPagesCount, 
+                    x => x.UserID, 
+                    y => y.fkUserID, (x, y) => new
+                {
+                    x.UserID,
+                    x.UserName,
+                    x.Email,
+                    x.LockoutEndDateUtc,
+                    x.TotalAppCallConsumed,
+                    x.TotalAppCallLimit,
+                    x.LastLoginTime,
+                    ThemesCountPerUser = x.CountPerUser,
+                    // FBPagesCountPerUser = y.CountPerUser.Sum(m => m.CountPerTheme)
+                    // FBPagesCountPerUser = y.CountPerUser
+                    FBPagesCountPerUser = y.Sum(m => m.CountPerTheme)
                 });
 
                 // items count
@@ -116,7 +168,8 @@ namespace ArabicTextAnalyzer.Controllers
                     objUserDTO.TotalAppCallLimit = item.TotalAppCallLimit;
                     objUserDTO.TotalAppCallConsumed = item.TotalAppCallConsumed;
                     objUserDTO.LastLoginTime = item.LastLoginTime;
-                    objUserDTO.ThemesCountPerUser = item.CountPerUser;
+                    objUserDTO.ThemesCountPerUser = item.ThemesCountPerUser;
+                    objUserDTO.FBPagesCountPerUser = item.FBPagesCountPerUser;
                     col_UserDTO.Add(objUserDTO);
                 }
 

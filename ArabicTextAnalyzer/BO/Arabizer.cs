@@ -1094,6 +1094,19 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
+        public List<LM_CountPerTheme> loaddeserializeT_FB_INFLUENCER_CountPerTheme_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT fk_theme, COUNT(*) CountPerTheme FROM T_FB_INFLUENCER GROUP BY fk_theme ";
+
+                conn.Open();
+                return conn.Query<LM_CountPerTheme>(qry).ToList();
+            }
+        }
+
         // Get Influencer details on the influencerId 
         public T_FB_INFLUENCER loadDeserializeT_FB_INFLUENCER(string influencerid, Guid themeid)
         {
@@ -1156,7 +1169,5 @@ namespace ArabicTextAnalyzer.BO
             }
         }
         #endregion
-
-        // select fk_theme, count(*) from T_FB_INFLUENCER GROUP BY fk_theme
     }
 }
