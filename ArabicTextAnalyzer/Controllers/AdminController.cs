@@ -110,20 +110,20 @@ namespace ArabicTextAnalyzer.Controllers
                         fb.CountPerTheme,
                         fkUserID = xt.UserID
                     });
-                var result = result1.GroupJoin(usersToThemesToFbPagesCount, 
-                    x => x.UserID, 
+                var result = result1.GroupJoin(usersToThemesToFbPagesCount,
+                    x => x.UserID,
                     y => y.fkUserID, (x, y) => new
-                {
-                    x.UserID,
-                    x.UserName,
-                    x.Email,
-                    x.LockoutEndDateUtc,
-                    x.TotalAppCallConsumed,
-                    x.TotalAppCallLimit,
-                    x.LastLoginTime,
-                    ThemesCountPerUser = x.CountPerUser,
-                    FBPagesCountPerUser = y.Sum(m => m.CountPerTheme)
-                });
+                    {
+                        x.UserID,
+                        x.UserName,
+                        x.Email,
+                        x.LockoutEndDateUtc,
+                        x.TotalAppCallConsumed,
+                        x.TotalAppCallLimit,
+                        x.LastLoginTime,
+                        ThemesCountPerUser = x.CountPerUser,
+                        FBPagesCountPerUser = y.Sum(m => m.CountPerTheme)
+                    });
 
                 // items count
                 intTotalItemCount = result.Count();
