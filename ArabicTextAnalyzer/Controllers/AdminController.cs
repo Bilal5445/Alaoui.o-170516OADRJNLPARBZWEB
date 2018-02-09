@@ -110,28 +110,6 @@ namespace ArabicTextAnalyzer.Controllers
                         fb.CountPerTheme,
                         fkUserID = xt.UserID
                     });
-                /*var usersToThemesToFbPagesCount = xtrctThemes.GroupJoin(
-                    fbPageCountPerTheme,
-                    x => x.ID_XTRCTTHEME.ToString(),
-                    f => f.fk_theme,
-                    (xt, fbpcpt) => new
-                    {
-                        xt.UserID,
-                        CountPerUser = fbpcpt.Sum(m => m.CountPerTheme)
-                    });*/
-                /*var result = result1.Join(usersToThemesToFbPagesCount, x => x.UserID, y => y.UserID, (x, y) => new
-                {
-                    x.UserID,
-                    x.UserName,
-                    x.Email,
-                    x.LockoutEndDateUtc,
-                    x.TotalAppCallConsumed,
-                    x.TotalAppCallLimit,
-                    x.LastLoginTime,
-                    ThemesCountPerUser = x.CountPerUser,
-                    // FBPagesCountPerUser = y.CountPerUser.Sum(m => m.CountPerTheme)
-                    FBPagesCountPerUser = y.CountPerUser
-                });*/
                 var result = result1.GroupJoin(usersToThemesToFbPagesCount, 
                     x => x.UserID, 
                     y => y.fkUserID, (x, y) => new
@@ -144,8 +122,6 @@ namespace ArabicTextAnalyzer.Controllers
                     x.TotalAppCallLimit,
                     x.LastLoginTime,
                     ThemesCountPerUser = x.CountPerUser,
-                    // FBPagesCountPerUser = y.CountPerUser.Sum(m => m.CountPerTheme)
-                    // FBPagesCountPerUser = y.CountPerUser
                     FBPagesCountPerUser = y.Sum(m => m.CountPerTheme)
                 });
 
