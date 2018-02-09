@@ -30,6 +30,7 @@
         <th>Last Login</th>
         <th>Themes Count</th>
         <th>FB Pages Count</th>
+        <th>Entries Count</th>
     </tr>
 
     @foreach (var item in Model)
@@ -42,6 +43,7 @@
             <td>@Html.DisplayFor(modelItem => item.LastLoginTime)</td>
             <td>@Html.DisplayFor(modelItem => item.ThemesCountPerUser)</td>
             <td>@Html.DisplayFor(modelItem => item.FBPagesCountPerUser)</td>
+            <td>@Html.DisplayFor(modelItem => item.ArEntriesCountPerUser)</td>
             <td>
                 @Html.ActionLink("Edit", "EditUser", new { UserName = item.UserName }) |
                 @if ((item.UserName.ToLower() != this.User.Identity.Name.ToLower()))
