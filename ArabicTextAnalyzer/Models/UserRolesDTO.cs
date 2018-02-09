@@ -29,6 +29,9 @@ namespace ArabicTextAnalyzer.Models
 
         // to show nbr of FB pages added by the user
         public virtual int FBPagesCountPerUser { get; set; }
+
+        // to show nbr of Ar entries by the user
+        public virtual int ArEntriesCountPerUser { get; set; }
     }
 
     public class UserRolesDTO

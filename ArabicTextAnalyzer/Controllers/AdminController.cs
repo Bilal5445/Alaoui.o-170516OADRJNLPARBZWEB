@@ -110,7 +110,7 @@ namespace ArabicTextAnalyzer.Controllers
                         fb.CountPerTheme,
                         fkUserID = xt.UserID
                     });
-                var result = result1.GroupJoin(usersToThemesToFbPagesCount,
+                var result2 = result1.GroupJoin(usersToThemesToFbPagesCount,
                     x => x.UserID,
                     y => y.fkUserID, (x, y) => new
                     {
@@ -123,6 +123,24 @@ namespace ArabicTextAnalyzer.Controllers
                         x.LastLoginTime,
                         ThemesCountPerUser = x.CountPerUser,
                         FBPagesCountPerUser = y.Sum(m => m.CountPerTheme)
+                    });
+
+                // darija entries count for the user
+                var arEntriesCountPerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerUser_DAPPERSQL();
+                var result = result2.Join(arEntriesCountPerUser,
+                    x => x.UserID,
+                    y => y.UserID, (x, y) => new
+                    {
+                        x.UserID,
+                        x.UserName,
+                        x.Email,
+                        x.LockoutEndDateUtc,
+                        x.TotalAppCallConsumed,
+                        x.TotalAppCallLimit,
+                        x.LastLoginTime,
+                        x.ThemesCountPerUser,
+                        x.FBPagesCountPerUser,
+                        ArEntriesCountPerUser = y.CountPerUser
                     });
 
                 // items count
@@ -146,6 +164,7 @@ namespace ArabicTextAnalyzer.Controllers
                     objUserDTO.LastLoginTime = item.LastLoginTime;
                     objUserDTO.ThemesCountPerUser = item.ThemesCountPerUser;
                     objUserDTO.FBPagesCountPerUser = item.FBPagesCountPerUser;
+                    objUserDTO.ArEntriesCountPerUser = item.ArEntriesCountPerUser;
                     col_UserDTO.Add(objUserDTO);
                 }
 

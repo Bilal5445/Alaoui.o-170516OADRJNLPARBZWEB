@@ -974,7 +974,7 @@ namespace ArabicTextAnalyzer.BO
                 return conn.Query<LM_CountPerUser>(qry).ToList();
             }
         }
-        
+
         public List<M_XTRCTTHEME> loaddeserializeM_XTRCTTHEME_DAPPERSQL()
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
@@ -1166,6 +1166,24 @@ namespace ArabicTextAnalyzer.BO
             else
             {
                 return t_fb_Influencer;
+            }
+        }
+        #endregion
+
+        #region BACK YARD BO LOAD ARZ_AR_ENTRIES
+        public List<LM_CountPerUser> loaddeserializeM_ARABICDARIJAENTRY_CountPerUser_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry0 = "SELECT XT.UserID, COUNT(*) CountPerUser FROM T_ARABICDARIJAENTRY AR "
+                            + "INNER JOIN T_ARABIZIENTRY ARZ ON AR.ID_ARABIZIENTRY = ARZ.ID_ARABIZIENTRY "
+                            + "INNER JOIN T_XTRCTTHEME XT ON ARZ.ID_XTRCTTHEME = XT.ID_XTRCTTHEME "
+                            + "GROUP BY XT.UserID ";
+
+                conn.Open();
+                return conn.Query<LM_CountPerUser>(qry0).ToList();
             }
         }
         #endregion
