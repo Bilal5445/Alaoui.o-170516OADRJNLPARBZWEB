@@ -340,7 +340,8 @@ function TranslateContent(obj) {
 }
 
 // method for get the comments table under the row of each post table
-function ShowFBComments(obj) {
+function ShowFBComments(img) {
+    // img = img.imagetag
 
     // check before
     if (GetCommentsIsClicked == true)
@@ -350,16 +351,24 @@ function ShowFBComments(obj) {
     GetCommentsIsClicked = true;
 
     //
-    var tr = $(obj).closest('tr');
-    var tds = $(obj).parents("tr").find("td");
-    var idCol = ($(tds[1])).html().toString().split('_');
-    var id = idCol[1];
-    var influenceridFromIdCol = idCol[0];
-    var influencerid = influenceridFromIdCol;
-    var table = vars[influencerid];
+    var tr = $(img).closest('tr');
+    var tds = $(img).parents("tr").find("td");
+    var tdPostId = $(tds[1]);
+    var idCol = tdPostId.html().toString().split('_');
+    var postId = idCol[1];
+    var influencerId = idCol[0];
+    var table = vars[influencerId];
     var row = table.row(tr);
 
     //
+    ToggleFBCommentsTable(row, tr, img, postId);
+
+    //
+    GetCommentsIsClicked = false;
+}
+
+function ToggleFBCommentsTable(row, tr, img, postId) {
+
     if (row.child.isShown()) {
 
         // This row is already open - close it
@@ -367,42 +376,32 @@ function ShowFBComments(obj) {
         tr.removeClass('shown');
 
         // show icon as a green +
-        $(obj).prop('src', "http://i.imgur.com/SD7Dz.png")
-
-        //
-        GetCommentsIsClicked = false;
+        $(img).prop('src', "http://i.imgur.com/SD7Dz.png")
 
     } else {
 
         // This row is closed - show it
 
         // show icon as a red -
-        $(obj).prop('src', "http://i.imgur.com/d4ICC.png")
+        $(img).prop('src', "http://i.imgur.com/d4ICC.png")
 
-        if (!$('#tabledetails_' + id).length) {
+        if (!$('#tabledetails_' + postId).length) {
 
             // create on the fly a sub table (html table + theader) for the comments associated with a post in a page
-            var tablecontent = CommentTable(id);
+            var tablecontent = CommentTable(postId);
             row.child(tablecontent).show();
 
             // get using server size ajax to datatables.net the actual comments
-            InitializeFBCommentsForPostDataTables(id);
+            InitializeFBCommentsForPostDataTables(postId);
 
             // add a global bulk translate button for comments
-            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info btn-xs" style="margin-left:5px" onclick="GetTranslateComment(' + id + ')">Bulk Translate</a>')
+            $('#tabledetails_' + postId + '_length').append('<a class="btn btn-info btn-xs" style="margin-left:5px" onclick="GetTranslateComment(' + postId + ')">Bulk Translate</a>')
 
             // add a global bulk check all button for comments
-            $('#tabledetails_' + id + '_length').append('<a class="btn btn-info btn-xs" style="margin-left:5px" onclick="CheckUnCheckAllComments(' + id + ')">Check/Uncheck All</a><h3>Comments</h3>')
-
-            //
-            GetCommentsIsClicked = false;
+            $('#tabledetails_' + postId + '_length').append('<a class="btn btn-info btn-xs" style="margin-left:5px" onclick="CheckUnCheckAllComments(' + postId + ')">Check/Uncheck All</a><h3>Comments</h3>')
 
         } else {
-
-            row.child($('#tabledetails_' + id).html()).show();
-
-            //
-            GetCommentsIsClicked = false;
+            row.child($('#tabledetails_' + postId).html()).show();
         }
 
         //
