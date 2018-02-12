@@ -1,16 +1,18 @@
 ﻿var poststable;
 var selectedArabiziIds = [];    // array of arabizi entries ids that have been selected by the user each he clicks on a row
-var ViewInfluencerIsClicked = false;
 var vars = {};
+var Comments = "";
+var TimeintervalforFBMethods = 1000 * 60 * 2; // 2 minutes : Time interval for method run for get fb posts and comments and translate posts and comments
+var fbTabPagesLoaded = false;
+
+// events variables
+var ViewInfluencerIsClicked = false;
 var TranslateContentIsClicked = false;
 var GetCommentsIsClicked = false;
-var Comments = "";
 var GetTranslateCommentIsClicked = false;
 var TranslateCommentIsClicked = false;
 var AddInfluencerIsClicked = false;
 var RetrieveFBPostIsClicked = false;
-var TimeintervalforFBMethods = 1000 * 60 * 2; // 2 minutes : Time interval for method run for get fb posts and comments and translate posts and comments
-var fbTabPagesLoaded = false;
 var AddTextEntityClicked = false;
 
 function InitializeDataTables(adminModeShowAll) {
