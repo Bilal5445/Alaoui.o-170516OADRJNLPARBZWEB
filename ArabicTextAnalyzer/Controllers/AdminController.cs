@@ -97,10 +97,11 @@ namespace ArabicTextAnalyzer.Controllers
                     xtcpu.CountPerUser
                 });
 
-                // fb pages count for the user
+                // fb pages count for the user & fb posts count for the user
                 List<LM_CountPerTheme> fbPageCountPerTheme = new Arabizer().loaddeserializeT_FB_INFLUENCER_CountPerTheme_DAPPERSQL();
                 List<M_XTRCTTHEME> xtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL();
                 List<LM_CountPerTheme> fbPostsCountPerTheme = new Arabizer().loaddeserializeT_FB_POST_CountPerTheme_DAPPERSQL();
+                List<LM_CountPerTheme> fbCommentsCountPerTheme = new Arabizer().loaddeserializeT_FB_Comments_CountPerTheme_DAPPERSQL();
                 var usersToThemesToFbPagesCount = fbPageCountPerTheme.Join(
                     xtrctThemes,
                     fb => fb.fk_theme,
@@ -110,19 +111,8 @@ namespace ArabicTextAnalyzer.Controllers
                         fb.fk_theme,
                         fb.CountPerTheme,
                         fkUserID = xt.UserID
-                    })
-                    /*.Join(
-                    fbPostsCountPerTheme,
-                    u => u.fkUserID,
-                    fb => fb.fk_theme,
-                    (u, fb) => new
-                    {
-                        u.fk_theme,
-                        u.CountPerTheme,
-                        u.fkUserID,
-                        FBPostsCountPerUser = fb.CountPerTheme
-                    })*/;
-                var result2 = usersToThemesToFbPagesCount.Join(
+                    });
+                var usersToThemesToFbPagesToFbPostsCount = usersToThemesToFbPagesCount.Join(
                     fbPostsCountPerTheme,
                     u => u.fk_theme,
                     fb => fb.fk_theme,
@@ -133,7 +123,19 @@ namespace ArabicTextAnalyzer.Controllers
                         u.fkUserID,
                         FBPostsCountPerUser = fb.CountPerTheme
                     });
-                var result3 = result1.GroupJoin(result2,
+                var usersToThemesToFbPagesToFbPostsToFBCommentsCount = usersToThemesToFbPagesToFbPostsCount.Join(
+                    fbCommentsCountPerTheme,
+                    u => u.fk_theme,
+                    fb => fb.fk_theme,
+                    (u, fb) => new
+                    {
+                        u.fk_theme,
+                        u.CountPerTheme,
+                        u.fkUserID,
+                        u.FBPostsCountPerUser,
+                        FBCommentsCountPerUser = fb.CountPerTheme
+                    });
+                var result3 = result1.GroupJoin(usersToThemesToFbPagesToFbPostsToFBCommentsCount,
                     x => x.UserID,
                     y => y.fkUserID, (x, y) => new
                     {
@@ -146,7 +148,8 @@ namespace ArabicTextAnalyzer.Controllers
                         x.LastLoginTime,
                         ThemesCountPerUser = x.CountPerUser,
                         FBPagesCountPerUser = y.Sum(m => m.CountPerTheme),
-                        FBPostsCountPerUser = y.Sum(m => m.FBPostsCountPerUser)
+                        FBPostsCountPerUser = y.Sum(m => m.FBPostsCountPerUser),
+                        FBCommentsCountPerUser = y.Sum(m => m.FBCommentsCountPerUser)
                     });
 
                 // darija entries count for the user
@@ -165,7 +168,8 @@ namespace ArabicTextAnalyzer.Controllers
                         x.ThemesCountPerUser,
                         x.FBPagesCountPerUser,
                         ArEntriesCountPerUser = y.CountPerUser,
-                        x.FBPostsCountPerUser
+                        x.FBPostsCountPerUser,
+                        x.FBCommentsCountPerUser
                     });
 
                 // items count
@@ -191,6 +195,7 @@ namespace ArabicTextAnalyzer.Controllers
                     objUserDTO.FBPagesCountPerUser = item.FBPagesCountPerUser;
                     objUserDTO.ArEntriesCountPerUser = item.ArEntriesCountPerUser;
                     objUserDTO.FBPostsCountPerUser = item.FBPostsCountPerUser;
+                    objUserDTO.FBCommentsCountPerUser = item.FBCommentsCountPerUser;
                     col_UserDTO.Add(objUserDTO);
                 }
 

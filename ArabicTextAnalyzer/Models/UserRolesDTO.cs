@@ -33,8 +33,11 @@ namespace ArabicTextAnalyzer.Models
         // to show nbr of Ar entries by the user
         public virtual int ArEntriesCountPerUser { get; set; }
 
-        // to show nbr of FB posts retrieved by the user
+        // to show nbr of FB posts retrieved for the user
         public virtual int FBPostsCountPerUser { get; set; }
+
+        // to show nbr of FB comments retrieved for the user
+        public virtual int FBCommentsCountPerUser { get; set; }
     }
 
     public class UserRolesDTO
