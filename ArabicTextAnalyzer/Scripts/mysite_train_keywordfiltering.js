@@ -222,21 +222,24 @@ function InitializeFBPostsDataTables(fluencerid) {
             ],
             //
             "columns": [
-                { "data": null, "className": "details-control", "defaultContent": '<img src="http://i.imgur.com/SD7Dz.png" class="imagetag" onclick="' + "GetComments(this)" + '">' },
-                    { "data": "id", "className": "center top" },
-                    /*{ "data": "fk_i", "className": "arabizi-text top collapsed" },*/
-                    { "data": "pt", "className": "arabizi-text top" },
-                    { "data": "tt", "className": "arabizi-text top" },
-                    { "data": "lc", "className": "arabic-text top" },
-                    { "data": "cc", "className": "arabic-text top entitiestype" },
-                    { "data": "dp", "className": "arabic-text top entities" },
-                    {
-                        "data": function (data) {
-                            var str = '';
-                            str = str + '<a class="btn btn-warning btn-xs" onclick="' + "TranslateContent(this)" + '">Translate</a>';
-                            return str;
-                        }
-                    },
+                {
+                    "data": null, "className": "details-control",
+                    "defaultContent": '<img src="http://i.imgur.com/SD7Dz.png" class="imagetag" onclick="' + "ShowFBComments(this)" + '">'
+                },
+                { "data": "id", "className": "center top" },
+                /*{ "data": "fk_i", "className": "arabizi-text top collapsed" },*/
+                { "data": "pt", "className": "arabizi-text top" },
+                { "data": "tt", "className": "arabizi-text top" },
+                { "data": "lc", "className": "arabic-text top" },
+                { "data": "cc", "className": "arabic-text top entitiestype" },
+                { "data": "dp", "className": "arabic-text top entities" },
+                {
+                    "data": function (data) {
+                        var str = '';
+                        str = str + '<a class="btn btn-warning btn-xs" onclick="' + "TranslateContent(this)" + '">Translate</a>';
+                        return str;
+                    }
+                },
             ],
             "columnDefs": [{
                 "defaultContent": "-",
@@ -337,7 +340,7 @@ function TranslateContent(obj) {
 }
 
 // method for get the comments table under the row of each post table
-function GetComments(obj) {
+function ShowFBComments(obj) {
 
     // check before
     if (GetCommentsIsClicked == true)
@@ -360,16 +363,20 @@ function GetComments(obj) {
     if (row.child.isShown()) {
 
         // This row is already open - close it
-
-        $(obj).prop('src', "http://i.imgur.com/SD7Dz.png")
         row.child.hide();
         tr.removeClass('shown');
+
+        // show icon as a green +
+        $(obj).prop('src', "http://i.imgur.com/SD7Dz.png")
+
+        //
         GetCommentsIsClicked = false;
 
     } else {
 
         // This row is closed - show it
 
+        // show icon as a red -
         $(obj).prop('src', "http://i.imgur.com/d4ICC.png")
 
         if (!$('#tabledetails_' + id).length) {
@@ -403,7 +410,7 @@ function GetComments(obj) {
     }
 }
 
-// method used by GetComments above to get table up to theader
+// method used by ShowFBComments above to get table up to theader
 function CommentTable(id) {
 
     // build the html table up to the header (the content is brought vis server side controller)
@@ -412,7 +419,7 @@ function CommentTable(id) {
     return html;
 }
 
-// method used by GetComments above to get table actual comments
+// method used by ShowFBComments above to get table actual comments
 function InitializeFBCommentsForPostDataTables(id) {
 
     $('#tabledetails_' + id).DataTable({
