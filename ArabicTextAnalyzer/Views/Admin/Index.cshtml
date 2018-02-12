@@ -32,6 +32,7 @@
         <th>FB Pages Count</th>
         <th>Entries Count</th>
         <th>FB Posts Count</th>
+        <th>FB Comments Count</th>
     </tr>
 
     @foreach (var item in Model)
@@ -46,6 +47,7 @@
             <td>@Html.DisplayFor(modelItem => item.FBPagesCountPerUser)</td>
             <td>@Html.DisplayFor(modelItem => item.ArEntriesCountPerUser)</td>
             <td>@Html.DisplayFor(modelItem => item.FBPostsCountPerUser)</td>
+            <td>@Html.DisplayFor(modelItem => item.FBCommentsCountPerUser)</td>
             <td>
                 @Html.ActionLink("Edit", "EditUser", new { UserName = item.UserName }) |
                 @if ((item.UserName.ToLower() != this.User.Identity.Name.ToLower()))

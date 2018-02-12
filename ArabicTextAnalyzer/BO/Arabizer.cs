@@ -1184,6 +1184,23 @@ namespace ArabicTextAnalyzer.BO
                 return conn.Query<FBFeedComment>(qry).ToList();
             }
         }
+
+        public List<LM_CountPerTheme> loaddeserializeT_FB_Comments_CountPerTheme_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry0 = "SELECT I.fk_theme, COUNT(*) CountPerTheme "
+                            + "FROM FBFeedComments C "
+                            + "INNER JOIN T_FB_POST P ON C.feedId = P.id "
+                            + "INNER JOIN T_FB_INFLUENCER I ON P.fk_influencer = I.id "
+                            + "GROUP BY I.fk_theme ";
+
+                conn.Open();
+                return conn.Query<LM_CountPerTheme>(qry0).ToList();
+            }
+        }
         #endregion
 
         #region BACK YARD BO LOAD ARZ_AR_ENTRIES
