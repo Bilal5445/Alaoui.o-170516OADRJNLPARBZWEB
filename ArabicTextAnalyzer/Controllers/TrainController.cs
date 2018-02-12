@@ -1451,7 +1451,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                 // get from client search word
                 string searchValue = this.Request.Form["search[value]"];        // POST
-                if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'' });
+                if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'', '\t' });
 
                 // POST
                 string searchAccount = this.Request.Form["columns[0][search][value]"];
@@ -1531,7 +1531,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             // get from client search word
             string searchValue = this.Request.QueryString["search[value]"]; // GET
-            if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'' });
+            if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'', '\t' });
 
             // get main (whole) data from DB first
             var items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL(fluencerid).Select(c => new
@@ -1562,13 +1562,16 @@ namespace ArabicTextAnalyzer.Controllers
             items = items.Skip(start).Take(itemsPerPage).ToList();
 
             // if only one found, return and uncollapse it out
-
+            String extraData = null;
+            if (itemsFilteredCount == 1)
+                extraData = items[0].id;
             //
             return JsonConvert.SerializeObject(new
             {
                 recordsTotal = itemsCount.ToString(),
                 recordsFiltered = itemsFilteredCount.ToString(),
-                data = items
+                data = items,
+                extraData
             });
         }
 
@@ -1589,7 +1592,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             // get from client search word
             string searchValue = this.Request.QueryString["search[value]"]; // GET
-            if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'' });
+            if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'', '\t' });
 
             // get main (whole) data from DB first
             var items = new Arabizer().loaddeserializeT_FB_Comments_DAPPERSQL(id).Select(c => new
