@@ -173,17 +173,24 @@ function BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds) {
     }
 }
 
-// Table For FB For Particular influencer
+// Clicking on tab Table For FB For Particular influencer (or FB page)
 function LoadFacebookPosts(fluencerid) {
 
-    if (ViewInfluencerIsClicked == false) {
-        ViewInfluencerIsClicked = true;
-        var $checkedBoxes = $('.table_' + fluencerid + ' tbody tr');
-        if ($checkedBoxes.length == 0) {
-            InitializeFBPostsDataTables(fluencerid)
-        }
-        fnCallback(fluencerid)
+    // check before
+    if (ViewInfluencerIsClicked == true)
+        return;
+
+    // mark as clicked to avoid double processing
+    ViewInfluencerIsClicked = true;
+
+    // if the table associated with the fb page has no rows yet, load them from DB (via server side controller action)
+    var $checkedBoxes = $('.table_' + fluencerid + ' tbody tr');
+    if ($checkedBoxes.length == 0) {
+        InitializeFBPostsDataTables(fluencerid)
     }
+
+    //
+    ShowFBPage(fluencerid)
 }
 
 // table for FB post table
@@ -241,18 +248,28 @@ function InitializeFBPostsDataTables(fluencerid) {
     });
 }
 
-function fnCallback(id) {
+function ShowFBPage(id) {
+
+    // show associated table with the FB page
     $('.table_' + id).show();
+
+    //
     if (id.length > 0) {
+
+        // disable others / activate current
         $('.tab-pane').each(function () {
             $(this).removeClass('active');
         });
         $('#second_' + id).addClass('active')
+
+        // disable others / activate current
         $('.mainUL').each(function () {
             $(this).removeClass('active');
         })
         $('#' + id).addClass('active');
     }
+
+    // reset to not clicked
     ViewInfluencerIsClicked = false
 }
 
