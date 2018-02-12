@@ -1531,6 +1531,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             // get from client search word
             string searchValue = this.Request.QueryString["search[value]"]; // GET
+            if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'' });
 
             // get main (whole) data from DB first
             var items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL(fluencerid).Select(c => new
@@ -1560,6 +1561,8 @@ namespace ArabicTextAnalyzer.Controllers
             // page as per request (index of page and length)
             items = items.Skip(start).Take(itemsPerPage).ToList();
 
+            // if only one found, return and uncollapse it out
+
             //
             return JsonConvert.SerializeObject(new
             {
@@ -1586,6 +1589,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             // get from client search word
             string searchValue = this.Request.QueryString["search[value]"]; // GET
+            if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'' });
 
             // get main (whole) data from DB first
             var items = new Arabizer().loaddeserializeT_FB_Comments_DAPPERSQL(id).Select(c => new
