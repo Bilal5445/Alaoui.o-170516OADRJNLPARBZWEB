@@ -1107,6 +1107,22 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
+        public List<LM_CountPerTheme> loaddeserializeT_FB_POST_CountPerTheme_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry0 = "SELECT I.fk_theme, COUNT(*) CountPerTheme "
+                            + "FROM T_FB_POST P "
+                            + "INNER JOIN T_FB_INFLUENCER I ON P.fk_influencer = I.id "
+                            + "GROUP BY I.fk_theme ";
+
+                conn.Open();
+                return conn.Query<LM_CountPerTheme>(qry0).ToList();
+            }
+        }
+
         // Get Influencer details on the influencerId 
         public T_FB_INFLUENCER loadDeserializeT_FB_INFLUENCER(string influencerid, Guid themeid)
         {
