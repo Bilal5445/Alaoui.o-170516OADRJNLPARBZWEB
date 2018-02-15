@@ -16,5 +16,6 @@
 /// <reference path="my.js" />
 /// <reference path="mysite_train.js" />
 /// <reference path="mysite_train_keywordfiltering.js" />
+/// <reference path="mysite_train_klpfl.js" />
 /// <reference path="respond.js" />
 /// <reference path="script.js" />

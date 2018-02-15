@@ -37,14 +37,6 @@ namespace ArabicTextAnalyzer
                       "~/Content/mysite_train_bulkimport.css"
                       ));
 
-            // related to mark in tables
-            /*bundles.Add(new ScriptBundle("~/bundles/js_train_mark").Include(
-                "~/bower_components/datatables.net/js/jquery.dataTables.min.js",
-                "~/bower_components/datatables/media/js/dataTables.bootstrap.min.js",
-                "~/bower_components/mark.js/dist/jquery.mark.min.js",
-                "~/bower_components/datatables.mark.js/dist/datatables.mark.js" // needed before mysite_train_keywordfiltering
-                ));*/
-
             // local to train page
             bundles.Add(new ScriptBundle("~/bundles/js_train").Include(
                 "~/Scripts/mysite_train.js"
@@ -53,6 +45,10 @@ namespace ArabicTextAnalyzer
             bundles.Add(new ScriptBundle("~/bundles/js_train_keywordfiltering").Include(
                 "~/Scripts/mysite_train_keywordfiltering.js"
                 ));
+
+            bundles.Add(new ScriptBundle("~/bundles/js_train_klpfl").Include(
+               "~/Scripts/mysite_train_klpfl.js"
+               ));
 
             // related to tags input
             bundles.Add(new ScriptBundle("~/bundles/js_train_tagsinput").Include(

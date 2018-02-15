@@ -631,6 +631,7 @@
     <Content Include="Scripts\my.js" />
     <Content Include="Scripts\mysite_train.js" />
     <Content Include="Scripts\mysite_train_keywordfiltering.js" />
+    <Content Include="Scripts\mysite_train_klpfl.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\script.js" />
