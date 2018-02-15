@@ -116,9 +116,9 @@ namespace ArabicTextAnalyzer.Controllers
             // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
             // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
             // @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Select(m => m.Keyword).ToList();
-            @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE").ToList();
+            @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE" || m.Keyword_Type == "OPPOSE" || m.Keyword_Type == "EXPLETIVE" || m.Keyword_Type == "SENSITIVE").ToList();
             @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
-            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE").ToList();
+            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE" && m.Keyword_Type != "OPPOSE" && m.Keyword_Type != "EXPLETIVE" && m.Keyword_Type != "SENSITIVE").ToList();
 
             // file upload communication
             @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
@@ -963,7 +963,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             //
             var extractedNERs = returndata.TextEntities.Select(m => new { Mention = m.TextEntity.Mention, Type = m.TextEntity.Type });
-            var extractedNegExplNERs = extractedNERs.Where(c => c.Type == "NEGATIVE" || c.Type == "EXPLETIVE");
+            var extractedNegExplNERs = extractedNERs.Where(c => c.Type == "NEGATIVE" || c.Type == "EXPLETIVE" || c.Type == "SENSITIVE" || c.Type == "OPPOSE");
             var targetWatchEntityes = targetWatchEntitiesStr.Split(',').ToList();
             var originalText = fbPostForTranslate.post_text;
             var translatedText = returndata.TranslatedText;
@@ -1005,7 +1005,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             //
             var extractedNERs = returndata.TextEntities.Select(m => new { Mention = m.TextEntity.Mention, Type = m.TextEntity.Type });
-            var extractedNegExplNERs = extractedNERs.Where(c => c.Type == "NEGATIVE" || c.Type == "EXPLETIVE");
+            var extractedNegExplNERs = extractedNERs.Where(c => c.Type == "NEGATIVE" || c.Type == "EXPLETIVE" || c.Type == "EXPLETIVE" || c.Type == "OPPOSE");
             var targetWatchEntityes = targetWatchEntitiesStr.Split(',').ToList();
             var originalText = fbCommentForTranslate.message;
             var translatedText = returndata.TranslatedText;
