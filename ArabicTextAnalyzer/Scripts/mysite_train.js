@@ -13,10 +13,17 @@ function BringNewDataIntoPartialView(adminModeShowAll) {
     $.ajax({
         type: 'POST',
         url: "/Train/ArabicDarijaEntryPartialView",
-        // data: null,
         "data": { "adminModeShowAll": adminModeShowAll },
         success: (function (result) {
+
             $('#partialPlaceHolder').html(result);
+
+            // klipfolio : here because the klipfolio is available only after loading partial view
+            KF.embed.embedKlip({
+                profile: "34bfa2079bd0a2236c048c2cb631f938",
+                settings: { "width": 606, "theme": "light", "borderStyle": "round", "borderColor": "#cccccc" },
+                title: "NERs Count"
+            });
 
             // refresh load time
             refreshPlainLoadTime();

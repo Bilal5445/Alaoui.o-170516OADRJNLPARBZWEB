@@ -16,15 +16,15 @@
     }
 </style>
 
-<!-- tabs list -->
+<!-- tabs header list -->
 <ul class="nav nav-pills" role="tablist">
-    <!-- first tab : working data -->
+    <!-- first tab header : working data -->
     <li role="presentation" class="active mainUL"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">Working Data</a></li>
     @if (FbInfluencer != null && FbInfluencer.Count > 0)
     {
         var count = 1;
         <li class="hide"><input type="hidden" id="hdnTotalInfluencer" value="@FbInfluencer.Count" /></li>
-        <!-- subsequent tabs : FB pages -->
+        <!-- subsequent tabs header : FB pages -->
         foreach (var item in FbInfluencer)
         {
             <!-- hidden info about the fb page : urlname, id, auto retrieve y/n -->
@@ -35,7 +35,7 @@
             </li>
 
             <!-- FB page -->
-            <li role="presentation" class="mainUL" id="@item.id"><a aria-controls="second" role="tab" data-toggle="tab" style="cursor:pointer;" onclick="LoadFacebookPosts('@item.id')">@item.name</a></li>
+            <li role="presentation" class="mainUL" id="@item.id"><a aria-controls="second" role="tab" data-toggle="tab" style="cursor:pointer;" onclick="LoadFacebookPosts('@item.id')"><i class="fa fa-facebook-square"></i> @item.name</a></li>
             count = count + 1;
         }
     }
@@ -47,6 +47,9 @@
         <!-- DBG -->
         <li role="presentation" class="mainUL"><a class="btn btn-outline-primary btn-xs" id="import_posts" onclick="JsTestFBFilter('322839958237294')"><span class="glyphicon glyphicon-refresh"></span></a></li>
     }
+    <!-- stats -->
+    <li role="presentation" class="mainUL" id="statsheader"><a class="btn btn-outline-primary" id="klpfl" role="tab" data-toggle="tab" onclick="JsShowStatsPage()"><span class="glyphicon glyphicon-stats"></span> Stats</a></li>
+    <!-- admin reserved -->
     @if (User.IsInRole("Administrator"))
     {
         <!-- admin checkbox to show all posts -->
@@ -56,9 +59,10 @@
     }
 </ul>
 
+<!-- tabs content list -->
 <div class="tab-content" style="border: 1px solid black; padding: 15px; background-color: #fffeef;">
+    <!-- tab content of working data posts -->
     <div role="tabpanel" class="tab-pane active" id="first">
-        <!-- table of working data posts -->
         <table class="posts datatables-table table table-striped table-hover table-bordered">
             <thead>
                 <tr class="header">
@@ -84,6 +88,7 @@
             </tfoot>
         </table>
     </div>
+    <!-- tab content for FB pages -->
     @if (FbInfluencer != null && FbInfluencer.Count > 0)
     {
         foreach (var item in FbInfluencer)
@@ -157,6 +162,10 @@
             </div>
         }
     }
+    <!-- tab content for stats -->
+    <div role="tabpanel" class="tab-pane" id="statscontent">
+        <div style="display:inline-block" id="kf-embed-container-34bfa2079bd0a2236c048c2cb631f938"></div>
+    </div>
 </div>
 
 <div class="modal fade" id="myModalForaddInfluencer" role="dialog">
