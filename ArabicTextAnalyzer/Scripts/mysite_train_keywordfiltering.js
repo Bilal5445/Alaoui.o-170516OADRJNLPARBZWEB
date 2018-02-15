@@ -193,6 +193,9 @@ function LoadFacebookPosts(influencerId) {
 
     //
     ShowFBPage(influencerId);
+
+    // reset to not clicked
+    ViewInfluencerIsClicked = false
 }
 
 // table for FB post table
@@ -260,27 +263,24 @@ function InitializeFBPostsDataTables(fluencerid) {
 
 function ShowFBPage(id) {
 
-    // show associated table with the FB page
-    $('.table_' + id).show();
-
     //
     if (id.length > 0) {
 
-        // disable others / activate current
+        // show associated datatables.net table with the FB page
+        $('.table_' + id).show();
+
+        // disable any other active tab content / activate current fb page tab content
         $('.tab-pane').each(function () {
             $(this).removeClass('active');
         });
         $('#second_' + id).addClass('active')
 
-        // disable others / activate current
+        // disable any other active tab header / activate current fb page tab header
         $('.mainUL').each(function () {
             $(this).removeClass('active');
         })
         $('#' + id).addClass('active');
     }
-
-    // reset to not clicked
-    ViewInfluencerIsClicked = false
 }
 
 // method for translate the fb post 
@@ -891,23 +891,7 @@ function RefreshFBPostsAndComments() {
     }
 }
 
-// starting the timer to collect FB data
-$(document).ready(function () {
-
-    // every 2 secs, refresh posts and comments from FB
-    var intervalFB = setInterval(function () {
-        if (fbTabPagesLoaded == false) {
-            console.log("Before RefreshFBPostsAndComments()");
-            RefreshFBPostsAndComments();
-        } else {
-            console.log("Found the tabs");
-            clearInterval(intervalFB);
-        }
-    }, 2000);
-});
-
-// Js Function for add the target text entities as per user influencer. The target text entities are used to cross-match against with the 
-// Negative/Explative NER in the FB filter module
+// Js fct to add per user influencer the target entities that are used to cross-match against with the Negative/Explative NER in the FB filter module
 function AddTextEntity(influencerid) {
 
     if (AddTextEntityClicked == false) {
@@ -984,3 +968,18 @@ function ResetDataTableComments(influencerid) {
     oTable.fnDestroy();
     InitializeFBCommentsForPostDataTables(influencerid)
 }
+
+// starting the timer to collect FB data
+$(document).ready(function () {
+
+    // every 2 secs, refresh posts and comments from FB
+    var intervalFB = setInterval(function () {
+        if (fbTabPagesLoaded == false) {
+            console.log("Before RefreshFBPostsAndComments()");
+            RefreshFBPostsAndComments();
+        } else {
+            console.log("Found the tabs");
+            clearInterval(intervalFB);
+        }
+    }, 2000);
+});
