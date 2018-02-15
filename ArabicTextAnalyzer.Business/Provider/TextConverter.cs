@@ -133,6 +133,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             output = Postprocess_هادي_to_هذه(output);
             output = Postprocess_وهيا_to_وهي(output);
             output = Postprocess_أل_to_ال(output);
+            output = Postprocess_وا_to_و(output);
 
             return output;
         }
@@ -460,6 +461,14 @@ namespace ArabicTextAnalyzer.Business.Provider
             // replace whole-word only
             return Regex.Replace(arabic, @"\bأل", "ال");
         }
+
+        public string Postprocess_وا_to_و(string arabic)
+        {
+            // replace whole-word only
+            // return arabic.Replace("هاد", "هذا");
+            return Regex.Replace(arabic, @"\bوا\b", "و");
+        }
+        
         #endregion
 
         static string RemoveOtherSymbols(string text)
