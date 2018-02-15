@@ -18,11 +18,18 @@ function BringNewDataIntoPartialView(adminModeShowAll) {
 
             $('#partialPlaceHolder').html(result);
 
-            // klipfolio : here because the klipfolio is available only after loading partial view
+            // klipfolio 1 : here because the klipfolio is available only after loading partial view
             KF.embed.embedKlip({
                 profile: "34bfa2079bd0a2236c048c2cb631f938",
                 settings: { "width": 606, "theme": "light", "borderStyle": "round", "borderColor": "#cccccc" },
                 title: "NERs Count"
+            });
+
+            // klipfolio 2 : here because the klipfolio is available only after loading partial view
+            KF.embed.embedKlip({
+                profile: "52ce79e4e4d6e860e00be1e18cc672bb",
+                settings: { "width": 606, "theme": "light", "borderStyle": "round", "borderColor": "#cccccc" },
+                title: "NERs Type Count"
             });
 
             // refresh load time

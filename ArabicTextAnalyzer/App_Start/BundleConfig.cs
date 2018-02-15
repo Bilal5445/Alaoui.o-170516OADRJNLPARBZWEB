@@ -46,15 +46,18 @@ namespace ArabicTextAnalyzer
                 "~/Scripts/mysite_train_keywordfiltering.js"
                 ));
 
+            // klipfolio
             bundles.Add(new ScriptBundle("~/bundles/js_train_klpfl").Include(
                "~/Scripts/mysite_train_klpfl.js"
                ));
+            bundles.Add(new StyleBundle("~/Content/css_train_klpfl").Include(
+                      "~/Content/mysite_train_klpfl.css"));
 
             // related to tags input
             bundles.Add(new ScriptBundle("~/bundles/js_train_tagsinput").Include(
                 "~/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"
                 ));
-            bundles.Add(new StyleBundle("~/Content/js_train_tagsinput").Include(
+            bundles.Add(new StyleBundle("~/Content/css_train_tagsinput").Include(
                 "~/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css"
                 ));
         }

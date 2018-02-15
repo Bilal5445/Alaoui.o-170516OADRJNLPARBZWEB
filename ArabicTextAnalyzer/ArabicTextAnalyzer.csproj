@@ -526,6 +526,7 @@
     <Content Include="Content\mysite_train.css" />
     <Content Include="Content\mysite_train_bulkimport.css" />
     <Content Include="Content\mysite_train_keywordfiltering.css" />
+    <Content Include="Content\mysite_train_klpfl.css" />
     <Content Include="Content\mysite_train_themepanel.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
