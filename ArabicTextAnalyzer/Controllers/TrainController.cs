@@ -1916,10 +1916,14 @@ namespace ArabicTextAnalyzer.Controllers
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "SELECT * FROM T_XTRCTTHEME_KEYWORD XK INNER JOIN T_XTRCTTHEME X ON XK.ID_XTRCTTHEME = X.ID_XTRCTTHEME AND X.CurrentActive = 'active' AND X.UserID = '" + userId + "' ";
+                String qry0 = "SELECT * "
+                            + "FROM T_XTRCTTHEME_KEYWORD XK "
+                            + "INNER JOIN T_XTRCTTHEME X ON XK.ID_XTRCTTHEME = X.ID_XTRCTTHEME AND X.CurrentActive = 'active' AND X.UserID = '" + userId + "' "
+                            + "WHERE Keyword_Count > 1 "
+                            + "ORDER BY Keyword_Count DESC ";
 
                 conn.Open();
-                return conn.Query<M_XTRCTTHEME_KEYWORD>(qry).ToList();
+                return conn.Query<M_XTRCTTHEME_KEYWORD>(qry0).ToList();
             }
         }
 
