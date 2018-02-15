@@ -176,7 +176,7 @@ function BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds) {
 }
 
 // Clicking on tab Table For FB For Particular influencer (or FB page)
-function LoadFacebookPosts(fluencerid) {
+function LoadFacebookPosts(influencerId) {
 
     // check before
     if (ViewInfluencerIsClicked == true)
@@ -186,13 +186,38 @@ function LoadFacebookPosts(fluencerid) {
     ViewInfluencerIsClicked = true;
 
     // if the table associated with the fb page has no rows yet, load them from DB (via server side controller action)
-    var $checkedBoxes = $('.table_' + fluencerid + ' tbody tr');
+    var $checkedBoxes = $('.table_' + influencerId + ' tbody tr');
     if ($checkedBoxes.length == 0) {
-        InitializeFBPostsDataTables(fluencerid)
+        InitializeFBPostsDataTables(influencerId);
     }
 
     //
-    ShowFBPage(fluencerid)
+    ShowFBPage(influencerId);
+
+    // if only one, toggle out
+    /*var table = vars[influencerId];
+    if (table.rows.count() == 1) {
+        var row = table.rows(0);
+        console.log("row : " + row);
+    }*/
+    /*var idCol = json.extraData.split('_');
+    var postId = idCol[1];
+    var influencerId = idCol[0];
+    var table = vars[influencerId];
+    var row = table.row(tr);
+    // $("#some_span").html(json.ryansCustomVariable);
+    ToggleFBCommentsTable(row, tr, img, postId);
+    console.log("returned var");
+    console.log(json.extraData);*/
+
+    /*var tr = $(img).closest('tr');
+    var tds = $(img).parents("tr").find("td");
+    var tdPostId = $(tds[1]);
+    var idCol = tdPostId.html().toString().split('_');
+    var postId = idCol[1];
+    var influencerId = idCol[0];
+    var table = vars[influencerId];
+    var row = table.row(tr);*/
 }
 
 // table for FB post table
@@ -248,8 +273,50 @@ function InitializeFBPostsDataTables(fluencerid) {
             // server side
             "processing": true,
             "serverSide": true,
-            "ajax": "/Train/DataTablesNet_ServerSide_FB_Posts_GetList?fluencerid=" + fluencerid
+            "ajax": {
+                "url": "/Train/DataTablesNet_ServerSide_FB_Posts_GetList?fluencerid=" + fluencerid,
+                "dataSrc": function (json) {
+
+                    /*if (json.extraData) {
+
+                        var idCol = json.extraData.split('_');
+                        var postId = idCol[1];
+                        var influencerId = idCol[0];
+                        var table = vars[influencerId];
+                        var row = table.row(tr);
+                        // $("#some_span").html(json.ryansCustomVariable);
+                        ToggleFBCommentsTable(row, tr, img, postId);
+                        console.log("returned var");
+                        console.log(json.extraData);
+                    }*/
+
+                    return json.data;
+                }
+            }
         });
+
+        // if only one, toggle out
+        // var table = vars[fluencerid];
+        /*if (table.rows().count() == 1) {
+            var row = table.rows(0);
+            console.log("row : " + row);
+        }*/
+        /*table.on('search.dt', function () {
+            // $('#filterInfo').html('Currently applied global search: ' + table.search());
+            console.log('Currently applied global search: ' + table.search());
+            //if (table.rows().count() == 1) {
+            //    var row = table.rows(0);
+            //    console.log("row : " + row);
+            //}
+            var api = table.api();
+            //uppercase used for case insensitive search
+            var searchTerm = api.search().toUpperCase();
+            var filteredData = api.data()
+                .filter(function (value, index) {
+                    return value.toString().toUpperCase().indexOf(searchTerm) !== -1;
+                }).toArray();
+            console.log(filteredData);
+        });*/
     });
 }
 
