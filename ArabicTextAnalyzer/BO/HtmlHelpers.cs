@@ -73,12 +73,17 @@ namespace ArabicTextAnalyzer.BO
                 if (response.IsSuccessStatusCode)
                     result = await response.Content.ReadAsStringAsync();
                 else
-                    result = await response.Content.ReadAsStringAsync();
+                {
+                    var message = await response.Content.ReadAsStringAsync();
+                    result = JsonConvert.SerializeObject(new
+                    {
+                        status = false,
+                        message = message
+                    });
+                }
             }
             catch (Exception ex)
             {
-                // Console.WriteLine(ex);
-                // result = ex.Message;
                 result = JsonConvert.SerializeObject(new
                 {
                     status = false,
