@@ -15,6 +15,10 @@
 {
     background-color: rgba(0,107,133,1);
 }
+#vertaccordmenuandbody #body
+{
+    height: 1000px;
+}
 .navbar-fixed-top.adekwasy
 {
     border-bottom-width: 0;
@@ -22,6 +26,7 @@
 #vertaccordmenucol
 {
     margin-top: 10px;
+    height: 1000px;
 }
 #vertaccordmenucol > div > p 
 {
@@ -54,4 +59,8 @@
 #accordion tr > td a, #accordion tr > td span, #accordion tr > td i
 {
     color: white;
+}
+#trainform
+{
+    margin-top: 50px;
 }

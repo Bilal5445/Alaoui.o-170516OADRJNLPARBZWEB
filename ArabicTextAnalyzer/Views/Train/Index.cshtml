@@ -85,7 +85,7 @@
 }
 
 <!-- theme menu -->
-<div class="container thememenu" style="text-align: center;">
+<div class="container thememenu" style="text-align: center; display: none;">
     <div class="dropdown div-inline">
         <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
         <ul class="dropdown-menu">
@@ -157,7 +157,7 @@
 </div>
 
 <!-- Theme & keywords -->
-<div class="themekeywords card card-inverse card-primary">
+<div class="themekeywords card card-inverse card-primary" style="display: none;">
     <h1><span class="label label-info">@ViewBag.UserActiveXtrctTheme.ThemeName.Trim()</span></h1>
     <div class="container containerthemekeywords">
         <div class="row">
@@ -245,11 +245,10 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
             <div class="panel-heading">Arabizi</div>
             <div class="panel-body" style="padding: 0;">
                 <div class="input-group">
-                    <span class="input-group-addon">@Html.CheckBoxFor(m => m.IsFR) FR</span>
                     @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "resize:none", rows = 2, @class = "form-control custom-control", @required = "required" })
                     @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
                     @Html.HiddenFor(m => m.ID_XTRCTTHEME, new { @Value = ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME })
-                    <span class="input-group-addon btn btn-primary" onclick="document.forms['trainform'].submit();">Translate / Extract NER</span>
+                    <span class="input-group-addon btn btn-primary" onclick="document.forms['trainform'].submit();">Go</span>
                 </div>
             </div>
         </div>
@@ -345,7 +344,7 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
     </div>
 
     <!-- upload large file of posts -->
-    <div id="row-bulk-input" class="row" style="margin-top: 15px">
+    <div id="row-bulk-input" class="row" style="margin-top: 15px; display: none;">
         @using (Html.BeginForm("Data_Upload", "Train", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline" }))
         {
             <div class="form-group">
@@ -379,5 +378,5 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
 
     <!-- Place where you will insert your partial -->
     <input type="hidden" id="hdnToken" value="@token" />
-    <div id="partialPlaceHolder" style="display:inline;"> </div>
+    <div id="partialPlaceHolder" style="display:none;"> </div>
 }
