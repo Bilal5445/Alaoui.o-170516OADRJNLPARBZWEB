@@ -91,7 +91,6 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 case SignInStatus.Success:
                     goto createDefaultTheme;
-                // return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -118,18 +117,14 @@ namespace ArabicTextAnalyzer.Controllers
                 });
             }
 
-            // create Default App For Admin first time (since the admin does not register, the app creation can be only here once)
-            // if (userIdentity.Name == "Administrator")
-            /*if (userIdentity.Claims.SingleOrDefault(m => m.Value == "Administrator") != null)
-            {*/
-                if (arabizer.loaddeserializeRegisterApp_DAPPERSQL(userId).Count == 0)
-                {
-                    // create app to use the arabizi
-                    var appLimit = Convert.ToInt32(ConfigurationManager.AppSettings["TotalAppCallLimit"]);
-                    var app = new RegisterApp { Name = userId + ".app" };
-                    new AppManager().CreateApp(app, userId, false, new RegisterAppConcrete(), new ClientKeysConcrete(), appLimit);
-                }
-            //}
+            // create Default App For Admin (and actually any new user) first time
+            if (arabizer.loaddeserializeRegisterApp_DAPPERSQL(userId).Count == 0)
+            {
+                // create app to use the arabizi
+                var appLimit = Convert.ToInt32(ConfigurationManager.AppSettings["TotalAppCallLimit"]);
+                var app = new RegisterApp { Name = userId + ".app" };
+                new AppManager().CreateApp(app, userId, false, new RegisterAppConcrete(), new ClientKeysConcrete(), appLimit);
+            }
 
             // log login time
             using (var db = new ArabiziDbContext())
@@ -156,7 +151,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             //
-            return RedirectToLocal(returnUrl);
+            return RedirectToAction("Index", "Train");
         }
 
         //
