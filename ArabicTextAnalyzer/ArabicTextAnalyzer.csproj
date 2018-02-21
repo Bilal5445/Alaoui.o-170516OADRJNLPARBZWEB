@@ -244,6 +244,7 @@
     <Compile Include="BO\HtmlHelpers.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ApiDocController.cs" />
+    <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\ArabiziController.cs" />
     <Compile Include="Controllers\AuthenticateController.cs" />
     <Compile Include="Controllers\TrainController.cs" />
@@ -523,6 +524,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\hlpr.vertical-text.css" />
     <Content Include="Content\Images\app.jpg" />
+    <Content Include="Content\mysite_adekwasy.css" />
     <Content Include="Content\mysite_train.css" />
     <Content Include="Content\mysite_train_bulkimport.css" />
     <Content Include="Content\mysite_train_keywordfiltering.css" />
@@ -687,6 +689,8 @@
     <Content Include="Views\Admin\EditUser.cshtml" />
     <Content Include="Views\Admin\ViewAllRoles.cshtml" />
     <Content Include="Views\ApiDoc\Index.cshtml" />
+    <Content Include="Views\App\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutVert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />

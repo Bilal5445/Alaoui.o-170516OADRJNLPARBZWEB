@@ -25,7 +25,9 @@ namespace ArabicTextAnalyzer
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                    "~/Content/mysite_adekwasy.css"
+                    ));
 
             bundles.Add(new ScriptBundle("~/bundles/custom").Include("~/Scripts/script.js"));
 

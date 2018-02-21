@@ -7,13 +7,16 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("styles", required: false)
+    
+    @* awesome fonts *@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     @* vertical load time *@
     <link rel="stylesheet" type="text/css" href="~/Content/hlpr.vertical-text.css" />
 
 </head>
 <body onload="getPlainLoadTime()">
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top adekwasy">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,14 +30,12 @@
                 <ul class="nav navbar-nav">
                     @if (Request.IsAuthenticated)
                     {
-                    <li>@Html.ActionLink("Translate", "Index", "Train", new { area = "" }, null)</li>
-                    @* @<li>@Html.ActionLink("Api Doc", "Index", "ApiDoc")</li> *@
-                    <li>@Html.ActionLink("API Doc", "Index", "Help", new { area = "" }, null)</li>
-                    @* <li><a href="@string.Format("http://" + Request.Url.Host + ":{0}/Help", "50037")">Api Doc</a></li> *@
+                        <li>@Html.ActionLink("Translate", "Index", "Train", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("API Doc", "Index", "Help", new { area = "" }, null)</li>
                     }
                     @if (User.IsInRole("Administrator"))
                     {
-                    <li>@Html.ActionLink("Administration", "Index", "Admin", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Administration", "Index", "Admin", new { area = "" }, null)</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -59,5 +60,6 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/custom")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>
