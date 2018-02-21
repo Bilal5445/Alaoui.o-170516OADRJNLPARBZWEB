@@ -51,7 +51,7 @@
 {
     border: 0;
 }
-#accordion tr > td > a
+#accordion tr > td a, #accordion tr > td span, #accordion tr > td i
 {
     color: white;
 }
