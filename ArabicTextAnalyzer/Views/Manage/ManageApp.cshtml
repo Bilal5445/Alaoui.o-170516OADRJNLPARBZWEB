@@ -1,11 +1,13 @@
 ﻿@using ArabicTextAnalyzer.Domain.Models;
 @model RegisterApp
 @{
-    ViewBag.Title = "My Apps";
+    ViewBag.Title = "Adekwasy - Consumption";
+    Layout = "~/Views/Shared/_LayoutAlt.cshtml";
+
     bool existClientKeys = ViewBag.clientExist;
 }
 <div class="form-horizontal">
-    <h4>My Apps</h4>
+
     <hr />
     @if (existClientKeys == false)
     {
