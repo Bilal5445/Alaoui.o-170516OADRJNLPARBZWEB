@@ -223,18 +223,19 @@
             </div>
         </div>
     }
-    @*
-    <!-- body -->
-    <div id="body">
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Adekwasy</p>
-            </footer>
+    else
+    {
+        <!-- body login only -->
+        <div id="body">
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - Adekwasy</p>
+                </footer>
+            </div>
         </div>
-    </div>
-    *@
+    }
 
     <!-- VERTICAL LOADTIME -->
     <div class="rotated-text"><span class="rotated-text__inner"><strong>v0.1712.15.15 - Load Time : </strong><span id="loadTime"></span></span></div>
