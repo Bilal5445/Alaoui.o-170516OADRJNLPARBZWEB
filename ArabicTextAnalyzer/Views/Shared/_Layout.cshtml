@@ -16,11 +16,10 @@
 
     @* vertical accordion menu *@
     <style>
-        body { margin-top:50px; }
-        .glyphicon { margin-right:10px; }
-        .panel-body { padding:0px; }
+        .glyphicon { margin-right: 10px; }
+        .panel-body { padding: 0px; }
         .panel-body table tr td { padding-left: 15px }
-        .panel-body .table {margin-bottom: 0px; }
+        .panel-body .table { margin-bottom: 0px; }
     </style>
 </head>
 <body onload="getPlainLoadTime()">
@@ -54,9 +53,9 @@
     <!-- vert menu -->
     @if (Request.IsAuthenticated)
     {
-        <div class="container">
+        <div id="vertaccordmenuandbody" class="container adekwasy">
             <div class="row">
-                <div class="col-sm-3 col-md-3">
+                <div id="vertaccordmenucol" class="col-sm-2 col-md-2">
                     <div class="panel-group" id="accordion">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -202,16 +201,8 @@
                         </div>
                     </div>
                 </div>
-                @*<div class="col-sm-9 col-md-9">
-                    <div class="well">
-                        <h1>
-                            Accordion Menu With Icon
-                        </h1>
-                        Admin Dashboard Accordion Menu
-                    </div>
-                </div>*@
                 <!-- body -->
-                <div id="body" class="col-sm-9 col-md-9">
+                <div id="body" class="col-sm-10 col-md-10">
                     <div class="container body-content">
                         @RenderBody()
                         <hr />
