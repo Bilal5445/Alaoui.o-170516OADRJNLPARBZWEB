@@ -11,9 +11,19 @@
     padding-bottom: 35px;
 }
 
-/* MC092617 to make sure table takes 100% width */
+/* MC092617 to make sure table takes 95%~100% width */
 @media (min-width: 1200px) {
     #body > .container {
+        width: 95%;
+    }
+
+    /* MC210218 still applicable when now with vert accrodion menu */
+    .container.adekwasy {
+        width: 100%;
+    }
+
+    /* MC210218 same for top menu should be wider */
+    .adekwasy > .container {
         width: 95%;
     }
 }
