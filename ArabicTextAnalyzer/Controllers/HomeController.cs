@@ -10,7 +10,8 @@ namespace ArabicTextAnalyzer.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            // return View();
+            return RedirectToAction("Index", "Train");
         }
 
         [System.Web.Mvc.HttpPost]
