@@ -23,3 +23,35 @@
 {
     margin-top: 10px;
 }
+#vertaccordmenucol > div > p 
+{
+    color: white;
+}
+#accordion > div > .panel-heading 
+{
+    background-color: rgba(0,71,88,1);
+}
+#accordion tr
+{
+    background-color: rgba(0,47,58,1);
+}
+#accordion > .panel-default > .panel-heading
+{
+    color: white;
+}
+#accordion > .panel.panel-default
+{
+    border: 0;
+}
+#accordion tr > td
+{
+    border: 0;
+}
+#accordion .panel-body
+{
+    border: 0;
+}
+#accordion tr > td > a
+{
+    color: white;
+}

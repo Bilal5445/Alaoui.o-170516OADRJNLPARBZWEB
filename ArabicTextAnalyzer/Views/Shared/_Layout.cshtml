@@ -16,7 +16,7 @@
 
     @* vertical accordion menu *@
     <style>
-        .glyphicon { margin-right: 10px; }
+        #accordion .glyphicon { margin-right: 10px; }
         .panel-body { padding: 0px; }
         .panel-body table tr td { padding-left: 15px }
         .panel-body .table { margin-bottom: 0px; }
@@ -54,6 +54,10 @@
         <div id="vertaccordmenuandbody" class="container adekwasy">
             <div class="row">
                 <div id="vertaccordmenucol" class="col-sm-2 col-md-2">
+                    <!-- theme menu : add new theme -->
+                    <div>
+                        <p style="font-weight:bold; font-size:16px;">THEMES <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#myModal" style="float:right;"><span class="glyphicon glyphicon-plus"></span> </button></p>
+                    </div>
                     <div class="panel-group" id="accordion">
                         <div class="panel panel-default">
                             <div class="panel-heading">
