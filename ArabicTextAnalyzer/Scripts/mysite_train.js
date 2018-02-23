@@ -1,4 +1,26 @@
-﻿$(document).ready(function () {
+﻿// initial load fct
+$(document).ready(function () {
+
+    // fct to call training in translate form via ajax (shortcut traditional form submit)
+    $("#trainform").submit(function (e) {
+
+        var $form = $(this);
+
+        $.ajax({
+
+            type: "POST",
+            url: $form.attr("action"),
+            data: $form.serialize()
+
+        }).done(function (data) {
+
+            // send back returned view
+            // $('html').html(data); => gives errors js
+            document.open();
+            document.write(data);
+            document.close();
+        });
+    });
 
     // bring new data into the partial view (table of posts)
     BringNewDataIntoPartialView();
@@ -62,7 +84,6 @@ function BringNewDataIntoPartialView(adminModeShowAll) {
 }
 
 // event when we switch between twingly accounts radio buttons
-// $("#myButtons :input").change(function () {
 $("input#id").change(function () {
 
     console.log($(this).parent().text().split(/\ +/)[1]);

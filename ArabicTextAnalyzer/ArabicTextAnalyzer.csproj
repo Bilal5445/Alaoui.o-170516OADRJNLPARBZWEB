@@ -690,7 +690,7 @@
     <Content Include="Views\Admin\ViewAllRoles.cshtml" />
     <Content Include="Views\ApiDoc\Index.cshtml" />
     <Content Include="Views\App\Index.cshtml" />
-    <Content Include="Views\Shared\_LayoutVert.cshtml" />
+    <Content Include="Views\Shared\_LayoutAlt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />

@@ -238,7 +238,7 @@
 }
 else if (token != null && !string.IsNullOrEmpty(token as string))
 {
-    <!-- aribizi translate -->
+        <!-- aribizi translate single -->
     using (Html.BeginForm("TrainStepOne", "Train", new { mainEntity = @ViewBag.UserActiveXtrctTheme.ThemeName.Trim() }, FormMethod.Post, new { id = "trainform" }))
     {
         <div class="panel panel-default active">
@@ -248,7 +248,45 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
                     @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "resize:none", rows = 2, @class = "form-control custom-control", @required = "required" })
                     @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
                     @Html.HiddenFor(m => m.ID_XTRCTTHEME, new { @Value = ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME })
-                    <span class="input-group-addon btn btn-primary" onclick="document.forms['trainform'].submit();">Go</span>
+                    <span class="input-group-addon btn btn-primary" onclick="document.forms['trainform'].dispatchEvent(new Event('submit'));">Go</span>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-warning alert-dismissable margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong> @msgAlert
+        </div>
+        <div class="alert alert-success alert-dismissable margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> @msgAlert
+        </div>
+    }
+    <table class="posts table table-striped table-hover table-bordered " role="grid" style="width: 974px; margin-left: auto; margin-right: auto; display: none;">
+        <thead>
+            <tr class="header" role="row"><th class="center top col50prc arabizi-text sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Arabizi: activate to sort column descending" style="width: 248px;" aria-sort="ascending">Arabizi</th><th class="center top col50prc arabic-text sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Arabic: activate to sort column ascending" style="width: 248px;">Arabic</th><th class="center top col100px arabic-text entitiestype sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="NER Types: activate to sort column ascending" style="width: 94px;">NER Types</th><th class="center top col130px arabic-text entities sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Entities: activate to sort column ascending" style="width: 124px;">Entities</th></tr>
+        </thead>
+        <tbody>
+            <tr role="row">
+                <td class="arabizi-text top">Pour une hygiène adaptée à votre peau sensible, utilisez l'Eau micellaire Ultra 2 fois par jour: 🌞 Matin : pour nettoyer et hydrater 🌑 Soir : pour démaquiller et apaiser ::http://spr.ly/6181DGPaT::</td>
+                <td class=" arabic-text top">النظافة للبشرة الحساسة , استخدم ل المياه ميكلر ultra 2 مرات نهار : صباح : لتنظيف و ترطيب المسائية : لإزالة الماكياج و استرضاء :: http://spr.ly/6181DGPaT ::</td>
+                <td class=" arabic-text top entitiestype"><span class="label label-info">ORGANIZATION</span> </td>
+                <td class=" arabic-text top entities"><span class="label label-info">ultra </span> </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- aribizi translate std -->
+    using (Html.BeginForm("TrainStepOne", "Train", new { mainEntity = @ViewBag.UserActiveXtrctTheme.ThemeName.Trim() }, FormMethod.Post, new { id = "trainformstd" }))
+    {
+        <div class="panel panel-default active" style="display: none;">
+            <div class="panel-heading">Arabizi</div>
+            <div class="panel-body" style="padding: 0;">
+                <div class="input-group">
+                    @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "resize:none", rows = 2, @class = "form-control custom-control", @required = "required" })
+                    @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
+                    @Html.HiddenFor(m => m.ID_XTRCTTHEME, new { @Value = ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME })
+                    <!-- <span class="input-group-addon btn btn-primary" onclick="document.forms['trainformstd'].submit();">Go</span> -->
+                    <span class="input-group-addon btn btn-primary" onclick="GoArabizi();">Go</span>
                 </div>
             </div>
         </div>
@@ -378,5 +416,5 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
 
     <!-- Place where you will insert your partial -->
     <input type="hidden" id="hdnToken" value="@token" />
-    <div id="partialPlaceHolder" style="display:none;"> </div>
+    <div id="partialPlaceHolder" style="display:inline;"> </div>
 }
