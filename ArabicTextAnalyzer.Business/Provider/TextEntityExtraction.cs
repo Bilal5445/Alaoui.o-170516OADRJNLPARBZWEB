@@ -22,7 +22,7 @@ namespace ArabicTextAnalyzer.Business.Provider
         private const string rosetteApiKey = "ce51b85cd7c17f407f2ab16799896808";
 
         // DBG
-        private const bool doNotUseRosette = true;
+        private const bool doNotUseRosette = /*true*/false;
 
         public TextEntityExtraction()
         {

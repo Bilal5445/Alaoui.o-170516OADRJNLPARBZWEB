@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json.Linq;
+using OADRJNLPCommon.Business;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -20,6 +22,9 @@ namespace ArabicTextAnalyzer.Business.Provider
         // google translation api key
         String translationApiKey;
 
+        // for log
+        HttpServerUtilityBase _server = null;
+
         // for UT only
         public TranslationTools(String bingSpellApiKey, String googleTranslationApiKey)
         {
@@ -27,10 +32,12 @@ namespace ArabicTextAnalyzer.Business.Provider
             this.translationApiKey = googleTranslationApiKey;
         }
 
-        public TranslationTools()
+        public TranslationTools(HttpServerUtilityBase server)
         {
             bingSpellApiKey = ConfigurationManager.AppSettings["BingSpellcheckAPIKey"].ToString();
             translationApiKey = ConfigurationManager.AppSettings["GoogleTranslationApiKey"].ToString();
+
+            _server = server;
         }
 
         public String CorrectTranslate(String arabiziWord)
@@ -38,7 +45,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             // See if we can further correct/translate any latin words
 
             // bing spell
-            var correctedWord = new BingSpellCheckerApiTools().bingSpellcheckApi(arabiziWord, bingSpellApiKey);
+            var correctedWord = new BingSpellCheckerApiTools(_server).bingSpellcheckApi(arabiziWord, bingSpellApiKey);
 
             // google tranlsation
             var translatedLatinWord = new GoogleTranslationApiTools(translationApiKey).getArabicTranslatedWord(correctedWord, "html");
@@ -82,6 +89,18 @@ namespace ArabicTextAnalyzer.Business.Provider
 
     public class BingSpellCheckerApiTools
     {
+        // for log
+        HttpServerUtilityBase _server = null;
+
+        public BingSpellCheckerApiTools()
+        {
+        }
+
+        public BingSpellCheckerApiTools(HttpServerUtilityBase server)
+        {
+            _server = server;
+        }
+
         public string bingSpellcheckApi(String arabiziWord, string apiKey)
         {
             String spellCheckAPi = "https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?text=";
@@ -103,36 +122,63 @@ namespace ArabicTextAnalyzer.Business.Provider
             client.Headers.Add("Ocp-Apim-Subscription-Key", apiKey);
             client.Encoding = System.Text.Encoding.UTF8;
 
-            string json = client.DownloadString(url);
-            var jsonresult = JObject.Parse(json).SelectToken("flaggedTokens") as JArray;
-
-            // process : build a string with pieces from suggesestions from bing
-            var peekindex = 0;
-            foreach (var result in jsonresult)
+            try
             {
-                // index of first word with possible spelling correction
-                var stopindex = Convert.ToInt32(result.SelectToken("offset").ToString());
+                string json = client.DownloadString(url);
+                var jsonresult = JObject.Parse(json).SelectToken("flaggedTokens") as JArray;
 
-                // copy string up to this location
-                correctedText += arabiziWord.Substring(peekindex, (stopindex - peekindex));
-                supportText += arabiziWord.Substring(peekindex, (stopindex - peekindex));
+                // process : build a string with pieces from suggesestions from bing
+                var peekindex = 0;
+                foreach (var result in jsonresult)
+                {
+                    // index of first word with possible spelling correction
+                    var stopindex = Convert.ToInt32(result.SelectToken("offset").ToString());
+
+                    // copy string up to this location
+                    correctedText += arabiziWord.Substring(peekindex, (stopindex - peekindex));
+                    supportText += arabiziWord.Substring(peekindex, (stopindex - peekindex));
+
+                    //
+                    var token = result.SelectToken("token").ToString();
+                    var firstsuggestion = result.SelectToken("suggestions[0].suggestion").ToString();
+                    correctedText += firstsuggestion;
+                    supportText += token;
+                    peekindex = supportText.Length;
+                }
+
+                // copy the rest
+                correctedText += arabiziWord.Substring(peekindex, (arabiziWord.Length - peekindex));
 
                 //
-                var token = result.SelectToken("token").ToString();
-                var firstsuggestion = result.SelectToken("suggestions[0].suggestion").ToString();
-                correctedText += firstsuggestion;
-                supportText += token;
-                peekindex = supportText.Length;
+                if (previousText != String.Empty && correctedText == String.Empty)
+                    correctedText = previousText;
+
+                return correctedText;
             }
+            catch (WebException wex)
+            {
+                if (wex.Response != null)
+                {
+                    using (var errorResponse = (HttpWebResponse)wex.Response)
+                    {
+                        using (var reader = new StreamReader(errorResponse.GetResponseStream()))
+                        {
+                            var jsonerror = reader.ReadToEnd();
+                            if (_server != null)
+                            {
+                                Logging.Write(_server, jsonerror);
+                                Logging.Write(_server, wex.GetType().Name);
+                                Logging.Write(_server, wex.Message);
+                                Logging.Write(_server, wex.StackTrace);
+                            }
+                        }
+                    }
+                }
+                else
+                    throw;
 
-            // copy the rest
-            correctedText += arabiziWord.Substring(peekindex, (arabiziWord.Length - peekindex));
-
-            //
-            if (previousText != String.Empty && correctedText == String.Empty)
-                correctedText = previousText;
-
-            return correctedText;
+                return previousText;
+            }
         }
     }
 

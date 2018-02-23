@@ -84,6 +84,9 @@ namespace ArabicTextAnalyzer.BO
                         larabicText = train_bidict(larabicText);
 
                     if (frMode == false)
+                        larabicText = train_binggoogle(larabicText);
+
+                    if (frMode == false)
                         larabicText = train_perl(watch, larabicText);
 
                     arabicText += larabicText;
@@ -107,6 +110,9 @@ namespace ArabicTextAnalyzer.BO
 
                 if (frMode == false)
                     larabicText = train_bidict(larabicText);
+
+                if (frMode == false)
+                    larabicText = train_binggoogle(larabicText);
 
                 if (frMode == false)
                     larabicText = train_perl(watch, larabicText);
@@ -318,10 +324,10 @@ namespace ArabicTextAnalyzer.BO
             return arabicText;
         }
 
-        private static string train_binggoogle(String arabicText)
+        private /*static*/ string train_binggoogle(String arabicText)
         {
             // first pass : correct/translate the original arabizi into msa arabic using big/google apis (to take care of french/english segments in codeswitch arabizi posts)
-            return new TranslationTools().CorrectTranslate(arabicText);
+            return new TranslationTools(Server).CorrectTranslate(arabicText);
         }
 
         private M_ARABICDARIJAENTRY train_saveperl(Stopwatch watch, string arabicText, Guid id_ARABIZIENTRY, Guid id_ARABICDARIJAENTRY, AccessMode accessMode, bool frMode = false)
