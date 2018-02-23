@@ -1,14 +1,18 @@
 ﻿@model ArabicTextAnalyzer.Models.IndexViewModel
 @{
-    ViewBag.Title = "Manage";
-    Layout = "~/Views/Shared/_LayoutAlt.cshtml";
+    ViewBag.Title = "Adekwasy - Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+
+    @Styles.Render("~/Content/css_train")
 }
 
 <h2>@ViewBag.Title.</h2>
-
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <h4>Change your account settings</h4>
+    <h4>Manage your account settings</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>Password:</dt>

@@ -136,8 +136,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             //
-            // return View();
-            return View("IndexTranslateArabizi");
+            return View();
         }
 
         [Authorize]
