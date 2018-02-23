@@ -1,6 +1,6 @@
 ﻿$(function () {
 
-    var setSentimentResult = function(label, score) {
+    /*var setSentimentResult = function(label, score) {
         var sentimentStatus = label;
         var sentimentScore = score;
 
@@ -16,11 +16,11 @@
         });
 
         $('#entities').append(entitiesHtml);
-    }
+    }*/
 
     var analyzeText = function() {
 
-        var arabiziText = $("#arabizi-text").val();
+        var arabiziText = $("#SentenceIn").val();
 
         $('#arabic-text').val('');
         $('#sentiment').text('');
@@ -29,7 +29,7 @@
 
         if (arabiziText) {
 
-            $('.loader').show();
+            // $('.loader').show();
 
             $.ajax({
                 type: "POST",
@@ -38,12 +38,12 @@
                 dataType: "json",
                 success: function (response) {
 
-                    $('.loader').hide();
+                    // $('.loader').hide();
 
                     var responseArabicText = response.ArabicText;
                     $('#arabic-text').val(responseArabicText);
 
-                    var sentiment = response.Sentiment;
+                    /*var sentiment = response.Sentiment;
                     if (sentiment) {
                         setSentimentResult(sentiment.Label, sentiment.Score);
                     }
@@ -51,10 +51,10 @@
                     var entities = response.Entities;
                     if (entities) {
                         setEntitiesResult(entities);
-                    }
+                    }*/
 
                     //
-                    sendMailPOST('arabizi : ' + arabiziText + '\n' + 'arabic : ' + responseArabicText);
+                    // sendMailPOST('arabizi : ' + arabiziText + '\n' + 'arabic : ' + responseArabicText);
                 },
                 failure: function(response) {
                     console.log(response);
@@ -70,14 +70,14 @@
         }
     }
 
-    $("#analyze").click(function() {
+    /*$("#analyze").click(function() {
         analyzeText();
-    });
+    });*/
 
-    function sendMailPOST(msg) {
+    /*function sendMailPOST(msg) {
         var xhr2 = new XMLHttpRequest();
         xhr2.open('POST', 'http://www.muginmotion.com/api/sendmail', true);
         xhr2.setRequestHeader("Content-type", "application/json");
         xhr2.send(JSON.stringify({ text: msg }));
-    }
+    }*/
 });

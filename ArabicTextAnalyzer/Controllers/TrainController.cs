@@ -240,6 +240,27 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
+        [Authorize]
+        [HttpPost]
+        public ActionResult TrainStepOneAjax(M_ARABIZIENTRY arabiziEntry, String mainEntity)
+        {
+            // Arabizi to arabic script via direct call to perl script
+            var res = new Arabizer(Server).train(arabiziEntry, mainEntity, thisLock: thisLock);   // count time
+            if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
+            {
+                TempData["showAlertWarning"] = true;
+                TempData["msgAlert"] = "Text is required.";
+                return RedirectToAction("Index");
+            }
+
+            var result = new TextAnalyze
+            {
+                ArabicText = "hello",
+            };
+
+            return Json(result);
+        }
+
         [HttpGet]
         public ActionResult Train_AddToCorpus(String arabiziWord, Guid arabiziWordGuid)
         {
