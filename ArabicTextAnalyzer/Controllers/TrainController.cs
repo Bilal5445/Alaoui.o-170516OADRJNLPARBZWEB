@@ -282,12 +282,14 @@ namespace ArabicTextAnalyzer.Controllers
                 return RedirectToAction("IndexTranslateArabizi");
             }
 
-            var result = new TextAnalyze
+            /*var result = new TextAnalyze
             {
                 ArabicText = "hello",
-            };
+            };*/
 
-            return Json(result);
+            // return Json(res);
+            var json = JsonConvert.SerializeObject(res);
+            return Content(json, "application/json");
         }
 
         [HttpGet]
