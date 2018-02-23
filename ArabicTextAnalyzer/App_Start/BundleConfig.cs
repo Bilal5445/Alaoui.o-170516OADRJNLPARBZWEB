@@ -44,6 +44,11 @@ namespace ArabicTextAnalyzer
                 "~/Scripts/mysite_train.js"
                 ));
 
+            // local to train page : translate single only
+            bundles.Add(new ScriptBundle("~/bundles/js_train_translate_single").Include(
+                "~/Scripts/mysite_train_translate_single.js"
+                ));
+
             bundles.Add(new ScriptBundle("~/bundles/js_train_keywordfiltering").Include(
                 "~/Scripts/mysite_train_keywordfiltering.js"
                 ));

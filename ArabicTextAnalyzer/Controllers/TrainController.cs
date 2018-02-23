@@ -120,7 +120,7 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
             @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE" && m.Keyword_Type != "OPPOSE" && m.Keyword_Type != "EXPLETIVE" && m.Keyword_Type != "SENSITIVE").ToList();
 
-            // file upload communication
+            // communication
             @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
             @ViewBag.showAlertSuccess = TempData["showAlertSuccess"] != null ? TempData["showAlertSuccess"] : false;
             @ViewBag.msgAlert = TempData["msgAlert"] != null ? TempData["msgAlert"] : String.Empty;
@@ -128,7 +128,7 @@ namespace ArabicTextAnalyzer.Controllers
             TempData.Remove("showAlertSuccess");
             TempData.Remove("msgAlert");
 
-            // Fertch the data for fbPage as only for that theme
+            // Fetch the data for fbPage as only for that theme
             if (token != null && !string.IsNullOrEmpty(token as string))
             {
                 var fbFluencerAsTheme = new Arabizer().loadAllT_Fb_InfluencerAsTheme(userId);
@@ -136,6 +136,35 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             //
+            // return View();
+            return View("IndexTranslateArabizi");
+        }
+
+        [Authorize]
+        public ActionResult IndexTranslateArabizi()
+        {
+            //
+            var userId = User.Identity.GetUserId();
+
+            // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
+            var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
+            var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
+            @ViewBag.UserXtrctThemes = userXtrctThemes;
+            @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
+            @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
+            @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE" || m.Keyword_Type == "OPPOSE" || m.Keyword_Type == "EXPLETIVE" || m.Keyword_Type == "SENSITIVE").ToList();
+            @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
+            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE" && m.Keyword_Type != "OPPOSE" && m.Keyword_Type != "EXPLETIVE" && m.Keyword_Type != "SENSITIVE").ToList();
+
+            // communication
+            @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
+            @ViewBag.showAlertSuccess = TempData["showAlertSuccess"] != null ? TempData["showAlertSuccess"] : false;
+            @ViewBag.msgAlert = TempData["msgAlert"] != null ? TempData["msgAlert"] : String.Empty;
+            TempData.Remove("showAlertWarning");
+            TempData.Remove("showAlertSuccess");
+            TempData.Remove("msgAlert");
+
             return View();
         }
 
@@ -250,7 +279,7 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 TempData["showAlertWarning"] = true;
                 TempData["msgAlert"] = "Text is required.";
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexTranslateArabizi");
             }
 
             var result = new TextAnalyze

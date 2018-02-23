@@ -151,7 +151,8 @@ namespace ArabicTextAnalyzer.Controllers
             }
 
             //
-            return RedirectToAction("Index", "Train");
+            // return RedirectToAction("Index", "Train");
+            return RedirectToAction("IndexTranslateArabizi", "Train");
         }
 
         //

@@ -17,5 +17,6 @@
 /// <reference path="mysite_train.js" />
 /// <reference path="mysite_train_keywordfiltering.js" />
 /// <reference path="mysite_train_klpfl.js" />
+/// <reference path="mysite_train_translate_single.js" />
 /// <reference path="respond.js" />
 /// <reference path="script.js" />
