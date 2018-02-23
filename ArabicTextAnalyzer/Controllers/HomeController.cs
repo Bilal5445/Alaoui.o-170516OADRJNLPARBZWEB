@@ -11,7 +11,8 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult Index()
         {
             // return View();
-            return RedirectToAction("Index", "Train");
+            // return RedirectToAction("Index", "Train");
+            return RedirectToAction("IndexTranslateArabizi", "Train");
         }
 
         [System.Web.Mvc.HttpPost]
