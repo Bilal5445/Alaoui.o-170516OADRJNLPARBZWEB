@@ -1,72 +1,75 @@
-﻿.navbar-inverse.adekwasy
-{
+﻿.navbar-inverse.adekwasy {
     background-color: rgba(0,107,133,1);
 }
 
-.navbar-inverse .navbar-nav > li > a
-{
+.navbar-inverse .navbar-nav > li > a {
     color: white;
 }
-.navbar-inverse .navbar-nav > li > a:hover
-{
-    color: #818181;
-}
-#vertaccordmenuandbody 
-{
+
+    .navbar-inverse .navbar-nav > li > a:hover {
+        color: #818181;
+    }
+
+#vertaccordmenuandbody {
     background-color: rgba(0,107,133,1);
 }
-#vertaccordmenuandbody #body
-{
-    height: 1000px;
-}
-.navbar-fixed-top.adekwasy
-{
+
+    #vertaccordmenuandbody #body {
+        height: 1000px;
+    }
+
+.navbar-fixed-top.adekwasy {
     border-bottom-width: 0;
 }
-#vertaccordmenucol
-{
+
+#vertaccordmenucol {
     margin-top: 10px;
     height: 1000px;
 }
-#vertaccordmenucol > div > p 
-{
-    color: white;
-}
-#accordion > div > .panel-heading 
-{
+
+    #vertaccordmenucol > div > p {
+        color: white;
+    }
+
+#accordion > div > .panel-heading {
     background-color: rgba(0,71,88,1);
 }
-#accordion tr
-{
+
+#accordion tr {
     background-color: rgba(0,47,58,1);
 }
-#accordion > .panel-default > .panel-heading
-{
+
+#accordion tr.activeblack {
+    background-color: black;
+    /*border-top: 1px solid green;
+    border-bottom: 1px solid green;*/
+}
+
+#accordion > .panel-default > .panel-heading {
     color: white;
 }
-#accordion > .panel.panel-default
-{
+
+#accordion > .panel.panel-default {
     border: 0;
 }
-#accordion tr > td
-{
+
+#accordion tr > td {
     border: 0;
 }
-#accordion .panel-body
-{
+
+#accordion .panel-body {
     border: 0;
 }
-#accordion tr > td a, #accordion tr > td span, #accordion tr > td i
-{
+
+#accordion tr > td a, #accordion tr > td span, #accordion tr > td i {
     color: white;
 }
-#trainform
-{
+
+#trainform {
     margin-top: 50px;
 }
 
-footer
-{
+footer {
     background-color: #262626;
     color: white;
     padding: 50px;
