@@ -66,24 +66,16 @@
                         {
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close"></span>@userXtrctTheme.ThemeName</a></h4>
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse@(userXtrctTheme.ThemeName)"><span class="glyphicon glyphicon-folder-close"></span>@userXtrctTheme.ThemeName</a></h4>
                                 </div>
                             </div>
-                            <div id="collapseOne" class="panel-collapse collapse @(userXtrctTheme.CurrentActive == "active" ? "in" : "")">
+                            <div id="collapse@(userXtrctTheme.ThemeName)" class="panel-collapse collapse @(userXtrctTheme.CurrentActive == "active" ? "in" : "")">
                                 <div class="panel-body">
                                     <table class="table">
-                                        <tr><td><span class="glyphicon glyphicon-play"></span><a href="/Train/IndexTranslateArabizi" title="Translate Arabizi to Arabic">Translate Arabizi</a></td></tr>
+                                        <tr class="activeblack"><td><span class="glyphicon glyphicon-play"></span><a href="/Train/IndexTranslateArabizi" title="Translate Arabizi to Arabic">Translate Arabizi</a></td></tr>
                                         <tr><td><span class="glyphicon glyphicon-dashboard"></span><a href="/Train/Index" title="Translate, Display, filter, export, import data and extract insights">Working Data</a></td></tr>
-                                        <tr>
-                                            <td>
-                                                <i class="fa fa-facebook"></i><a href="http://www.jquery2dotnet.com">Facebook Pages</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="glyphicon glyphicon-stats"></span><a href="http://www.jquery2dotnet.com">Theme Statistics</a>
-                                            </td>
-                                        </tr>
+                                        <tr><td><i class="fa fa-facebook"></i><a href="/Train/Index">Facebook Pages</a></td></tr>
+                                        <tr><td><span class="glyphicon glyphicon-stats"></span><a href="/Train/Index">Theme Statistics</a></td></tr>
                                     </table>
                                 </div>
                             </div>
