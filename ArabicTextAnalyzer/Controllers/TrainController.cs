@@ -261,6 +261,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
             catch (Exception ex)
             {
+                Logging.Write(Server, ex.GetType().Name);
                 Logging.Write(Server, ex.Message);
                 Logging.Write(Server, ex.StackTrace);
 
@@ -272,23 +273,29 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpPost]
         public ActionResult TrainStepOneAjax(M_ARABIZIENTRY arabiziEntry, String mainEntity)
         {
-            // Arabizi to arabic script via direct call to perl script
-            var res = new Arabizer(Server).train(arabiziEntry, mainEntity, thisLock: thisLock);   // count time
-            if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
+            try
             {
-                TempData["showAlertWarning"] = true;
-                TempData["msgAlert"] = "Text is required.";
-                return RedirectToAction("IndexTranslateArabizi");
+                // Arabizi to arabic script via direct call to perl script
+                var res = new Arabizer(Server).train(arabiziEntry, mainEntity, thisLock: thisLock);   // count time
+                if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
+                {
+                    TempData["showAlertWarning"] = true;
+                    TempData["msgAlert"] = "Text is required.";
+                    return RedirectToAction("IndexTranslateArabizi");
+                }
+
+                //
+                var json = JsonConvert.SerializeObject(res);
+                return Content(json, "application/json");
             }
-
-            /*var result = new TextAnalyze
+            catch (Exception ex)
             {
-                ArabicText = "hello",
-            };*/
+                Logging.Write(Server, ex.GetType().Name);
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
 
-            // return Json(res);
-            var json = JsonConvert.SerializeObject(res);
-            return Content(json, "application/json");
+                throw;
+            }
         }
 
         [HttpGet]
