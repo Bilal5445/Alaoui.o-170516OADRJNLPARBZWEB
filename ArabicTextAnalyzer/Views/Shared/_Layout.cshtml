@@ -57,9 +57,10 @@
             <div class="row">
                 <div id="vertaccordmenucol" class="col-sm-2 col-md-2">
                     <!-- theme menu : add new theme -->
-                    <div>
+                    <div id="add-new-theme">
                         <p style="font-weight:bold; font-size:16px;">THEMES <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#myModal" style="float:right;"><span class="glyphicon glyphicon-plus"></span> </button></p>
                     </div>
+                    <!-- themes list accordion -->
                     <div class="panel-group" id="accordion">
                         @foreach (M_XTRCTTHEME userXtrctTheme in ViewBag.UserXtrctThemes)
                         {
@@ -71,16 +72,8 @@
                             <div id="collapseOne" class="panel-collapse collapse @(userXtrctTheme.CurrentActive == "active" ? "in" : "")">
                                 <div class="panel-body">
                                     <table class="table">
-                                        <tr>
-                                            <td>
-                                                <span class="glyphicon glyphicon-play"></span><a href="http://www.jquery2dotnet.com">Translate Arabizi</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="glyphicon glyphicon-dashboard"></span><a href="http://www.jquery2dotnet.com">Working Data</a>
-                                            </td>
-                                        </tr>
+                                        <tr><td><span class="glyphicon glyphicon-play"></span><a href="/Train/IndexTranslateArabizi" title="Translate Arabizi to Arabic">Translate Arabizi</a></td></tr>
+                                        <tr><td><span class="glyphicon glyphicon-dashboard"></span><a href="/Train/Index" title="Translate, Display, filter, export, import data">Working Data</a></td></tr>
                                         <tr>
                                             <td>
                                                 <i class="fa fa-facebook"></i><a href="http://www.jquery2dotnet.com">Facebook Pages</a>

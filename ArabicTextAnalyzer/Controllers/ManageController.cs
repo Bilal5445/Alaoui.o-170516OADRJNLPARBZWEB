@@ -12,6 +12,7 @@ using ArabicTextAnalyzer.Models.Repository;
 using System.Configuration;
 using ArabicTextAnalyzer.Contracts;
 using ArabicTextAnalyzer.Business.Provider;
+using ArabicTextAnalyzer.BO;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -85,6 +86,10 @@ namespace ArabicTextAnalyzer.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
+
+            // needed to not crash vert menu : themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
+            var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+            @ViewBag.UserXtrctThemes = userXtrctThemes;
 
             //
             return View(model);
@@ -359,6 +364,10 @@ namespace ArabicTextAnalyzer.Controllers
                 // Getting Generate ClientID and ClientSecret Key By UserID
                 ViewBag.clientkeys = _clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
             }
+
+            // needed to not crash vert menu : themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
+            var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+            @ViewBag.UserXtrctThemes = userXtrctThemes;
 
             // GET access (ie : check app dashbord)
             if (Request.HttpMethod.ToUpper() == "GET")
