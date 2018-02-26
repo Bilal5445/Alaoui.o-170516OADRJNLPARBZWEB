@@ -4,6 +4,10 @@ $(document).ready(function () {
     // fct to call training in translate form via ajax (shortcut traditional form submit)
     $("#trainform").submit(function (e) {
 
+        // add animation
+        $("#SentenceIn").addClass('loading');
+
+        //
         var $form = $(this);
 
         $.ajax({
@@ -13,6 +17,9 @@ $(document).ready(function () {
             data: $form.serialize()
 
         }).done(function (data) {
+
+            // remove animation
+            $("#SentenceIn").removeClass('loading');
 
             // report if any errors
 
