@@ -128,3 +128,9 @@ Update-Database*/
 VS > Tools > NuGet Package Manager > Package Manager Console : Default project : ArabicTextAnalyzer
 Add-Migration isDeleted_ArabiziDbContext -ConfigurationTypeName Configuration
 Update-Database -ConfigurationTypeName Configuration
+
+---
+
+VS > Tools > NuGet Package Manager > Package Manager Console : Default project : ArabicTextAnalyzer
+Add-Migration contrib_ArabiziDbContext -ConfigurationTypeName Configuration
+Update-Database -ConfigurationTypeName Configuration

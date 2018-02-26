@@ -558,6 +558,67 @@ namespace ArabicTextAnalyzer.Controllers
         }
         #endregion
 
+        #region FRONT YARD ACTIONS TRAIN CONTRIB
+        [Authorize]
+        [HttpPost]
+        public ActionResult SaveTranslationContributionAjax(String idarabicdarijaentry, String contrib)
+        {
+            try
+            {
+                bool status;
+                String message = String.Empty;
+
+                // check before
+                if (String.IsNullOrWhiteSpace(idarabicdarijaentry) || new Guid(idarabicdarijaentry) == Guid.Empty)
+                    return Content(JsonConvert.SerializeObject(new
+                    {
+                        status = false,
+                        message = "Entry Id is invalid"
+                    }), "application/json");
+
+                // check before
+                if (String.IsNullOrWhiteSpace(contrib))
+                    return Content(JsonConvert.SerializeObject(new
+                    {
+                        status = false,
+                        message = "Contribution is empty"
+                    }), "application/json");
+
+                // real work
+                using (var db = new ArabiziDbContext())
+                {
+                    var arabicdarijaentry = db.M_ARABICDARIJAENTRYs.Where(m => m.ID_ARABICDARIJAENTRY == new Guid(idarabicdarijaentry)).SingleOrDefault();
+                    arabicdarijaentry.ContribArabicDarijaText = contrib;
+                    db.SaveChanges();
+                }
+
+                // result
+                status = true;
+                message = "Thank You ! Your contribution will be used to improve translation quality and may be shown to users anonymously";
+
+                //
+                var json = JsonConvert.SerializeObject(new
+                {
+                    status = status,
+                    message = message
+                });
+                return Content(json, "application/json");
+            }
+            catch (Exception ex)
+            {
+                Logging.Write(Server, ex.GetType().Name);
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                return Content(JsonConvert.SerializeObject(new
+                {
+                    status = false,
+                    message = ex.Message
+                }), "application/json");
+            }
+        }
+        #endregion
+
         #region FRONT YARD ACTIONS FB
         [HttpGet]
         public async Task<object> AddFBInfluencer(String url_name, String pro_or_anti)
@@ -1749,14 +1810,6 @@ namespace ArabicTextAnalyzer.Controllers
             using (var db = new ArabiziDbContext())
             {
                 return db.M_ARABICDARIJAENTRYs.ToList();
-            }
-        }
-
-        private M_ARABICDARIJAENTRY loaddeserializeM_ARABICDARIJAENTRY_DB(Guid arabiziWordGuid)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                return db.M_ARABICDARIJAENTRYs.Where(m => m.ID_ARABIZIENTRY == arabiziWordGuid).SingleOrDefault();
             }
         }
 
