@@ -168,3 +168,10 @@ span.highlight {
     padding-right: 15px;
 }
 
+.loading {
+    background-image: url(http://www.xiconeditor.com/image/icons/loading.gif);
+    background-position-x: right;
+    background-position-y: top;
+    background-repeat: no-repeat;
+}
+
