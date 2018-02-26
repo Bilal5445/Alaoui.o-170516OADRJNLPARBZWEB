@@ -22,6 +22,12 @@ $(document).ready(function () {
             $("#SentenceIn").removeClass('loading');
 
             // report if any errors
+            if (data.status == false) {
+                // show misc area error msg
+                $('#miscareaerror').css('display', 'block');
+                $('#miscareaerror p').html(data.message);
+                return;
+            }
 
             // format entities
             // limit to concerned text entities
@@ -57,9 +63,6 @@ $(document).ready(function () {
 
             // replace items with the returned data
             $('table.posts.table.table-striped.table-hover.table-bordered').show();
-            // $('table.posts.table.table-striped.table-hover.table-bordered > tbody > tr > td.arabicdarija').html(data.M_ARABICDARIJAENTRY.ArabicDarijaText);
-            // $('table.posts.table.table-striped.table-hover.table-bordered > tbody > tr > td.arabicdarija div input').html(data.M_ARABICDARIJAENTRY.ArabicDarijaText);
-            // $('table.posts.table.table-striped.table-hover.table-bordered > tbody > tr > td.arabicdarija div input').val(data.M_ARABICDARIJAENTRY.ArabicDarijaText);
             $('table.posts.table.table-striped.table-hover.table-bordered > tbody > tr > td.arabicdarija div textarea').html(data.M_ARABICDARIJAENTRY.ArabicDarijaText);
             $('table.posts.table.table-striped.table-hover.table-bordered > tbody > tr > td.entitiestype').html(entitiesTypesString);
             $('table.posts.table.table-striped.table-hover.table-bordered > tbody > tr > td.entities').html(entitiesString);

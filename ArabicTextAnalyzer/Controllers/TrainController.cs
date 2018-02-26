@@ -275,13 +275,23 @@ namespace ArabicTextAnalyzer.Controllers
         {
             try
             {
+                // check before
+                if (arabiziEntry == null || String.IsNullOrWhiteSpace(mainEntity))
+                    return Content(JsonConvert.SerializeObject(new
+                    {
+                        status = false,
+                        message = "Invalid Paramater"
+                    }), "application/json");
+
                 // Arabizi to arabic script via direct call to perl script
                 var res = new Arabizer(Server).train(arabiziEntry, mainEntity, thisLock: thisLock);   // count time
                 if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
                 {
-                    TempData["showAlertWarning"] = true;
-                    TempData["msgAlert"] = "Text is required.";
-                    return RedirectToAction("IndexTranslateArabizi");
+                    return Content(JsonConvert.SerializeObject(new
+                    {
+                        status = false,
+                        message = "Text is required."
+                    }), "application/json");
                 }
 
                 //
@@ -294,7 +304,11 @@ namespace ArabicTextAnalyzer.Controllers
                 Logging.Write(Server, ex.Message);
                 Logging.Write(Server, ex.StackTrace);
 
-                throw;
+                return Content(JsonConvert.SerializeObject(new
+                {
+                    status = false,
+                    message = ex.Message
+                }), "application/json");
             }
         }
 
