@@ -57,9 +57,70 @@ $(document).ready(function () {
 
             // replace items with the returned data
             $('table.posts.table.table-striped.table-hover.table-bordered').show();
-            $('table.posts.table.table-striped.table-hover.table-bordered > tbody > tr > td.arabicdarija').html(data.M_ARABICDARIJAENTRY.ArabicDarijaText);
+            // $('table.posts.table.table-striped.table-hover.table-bordered > tbody > tr > td.arabicdarija').html(data.M_ARABICDARIJAENTRY.ArabicDarijaText);
+            // $('table.posts.table.table-striped.table-hover.table-bordered > tbody > tr > td.arabicdarija div input').html(data.M_ARABICDARIJAENTRY.ArabicDarijaText);
+            // $('table.posts.table.table-striped.table-hover.table-bordered > tbody > tr > td.arabicdarija div input').val(data.M_ARABICDARIJAENTRY.ArabicDarijaText);
+            $('table.posts.table.table-striped.table-hover.table-bordered > tbody > tr > td.arabicdarija div textarea').html(data.M_ARABICDARIJAENTRY.ArabicDarijaText);
             $('table.posts.table.table-striped.table-hover.table-bordered > tbody > tr > td.entitiestype').html(entitiesTypesString);
             $('table.posts.table.table-striped.table-hover.table-bordered > tbody > tr > td.entities').html(entitiesString);
+
+            // save arabic darija entry id into the button save contrib
+            $('.arabicdarija div.input-group span.input-group-addon.btn').attr('data-idarabicdarijaentry', data.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY);
         });
     });
+
+    // fct to keep track of changed conytrib textarea
+    $("#improvetranslation").on('change keyup paste', function () {
+
+        $(".arabicdarija > .input-group > .input-group-addon").removeClass("visibilityhidden");
+    });
+
+    // event on opening confirm save contrib : copy/show the improved contrib
+    $(document).on('show.bs.modal', '#modalConfirmContrib', function () {
+        console.log($("#improvetranslation").val());
+        $("#modalConfirmContrib .modal-body .form-group #contrib").val($("#improvetranslation").val());
+    })
 });
+
+// fct to save user contrb to better suggested translation
+function saveTranslationContribution() {
+
+    //
+    $.ajax({
+        "dataType": 'json',
+        "type": "POST",
+        "url": "/Train/SaveTranslationContributionAjax",
+        "data": {
+            "idarabicdarijaentry" : $('.arabicdarija div.input-group span.input-group-addon.btn').attr('data-idarabicdarijaentry'),
+            "contrib": $('input#contrib').val(),
+        },
+        "success": function (msg) {
+
+            // hide modal 
+            $('#modalConfirmContrib').modal('toggle');
+
+            if (msg.status) {
+
+                // show misc area success msg
+                $('#miscareasuccess').css('display', 'block');
+                $('#miscareasuccess p').html(msg.message);
+
+            } else {
+
+                // show misc area error msg
+                $('#miscareaerror').css('display', 'block');
+                $('#miscareaerror p').html(msg.message);
+            }
+        },
+        "error": function () {
+
+            // hide modal 
+            $('#modalConfirmContrib').modal('toggle');
+
+            // show misc area error msg
+            $('#miscareaerror').css('display', 'block');
+            $('#miscareaerror p').html(msg.message);
+        }
+    });
+}
+

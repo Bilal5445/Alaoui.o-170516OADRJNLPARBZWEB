@@ -143,9 +143,12 @@ function InitializeDataTables(adminModeShowAll) {
 }
 
 function BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds) {
+
     // loop over selected to concatenate the arabizi entries ids but only if more than one
     if (selectedControlsTds.length > 1) {
+
         selectedControlsTds.each(function (index) {
+
             // new value href
             var arabiziWordGuids = selectedArabiziIds.join();
             var newhref = "/Train/Train_DeleteEntries/?arabiziWordGuids=" + arabiziWordGuids;
@@ -159,7 +162,9 @@ function BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds) {
             var newrefreshhref = "/Train/Train_RefreshEntries/?arabiziWordGuids=" + arabiziWordGuids;
             refreshButton.attr("href", newrefreshhref);
         });
+
     } else if (selectedControlsTds.length == 1) {
+
         // new value href
         var arabiziWordGuid = selectedArabiziIds.join();
         var newhref = "/Train/Train_DeleteEntry/?arabiziWordGuid=" + arabiziWordGuid;

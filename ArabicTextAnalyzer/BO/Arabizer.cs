@@ -18,7 +18,7 @@ using static ArabicTextAnalyzer.Business.Provider.RosetteMultiLanguageDetections
 
 namespace ArabicTextAnalyzer.BO
 {
-    public class Arabizer
+    public class Arabizer : IDisposable
     {
         public HttpServerUtilityBase Server { get; set; }
 
@@ -29,6 +29,11 @@ namespace ArabicTextAnalyzer.BO
         public Arabizer(HttpServerUtilityBase server)
         {
             Server = server;
+        }
+
+        public void Dispose()
+        {
+
         }
 
         #region BACK YARD BO TRAIN
@@ -211,6 +216,9 @@ namespace ArabicTextAnalyzer.BO
                         larabicText = train_bidict(larabicText);
 
                     if (frMode == false)
+                        larabicText = train_binggoogle(larabicText);
+
+                    if (frMode == false)
                         larabicText = train_perl(watch, larabicText);
 
                     arabicText += larabicText;
@@ -234,6 +242,9 @@ namespace ArabicTextAnalyzer.BO
 
                 if (frMode == false)
                     larabicText = train_bidict(larabicText);
+
+                if (frMode == false)
+                    larabicText = train_binggoogle(larabicText);
 
                 if (frMode == false)
                     larabicText = train_perl(watch, larabicText);
@@ -574,7 +585,7 @@ namespace ArabicTextAnalyzer.BO
             // }
         }
 
-        private void saveserializeM_ARABICDARIJAENTRY_EFSQL(M_ARABICDARIJAENTRY arabicDarijaEntry)
+        public void saveserializeM_ARABICDARIJAENTRY_EFSQL(M_ARABICDARIJAENTRY arabicDarijaEntry)
         {
             using (var db = new ArabiziDbContext())
             {
@@ -1223,6 +1234,22 @@ namespace ArabicTextAnalyzer.BO
 
                 conn.Open();
                 return conn.Query<LM_CountPerUser>(qry0).ToList();
+            }
+        }
+
+        public M_ARABICDARIJAENTRY loaddeserializeM_ARABICDARIJAENTRY_DB_by_ArabiziEntryId(Guid arabiziWordGuid)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                return db.M_ARABICDARIJAENTRYs.Where(m => m.ID_ARABIZIENTRY == arabiziWordGuid).SingleOrDefault();
+            }
+        }
+
+        public M_ARABICDARIJAENTRY loaddeserializeM_ARABICDARIJAENTRY_DB_by_ArabicDarijaEntryId(Guid arabicDarijaEntryGuid)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                return db.M_ARABICDARIJAENTRYs.Where(m => m.ID_ARABICDARIJAENTRY == arabicDarijaEntryGuid).SingleOrDefault();
             }
         }
         #endregion

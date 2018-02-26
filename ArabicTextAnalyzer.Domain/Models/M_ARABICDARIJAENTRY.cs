@@ -15,6 +15,7 @@ namespace ArabicTextAnalyzer.Domain.Models
         public Guid ID_ARABICDARIJAENTRY { get; set; }  // PK
         public Guid ID_ARABIZIENTRY { get; set; }       // FK one-to-one
         public String ArabicDarijaText { get; set; }
+        public String ContribArabicDarijaText { get; set; }
         public int IsDeleted { get; set; }
     }
 }

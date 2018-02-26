@@ -47,37 +47,67 @@
 <!-- aribizi translate single -->
 @using (Html.BeginForm("TrainStepOneAjax", "Train", new { mainEntity = @ViewBag.UserActiveXtrctTheme.ThemeName.Trim() }, FormMethod.Post, new { id = "trainform" }))
 {
+    <!-- textarea input text & button go -->
     <div class="panel panel-default active">
         <div class="panel-heading">Arabizi</div>
         <div class="panel-body" style="padding: 0;">
             <div class="input-group">
-                @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "resize:none", rows = 2, @class = "form-control custom-control", @required = "required" })
+                @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "resize:none", rows = 2, @class = "form-control custom-control", @required = "required", @placeholder = "Type Arabizi Text, and click Go ..." })
                 @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
                 @Html.HiddenFor(m => m.ID_XTRCTTHEME, new { @Value = ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME })
                 <span class="input-group-addon btn btn-primary" onclick="document.forms['trainform'].dispatchEvent(new Event('submit'));">Go</span>
-                @* <span class="input-group-addon btn btn-primary" onclick="document.forms['trainform'].submit();">Go</span>*@
             </div>
         </div>
     </div>
-    <div class="alert alert-warning alert-dismissable margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Warning!</strong> @msgAlert
-    </div>
-    <div class="alert alert-success alert-dismissable margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Success!</strong> @msgAlert
-    </div>
-
-    <table class="posts table table-striped table-hover table-bordered " role="grid" style="margin-left: auto; margin-right: auto; display: none;">
-        <thead>
-            <tr class="header" role="row"><th class="center top col50prc arabic-text sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Arabic: activate to sort column ascending" style="width: 248px;">Arabic</th><th class="center top col100px arabic-text entitiestype sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="NER Types: activate to sort column ascending" style="width: 94px;">NER Types</th><th class="center top col130px arabic-text entities sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Entities: activate to sort column ascending" style="width: 124px;">Entities</th></tr>
-        </thead>
-        <tbody>
-            <tr role="row">
-                <td class=" arabic-text top arabicdarija">النظافة للبشرة الحساسة , استخدم ل المياه ميكلر ultra 2 مرات نهار : صباح : لتنظيف و ترطيب المسائية : لإزالة الماكياج و استرضاء :: http://spr.ly/6181DGPaT ::</td>
-                <td class=" arabic-text top entitiestype"><span class="label label-info">ORGANIZATION</span> </td>
-                <td class=" arabic-text top entities"><span class="label label-info">ultra </span> </td>
-            </tr>
-        </tbody>
-    </table>
 }
+
+<!-- translated text area with option to edit -->
+<table class="posts table table-striped table-hover table-bordered " role="grid" style="margin-left: auto; margin-right: auto; display: none;">
+    <thead>
+        <tr class="header" role="row"><th class="center top col50prc arabic-text sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Arabic: activate to sort column ascending" style="width: 248px;">Arabic</th><th class="center top col100px arabic-text entitiestype sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="NER Types: activate to sort column ascending" style="width: 94px;">NER Types</th><th class="center top col130px arabic-text entities sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Entities: activate to sort column ascending" style="width: 124px;">Entities</th></tr>
+    </thead>
+    <tbody>
+        <tr role="row">
+            <td class="top arabicdarija">
+                <div class="input-group">
+                    <span class="input-group-addon btn btn-primary visibilityhidden" title="Contribute your own improvement of this translation" data-target="#modalConfirmContrib" data-toggle="modal"><i class="fa fa-edit"></i></span>
+                    <textarea id="improvetranslation" style="resize:none; direction:rtl;" class="form-control" title="Edit this area to improve the translation"></textarea>
+                </div>
+            </td>
+            <td class="arabic-text top entitiestype"><span class="label label-info"></span></td>
+            <td class="arabic-text top entities"><span class="label label-info"></span></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- modal confirmation save translation contrib -->
+<div id="modalConfirmContrib" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="color:darkblue;">Save Translation Contribution</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="contrib">Are you sure you want to save your own translation</label>
+                    <input class="form-control" id="contrib" name="contrib" readonly="readonly" required="required" type="text" value="Default" style="direction:rtl;">
+                </div>
+                <button type="button" class="btn btn-default btn-success" onclick="saveTranslationContribution();">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- misc area to say success -->
+<div id="miscareasuccess" class="alert alert-success alert-dismissable" style="display: none;">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> <p style="display: inline;"></p>
+</div>
+
+<!-- misc areas to report warnings/errors -->
+<div id="miscareaerror" class="alert alert-warning alert-dismissable margin-bottom-0" style="display: none;">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Warning!</strong> <p style="display: inline;"></p>
+</div>
