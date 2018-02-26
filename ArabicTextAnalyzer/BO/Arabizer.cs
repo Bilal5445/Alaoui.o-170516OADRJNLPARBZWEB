@@ -160,6 +160,9 @@ namespace ArabicTextAnalyzer.BO
                 saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(textEntity);
             }
 
+            // all is good so far
+            expando.status = true;
+
             //
             return expando;
         }
