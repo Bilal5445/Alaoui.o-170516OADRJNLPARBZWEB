@@ -58,8 +58,8 @@
 }
 
 tr.header {
-    background: darkblue;
-    color: white;
+    /*background: darkblue;
+    color: white;*/
     text-align: left;
     padding: 2px 5px;
 }
@@ -115,6 +115,9 @@ tr.header {
     font-weight: lighter;
     letter-spacing: -0.5px;
     display: block;
+}
+th.arabic-text {
+    font-weight:normal;
 }
 
 td.arabic-text {
