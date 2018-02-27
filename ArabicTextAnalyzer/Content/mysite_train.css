@@ -1,5 +1,5 @@
 ﻿th {
-    font-size: 1.2em;
+    font-size: 1.1em;
     text-align: left;
     border: none 0px;
     padding-left: 0;
@@ -50,10 +50,10 @@
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
 }
 
-.posts-fb {
+/*.posts-fb {
     font-size: 13px;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-}
+}*/
 
 tr.header {
     /*background: darkblue;
@@ -84,6 +84,9 @@ tr.header {
 
     .posts th.col50px {
         width: 50px;
+    }
+    .posts th.col60px {
+        width: 60px;
     }
 
     .posts th.col75px {

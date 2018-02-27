@@ -231,34 +231,35 @@ function InitializeFBPostsDataTables(fluencerid) {
             //
             "columns": [
                 {
-                    "data": null, "className": "details-control",
+                    "data": null, "className": "details-control center top",
                     "defaultContent": '<img src="http://i.imgur.com/SD7Dz.png" class="imagetag" onclick="' + "ShowFBComments(this)" + '">'
                 },
                 { "data": "id", "className": /*"center top"*/"hide_column" },
                 /*{ "data": "fk_i", "className": "arabizi-text top collapsed" },*/
                 { "data": "pt", "className": "arabizi-text top" },
-                { "data": "tt", "className": "arabizi-text top" },
-                { "data": "lc", "className": "arabic-text top" },
-                { "data": "cc", "className": "arabic-text top entitiestype" },
-                { "data": "dp", "className": "arabic-text top entities" },
+                { "data": "tt", "className": "arabic-text top" },
+                { "data": "lc", "className": "center top" },
+                { "data": "cc", "className": "center top" },
+                { "data": "dp", "className": "arabizi-text top" },
                 {
                     "data": function (data) {
                         var str = '';
                         str = str + '<a class="btn btn-warning btn-xs" onclick="' + "JsTranslateFBPost(this)" + '">Translate</a>';
                         return str;
-                    }
+                    },
+                    "className": "controls center top"
                 },
             ],
             "columnDefs": [{
                 "defaultContent": "-",
                 "targets": "_all"
                 // "targets": [0,2,3,4,5,6,7]
-            },
+            }/*,
             {
                 "targets": [1],
                 // "visible": false,
                 "className": "hide_column"
-            }],
+            }*/],
             // server side
             "processing": true,
             "serverSide": true,

@@ -104,7 +104,18 @@ td.controls button.btn-warning {
     /*background-color: rgba(240, 173, 78, 0.5);*/
     background-color: rgba(120,86,39,1);
 }
+/* make the button fb alert config like the overall them */
+div.form-group > a.btn-danger {
+    /* background-color: rgba(217, 83, 79, 0.5);*/
+    background-color: rgba(108,47,58,1);
+}
+/* make the button fb translate like overall theme*/
+td.controls a.btn-warning {
+    /*background-color: rgba(240, 173, 78, 0.5);*/
+    background-color: rgba(120,86,39,1);
+}
 
+/* width of search area */
 .dataTables_filter input { width: 150px !important; }
 
 ul.nav.nav-pills {
