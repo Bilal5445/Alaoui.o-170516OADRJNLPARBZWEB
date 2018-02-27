@@ -43,7 +43,7 @@
                     }
                     @if (User.IsInRole("Administrator"))
                     {
-                        <li>@Html.ActionLink("Administration", "Index", "Admin", new { area = "" }, null)</li>
+                        <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Admin" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">@Html.ActionLink("Administration", "Index", "Admin", new { area = "" }, null)</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

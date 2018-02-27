@@ -8,30 +8,32 @@
     color: white;
 }
 
-    .navbar-inverse .navbar-nav > li > a:hover {
-        color: #818181;
-    }
-
-#vertaccordmenuandbody {
-    background-color: rgba(0,107,133,1);
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #818181;
 }
 
-    #vertaccordmenuandbody #body {
-        height: 1000px;
-    }
+#vertaccordmenuandbody {
+    /*background-color: rgba(0,107,133,1);*/
+}
+
+#vertaccordmenuandbody #body {
+    /*height: 1000px;*/
+}
 
 .navbar-fixed-top.adekwasy {
     border-bottom-width: 0;
 }
 
 #vertaccordmenucol {
-    margin-top: 10px;
-    height: 1000px;
+    padding-top: 10px;
+    /*height: 1000px;*/
+    background-color: rgba(0,107,133,1);
 }
+html,body { height:100%; }
 
-    #vertaccordmenucol > div > p {
-        color: white;
-    }
+#vertaccordmenucol > div > p {
+    color: white;
+}
 
 #accordion > div > .panel-heading {
     background-color: rgba(0,71,88,1);

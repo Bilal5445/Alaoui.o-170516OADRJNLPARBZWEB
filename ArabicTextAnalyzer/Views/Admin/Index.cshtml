@@ -1,9 +1,20 @@
 ﻿@model PagedList.IPagedList<ArabicTextAnalyzer.Models.ExpandedUserDTO>
 @using PagedList.Mvc;
 @{
-    Layout = "~/Views/Shared/_LayoutAlt.cshtml";
+    ViewBag.Title = "Adekwasy - Administration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<br />
+
+@section styles {
+
+    @* mandatory : vertical menus, ... *@
+    @Styles.Render("~/Content/css_train")
+}
+
+<h2>@ViewBag.Title.</h2>
+<h4>Manage users</h4>
+<hr />
+
 <p>
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-default" })
     @Html.ActionLink("Edit Roles", "ViewAllRoles", null, new { @class = "btn btn-default" })

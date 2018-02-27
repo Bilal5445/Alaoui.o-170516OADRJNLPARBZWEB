@@ -202,6 +202,14 @@ namespace ArabicTextAnalyzer.Controllers
                 // Set the number of pages
                 var _UserDTOAsIPagedList = new StaticPagedList<ExpandedUserDTO>(col_UserDTO, intPage, intPageSize, intTotalItemCount);
 
+                // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
+                var userId = User.Identity.GetUserId();
+                var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+                var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
+                @ViewBag.UserXtrctThemes = userXtrctThemes;
+                @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
+                @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
+
                 //
                 return View(_UserDTOAsIPagedList);
             }
@@ -224,6 +232,14 @@ namespace ArabicTextAnalyzer.Controllers
             ExpandedUserDTO objExpandedUserDTO = new ExpandedUserDTO();
 
             ViewBag.Roles = GetAllRolesAsSelectList();
+
+            // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
+            var userId = User.Identity.GetUserId();
+            var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+            var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
+            @ViewBag.UserXtrctThemes = userXtrctThemes;
+            @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
+            @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
 
             return View(objExpandedUserDTO);
         }
@@ -325,6 +341,14 @@ namespace ArabicTextAnalyzer.Controllers
         #region public ActionResult EditUser(string UserName)
         public ActionResult EditUser(string UserName)
         {
+            // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
+            var userId = User.Identity.GetUserId();
+            var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+            var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
+            @ViewBag.UserXtrctThemes = userXtrctThemes;
+            @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
+            @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
+
             if (UserName == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

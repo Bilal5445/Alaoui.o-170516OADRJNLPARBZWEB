@@ -1,7 +1,18 @@
 ﻿@model ArabicTextAnalyzer.Models.ExpandedUserDTO
 @{
+    ViewBag.Title = "Adekwasy - Administration - Create User";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@section styles {
+
+    @* mandatory : vertical menus, ... *@
+    @Styles.Render("~/Content/css_train")
+}
+
+<h2>@ViewBag.Title.</h2>
+<h4>Create user and assign role</h4>
+<hr />
 
 @using (Html.BeginForm())
 {
