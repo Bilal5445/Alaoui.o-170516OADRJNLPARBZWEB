@@ -1,4 +1,6 @@
-﻿.navbar-inverse.adekwasy {
+﻿@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+
+.navbar-inverse.adekwasy {
     background-color: rgba(0,107,133,1);
 }
 
@@ -73,4 +75,16 @@ footer {
     background-color: #262626;
     color: white;
     padding: 50px;
+}
+
+.droid-arabic-kufi{font-family: 'Droid Arabic Kufi', serif;}
+
+.bootstrap-tagsinput {
+    direction: rtl;
+    /* line-height: 2 !important; */
+}
+
+.bootstrap-tagsinput span.tag.label {
+    /*font-size: 100%;*/
+    font-family: 'Droid Arabic Kufi', serif;
 }

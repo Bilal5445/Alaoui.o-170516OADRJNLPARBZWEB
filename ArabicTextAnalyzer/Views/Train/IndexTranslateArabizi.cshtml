@@ -4,10 +4,6 @@
 @{
     ViewBag.Title = "Adekwasy - Translate Arabizi";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-    bool showAlertWarning = ViewBag.showAlertWarning;
-    bool showAlertSuccess = ViewBag.showAlertSuccess;
-    String msgAlert = ViewBag.msgAlert;
 }
 
 @section styles {
@@ -79,6 +75,7 @@
         </tr>
     </tbody>
 </table>
+@* <input id="allners" type="text" data-role="tagsinput" style="min-height: 100px;" /> *@
 
 <!-- modal confirmation save translation contrib -->
 <div id="modalConfirmContrib" class="modal fade" role="dialog">
