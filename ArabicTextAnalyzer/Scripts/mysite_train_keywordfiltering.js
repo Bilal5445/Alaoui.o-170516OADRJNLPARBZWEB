@@ -41,7 +41,7 @@ function InitializeDataTables(adminModeShowAll) {
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-5'i><'col-sm-7'p>>",
             buttons: [
-                'copyHtml5', 'excel', 'csv', 'selectAll', 'selectNone'
+                'excel', 'csv', 'selectAll', 'selectNone'
             ],
             //
             "columns": [
