@@ -13,3 +13,7 @@
 li.floatright {
     float: right;
 }
+
+.hide_column {
+    display : none;
+}
