@@ -44,6 +44,16 @@ namespace ArabicTextAnalyzer
                 "~/Scripts/mysite_train.js"
                 ));
 
+            // local to train page
+            bundles.Add(new ScriptBundle("~/bundles/js_train_fbs").Include(
+                "~/Scripts/mysite_train_fbs.js"
+                ));
+
+            // local to train page
+            bundles.Add(new ScriptBundle("~/bundles/js_train_workingdata").Include(
+                "~/Scripts/mysite_train_workingdata.js"
+                ));
+
             // local to train page : translate single only
             bundles.Add(new ScriptBundle("~/bundles/js_train_translate_single").Include(
                 "~/Scripts/mysite_train_translate_single.js"
@@ -54,9 +64,6 @@ namespace ArabicTextAnalyzer
                 ));
 
             // klipfolio
-            bundles.Add(new ScriptBundle("~/bundles/js_train_klpfl").Include(
-               "~/Scripts/mysite_train_klpfl.js"
-               ));
             bundles.Add(new StyleBundle("~/Content/css_train_klpfl").Include(
                       "~/Content/mysite_train_klpfl.css"));
 

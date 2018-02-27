@@ -129,11 +129,11 @@ namespace ArabicTextAnalyzer.Controllers
             TempData.Remove("msgAlert");
 
             // Fetch the data for fbPage as only for that theme
-            if (token != null && !string.IsNullOrEmpty(token as string))
+            /*if (token != null && !string.IsNullOrEmpty(token as string))
             {
                 var fbFluencerAsTheme = new Arabizer().loadAllT_Fb_InfluencerAsTheme(userId);
                 ViewBag.AllInfluence = fbFluencerAsTheme;
-            }
+            }*/
 
             //
             return View();
@@ -179,16 +179,36 @@ namespace ArabicTextAnalyzer.Controllers
             return View();
         }
 
-        /*public enum PartialViewType
+        [Authorize]
+        public ActionResult IndexFBs()
+        {
+            //
+            var userId = User.Identity.GetUserId();
+
+            // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
+            var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
+            var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
+            @ViewBag.UserXtrctThemes = userXtrctThemes;
+            @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
+            @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
+            @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE" || m.Keyword_Type == "OPPOSE" || m.Keyword_Type == "EXPLETIVE" || m.Keyword_Type == "SENSITIVE").ToList();
+            @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
+            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE" && m.Keyword_Type != "OPPOSE" && m.Keyword_Type != "EXPLETIVE" && m.Keyword_Type != "SENSITIVE").ToList();
+
+            return View();
+        }
+
+        public enum PartialViewType
         {
             all = 0,
             workingDataOnly,
             FBPagesOnly,
             StatsOnly
-        }*/
+        }
 
         [HttpPost]
-        public ActionResult ArabicDarijaEntryPartialView(bool adminModeShowAll = false/*, PartialViewType partialViewType = PartialViewType.all*/)
+        public ActionResult ArabicDarijaEntryPartialView(bool adminModeShowAll = false, PartialViewType partialViewType = PartialViewType.all)
         {
             try
             {
@@ -198,9 +218,12 @@ namespace ArabicTextAnalyzer.Controllers
                     //
                     var userId = User.Identity.GetUserId();
 
-                    //
-                    var fbFluencerAsTheme = new Arabizer().loadAllT_Fb_InfluencerAsTheme(userId);
-                    ViewBag.AllInfluence = fbFluencerAsTheme;
+                    if (partialViewType == PartialViewType.all || partialViewType == PartialViewType.FBPagesOnly)
+                    {
+                        // Fetch the data for fbPage as only for that theme
+                        var fbFluencerAsTheme = new Arabizer().loadAllT_Fb_InfluencerAsTheme(userId);
+                        ViewBag.AllInfluence = fbFluencerAsTheme;
+                    }
 
                     // pass adminModeShowAll
                     ViewBag.AdminModeShowAll = adminModeShowAll;

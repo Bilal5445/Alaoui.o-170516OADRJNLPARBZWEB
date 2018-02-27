@@ -1,11 +1,11 @@
 ﻿// initial load fct
-$(document).ready(function () {
+/*$(document).ready(function () {
 
     // bring new data into the partial view (table of posts)
     BringNewDataIntoPartialView();
-});
+});*/
 
-function BringNewDataIntoPartialView(adminModeShowAll) {
+function BringNewDataIntoPartialView(adminModeShowAll, partialViewType) {
 
     // default value for optional parameter adminModeShowAll
     adminModeShowAll = adminModeShowAll || false;
@@ -14,11 +14,18 @@ function BringNewDataIntoPartialView(adminModeShowAll) {
     $.ajax({
         type: 'POST',
         url: "/Train/ArabicDarijaEntryPartialView",
-        "data": { "adminModeShowAll": adminModeShowAll },
+        "data": { "adminModeShowAll": adminModeShowAll, "partialViewType": partialViewType },
         success: (function (result) {
 
             // replace partial view with the returned data
             $('#partialPlaceHolder').html(result);
+
+            // if not FB, hide the plus button
+            var partialViewType_all = 0;
+            var partialViewType_FBPagesOnly = 2;
+            if (partialViewType != partialViewType_all && partialViewType != partialViewType_FBPagesOnly) {
+                $('li.mainUL#addFBPage').hide();
+            }
 
             // KF is used by std index with tables & klip reports
             if (typeof KF != 'undefined') {
