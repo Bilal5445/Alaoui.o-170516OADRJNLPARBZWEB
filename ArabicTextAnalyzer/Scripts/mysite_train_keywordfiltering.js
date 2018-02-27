@@ -649,25 +649,6 @@ function AddInfluencer() {
     });
 }
 
-function JsTestFBFilter(influencerid) {
-
-    //
-    $.ajax({
-        "dataType": 'json',
-        "type": "GET",
-        "url": "/Train/TranslateAndExtractNERFBPostsAndComments",
-        "data": {
-            "influencerid": influencerid
-        },
-        "success": function (msg) {
-            console.log(msg);
-        },
-        "error": function () {
-            console.log("error in TranslateFBPostsAndComments");
-        }
-    });
-}
-
 // Js for Retrieve fb post or refresh button
 function JsRetrieveFBPosts(influencerurl_name, influencerid) {
 
