@@ -199,14 +199,6 @@ namespace ArabicTextAnalyzer.Controllers
             return View();
         }
 
-        public enum PartialViewType
-        {
-            all = 0,
-            workingDataOnly,
-            FBPagesOnly,
-            StatsOnly
-        }
-
         [HttpPost]
         public ActionResult ArabicDarijaEntryPartialView(bool adminModeShowAll = false, PartialViewType partialViewType = PartialViewType.all)
         {
@@ -224,6 +216,9 @@ namespace ArabicTextAnalyzer.Controllers
                         var fbFluencerAsTheme = new Arabizer().loadAllT_Fb_InfluencerAsTheme(userId);
                         ViewBag.AllInfluence = fbFluencerAsTheme;
                     }
+
+                    // pass partialViewType
+                    ViewBag.PartialViewType = partialViewType;
 
                     // pass adminModeShowAll
                     ViewBag.AdminModeShowAll = adminModeShowAll;
@@ -2374,5 +2369,13 @@ namespace ArabicTextAnalyzer.Controllers
         public string SMTPServerLoginName { get; set; }
         public string SMTPServerPassword { get; set; }
         public string NoReplyEmailAddress { get; set; }
+    }
+
+    public enum PartialViewType
+    {
+        all = 0,
+        workingDataOnly,
+        FBPagesOnly,
+        StatsOnly
     }
 }

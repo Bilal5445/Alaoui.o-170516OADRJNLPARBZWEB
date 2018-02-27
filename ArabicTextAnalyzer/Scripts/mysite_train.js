@@ -10,6 +10,9 @@ function BringNewDataIntoPartialView(adminModeShowAll, partialViewType) {
     // default value for optional parameter adminModeShowAll
     adminModeShowAll = adminModeShowAll || false;
 
+    // default for partialViewType = 0 = all
+    partialViewType = partialViewType || 0;
+
     // bring new data into the partial view (table of posts)
     $.ajax({
         type: 'POST',
