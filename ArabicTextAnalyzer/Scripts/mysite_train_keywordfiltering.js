@@ -48,9 +48,9 @@ function InitializeDataTables(adminModeShowAll) {
                     { "data": "PositionHash", "className": "center top" },
                     { "data": "FormattedArabiziEntryDate", "className": "arabizi-text top" },
                     { "data": "ArabiziText", "className": "arabizi-text top" },
-                    { "data": "FormattedArabicDarijaText", "className": "arabic-text top" },
                     { "data": "FormattedEntitiesTypes", "className": "arabic-text top entitiestype" },
                     { "data": "FormattedEntities", "className": "arabic-text top entities" },
+                    { "data": "FormattedArabicDarijaText", "className": "arabic-text top" },
                     { "data": "FormattedRemoveAndApplyTagCol", "className": "controls center top" } // class 'controls' just there to identify the td to prevent click on 'remove' (or any other button in this column) to be considered as selection. MC080118 plus now also for keeping buttons in same line
             ],
             "columnDefs": [{

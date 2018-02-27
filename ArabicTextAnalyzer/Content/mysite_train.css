@@ -90,6 +90,14 @@ tr.header {
         width: 75px;
     }
 
+    .posts th.col90px {
+        width: 90px;
+    }
+
+    .posts th.col95px {
+        width: 95px;
+    }
+
     .posts th.col100px {
         width: 100px;
     }
