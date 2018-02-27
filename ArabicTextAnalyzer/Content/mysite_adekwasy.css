@@ -104,4 +104,13 @@ td.controls button.btn-warning {
     /*background-color: rgba(240, 173, 78, 0.5);*/
     background-color: rgba(120,86,39,1);
 }
+
 .dataTables_filter input { width: 150px !important; }
+
+ul.nav.nav-pills {
+    border:1px solid lightgray;
+}
+
+ul.nav.nav-pills > li.mainUL:not(#addFBPage) {
+    border-right:1px solid lightgray;
+}
