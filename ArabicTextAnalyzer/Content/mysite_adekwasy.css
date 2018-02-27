@@ -90,3 +90,17 @@ footer {
     /*font-size: 100%;*/
     font-family: 'Droid Arabic Kufi', serif;
 }
+
+/* make the controls small buttons more like the overall theme */
+td.controls > a.btn-danger {
+    /* background-color: rgba(217, 83, 79, 0.5);*/
+    background-color: rgba(108,47,58,1);
+}
+td.controls > a.btn-info {
+    /*background-color: rgba(91, 192, 222, 0.5);*/
+    background-color: rgba(0,47,111,1);
+}
+td.controls button.btn-warning {
+    /*background-color: rgba(240, 173, 78, 0.5);*/
+    background-color: rgba(120,86,39,1);
+}

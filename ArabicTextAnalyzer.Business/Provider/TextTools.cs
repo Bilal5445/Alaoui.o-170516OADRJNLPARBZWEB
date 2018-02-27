@@ -324,11 +324,11 @@ namespace ArabicTextAnalyzer.Business.Provider
             foreach (var textEntity in textEntities)
             {
                 String badgeCounter = textEntity.TextEntity.Count > 1 ? "(" + textEntity.TextEntity.Count + ")" : String.Empty;
-                if (TextEntities.IndexOf(textEntity) % 4 == 0)
+                if (textEntities.IndexOf(textEntity) % 4 == 0)
                     entitiesString += "<span class=\"label label-primary\">" + textEntity.TextEntity.Mention + " " + badgeCounter + "</span> ";
-                else if (TextEntities.IndexOf(textEntity) % 4 == 1)
+                else if (textEntities.IndexOf(textEntity) % 4 == 1)
                     entitiesString += "<span class=\"label label-default\">" + textEntity.TextEntity.Mention + " " + badgeCounter + "</span> ";
-                else if (TextEntities.IndexOf(textEntity) % 4 == 2)
+                else if (textEntities.IndexOf(textEntity) % 4 == 2)
                     entitiesString += "<span class=\"label label-success\">" + textEntity.TextEntity.Mention + " " + badgeCounter + "</span> ";
                 else
                     entitiesString += "<span class=\"label label-info\">" + textEntity.TextEntity.Mention + " " + badgeCounter + "</span> ";
@@ -340,6 +340,7 @@ namespace ArabicTextAnalyzer.Business.Provider
         public static String DisplayEntitiesType(List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities)
         {
             String entitiesString = String.Empty;
+
             foreach (var textEntity in TextEntities)
             {
                 if (TextEntities.IndexOf(textEntity) % 4 == 0)
@@ -366,11 +367,11 @@ namespace ArabicTextAnalyzer.Business.Provider
             String entitiesString = String.Empty;
             foreach (var textEntity in textEntities)
             {
-                if (TextEntities.IndexOf(textEntity) % 4 == 0)
+                if (textEntities.IndexOf(textEntity) % 4 == 0)
                     entitiesString += "<span class=\"label label-primary\">" + textEntity.TextEntity.Type + "</span> ";
-                else if (TextEntities.IndexOf(textEntity) % 4 == 1)
+                else if (textEntities.IndexOf(textEntity) % 4 == 1)
                     entitiesString += "<span class=\"label label-default\">" + textEntity.TextEntity.Type + "</span> ";
-                else if (TextEntities.IndexOf(textEntity) % 4 == 2)
+                else if (textEntities.IndexOf(textEntity) % 4 == 2)
                     entitiesString += "<span class=\"label label-success\">" + textEntity.TextEntity.Type + "</span> ";
                 else
                     entitiesString += "<span class=\"label label-info\">" + textEntity.TextEntity.Type + "</span> ";
@@ -408,11 +409,11 @@ namespace ArabicTextAnalyzer.Business.Provider
             String entitiesString = String.Empty;
             foreach (var textEntity in textEntities)
             {
-                if (TextEntities.IndexOf(textEntity) % 4 == 0)
+                if (textEntities.IndexOf(textEntity) % 4 == 0)
                     entitiesString += "<span class=\"label label-primary\">" + textEntity.TextEntity.Type + "</span> ";
-                else if (TextEntities.IndexOf(textEntity) % 4 == 1)
+                else if (textEntities.IndexOf(textEntity) % 4 == 1)
                     entitiesString += "<span class=\"label label-default\">" + textEntity.TextEntity.Type + "</span> ";
-                else if (TextEntities.IndexOf(textEntity) % 4 == 2)
+                else if (textEntities.IndexOf(textEntity) % 4 == 2)
                     entitiesString += "<span class=\"label label-success\">" + textEntity.TextEntity.Type + "</span> ";
                 else
                     entitiesString += "<span class=\"label label-info\">" + textEntity.TextEntity.Type + "</span> ";

@@ -318,7 +318,7 @@ namespace ArabicTextAnalyzer.Controllers
                     return Content(JsonConvert.SerializeObject(new
                     {
                         status = false,
-                        message = "Invalid Paramater"
+                        message = "Invalid Parameter"
                     }), "application/json");
 
                 // Arabizi to arabic script via direct call to perl script
