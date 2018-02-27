@@ -156,19 +156,39 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
             @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE" && m.Keyword_Type != "OPPOSE" && m.Keyword_Type != "EXPLETIVE" && m.Keyword_Type != "SENSITIVE").ToList();
 
-            // communication
-            @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
-            @ViewBag.showAlertSuccess = TempData["showAlertSuccess"] != null ? TempData["showAlertSuccess"] : false;
-            @ViewBag.msgAlert = TempData["msgAlert"] != null ? TempData["msgAlert"] : String.Empty;
-            TempData.Remove("showAlertWarning");
-            TempData.Remove("showAlertSuccess");
-            TempData.Remove("msgAlert");
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult IndexStats()
+        {
+            //
+            var userId = User.Identity.GetUserId();
+
+            // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
+            var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
+            var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
+            @ViewBag.UserXtrctThemes = userXtrctThemes;
+            @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
+            @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
+            @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE" || m.Keyword_Type == "OPPOSE" || m.Keyword_Type == "EXPLETIVE" || m.Keyword_Type == "SENSITIVE").ToList();
+            @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
+            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE" && m.Keyword_Type != "OPPOSE" && m.Keyword_Type != "EXPLETIVE" && m.Keyword_Type != "SENSITIVE").ToList();
 
             return View();
         }
 
+        /*public enum PartialViewType
+        {
+            all = 0,
+            workingDataOnly,
+            FBPagesOnly,
+            StatsOnly
+        }*/
+
         [HttpPost]
-        public ActionResult ArabicDarijaEntryPartialView(bool adminModeShowAll = false)
+        public ActionResult ArabicDarijaEntryPartialView(bool adminModeShowAll = false/*, PartialViewType partialViewType = PartialViewType.all*/)
         {
             try
             {

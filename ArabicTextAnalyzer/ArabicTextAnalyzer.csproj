@@ -697,6 +697,7 @@
     <Content Include="Views\App\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAlt.cshtml" />
     <Content Include="Views\Train\IndexTranslateArabizi.cshtml" />
+    <Content Include="Views\Train\IndexStats.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />

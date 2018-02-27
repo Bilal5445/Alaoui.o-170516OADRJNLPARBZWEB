@@ -30,7 +30,6 @@ $(document).ready(function () {
             }
 
             // format entities
-            // limit to concerned text entities
             var textEntities = data.M_ARABICDARIJAENTRY_TEXTENTITYs;
             var entitiesString = "";
             for (let i = 0; i < textEntities.length; i++) {
@@ -47,7 +46,6 @@ $(document).ready(function () {
             }
 
             // fromat entities type
-            // limit to concerned text entities
             var entitiesTypesString = "";
             for (let i = 0; i < textEntities.length; i++) {
                 var textEntity = textEntities[i];
@@ -67,6 +65,13 @@ $(document).ready(function () {
             $('table.posts.table.table-striped.table-hover.table-bordered > tbody > tr > td.entitiestype').html(entitiesTypesString);
             $('table.posts.table.table-striped.table-hover.table-bordered > tbody > tr > td.entities').html(entitiesString);
 
+            // fill all ners
+            // $('#allners').html(data.M_ARABICDARIJAENTRY.ArabicDarijaText.split(/[ ,]+/).join(','));
+            $.each(data.M_ARABICDARIJAENTRY.ArabicDarijaText.split(/[ ,]+/), function (index, value) {
+                $('#allners').tagsinput('add', value);
+                console.log(value);
+            });
+
             // save arabic darija entry id into the button save contrib
             $('.arabicdarija div.input-group span.input-group-addon.btn').attr('data-idarabicdarijaentry', data.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY);
         });
@@ -83,6 +88,12 @@ $(document).ready(function () {
         console.log($("#improvetranslation").val());
         $("#modalConfirmContrib .modal-body .form-group #contrib").val($("#improvetranslation").val());
     })
+
+    // event on select contrib textarea to allow to select NER
+    /*$("#improvetranslation").on('contextmenu', function (e) {
+        alert("right-click!");
+        window.event.returnValue = false;
+    });*/
 });
 
 // fct to save user contrb to better suggested translation
