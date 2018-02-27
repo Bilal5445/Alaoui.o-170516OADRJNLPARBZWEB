@@ -2,7 +2,7 @@
 @using OADRJNLPCommon.Models;
 
 @{
-    List<T_FB_INFLUENCER> FbInfluencer = ViewBag.AllInfluence;
+    List<T_FB_INFLUENCER> FbInfluencers = ViewBag.AllInfluence;
 
     int MaxFbPageAllowed = 5;
 
@@ -20,12 +20,12 @@
 <ul class="nav nav-pills" role="tablist">
     <!-- first tab header : working data -->
     <li role="presentation" class="active mainUL"><a href="#first" aria-controls="first" role="tab" data-toggle="tab">Working Data</a></li>
-    @if (FbInfluencer != null && FbInfluencer.Count > 0)
+    @if (FbInfluencers != null && FbInfluencers.Count > 0)
     {
         var count = 1;
-        <li class="hide"><input type="hidden" id="hdnTotalInfluencer" value="@FbInfluencer.Count" /></li>
+        <li class="hide"><input type="hidden" id="hdnTotalInfluencer" value="@FbInfluencers.Count" /></li>
         <!-- subsequent tabs header : FB pages -->
-        foreach (var item in FbInfluencer)
+        foreach (var item in FbInfluencers)
         {
             <!-- hidden info about the fb page : urlname, id, auto retrieve y/n -->
             <li class="hide">
@@ -39,13 +39,11 @@
             count = count + 1;
         }
     }
-    @if (FbInfluencer == null || FbInfluencer.Count < MaxFbPageAllowed)
+    @if (FbInfluencers == null || FbInfluencers.Count < MaxFbPageAllowed)
     {
         <!-- Button "Plus" to create new FB page -->
-        <li role="presentation" class="mainUL"><a data-toggle="modal" data-target="#myModalForaddInfluencer" data-backdrop="static" data-keyboard="false"><span class="glyphicon glyphicon-plus"></span></a></li>
+        <li id="addFBPage" role="presentation" class="mainUL"><a data-toggle="modal" data-target="#myModalForaddInfluencer" data-backdrop="static" data-keyboard="false"><span class="glyphicon glyphicon-plus"></span></a></li>
     }
-    <!-- stats -->
-    <li role="presentation" class="mainUL" id="statsheader"><a class="btn btn-outline-primary" id="klpfl" role="tab" data-toggle="tab" onclick="JsShowStatsPage()"><span class="glyphicon glyphicon-stats"></span> Stats</a></li>
     <!-- admin reserved -->
     @if (User.IsInRole("Administrator"))
     {
@@ -86,9 +84,9 @@
         </table>
     </div>
     <!-- tab content for FB pages -->
-    @if (FbInfluencer != null && FbInfluencer.Count > 0)
+    @if (FbInfluencers != null && FbInfluencers.Count > 0)
     {
-        foreach (var item in FbInfluencer)
+        foreach (var item in FbInfluencers)
         {
             <div role="tabpanel" class="tab-pane" id="second_@item.id">
                 <!-- Button "Retrieve" to retreive FB page posts and associated comments -->
@@ -159,13 +157,6 @@
             </div>
         }
     }
-    <!-- tab content for stats -->
-    <div role="tabpanel" class="tab-pane" id="statscontent">
-        <div style="display:inline-block" id="kf-embed-container-d3066a5aec3f32032e5493c6e1d7f6ac"></div>
-        <div style="display:inline-block" id="kf-embed-container-45a5705de26ee482f3b79609f9676ecc"></div>
-        <div style="display:inline-block" id="kf-embed-container-c359a92c257f3fa726356b23b4415bfa"></div>
-        <div style="display:inline-block" id="kf-embed-container-4e81c894b814346e50f7361aef991cf5"></div>
-    </div>
 </div>
 
 <div class="modal fade" id="myModalForaddInfluencer" role="dialog">
