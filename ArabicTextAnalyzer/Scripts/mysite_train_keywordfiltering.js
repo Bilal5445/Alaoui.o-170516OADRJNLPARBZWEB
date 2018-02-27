@@ -234,7 +234,7 @@ function InitializeFBPostsDataTables(fluencerid) {
                     "data": null, "className": "details-control center top",
                     "defaultContent": '<img src="http://i.imgur.com/SD7Dz.png" class="imagetag" onclick="' + "ShowFBComments(this)" + '">'
                 },
-                { "data": "id", "className": /*"center top"*/"hide_column" },
+                { "data": "id", "className": "hide_column" },
                 /*{ "data": "fk_i", "className": "arabizi-text top collapsed" },*/
                 { "data": "pt", "className": "arabizi-text top" },
                 { "data": "tt", "className": "arabic-text top" },
@@ -253,13 +253,7 @@ function InitializeFBPostsDataTables(fluencerid) {
             "columnDefs": [{
                 "defaultContent": "-",
                 "targets": "_all"
-                // "targets": [0,2,3,4,5,6,7]
-            }/*,
-            {
-                "targets": [1],
-                // "visible": false,
-                "className": "hide_column"
-            }*/],
+            }],
             // server side
             "processing": true,
             "serverSide": true,
@@ -415,7 +409,10 @@ function ToggleFBCommentsTable(row, tr, img, postId) {
             $('#tabledetails_' + postId + '_length').append('<a class="btn btn-info btn-xs" style="margin-left:5px" onclick="GetTranslateComment(' + postId + ')">Bulk Translate</a>')
 
             // add a global bulk check all button for comments
-            $('#tabledetails_' + postId + '_length').append('<a class="btn btn-info btn-xs" style="margin-left:5px" onclick="CheckUnCheckAllComments(' + postId + ')">Check/Uncheck All</a><h3>Comments</h3>')
+            var commentshtml = `
+                <a class ="btn btn-info btn-xs" style="margin-left:5px" onclick="CheckUnCheckAllComments(${postId})">Check/Uncheck All</a>
+            `;
+            $('#tabledetails_' + postId + '_length').append(commentshtml);
 
         } else {
             row.child($('#tabledetails_' + postId).html()).show();
@@ -430,7 +427,22 @@ function ToggleFBCommentsTable(row, tr, img, postId) {
 function CommentTable(id) {
 
     // build the html table up to the header (the content is brought vis server side controller)
-    var html = '<table id="tabledetails_' + id + '" class="table table-striped table-hover table-bordered"><thead class="header"><tr><th></th><th class="center top col50px">ID</th><th class="center top col50prc">Message</th><th class="center top col50prc">Translated Message</th><th class="center top col130px">Created Time</th><th class="center top col75px">Action</th></tr></thead></table>'
+    // var html = '<table id="tabledetails_' + id + '" class="table table-striped table-hover table-bordered"><thead class="header"><tr><th></th><th class="center top col50px">ID</th><th class="center top col50prc">Message</th><th class="center top col50prc">Translated Message</th><th class="center top col130px">Created Time</th><th class="center top col75px">Action</th></tr></thead></table>'
+    var html = `
+        <table id="tabledetails_${id}" class ="posts table table-striped table-hover table-bordered">
+            <thead class="header">
+                <tr>
+                    <th class ="center top col50px"></th>
+                    <th class="center top col50px">ID</th>
+                    <th class="center top col50prc">Comment</th>
+                    <th class ="center top col50prc">Translated Comment</th>
+                    <th class="center top col95px">Created Time</th>
+                    <th class="center top col75px">Action</th>
+                </tr>
+            </thead>
+        </table>
+    `;
+    console.log(html);
 
     return html;
 }
@@ -472,9 +484,10 @@ function InitializeFBCommentsForPostDataTables(id) {
                     var str = '';
                     str = str + '<input type="checkbox" class="cbxComment_' + id + '" value="' + data.Id + '"/>';
                     return str;
-                }
+                },
+                "className": "details-control center top"
             },
-            { "data": "Id", "className": "center top" },
+            { "data": "Id", "className": "hide_column" },
             { "data": "message", "className": "arabizi-text top" },
             { "data": "translated_message", "className": "arabizi-text top" },
             { "data": "created_time", "className": "arabizi-text top" },
