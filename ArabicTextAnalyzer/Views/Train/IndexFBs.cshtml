@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Adekwasy - Facebook Pages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+
+    @* mandatory : vertical menus, ... *@
+    @Styles.Render("~/Content/css_train")
+
+    @* datatables.net dependencies *@
+    <link href="https://cdn.datatables.net/select/1.2.3/css/select.dataTables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.dataTables.min.css" />
+}
+
+@section scripts {
+    
+    @*  datatables.net dependencies *@
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/mark.js/8.6.0/jquery.mark.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/datatables.mark.js/2.0.0/datatables.mark.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.print.min.js"></script>
+
+    @* the scripts that load data into the partial view (using datatables.net) and allow displaying/selecting/filtering *@
+    @Scripts.Render("~/bundles/js_train")
+    @Scripts.Render("~/bundles/js_train_keywordfiltering");
+    @Scripts.Render("~/bundles/js_train_fbs")
+}
+
+<h2>@ViewBag.Title.</h2>
+<h4>Use Facebook pages as data source to translate Arabizi and extract entities</h4>
+<hr />
+
+<!-- Place where you will insert your partial -->
+<div id="partialPlaceHolder" style="display:inline;"> </div>
