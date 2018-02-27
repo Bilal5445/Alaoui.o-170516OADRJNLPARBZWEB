@@ -222,7 +222,7 @@ function InitializeFBPostsDataTables(fluencerid) {
                 ['10', '25', '50', '100', '500', '1000', 'all']
             ],
             // dom just to display the design of the fields : search , page , ...
-            dom: "<'row'<'col-sm-3'B><'col-sm-3'l><'col-sm-6'f>>" +
+            dom: "<'row'<'col-sm-5'B><'col-sm-3'l><'col-sm-4'f>>" +
                 "<'row'<'col-sm-12'tr>>" +
                 "<'row'<'col-sm-5'i><'col-sm-7'p>>",
             buttons: [
@@ -234,7 +234,7 @@ function InitializeFBPostsDataTables(fluencerid) {
                     "data": null, "className": "details-control",
                     "defaultContent": '<img src="http://i.imgur.com/SD7Dz.png" class="imagetag" onclick="' + "ShowFBComments(this)" + '">'
                 },
-                { "data": "id", "className": "center top" },
+                { "data": "id", "className": /*"center top"*/"hide_column" },
                 /*{ "data": "fk_i", "className": "arabizi-text top collapsed" },*/
                 { "data": "pt", "className": "arabizi-text top" },
                 { "data": "tt", "className": "arabizi-text top" },
@@ -244,7 +244,7 @@ function InitializeFBPostsDataTables(fluencerid) {
                 {
                     "data": function (data) {
                         var str = '';
-                        str = str + '<a class="btn btn-warning btn-xs" onclick="' + "TranslateContent(this)" + '">Translate</a>';
+                        str = str + '<a class="btn btn-warning btn-xs" onclick="' + "JsTranslateFBPost(this)" + '">Translate</a>';
                         return str;
                     }
                 },
@@ -252,6 +252,12 @@ function InitializeFBPostsDataTables(fluencerid) {
             "columnDefs": [{
                 "defaultContent": "-",
                 "targets": "_all"
+                // "targets": [0,2,3,4,5,6,7]
+            },
+            {
+                "targets": [1],
+                // "visible": false,
+                "className": "hide_column"
             }],
             // server side
             "processing": true,
@@ -289,7 +295,7 @@ function ShowFBPage(id) {
 }
 
 // method for translate the fb post 
-function TranslateContent(obj) {
+function JsTranslateFBPost(obj) {
 
     // check before
     if (TranslateContentIsClicked == true)
