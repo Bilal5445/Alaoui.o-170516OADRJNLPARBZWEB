@@ -46,7 +46,7 @@
     <!-- Button "Plus" to create new FB page -->
     @if (FbInfluencers == null || FbInfluencers.Count < MaxFbPageAllowed)
     {
-        <li id="addFBPage" role="presentation" class="mainUL"><a data-toggle="modal" data-target="#myModalForaddInfluencer" data-backdrop="static" data-keyboard="false"><span class="glyphicon glyphicon-plus"></span></a></li>
+        <li id="addFBPage" role="presentation" class="mainUL"><a data-toggle="modal" data-target="#myModalForaddInfluencer" data-backdrop="static" data-keyboard="false" title="Add a public FaceBook page"><span class="glyphicon glyphicon-plus"></span></a></li>
     }
     <!-- admin reserved -->
     @if (User.IsInRole("Administrator"))
@@ -111,9 +111,9 @@
                             @* <th class="center top col110px">Influencer Id</th> *@
                             <th class="center top col50prc">Post Text</th>
                             <th class="center top col50prc">Translated Text</th>
-                            <th class="center top col50prc">Total likes</th>
-                            <th class="center top col100px">Total Comment</th>
-                            <th class="center top col130px">Publishing date</th>
+                            <th class="center top col50prc">Likes</th>
+                            <th class="center top col100px">Comments</th>
+                            <th class="center top col130px">Post date</th>
                             <th class="center top col75px">Action</th>
                         </tr>
                     </thead>
