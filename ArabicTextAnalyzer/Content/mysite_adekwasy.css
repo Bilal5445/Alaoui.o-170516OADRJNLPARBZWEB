@@ -104,3 +104,4 @@ td.controls button.btn-warning {
     /*background-color: rgba(240, 173, 78, 0.5);*/
     background-color: rgba(120,86,39,1);
 }
+.dataTables_filter input { width: 150px !important; }
