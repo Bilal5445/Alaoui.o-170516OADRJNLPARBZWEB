@@ -52,41 +52,9 @@ namespace ArabicTextAnalyzer.Controllers
             var userId = User.Identity.GetUserId();
 
             // token management
-            var token = Session["_T0k@n_"];
-            bool istokenexpire = _IAuthenticate.IsTokenExpire(Convert.ToString(token));
-            if (token == null || istokenexpire)
-            {
-                // MC191217 tokens are good to track who calls the arabizi function (api or web app), but web app user does not need to generate manually a token,
-                // the fact that he is logged on, means he should be able to use translation, means a token should be always ready for him. Solution (workaround?) generate
-                // on the fly a new token each time the token is expired
+            ManageToken(userId);
 
-                /*Session["_T0k@n_"] = String.Empty;
-                Session["message"] = String.Empty;
-                TempData["showAlertWarning"] = true;
-                TempData["msgAlert"] = "Your token is expired.";*/
-
-                // generate token (and fill session token)
-                var clientKeyToolkit = new ClientKeysConcrete();
-                var clientkeys = clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
-                string message = string.Empty;
-                bool isAppValid = clientKeyToolkit.IsAppValid(clientkeys);
-                if (isAppValid == false)
-                    message = "No More calls";
-                else
-                {
-                    String sessiontoken;
-                    String tokenExpiry = ConfigurationManager.AppSettings["TokenExpiry"];
-                    var tokenmessage = new AppManager().GetToken(clientkeys, _IAuthenticate, tokenExpiry, out sessiontoken);
-                    Session["_T0k@n_"] = sessiontoken;
-                    if (String.IsNullOrEmpty(sessiontoken))
-                        message = tokenmessage; // pass message only if token not generated
-                }
-
-                // fill session data
-                Session["message"] = message;
-                if (clientkeys != null)
-                    Session["userId"] = clientkeys.UserID;
-            }
+            //
             string errMessage = string.Empty;
             List<RegisterApp> _registerApp = _IRegister.ListofApps(userId).ToList();
             ViewBag.registerApp = _registerApp;
@@ -127,13 +95,6 @@ namespace ArabicTextAnalyzer.Controllers
             TempData.Remove("showAlertWarning");
             TempData.Remove("showAlertSuccess");
             TempData.Remove("msgAlert");
-
-            // Fetch the data for fbPage as only for that theme
-            /*if (token != null && !string.IsNullOrEmpty(token as string))
-            {
-                var fbFluencerAsTheme = new Arabizer().loadAllT_Fb_InfluencerAsTheme(userId);
-                ViewBag.AllInfluence = fbFluencerAsTheme;
-            }*/
 
             //
             return View();
@@ -185,6 +146,9 @@ namespace ArabicTextAnalyzer.Controllers
             //
             var userId = User.Identity.GetUserId();
 
+            // token management
+            ManageToken(userId);
+
             // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
             var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
             List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
@@ -207,12 +171,10 @@ namespace ArabicTextAnalyzer.Controllers
                 var token = Session["_T0k@n_"];
                 if (token != null && !string.IsNullOrEmpty(token as string))
                 {
-                    //
-                    var userId = User.Identity.GetUserId();
-
                     if (partialViewType == PartialViewType.all || partialViewType == PartialViewType.FBPagesOnly)
                     {
                         // Fetch the data for fbPage as only for that theme
+                        var userId = User.Identity.GetUserId();
                         var fbFluencerAsTheme = new Arabizer().loadAllT_Fb_InfluencerAsTheme(userId);
                         ViewBag.AllInfluence = fbFluencerAsTheme;
                     }
@@ -696,7 +658,7 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 var themeid = activeTheme.ID_XTRCTTHEME;
                 var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "AccountPanel/AddFBInfluencer?url_name=" + url_name + "&pro_or_anti=" + pro_or_anti + "&id=1&themeid=" + themeid + "&CallFrom=AddFBInfluencer";
-                // ex : url : http://localhost:8081//AccountPanel/AddFBInfluencer?url_name=telquelofficiel&pro_or_anti=Anti&id=1&themeid=fd6590b9-dbd1-4341-9329-4a9cae8047eb&CallFrom=AddFBInfluencer
+                // ex : url : http://localhost:8081/AccountPanel/AddFBInfluencer?url_name=telquelofficiel&pro_or_anti=Anti&id=1&themeid=fd6590b9-dbd1-4341-9329-4a9cae8047eb&CallFrom=AddFBInfluencer
                 results = await HtmlHelpers.PostAPIRequest_message(url, String.Empty, type: "POST");
                 result = results.Item1;
             }
@@ -2332,6 +2294,47 @@ namespace ArabicTextAnalyzer.Controllers
                 {
                     yield return element;
                 }
+            }
+        }
+        #endregion
+
+        #region BACK YARD BO TOKEN MGT
+        private void ManageToken(string userId)
+        {
+            var token = Session["_T0k@n_"];
+            bool istokenexpire = _IAuthenticate.IsTokenExpire(Convert.ToString(token));
+            if (token == null || istokenexpire)
+            {
+                // MC191217 tokens are good to track who calls the arabizi function (api or web app), but web app user does not need to generate manually a token,
+                // the fact that he is logged on, means he should be able to use translation, means a token should be always ready for him. Solution (workaround?) generate
+                // on the fly a new token each time the token is expired
+
+                /*Session["_T0k@n_"] = String.Empty;
+                Session["message"] = String.Empty;
+                TempData["showAlertWarning"] = true;
+                TempData["msgAlert"] = "Your token is expired.";*/
+
+                // generate token (and fill session token)
+                var clientKeyToolkit = new ClientKeysConcrete();
+                var clientkeys = clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
+                string message = string.Empty;
+                bool isAppValid = clientKeyToolkit.IsAppValid(clientkeys);
+                if (isAppValid == false)
+                    message = "No More calls";
+                else
+                {
+                    String sessiontoken;
+                    String tokenExpiry = ConfigurationManager.AppSettings["TokenExpiry"];
+                    var tokenmessage = new AppManager().GetToken(clientkeys, _IAuthenticate, tokenExpiry, out sessiontoken);
+                    Session["_T0k@n_"] = sessiontoken;
+                    if (String.IsNullOrEmpty(sessiontoken))
+                        message = tokenmessage; // pass message only if token not generated
+                }
+
+                // fill session data
+                Session["message"] = message;
+                if (clientkeys != null)
+                    Session["userId"] = clientkeys.UserID;
             }
         }
         #endregion
