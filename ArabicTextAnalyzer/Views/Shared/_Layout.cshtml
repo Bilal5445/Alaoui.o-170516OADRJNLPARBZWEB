@@ -55,10 +55,28 @@
     {
         <div id="vertaccordmenuandbody" class="container adekwasy">
             <div class="row">
-                <div id="vertaccordmenucol" class="col-sm-2 col-md-2">
-                    <!-- theme menu : add new theme -->
+                <div id="vertaccordmenucol" class="col-sm-2 col-md-3 col-lg-3">
                     <div id="add-new-theme">
-                        <p style="font-weight:bold; font-size:16px;">THEMES <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#myModal" style="float:right;" title="Add a new theme"><span class="glyphicon glyphicon-plus"></span> </button></p>
+                        <div class="dropdown div-inline">
+                            <ul class="dropdown-menu">
+                                @foreach (var userXtrctTheme in ViewBag.UserXtrctThemes)
+                                {
+                                    <li class="@userXtrctTheme.CurrentActive"><a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = userXtrctTheme.ThemeName })">@userXtrctTheme.ThemeName</a></li>
+                                }
+                            </ul>
+                            <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+                        </div>
+                        <p style="font-weight:bold; font-size:16px; display:inline-block;">THEMES</p>
+                        <!-- theme menu : edit theme -->
+                        <button style="margin-right: 2px;"type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </button>
+                        <!-- theme menu : remove theme -->
+                        <button style="margin-right: 2px;" type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModalRemoveTheme">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                        <!-- theme menu : add new theme -->
+                        <button style="margin-right: 2px;"type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal" style="float:right;" title="Add a new theme"><span class="glyphicon glyphicon-plus"></span> </button>
                     </div>
                     <!-- themes list accordion -->
                     <div class="panel-group" id="accordion">
@@ -67,6 +85,8 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse@(userXtrctTheme.ThemeName)"><span class="glyphicon glyphicon-folder-close"></span>@userXtrctTheme.ThemeName</a></h4>
+                                    <!--<button class="btn btn-default btn-xs pull-right">New</button>
+                                    <div class="clearfix"></div>-->
                                 </div>
                             </div>
                             <div id="collapse@(userXtrctTheme.ThemeName)" class="panel-collapse collapse @(userXtrctTheme.CurrentActive == "active" ? "in" : "")">
@@ -83,7 +103,7 @@
                     </div>
                 </div>
                 <!-- body -->
-                <div id="body" class="col-sm-10 col-md-10">
+                <div id="body" class="col-sm-10 col-md-9 col-lg-9">
                     <div class="container-fluid body-content">
                         @RenderBody()
                     </div>
