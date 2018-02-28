@@ -1107,7 +1107,7 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
-        public List<T_FB_INFLUENCER> loadAllT_Fb_InfluencerAsTheme(String userId/*, string themeid = ""*/)
+        public List<T_FB_INFLUENCER> loadAllT_Fb_InfluencerAsTheme(String userId)
         {
             //
             var t_fb_Influencer = new List<T_FB_INFLUENCER>();
