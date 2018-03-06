@@ -50,6 +50,11 @@ namespace ArabicTextAnalyzer
                 ));
 
             // local to train page
+            bundles.Add(new ScriptBundle("~/bundles/js_train_socialsearch").Include(
+                "~/Scripts/mysite_train_socialsearch.js"
+                ));
+
+            // local to train page
             bundles.Add(new ScriptBundle("~/bundles/js_train_workingdata").Include(
                 "~/Scripts/mysite_train_workingdata.js"
                 ));

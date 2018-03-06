@@ -84,9 +84,7 @@
                         {
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse@(userXtrctTheme.ThemeName)"><span class="glyphicon glyphicon-folder-close"></span>@userXtrctTheme.ThemeName</a></h4>
-                                    <!--<button class="btn btn-default btn-xs pull-right">New</button>
-                                    <div class="clearfix"></div>-->
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse@(userXtrctTheme.ThemeName)" title="@(userXtrctTheme.ID_XTRCTTHEME)"><span class="glyphicon glyphicon-folder-close"></span>@userXtrctTheme.ThemeName</a></h4>
                                 </div>
                             </div>
                             <div id="collapse@(userXtrctTheme.ThemeName)" class="panel-collapse collapse @(userXtrctTheme.CurrentActive == "active" ? "in" : "")">
@@ -95,6 +93,7 @@
                                         <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexTranslateArabizi" ? "activeblack" : "")"><td><span class="glyphicon glyphicon-play"></span><a href="/Train/IndexTranslateArabizi" title="Translate Arabizi to Arabic">Translate Arabizi</a></td></tr>
                                         <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "activeblack" : "")"><td><span class="glyphicon glyphicon-dashboard"></span><a href="/Train/Index" title="Translate, Display, filter, export, import data and extract insights">Working Data</a></td></tr>
                                         <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexFBs" ? "activeblack" : "")"><td><i class="fa fa-facebook"></i><a href="/Train/IndexFBs" title="Use Facebook pages as data source to translate Arabizi and extract entities">Facebook Pages</a></td></tr>
+                                        <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexSocialSearch" ? "activeblack" : "")"><td><i class="fa fa-search"></i><a href="/Train/IndexSocialSearch" title="Search over Facebook Moroccan content">Social Search</a></td></tr>
                                         <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexStats" ? "activeblack" : "")"><td><span class="glyphicon glyphicon-stats"></span><a href="/Train/IndexStats" title="Show statistics about extracted entities from your theme's data">Theme Statistics</a></td></tr>
                                     </table>
                                 </div>

@@ -639,6 +639,7 @@
     <Content Include="Scripts\mysite_train.js" />
     <Content Include="Scripts\mysite_train_fbs.js" />
     <Content Include="Scripts\mysite_train_keywordfiltering.js" />
+    <Content Include="Scripts\mysite_train_socialsearch.js" />
     <Content Include="Scripts\mysite_train_translate_single.js" />
     <Content Include="Scripts\mysite_train_workingdata.js" />
     <Content Include="Scripts\respond.js" />
@@ -700,6 +701,7 @@
     <Content Include="Views\Train\IndexTranslateArabizi.cshtml" />
     <Content Include="Views\Train\IndexStats.cshtml" />
     <Content Include="Views\Train\IndexFBs.cshtml" />
+    <Content Include="Views\Train\IndexSocialSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />
