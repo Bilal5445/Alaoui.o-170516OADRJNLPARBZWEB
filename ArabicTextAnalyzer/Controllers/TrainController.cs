@@ -23,6 +23,7 @@ using ArabicTextAnalyzer.Contracts;
 using ArabicTextAnalyzer.BO;
 using System.Net.Mail;
 using Newtonsoft.Json.Linq;
+using System.Globalization;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -163,6 +164,26 @@ namespace ArabicTextAnalyzer.Controllers
             return View();
         }
 
+        [Authorize]
+        public ActionResult IndexSocialSearch()
+        {
+            //
+            var userId = User.Identity.GetUserId();
+
+            // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
+            var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
+            var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
+            @ViewBag.UserXtrctThemes = userXtrctThemes;
+            @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
+            @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
+            @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE" || m.Keyword_Type == "OPPOSE" || m.Keyword_Type == "EXPLETIVE" || m.Keyword_Type == "SENSITIVE").ToList();
+            @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
+            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE" && m.Keyword_Type != "OPPOSE" && m.Keyword_Type != "EXPLETIVE" && m.Keyword_Type != "SENSITIVE").ToList();
+
+            return View();
+        }
+
         [HttpPost]
         public ActionResult ArabicDarijaEntryPartialView(bool adminModeShowAll = false, PartialViewType partialViewType = PartialViewType.all)
         {
@@ -175,7 +196,7 @@ namespace ArabicTextAnalyzer.Controllers
                     {
                         // Fetch the data for fbPage as only for that theme
                         var userId = User.Identity.GetUserId();
-                        var fbFluencerAsTheme = new Arabizer().loadAllT_Fb_InfluencerAsTheme(userId);
+                        var fbFluencerAsTheme = new Arabizer().loadAllT_Fb_InfluencerAsTheme_DAPPERSQL(userId);
                         ViewBag.AllInfluence = fbFluencerAsTheme;
                     }
 
@@ -888,7 +909,7 @@ namespace ArabicTextAnalyzer.Controllers
             try
             {
                 //
-                T_FB_INFLUENCER influencer = new Arabizer().loadDeserializeT_FB_INFLUENCER(influencerid, themeId);
+                T_FB_INFLUENCER influencer = new Arabizer().loadDeserializeT_FB_INFLUENCER_DAPPERSQL(influencerid, themeId);
                 string targetEntities = influencer.TargetEntities;
                 String urlName = influencer.url_name;
                 string pageName = influencer.name;
@@ -960,7 +981,7 @@ namespace ArabicTextAnalyzer.Controllers
                 var themeId = userActiveXtrctTheme.ID_XTRCTTHEME;
 
                 // Get the influencer if it exists
-                var influencer = new Arabizer().loadDeserializeT_FB_INFLUENCER(influencerid, themeId);
+                var influencer = new Arabizer().loadDeserializeT_FB_INFLUENCER_DAPPERSQL(influencerid, themeId);
                 if (influencer != null && influencer.id != null)
                 {
                     // Update influencer target entities value.
@@ -1707,6 +1728,78 @@ namespace ArabicTextAnalyzer.Controllers
                 extraData
             });
         }
+
+        [HttpGet]
+        public object DataTablesNet_ServerSide_SocialSearch_GetList()
+        {
+            // get from client side, from where we start the paging
+            int start = 0;
+            int.TryParse(this.Request.QueryString["start"], out start);            // GET
+
+            // get from client side, to which length the paging goes
+            int itemsPerPage = 10;
+            int.TryParse(this.Request.QueryString["length"], out itemsPerPage);    // GET
+
+            // get from client search word
+            string searchValue = this.Request.QueryString["search[value]"]; // GET
+            if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'', '\t' });
+
+            // get main (whole) data from DB first
+            var items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL().Select(c => new
+            {
+                id = c.id,
+                // fk_i = c.fk_influencer,
+                pt = c.post_text,
+                tt = c.translated_text,
+                lc = c.likes_count,
+                cc = c.comments_count,
+                dp = c.date_publishing.ToString("yy-MM-dd HH:mm")
+            }).ToList();
+
+            // get the number of entries
+            var itemsCount = items.Count;
+
+            // adjust itemsPerPage case show all
+            if (itemsPerPage == -1)
+                itemsPerPage = itemsCount;
+
+            // filter on search term if any
+            if (!String.IsNullOrEmpty(searchValue))
+                items = items.Where(a => a.pt.ToUpper().Contains(searchValue.ToUpper()) || (a.tt != null && a.tt.ToUpper().Contains(searchValue.ToUpper()))).ToList();
+
+            // filter on date range
+            var min = this.Request.QueryString["min"];
+            var max = this.Request.QueryString["max"];
+            if (min != null)
+            {
+                var minDate = Convert.ToDateTime(this.Request.QueryString["min"]);
+                items = items.Where(a => DateTime.ParseExact(a.dp, "yy-MM-dd HH:mm", CultureInfo.InvariantCulture) >= minDate).ToList();
+            }
+            if (max != null)
+            {
+                var maxDate = Convert.ToDateTime(this.Request.QueryString["max"]);
+                items = items.Where(a => DateTime.ParseExact(a.dp, "yy-MM-dd HH:mm", CultureInfo.InvariantCulture) <= maxDate).ToList();
+            }
+
+            var itemsFilteredCount = items.Count;
+
+            // page as per request (index of page and length)
+            items = items.Skip(start).Take(itemsPerPage).ToList();
+
+            // if only one found, return and uncollapse it out
+            String extraData = null;
+            if (itemsFilteredCount == 1)
+                extraData = items[0].id;
+            //
+            return JsonConvert.SerializeObject(new
+            {
+                recordsTotal = itemsCount.ToString(),
+                recordsFiltered = itemsFilteredCount.ToString(),
+                data = items,
+                extraData
+            });
+        }
+
 
         [HttpGet]
         public object DataTablesNet_ServerSide_FB_Comments_GetList(string id)

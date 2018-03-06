@@ -1091,7 +1091,7 @@ namespace ArabicTextAnalyzer.BO
 
         #region BACK YARD BO LOAD FB_PAGES_POSTS_COMMENTS
         // Get Influencer details on the influencerId 
-        public T_FB_INFLUENCER loadDeserializeT_FB_INFLUENCER(string influencerid, Guid themeid)
+        public T_FB_INFLUENCER loadDeserializeT_FB_INFLUENCER_DAPPERSQL(string influencerid, Guid themeid)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
 
@@ -1107,7 +1107,7 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
-        public List<T_FB_INFLUENCER> loadAllT_Fb_InfluencerAsTheme(String userId)
+        public List<T_FB_INFLUENCER> loadAllT_Fb_InfluencerAsTheme_DAPPERSQL(String userId)
         {
             //
             var t_fb_Influencer = new List<T_FB_INFLUENCER>();
@@ -1141,6 +1141,24 @@ namespace ArabicTextAnalyzer.BO
 
                 conn.Open();
                 return conn.Query<LM_CountPerTheme>(qry).ToList();
+            }
+        }
+
+        public List<FB_POST> loaddeserializeT_FB_POST_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                //
+                String qry0 = "SELECT * "
+                            + "FROM T_FB_POST ";
+
+                //
+                qry0 += "ORDER BY date_publishing DESC ";
+
+                //
+                conn.Open();
+                return conn.Query<FB_POST>(qry0).ToList();
             }
         }
 
