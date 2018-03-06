@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace ArabicTextAnalyzer.BO
@@ -44,6 +45,28 @@ namespace ArabicTextAnalyzer.BO
             }
 
             return result;
+        }
+
+        public static string Post(String url, String jsonData, Dictionary<string, string> header)
+        {
+            using (var client = new HttpClient())
+            {
+                // fill data
+                var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+
+                // fill header
+                foreach (var item in header)
+                    content.Headers.Add(item.Key, item.Value);
+
+                // post
+                var response = client.PostAsync(url, content).Result;
+
+                //
+                var responseString = response.Content.ReadAsStringAsync().Result;
+
+                //
+                return responseString;
+            }
         }
 
         public static async Task<string> PostAPIRequest_result(string url, string para)
@@ -165,13 +188,9 @@ namespace ArabicTextAnalyzer.BO
                 catch (Exception ex)
                 {
                     result = ex.Message;
-
                 }
-
             }
             return result;
-
-
         }
     }
 }

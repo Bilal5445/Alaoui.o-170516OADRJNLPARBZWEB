@@ -371,18 +371,30 @@ namespace ArabicTextAnalyzer.Controllers
         {
             try
             {
+                // check before
                 if (paramExpandedUserDTO == null)
-                {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                }
 
+                // real work
                 ExpandedUserDTO objExpandedUserDTO = UpdateDTOUser(paramExpandedUserDTO);
 
+                // check after
                 if (objExpandedUserDTO == null)
-                {
                     return HttpNotFound();
-                }
 
+                // create user in klipfolio
+                String jsondata = "{"
+                        + "'first_name': 'Jane', "
+                        + "'last_name': 'Doe', "
+                        + "'email': 'jdoe@klipfolio.com', "
+                        + "'roles': ['0123456789abcdef0123456789abcdef'] "
+                    + " }";
+                var header = new Dictionary<string, string> {{ "kf-api-key", "8be9c7ab65ac9f1363e1ecf5ef485164bddf4c77" } };
+                // Dictionary<String, String> header = new Dictionary<string, string>();
+                // header.Add("kf-api-key", "8be9c7ab65ac9f1363e1ecf5ef485164bddf4c77");
+                HtmlHelpers.Post("https://app.klipfolio.com/api/1/users", jsondata, header);
+
+                //
                 return Redirect("~/Admin");
             }
             catch (Exception ex)
