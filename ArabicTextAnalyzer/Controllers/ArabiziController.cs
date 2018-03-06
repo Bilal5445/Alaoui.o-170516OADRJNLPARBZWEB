@@ -12,6 +12,12 @@ using System.Configuration;
 using System.Collections.Specialized;
 using ArabicTextAnalyzer.BO;
 using System.Web.Http.Description;
+using System.Data.SqlClient;
+using Dapper;
+using OADRJNLPCommon.Models;
+using OADRJNLPCommon.Business;
+using System.Web;
+using Newtonsoft.Json;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -259,9 +265,7 @@ namespace ArabicTextAnalyzer.Controllers
             result = HtmlHelpers.PostAPIRequest(url, requestContent);
 
             if (result.Contains("Success"))
-            {
                 return true;
-            }
             else
             {
                 errorMessage = result;
@@ -279,6 +283,106 @@ namespace ArabicTextAnalyzer.Controllers
             result = HtmlHelpers.PostAPIRequest(url, requestContent);
 
             return result;
+        }
+
+        /// <summary>
+        /// Obtain the datat source for the NER Count Per Theme query
+        /// </summary>
+        /// <param name="ID_XTRCTTHEME">The client theme id</param>
+        [HttpGet]
+        public IHttpActionResult StatNerCountPerTheme(string ID_XTRCTTHEME)
+        {
+            try
+            {
+                String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    String qry0 = "SELECT TOP 10 Keyword, SUM(Keyword_Count) CountPerKeyword FROM T_XTRCTTHEME_KEYWORD "
+                                + "WHERE ID_XTRCTTHEME = @ID_XTRCTTHEME "
+                                + "GROUP BY Keyword "
+                                + "ORDER BY SUM(Keyword_Count) DESC ";
+
+                    // DBG
+                    var Server = HttpContext.Current.Server;
+                    Logging.Write(Server, qry0);
+                    Logging.Write(Server, ID_XTRCTTHEME);
+
+                    conn.Open();
+                    return Ok(conn.Query<LM_CountPerKeyword>(qry0, new { ID_XTRCTTHEME = ID_XTRCTTHEME }));
+                }
+            }
+            catch (SqlException ex)
+            {
+                var Server = HttpContext.Current.Server;
+                Logging.Write(Server, ex.GetType().Name);
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                return InternalServerError(ex);
+            }
+            catch (Exception ex)
+            {
+                var Server = HttpContext.Current.Server;
+                Logging.Write(Server, ex.GetType().Name);
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                /*return Ok(JsonConvert.SerializeObject(new
+                {
+                    status = false,
+                    message = ex.Message
+                }));*/
+                return InternalServerError(ex);
+            }
+        }
+
+        /// <summary>
+        /// Obtain the datat source for the NER Count For All Themes query
+        /// </summary>
+        [HttpGet]
+        public IHttpActionResult StatNerCountPerThemes()
+        {
+            // TODO : needs authprization
+            try
+            {
+                String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    String qry0 = "SELECT ID_XTRCTTHEME, Keyword, SUM(Keyword_Count) CountPerKeyword FROM T_XTRCTTHEME_KEYWORD "
+                                + "GROUP BY ID_XTRCTTHEME, Keyword "
+                                + "ORDER BY SUM(Keyword_Count) DESC ";
+
+                    // DBG
+                    var Server = HttpContext.Current.Server;
+                    Logging.Write(Server, qry0);
+
+                    conn.Open();
+                    return Ok(conn.Query<LM_CountPerKeywordPerTheme>(qry0));
+                }
+            }
+            catch (SqlException ex)
+            {
+                var Server = HttpContext.Current.Server;
+                Logging.Write(Server, ex.GetType().Name);
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                return InternalServerError(ex);
+            }
+            catch (Exception ex)
+            {
+                var Server = HttpContext.Current.Server;
+                Logging.Write(Server, ex.GetType().Name);
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                /*return Ok(JsonConvert.SerializeObject(new
+                {
+                    status = false,
+                    message = ex.Message
+                }));*/
+                return InternalServerError(ex);
+            }
         }
     }
 }

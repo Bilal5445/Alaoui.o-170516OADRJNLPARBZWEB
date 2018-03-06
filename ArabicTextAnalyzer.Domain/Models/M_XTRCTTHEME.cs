@@ -18,10 +18,4 @@ namespace ArabicTextAnalyzer.Domain.Models
         public String UserID { get; set; }
         public int IsDeleted { get; set; }
     }
-
-    public class LM_CountPerUser
-    {
-        public String UserID { get; set; }
-        public int CountPerUser { get; set; }
-    }
 }
