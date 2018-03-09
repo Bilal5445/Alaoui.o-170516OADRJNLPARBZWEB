@@ -154,10 +154,17 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [Authorize]
-        public ActionResult IndexFBs()
+        public ActionResult IndexFBs(String idXtrctTheme = null)
         {
             //
             var userId = User.Identity.GetUserId();
+
+            // when called without parameters optional idXtrctTheme == Guid.Empty will be true
+            // if not empty change theme
+            if (idXtrctTheme != null)
+            {
+                ApplyNewActiveTheme(new Guid(idXtrctTheme), userId);
+            }
 
             // token management
             ManageToken(userId);
@@ -1418,15 +1425,28 @@ namespace ArabicTextAnalyzer.Controllers
         {
             //
             var userId = User.Identity.GetUserId();
+            ApplyNewActiveTheme(themename, userId);
 
+            //
+            return RedirectToAction("Index");
+        }
+
+        private static void ApplyNewActiveTheme(string themename, string userId)
+        {
             // find previous active, and disable it
             new Arabizer().saveserializeM_XTRCTTHEME_EFSQL_Deactivate(userId);
 
             // find to-be-active by name, and make it active
             new Arabizer().saveserializeM_XTRCTTHEME_EFSQL_Active(themename, userId);
+        }
 
-            //
-            return RedirectToAction("Index");
+        private static void ApplyNewActiveTheme(Guid idXtrctTheme, string userId)
+        {
+            // find previous active, and disable it
+            new Arabizer().saveserializeM_XTRCTTHEME_EFSQL_Deactivate(userId);
+
+            // find to-be-active by name, and make it active
+            new Arabizer().saveserializeM_XTRCTTHEME_EFSQL_Active(idXtrctTheme);
         }
 
         [HttpGet]
