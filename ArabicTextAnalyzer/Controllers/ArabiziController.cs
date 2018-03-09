@@ -286,7 +286,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         /// <summary>
-        /// Obtain the datat source for the NER Count Per Theme query
+        /// Obtain the data source for the NER Count Per Theme query
         /// </summary>
         /// <param name="ID_XTRCTTHEME">The client theme id</param>
         [HttpGet]
@@ -337,7 +337,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         /// <summary>
-        /// Obtain the datat source for the NER Count For All Themes query
+        /// Obtain the data source for the NER Count For All Themes query
         /// </summary>
         [HttpGet]
         public IHttpActionResult StatNerCountPerThemes()
