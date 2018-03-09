@@ -777,6 +777,20 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
+        public void saveserializeM_XTRCTTHEME_EFSQL_Active(Guid idXtrctTheme)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                var xtrctThemes = db.M_XTRCTTHEMEs;
+
+                var tobeactiveXtrctTheme = xtrctThemes.Where(m => m.ID_XTRCTTHEME == idXtrctTheme).FirstOrDefault<M_XTRCTTHEME>();
+                tobeactiveXtrctTheme.CurrentActive = "active";
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
         public void saveserializeM_XTRCTTHEME_EFSQL_Deactivate(String userId)
         {
             using (var db = new ArabiziDbContext())
@@ -790,6 +804,20 @@ namespace ArabicTextAnalyzer.BO
                 db.SaveChanges();
             }
         }
+
+        /*public void saveserializeM_XTRCTTHEME_EFSQL_Deactivate(Guid idXtrctTheme)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                var xtrctThemes = db.M_XTRCTTHEMEs;
+
+                var tobeactiveXtrctTheme = xtrctThemes.Where(m => m.ID_XTRCTTHEME == idXtrctTheme).FirstOrDefault<M_XTRCTTHEME>();
+                tobeactiveXtrctTheme.CurrentActive = String.Empty;
+
+                // commit
+                db.SaveChanges();
+            }
+        }*/
 
         public void Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(Guid id_arabizientry)
         {
