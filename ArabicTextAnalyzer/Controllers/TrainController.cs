@@ -89,6 +89,10 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
             @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE" && m.Keyword_Type != "OPPOSE" && m.Keyword_Type != "EXPLETIVE" && m.Keyword_Type != "SENSITIVE").ToList();
 
+            // Fetch the data for fbPages for all themes for that user
+            var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
+            ViewBag.AllInfluenceVert = fbFluencerAsTheme;
+
             // communication
             @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
             @ViewBag.showAlertSuccess = TempData["showAlertSuccess"] != null ? TempData["showAlertSuccess"] : false;
@@ -118,6 +122,10 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
             @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE" && m.Keyword_Type != "OPPOSE" && m.Keyword_Type != "EXPLETIVE" && m.Keyword_Type != "SENSITIVE").ToList();
 
+            // Fetch the data for fbPages for all themes for that user
+            var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
+            ViewBag.AllInfluenceVert = fbFluencerAsTheme;
+
             return View();
         }
 
@@ -137,6 +145,10 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE" || m.Keyword_Type == "OPPOSE" || m.Keyword_Type == "EXPLETIVE" || m.Keyword_Type == "SENSITIVE").ToList();
             @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
             @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE" && m.Keyword_Type != "OPPOSE" && m.Keyword_Type != "EXPLETIVE" && m.Keyword_Type != "SENSITIVE").ToList();
+
+            // Fetch the data for fbPages for all themes for that user
+            var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
+            ViewBag.AllInfluenceVert = fbFluencerAsTheme;
 
             return View();
         }
@@ -161,6 +173,10 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
             @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE" && m.Keyword_Type != "OPPOSE" && m.Keyword_Type != "EXPLETIVE" && m.Keyword_Type != "SENSITIVE").ToList();
 
+            // Fetch the data for fbPages for all themes for that user
+            var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
+            ViewBag.AllInfluenceVert = fbFluencerAsTheme;
+
             return View();
         }
 
@@ -181,6 +197,10 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
             @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE" && m.Keyword_Type != "OPPOSE" && m.Keyword_Type != "EXPLETIVE" && m.Keyword_Type != "SENSITIVE").ToList();
 
+            // Fetch the data for fbPages for all themes for that user
+            var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
+            ViewBag.AllInfluenceVert = fbFluencerAsTheme;
+
             return View();
         }
 
@@ -196,7 +216,7 @@ namespace ArabicTextAnalyzer.Controllers
                     {
                         // Fetch the data for fbPage as only for that theme
                         var userId = User.Identity.GetUserId();
-                        var fbFluencerAsTheme = new Arabizer().loadAllT_Fb_InfluencerAsTheme_DAPPERSQL(userId);
+                        var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_ActiveTheme_DAPPERSQL(userId);
                         ViewBag.AllInfluence = fbFluencerAsTheme;
                     }
 

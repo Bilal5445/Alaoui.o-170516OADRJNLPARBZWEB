@@ -1107,27 +1107,42 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
-        public List<T_FB_INFLUENCER> loadAllT_Fb_InfluencerAsTheme_DAPPERSQL(String userId)
+        public List<T_FB_INFLUENCER> loadDeserializeT_FB_INFLUENCERs_ActiveTheme_DAPPERSQL(String userId)
         {
             //
-            var t_fb_Influencer = new List<T_FB_INFLUENCER>();
-            var themes = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
-            M_XTRCTTHEME theme = (themes != null) ? themes : new M_XTRCTTHEME();
-            if (theme.ID_XTRCTTHEME != null)
+            var activeTheme = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+
+            //
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+                String qry = "SELECT * FROM T_FB_INFLUENCER WHERE fk_theme = '" + activeTheme.ID_XTRCTTHEME + "'";
 
-                using (SqlConnection conn = new SqlConnection(ConnectionString))
-                {
-                    String qry = "SELECT * FROM T_FB_INFLUENCER WHERE fk_theme = '" + theme.ID_XTRCTTHEME + "'";
-
-                    conn.Open();
-                    return conn.Query<T_FB_INFLUENCER>(qry).ToList();
-                }
+                conn.Open();
+                return conn.Query<T_FB_INFLUENCER>(qry).ToList();
             }
-            else
+        }
+
+        public List<T_FB_INFLUENCER> loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(String userId)
+        {
+            //
+            List<M_XTRCTTHEME> userThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+
+            //
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                return t_fb_Influencer;
+                conn.Open();
+
+                List<T_FB_INFLUENCER> userFBPages = new List<T_FB_INFLUENCER>();
+                foreach (var xtrctTheme in userThemes)
+                {
+                    String qry = "SELECT * FROM T_FB_INFLUENCER WHERE fk_theme = '" + xtrctTheme.ID_XTRCTTHEME + "'";
+                    List<T_FB_INFLUENCER> userThemeFBPages = conn.Query<T_FB_INFLUENCER>(qry).ToList();
+                    userFBPages.AddRange(userThemeFBPages);
+                }
+
+                return userFBPages;
             }
         }
 
