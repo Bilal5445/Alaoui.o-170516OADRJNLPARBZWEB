@@ -247,11 +247,11 @@ namespace ArabicTextAnalyzer.Controllers
 
             //
             ViewBag.CurrentFilter = searchStringUserNameOrEmail;
-            List<FBPageToThemeToUserViewModel> col_UserDTO = new List<FBPageToThemeToUserViewModel>();
+            // List<FBPageToThemeToUserViewModel> col_UserDTO = new List<FBPageToThemeToUserViewModel>();
             int intSkip = (intPage - 1) * intPageSize;
 
             //
-            var users = UserManager.Users.Where(x => x.UserName.Contains(searchStringUserNameOrEmail));
+            var users = UserManager.Users; // .Where(x => x.UserName.Contains(searchStringUserNameOrEmail));
             var lusers = users.ToList();
 
             // themes for the users
@@ -274,11 +274,13 @@ namespace ArabicTextAnalyzer.Controllers
                     x => x.idXtrctTheme,
                     y => y.fk_theme, (x, y) => new FBPageToThemeToUserViewModel
                     {
-                        name = y.name,
+                        name = y.name,  // FB page name
                         ThemeName = x.ThemeName,
                         CurrentActive = x.CurrentActive,
                         UserName = x.UserName,
                     });
+
+            result = result.Where(x => x.name.ToUpper().Contains(searchStringUserNameOrEmail.ToUpper()));
 
             // items count
             intTotalItemCount = result.Count();
