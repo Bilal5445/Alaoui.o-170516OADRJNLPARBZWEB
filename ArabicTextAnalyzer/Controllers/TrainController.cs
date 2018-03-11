@@ -77,14 +77,9 @@ namespace ArabicTextAnalyzer.Controllers
             var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
             List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
             var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
-
             @ViewBag.UserXtrctThemes = userXtrctThemes;
             @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
             @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
-            // note the keywords can be many records associated with this theme, plus the original record (filled at creation) contains many keywords seprated by space
-            // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Where(m => m.ID_XTRCTTHEME == activeXtrctTheme.ID_XTRCTTHEME).Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
-            // @ViewBag.ActiveXtrctThemeTags = String.Join(" ", xtrctThemesKeywords.Select(m => m.Keyword).ToList()).Split(new char[] { ' ' }).ToList();
-            // @ViewBag.ActiveXtrctThemeTags = xtrctThemesKeywords.Select(m => m.Keyword).ToList();
             @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE" || m.Keyword_Type == "OPPOSE" || m.Keyword_Type == "EXPLETIVE" || m.Keyword_Type == "SENSITIVE").ToList();
             @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
             @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE" && m.Keyword_Type != "OPPOSE" && m.Keyword_Type != "EXPLETIVE" && m.Keyword_Type != "SENSITIVE").ToList();
