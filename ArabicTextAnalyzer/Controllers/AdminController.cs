@@ -247,11 +247,10 @@ namespace ArabicTextAnalyzer.Controllers
 
             //
             ViewBag.CurrentFilter = searchStringUserNameOrEmail;
-            // List<FBPageToThemeToUserViewModel> col_UserDTO = new List<FBPageToThemeToUserViewModel>();
             int intSkip = (intPage - 1) * intPageSize;
 
             //
-            var users = UserManager.Users; // .Where(x => x.UserName.Contains(searchStringUserNameOrEmail));
+            var users = UserManager.Users;
             var lusers = users.ToList();
 
             // themes for the users
@@ -260,6 +259,7 @@ namespace ArabicTextAnalyzer.Controllers
             // fb pages for the users
             List<T_FB_INFLUENCER> fbPages = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL();
 
+            //
             var result0 = lusers.Join(xtrctThemes,
                     x => x.Id.ToUpper(),
                     y => y.UserID.ToUpper(), (x, y) => new
@@ -275,9 +275,10 @@ namespace ArabicTextAnalyzer.Controllers
                     y => y.fk_theme, (x, y) => new FBPageToThemeToUserViewModel
                     {
                         name = y.name,  // FB page name
+                        AutoRetrieveFBPostAndComments = y.AutoRetrieveFBPostAndComments,
                         ThemeName = x.ThemeName,
                         CurrentActive = x.CurrentActive,
-                        UserName = x.UserName,
+                        UserName = x.UserName
                     });
 
             result = result.Where(x => x.name.ToUpper().Contains(searchStringUserNameOrEmail.ToUpper()));
