@@ -3,6 +3,8 @@
 
 @{
     List<T_FB_INFLUENCER> FbInfluencersVert = ViewBag.AllInfluenceVert;
+    var cntrlr = ViewContext.RouteData.Values["Controller"].ToString();
+    var actn = ViewContext.RouteData.Values["Action"].ToString();
 }
 
 <!DOCTYPE html>
@@ -49,12 +51,11 @@
                     }
                     @if (User.IsInRole("Administrator"))
                     {
-                        <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Admin" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">@Html.ActionLink("Administration", "Index", "Admin", new { area = "" }, null)</li>
-                        <li class="dropdown">
+                        <li class="dropdown @(cntrlr == "Admin" && actn.StartsWith("Index") ? "active" : "")">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administration<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/Admin">Manage Users</a></li>
-                                <li><a href="/Admin/IndexFBs">FB pages</a></li>
+                                <li class="@(cntrlr == "Admin" && actn == "Index" ? "active" : "")"><a href="/Admin">Manage Users</a></li>
+                                <li class="@(cntrlr == "Admin" && actn == "IndexFBs" ? "active" : "")"><a href="/Admin/IndexFBs">FB pages</a></li>
                             </ul>
                         </li>
                     }
