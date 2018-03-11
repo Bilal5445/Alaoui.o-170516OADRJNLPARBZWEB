@@ -898,7 +898,7 @@ function RefreshFBPostsAndComments() {
 }
 
 // Js fct to add per user influencer the target entities that are used to cross-match against with the Negative/Explative NER in the FB filter module
-function AddTextEntity(influencerid) {
+function JsAddTextEntity(influencerid) {
 
     if (AddTextEntityClicked == false) {
 
