@@ -57,8 +57,6 @@ namespace ArabicTextAnalyzer.Controllers
 
                 //
                 var users = UserManager.Users.Where(x => x.UserName.Contains(searchStringUserNameOrEmail));
-
-                // 
                 var lusers = users.ToList();
 
                 // get register apps to make a join with users and with registerusers to get get last login time
@@ -199,7 +197,7 @@ namespace ArabicTextAnalyzer.Controllers
                     col_UserDTO.Add(objUserDTO);
                 }
 
-                // Set the number of pages
+                // Created the paged list and Set the number of pages
                 var _UserDTOAsIPagedList = new StaticPagedList<ExpandedUserDTO>(col_UserDTO, intPage, intPageSize, intTotalItemCount);
 
                 // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
@@ -225,6 +223,90 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
         #endregion
+
+        [Authorize(Roles = "Administrator")]
+        public ActionResult IndexFBs(string searchStringUserNameOrEmail, string currentFilter, int? page)
+        {
+            int intPage = 1;
+            int intPageSize = 5;
+            int intTotalItemCount = 0;
+
+            //
+            if (searchStringUserNameOrEmail != null)
+                intPage = 1;
+            else if (currentFilter != null)
+            {
+                searchStringUserNameOrEmail = currentFilter;
+                intPage = page ?? 1;
+            }
+            else
+            {
+                searchStringUserNameOrEmail = "";
+                intPage = page ?? 1;
+            }
+
+            //
+            ViewBag.CurrentFilter = searchStringUserNameOrEmail;
+            List<FBPageToThemeToUserViewModel> col_UserDTO = new List<FBPageToThemeToUserViewModel>();
+            int intSkip = (intPage - 1) * intPageSize;
+
+            //
+            var users = UserManager.Users.Where(x => x.UserName.Contains(searchStringUserNameOrEmail));
+            var lusers = users.ToList();
+
+            // themes for the users
+            List<M_XTRCTTHEME> xtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL();
+
+            // fb pages for the users
+            List<T_FB_INFLUENCER> fbPages = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL();
+
+            var result0 = lusers.Join(xtrctThemes,
+                    x => x.Id.ToUpper(),
+                    y => y.UserID.ToUpper(), (x, y) => new
+                    {
+                        y.ThemeName,
+                        y.CurrentActive,
+                        x.UserName,
+                        idXtrctTheme = y.ID_XTRCTTHEME.ToString()
+                    });
+
+            var result = result0.Join(fbPages,
+                    x => x.idXtrctTheme,
+                    y => y.fk_theme, (x, y) => new FBPageToThemeToUserViewModel
+                    {
+                        name = y.name,
+                        ThemeName = x.ThemeName,
+                        CurrentActive = x.CurrentActive,
+                        UserName = x.UserName,
+                    });
+
+            // items count
+            intTotalItemCount = result.Count();
+
+            // take the items for the current page only
+            result = result
+                .OrderByDescending(x => x.name)
+                .Skip(intSkip)
+                .Take(intPageSize);
+
+            // Created the paged list and Set the number of pages
+            var pagedList = new StaticPagedList<FBPageToThemeToUserViewModel>(result, intPage, intPageSize, intTotalItemCount);
+
+            // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
+            var userId = User.Identity.GetUserId();
+            var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+            var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
+            @ViewBag.UserXtrctThemes = userXtrctThemes;
+            @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
+            @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
+
+            // Fetch the data for fbPages for all themes for that user
+            var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
+            ViewBag.AllInfluenceVert = fbFluencerAsTheme;
+
+            //
+            return View(pagedList);
+        }
 
         // Users *****************************
 
@@ -393,7 +475,7 @@ namespace ArabicTextAnalyzer.Controllers
                         + "'email': 'jdoe@klipfolio.com', "
                         + "'roles': ['0123456789abcdef0123456789abcdef'] "
                     + " }";
-                var header = new Dictionary<string, string> {{ "kf-api-key", "8be9c7ab65ac9f1363e1ecf5ef485164bddf4c77" } };
+                var header = new Dictionary<string, string> { { "kf-api-key", "8be9c7ab65ac9f1363e1ecf5ef485164bddf4c77" } };
                 // Dictionary<String, String> header = new Dictionary<string, string>();
                 // header.Add("kf-api-key", "8be9c7ab65ac9f1363e1ecf5ef485164bddf4c77");
                 HtmlHelpers.Post("https://app.klipfolio.com/api/1/users", jsondata, header);

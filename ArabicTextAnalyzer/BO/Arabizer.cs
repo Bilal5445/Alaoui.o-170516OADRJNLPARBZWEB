@@ -1151,6 +1151,19 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
+        public List<T_FB_INFLUENCER> loadDeserializeT_FB_INFLUENCERs_DAPPERSQL()
+        {
+            //
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                String qry = "SELECT * FROM T_FB_INFLUENCER";
+                return conn.Query<T_FB_INFLUENCER>(qry).ToList();
+            }
+        }
+
         public List<T_FB_INFLUENCER> loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(String userId)
         {
             //
