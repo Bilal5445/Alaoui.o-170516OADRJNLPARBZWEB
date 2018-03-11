@@ -210,6 +210,10 @@ namespace ArabicTextAnalyzer.Controllers
                 @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
                 @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
 
+                // Fetch the data for fbPages for all themes for that user
+                var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
+                ViewBag.AllInfluenceVert = fbFluencerAsTheme;
+
                 //
                 return View(_UserDTOAsIPagedList);
             }
