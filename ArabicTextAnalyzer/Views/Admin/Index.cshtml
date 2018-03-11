@@ -1,7 +1,7 @@
 ﻿@model PagedList.IPagedList<ArabicTextAnalyzer.Models.ExpandedUserDTO>
 @using PagedList.Mvc;
 @{
-    ViewBag.Title = "Adekwasy - Administration";
+    ViewBag.Title = "Gravitas - Users Administration";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -23,7 +23,6 @@
 <br />
 @using (Html.BeginForm("Index", "Admin", FormMethod.Get))
 {
-
     <div class="form-group">
         Search:&nbsp; @Html.TextBox("searchStringUserNameOrEmail", ViewBag.CurrentFilter as string)
 
@@ -32,6 +31,7 @@
 }
 <br />
 
+@* data table *@
 <table class="table">
     <tr>
         <th>Email</th>
@@ -74,13 +74,11 @@
 <br />
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
-@Html.PagedListPager(Model,
-    page => Url.Action("Index",
-    new
+@* pagination *@
+@Html.PagedListPager(Model, page => Url.Action("Index", new
     {
         page,
         searchStringUserNameOrEmail = ViewBag.searchStringUserNameOrEmail,
         currentFilter = ViewBag.CurrentFilter
     }))
 <hr />
-

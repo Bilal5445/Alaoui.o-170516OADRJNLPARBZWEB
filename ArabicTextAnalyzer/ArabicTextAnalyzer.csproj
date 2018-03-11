@@ -702,6 +702,7 @@
     <Content Include="Views\Train\IndexStats.cshtml" />
     <Content Include="Views\Train\IndexFBs.cshtml" />
     <Content Include="Views\Train\IndexSocialSearch.cshtml" />
+    <Content Include="Views\Admin\IndexFBs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />
