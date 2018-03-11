@@ -100,7 +100,7 @@
                 <div class="form-group">
                     <!-- Button "Retrieve" to retreive FB page posts and associated comments -->
                     <a class="btn btn-outline-primary btn-xs" id="import_posts" onclick="JsRetrieveFBPosts('@item.url_name','@item.id')">Retrieve new posts <span class="glyphicon glyphicon-refresh"></span></a>
-                    <!-- And button add entities to cross-match against -->
+                    <!-- And button add entities to cross-match against and to enable/disable alerts module -->
                     <a class="btn btn-danger btn-xs pull-right" id="insert_list" data-toggle='modal' data-target='#myModal_@item.id'>Config FB Alerts <span class="glyphicon glyphicon-cog"></span></a>
                 </div>
                 <!-- table of FB page posts -->
@@ -158,7 +158,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <input type="button" value="Save Settings" class="btn btn-primary" id="btnAddOption" onclick="AddTextEntity('@item.id');" />
+                            <input type="button" value="Save Settings" class="btn btn-primary" id="btnAddOption" onclick="JsAddTextEntity('@item.id');" />
                         </div>
                     </div>
                 </div>
