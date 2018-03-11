@@ -98,10 +98,10 @@
                         {
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse@(userXtrctTheme.ThemeName)" title="@(userXtrctTheme.ID_XTRCTTHEME)"><span class="glyphicon glyphicon-folder-close"></span>@userXtrctTheme.ThemeName</a></h4>
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse@(userXtrctTheme.ID_XTRCTTHEME)" title="@(userXtrctTheme.ID_XTRCTTHEME)"><span class="glyphicon glyphicon-folder-close"></span>@userXtrctTheme.ThemeName</a></h4>
                                 </div>
                             </div>
-                            <div id="collapse@(userXtrctTheme.ThemeName)" class="panel-collapse collapse @(userXtrctTheme.CurrentActive == "active" ? "in" : "")">
+                            <div id="collapse@(userXtrctTheme.ID_XTRCTTHEME)" class="panel-collapse collapse @(userXtrctTheme.CurrentActive == "active" ? "in" : "")">
                                 <div class="panel-body">
                                     <table class="table">
                                         <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexTranslateArabizi" ? "activeblack" : "")"><td><span class="glyphicon glyphicon-play"></span><a href="/Train/IndexTranslateArabizi" title="Translate Arabizi to Arabic">Translate Arabizi</a></td></tr>
