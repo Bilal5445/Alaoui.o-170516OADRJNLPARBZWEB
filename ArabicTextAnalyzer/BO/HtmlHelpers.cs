@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -57,6 +58,31 @@ namespace ArabicTextAnalyzer.BO
                 // fill header
                 foreach (var item in header)
                     content.Headers.Add(item.Key, item.Value);
+
+                // post
+                var response = client.PostAsync(url, content).Result;
+
+                //
+                var responseString = response.Content.ReadAsStringAsync().Result;
+
+                //
+                return responseString;
+            }
+        }
+
+        public static string PostBasicAuth(String url, String jsonData, Dictionary<string, string> header)
+        {
+            using (var client = new HttpClient())
+            {
+                // fill data
+                var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+
+                // fill header
+                foreach (var item in header)
+                    content.Headers.Add(item.Key, item.Value);
+
+                var credentials = Encoding.ASCII.GetBytes("dev.tech@namategroup.com:ayasfeli");
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(credentials));
 
                 // post
                 var response = client.PostAsync(url, content).Result;
