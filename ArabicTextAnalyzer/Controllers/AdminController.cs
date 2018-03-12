@@ -15,6 +15,7 @@ using ArabicTextAnalyzer.Models.Repository;
 using System.Configuration;
 using ArabicTextAnalyzer.Business.Provider;
 using OADRJNLPCommon.Models;
+using OADRJNLPCommon.Business;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -438,6 +439,11 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
             @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
 
+            // Fetch the data for fbPages for all themes for that user
+            var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
+            ViewBag.AllInfluenceVert = fbFluencerAsTheme;
+
+            //
             if (UserName == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -472,22 +478,34 @@ namespace ArabicTextAnalyzer.Controllers
                     return HttpNotFound();
 
                 // create user in klipfolio
+                String editorRole = "b6ddda3ff84aef09d6c1cd12596f1687";
+                String email = paramExpandedUserDTO.Email;
+                String first_name = Guid.NewGuid().ToString();
+                String last_name = "Namate";
                 String jsondata = "{"
-                        + "'first_name': 'Jane', "
-                        + "'last_name': 'Doe', "
-                        + "'email': 'jdoe@klipfolio.com', "
-                        + "'roles': ['0123456789abcdef0123456789abcdef'] "
+                        + "'first_name': '" + first_name + "', "
+                        + "'last_name': '" + last_name + "', "
+                        + "'email': '" + email + "', "
+                        + "'roles': ['" + editorRole + "'] "
                     + " }";
                 var header = new Dictionary<string, string> { { "kf-api-key", "8be9c7ab65ac9f1363e1ecf5ef485164bddf4c77" } };
                 // Dictionary<String, String> header = new Dictionary<string, string>();
                 // header.Add("kf-api-key", "8be9c7ab65ac9f1363e1ecf5ef485164bddf4c77");
-                HtmlHelpers.Post("https://app.klipfolio.com/api/1/users", jsondata, header);
+                // HtmlHelpers.Post("https://app.klipfolio.com/api/1/users", jsondata, header);
+                var res = HtmlHelpers.PostBasicAuth("https://app.klipfolio.com/api/1/users", jsondata, header);
+                Logging.Write(Server, res);
 
                 //
                 return Redirect("~/Admin");
             }
             catch (Exception ex)
             {
+                //
+                Logging.Write(Server, ex.GetType().Name);
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                //
                 ModelState.AddModelError(string.Empty, "Error: " + ex);
                 return View("EditUser", GetUser(paramExpandedUserDTO.UserName));
             }
