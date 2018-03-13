@@ -78,15 +78,15 @@
                                     <li class="@userXtrctTheme.CurrentActive"><a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = userXtrctTheme.ThemeName })">@userXtrctTheme.ThemeName</a></li>
                                 }
                             </ul>
-                            <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" title="Change current theme"><span class="caret"></span></button>
+                            <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" title="Change active theme"><span class="caret"></span></button>
                         </div>
                         <p style="font-weight:bold; font-size:16px; display:inline-block;">THEMES</p>
                         <!-- theme menu : edit theme -->
-                        <button style="margin-right: 2px;"type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal" title="Edit this theme"><span class="glyphicon glyphicon-edit"></span></button>
+                        <button style="margin-right: 2px;"type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModalRenameTheme" title="Edit active theme : @ViewBag.UserActiveXtrctTheme.ThemeName"><span class="glyphicon glyphicon-edit"></span></button>
                         <!-- theme menu : remove theme -->
-                        <button style="margin-right: 2px;" type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModalRemoveTheme" title="Remove this theme"><span class="glyphicon glyphicon-remove"></span></button>
+                        <button style="margin-right: 2px;" type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModalRemoveTheme" title="Remove active theme : @ViewBag.UserActiveXtrctTheme.ThemeName"><span class="glyphicon glyphicon-remove"></span></button>
                         <!-- theme menu : add new theme -->
-                        <button style="margin-right: 2px;"type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal" style="float:right;" title="Add a new theme"><span class="glyphicon glyphicon-plus"></span> </button>
+                        <button style="margin-right: 2px;"type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModalAddNewTheme" style="float:right;" title="Add a new theme"><span class="glyphicon glyphicon-plus"></span> </button>
                     </div>
                     <!-- themes list accordion -->
                     <div class="panel-group" id="accordion">
@@ -94,7 +94,7 @@
                         {
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse@(userXtrctTheme.ID_XTRCTTHEME)" title="@(userXtrctTheme.ID_XTRCTTHEME)"><span class="glyphicon glyphicon-folder-close"></span>@userXtrctTheme.ThemeName</a></h4>
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" class="@(userXtrctTheme.CurrentActive == "active" ? "bold" : "")" href="#collapse@(userXtrctTheme.ID_XTRCTTHEME)" title="@(userXtrctTheme.ID_XTRCTTHEME)"><span class="glyphicon glyphicon-folder-close"></span>@userXtrctTheme.ThemeName</a></h4>
                                 </div>
                             </div>
                             <div id="collapse@(userXtrctTheme.ID_XTRCTTHEME)" class="panel-collapse collapse @(userXtrctTheme.CurrentActive == "active" ? "in" : "")">
@@ -142,8 +142,8 @@
     <div class="rotated-text"><span class="rotated-text__inner"><strong>v0.1712.15.15 - Load Time : </strong><span id="loadTime"></span></span></div>
     <script type="text/javascript" src="~/Scripts/my.js"></script>
 
-    <!-- modal new theme dialogbox #myModal -->
-    <div class="modal fade" id="myModal" role="dialog">
+    <!-- modal new theme dialogbox #myModalAddNewTheme -->
+    <div class="modal fade" id="myModalAddNewTheme" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -159,6 +159,30 @@
                             @Html.TextBox("themename", "", new { @class = "form-control", placeholder = "Enter new theme name", @required = "required", id = "themename" })
                         </div>
                         <button type="submit" class="btn btn-default btn-success">Add</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal rename theme dialogbox #myModalRenameTheme -->
+    <div class="modal fade" id="myModalRenameTheme" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="color:darkblue;">Rename Theme : @ViewBag.UserActiveXtrctTheme.ThemeName</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("XtrctTheme_EditName", "Train", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <label for="themename">Theme New Name</label>
+                            @Html.TextBox("themeNewName", "", new { @class = "form-control", placeholder = "Enter theme new name", @required = "required", id = "themeNewName" })
+                            @Html.Hidden("idXtrctTheme", (Guid)ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME)
+                        </div>
+                        <button type="submit" class="btn btn-default btn-success">Rename</button>
                     }
                 </div>
             </div>
