@@ -1360,6 +1360,39 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
+        public List<LM_CountPerThemePerUser> loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry0 = "SELECT XT.UserID, XT.ID_XTRCTTHEME, COUNT(*) CountPerThemePerUser FROM T_ARABICDARIJAENTRY AR "
+                            + "INNER JOIN T_ARABIZIENTRY ARZ ON AR.ID_ARABIZIENTRY = ARZ.ID_ARABIZIENTRY "
+                            + "INNER JOIN T_XTRCTTHEME XT ON ARZ.ID_XTRCTTHEME = XT.ID_XTRCTTHEME "
+                            + "GROUP BY XT.UserID, XT.ID_XTRCTTHEME ";
+
+                conn.Open();
+                return conn.Query<LM_CountPerThemePerUser>(qry0).ToList();
+            }
+        }
+
+        public List<LM_CountPerThemePerUser> loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(String userId)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry0 = "SELECT XT.UserID, XT.ID_XTRCTTHEME, COUNT(*) CountPerThemePerUser FROM T_ARABICDARIJAENTRY AR "
+                            + "INNER JOIN T_ARABIZIENTRY ARZ ON AR.ID_ARABIZIENTRY = ARZ.ID_ARABIZIENTRY "
+                            + "INNER JOIN T_XTRCTTHEME XT ON ARZ.ID_XTRCTTHEME = XT.ID_XTRCTTHEME "
+                            + "WHERE XT.UserID = '" + userId + "' " 
+                            + "GROUP BY XT.UserID, XT.ID_XTRCTTHEME ";
+
+                conn.Open();
+                return conn.Query<LM_CountPerThemePerUser>(qry0).ToList();
+            }
+        }
+
         public M_ARABICDARIJAENTRY loaddeserializeM_ARABICDARIJAENTRY_DB_by_ArabiziEntryId(Guid arabiziWordGuid)
         {
             using (var db = new ArabiziDbContext())
