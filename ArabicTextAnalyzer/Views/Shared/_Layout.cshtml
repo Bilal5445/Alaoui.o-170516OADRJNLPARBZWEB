@@ -5,6 +5,8 @@
     List<T_FB_INFLUENCER> FbInfluencersVert = ViewBag.AllInfluenceVert;
     var cntrlr = ViewContext.RouteData.Values["Controller"].ToString();
     var actn = ViewContext.RouteData.Values["Action"].ToString();
+
+    List<LM_CountPerThemePerUser> cntPrThmPrUsr = ViewBag.EntriesCountsperThemePerUser;
 }
 
 <!DOCTYPE html>
@@ -101,7 +103,25 @@
                                 <div class="panel-body">
                                     <table class="table">
                                         <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexTranslateArabizi" ? "activeblack" : "")"><td><span class="glyphicon glyphicon-play"></span><a href="/Train/IndexTranslateArabizi" title="Translate Arabizi to Arabic">Translate Arabizi</a></td></tr>
-                                        <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "activeblack" : "")"><td><span class="glyphicon glyphicon-dashboard"></span><a href="/Train/Index" title="Translate, Display, filter, export, import data and extract insights">Working Data</a></td></tr>
+                                        @* @{
+                                            IHtmlString htmraw = @Html.Raw(HttpUtility.JavaScriptStringEncode(""));
+                                            if (cntPrThmPrUsr != null && cntPrThmPrUsr.SingleOrDefault(m => m.ID_XTRCTTHEME == userXtrctTheme.ID_XTRCTTHEME) != null)
+                                            {
+                                                var bdg = cntPrThmPrUsr.Single(m => m.ID_XTRCTTHEME == userXtrctTheme.ID_XTRCTTHEME).CountPerThemePerUser;
+                                                var htm = "<span class='badge' style='float: right;'>" + bdg + "</span>";
+                                                htmraw = @Html.Raw(HttpUtility.JavaScriptStringEncode(htm));
+                                            }
+                                        } *@
+                                        @{ 
+                                            var bdg = 0;
+                                            if (cntPrThmPrUsr != null && cntPrThmPrUsr.SingleOrDefault(m => m.ID_XTRCTTHEME == userXtrctTheme.ID_XTRCTTHEME) != null)
+                                            {
+                                                bdg = cntPrThmPrUsr.Single(m => m.ID_XTRCTTHEME == userXtrctTheme.ID_XTRCTTHEME).CountPerThemePerUser;
+                                            }
+                                            var htm = "<span class='badge' style='float: right;'>" + bdg + "</span>";
+                                            var htmraw = @Html.Raw(htm);
+                                        }
+                                        <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "activeblack" : "")"><td><span class="glyphicon glyphicon-dashboard"></span><a href="/Train/Index" title="Translate, Display, filter, export, import data and extract insights">Working Data@(htmraw)</a></td></tr>
                                         <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexFBs" ? "activeblack" : "")"><td><i class="fa fa-facebook"></i><a href="/Train/IndexFBs?idXtrctTheme=@userXtrctTheme.ID_XTRCTTHEME" title="Use Facebook pages as data source to translate Arabizi and extract entities">Facebook Pages</a></td></tr>
                                         @foreach (var item in FbInfluencersVert.Where(m => m.fk_theme == userXtrctTheme.ID_XTRCTTHEME.ToString()))
                                         {
