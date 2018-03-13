@@ -78,17 +78,13 @@
                                     <li class="@userXtrctTheme.CurrentActive"><a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = userXtrctTheme.ThemeName })">@userXtrctTheme.ThemeName</a></li>
                                 }
                             </ul>
-                            <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+                            <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" title="Change current theme"><span class="caret"></span></button>
                         </div>
                         <p style="font-weight:bold; font-size:16px; display:inline-block;">THEMES</p>
                         <!-- theme menu : edit theme -->
-                        <button style="margin-right: 2px;"type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal">
-                            <span class="glyphicon glyphicon-edit"></span>
-                        </button>
+                        <button style="margin-right: 2px;"type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal" title="Edit this theme"><span class="glyphicon glyphicon-edit"></span></button>
                         <!-- theme menu : remove theme -->
-                        <button style="margin-right: 2px;" type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModalRemoveTheme">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </button>
+                        <button style="margin-right: 2px;" type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModalRemoveTheme" title="Remove this theme"><span class="glyphicon glyphicon-remove"></span></button>
                         <!-- theme menu : add new theme -->
                         <button style="margin-right: 2px;"type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal" style="float:right;" title="Add a new theme"><span class="glyphicon glyphicon-plus"></span> </button>
                     </div>
