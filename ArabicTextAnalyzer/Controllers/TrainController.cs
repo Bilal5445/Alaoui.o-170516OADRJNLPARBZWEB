@@ -1399,6 +1399,16 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [HttpPost]
+        public ActionResult XtrctTheme_EditName(Guid idXtrctTheme, String themeNewName)
+        {
+            // Save to Serialization
+            new Arabizer().saveserializeM_XTRCTTHEME_EFSQL_Rename(idXtrctTheme, themeNewName);
+
+            //
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
         public ActionResult XtrctTheme_Delete(Guid idXtrctTheme)
         {
             //

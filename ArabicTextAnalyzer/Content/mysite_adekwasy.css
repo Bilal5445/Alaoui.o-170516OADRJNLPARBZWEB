@@ -53,6 +53,10 @@ html,body { height:100%; }
     color: white;
 }
 
+#accordion > .panel-default > .panel-heading > h4 > a.bold {
+    font-weight: bold;
+}
+
 #accordion > .panel.panel-default {
     border: 0;
 }

@@ -788,6 +788,20 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
+        public void saveserializeM_XTRCTTHEME_EFSQL_Rename(Guid idXtrctTheme, String themeNewName)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                var xtrctThemes = db.M_XTRCTTHEMEs;
+
+                var tobeactiveXtrctTheme = xtrctThemes.Where(m => m.ID_XTRCTTHEME == idXtrctTheme).FirstOrDefault<M_XTRCTTHEME>();
+                tobeactiveXtrctTheme.ThemeName = themeNewName;
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
         public void saveserializeM_XTRCTTHEME_EFSQL_Deactivate(String userId)
         {
             using (var db = new ArabiziDbContext())
