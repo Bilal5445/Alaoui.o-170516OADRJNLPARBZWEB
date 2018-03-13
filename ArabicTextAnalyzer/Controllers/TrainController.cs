@@ -75,7 +75,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
             var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
-            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = new Arabizer().loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
             var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
             @ViewBag.UserXtrctThemes = userXtrctThemes;
             @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
@@ -108,7 +108,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
             var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
-            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = new Arabizer().loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
             var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
             @ViewBag.UserXtrctThemes = userXtrctThemes;
             @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
@@ -132,7 +132,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
             var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
-            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = new Arabizer().loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
             var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
             @ViewBag.UserXtrctThemes = userXtrctThemes;
             @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
@@ -166,7 +166,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
             var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
-            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = new Arabizer().loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
             var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
             @ViewBag.UserXtrctThemes = userXtrctThemes;
             @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
@@ -190,7 +190,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
             var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
-            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = new Arabizer().loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
             var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
             @ViewBag.UserXtrctThemes = userXtrctThemes;
             @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
@@ -615,7 +615,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
         #endregion
 
-        #region FRONT YARD ACTIONS TRAIN CONTRIB
+        #region FRONT YARD ACTIONS TRAIN USER CONTRIB
         [Authorize]
         [HttpPost]
         public ActionResult SaveTranslationContributionAjax(String idarabicdarijaentry, String contrib)
@@ -2147,36 +2147,6 @@ namespace ArabicTextAnalyzer.Controllers
 
                 conn.Open();
                 return conn.Query<M_ARABICDARIJAENTRY_LATINWORD>(qry).ToList();
-            }
-        }
-
-        private List<M_XTRCTTHEME_KEYWORD> loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL()
-        {
-            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                String qry = "SELECT * FROM T_XTRCTTHEME_KEYWORD";
-
-                conn.Open();
-                return conn.Query<M_XTRCTTHEME_KEYWORD>(qry).ToList();
-            }
-        }
-
-        private List<M_XTRCTTHEME_KEYWORD> loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(String userId)
-        {
-            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                String qry0 = "SELECT * "
-                            + "FROM T_XTRCTTHEME_KEYWORD XK "
-                            + "INNER JOIN T_XTRCTTHEME X ON XK.ID_XTRCTTHEME = X.ID_XTRCTTHEME AND X.CurrentActive = 'active' AND X.UserID = '" + userId + "' "
-                            + "WHERE Keyword_Count > 1 "
-                            + "ORDER BY Keyword_Count DESC ";
-
-                conn.Open();
-                return conn.Query<M_XTRCTTHEME_KEYWORD>(qry0).ToList();
             }
         }
 

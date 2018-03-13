@@ -697,66 +697,63 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
+        public void Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(Guid id_arabizientry)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                // filter on the one linked to current arabizi entry
+                var arabicdarijaentry = db.M_ARABICDARIJAENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry);
+
+                // load/deserialize data_M_ARABICDARIJAENTRY_TEXTENTITY
+                // filter on the ones linked to current arabic darija entry
+                db.M_ARABICDARIJAENTRY_TEXTENTITYs.RemoveRange(db.M_ARABICDARIJAENTRY_TEXTENTITYs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
+
+                // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
+                // filter on the ones linked to current arabic darija entry
+                db.M_ARABICDARIJAENTRY_LATINWORDs.RemoveRange(db.M_ARABICDARIJAENTRY_LATINWORDs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
+
+                // remove arabic darija item
+                db.M_ARABICDARIJAENTRYs.Remove(arabicdarijaentry);
+
+                // remove arabizi
+                db.M_ARABIZIENTRYs.Remove(db.M_ARABIZIENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry));
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        public void Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL_uow(Guid id_arabizientry, ArabiziDbContext db, bool isEndOfScope = false)
+        {
+            // filter on the one linked to current arabizi entry
+            var arabicdarijaentry = db.M_ARABICDARIJAENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry);
+
+            // load/deserialize data_M_ARABICDARIJAENTRY_TEXTENTITY
+            // filter on the ones linked to current arabic darija entry
+            db.M_ARABICDARIJAENTRY_TEXTENTITYs.RemoveRange(db.M_ARABICDARIJAENTRY_TEXTENTITYs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
+
+            // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
+            // filter on the ones linked to current arabic darija entry
+            db.M_ARABICDARIJAENTRY_LATINWORDs.RemoveRange(db.M_ARABICDARIJAENTRY_LATINWORDs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
+
+            // remove arabic darija item
+            db.M_ARABICDARIJAENTRYs.Remove(arabicdarijaentry);
+
+            // remove arabizi
+            db.M_ARABIZIENTRYs.Remove(db.M_ARABIZIENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry));
+
+            // commit
+            if (isEndOfScope == true)
+                db.SaveChanges();
+        }
+        #endregion
+
+        #region BACK YARD BO SAVE / DELETE XTRCTTHEME
         public void saveserializeM_XTRCTTHEME_EFSQL(M_XTRCTTHEME m_xtrcttheme)
         {
             using (var db = new ArabiziDbContext())
             {
                 db.M_XTRCTTHEMEs.Add(m_xtrcttheme);
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        public void saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(M_XTRCTTHEME_KEYWORD m_xtrcttheme_keyword)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                //
-                db.M_XTRCTTHEME_KEYWORDs.Add(m_xtrcttheme_keyword);
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        public void saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(List<M_XTRCTTHEME_KEYWORD> m_xtrcttheme_keywords)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                //
-                db.Database.ExecuteSqlCommand("DELETE FROM T_XTRCTTHEME_KEYWORD");
-                db.M_XTRCTTHEME_KEYWORDs.AddRange(m_xtrcttheme_keywords);
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        public void saveserializeM_XTRCTTHEME_KEYWORDs_DELETE_ALL_EFSQL(List<M_XTRCTTHEME_KEYWORD> m_xtrcttheme_keywords, M_XTRCTTHEME currentTheme)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                //
-                db.Database.ExecuteSqlCommand("DELETE FROM T_XTRCTTHEME_KEYWORD WHERE ID_XTRCTTHEME = '" + currentTheme.ID_XTRCTTHEME + "' ");
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        public void saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(List<M_XTRCTTHEME_KEYWORD> m_xtrcttheme_keywords, M_XTRCTTHEME currentTheme)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                //
-                db.Database.ExecuteSqlCommand("DELETE FROM T_XTRCTTHEME_KEYWORD WHERE ID_XTRCTTHEME = '" + currentTheme.ID_XTRCTTHEME + "' ");
-
-                // commit
-                db.SaveChanges();
-
-                // reload
-                db.M_XTRCTTHEME_KEYWORDs.AddRange(m_xtrcttheme_keywords);
 
                 // commit
                 db.SaveChanges();
@@ -818,56 +815,6 @@ namespace ArabicTextAnalyzer.BO
                 db.SaveChanges();
             }
         }*/
-
-        public void Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL(Guid id_arabizientry)
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                // filter on the one linked to current arabizi entry
-                var arabicdarijaentry = db.M_ARABICDARIJAENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry);
-
-                // load/deserialize data_M_ARABICDARIJAENTRY_TEXTENTITY
-                // filter on the ones linked to current arabic darija entry
-                db.M_ARABICDARIJAENTRY_TEXTENTITYs.RemoveRange(db.M_ARABICDARIJAENTRY_TEXTENTITYs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
-
-                // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
-                // filter on the ones linked to current arabic darija entry
-                db.M_ARABICDARIJAENTRY_LATINWORDs.RemoveRange(db.M_ARABICDARIJAENTRY_LATINWORDs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
-
-                // remove arabic darija item
-                db.M_ARABICDARIJAENTRYs.Remove(arabicdarijaentry);
-
-                // remove arabizi
-                db.M_ARABIZIENTRYs.Remove(db.M_ARABIZIENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry));
-
-                // commit
-                db.SaveChanges();
-            }
-        }
-
-        public void Serialize_Delete_M_ARABIZIENTRY_Cascading_EFSQL_uow(Guid id_arabizientry, ArabiziDbContext db, bool isEndOfScope = false)
-        {
-            // filter on the one linked to current arabizi entry
-            var arabicdarijaentry = db.M_ARABICDARIJAENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry);
-
-            // load/deserialize data_M_ARABICDARIJAENTRY_TEXTENTITY
-            // filter on the ones linked to current arabic darija entry
-            db.M_ARABICDARIJAENTRY_TEXTENTITYs.RemoveRange(db.M_ARABICDARIJAENTRY_TEXTENTITYs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
-
-            // load/deserialize M_ARABICDARIJAENTRY_LATINWORD
-            // filter on the ones linked to current arabic darija entry
-            db.M_ARABICDARIJAENTRY_LATINWORDs.RemoveRange(db.M_ARABICDARIJAENTRY_LATINWORDs.Where(m => m.ID_ARABICDARIJAENTRY == arabicdarijaentry.ID_ARABICDARIJAENTRY));
-
-            // remove arabic darija item
-            db.M_ARABICDARIJAENTRYs.Remove(arabicdarijaentry);
-
-            // remove arabizi
-            db.M_ARABIZIENTRYs.Remove(db.M_ARABIZIENTRYs.Single(m => m.ID_ARABIZIENTRY == id_arabizientry));
-
-            // commit
-            if (isEndOfScope == true)
-                db.SaveChanges();
-        }
 
         public dynamic Serialize_SoftDelete_M_XTRCTTHEME_Cascading_EFSQL(Guid idXtrctTheme)
         {
@@ -1007,6 +954,61 @@ namespace ArabicTextAnalyzer.BO
                 return expando;
             }
         }
+
+        public void saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(M_XTRCTTHEME_KEYWORD m_xtrcttheme_keyword)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                //
+                db.M_XTRCTTHEME_KEYWORDs.Add(m_xtrcttheme_keyword);
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        public void saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(List<M_XTRCTTHEME_KEYWORD> m_xtrcttheme_keywords)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                //
+                db.Database.ExecuteSqlCommand("DELETE FROM T_XTRCTTHEME_KEYWORD");
+                db.M_XTRCTTHEME_KEYWORDs.AddRange(m_xtrcttheme_keywords);
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        public void saveserializeM_XTRCTTHEME_KEYWORDs_DELETE_ALL_EFSQL(List<M_XTRCTTHEME_KEYWORD> m_xtrcttheme_keywords, M_XTRCTTHEME currentTheme)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                //
+                db.Database.ExecuteSqlCommand("DELETE FROM T_XTRCTTHEME_KEYWORD WHERE ID_XTRCTTHEME = '" + currentTheme.ID_XTRCTTHEME + "' ");
+
+                // commit
+                db.SaveChanges();
+            }
+        }
+
+        public void saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(List<M_XTRCTTHEME_KEYWORD> m_xtrcttheme_keywords, M_XTRCTTHEME currentTheme)
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                //
+                db.Database.ExecuteSqlCommand("DELETE FROM T_XTRCTTHEME_KEYWORD WHERE ID_XTRCTTHEME = '" + currentTheme.ID_XTRCTTHEME + "' ");
+
+                // commit
+                db.SaveChanges();
+
+                // reload
+                db.M_XTRCTTHEME_KEYWORDs.AddRange(m_xtrcttheme_keywords);
+
+                // commit
+                db.SaveChanges();
+            }
+        }
         #endregion
 
         #region BACK YARD BO LOAD XTRCTTHEME
@@ -1072,6 +1074,36 @@ namespace ArabicTextAnalyzer.BO
 
                 conn.Open();
                 return conn.QueryFirst<M_XTRCTTHEME>(qry);
+            }
+        }
+
+        public List<M_XTRCTTHEME_KEYWORD> loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_XTRCTTHEME_KEYWORD";
+
+                conn.Open();
+                return conn.Query<M_XTRCTTHEME_KEYWORD>(qry).ToList();
+            }
+        }
+
+        public List<M_XTRCTTHEME_KEYWORD> loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(String userId)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry0 = "SELECT * "
+                            + "FROM T_XTRCTTHEME_KEYWORD XK "
+                            + "INNER JOIN T_XTRCTTHEME X ON XK.ID_XTRCTTHEME = X.ID_XTRCTTHEME AND X.CurrentActive = 'active' AND X.UserID = '" + userId + "' "
+                            + "WHERE Keyword_Count > 1 "
+                            + "ORDER BY Keyword_Count DESC ";
+
+                conn.Open();
+                return conn.Query<M_XTRCTTHEME_KEYWORD>(qry0).ToList();
             }
         }
         #endregion
