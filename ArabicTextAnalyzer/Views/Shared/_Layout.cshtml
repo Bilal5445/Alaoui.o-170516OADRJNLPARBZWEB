@@ -142,52 +142,55 @@
     <div class="rotated-text"><span class="rotated-text__inner"><strong>v0.1712.15.15 - Load Time : </strong><span id="loadTime"></span></span></div>
     <script type="text/javascript" src="~/Scripts/my.js"></script>
 
-    <!-- modal new theme dialogbox #myModalAddNewTheme -->
-    <div class="modal fade" id="myModalAddNewTheme" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title" style="color:darkblue;">New Theme to Analyze</h4>
-                </div>
-                <div class="modal-body">
-                    @using (Html.BeginForm("XtrctTheme_AddNew", "Train", FormMethod.Post))
-                    {
-                        <div class="form-group">
-                            <label for="themename">Theme Name</label>
-                            @Html.TextBox("themename", "", new { @class = "form-control", placeholder = "Enter new theme name", @required = "required", id = "themename" })
-                        </div>
-                        <button type="submit" class="btn btn-default btn-success">Add</button>
-                    }
+    @if (Request.IsAuthenticated)
+    {
+        <!-- modal new theme dialogbox #myModalAddNewTheme -->
+        <div class="modal fade" id="myModalAddNewTheme" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" style="color:darkblue;">New Theme to Analyze</h4>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("XtrctTheme_AddNew", "Train", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                <label for="themename">Theme Name</label>
+                                @Html.TextBox("themename", "", new { @class = "form-control", placeholder = "Enter new theme name", @required = "required", id = "themename" })
+                            </div>
+                            <button type="submit" class="btn btn-default btn-success">Add</button>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- modal rename theme dialogbox #myModalRenameTheme -->
-    <div class="modal fade" id="myModalRenameTheme" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title" style="color:darkblue;">Rename Theme : @ViewBag.UserActiveXtrctTheme.ThemeName</h4>
-                </div>
-                <div class="modal-body">
-                    @using (Html.BeginForm("XtrctTheme_EditName", "Train", FormMethod.Post))
-                    {
-                        <div class="form-group">
-                            <label for="themename">Theme New Name</label>
-                            @Html.TextBox("themeNewName", "", new { @class = "form-control", placeholder = "Enter theme new name", @required = "required", id = "themeNewName" })
-                            @Html.Hidden("idXtrctTheme", (Guid)ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME)
-                        </div>
-                        <button type="submit" class="btn btn-default btn-success">Rename</button>
-                    }
+        <!-- modal rename theme dialogbox #myModalRenameTheme -->
+        <div class="modal fade" id="myModalRenameTheme" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" style="color:darkblue;">Rename Theme : @ViewBag.UserActiveXtrctTheme.ThemeName</h4>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("XtrctTheme_EditName", "Train", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                <label for="themename">Theme New Name</label>
+                                @Html.TextBox("themeNewName", "", new { @class = "form-control", placeholder = "Enter theme new name", @required = "required", id = "themeNewName" })
+                                @Html.Hidden("idXtrctTheme", (Guid)ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME)
+                            </div>
+                            <button type="submit" class="btn btn-default btn-success">Rename</button>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    }
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
