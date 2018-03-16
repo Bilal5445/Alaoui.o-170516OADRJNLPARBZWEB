@@ -71,8 +71,6 @@ namespace ArabicTextAnalyzer.Controllers
             }
             return culture;
         }
-
-        
     }
 
     public class GlobalHelper
