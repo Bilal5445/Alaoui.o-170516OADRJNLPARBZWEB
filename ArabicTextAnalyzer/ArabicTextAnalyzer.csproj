@@ -242,11 +242,23 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="BO\Arabizer.cs" />
     <Compile Include="BO\HtmlHelpers.cs" />
+    <Compile Include="BO\LocalizationHelper.cs" />
+    <Compile Include="Content\Resources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Resources\Resource.fr-FR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr-FR.resx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ApiDocController.cs" />
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\ArabiziController.cs" />
     <Compile Include="Controllers\AuthenticateController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\TrainController.cs" />
     <Compile Include="Migrations\201710270934303_InitialCreate.cs" />
     <Compile Include="Migrations\201710270934303_InitialCreate.Designer.cs">
@@ -614,6 +626,11 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EmbeddedResource Include="Content\Resources\Resource.fr-FR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.fr-FR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <None Include="Properties\PublishProfiles\VM_137.116.196.7.pubxml" />
     <Content Include="Migrations\201710270934303_InitialCreate_TO_201711241555349_TokenAuthentication.sql" />
     <Content Include="Migrations\201712141056349_EnableUserInstanceOnSqlExpress.sql" />
@@ -732,6 +749,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Content\Resources\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710270934303_InitialCreate.resx">
       <DependentUpon>201710270934303_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
