@@ -141,8 +141,17 @@
   <data name="RetrieveNewPosts" xml:space="preserve">
     <value>Récupérer les nouveaux posts</value>
   </data>
+  <data name="TranslateArabizi" xml:space="preserve">
+    <value>Traduisez de la Darija</value>
+  </data>
+  <data name="TranslateArabiziToArabicEtc" xml:space="preserve">
+    <value>Traduisez de la Darija vers l'Arabe et extraire les entités</value>
+  </data>
   <data name="TranslatedPost" xml:space="preserve">
     <value>Post Traduit</value>
+  </data>
+  <data name="TypeArabiziTextAndClickGo" xml:space="preserve">
+    <value>Entrez du text en Darija, et cliquez sur Go ...</value>
   </data>
   <data name="UseALocalAccountToLogIn" xml:space="preserve">
     <value>Utilisez votre compte local pour vous connecter.</value>
