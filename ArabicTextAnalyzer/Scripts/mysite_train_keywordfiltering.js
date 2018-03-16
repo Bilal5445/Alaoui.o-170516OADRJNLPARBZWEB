@@ -15,6 +15,15 @@ var AddInfluencerIsClicked = false;
 var RetrieveFBPostIsClicked = false;
 var AddTextEntityClicked = false;
 
+// localization
+/*var my_dictionary = {
+    "some text": "a translation",
+    "some more text": "another translation"
+}
+$.i18n.load(my_dictionary);
+console.log($.i18n._('some text'));*/
+console.log(window.Resources);
+
 function InitializeDataTables(adminModeShowAll) {
 
     // default value for optional parameter adminModeShowAll

@@ -3,6 +3,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using ArabicTextAnalyzer.Business.Provider;
 using ArabicTextAnalyzer.Models;
+using Newtonsoft.Json;
+using ArabicTextAnalyzer.Content.Resources;
+using System.Globalization;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -58,6 +61,30 @@ namespace ArabicTextAnalyzer.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        /*public object i18n()
+        {
+            return JsonConvert.SerializeObject(new
+            {
+                status = status,
+                message = "Param influencer id empty",
+                fct = "TranslateAndExtractNERFBPostsAndComments"
+            });
+        }*/
+        public JsonResult GetResourceString(string labelName)
+        {
+            string result = "";
+            result = R.ResourceManager.GetString(labelName);
+            if (Request.Cookies["culture"].Value == "th")
+            {
+                var cul = CultureInfo.CreateSpecificCulture("th");
+                result = R.ResourceManager.GetString(labelName, cul);
+            }
+            return Json(new
+            {
+                message = result
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }
