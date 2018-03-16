@@ -22,7 +22,7 @@ var AddTextEntityClicked = false;
 }
 $.i18n.load(my_dictionary);
 console.log($.i18n._('some text'));*/
-console.log(window.Resources);
+// console.log(window.Resources);
 
 function InitializeDataTables(adminModeShowAll) {
 
@@ -263,7 +263,7 @@ function InitializeFBPostsDataTables(fluencerid) {
                 {
                     "data": function (data) {
                         var str = '';
-                        str = str + '<a class="btn btn-warning btn-xs" onclick="' + "JsTranslateFBPost(this)" + '">Translate</a>';
+                        str = str + '<a class="btn btn-warning btn-xs" onclick="' + "JsTranslateFBPost(this)" + '">Traduire</a>';
                         return str;
                     },
                     "className": "controls center top"

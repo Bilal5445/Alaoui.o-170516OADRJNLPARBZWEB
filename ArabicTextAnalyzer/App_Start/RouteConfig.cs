@@ -14,12 +14,12 @@ namespace ArabicTextAnalyzer
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             // for localization of cshtml
-            /*routes.MapRoute(
+            routes.MapRoute(
                 name: "LocalizedDefault",
                 url: "{lang}/{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 constraints: new { lang = "fr-FR|en-US" }
-            );*/
+            );
 
             routes.MapRoute(
                 name: "Default",
@@ -28,11 +28,11 @@ namespace ArabicTextAnalyzer
             );
 
             // for localization of js
-            routes.MapRoute(
+            /*routes.MapRoute(
                 name: "Resources", 
                 url: "Scripts/mysite_train_keywordfiltering.js", 
                 defaults: new { controller = "Base2", action = "GetResourcesJavaScript" }
-            );
+            );*/
             /*routes.ma.MapRouteWithName(
            "DataSourceJS", // Route name
            "Scripts/Entities/{controller}/datasource.js", // URL with parameters
