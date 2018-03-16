@@ -20,7 +20,7 @@ namespace ArabicTextAnalyzer.BO
         private static string GetMessageFromResource(string resourceId)
         {
             // TODO: Return the string from the resource file
-            return Resource.ResourceManager.GetString(resourceId);
+            return R.ResourceManager.GetString(resourceId);
         }
     }
 }

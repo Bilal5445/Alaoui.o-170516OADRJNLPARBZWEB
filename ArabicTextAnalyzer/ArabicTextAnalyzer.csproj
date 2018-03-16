@@ -243,15 +243,15 @@
     <Compile Include="BO\Arabizer.cs" />
     <Compile Include="BO\HtmlHelpers.cs" />
     <Compile Include="BO\LocalizationHelper.cs" />
-    <Compile Include="Content\Resources\Resource.Designer.cs">
+    <Compile Include="Content\Resources\R.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.resx</DependentUpon>
+      <DependentUpon>R.resx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Resources\Resource.fr-FR.Designer.cs">
+    <Compile Include="Content\Resources\R.fr-FR.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.fr-FR.resx</DependentUpon>
+      <DependentUpon>R.fr-FR.resx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ApiDocController.cs" />
@@ -626,9 +626,9 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EmbeddedResource Include="Content\Resources\Resource.fr-FR.resx">
+    <EmbeddedResource Include="Content\Resources\R.fr-FR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.fr-FR.Designer.cs</LastGenOutput>
+      <LastGenOutput>R.fr-FR.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\PublishProfiles\VM_137.116.196.7.pubxml" />
@@ -749,9 +749,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Content\Resources\Resource.resx">
+    <EmbeddedResource Include="Content\Resources\R.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <LastGenOutput>R.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710270934303_InitialCreate.resx">
       <DependentUpon>201710270934303_InitialCreate.cs</DependentUpon>

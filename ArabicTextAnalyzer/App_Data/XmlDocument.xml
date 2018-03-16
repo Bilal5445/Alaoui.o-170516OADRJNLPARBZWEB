@@ -481,45 +481,75 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="T:ArabicTextAnalyzer.Content.Resources.Resource">
+        <member name="T:ArabicTextAnalyzer.Content.Resources.R">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
             </summary>
         </member>
-        <member name="P:ArabicTextAnalyzer.Content.Resources.Resource.ResourceManager">
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ResourceManager">
             <summary>
               Returns the cached ResourceManager instance used by this class.
             </summary>
         </member>
-        <member name="P:ArabicTextAnalyzer.Content.Resources.Resource.Culture">
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Culture">
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="P:ArabicTextAnalyzer.Content.Resources.Resource.LogIn">
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ConfigFBAlerts">
+            <summary>
+              Looks up a localized string similar to Config FB Alerts.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.FacebookPages">
+            <summary>
+              Looks up a localized string similar to Facebook Pages.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.LogIn">
             <summary>
               Looks up a localized string similar to Log in.
             </summary>
         </member>
-        <member name="P:ArabicTextAnalyzer.Content.Resources.Resource.LogInGravitasApp">
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.LogInGravitasApp">
             <summary>
               Looks up a localized string similar to Log in Gravitas App.
             </summary>
         </member>
-        <member name="P:ArabicTextAnalyzer.Content.Resources.Resource.Password">
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Password">
             <summary>
               Looks up a localized string similar to Password.
             </summary>
         </member>
-        <member name="P:ArabicTextAnalyzer.Content.Resources.Resource.RememberMe">
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.PostDate">
+            <summary>
+              Looks up a localized string similar to Post Date.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.RememberMe">
             <summary>
               Looks up a localized string similar to Remember me ?.
             </summary>
         </member>
-        <member name="P:ArabicTextAnalyzer.Content.Resources.Resource.UseALocalAccountToLogIn">
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.RetrieveNewPosts">
+            <summary>
+              Looks up a localized string similar to Retrieve new posts.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.TranslatedPost">
+            <summary>
+              Looks up a localized string similar to Translated Post.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.UseALocalAccountToLogIn">
             <summary>
               Looks up a localized string similar to Use a local account to log in..
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.UseFacebookPagesEtc">
+            <summary>
+              Looks up a localized string similar to Use Facebook pages as data source to translate Arabizi and extract entities.
             </summary>
         </member>
         <member name="M:ArabicTextAnalyzer.Controllers.ArabiziController.Translate(System.String,System.String)">
