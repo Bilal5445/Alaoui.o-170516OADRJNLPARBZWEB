@@ -22,14 +22,14 @@ namespace ArabicTextAnalyzer.Content.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resource {
+    public class R {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resource() {
+        internal R() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ArabicTextAnalyzer.Content.Resources.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ArabicTextAnalyzer.Content.Resources.R", typeof(R).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,24 @@ namespace ArabicTextAnalyzer.Content.Resources {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Config FB Alerts.
+        /// </summary>
+        public static string ConfigFBAlerts {
+            get {
+                return ResourceManager.GetString("ConfigFBAlerts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Facebook Pages.
+        /// </summary>
+        public static string FacebookPages {
+            get {
+                return ResourceManager.GetString("FacebookPages", resourceCulture);
             }
         }
         
@@ -88,6 +106,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Post Date.
+        /// </summary>
+        public static string PostDate {
+            get {
+                return ResourceManager.GetString("PostDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remember me ?.
         /// </summary>
         public static string RememberMe {
@@ -97,11 +124,38 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Retrieve new posts.
+        /// </summary>
+        public static string RetrieveNewPosts {
+            get {
+                return ResourceManager.GetString("RetrieveNewPosts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translated Post.
+        /// </summary>
+        public static string TranslatedPost {
+            get {
+                return ResourceManager.GetString("TranslatedPost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use a local account to log in..
         /// </summary>
         public static string UseALocalAccountToLogIn {
             get {
                 return ResourceManager.GetString("UseALocalAccountToLogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Facebook pages as data source to translate Arabizi and extract entities.
+        /// </summary>
+        public static string UseFacebookPagesEtc {
+            get {
+                return ResourceManager.GetString("UseFacebookPagesEtc", resourceCulture);
             }
         }
     }

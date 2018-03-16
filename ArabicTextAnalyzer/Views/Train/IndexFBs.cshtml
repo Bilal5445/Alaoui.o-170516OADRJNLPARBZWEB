@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Adekwasy - Facebook Pages";
+﻿@using ArabicTextAnalyzer.Content.Resources
+@{
+    ViewBag.Title = "Gravitas - " + R.FacebookPages;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -36,7 +37,7 @@
 }
 
 <h2>@ViewBag.Title.</h2>
-<h4>Use Facebook pages as data source to translate Arabizi and extract entities</h4>
+<h4>@R.UseFacebookPagesEtc</h4>
 <hr />
 
 <!-- Place where you will insert your partial -->
