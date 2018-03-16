@@ -133,11 +133,38 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Translate Arabizi.
+        /// </summary>
+        public static string TranslateArabizi {
+            get {
+                return ResourceManager.GetString("TranslateArabizi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translate Arabizi to Arabic and extract entities.
+        /// </summary>
+        public static string TranslateArabiziToArabicEtc {
+            get {
+                return ResourceManager.GetString("TranslateArabiziToArabicEtc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Translated Post.
         /// </summary>
         public static string TranslatedPost {
             get {
                 return ResourceManager.GetString("TranslatedPost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type Arabizi Text, and click Go ....
+        /// </summary>
+        public static string TypeArabiziTextAndClickGo {
+            get {
+                return ResourceManager.GetString("TypeArabiziTextAndClickGo", resourceCulture);
             }
         }
         

@@ -141,8 +141,17 @@
   <data name="RetrieveNewPosts" xml:space="preserve">
     <value>Retrieve new posts</value>
   </data>
+  <data name="TranslateArabizi" xml:space="preserve">
+    <value>Translate Arabizi</value>
+  </data>
+  <data name="TranslateArabiziToArabicEtc" xml:space="preserve">
+    <value>Translate Arabizi to Arabic and extract entities</value>
+  </data>
   <data name="TranslatedPost" xml:space="preserve">
     <value>Translated Post</value>
+  </data>
+  <data name="TypeArabiziTextAndClickGo" xml:space="preserve">
+    <value>Type Arabizi Text, and click Go ...</value>
   </data>
   <data name="UseALocalAccountToLogIn" xml:space="preserve">
     <value>Use a local account to log in.</value>
