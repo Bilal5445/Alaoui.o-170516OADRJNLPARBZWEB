@@ -1,14 +1,40 @@
-﻿using System;
+﻿using ArabicTextAnalyzer.Content.Resources;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.Linq;
+using System.Resources;
 using System.Threading;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace ArabicTextAnalyzer.Controllers
 {
+    public class Base2Controller : Controller
+    {
+        //
+        private static readonly JavaScriptSerializer Serializer = new JavaScriptSerializer();
+        public ActionResult GetResourcesJavaScript(/*string resxFileName*/)
+        {
+            throw new Exception("mlklk");
+            ResourceSet resourceSet = R.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+            var resourceDictionary = resourceSet
+                                .Cast<DictionaryEntry>()
+                                .ToDictionary(entry => entry.Key.ToString(), entry => entry.Value.ToString());
+            var json = Serializer.Serialize(resourceDictionary);
+            // var javaScript = string.Format("window.Resources = window.Resources || {{}}; window.Resources.{0} = {1};", resxFileName, json);
+
+            // return JavaScript(javaScript);
+            return JavaScript(json);
+            // return JavaScript("");
+            // return Content("var InitializeDataTables = \"Hello World!\";");
+        }
+    }
+
     public class BaseController : Controller
     {
         private static string _cookieLangName = "Lang4MultiLangSupport";
@@ -45,6 +71,8 @@ namespace ArabicTextAnalyzer.Controllers
             }
             return culture;
         }
+
+        
     }
 
     public class GlobalHelper

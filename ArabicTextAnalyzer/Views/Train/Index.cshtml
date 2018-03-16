@@ -47,9 +47,13 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.print.min.js"></script>
 
+    @* localization js *@
+    @* <script type="text/javascript" src="~/Scripts/jquery.i18n.min.js"></script> *@
+
     @* the scripts that load data into the partial view (using datatables.net) and allow displaying/selecting/filtering *@
     @Scripts.Render("~/bundles/js_train")
-    @Scripts.Render("~/bundles/js_train_keywordfiltering");
+    @* @Scripts.Render("~/bundles/js_train_keywordfiltering"); *@
+    <script type="text/javascript" src="~/Scripts/mysite_train_keywordfiltering.js"></script>
     @Scripts.Render("~/bundles/js_train_workingdata")
 
     @Scripts.Render("~/bundles/js_train_tagsinput");

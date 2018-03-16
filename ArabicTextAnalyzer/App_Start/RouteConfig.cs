@@ -13,18 +13,32 @@ namespace ArabicTextAnalyzer
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
+            // for localization of cshtml
+            /*routes.MapRoute(
                 name: "LocalizedDefault",
                 url: "{lang}/{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 constraints: new { lang = "fr-FR|en-US" }
-            );
+            );*/
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, lang = "fr-FR" }
             );
+
+            // for localization of js
+            routes.MapRoute(
+                name: "Resources", 
+                url: "Scripts/mysite_train_keywordfiltering.js", 
+                defaults: new { controller = "Base2", action = "GetResourcesJavaScript" }
+            );
+            /*routes.ma.MapRouteWithName(
+           "DataSourceJS", // Route name
+           "Scripts/Entities/{controller}/datasource.js", // URL with parameters
+           new { controller = "Home", action = "DataSourceJS" } // Parameter defaults,
+           , null
+           );*/
         }
     }
 }
