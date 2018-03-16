@@ -481,6 +481,47 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:ArabicTextAnalyzer.Content.Resources.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.Resource.LogIn">
+            <summary>
+              Looks up a localized string similar to Log in.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.Resource.LogInGravitasApp">
+            <summary>
+              Looks up a localized string similar to Log in Gravitas App.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.Resource.Password">
+            <summary>
+              Looks up a localized string similar to Password.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.Resource.RememberMe">
+            <summary>
+              Looks up a localized string similar to Remember me ?.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.Resource.UseALocalAccountToLogIn">
+            <summary>
+              Looks up a localized string similar to Use a local account to log in..
+            </summary>
+        </member>
         <member name="M:ArabicTextAnalyzer.Controllers.ArabiziController.Translate(System.String,System.String)">
             <summary>
             Translate Arabizi text to Arabic text.

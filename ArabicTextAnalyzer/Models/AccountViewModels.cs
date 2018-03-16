@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using ArabicTextAnalyzer.BO;
+using ArabicTextAnalyzer.Content.Resources;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ArabicTextAnalyzer.Models
@@ -58,7 +60,7 @@ namespace ArabicTextAnalyzer.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [LocalizedDisplayName("RememberMe")]
         public bool RememberMe { get; set; }
     }
 

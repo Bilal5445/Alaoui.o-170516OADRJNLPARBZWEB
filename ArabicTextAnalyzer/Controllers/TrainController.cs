@@ -28,7 +28,7 @@ using System.Globalization;
 namespace ArabicTextAnalyzer.Controllers
 {
     [Authorize]
-    public class TrainController : Controller
+    public class TrainController : BaseController
     {
         // global lock to queur concurrent access
         private static Object thisLock = new Object();
