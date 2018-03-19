@@ -294,22 +294,6 @@ namespace ArabicTextAnalyzer.Controllers
         {
             try
             {
-                /*String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
-                using (SqlConnection conn = new SqlConnection(ConnectionString))
-                {
-                    String qry0 = "SELECT TOP 10 Keyword, SUM(Keyword_Count) CountPerKeyword FROM T_XTRCTTHEME_KEYWORD "
-                                + "WHERE ID_XTRCTTHEME = @ID_XTRCTTHEME "
-                                + "GROUP BY Keyword "
-                                + "ORDER BY SUM(Keyword_Count) DESC ";
-
-                    // DBG
-                    var Server = HttpContext.Current.Server;
-                    Logging.Write(Server, qry0);
-                    Logging.Write(Server, ID_XTRCTTHEME);
-
-                    conn.Open();
-                    return Ok(conn.Query<LM_CountPerKeyword>(qry0, new { ID_XTRCTTHEME = ID_XTRCTTHEME }));
-                }*/
                 return Ok(new Arabizer().StatNerCountPerTheme(ID_XTRCTTHEME));
             }
             catch (SqlException ex)
