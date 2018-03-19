@@ -141,6 +141,12 @@
   <data name="RetrieveNewPosts" xml:space="preserve">
     <value>Retrieve new posts</value>
   </data>
+  <data name="ShowStatisticsAboutEtc" xml:space="preserve">
+    <value>Show statistics about extracted entities from your theme's data</value>
+  </data>
+  <data name="StatsNdReports" xml:space="preserve">
+    <value>Stats &amp; Reports</value>
+  </data>
   <data name="TranslateArabizi" xml:space="preserve">
     <value>Translate Arabizi</value>
   </data>

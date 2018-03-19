@@ -141,6 +141,12 @@
   <data name="RetrieveNewPosts" xml:space="preserve">
     <value>Récupérer les nouveaux posts</value>
   </data>
+  <data name="ShowStatisticsAboutEtc" xml:space="preserve">
+    <value>Affichez les statistiques des entités extraites des données de votre theme</value>
+  </data>
+  <data name="StatsNdReports" xml:space="preserve">
+    <value>Stats &amp; Rapports</value>
+  </data>
   <data name="TranslateArabizi" xml:space="preserve">
     <value>Traduisez de la Darija</value>
   </data>
