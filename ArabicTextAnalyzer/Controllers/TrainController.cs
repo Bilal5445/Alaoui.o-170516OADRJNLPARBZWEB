@@ -157,6 +157,13 @@ namespace ArabicTextAnalyzer.Controllers
             List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
             @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
 
+            // chart.js
+            var statNerCountPerTheme =  new Arabizer().StatNerCountPerTheme(userActiveXtrctTheme.ID_XTRCTTHEME.ToString());
+            // ViewBag.Data = "50,20,19,5,3"; //list of strings that you need to show on the chart. as mentioned in the example from c-sharpcorner
+            ViewBag.Data = String.Join(",", statNerCountPerTheme.Select(m => m.CountPerKeyword));
+            // ViewBag.ObjectName = "'maroc','iam','dirham','mabrouk','facebook'";
+            ViewBag.ObjectName = String.Join(",", statNerCountPerTheme.Select(m => "'" + m.Keyword + "'"));
+
             return View();
         }
 

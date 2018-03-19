@@ -1120,6 +1120,26 @@ namespace ArabicTextAnalyzer.BO
                 return conn.Query<M_XTRCTTHEME_KEYWORD>(qry0).ToList();
             }
         }
+
+        public IEnumerable<LM_CountPerKeyword> StatNerCountPerTheme(string ID_XTRCTTHEME)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry0 = "SELECT TOP 10 Keyword, SUM(Keyword_Count) CountPerKeyword FROM T_XTRCTTHEME_KEYWORD "
+                            + "WHERE ID_XTRCTTHEME = @ID_XTRCTTHEME "
+                            + "GROUP BY Keyword "
+                            + "ORDER BY SUM(Keyword_Count) DESC ";
+
+                // DBG
+                var Server = HttpContext.Current.Server;
+                Logging.Write(Server, qry0);
+                Logging.Write(Server, ID_XTRCTTHEME);
+
+                conn.Open();
+                return conn.Query<LM_CountPerKeyword>(qry0, new { ID_XTRCTTHEME = ID_XTRCTTHEME });
+            }
+        }
         #endregion
 
         #region BACK YARD BO LOAD REGISTER_APPS_USERS

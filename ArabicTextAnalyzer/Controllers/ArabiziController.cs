@@ -294,7 +294,7 @@ namespace ArabicTextAnalyzer.Controllers
         {
             try
             {
-                String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+                /*String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     String qry0 = "SELECT TOP 10 Keyword, SUM(Keyword_Count) CountPerKeyword FROM T_XTRCTTHEME_KEYWORD "
@@ -309,7 +309,8 @@ namespace ArabicTextAnalyzer.Controllers
 
                     conn.Open();
                     return Ok(conn.Query<LM_CountPerKeyword>(qry0, new { ID_XTRCTTHEME = ID_XTRCTTHEME }));
-                }
+                }*/
+                return Ok(new Arabizer().StatNerCountPerTheme(ID_XTRCTTHEME));
             }
             catch (SqlException ex)
             {
