@@ -96,6 +96,10 @@ namespace ArabicTextAnalyzer.Controllers
             TempData.Remove("showAlertSuccess");
             TempData.Remove("msgAlert");
 
+            // working data entries count
+            List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
+            @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
+
             //
             return View();
         }
@@ -149,6 +153,10 @@ namespace ArabicTextAnalyzer.Controllers
             var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
             ViewBag.AllInfluenceVert = fbFluencerAsTheme;
 
+            // working data entries count
+            List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
+            @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
+
             return View();
         }
 
@@ -183,6 +191,10 @@ namespace ArabicTextAnalyzer.Controllers
             var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
             ViewBag.AllInfluenceVert = fbFluencerAsTheme;
 
+            // working data entries count
+            List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
+            @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
+
             return View();
         }
 
@@ -206,6 +218,10 @@ namespace ArabicTextAnalyzer.Controllers
             // Fetch the data for fbPages for all themes for that user
             var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
             ViewBag.AllInfluenceVert = fbFluencerAsTheme;
+
+            // working data entries count
+            List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
+            @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
 
             return View();
         }
