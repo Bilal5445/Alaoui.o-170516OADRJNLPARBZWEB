@@ -57,50 +57,107 @@
             });
         }
     </script>
-    
+
     <!-- charts.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.bundle.min.js"></script>
     <script>
 
-            var barChartData =
-                {
-                    labels: [@Html.Raw(ViewBag.ObjectName)], // the names displayed on the x-axis, see images below
-                    datasets: [{
-                        // label: 'NERs Count',
-                        label: '',
-                        backgroundColor: "#aad2ed",
-                        /*backgroundColor: [
-                            "#f990a7",
-                            "#aad2ed",
-                            "#9966FF",
-                            "#99e5e5",
-                            "#f7bd83",
-                        ],*/
-                        borderWidth: 2,
-                        data: [@ViewBag.Data]  //what you returned back from controller. values displayed on the y-axis, see images below
-                    }]
-                };
+        var barChartData =
+            {
+                labels: [@Html.Raw(ViewBag.ObjectName)], // the names displayed on the x-axis, see images below
+                datasets: [{
+                    // label: 'NERs Count',
+                    label: '',
+                    backgroundColor: "#aad2ed",
+                    /*backgroundColor: [
+                        "#f990a7",
+                        "#aad2ed",
+                        "#9966FF",
+                        "#99e5e5",
+                        "#f7bd83",
+                    ],*/
+                    borderWidth: 2,
+                    data: [@ViewBag.Data]  //what you returned back from controller. values displayed on the y-axis, see images below
+                }]
+            };
 
-                window.onload = function () {
-                    var ctx1 = document.getElementById("barcanvas").getContext("2d");
-                    window.myBar = new Chart(ctx1,
+        var barChartDataNerTypeCountPerTheme =
+            {
+                labels: [@Html.Raw(ViewBag.ObjectNameNerTypeCountPerTheme)], // the names displayed on the x-axis, see images below
+                datasets: [{
+                    label: '',
+                    backgroundColor: "#aae2ed",
+                    borderWidth: 2,
+                    data: [@ViewBag.DataNerTypeCountPerTheme]  //what you returned back from controller. values displayed on the y-axis, see images below
+                }]
+            };
+        var barChartDataSACountPerTheme =
+            {
+                labels: [@Html.Raw(ViewBag.ObjectNameSACountPerTheme)], // the names displayed on the x-axis, see images below
+                datasets: [{
+                    label: '',
+                    backgroundColor: "#9ae2dd",
+                    borderWidth: 2,
+                    data: [@ViewBag.DataSACountPerTheme]  //what you returned back from controller. values displayed on the y-axis, see images below
+                }]
+            };
+
+        window.onload = function () {
+            var ctx1 = document.getElementById("barcanvas").getContext("2d");
+            window.myBar = new Chart(ctx1,
+                {
+                    type: 'bar',
+                    data: barChartData,
+                    options:
                         {
-                            type: 'bar',
-                            data: barChartData,
-                            options:
-                                {
-                                    title:
-                                    {
-                                        display: true,
-                                        // text: "NERs Count"
-                                        text: "Les Mots-Clés les plus Fréquents"
-                                    },
-                                    responsive: true,
-                                    maintainAspectRatio: true
-                                }
-                        });
-                }
-    </script>  
+                            title:
+                            {
+                                display: true,
+                                // text: "NERs Count"
+                                text: "Les Mots-Clés les plus Fréquents"
+                            },
+                            responsive: true,
+                            maintainAspectRatio: true
+                        }
+                });
+
+            var ctxnertype = document.getElementById("nertype").getContext("2d");
+            /*window.myBar = */new Chart(ctxnertype,
+                {
+                    type: 'bar',
+                    data: barChartDataNerTypeCountPerTheme,
+                    options:
+                        {
+                            title:
+                            {
+                                display: true,
+                                // text: "NERs Count"
+                                text: "Les Types de Mots-Clés les plus Fréquents"
+                            },
+                            responsive: true,
+                            maintainAspectRatio: true
+                        }
+                });
+
+            var ctxsa = document.getElementById("sa").getContext("2d");
+            new Chart(ctxsa,
+                {
+                    type: 'bar',
+                    data: barChartDataSACountPerTheme,
+                    options:
+                        {
+                            title:
+                            {
+                                display: true,
+                                // text: "NERs Count"
+                                text: "Sentiments Analysis"
+                            },
+                            responsive: true,
+                            maintainAspectRatio: true
+                        }
+                });
+        }
+    </script>
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -118,3 +175,9 @@
 <div style="text-align: center">
     <canvas id="barcanvas"></canvas>
 </div> 
+<div style="text-align: center; margin-top: 30px;">
+    <canvas id="nertype"></canvas>
+</div>
+<div style="text-align: center; margin-top: 30px;">
+    <canvas id="sa"></canvas>
+</div>
