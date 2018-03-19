@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Adekwasy - Stats & Reports";
+﻿@using ArabicTextAnalyzer.Content.Resources
+@{
+    ViewBag.Title = "Gravitas - " + R.StatsNdReports;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -60,7 +61,7 @@
 }
 
 <h2>@ViewBag.Title.</h2>
-<h4>Show statistics about extracted entities from your theme's data</h4>
+<h4>@R.ShowStatisticsAboutEtc</h4>
 <hr />
 
 <!-- tab content for stats -->

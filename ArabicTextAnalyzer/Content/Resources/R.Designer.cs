@@ -133,6 +133,24 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show statistics about extracted entities from your theme&apos;s data.
+        /// </summary>
+        public static string ShowStatisticsAboutEtc {
+            get {
+                return ResourceManager.GetString("ShowStatisticsAboutEtc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stats &amp; Reports.
+        /// </summary>
+        public static string StatsNdReports {
+            get {
+                return ResourceManager.GetString("StatsNdReports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Translate Arabizi.
         /// </summary>
         public static string TranslateArabizi {

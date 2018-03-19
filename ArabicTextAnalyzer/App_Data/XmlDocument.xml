@@ -537,6 +537,16 @@
               Looks up a localized string similar to Retrieve new posts.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ShowStatisticsAboutEtc">
+            <summary>
+              Looks up a localized string similar to Show statistics about extracted entities from your theme&apos;s data.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.StatsNdReports">
+            <summary>
+              Looks up a localized string similar to Stats &amp; Reports.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.TranslateArabizi">
             <summary>
               Looks up a localized string similar to Translate Arabizi.
