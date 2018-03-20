@@ -159,6 +159,9 @@
   <data name="StatsNdReports" xml:space="preserve">
     <value>Stats &amp; Reports</value>
   </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
   <data name="TranslateArabizi" xml:space="preserve">
     <value>Translate Arabizi</value>
   </data>
@@ -176,5 +179,8 @@
   </data>
   <data name="UseFacebookPagesEtc" xml:space="preserve">
     <value>Use Facebook pages as data source to translate Arabizi and extract entities</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
   </data>
 </root>

@@ -675,13 +675,18 @@ function AddInfluencer() {
         "success": function (msg) {
             AddInfluencerIsClicked = false;
             if (msg.status) {
-                alert("Success " + msg.message);
+                // alert("Success " + msg.message);
+                // show misc area success msg
+                $('#addfbmiscareasuccess').css('display', 'block');
+                $('#addfbmiscareasuccess p').html(msg.message);
+
+                //
                 window.location = '/Train';
             } else {
                 // alert("Error " + msg.message);
                 // show misc area error msg
-                $('#miscareaerror').css('display', 'block');
-                $('#miscareaerror p').html(msg.message);
+                $('#addfbmiscareaerror').css('display', 'block');
+                $('#addfbmiscareaerror p').html(msg.message);
             }
         },
         "error": function () {
@@ -725,7 +730,8 @@ var FBDataVM = function () {
             currentInstance.CallMethod = true;
 
             //
-            currentInstance.JsRetrieveFBPosts(influencerUrl, influencerid, intervalFlag);
+            var mute = true;
+            currentInstance.JsRetrieveFBPosts(influencerUrl, influencerid, intervalFlag, mute);
         }
     };
 
@@ -766,83 +772,108 @@ var FBDataVM = function () {
     };
 
     // original function to retrieve fb posts (and comments as well) 
-    this.JsRetrieveFBPosts = function (influencerurl_name, influencerid, intervalFlag) {
+    this.JsRetrieveFBPosts = function (influencerurl_name, influencerid, intervalFlag, mute) {
+
+        //
+        var currentInstance = this;
+
+        // Chek before
+        if ((currentInstance.RetrieveFBPostIsClicked != false || currentInstance.CallMethod != false) && intervalFlag != true)
+            return;
 
         // DBG
         console.log("JsRetrieveFBPosts - begin");
 
-        var currentInstance = this;
-        if ((currentInstance.RetrieveFBPostIsClicked == false && currentInstance.CallMethod == false) || intervalFlag == true) {
-
-            // mark as clicked to avoid double processing
-            currentInstance.RetrieveFBPostIsClicked = true;
-            currentInstance.CallMethod = true;
-
-            // real work : call on controller Train action Retrieve FB Posts
-            $.ajax({
-                "dataType": 'json',
-                "type": "GET",
-                "url": "/Train/RetrieveFBPosts",
-                "data": {
-                    "influencerurl_name": influencerurl_name
-                },
-                "success": function (msg) {
-
-                    console.log("JsRetrieveFBPosts - msg : " + msg);
-                    console.log("JsRetrieveFBPosts - msg.status : " + msg.status);
-                    console.log("retrievedPostsCount : " + msg.retrievedPostsCount);   // DBG
-                    console.log("retrievedCommentsCount : " + msg.retrievedCommentsCount);   // DBG
-
-                    //
-                    currentInstance.RetrieveFBPostIsClicked = false;
-                    currentInstance.CallMethod = false;
-
-                    if (intervalFlag == true) {
-
-                        if ($('#' + influencerid).hasClass('active')) {
-
-                            // refresh
-                            ResetDataTable(influencerid);
-                        }
-
-                    } else if (msg.status) {
-
-                        // refresh
-                        ResetDataTable(influencerid);
-
-                    } else {
-
-                        console.log("Success Msg Status Error : " + msg.message);
-                        alert("Success Msg Status Error : " + msg.message);
-                    }
-                },
-                "error": function (jqXHR, exception) {
-
-                    currentInstance.RetrieveFBPostIsClicked = false;
-
-                    //
-                    var msg = '';
-                    if (jqXHR.status === 0) {
-                        msg = 'Not connect.\n Verify Network.';
-                    } else if (jqXHR.status == 404) {
-                        msg = 'Requested page not found. [404]';
-                    } else if (jqXHR.status == 500) {
-                        msg = 'Internal Server Error [500].';
-                    } else if (exception === 'parsererror') {
-                        msg = 'Requested JSON parse failed.';
-                    } else if (exception === 'timeout') {
-                        msg = 'Time out error.';
-                    } else if (exception === 'abort') {
-                        msg = 'Ajax request aborted.';
-                    } else {
-                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                    }
-                    // $('#post').html(msg);
-                    console.log("JsRetrieveFBPosts - Error : " + msg);
-                    alert("Error : " + msg);
-                }
-            });
+        // add animation
+        if (mute !== true) {
+            $(".nav.nav-pills").addClass('loading');
+            // show misc area success msg
+            $('#globareasuccess').css('display', 'block');
+            $('#globareasuccess p').html('Prière de patientier quelques minutes, rapatriement des posts et commentaires de la page en cours ...');
         }
+
+        // mark as clicked to avoid double processing
+        currentInstance.RetrieveFBPostIsClicked = true;
+        currentInstance.CallMethod = true;
+
+        // real work : call on controller Train action Retrieve FB Posts
+        $.ajax({
+            "dataType": 'json',
+            "type": "GET",
+            "url": "/Train/RetrieveFBPosts",
+            "data": {
+                "influencerurl_name": influencerurl_name
+            },
+            "success": function (msg) {
+
+                // remove animation
+                if (mute !== true) {
+                    $(".nav.nav-pills").removeClass('loading');
+                    // $('#globareasuccess').css('display', 'none');
+                }
+
+                console.log("JsRetrieveFBPosts - msg : " + msg);
+                console.log("JsRetrieveFBPosts - msg.status : " + msg.status);
+                console.log("retrievedPostsCount : " + msg.retrievedPostsCount);   // DBG
+                console.log("retrievedCommentsCount : " + msg.retrievedCommentsCount);   // DBG
+
+                //
+                currentInstance.RetrieveFBPostIsClicked = false;
+                currentInstance.CallMethod = false;
+
+                if (intervalFlag == true) {
+
+                    if ($('#' + influencerid).hasClass('active')) {
+                    }
+
+                } else if (msg.status) {
+
+                    $('#globareasuccess p').html('Il y a eu rapatriement de ' + msg.retrievedPostsCount + ' posts et ' + msg.retrievedCommentsCount + ' commentaires');
+
+                } else {
+
+                    console.log("Success Msg Status Error : " + msg.message);
+                    // alert("Success Msg Status Error : " + msg.message);
+                    // show misc area error msg
+                    $('#globareaerror').css('display', 'block');
+                    $('#globareaerror p').html(msg.message);
+                }
+
+                // refresh
+                ResetDataTable(influencerid);
+            },
+            "error": function (jqXHR, exception) {
+
+                // remove animation
+                if (mute !== true) {
+                    $(".nav.nav-pills").removeClass('loading');
+                    $('#miscareasuccess').css('display', 'none');
+                }
+
+                //
+                currentInstance.RetrieveFBPostIsClicked = false;
+
+                //
+                var msg = '';
+                if (jqXHR.status === 0) {
+                    msg = 'Not connect.\n Verify Network.';
+                } else if (jqXHR.status == 404) {
+                    msg = 'Requested page not found. [404]';
+                } else if (jqXHR.status == 500) {
+                    msg = 'Internal Server Error [500].';
+                } else if (exception === 'parsererror') {
+                    msg = 'Requested JSON parse failed.';
+                } else if (exception === 'timeout') {
+                    msg = 'Time out error.';
+                } else if (exception === 'abort') {
+                    msg = 'Ajax request aborted.';
+                } else {
+                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                }
+                console.log("JsRetrieveFBPosts - Error : " + msg);
+                alert("Error : " + msg);
+            }
+        });
     }
 
     // function to start retrieving posts and posts from FB and translating them
