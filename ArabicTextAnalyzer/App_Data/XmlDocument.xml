@@ -497,14 +497,34 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Add">
+            <summary>
+              Looks up a localized string similar to Add.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.AddNewFBPage">
+            <summary>
+              Looks up a localized string similar to Add new influencer.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.ConfigFBAlerts">
             <summary>
               Looks up a localized string similar to Config FB Alerts.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.EnterPageName">
+            <summary>
+              Looks up a localized string similar to Enter page name : ex : RajaClubAthleticOfficiel.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.FacebookPages">
             <summary>
               Looks up a localized string similar to Facebook Pages.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.FBPageName">
+            <summary>
+              Looks up a localized string similar to FB Page Name.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.LogIn">

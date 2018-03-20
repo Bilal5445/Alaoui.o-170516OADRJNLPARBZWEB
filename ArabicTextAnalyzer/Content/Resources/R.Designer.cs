@@ -61,6 +61,24 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new influencer.
+        /// </summary>
+        public static string AddNewFBPage {
+            get {
+                return ResourceManager.GetString("AddNewFBPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Config FB Alerts.
         /// </summary>
         public static string ConfigFBAlerts {
@@ -70,11 +88,29 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter page name : ex : RajaClubAthleticOfficiel.
+        /// </summary>
+        public static string EnterPageName {
+            get {
+                return ResourceManager.GetString("EnterPageName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Facebook Pages.
         /// </summary>
         public static string FacebookPages {
             get {
                 return ResourceManager.GetString("FacebookPages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FB Page Name.
+        /// </summary>
+        public static string FBPageName {
+            get {
+                return ResourceManager.GetString("FBPageName", resourceCulture);
             }
         }
         
