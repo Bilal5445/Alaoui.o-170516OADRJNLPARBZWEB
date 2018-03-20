@@ -111,7 +111,7 @@ namespace ArabicTextAnalyzer.BO
                 client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
 
                 // increase timeout to avoid err: "A task was cancelled."
-                client.Timeout = TimeSpan.FromMinutes(30);
+                client.Timeout = TimeSpan.FromMinutes(45);
 
                 byte[] messageBytes = System.Text.Encoding.UTF8.GetBytes(para);
                 var content = new ByteArrayContent(messageBytes);

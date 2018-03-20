@@ -567,6 +567,11 @@
               Looks up a localized string similar to Stats &amp; Reports.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Success">
+            <summary>
+              Looks up a localized string similar to Success.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.TranslateArabizi">
             <summary>
               Looks up a localized string similar to Translate Arabizi.
@@ -595,6 +600,11 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.UseFacebookPagesEtc">
             <summary>
               Looks up a localized string similar to Use Facebook pages as data source to translate Arabizi and extract entities.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Warning">
+            <summary>
+              Looks up a localized string similar to Warning.
             </summary>
         </member>
         <member name="M:ArabicTextAnalyzer.Controllers.ArabiziController.Translate(System.String,System.String)">
