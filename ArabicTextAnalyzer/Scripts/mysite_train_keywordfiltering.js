@@ -835,6 +835,7 @@ var FBDataVM = function () {
                     console.log("Success Msg Status Error : " + msg.message);
                     // alert("Success Msg Status Error : " + msg.message);
                     // show misc area error msg
+                    $('#globareasuccess').css('display', 'none');
                     $('#globareaerror').css('display', 'block');
                     $('#globareaerror p').html(msg.message);
                 }
@@ -847,7 +848,7 @@ var FBDataVM = function () {
                 // remove animation
                 if (mute !== true) {
                     $(".nav.nav-pills").removeClass('loading');
-                    $('#miscareasuccess').css('display', 'none');
+                    $('#globareasuccess').css('display', 'none');
                 }
 
                 //
