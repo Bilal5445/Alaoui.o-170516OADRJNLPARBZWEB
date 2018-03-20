@@ -52,7 +52,7 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
 
 
 @* pagination *@
-@Html.PagedListPager(Model, page => Url.Action("Index", new
+@Html.PagedListPager(Model, page => Url.Action("IndexFBs", new
 {
     page,
     searchStringUserNameOrEmail = ViewBag.searchStringUserNameOrEmail,
