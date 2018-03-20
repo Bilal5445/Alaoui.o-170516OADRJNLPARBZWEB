@@ -643,7 +643,7 @@ function postOnCommentsTranslate(translatedCommentId, id) {
     });
 }
 
-// Js for add  influencer
+// Js for add FB (page) influencer
 function AddInfluencer() {
 
     // check before

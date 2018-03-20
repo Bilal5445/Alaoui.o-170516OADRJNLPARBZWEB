@@ -168,35 +168,72 @@
     }
 </div>
 
+<!-- modal to add FB page -->
+<style>
+    .UrlInput { position: relative; }
+    .UrlInput label { position: absolute; left: 3px; top: 3px; color: #999; }
+    .UrlInput input { position: absolute; left: 0; top: 0; padding-left:40px; }
+</style>
+<style>
+    SPAN.textbox
+{
+    background-color: #FFF;
+    color: #888;
+    line-height:20px;
+    height:20px;
+    padding:3px;
+    border:1px #888 solid;
+    font-size:9pt;
+}
+
+SPAN.textbox INPUT
+{
+    border: 0px;
+    background-color: #FFF;
+}
+</style>
 <div class="modal fade" id="myModalForaddInfluencer" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" style="color:darkblue;">Add new influencer</h4>
+                <h4 class="modal-title" style="color:darkblue;">@R.AddNewFBPage</h4>
             </div>
             <div class="modal-body">
                 <div class="form-group row">
                     <div class="col-lg-12 form-group">
-                        <label for="lgFormGroupInput" class="col-lg-4 col-sm-4 col-form-label col-form-label-lg">Influencer Name</label>
-                        <div class="col-sm-8 col-lg-8">
+                        @*<label for="lgFormGroupInput" class="col-sm-4 col-lg-6 col-form-label col-form-label-lg">@R.FBPageName</label>*@
+                        <label for="lgFormGroupInput" class="col-form-label col-form-label-lg">@R.FBPageName</label>
+                        <!--<div class="col-sm-8 col-lg-8 UrlInput">
+                            <label>http://</label>
                             <input type="text" class="form-control" placeholder="Enter url name" required="required" id="txtUrlName" />
+                        </div>-->
+                        @*<div class="col-sm-8 col-lg-6 input-group">*@
+                        <div class="input-group">
+                            <!--<span class="textbox">
+                                http://
+                                <input type="text" class="form-control" placeholder="Enter url name" required="required" id="txtUrlName" name="url" autofocus />
+                            </span>-->
+                            <!--<div class="input-group">-->
+                                <span class="input-group-addon">https://www.facebook.com/</span>
+                                <input type="text" class="form-control" placeholder="@R.EnterPageName" required="required" id="txtUrlName" name="url" autofocus />
+                            <!--</div>-->
                         </div>
                     </div>
-                    <div class="col-lg-12 form-group">
+                    <div class="col-lg-12 form-group" style="display:none;">
                         <label for="lgFormGroupInput" class="col-lg-4 col-sm-4 col-form-label col-form-label-lg">Influencer Bias</label>
                         <div class="col-sm-8 col-lg-8">
                             <select required="required" id="ddlPro_or_anti" class="form-control">
                                 <option value="">--Select any--</option>
                                 <option value="pro">Pro</option>
                                 <option value="anti">Anti</option>
-                                <option value="n/a">Not Applicable</option>
+                                <option value="n/a" selected="selected">Not Applicable</option>
                             </select>
                         </div>
                     </div>
                 </div>
-                <a class="btn btn-default btn-success" onclick="AddInfluencer()">Add</a>
+                <a class="btn btn-default btn-success" onclick="AddInfluencer()">@R.Add</a>
             </div>
         </div>
     </div>

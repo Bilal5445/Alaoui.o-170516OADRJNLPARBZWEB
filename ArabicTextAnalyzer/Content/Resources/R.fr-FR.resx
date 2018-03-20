@@ -117,11 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="AddNewFBPage" xml:space="preserve">
+    <value>Ajout Page Facebook</value>
+  </data>
   <data name="ConfigFBAlerts" xml:space="preserve">
     <value>Configurer les Alertes FB</value>
   </data>
+  <data name="EnterPageName" xml:space="preserve">
+    <value>Entrez le nom de la page : ex : RajaClubAthleticOfficiel</value>
+  </data>
   <data name="FacebookPages" xml:space="preserve">
     <value>Pages Facebook</value>
+  </data>
+  <data name="FBPageName" xml:space="preserve">
+    <value>Nom de la Page FB</value>
   </data>
   <data name="LogIn" xml:space="preserve">
     <value>Se connecter</value>
