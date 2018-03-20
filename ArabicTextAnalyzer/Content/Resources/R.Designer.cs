@@ -187,6 +187,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        public static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Translate Arabizi.
         /// </summary>
         public static string TranslateArabizi {
@@ -237,6 +246,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string UseFacebookPagesEtc {
             get {
                 return ResourceManager.GetString("UseFacebookPagesEtc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        public static string Warning {
+            get {
+                return ResourceManager.GetString("Warning", resourceCulture);
             }
         }
     }

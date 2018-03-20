@@ -678,7 +678,10 @@ function AddInfluencer() {
                 alert("Success " + msg.message);
                 window.location = '/Train';
             } else {
-                alert("Error " + msg.message);
+                // alert("Error " + msg.message);
+                // show misc area error msg
+                $('#miscareaerror').css('display', 'block');
+                $('#miscareaerror p').html(msg.message);
             }
         },
         "error": function () {
