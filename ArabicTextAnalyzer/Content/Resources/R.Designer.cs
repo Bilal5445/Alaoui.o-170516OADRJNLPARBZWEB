@@ -187,6 +187,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Refresh Charts.
+        /// </summary>
+        public static string RefreshCharts {
+            get {
+                return ResourceManager.GetString("RefreshCharts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remember me ?.
         /// </summary>
         public static string RememberMe {

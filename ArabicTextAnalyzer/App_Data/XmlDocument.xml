@@ -567,6 +567,11 @@
               Looks up a localized string similar to Post Date.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.RefreshCharts">
+            <summary>
+              Looks up a localized string similar to Refresh Charts.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.RememberMe">
             <summary>
               Looks up a localized string similar to Remember me ?.
