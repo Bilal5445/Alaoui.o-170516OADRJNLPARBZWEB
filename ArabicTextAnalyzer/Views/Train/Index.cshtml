@@ -1,7 +1,8 @@
-﻿@using ArabicTextAnalyzer.Domain.Models
+﻿@using ArabicTextAnalyzer.Content.Resources
+@using ArabicTextAnalyzer.Domain.Models
 @model M_ARABIZIENTRY
 @{
-    ViewBag.Title = "Adekwasy - Translate / NER / SA";
+    ViewBag.Title = "Gravitas - " + R.TranslateNerSa;
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     //
@@ -88,7 +89,7 @@
 }
 
 <h2>@ViewBag.Title.</h2>
-<h4>Translate, Display, filter, export, import data and extract insights from working data</h4>
+<h4>@R.TranslateDisplayFilterEtc</h4>
 <hr />
 
 <!-- theme menu -->
@@ -226,10 +227,10 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
     using (Html.BeginForm("TrainStepOne", "Train", new { mainEntity = @ViewBag.UserActiveXtrctTheme.ThemeName.Trim() }, FormMethod.Post, new { id = "trainformstd" }))
     {
         <div class="panel panel-default active">
-            <div class="panel-heading">Arabizi</div>
+            <div class="panel-heading">@R.Arabizi</div>
             <div class="panel-body" style="padding: 0;">
                 <div class="input-group">
-                    @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "resize:none", rows = 2, @class = "form-control custom-control", @required = "required", @placeholder = "Type Arabizi Text, and click Go ..." })
+                    @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "resize:none", rows = 2, @class = "form-control custom-control", @required = "required", @placeholder = R.TypeArabiziTextAndClickGo })
                     @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
                     @Html.HiddenFor(m => m.ID_XTRCTTHEME, new { @Value = ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME })
                     <span class="input-group-addon btn btn-primary" onclick="document.forms['trainformstd'].submit();">Go</span>

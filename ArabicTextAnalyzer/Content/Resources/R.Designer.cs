@@ -79,6 +79,24 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Arabic.
+        /// </summary>
+        public static string Arabic {
+            get {
+                return ResourceManager.GetString("Arabic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arabizi.
+        /// </summary>
+        public static string Arabizi {
+            get {
+                return ResourceManager.GetString("Arabizi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Config FB Alerts.
         /// </summary>
         public static string ConfigFBAlerts {
@@ -93,6 +111,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string EnterPageName {
             get {
                 return ResourceManager.GetString("EnterPageName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entities.
+        /// </summary>
+        public static string Entities {
+            get {
+                return ResourceManager.GetString("Entities", resourceCulture);
             }
         }
         
@@ -129,6 +156,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string LogInGravitasApp {
             get {
                 return ResourceManager.GetString("LogInGravitasApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NER Types.
+        /// </summary>
+        public static string NerTypes {
+            get {
+                return ResourceManager.GetString("NerTypes", resourceCulture);
             }
         }
         
@@ -214,11 +250,29 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Translate, display, filter, export, import data and extract insights from working data.
+        /// </summary>
+        public static string TranslateDisplayFilterEtc {
+            get {
+                return ResourceManager.GetString("TranslateDisplayFilterEtc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Translated Post.
         /// </summary>
         public static string TranslatedPost {
             get {
                 return ResourceManager.GetString("TranslatedPost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translate / NER / SA.
+        /// </summary>
+        public static string TranslateNerSa {
+            get {
+                return ResourceManager.GetString("TranslateNerSa", resourceCulture);
             }
         }
         

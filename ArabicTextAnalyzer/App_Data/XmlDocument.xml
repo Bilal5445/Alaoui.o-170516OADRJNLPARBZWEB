@@ -507,6 +507,16 @@
               Looks up a localized string similar to Add new influencer.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Arabic">
+            <summary>
+              Looks up a localized string similar to Arabic.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Arabizi">
+            <summary>
+              Looks up a localized string similar to Arabizi.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.ConfigFBAlerts">
             <summary>
               Looks up a localized string similar to Config FB Alerts.
@@ -515,6 +525,11 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.EnterPageName">
             <summary>
               Looks up a localized string similar to Enter page name : ex : RajaClubAthleticOfficiel.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Entities">
+            <summary>
+              Looks up a localized string similar to Entities.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.FacebookPages">
@@ -535,6 +550,11 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.LogInGravitasApp">
             <summary>
               Looks up a localized string similar to Log in Gravitas App.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.NerTypes">
+            <summary>
+              Looks up a localized string similar to NER Types.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.Password">
@@ -582,9 +602,19 @@
               Looks up a localized string similar to Translate Arabizi to Arabic and extract entities.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.TranslateDisplayFilterEtc">
+            <summary>
+              Looks up a localized string similar to Translate, display, filter, export, import data and extract insights from working data.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.TranslatedPost">
             <summary>
               Looks up a localized string similar to Translated Post.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.TranslateNerSa">
+            <summary>
+              Looks up a localized string similar to Translate / NER / SA.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.TypeArabiziTextAndClickGo">
