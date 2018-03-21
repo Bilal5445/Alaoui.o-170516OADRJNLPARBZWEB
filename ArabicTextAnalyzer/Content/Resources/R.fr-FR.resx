@@ -166,7 +166,7 @@
     <value>Traduisez de la Darija</value>
   </data>
   <data name="TranslateArabiziToArabicEtc" xml:space="preserve">
-    <value>Traduisez de la Darija vers l'Arabe et extraire les entités</value>
+    <value>Traduisez de la Darija vers de l'Arabe simplifié et extraire les entités</value>
   </data>
   <data name="TranslatedPost" xml:space="preserve">
     <value>Post Traduit</value>
@@ -182,5 +182,23 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Attention</value>
+  </data>
+  <data name="Arabizi" xml:space="preserve">
+    <value>Darija</value>
+  </data>
+  <data name="TranslateDisplayFilterEtc" xml:space="preserve">
+    <value>Traduisez, affichez, filtez, exportez, importez de nouvelles données et extrayez des analyses à partir des données de travail</value>
+  </data>
+  <data name="TranslateNerSa" xml:space="preserve">
+    <value>Traduction &amp; Analyse de Données</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>Arabe</value>
+  </data>
+  <data name="Entities" xml:space="preserve">
+    <value>Entités</value>
+  </data>
+  <data name="NerTypes" xml:space="preserve">
+    <value>Types Entités</value>
   </data>
 </root>

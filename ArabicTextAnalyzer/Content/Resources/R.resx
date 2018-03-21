@@ -183,4 +183,22 @@
   <data name="Warning" xml:space="preserve">
     <value>Warning</value>
   </data>
+  <data name="Arabizi" xml:space="preserve">
+    <value>Arabizi</value>
+  </data>
+  <data name="TranslateDisplayFilterEtc" xml:space="preserve">
+    <value>Translate, display, filter, export, import data and extract insights from working data</value>
+  </data>
+  <data name="TranslateNerSa" xml:space="preserve">
+    <value>Translate / NER / SA</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>Arabic</value>
+  </data>
+  <data name="Entities" xml:space="preserve">
+    <value>Entities</value>
+  </data>
+  <data name="NerTypes" xml:space="preserve">
+    <value>NER Types</value>
+  </data>
 </root>
