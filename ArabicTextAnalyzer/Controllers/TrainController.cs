@@ -159,10 +159,8 @@ namespace ArabicTextAnalyzer.Controllers
 
             // chart.js NER per theme
             var statNerCountPerTheme =  new Arabizer().StatNerCountPerTheme(userActiveXtrctTheme.ID_XTRCTTHEME.ToString());
-            // ViewBag.Data = "50,20,19,5,3"; //list of strings that you need to show on the chart. as mentioned in the example from c-sharpcorner
-            ViewBag.Data = String.Join(",", statNerCountPerTheme.Select(m => m.CountPerKeyword));
-            // ViewBag.ObjectName = "'maroc','iam','dirham','mabrouk','facebook'";
-            ViewBag.ObjectName = String.Join(",", statNerCountPerTheme.Select(m => "'" + m.Keyword + "'"));
+            ViewBag.Data = String.Join(",", statNerCountPerTheme.Select(m => m.CountPerKeyword));   
+            ViewBag.ObjectName = String.Join(",", statNerCountPerTheme.Select(m => "'" + m.Keyword + "'")); //list of "strings" that you need to show on the chart
 
             // charts.js NER types per theme
             var statNerTypeCountPerTheme = new Arabizer().StatNerTypeCountPerTheme(userActiveXtrctTheme.ID_XTRCTTHEME.ToString());

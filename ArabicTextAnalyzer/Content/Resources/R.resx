@@ -201,4 +201,7 @@
   <data name="NerTypes" xml:space="preserve">
     <value>NER Types</value>
   </data>
+  <data name="RefreshCharts" xml:space="preserve">
+    <value>Refresh Charts</value>
+  </data>
 </root>

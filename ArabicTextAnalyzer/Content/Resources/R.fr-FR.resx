@@ -154,7 +154,7 @@
     <value>Récupérer les nouveaux posts</value>
   </data>
   <data name="ShowStatisticsAboutEtc" xml:space="preserve">
-    <value>Affichez les statistiques des entités extraites des données de votre theme</value>
+    <value>Affichez les statistiques des entités extraites des données de votre thême</value>
   </data>
   <data name="StatsNdReports" xml:space="preserve">
     <value>Stats &amp; Rapports</value>
@@ -200,5 +200,8 @@
   </data>
   <data name="NerTypes" xml:space="preserve">
     <value>Types Entités</value>
+  </data>
+  <data name="RefreshCharts" xml:space="preserve">
+    <value>Rafraichir les tableaux</value>
   </data>
 </root>
