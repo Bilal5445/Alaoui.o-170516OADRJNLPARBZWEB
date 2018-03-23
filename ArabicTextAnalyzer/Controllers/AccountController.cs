@@ -90,6 +90,9 @@ namespace ArabicTextAnalyzer.Controllers
             var user = await UserManager.FindByNameAsync(model.Email);
             if (user != null)
             {
+                //
+                string callbackUrl = await SendEmailConfirmationTokenAsync(user);
+
                 if (!await UserManager.IsEmailConfirmedAsync(user.Id))
                 {
                     ViewBag.errorMessage = "You must have a confirmed email to log on.";
@@ -110,7 +113,7 @@ namespace ArabicTextAnalyzer.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", R.InvalidLoginAttempt);
                     return View(model);
             }
 
@@ -263,7 +266,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                         // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                         // Send an email with this link
-                        string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                        /*string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                         var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Host);
                         var message = "Bonjour, <br><br>"
 + "Nous vous remercions pour votre enregistrement sur le site web de Gravitas.<br><br>"
@@ -279,7 +282,8 @@ namespace ArabicTextAnalyzer.Controllers
                         + "Ce message est envoyé depuis une adresse technique, nous vous remercions de ne pas y répondre. Si vous désirez nous contacter, nous vous invitons à envoyer un mail à support@gravitas.ma.<br><br> "
 + "Bien Cordialement,<br><br>"
 + "L'équipe Gravitas";
-                        await UserManager.SendEmailAsync(user.Id, "Confirmer votre compte", message);
+                        await UserManager.SendEmailAsync(user.Id, "Confirmer votre compte", message);*/
+                        string callbackUrl = await SendEmailConfirmationTokenAsync(user);
 
                         // Uncomment to debug locally 
                         // TempData["ViewBagLink"] = callbackUrl;
@@ -398,10 +402,12 @@ namespace ArabicTextAnalyzer.Controllers
 
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Host);
+                callbackUrl = callbackUrl.Replace(Request.Url.Host + "://", "");    // MC230318 quick & dirty hack to get rid of the port 81
+                // http://app.adekwasy.com:/fr-FR/Account/ResetPassword?userId=d0af39c5-5422-41fb-bd4a-9412c166a965&code=iLD3a6GYWf0lYUN3U9%2BYpCxQ0uz6agHNwBb8f0F%2FofhzdR35Kt0j%2FxHxGn14KoB6kstSvpO%2BgCy1l26ky89UkQ35i%2BVTvg2qsDfLAVKZ2PUBV33vE2HYkujPB3n3Zb5m1La9Ez%2Boi8ozXemPJ%2BlMFlmsfEV%2BBkViQxU22D9WEzpxaOgdhp9pLzsg7fWIJSB9giA7r2mAS5Q%2BbJ8Av36p2A%3D%3D
+                await UserManager.SendEmailAsync(user.Id, R.ResetPassword, R.PleaseResetYourPasswordByClicking + " <a href='" + callbackUrl + "'>" + R.here + "</a>");
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
             // If we got this far, something failed, redisplay form
@@ -722,5 +728,29 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
         #endregion
+
+        private async Task<string> SendEmailConfirmationTokenAsync(ApplicationUser user)
+        {
+            string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+            var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Host);
+            callbackUrl = callbackUrl.Replace(Request.Url.Host + "://", "");    // MC230318 quick & dirty hack to get rid of the port 81
+            var message = "Bonjour, <br><br>"
++ "Nous vous remercions pour votre enregistrement sur le site web de Gravitas.<br><br>"
+
++ "Votre nom d'utilisateur est: <a href='mailto:" + user.Email + "' target='_blank'>" + user.Email + "</a>.<br><br>"
+
++ "Vous pouvez dorénavant vous connecter au site web pour accéder à votre espace personnel.<br><br>"
+
++ "Veuillez suivre ce lien pour activer votre compte:<br><br>"
+
+        + callbackUrl + "<br><br> "
+
+            + "Ce message est envoyé depuis une adresse technique, nous vous remercions de ne pas y répondre. Si vous désirez nous contacter, nous vous invitons à envoyer un mail à support@gravitas.ma.<br><br> "
++ "Bien Cordialement,<br><br>"
++ "L'équipe Gravitas";
+            await UserManager.SendEmailAsync(user.Id, "Confirmer votre compte", message);
+
+            return callbackUrl;
+        }
     }
 }

@@ -231,4 +231,46 @@
   <data name="ThankYouForConfirmingYourEmail" xml:space="preserve">
     <value>Merci pour la confirmation de votre email</value>
   </data>
+  <data name="EmailLink" xml:space="preserve">
+    <value>Envoyer Lien</value>
+  </data>
+  <data name="EnterYourEmail" xml:space="preserve">
+    <value>Entrer votre mail.</value>
+  </data>
+  <data name="ForgotPasswordConfirmation" xml:space="preserve">
+    <value>Email de Récupération Envoyé</value>
+  </data>
+  <data name="ForgotYourPassword" xml:space="preserve">
+    <value>Mot de passe oublié ?</value>
+  </data>
+  <data name="InvalidLoginAttempt" xml:space="preserve">
+    <value>Tentative de connection invalide.</value>
+  </data>
+  <data name="PleaseCheckYourEmailToResetEtc" xml:space="preserve">
+    <value>Merci de vérifier votre email pour reinitialiser votre mot de passe</value>
+  </data>
+  <data name="RegisterAsANewUser" xml:space="preserve">
+    <value>S'enregistrer comme nouveau utilisateur</value>
+  </data>
+  <data name="here" xml:space="preserve">
+    <value>ici</value>
+  </data>
+  <data name="PleaseResetYourPasswordByClicking" xml:space="preserve">
+    <value>Veuillez réinitialiser votre mot de passe en cliquant</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Réinitialiser</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Réinitialiser Mot de Passe</value>
+  </data>
+  <data name="ResetPasswordConfirmation" xml:space="preserve">
+    <value>Confirmation de réinitialisation de mot de passe</value>
+  </data>
+  <data name="ResetYourPassword" xml:space="preserve">
+    <value>Réinitialiser votre mot de passe.</value>
+  </data>
+  <data name="YourPasswordHasBeenReset" xml:space="preserve">
+    <value>Votre mot de passe a été réinitialisé</value>
+  </data>
 </root>
