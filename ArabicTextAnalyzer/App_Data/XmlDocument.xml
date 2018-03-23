@@ -547,9 +547,19 @@
               Looks up a localized string similar to Create your account.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.EmailLink">
+            <summary>
+              Looks up a localized string similar to Email Link.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.EnterPageName">
             <summary>
               Looks up a localized string similar to Enter page name : ex : RajaClubAthleticOfficiel.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.EnterYourEmail">
+            <summary>
+              Looks up a localized string similar to Enter your email..
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.Entities">
@@ -565,6 +575,26 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.FBPageName">
             <summary>
               Looks up a localized string similar to FB Page Name.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ForgotPasswordConfirmation">
+            <summary>
+              Looks up a localized string similar to Forgot Password Confirmation.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ForgotYourPassword">
+            <summary>
+              Looks up a localized string similar to Forgot your password?.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.here">
+            <summary>
+              Looks up a localized string similar to here.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.InvalidLoginAttempt">
+            <summary>
+              Looks up a localized string similar to Invalid login attempt..
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.LogIn">
@@ -592,6 +622,16 @@
               Looks up a localized string similar to Please.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.PleaseCheckYourEmailToResetEtc">
+            <summary>
+              Looks up a localized string similar to Please check your email to reset your password.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.PleaseResetYourPasswordByClicking">
+            <summary>
+              Looks up a localized string similar to Please reset your password by clicking.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.PostDate">
             <summary>
               Looks up a localized string similar to Post Date.
@@ -607,6 +647,11 @@
               Looks up a localized string similar to Register.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.RegisterAsANewUser">
+            <summary>
+              Looks up a localized string similar to Register as a new user.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.RegisterIntoGravitasApp">
             <summary>
               Looks up a localized string similar to Register into Gravitas App.
@@ -615,6 +660,26 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.RememberMe">
             <summary>
               Looks up a localized string similar to Remember me ?.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Reset">
+            <summary>
+              Looks up a localized string similar to Reset.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ResetPassword">
+            <summary>
+              Looks up a localized string similar to Reset Password.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ResetPasswordConfirmation">
+            <summary>
+              Looks up a localized string similar to Reset password confirmation.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ResetYourPassword">
+            <summary>
+              Looks up a localized string similar to Reset your password..
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.RetrieveNewPosts">
@@ -685,6 +750,11 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.Warning">
             <summary>
               Looks up a localized string similar to Warning.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.YourPasswordHasBeenReset">
+            <summary>
+              Looks up a localized string similar to Your password has been reset.
             </summary>
         </member>
         <member name="M:ArabicTextAnalyzer.Controllers.ArabiziController.Translate(System.String,System.String)">

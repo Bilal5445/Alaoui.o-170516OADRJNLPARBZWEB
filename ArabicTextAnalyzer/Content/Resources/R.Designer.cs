@@ -151,11 +151,29 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email Link.
+        /// </summary>
+        public static string EmailLink {
+            get {
+                return ResourceManager.GetString("EmailLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter page name : ex : RajaClubAthleticOfficiel.
         /// </summary>
         public static string EnterPageName {
             get {
                 return ResourceManager.GetString("EnterPageName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your email..
+        /// </summary>
+        public static string EnterYourEmail {
+            get {
+                return ResourceManager.GetString("EnterYourEmail", resourceCulture);
             }
         }
         
@@ -183,6 +201,42 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string FBPageName {
             get {
                 return ResourceManager.GetString("FBPageName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forgot Password Confirmation.
+        /// </summary>
+        public static string ForgotPasswordConfirmation {
+            get {
+                return ResourceManager.GetString("ForgotPasswordConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forgot your password?.
+        /// </summary>
+        public static string ForgotYourPassword {
+            get {
+                return ResourceManager.GetString("ForgotYourPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to here.
+        /// </summary>
+        public static string here {
+            get {
+                return ResourceManager.GetString("here", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid login attempt..
+        /// </summary>
+        public static string InvalidLoginAttempt {
+            get {
+                return ResourceManager.GetString("InvalidLoginAttempt", resourceCulture);
             }
         }
         
@@ -232,6 +286,24 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please check your email to reset your password.
+        /// </summary>
+        public static string PleaseCheckYourEmailToResetEtc {
+            get {
+                return ResourceManager.GetString("PleaseCheckYourEmailToResetEtc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please reset your password by clicking.
+        /// </summary>
+        public static string PleaseResetYourPasswordByClicking {
+            get {
+                return ResourceManager.GetString("PleaseResetYourPasswordByClicking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Post Date.
         /// </summary>
         public static string PostDate {
@@ -259,6 +331,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Register as a new user.
+        /// </summary>
+        public static string RegisterAsANewUser {
+            get {
+                return ResourceManager.GetString("RegisterAsANewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register into Gravitas App.
         /// </summary>
         public static string RegisterIntoGravitasApp {
@@ -273,6 +354,42 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string RememberMe {
             get {
                 return ResourceManager.GetString("RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        public static string Reset {
+            get {
+                return ResourceManager.GetString("Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Password.
+        /// </summary>
+        public static string ResetPassword {
+            get {
+                return ResourceManager.GetString("ResetPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset password confirmation.
+        /// </summary>
+        public static string ResetPasswordConfirmation {
+            get {
+                return ResourceManager.GetString("ResetPasswordConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset your password..
+        /// </summary>
+        public static string ResetYourPassword {
+            get {
+                return ResourceManager.GetString("ResetYourPassword", resourceCulture);
             }
         }
         
@@ -399,6 +516,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string Warning {
             get {
                 return ResourceManager.GetString("Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your password has been reset.
+        /// </summary>
+        public static string YourPasswordHasBeenReset {
+            get {
+                return ResourceManager.GetString("YourPasswordHasBeenReset", resourceCulture);
             }
         }
     }
