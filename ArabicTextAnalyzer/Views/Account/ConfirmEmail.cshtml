@@ -1,10 +1,11 @@
-﻿@{
-    ViewBag.Title = "Confirm Email";
+﻿@using ArabicTextAnalyzer.Content.Resources
+@{
+    ViewBag.Title = R.ConfirmedEmail;
 }
 
 <h2>@ViewBag.Title.</h2>
 <div>
     <p>
-        Thank you for confirming your email. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+        @R.ThankYouForConfirmingYourEmail. @R.Please @Html.ActionLink(R.ClickHereToLogIn, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
     </p>
 </div>

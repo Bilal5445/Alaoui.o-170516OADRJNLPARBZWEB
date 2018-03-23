@@ -735,6 +735,11 @@ namespace ArabicTextAnalyzer.Controllers
             //
             if (activeTheme.ID_XTRCTTHEME != null)
             {
+                // Check/Clean before
+                if (url_name.StartsWith("https://www.facebook.com/"))
+                    url_name = url_name.Substring("https://www.facebook.com/".Length);
+
+                // real work
                 var themeid = activeTheme.ID_XTRCTTHEME;
                 var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "AccountPanel/AddFBInfluencer?url_name=" + url_name + "&pro_or_anti=" + pro_or_anti + "&id=1&themeid=" + themeid + "&CallFrom=AddFBInfluencer";
                 // ex : url : http://localhost:8081/AccountPanel/AddFBInfluencer?url_name=telquelofficiel&pro_or_anti=Anti&id=1&themeid=fd6590b9-dbd1-4341-9329-4a9cae8047eb&CallFrom=AddFBInfluencer
@@ -1242,7 +1247,7 @@ namespace ArabicTextAnalyzer.Controllers
             status = true;
         }
 
-        private bool SendEmail(string toEmailAddress, string subject, string body)
+        public static bool SendEmail(string toEmailAddress, string subject, string body)
         {
             bool status = false;
 

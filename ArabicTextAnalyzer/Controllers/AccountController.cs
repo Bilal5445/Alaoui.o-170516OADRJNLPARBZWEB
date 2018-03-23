@@ -16,6 +16,8 @@ using ArabicTextAnalyzer.Models.Repository;
 using ArabicTextAnalyzer.Domain.Models;
 using ArabicTextAnalyzer.BO;
 using OADRJNLPCommon.Business;
+using Exceptions;
+using ArabicTextAnalyzer.Content.Resources;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -84,6 +86,17 @@ namespace ArabicTextAnalyzer.Controllers
                 return View(model);
             }
 
+            // Require the user to have a confirmed email before they can log on.
+            var user = await UserManager.FindByNameAsync(model.Email);
+            if (user != null)
+            {
+                if (!await UserManager.IsEmailConfirmedAsync(user.Id))
+                {
+                    ViewBag.errorMessage = "You must have a confirmed email to log on.";
+                    return View("Error");
+                }
+            }
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
@@ -124,6 +137,30 @@ namespace ArabicTextAnalyzer.Controllers
                 var appLimit = Convert.ToInt32(ConfigurationManager.AppSettings["TotalAppCallLimit"]);
                 var app = new RegisterApp { Name = userId + ".app" };
                 new AppManager().CreateApp(app, userId, false, new RegisterAppConcrete(), new ClientKeysConcrete(), appLimit);
+            }
+
+            // create registered user
+            using (var db = new ArabiziDbContext())
+            {
+                var userguid = Guid.Parse(userId);
+                var registeredUser = db.RegisterUsers.SingleOrDefault(m => m.UserGuid == userguid);
+                if (registeredUser == null)
+                {
+                    db.RegisterUsers.Add(new RegisterUser
+                    {
+                        UserGuid = userguid,
+                        LastLoginTime = DateTime.Now,
+                        Username = model.Email,
+                        Password = model.Password,
+                        CreateOn = DateTime.Now,
+                        EmailID = model.Email,
+                    });
+                }
+                else
+                    registeredUser.LastLoginTime = DateTime.Now;
+
+                // commit
+                db.SaveChanges();
             }
 
             // log login time
@@ -216,60 +253,106 @@ namespace ArabicTextAnalyzer.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+
+                try
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                    // create app to use the arabizi
-                    var userId = user.Id;
-                    var appLimit = Convert.ToInt32(ConfigurationManager.AppSettings["TotalAppCallLimit"]);
-                    var app = new RegisterApp { Name = userId + ".app" };
-                    new AppManager().CreateApp(app, userId, false, new RegisterAppConcrete(), new ClientKeysConcrete(), appLimit);
-
-                    // create registered user
-                    using (var db = new ArabiziDbContext())
+                    var result = await UserManager.CreateAsync(user, model.Password);
+                    if (result.Succeeded)
                     {
-                        var userguid = Guid.Parse(userId);
-                        var registeredUser = db.RegisterUsers.SingleOrDefault(m => m.UserGuid == userguid);
-                        if (registeredUser == null)
+                        // await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                        // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                        // Send an email with this link
+                        string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                        var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Host);
+                        var message = "Bonjour, <br><br>"
++ "Nous vous remercions pour votre enregistrement sur le site web de Gravitas.<br><br>"
+
++ "Votre nom d'utilisateur est: <a href='mailto:" + user.Email + "' target='_blank'>" + user.Email + "</a>.<br><br>"
+
++ "Vous pouvez dorénavant vous connecter au site web pour accéder à votre espace personnel.<br><br>"
+
++ "Veuillez suivre ce lien pour activer votre compte:<br><br>"
+
+                    + callbackUrl + "<br><br> "
+
+                        + "Ce message est envoyé depuis une adresse technique, nous vous remercions de ne pas y répondre. Si vous désirez nous contacter, nous vous invitons à envoyer un mail à support@gravitas.ma.<br><br> "
++ "Bien Cordialement,<br><br>"
++ "L'équipe Gravitas";
+                        await UserManager.SendEmailAsync(user.Id, "Confirmer votre compte", message);
+
+                        // Uncomment to debug locally 
+                        // TempData["ViewBagLink"] = callbackUrl;
+
+                        ViewBag.Message = R.CheckYourMailAndConfirmEtc;
+
+                        return View("Info");
+
+                        /*
+                        // create app to use the arabizi
+                        var userId = user.Id;
+                        var appLimit = Convert.ToInt32(ConfigurationManager.AppSettings["TotalAppCallLimit"]);
+                        var app = new RegisterApp { Name = userId + ".app" };
+                        new AppManager().CreateApp(app, userId, false, new RegisterAppConcrete(), new ClientKeysConcrete(), appLimit);
+
+                        // create registered user
+                        using (var db = new ArabiziDbContext())
                         {
-                            db.RegisterUsers.Add(new RegisterUser
+                            var userguid = Guid.Parse(userId);
+                            var registeredUser = db.RegisterUsers.SingleOrDefault(m => m.UserGuid == userguid);
+                            if (registeredUser == null)
                             {
-                                UserGuid = userguid,
-                                LastLoginTime = DateTime.Now,
-                                Username = model.Email,
-                                Password = model.Password,
-                                CreateOn = DateTime.Now,
-                                EmailID = model.Email,
-                            });
+                                db.RegisterUsers.Add(new RegisterUser
+                                {
+                                    UserGuid = userguid,
+                                    LastLoginTime = DateTime.Now,
+                                    Username = model.Email,
+                                    Password = model.Password,
+                                    CreateOn = DateTime.Now,
+                                    EmailID = model.Email,
+                                });
+                            }
+                            else
+                                registeredUser.LastLoginTime = DateTime.Now;
+
+                            // commit
+                            db.SaveChanges();
                         }
-                        else
-                            registeredUser.LastLoginTime = DateTime.Now;
 
-                        // commit
-                        db.SaveChanges();
+                        // Create default theme
+                        new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(new M_XTRCTTHEME
+                        {
+                            ID_XTRCTTHEME = Guid.NewGuid(),
+                            CurrentActive = "active",
+                            ThemeName = "Default",
+                            UserID = userId
+                        });
+
+                        //
+                        return RedirectToAction("Index", "Train");*/
                     }
-
-                    // Create default theme
-                    new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(new M_XTRCTTHEME
-                    {
-                        ID_XTRCTTHEME = Guid.NewGuid(),
-                        CurrentActive = "active",
-                        ThemeName = "Default",
-                        UserID = userId
-                    });
-
-                    //
-                    return RedirectToAction("Index", "Train");
+                    AddErrors(result);
                 }
-                AddErrors(result);
+                catch (InvalidApiRequestException ex)
+                {
+                    Logging.Write(Server, ex.GetType().Name);
+                    Logging.Write(Server, ex.Message);
+                    Logging.Write(Server, ex.StackTrace);
+
+                    // delere user if create
+                    await UserManager.DeleteAsync(user);
+
+                    throw new Exception(ex.Errors[0]);
+                }
+                catch (Exception ex)
+                {
+                    Logging.Write(Server, ex.GetType().Name);
+                    Logging.Write(Server, ex.Message);
+                    Logging.Write(Server, ex.StackTrace);
+
+                    // delere user if create
+                    await UserManager.DeleteAsync(user);
+                }
             }
 
             // If we got this far, something failed, redisplay form
