@@ -204,4 +204,31 @@
   <data name="RefreshCharts" xml:space="preserve">
     <value>Rafraichir les tableaux</value>
   </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirmez votre mot de passe</value>
+  </data>
+  <data name="CreateANewAccount" xml:space="preserve">
+    <value>Créer votre compte</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>S'enregistrer</value>
+  </data>
+  <data name="RegisterIntoGravitasApp" xml:space="preserve">
+    <value>Enregistrez vous dans l'app Gravitas</value>
+  </data>
+  <data name="CheckYourMailAndConfirmEtc" xml:space="preserve">
+    <value>Prière de vérifier votre mail et de confirmer votre compte, vous devez vous confirmer avant de pouvoir vous connecter.</value>
+  </data>
+  <data name="ClickHereToLogIn" xml:space="preserve">
+    <value>Cliquer ici pour vous connecter</value>
+  </data>
+  <data name="ConfirmedEmail" xml:space="preserve">
+    <value>Email Confirmé</value>
+  </data>
+  <data name="Please" xml:space="preserve">
+    <value>Svp</value>
+  </data>
+  <data name="ThankYouForConfirmingYourEmail" xml:space="preserve">
+    <value>Merci pour la confirmation de votre email</value>
+  </data>
 </root>

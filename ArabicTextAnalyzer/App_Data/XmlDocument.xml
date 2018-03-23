@@ -517,9 +517,34 @@
               Looks up a localized string similar to Arabizi.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.CheckYourMailAndConfirmEtc">
+            <summary>
+              Looks up a localized string similar to Check your email and confirm your account, you must be confirmed before you can log in..
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ClickHereToLogIn">
+            <summary>
+              Looks up a localized string similar to Click here to Log in.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.ConfigFBAlerts">
             <summary>
               Looks up a localized string similar to Config FB Alerts.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ConfirmedEmail">
+            <summary>
+              Looks up a localized string similar to Confirmed Email.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ConfirmPassword">
+            <summary>
+              Looks up a localized string similar to Confirm password.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.CreateANewAccount">
+            <summary>
+              Looks up a localized string similar to Create your account.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.EnterPageName">
@@ -562,6 +587,11 @@
               Looks up a localized string similar to Password.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Please">
+            <summary>
+              Looks up a localized string similar to Please.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.PostDate">
             <summary>
               Looks up a localized string similar to Post Date.
@@ -570,6 +600,16 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.RefreshCharts">
             <summary>
               Looks up a localized string similar to Refresh Charts.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Register">
+            <summary>
+              Looks up a localized string similar to Register.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.RegisterIntoGravitasApp">
+            <summary>
+              Looks up a localized string similar to Register into Gravitas App.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.RememberMe">
@@ -595,6 +635,11 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.Success">
             <summary>
               Looks up a localized string similar to Success.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ThankYouForConfirmingYourEmail">
+            <summary>
+              Looks up a localized string similar to Thank you for confirming your email.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.TranslateArabizi">

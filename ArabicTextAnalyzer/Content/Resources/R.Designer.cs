@@ -97,11 +97,56 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check your email and confirm your account, you must be confirmed before you can log in..
+        /// </summary>
+        public static string CheckYourMailAndConfirmEtc {
+            get {
+                return ResourceManager.GetString("CheckYourMailAndConfirmEtc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click here to Log in.
+        /// </summary>
+        public static string ClickHereToLogIn {
+            get {
+                return ResourceManager.GetString("ClickHereToLogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Config FB Alerts.
         /// </summary>
         public static string ConfigFBAlerts {
             get {
                 return ResourceManager.GetString("ConfigFBAlerts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmed Email.
+        /// </summary>
+        public static string ConfirmedEmail {
+            get {
+                return ResourceManager.GetString("ConfirmedEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm password.
+        /// </summary>
+        public static string ConfirmPassword {
+            get {
+                return ResourceManager.GetString("ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create your account.
+        /// </summary>
+        public static string CreateANewAccount {
+            get {
+                return ResourceManager.GetString("CreateANewAccount", resourceCulture);
             }
         }
         
@@ -178,6 +223,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please.
+        /// </summary>
+        public static string Please {
+            get {
+                return ResourceManager.GetString("Please", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Post Date.
         /// </summary>
         public static string PostDate {
@@ -192,6 +246,24 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string RefreshCharts {
             get {
                 return ResourceManager.GetString("RefreshCharts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register into Gravitas App.
+        /// </summary>
+        public static string RegisterIntoGravitasApp {
+            get {
+                return ResourceManager.GetString("RegisterIntoGravitasApp", resourceCulture);
             }
         }
         
@@ -237,6 +309,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string Success {
             get {
                 return ResourceManager.GetString("Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thank you for confirming your email.
+        /// </summary>
+        public static string ThankYouForConfirmingYourEmail {
+            get {
+                return ResourceManager.GetString("ThankYouForConfirmingYourEmail", resourceCulture);
             }
         }
         
