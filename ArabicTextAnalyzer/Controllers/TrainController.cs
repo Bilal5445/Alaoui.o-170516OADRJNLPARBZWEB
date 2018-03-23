@@ -1093,7 +1093,7 @@ namespace ArabicTextAnalyzer.Controllers
                         {
                             if (!string.IsNullOrEmpty(posts.MailBody))
                             {
-                                string subject = "Adekwasy Warning! Some bad words has been detected in your page.";
+                                string subject = "Gravitas Warning! Some bad words has been detected in your page.";
                                 string body = posts.MailBody;
                                 int n = 0;
                                 if (posts.NoOfTimeMailSend < 2 || posts.NoOfTimeMailSend == null)
