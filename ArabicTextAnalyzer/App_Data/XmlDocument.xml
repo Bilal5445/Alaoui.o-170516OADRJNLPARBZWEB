@@ -702,9 +702,19 @@
               Looks up a localized string similar to Save Settings.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.SearchForSocialDataEtc">
+            <summary>
+              Looks up a localized string similar to Search for social data over Facebook content over Moroccan pages.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.ShowStatisticsAboutEtc">
             <summary>
               Looks up a localized string similar to Show statistics about extracted entities from your theme&apos;s data.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.SocialSearch">
+            <summary>
+              Looks up a localized string similar to Social Search.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.StartStopAutoRetrieveOfEtc">

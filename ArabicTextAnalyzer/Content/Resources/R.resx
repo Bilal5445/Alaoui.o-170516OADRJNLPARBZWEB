@@ -282,6 +282,12 @@
   <data name="SaveSettings" xml:space="preserve">
     <value>Save Settings</value>
   </data>
+  <data name="SearchForSocialDataEtc" xml:space="preserve">
+    <value>Search for social data over Facebook content over Moroccan pages</value>
+  </data>
+  <data name="SocialSearch" xml:space="preserve">
+    <value>Social Search</value>
+  </data>
   <data name="StartStopAutoRetrieveOfEtc" xml:space="preserve">
     <value>Start/stop auto retrieve of FB posts and comments</value>
   </data>

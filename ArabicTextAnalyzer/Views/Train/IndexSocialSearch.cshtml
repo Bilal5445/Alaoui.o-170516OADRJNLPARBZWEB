@@ -1,6 +1,6 @@
-﻿
+﻿@using ArabicTextAnalyzer.Content.Resources
 @{
-    ViewBag.Title = "Gravitas - Social Search";
+    ViewBag.Title = "Gravitas - " + R.SocialSearch;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -40,7 +40,7 @@
 }
 
 <h2>@ViewBag.Title.</h2>
-<h4>Search for social data over Facebook content over Moroccan pages</h4>
+<h4>@R.SearchForSocialDataEtc</h4>
 <hr />
 
 <!-- date range filter -->
