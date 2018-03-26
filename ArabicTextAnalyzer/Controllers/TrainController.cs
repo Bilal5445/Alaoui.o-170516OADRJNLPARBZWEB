@@ -1713,6 +1713,21 @@ namespace ArabicTextAnalyzer.Controllers
                 if (!String.IsNullOrEmpty(searchValue))
                     items = items.Where(a => a.ArabiziText.ToUpper().Contains(searchValue.ToUpper()) || a.ArabicDarijaText.ToUpper().Contains(searchValue.ToUpper())).ToList();
 
+                // filter on date range
+                var min = this.Request.Form["min"];
+                var max = this.Request.Form["max"];
+                if (min != null)
+                {
+                    var minDate = Convert.ToDateTime(min);
+                    items = items.Where(a => a.ArabiziEntryDate >= minDate).ToList();
+                }
+                if (max != null)
+                {
+                    var maxDate = Convert.ToDateTime(max).AddDays(1);
+                    items = items.Where(a => a.ArabiziEntryDate <= maxDate).ToList();
+                }
+
+                //
                 var itemsFilteredCount = items.Count;
 
                 // page as per request (index of page and length)
@@ -1885,7 +1900,6 @@ namespace ArabicTextAnalyzer.Controllers
                 extraData
             });
         }
-
 
         [HttpGet]
         public object DataTablesNet_ServerSide_FB_Comments_GetList(string id)

@@ -58,13 +58,11 @@ function InitializeSocialSearchDataTables() {
         "serverSide": true,
         "ajax": {
             "url": "/Train/DataTablesNet_ServerSide_SocialSearch_GetList",
-            "dataSrc": function (json) {
+            /*"dataSrc": function (json) {
                 return json.data;
-            },
+            },*/
+            // search by date
             "data": function (d) {
-                // d.myKey = "myValue";
-                // d.custom = $('#myInput').val();
-                // etc
                 var min = $('#min').datepicker("getDate");
                 if (min != null) {
                     var minjson = min.toJSON();
@@ -79,24 +77,9 @@ function InitializeSocialSearchDataTables() {
         }
     });
 
-    /*$.fn.dataTable.ext.search.push(
-        function (settings, data, dataIndex) {
-            var min = $('#min').datepicker("getDate");
-            var max = $('#max').datepicker("getDate");
-            var startDate = new Date(data[6]);
-            if (min == null && max == null) { return true; }
-            if (min == null && startDate <= max) { return true; }
-            if (max == null && startDate >= min) { return true; }
-            if (startDate <= max && startDate >= min) { return true; }
-            return false;
-        }
-        );*/
-
+    // Search by date & Event listener to the two range filtering inputs to redraw on input
     $("#min").datepicker({ onSelect: function () { table.draw(); }, changeMonth: true, changeYear: true });
     $("#max").datepicker({ onSelect: function () { table.draw(); }, changeMonth: true, changeYear: true });
-    // var table = $('#example').DataTable();
-
-    // Event listener to the two range filtering inputs to redraw on input
     $('#min, #max').change(function () {
         table.draw();
     });

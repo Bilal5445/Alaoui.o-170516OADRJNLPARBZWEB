@@ -82,7 +82,22 @@ function InitializeDataTables(adminModeShowAll) {
             "ajax": {
                 "url": "/Train/DataTablesNet_ServerSide_GetList",
                 "type": "POST",
-                "data": { "adminModeShowAll": adminModeShowAll }
+                // "data": { "adminModeShowAll": adminModeShowAll }
+                "data": function (d) {
+                    var min = $('#minpoststable').datepicker("getDate");
+                    if (min != null) {
+                        var minjson = min.toJSON();
+                        d.min = minjson;
+                    }
+                    var max = $('#maxpoststable').datepicker("getDate");
+                    if (max != null) {
+                        var maxjson = max.toJSON();
+                        d.max = maxjson;
+                    }
+
+                    //
+                    d.adminModeShowAll = adminModeShowAll;
+                }
             },
             select: true    // warning : before this, previous multi-select was just clicking on many rows, 
             // now muli-select needs ctrl+click (separate multiclick) or shift + click (range multiclick)
@@ -157,6 +172,13 @@ function InitializeDataTables(adminModeShowAll) {
                 var selectedControlsTds = $(thisTbody).find('tr.selected td:last-child');
                 BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds);
             }
+        });
+
+        // Search by date & Event listener to the two range filtering inputs to redraw on input
+        $("#minpoststable").datepicker({ onSelect: function () { poststable.draw(); }, changeMonth: true, changeYear: true });
+        $("#maxpoststable").datepicker({ onSelect: function () { poststable.draw(); }, changeMonth: true, changeYear: true });
+        $('#minpoststable, #maxpoststable').change(function () {
+            poststable.draw();
         });
     });
 }
