@@ -294,7 +294,7 @@ namespace ArabicTextAnalyzer.BO
             return expando;
         }
 
-        private String train_savearabizi(M_ARABIZIENTRY arabiziEntry/*, AccessMode accessMode*/)
+        private String train_savearabizi(M_ARABIZIENTRY arabiziEntry)
         {
             // complete arabizi entry & Save arabiziEntry to Serialization
             arabiziEntry.ID_ARABIZIENTRY = Guid.NewGuid();
@@ -303,7 +303,7 @@ namespace ArabicTextAnalyzer.BO
             arabiziEntry.ArabiziText = arabiziEntry.ArabiziText.Trim(new char[] { ' ', '\t' });
 
             // save
-            saveserializeM_ARABIZIENTRY_EFSQL(arabiziEntry/*, accessMode*/);
+            saveserializeM_ARABIZIENTRY_EFSQL(arabiziEntry);
 
             //
             return arabiziEntry.ArabiziText;

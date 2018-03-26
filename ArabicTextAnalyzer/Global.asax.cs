@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System.Globalization;
+using System.Threading;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -17,6 +19,15 @@ namespace ArabicTextAnalyzer
 
             // limit response to json only
             ConfigureApi(GlobalConfiguration.Configuration);
+        }
+
+        protected void Application_BeginRequest()
+        {
+            // CultureInfo culture = (CultureInfo)CultureInfo.InvariantCulture.Clone();
+            // CultureInfo culture = new System.Globalization.CultureInfo("fr");
+            // culture.DateTimeFormat.ShortDatePattern = "dd.MM.yyyy";
+            // culture.DateTimeFormat.LongTimePattern = "";
+            // Thread.CurrentThread.CurrentCulture = culture;
         }
 
         void ConfigureApi(HttpConfiguration config)
