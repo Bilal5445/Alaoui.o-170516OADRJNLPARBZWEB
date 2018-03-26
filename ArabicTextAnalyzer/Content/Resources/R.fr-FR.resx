@@ -130,7 +130,7 @@
     <value>Entrez le nom de la page : ex : RajaClubAthleticOfficiel</value>
   </data>
   <data name="FacebookPages" xml:space="preserve">
-    <value>Pages Facebook</value>
+    <value>Importez les commentaires votre Page Facebook</value>
   </data>
   <data name="FBPageName" xml:space="preserve">
     <value>Nom de la Page FB</value>
@@ -154,19 +154,19 @@
     <value>Récupérer les nouveaux posts</value>
   </data>
   <data name="ShowStatisticsAboutEtc" xml:space="preserve">
-    <value>Affichez les statistiques des entités extraites des données de votre thême</value>
+    <value>​Une lecture intuitive de vos principaux indicateurs  ​de contenu</value>
   </data>
   <data name="StatsNdReports" xml:space="preserve">
-    <value>Stats &amp; Rapports</value>
+    <value>Tableaux de bord</value>
   </data>
   <data name="Success" xml:space="preserve">
     <value>Succès</value>
   </data>
   <data name="TranslateArabizi" xml:space="preserve">
-    <value>Traduisez de la Darija</value>
+    <value>Convertissez vos textes en Darija</value>
   </data>
   <data name="TranslateArabiziToArabicEtc" xml:space="preserve">
-    <value>Traduisez de la Darija vers de l'Arabe simplifié et extraire les entités</value>
+    <value>Transformez la Darija vers un arabe simplifié et en extraire les mots clés</value>
   </data>
   <data name="TranslatedPost" xml:space="preserve">
     <value>Post Traduit</value>
@@ -178,7 +178,7 @@
     <value>Utilisez votre compte local pour vous connecter.</value>
   </data>
   <data name="UseFacebookPagesEtc" xml:space="preserve">
-    <value>Utilisez les pages Facebook comme source de données pour traduire de l'Arabizi et extraire les entités</value>
+    <value>Convertissez vos textes en Darija. Identifiez les mots clés - Protégez votre réputation</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Attention</value>
@@ -187,10 +187,10 @@
     <value>Darija</value>
   </data>
   <data name="TranslateDisplayFilterEtc" xml:space="preserve">
-    <value>Traduisez, affichez, filtez, exportez, importez de nouvelles données et extrayez des analyses à partir des données de travail</value>
+    <value>Importez tout texte pour une analyse multi couche: Adaptation arabe, détecteur d'entités</value>
   </data>
   <data name="TranslateNerSa" xml:space="preserve">
-    <value>Traduction &amp; Analyse de Données</value>
+    <value>Analyseur de textes</value>
   </data>
   <data name="Arabic" xml:space="preserve">
     <value>Arabe</value>
@@ -281,6 +281,12 @@
   </data>
   <data name="SaveSettings" xml:space="preserve">
     <value>Sauvegarder Paramètres</value>
+  </data>
+  <data name="SearchForSocialDataEtc" xml:space="preserve">
+    <value>Filtrez ​et analysez les commentaires de votre page FB</value>
+  </data>
+  <data name="SocialSearch" xml:space="preserve">
+    <value>Recherche</value>
   </data>
   <data name="StartStopAutoRetrieveOfEtc" xml:space="preserve">
     <value>Start/stop collecte auto des posts et commentaires FB</value>
