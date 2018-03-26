@@ -273,4 +273,19 @@
   <data name="YourPasswordHasBeenReset" xml:space="preserve">
     <value>Your password has been reset</value>
   </data>
+  <data name="CommaSeparatedTargetEntitiesEtc" xml:space="preserve">
+    <value>Comma-separated target entities : coca-cola, fanta, ...</value>
+  </data>
+  <data name="FBPageAlertsSlashFiltersSettings" xml:space="preserve">
+    <value>FaceBook Page Alerts / Filters Settings</value>
+  </data>
+  <data name="SaveSettings" xml:space="preserve">
+    <value>Save Settings</value>
+  </data>
+  <data name="StartStopAutoRetrieveOfEtc" xml:space="preserve">
+    <value>Start/stop auto retrieve of FB posts and comments</value>
+  </data>
+  <data name="TargetEntities" xml:space="preserve">
+    <value>Target Entities</value>
+  </data>
 </root>

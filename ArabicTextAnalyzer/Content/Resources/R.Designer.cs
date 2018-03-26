@@ -115,6 +115,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comma-separated target entities : coca-cola, fanta, ....
+        /// </summary>
+        public static string CommaSeparatedTargetEntitiesEtc {
+            get {
+                return ResourceManager.GetString("CommaSeparatedTargetEntitiesEtc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Config FB Alerts.
         /// </summary>
         public static string ConfigFBAlerts {
@@ -192,6 +201,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string FacebookPages {
             get {
                 return ResourceManager.GetString("FacebookPages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FaceBook Page Alerts / Filters Settings.
+        /// </summary>
+        public static string FBPageAlertsSlashFiltersSettings {
+            get {
+                return ResourceManager.GetString("FBPageAlertsSlashFiltersSettings", resourceCulture);
             }
         }
         
@@ -403,11 +421,29 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save Settings.
+        /// </summary>
+        public static string SaveSettings {
+            get {
+                return ResourceManager.GetString("SaveSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show statistics about extracted entities from your theme&apos;s data.
         /// </summary>
         public static string ShowStatisticsAboutEtc {
             get {
                 return ResourceManager.GetString("ShowStatisticsAboutEtc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start/stop auto retrieve of FB posts and comments.
+        /// </summary>
+        public static string StartStopAutoRetrieveOfEtc {
+            get {
+                return ResourceManager.GetString("StartStopAutoRetrieveOfEtc", resourceCulture);
             }
         }
         
@@ -426,6 +462,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string Success {
             get {
                 return ResourceManager.GetString("Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Target Entities.
+        /// </summary>
+        public static string TargetEntities {
+            get {
+                return ResourceManager.GetString("TargetEntities", resourceCulture);
             }
         }
         

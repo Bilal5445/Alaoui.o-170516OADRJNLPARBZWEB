@@ -527,6 +527,11 @@
               Looks up a localized string similar to Click here to Log in.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.CommaSeparatedTargetEntitiesEtc">
+            <summary>
+              Looks up a localized string similar to Comma-separated target entities : coca-cola, fanta, ....
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.ConfigFBAlerts">
             <summary>
               Looks up a localized string similar to Config FB Alerts.
@@ -570,6 +575,11 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.FacebookPages">
             <summary>
               Looks up a localized string similar to Facebook Pages.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.FBPageAlertsSlashFiltersSettings">
+            <summary>
+              Looks up a localized string similar to FaceBook Page Alerts / Filters Settings.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.FBPageName">
@@ -687,9 +697,19 @@
               Looks up a localized string similar to Retrieve new posts.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.SaveSettings">
+            <summary>
+              Looks up a localized string similar to Save Settings.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.ShowStatisticsAboutEtc">
             <summary>
               Looks up a localized string similar to Show statistics about extracted entities from your theme&apos;s data.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.StartStopAutoRetrieveOfEtc">
+            <summary>
+              Looks up a localized string similar to Start/stop auto retrieve of FB posts and comments.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.StatsNdReports">
@@ -700,6 +720,11 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.Success">
             <summary>
               Looks up a localized string similar to Success.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.TargetEntities">
+            <summary>
+              Looks up a localized string similar to Target Entities.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.ThankYouForConfirmingYourEmail">

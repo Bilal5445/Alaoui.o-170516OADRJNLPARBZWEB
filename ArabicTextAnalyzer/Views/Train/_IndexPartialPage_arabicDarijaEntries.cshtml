@@ -129,21 +129,21 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title" style="color:red;">FaceBook Page Alerts/Filters Settings</h4>
+                            <h4 class="modal-title" style="color:darkblue;">@R.FBPageAlertsSlashFiltersSettings</h4>
                         </div>
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-lg-12 form-group">
                                     <div class="col-lg-3">
-                                        <label for="txtTxetEntity" class="control-label">Target Entities</label>
+                                        <label for="txtTxetEntity" class="control-label">@R.TargetEntities</label>
                                     </div>
                                     <div class="col-lg-9">
-                                        <input type="text" id="txtTxetEntity_@item.id" class="form-control" name="txtTxetEntity" value="@item.TargetEntities" placeholder="Comma-separated target entities : coca-cola, fanta, ...">
+                                        <input type="text" id="txtTxetEntity_@item.id" class="form-control" name="txtTxetEntity" value="@item.TargetEntities" placeholder="@R.CommaSeparatedTargetEntitiesEtc">
                                     </div>
                                 </div>
                                 <div class="col-lg-12 form-group">
                                     <div class="col-lg-9">
-                                        <label for="cbxAutoRetrieveFBPostAndComments" class="control-label">Start/stop auto retrieve of FB posts and comments</label>
+                                        <label for="cbxAutoRetrieveFBPostAndComments" class="control-label">@R.StartStopAutoRetrieveOfEtc</label>
                                     </div>
                                     <div class="col-lg-3">
                                         @if (item.AutoRetrieveFBPostAndComments == false)
@@ -159,7 +159,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <input type="button" value="Save Settings" class="btn btn-primary" id="btnAddOption" onclick="JsAddTextEntity('@item.id');" />
+                            <input type="button" value="@R.SaveSettings" class="btn btn-primary" id="btnAddOption" onclick="JsAddTextEntity('@item.id');" />
                         </div>
                     </div>
                 </div>
