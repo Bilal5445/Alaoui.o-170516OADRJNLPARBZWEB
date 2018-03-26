@@ -231,7 +231,7 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
             <div class="panel-body" style="padding: 0;">
                 <div class="input-group">
                     @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "resize:none", rows = 2, @class = "form-control custom-control", @required = "required", @placeholder = R.TypeArabiziTextAndClickGo })
-                    @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
+                    @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now.ToString("yyyy-MM-dd HH:MM:ss") })
                     @Html.HiddenFor(m => m.ID_XTRCTTHEME, new { @Value = ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME })
                     <span class="input-group-addon btn btn-primary" onclick="document.forms['trainformstd'].submit();">Go</span>
                 </div>
@@ -249,7 +249,7 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
                     <div class="panel-heading">Arabizi</div>
                     <div class="panel-body" style="padding: 0; height: 150px">
                         @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "height: 100%; width: 100%", @required = "required" })
-                        @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now })
+                        @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now.ToString("yyyy-MM-dd HH:MM:ss") })
                     </div>
                 </div>
             <!-- button submit -->
