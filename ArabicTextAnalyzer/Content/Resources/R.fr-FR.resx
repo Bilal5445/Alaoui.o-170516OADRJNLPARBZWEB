@@ -273,4 +273,19 @@
   <data name="YourPasswordHasBeenReset" xml:space="preserve">
     <value>Votre mot de passe a été réinitialisé</value>
   </data>
+  <data name="CommaSeparatedTargetEntitiesEtc" xml:space="preserve">
+    <value>Les Entités Cibles séparées par des virgules : coca-cola, fanta, ...</value>
+  </data>
+  <data name="FBPageAlertsSlashFiltersSettings" xml:space="preserve">
+    <value>Paramètres Alertes &amp; Filters Page FaceBook</value>
+  </data>
+  <data name="SaveSettings" xml:space="preserve">
+    <value>Sauvegarder Paramètres</value>
+  </data>
+  <data name="StartStopAutoRetrieveOfEtc" xml:space="preserve">
+    <value>Start/stop collecte auto des posts et commentaires FB</value>
+  </data>
+  <data name="TargetEntities" xml:space="preserve">
+    <value>Entités Cibles</value>
+  </data>
 </root>
