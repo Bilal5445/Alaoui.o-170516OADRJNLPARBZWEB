@@ -26,6 +26,9 @@
     @* datatables.net dependencies *@
     <link href="https://cdn.datatables.net/select/1.2.3/css/select.dataTables.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.dataTables.min.css" />
+
+    @* datepicker *@
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 }
 
 @section scripts {
@@ -58,6 +61,9 @@
     @Scripts.Render("~/bundles/js_train_workingdata")
 
     @Scripts.Render("~/bundles/js_train_tagsinput");
+
+    @* date picker *@
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script type="text/javascript">
     /*function updateMonitor(status) {
@@ -359,6 +365,12 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
             }
         }
         <div id="monitors"></div>
+    </div>
+
+    <!-- date range filter -->
+    <div class="row">
+        <div class="col-sm-3"><label>Minimum Date: <input name="minpoststable" id="minpoststable" type="search" class="form-control input-sm"></label></div>
+        <div class="col-sm-3"><label>Maximum Date: <input name="maxpoststable" id="maxpoststable" type="search" class="form-control input-sm"></label></div>
     </div>
 
     <!-- Place where you will insert your partial -->
