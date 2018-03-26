@@ -13,6 +13,8 @@ using System.Configuration;
 using ArabicTextAnalyzer.Contracts;
 using ArabicTextAnalyzer.Business.Provider;
 using ArabicTextAnalyzer.BO;
+using System.Collections.Generic;
+using OADRJNLPCommon.Models;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -357,6 +359,8 @@ namespace ArabicTextAnalyzer.Controllers
         public ActionResult ManageApp(RegisterApp model)
         {
             var userId = User.Identity.GetUserId();
+
+            //
             var keyExists = _clientKeyToolkit.IsUniqueKeyAlreadyGenerate(userId);
             ViewBag.clientExist = keyExists;
             if (keyExists)
@@ -365,9 +369,24 @@ namespace ArabicTextAnalyzer.Controllers
                 ViewBag.clientkeys = _clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
             }
 
-            // needed to not crash vert menu : themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
+            // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
             var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = new Arabizer().loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
+            var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
             @ViewBag.UserXtrctThemes = userXtrctThemes;
+            @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
+            @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
+            @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE" || m.Keyword_Type == "OPPOSE" || m.Keyword_Type == "EXPLETIVE" || m.Keyword_Type == "SENSITIVE").ToList();
+            @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
+            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE" && m.Keyword_Type != "OPPOSE" && m.Keyword_Type != "EXPLETIVE" && m.Keyword_Type != "SENSITIVE").ToList();
+
+            // Fetch the data for fbPages for all themes for that user
+            var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
+            ViewBag.AllInfluenceVert = fbFluencerAsTheme;
+
+            // working data entries count
+            List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
+            @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
 
             // GET access (ie : check app dashbord)
             if (Request.HttpMethod.ToUpper() == "GET")
