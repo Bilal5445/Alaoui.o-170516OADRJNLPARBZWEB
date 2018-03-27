@@ -1,6 +1,6 @@
 ﻿@using ArabicTextAnalyzer.Domain.Models
 @using OADRJNLPCommon.Models;
-
+@using ArabicTextAnalyzer.Content.Resources
 @{
     List<T_FB_INFLUENCER> FbInfluencersVert = ViewBag.AllInfluenceVert;
     var cntrlr = ViewContext.RouteData.Values["Controller"].ToString();
@@ -36,7 +36,8 @@
 </head>
 <body onload="getPlainLoadTime()">
     @* logo *@
-    <img src="~/Content/Images/logo-gravitas-Analytix.png" class="logogravitas" />
+    @*<img src="~/Content/Images/logo-gravitas-Analytix.png" class="logogravitas" />*@
+    <img src="~/Content/Images/logo-gravitas-Analytix-textless.png" class="logogravitas" />
     <!-- top menu -->
     <div class="navbar navbar-inverse navbar-fixed-top adekwasy">
         <div class="container">
@@ -85,7 +86,7 @@
                             </ul>
                             <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" title="Change active theme"><span class="caret"></span></button>
                         </div>
-                        <p style="font-weight:bold; font-size:16px; display:inline-block;">THEMES</p>
+                        <p style="font-weight:bold; font-size:16px; display:inline-block;">@R.THEMES</p>
                         <!-- theme menu : edit theme -->
                         <button style="margin-right: 2px;"type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModalRenameTheme" title="Edit active theme : @ViewBag.UserActiveXtrctTheme.ThemeName"><span class="glyphicon glyphicon-edit"></span></button>
                         <!-- theme menu : remove theme -->
