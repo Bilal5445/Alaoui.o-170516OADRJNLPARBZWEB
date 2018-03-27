@@ -11,6 +11,11 @@
     padding-bottom: 35px;
 }
 
+.adekwasy > .container {
+    /*MC270318 so first menu is far from logo */
+    padding-left: 100px;
+}
+
 @media (min-width: 768px) {
     /* MC210218 still applicable when now with vert accrodion menu */
     .container.adekwasy {
