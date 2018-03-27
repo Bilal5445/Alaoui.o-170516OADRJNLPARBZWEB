@@ -517,6 +517,11 @@
               Looks up a localized string similar to Arabizi.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.AreYouSureYouWantToDeleteTheTheme">
+            <summary>
+              Looks up a localized string similar to Are you sure you want to delete the theme.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.CheckYourMailAndConfirmEtc">
             <summary>
               Looks up a localized string similar to Check your email and confirm your account, you must be confirmed before you can log in..
@@ -547,9 +552,19 @@
               Looks up a localized string similar to Confirm password.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ConfirmThemeDeletion">
+            <summary>
+              Looks up a localized string similar to Confirm Theme Deletion.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.CreateANewAccount">
             <summary>
               Looks up a localized string similar to Create your account.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Delete">
+            <summary>
+              Looks up a localized string similar to Delete.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.EmailLink">
@@ -557,9 +572,19 @@
               Looks up a localized string similar to Email Link.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.EnterNewThemeName">
+            <summary>
+              Looks up a localized string similar to Enter new theme name.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.EnterPageName">
             <summary>
               Looks up a localized string similar to Enter page name : ex : RajaClubAthleticOfficiel.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.EnterThemeNewName">
+            <summary>
+              Looks up a localized string similar to Enter theme new name.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.EnterYourEmail">
@@ -622,6 +647,11 @@
               Looks up a localized string similar to NER Types.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.NewThemeToAnalyze">
+            <summary>
+              Looks up a localized string similar to New Theme to Analyze.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.Password">
             <summary>
               Looks up a localized string similar to Password.
@@ -670,6 +700,16 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.RememberMe">
             <summary>
               Looks up a localized string similar to Remember me ?.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Rename">
+            <summary>
+              Looks up a localized string similar to Rename.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.RenameTheme">
+            <summary>
+              Looks up a localized string similar to Rename Theme.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.Reset">
@@ -740,6 +780,21 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.ThankYouForConfirmingYourEmail">
             <summary>
               Looks up a localized string similar to Thank you for confirming your email.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ThemeName">
+            <summary>
+              Looks up a localized string similar to Theme Name.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ThemeNewName">
+            <summary>
+              Looks up a localized string similar to Theme New Name.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.THEMES">
+            <summary>
+              Looks up a localized string similar to PROJECTS.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.TranslateArabizi">

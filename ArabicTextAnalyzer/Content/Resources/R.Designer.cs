@@ -97,6 +97,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete the theme.
+        /// </summary>
+        public static string AreYouSureYouWantToDeleteTheTheme {
+            get {
+                return ResourceManager.GetString("AreYouSureYouWantToDeleteTheTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check your email and confirm your account, you must be confirmed before you can log in..
         /// </summary>
         public static string CheckYourMailAndConfirmEtc {
@@ -151,11 +160,29 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm Theme Deletion.
+        /// </summary>
+        public static string ConfirmThemeDeletion {
+            get {
+                return ResourceManager.GetString("ConfirmThemeDeletion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create your account.
         /// </summary>
         public static string CreateANewAccount {
             get {
                 return ResourceManager.GetString("CreateANewAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
             }
         }
         
@@ -169,11 +196,29 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter new theme name.
+        /// </summary>
+        public static string EnterNewThemeName {
+            get {
+                return ResourceManager.GetString("EnterNewThemeName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter page name : ex : RajaClubAthleticOfficiel.
         /// </summary>
         public static string EnterPageName {
             get {
                 return ResourceManager.GetString("EnterPageName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter theme new name.
+        /// </summary>
+        public static string EnterThemeNewName {
+            get {
+                return ResourceManager.GetString("EnterThemeNewName", resourceCulture);
             }
         }
         
@@ -286,6 +331,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Theme to Analyze.
+        /// </summary>
+        public static string NewThemeToAnalyze {
+            get {
+                return ResourceManager.GetString("NewThemeToAnalyze", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -372,6 +426,24 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string RememberMe {
             get {
                 return ResourceManager.GetString("RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename.
+        /// </summary>
+        public static string Rename {
+            get {
+                return ResourceManager.GetString("Rename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename Theme.
+        /// </summary>
+        public static string RenameTheme {
+            get {
+                return ResourceManager.GetString("RenameTheme", resourceCulture);
             }
         }
         
@@ -498,6 +570,33 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string ThankYouForConfirmingYourEmail {
             get {
                 return ResourceManager.GetString("ThankYouForConfirmingYourEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme Name.
+        /// </summary>
+        public static string ThemeName {
+            get {
+                return ResourceManager.GetString("ThemeName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme New Name.
+        /// </summary>
+        public static string ThemeNewName {
+            get {
+                return ResourceManager.GetString("ThemeNewName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PROJECTS.
+        /// </summary>
+        public static string THEMES {
+            get {
+                return ResourceManager.GetString("THEMES", resourceCulture);
             }
         }
         
