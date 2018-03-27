@@ -68,6 +68,10 @@ namespace ArabicTextAnalyzer
                 "~/Scripts/mysite_train_keywordfiltering.js"
                 ));*/
 
+            // backgroung image login only
+            bundles.Add(new StyleBundle("~/Content/css_login").Include(
+                      "~/Content/mysite_login.css"));
+
             // klipfolio
             bundles.Add(new StyleBundle("~/Content/css_train_klpfl").Include(
                       "~/Content/mysite_train_klpfl.css"));

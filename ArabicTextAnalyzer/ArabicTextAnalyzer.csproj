@@ -552,7 +552,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\hlpr.vertical-text.css" />
     <Content Include="Content\Images\app.jpg" />
+    <Content Include="Content\Images\bg_gravitas.jpg" />
+    <Content Include="Content\Images\footer_img_gravitas.png" />
+    <Content Include="Content\Images\logo-gravitas-Analytix.png" />
+    <Content Include="Content\Images\searchicon.png" />
     <Content Include="Content\mysite_adekwasy.css" />
+    <Content Include="Content\mysite_login.css" />
     <Content Include="Content\mysite_train.css" />
     <Content Include="Content\mysite_train_bulkimport.css" />
     <Content Include="Content\mysite_train_keywordfiltering.css" />
