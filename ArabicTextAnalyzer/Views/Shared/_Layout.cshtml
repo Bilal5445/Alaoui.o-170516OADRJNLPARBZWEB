@@ -35,6 +35,8 @@
     </style>
 </head>
 <body onload="getPlainLoadTime()">
+    @* logo *@
+    <img src="~/Content/Images/logo-gravitas-Analytix.png" class="logogravitas" />
     <!-- top menu -->
     <div class="navbar navbar-inverse navbar-fixed-top adekwasy">
         <div class="container">
@@ -53,6 +55,7 @@
                     }
                     @if (User.IsInRole("Administrator"))
                     {
+                        <li><a><span class="breaker">|</span></a></li>
                         <li class="dropdown @(cntrlr == "Admin" && actn.StartsWith("Index") ? "active" : "")">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administration<span class="caret"></span></a>
                             <ul class="dropdown-menu">
