@@ -11,6 +11,18 @@
     padding-bottom: 35px;
 }
 
+#body h2 {
+    font-size: 24px;
+    color: #212626;
+    font-weight: normal;
+}
+
+#body h4 {
+    font-size: 16px;
+    color: #364040;
+    font-weight: normal;
+}
+
 .adekwasy > .container {
     /*MC270318 so first menu is far from logo */
     padding-left: 100px;
