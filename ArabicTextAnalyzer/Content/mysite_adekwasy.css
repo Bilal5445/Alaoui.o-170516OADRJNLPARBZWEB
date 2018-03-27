@@ -78,9 +78,13 @@ html,body { height:100%; }
 }
 
 footer {
-    background-color: #262626;
+    /*background-color: #262626;*/
     color: white;
-    padding: 50px;
+    /*padding: 50px;*/
+
+    background-image: url(/Content/Images/footer_img_gravitas.png);
+    background-size: 100% auto;
+    height:30px;
 }
 
 .droid-arabic-kufi{font-family: 'Droid Arabic Kufi', serif;}
