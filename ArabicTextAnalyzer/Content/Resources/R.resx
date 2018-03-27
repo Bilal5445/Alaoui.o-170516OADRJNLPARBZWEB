@@ -294,6 +294,9 @@
   <data name="TargetEntities" xml:space="preserve">
     <value>Target Entities</value>
   </data>
+  <data name="AddNewTheme" xml:space="preserve">
+    <value>Add a new theme</value>
+  </data>
   <data name="AreYouSureYouWantToDeleteTheTheme" xml:space="preserve">
     <value>Are you sure you want to delete the theme</value>
   </data>
@@ -303,6 +306,9 @@
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="EditActiveTheme" xml:space="preserve">
+    <value>Edit active theme</value>
+  </data>
   <data name="EnterNewThemeName" xml:space="preserve">
     <value>Enter new theme name</value>
   </data>
@@ -311,6 +317,9 @@
   </data>
   <data name="NewThemeToAnalyze" xml:space="preserve">
     <value>New Theme to Analyze</value>
+  </data>
+  <data name="RemoveActiveTheme" xml:space="preserve">
+    <value>Remove active theme</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>Rename</value>

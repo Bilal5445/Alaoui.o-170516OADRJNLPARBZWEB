@@ -507,6 +507,11 @@
               Looks up a localized string similar to Add new influencer.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.AddNewTheme">
+            <summary>
+              Looks up a localized string similar to Add a new theme.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.Arabic">
             <summary>
               Looks up a localized string similar to Arabic.
@@ -565,6 +570,11 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.Delete">
             <summary>
               Looks up a localized string similar to Delete.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.EditActiveTheme">
+            <summary>
+              Looks up a localized string similar to Edit active theme.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.EmailLink">
@@ -700,6 +710,11 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.RememberMe">
             <summary>
               Looks up a localized string similar to Remember me ?.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.RemoveActiveTheme">
+            <summary>
+              Looks up a localized string similar to Remove active theme.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.Rename">

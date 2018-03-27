@@ -79,6 +79,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add a new theme.
+        /// </summary>
+        public static string AddNewTheme {
+            get {
+                return ResourceManager.GetString("AddNewTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Arabic.
         /// </summary>
         public static string Arabic {
@@ -183,6 +192,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit active theme.
+        /// </summary>
+        public static string EditActiveTheme {
+            get {
+                return ResourceManager.GetString("EditActiveTheme", resourceCulture);
             }
         }
         
@@ -426,6 +444,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string RememberMe {
             get {
                 return ResourceManager.GetString("RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove active theme.
+        /// </summary>
+        public static string RemoveActiveTheme {
+            get {
+                return ResourceManager.GetString("RemoveActiveTheme", resourceCulture);
             }
         }
         
