@@ -242,6 +242,34 @@ namespace ArabicTextAnalyzer.Controllers
             return View();
         }
 
+        [Authorize]
+        public ActionResult IndexSplash()
+        {
+            //
+            var userId = User.Identity.GetUserId();
+
+            // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
+            var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+            List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = new Arabizer().loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
+            var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
+            @ViewBag.UserXtrctThemes = userXtrctThemes;
+            @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
+            @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
+            @ViewBag.ActiveXtrctThemeNegTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "NEGATIVE" || m.Keyword_Type == "OPPOSE" || m.Keyword_Type == "EXPLETIVE" || m.Keyword_Type == "SENSITIVE").ToList();
+            @ViewBag.ActiveXtrctThemePosTags = xtrctThemesKeywords.Where(m => m.Keyword_Type == "POSITIVE" || m.Keyword_Type == "SUPPORT").ToList();
+            @ViewBag.ActiveXtrctThemeOtherTags = xtrctThemesKeywords.Where(m => m.Keyword_Type != "POSITIVE" && m.Keyword_Type != "SUPPORT" && m.Keyword_Type != "NEGATIVE" && m.Keyword_Type != "OPPOSE" && m.Keyword_Type != "EXPLETIVE" && m.Keyword_Type != "SENSITIVE").ToList();
+
+            // Fetch the data for fbPages for all themes for that user
+            var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
+            ViewBag.AllInfluenceVert = fbFluencerAsTheme;
+
+            // working data entries count
+            List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
+            @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
+
+            return View();
+        }
+
         [HttpPost]
         public ActionResult ArabicDarijaEntryPartialView(bool adminModeShowAll = false, PartialViewType partialViewType = PartialViewType.all)
         {
