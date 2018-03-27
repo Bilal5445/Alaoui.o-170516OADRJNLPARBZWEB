@@ -294,4 +294,37 @@
   <data name="TargetEntities" xml:space="preserve">
     <value>Target Entities</value>
   </data>
+  <data name="AreYouSureYouWantToDeleteTheTheme" xml:space="preserve">
+    <value>Are you sure you want to delete the theme</value>
+  </data>
+  <data name="ConfirmThemeDeletion" xml:space="preserve">
+    <value>Confirm Theme Deletion</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="EnterNewThemeName" xml:space="preserve">
+    <value>Enter new theme name</value>
+  </data>
+  <data name="EnterThemeNewName" xml:space="preserve">
+    <value>Enter theme new name</value>
+  </data>
+  <data name="NewThemeToAnalyze" xml:space="preserve">
+    <value>New Theme to Analyze</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="RenameTheme" xml:space="preserve">
+    <value>Rename Theme</value>
+  </data>
+  <data name="ThemeName" xml:space="preserve">
+    <value>Theme Name</value>
+  </data>
+  <data name="ThemeNewName" xml:space="preserve">
+    <value>Theme New Name</value>
+  </data>
+  <data name="THEMES" xml:space="preserve">
+    <value>PROJECTS</value>
+  </data>
 </root>

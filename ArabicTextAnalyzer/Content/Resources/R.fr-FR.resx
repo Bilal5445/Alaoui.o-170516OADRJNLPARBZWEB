@@ -294,4 +294,37 @@
   <data name="TargetEntities" xml:space="preserve">
     <value>Entités Cibles</value>
   </data>
+  <data name="AreYouSureYouWantToDeleteTheTheme" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer ce projet</value>
+  </data>
+  <data name="ConfirmThemeDeletion" xml:space="preserve">
+    <value>Confirmer la Suppression du Projet</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="EnterNewThemeName" xml:space="preserve">
+    <value>Saisir le nom du projet</value>
+  </data>
+  <data name="EnterThemeNewName" xml:space="preserve">
+    <value>Saisir le nouveau nom du projet</value>
+  </data>
+  <data name="NewThemeToAnalyze" xml:space="preserve">
+    <value>Nouveau Projet d'Analyse</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Renommer</value>
+  </data>
+  <data name="RenameTheme" xml:space="preserve">
+    <value>Renommer le Projet</value>
+  </data>
+  <data name="ThemeName" xml:space="preserve">
+    <value>Nom du Projet</value>
+  </data>
+  <data name="ThemeNewName" xml:space="preserve">
+    <value>Nouveau Nom du Projet</value>
+  </data>
+  <data name="THEMES" xml:space="preserve">
+    <value>PROJETS</value>
+  </data>
 </root>
