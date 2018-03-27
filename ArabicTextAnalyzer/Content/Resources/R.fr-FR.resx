@@ -294,6 +294,9 @@
   <data name="TargetEntities" xml:space="preserve">
     <value>Entités Cibles</value>
   </data>
+  <data name="AddNewTheme" xml:space="preserve">
+    <value>Ajouter un nouveau projet</value>
+  </data>
   <data name="AreYouSureYouWantToDeleteTheTheme" xml:space="preserve">
     <value>Etes-vous sûr de vouloir supprimer ce projet</value>
   </data>
@@ -303,6 +306,9 @@
   <data name="Delete" xml:space="preserve">
     <value>Supprimer</value>
   </data>
+  <data name="EditActiveTheme" xml:space="preserve">
+    <value>Editer le projet actif</value>
+  </data>
   <data name="EnterNewThemeName" xml:space="preserve">
     <value>Saisir le nom du projet</value>
   </data>
@@ -311,6 +317,9 @@
   </data>
   <data name="NewThemeToAnalyze" xml:space="preserve">
     <value>Nouveau Projet d'Analyse</value>
+  </data>
+  <data name="RemoveActiveTheme" xml:space="preserve">
+    <value>Supprimer le projet actif</value>
   </data>
   <data name="Rename" xml:space="preserve">
     <value>Renommer</value>
