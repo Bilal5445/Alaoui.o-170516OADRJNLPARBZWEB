@@ -7,7 +7,7 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
-        <li><a href=""><i class="fa fa-user-circle"></i> Account : @User.Identity.GetUserName()</a></li>
+        <li><a href=""><i class="fa fa-user-circle"></i> @R.Account : @User.Identity.GetUserName()</a></li>
         <li><a><span class="breaker">|</span></a></li>
         <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Manage" && ViewContext.RouteData.Values["Action"].ToString() == "ManageApp" ? "active" : "")"><a href="/Manage/ManageApp" title="View the calls consumption of your current plan"><i class="fa fa-dollar"></i> @R.Consumption</a></li>
         <li><a><span class="breaker">|</span></a></li>

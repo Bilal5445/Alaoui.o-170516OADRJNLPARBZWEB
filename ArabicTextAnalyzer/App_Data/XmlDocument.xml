@@ -497,6 +497,11 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Account">
+            <summary>
+              Looks up a localized string similar to Account.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.Add">
             <summary>
               Looks up a localized string similar to Add.
