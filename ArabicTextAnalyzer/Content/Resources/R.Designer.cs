@@ -178,6 +178,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Consumption.
+        /// </summary>
+        public static string Consumption {
+            get {
+                return ResourceManager.GetString("Consumption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create your account.
         /// </summary>
         public static string CreateANewAccount {
@@ -336,6 +345,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string LogInGravitasApp {
             get {
                 return ResourceManager.GetString("LogInGravitasApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log Out.
+        /// </summary>
+        public static string LogOut {
+            get {
+                return ResourceManager.GetString("LogOut", resourceCulture);
             }
         }
         
@@ -534,6 +552,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string SearchForSocialDataEtc {
             get {
                 return ResourceManager.GetString("SearchForSocialDataEtc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
             }
         }
         

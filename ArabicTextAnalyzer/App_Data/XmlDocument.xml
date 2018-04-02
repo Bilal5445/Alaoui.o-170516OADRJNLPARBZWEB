@@ -562,6 +562,11 @@
               Looks up a localized string similar to Confirm Theme Deletion.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Consumption">
+            <summary>
+              Looks up a localized string similar to Consumption.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.CreateANewAccount">
             <summary>
               Looks up a localized string similar to Create your account.
@@ -650,6 +655,11 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.LogInGravitasApp">
             <summary>
               Looks up a localized string similar to Log in Gravitas App.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.LogOut">
+            <summary>
+              Looks up a localized string similar to Log Out.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.NerTypes">
@@ -760,6 +770,11 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.SearchForSocialDataEtc">
             <summary>
               Looks up a localized string similar to Search for social data over Facebook content over Moroccan pages.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Settings">
+            <summary>
+              Looks up a localized string similar to Settings.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.ShowStatisticsAboutEtc">

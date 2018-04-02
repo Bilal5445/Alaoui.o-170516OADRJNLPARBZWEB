@@ -336,4 +336,13 @@
   <data name="THEMES" xml:space="preserve">
     <value>PROJETS</value>
   </data>
+  <data name="Consumption" xml:space="preserve">
+    <value>Consommation</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Se déconnecter</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
 </root>
