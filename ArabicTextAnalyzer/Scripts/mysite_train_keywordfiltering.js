@@ -1065,7 +1065,7 @@ function ResetDataTableComments(influencerid) {
 $(document).ready(function () {
 
     // every 2 secs, refresh posts and comments from FB
-    var intervalFB = setInterval(function () {
+    /*var intervalFB = setInterval(function () {
         if (fbTabPagesLoaded == false) {
             console.log("Before RefreshFBPostsAndComments()");
             RefreshFBPostsAndComments();
@@ -1073,5 +1073,5 @@ $(document).ready(function () {
             console.log("Found the tabs");
             clearInterval(intervalFB);
         }
-    }, 2000);
+    }, 2000);*/
 });
