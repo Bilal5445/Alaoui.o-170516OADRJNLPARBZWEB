@@ -748,7 +748,7 @@ var FBDataVM = function () {
     this.RetrieveFBPostIsClicked = false;
     this.isAutoRetrieveFBPostAndComments = false;
 
-    // wrap function to call original function JsRetrieveFBPosts
+    // wrap function to call original function Js RetrieveFBPosts
     this.GetFBPostsAndComments = function (influencerUrl, influencerid) {
 
         // DBG
@@ -814,7 +814,7 @@ var FBDataVM = function () {
             return;
 
         // DBG
-        console.log("JsRetrieveFBPosts - begin");
+        console.log("Js RetrieveFBPosts - begin");
 
         // add animation
         if (mute !== true) {
@@ -844,8 +844,8 @@ var FBDataVM = function () {
                     // $('#globareasuccess').css('display', 'none');
                 }
 
-                console.log("JsRetrieveFBPosts - msg : " + msg);
-                console.log("JsRetrieveFBPosts - msg.status : " + msg.status);
+                console.log("Js RetrieveFBPosts - msg : " + msg);
+                console.log("Js RetrieveFBPosts - msg.status : " + msg.status);
                 console.log("retrievedPostsCount : " + msg.retrievedPostsCount);   // DBG
                 console.log("retrievedCommentsCount : " + msg.retrievedCommentsCount);   // DBG
 
@@ -903,7 +903,7 @@ var FBDataVM = function () {
                 } else {
                     msg = 'Uncaught Error.\n' + jqXHR.responseText;
                 }
-                console.log("JsRetrieveFBPosts - Error : " + msg);
+                console.log("Js RetrieveFBPosts - Error : " + msg);
                 alert("Error : " + msg);
             }
         });
