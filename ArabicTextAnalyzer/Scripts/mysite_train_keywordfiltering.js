@@ -705,17 +705,19 @@ function AddInfluencer() {
             "pro_or_anti": pro_or_anti,
         },
         "success": function (msg) {
+
             AddInfluencerIsClicked = false;
             if (msg.status) {
-                // alert("Success " + msg.message);
+
                 // show misc area success msg
                 $('#addfbmiscareasuccess').css('display', 'block');
                 $('#addfbmiscareasuccess p').html(msg.message);
 
                 //
                 window.location = '/Train';
+
             } else {
-                // alert("Error " + msg.message);
+
                 // show misc area error msg
                 $('#addfbmiscareaerror').css('display', 'block');
                 $('#addfbmiscareaerror p').html(msg.message);
@@ -903,7 +905,7 @@ var FBDataVM = function () {
                 } else {
                     msg = 'Uncaught Error.\n' + jqXHR.responseText;
                 }
-                console.log("Js RetrieveFBPosts - Error : " + msg);
+                console.log("Js Retrieve FBPosts - Error : " + msg);
                 alert("Error : " + msg);
             }
         });
