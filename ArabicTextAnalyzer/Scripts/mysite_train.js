@@ -30,43 +30,13 @@ function BringNewDataIntoPartialView(adminModeShowAll, partialViewType) {
                 $('li.mainUL#addFBPage').hide();
             }
 
-            // KF is used by std index with tables & klip reports
-            if (typeof KF != 'undefined') {
-
-                // klipfolio 1 : here because the klipfolio is available only after loading partial view
-                KF.embed.embedKlip({
-                    profile: "d3066a5aec3f32032e5493c6e1d7f6ac",
-                    settings: { "width": 450, "theme": "light", "borderStyle": "round", "borderColor": "#cccccc" },
-                    title: "NERs Count"
-                });
-
-                // klipfolio 2 : here because the klipfolio is available only after loading partial view
-                KF.embed.embedKlip({
-                    profile: "45a5705de26ee482f3b79609f9676ecc",
-                    settings: { "width": 450, "theme": "light", "borderStyle": "round", "borderColor": "#cccccc" },
-                    title: "NERs Type Count"
-                });
-
-                // k3
-                KF.embed.embedKlip({
-                    profile: "c359a92c257f3fa726356b23b4415bfa",
-                    settings: { "width": 450, "theme": "light", "borderStyle": "round", "borderColor": "#cccccc" },
-                    title: "Sentiment Analysis"
-                });
-
-                // k4 : part de voix
-                KF.embed.embedKlip({
-                    profile: "4e81c894b814346e50f7361aef991cf5",
-                    settings: { "width": 450, "theme": "light", "borderStyle": "round", "borderColor": "#cccccc" },
-                    title: "Parts de Voix"
-                });
-            }
-
             // refresh load time
             refreshPlainLoadTime();
 
-            // fct to attach table with search highlight keywords
-            InitializeDataTables(adminModeShowAll);
+            // fct to attach working data table with search highlight keywords
+            // but only if not FB
+            if (partialViewType != partialViewType_FBPagesOnly)
+                InitializeDataTables(adminModeShowAll);
         }),
         failure: function (response) {
             console.log(response);

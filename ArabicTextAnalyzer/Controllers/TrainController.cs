@@ -158,8 +158,8 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
 
             // chart.js NER per theme
-            var statNerCountPerTheme =  new Arabizer().StatNerCountPerTheme(userActiveXtrctTheme.ID_XTRCTTHEME.ToString());
-            ViewBag.Data = String.Join(",", statNerCountPerTheme.Select(m => m.CountPerKeyword));   
+            var statNerCountPerTheme = new Arabizer().StatNerCountPerTheme(userActiveXtrctTheme.ID_XTRCTTHEME.ToString());
+            ViewBag.Data = String.Join(",", statNerCountPerTheme.Select(m => m.CountPerKeyword));
             ViewBag.ObjectName = String.Join(",", statNerCountPerTheme.Select(m => "'" + m.Keyword + "'")); //list of "strings" that you need to show on the chart
 
             // charts.js NER types per theme
@@ -171,7 +171,7 @@ namespace ArabicTextAnalyzer.Controllers
             var statSACountPerTheme = new Arabizer().StatSACountPerTheme(userActiveXtrctTheme.ID_XTRCTTHEME.ToString());
             ViewBag.DataSACountPerTheme = String.Join(",", statSACountPerTheme.Select(m => m.CountPerKeyword));
             ViewBag.ObjectNameSACountPerTheme = String.Join(",", statSACountPerTheme.Select(m => "'" + m.Keyword + "'"));
-            
+
 
             return View();
         }
@@ -865,6 +865,22 @@ namespace ArabicTextAnalyzer.Controllers
 
                 return null;
             }
+        }
+
+        [HttpGet]
+        public async Task<object> tstRetrieveFBPosts(string influencerurl_name)
+        {
+            String result = String.Empty;
+
+            await Task.Delay(60000);
+
+            return JsonConvert.SerializeObject(new
+            {
+                status = true,
+                retrievedPostsCount = 1,
+                retrievedCommentsCount = 1,
+                message = "All good"
+            });
         }
 
         // Method for translate the fb posts
