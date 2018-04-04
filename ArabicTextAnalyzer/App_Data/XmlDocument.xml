@@ -647,6 +647,11 @@
               Looks up a localized string similar to here.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.InProgress">
+            <summary>
+              Looks up a localized string similar to In Progress.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.InvalidLoginAttempt">
             <summary>
               Looks up a localized string similar to Invalid login attempt..

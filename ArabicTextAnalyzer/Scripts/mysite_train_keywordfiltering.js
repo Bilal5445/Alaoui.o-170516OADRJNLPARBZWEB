@@ -822,8 +822,8 @@ var FBDataVM = function () {
         if (mute !== true) {
             $(".nav.nav-pills").addClass('loading');
             // show misc area success msg
-            $('#globareasuccess').css('display', 'block');
-            $('#globareasuccess p').html('Prière de patientier quelques minutes, rapatriement des posts et commentaires de la page en cours ...');
+            $('#globareainprogress').css('display', 'block');
+            $('#globareainprogress p').html('Prière de patientier quelques minutes, rapatriement des posts et commentaires de la page en cours ... Il vous est possible de revenir ultérieurement.');
         }
 
         // mark as clicked to avoid double processing
@@ -834,7 +834,8 @@ var FBDataVM = function () {
         $.ajax({
             "dataType": 'json',
             "type": "GET",
-            "url": "/Train/RetrieveFBPosts",
+            // "url": "/Train/RetrieveFBPosts",
+            "url": "/Train/TstRetrieveFBPosts",
             "data": {
                 "influencerurl_name": influencerurl_name
             },
@@ -843,7 +844,6 @@ var FBDataVM = function () {
                 // remove animation
                 if (mute !== true) {
                     $(".nav.nav-pills").removeClass('loading');
-                    // $('#globareasuccess').css('display', 'none');
                 }
 
                 console.log("Js Retrieve FBPosts - msg : " + msg);
@@ -862,6 +862,9 @@ var FBDataVM = function () {
 
                 } else if (msg.status) {
 
+                    $('#globareainprogress').css('display', 'none');
+                    $('#globareaerror').css('display', 'none');
+                    $('#globareasuccess').css('display', 'block');
                     $('#globareasuccess p').html('Il y a eu rapatriement de ' + msg.retrievedPostsCount + ' posts et ' + msg.retrievedCommentsCount + ' commentaires');
 
                 } else {
@@ -869,6 +872,7 @@ var FBDataVM = function () {
                     console.log("Success Msg Status Error : " + msg.message);
                     // alert("Success Msg Status Error : " + msg.message);
                     // show misc area error msg
+                    $('#globareainprogress').css('display', 'none');
                     $('#globareasuccess').css('display', 'none');
                     $('#globareaerror').css('display', 'block');
                     $('#globareaerror p').html(msg.message);
@@ -883,6 +887,7 @@ var FBDataVM = function () {
                 if (mute !== true) {
                     $(".nav.nav-pills").removeClass('loading');
                     $('#globareasuccess').css('display', 'none');
+                    $('#globareainprogress').css('display', 'none');
                 }
 
                 //
