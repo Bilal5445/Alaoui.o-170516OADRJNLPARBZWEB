@@ -714,7 +714,7 @@ function AddInfluencer() {
                 $('#addfbmiscareasuccess p').html(msg.message);
 
                 //
-                window.location = '/Train';
+                window.location = '/Train/IndexFBs';
 
             } else {
 
