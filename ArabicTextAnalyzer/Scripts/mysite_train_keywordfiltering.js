@@ -710,6 +710,7 @@ function AddInfluencer() {
             if (msg.status) {
 
                 // show misc area success msg
+                $('#addfbmiscareaerror').css('display', 'none');
                 $('#addfbmiscareasuccess').css('display', 'block');
                 $('#addfbmiscareasuccess p').html(msg.message);
 
@@ -719,13 +720,19 @@ function AddInfluencer() {
             } else {
 
                 // show misc area error msg
+                $('#addfbmiscareasuccess').css('display', 'none');
                 $('#addfbmiscareaerror').css('display', 'block');
                 $('#addfbmiscareaerror p').html(msg.message);
             }
         },
         "error": function () {
+
             AddInfluencerIsClicked = false;
-            alert("Error");
+            
+            // show misc area error msg
+            $('#addfbmiscareasuccess').css('display', 'none');
+            $('#addfbmiscareaerror').css('display', 'block');
+            $('#addfbmiscareaerror p').html(msg.message);
         }
     });
 }
@@ -823,7 +830,7 @@ var FBDataVM = function () {
             $(".nav.nav-pills").addClass('loading');
             // show misc area success msg
             $('#globareainprogress').css('display', 'block');
-            $('#globareainprogress p').html('Prière de patientier quelques minutes, rapatriement des posts et commentaires de la page en cours ... Il vous est possible de revenir ultérieurement.');
+            $('#globareainprogress p').html('Le rapatriement des posts et commentaires de la page est en cours ... Prière de patientier quelques minutes, il vous est possible de revenir ultérieurement pour voir les posts rapatriés.');
         }
 
         // mark as clicked to avoid double processing
@@ -834,8 +841,8 @@ var FBDataVM = function () {
         $.ajax({
             "dataType": 'json',
             "type": "GET",
-            // "url": "/Train/RetrieveFBPosts",
-            "url": "/Train/TstRetrieveFBPosts",
+            "url": "/Train/RetrieveFBPosts",
+            // "url": "/Train/TstRetrieveFBPosts",
             "data": {
                 "influencerurl_name": influencerurl_name
             },
@@ -862,16 +869,18 @@ var FBDataVM = function () {
 
                 } else if (msg.status) {
 
-                    $('#globareainprogress').css('display', 'none');
                     $('#globareaerror').css('display', 'none');
+                    // $('#globareasuccess').css('display', 'none');
                     $('#globareasuccess').css('display', 'block');
                     $('#globareasuccess p').html('Il y a eu rapatriement de ' + msg.retrievedPostsCount + ' posts et ' + msg.retrievedCommentsCount + ' commentaires');
+                    // $('#globareainprogress').css('display', 'block');
+                    $('#globareainprogress').css('display', 'none');
+                    // $('#globareainprogress p').html('Le rapatriement des posts et commentaires de la page est en cours ... Prière de patientier quelques minutes, il vous est possible de revenir ultérieurement pour voir les posts rapatriés.');
 
                 } else {
 
-                    console.log("Success Msg Status Error : " + msg.message);
-                    // alert("Success Msg Status Error : " + msg.message);
                     // show misc area error msg
+                    console.log("Success Msg Status Error : " + msg.message);
                     $('#globareainprogress').css('display', 'none');
                     $('#globareasuccess').css('display', 'none');
                     $('#globareaerror').css('display', 'block');
@@ -911,7 +920,7 @@ var FBDataVM = function () {
                     msg = 'Uncaught Error.\n' + jqXHR.responseText;
                 }
                 console.log("Js Retrieve FBPosts - Error : " + msg);
-                alert("Error : " + msg);
+                // alert("Error : " + msg);
             }
         });
     }
