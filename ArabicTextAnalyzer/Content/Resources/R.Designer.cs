@@ -331,6 +331,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to In Progress.
+        /// </summary>
+        public static string InProgress {
+            get {
+                return ResourceManager.GetString("InProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid login attempt..
         /// </summary>
         public static string InvalidLoginAttempt {

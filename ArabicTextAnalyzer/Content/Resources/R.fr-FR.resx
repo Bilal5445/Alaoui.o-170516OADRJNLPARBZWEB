@@ -348,4 +348,7 @@
   <data name="Settings" xml:space="preserve">
     <value>Paramètres</value>
   </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>En Cours</value>
+  </data>
 </root>
