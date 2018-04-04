@@ -748,7 +748,7 @@ var FBDataVM = function () {
     this.RetrieveFBPostIsClicked = false;
     this.isAutoRetrieveFBPostAndComments = false;
 
-    // wrap function to call original function Js RetrieveFBPosts
+    // wrap function to call original function Js Retrieve FBPosts
     this.GetFBPostsAndComments = function (influencerUrl, influencerid) {
 
         // DBG
@@ -814,7 +814,7 @@ var FBDataVM = function () {
             return;
 
         // DBG
-        console.log("Js RetrieveFBPosts - begin");
+        console.log("Js Retrieve FBPosts - begin");
 
         // add animation
         if (mute !== true) {
@@ -844,8 +844,8 @@ var FBDataVM = function () {
                     // $('#globareasuccess').css('display', 'none');
                 }
 
-                console.log("Js RetrieveFBPosts - msg : " + msg);
-                console.log("Js RetrieveFBPosts - msg.status : " + msg.status);
+                console.log("Js Retrieve FBPosts - msg : " + msg);
+                console.log("Js Retrieve FBPosts - msg.status : " + msg.status);
                 console.log("retrievedPostsCount : " + msg.retrievedPostsCount);   // DBG
                 console.log("retrievedCommentsCount : " + msg.retrievedCommentsCount);   // DBG
 
