@@ -33,10 +33,41 @@
         .panel-body table tr td { padding-left: 15px }
         .panel-body .table { margin-bottom: 0px; }
     </style>
+
+    @Scripts.Render("~/bundles/jquery")
+    @*script to track and canel all ajax calls when unloading page*@
+    <script>
+        // Automatically cancel unfinished ajax requests 
+        // when the user navigates elsewhere.
+        (function ($) {
+            var xhrPool = [];
+            $(document).ajaxSend(function (e, jqXHR, options) {
+                xhrPool.push(jqXHR);
+            });
+            $(document).ajaxComplete(function (e, jqXHR, options) {
+                xhrPool = $.grep(xhrPool, function (x) { return x != jqXHR });
+            });
+            var abort = function () {
+                $.each(xhrPool, function (idx, jqXHR) {
+                    jqXHR.abort();
+                });
+            };
+
+            var oldbeforeunload = window.onbeforeunload;
+            window.onbeforeunload = function () {
+                var r = oldbeforeunload ? oldbeforeunload() : undefined;
+                if (r == undefined) {
+                    // only cancel requests if there is no prompt to stay on the page
+                    // if there is a prompt, it will likely give the requests enough time to finish
+                    abort();
+                }
+                return r;
+            }
+        })(jQuery);
+    </script>
 </head>
 <body onload="getPlainLoadTime()">
     @* logo *@
-    @*<img src="~/Content/Images/logo-gravitas-Analytix.png" class="logogravitas" />*@
     <img src="~/Content/Images/logo-gravitas-Analytix-textless.png" class="logogravitas" />
     <!-- top menu -->
     <div class="navbar navbar-inverse navbar-fixed-top adekwasy">
@@ -207,7 +238,7 @@
         </div>
     }
 
-    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/jquery")*@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/custom")
     @RenderSection("scripts", required: false)
