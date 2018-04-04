@@ -69,6 +69,10 @@ namespace ArabicTextAnalyzer.Controllers
             // Create the Admn account using setiing in web.config (if needed)
             CreateAdminIfNeeded();
 
+            // to avoid case when already logged in, but try to connect login page
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("IndexSplash", "Train");
+
             //
             ViewBag.ReturnUrl = returnUrl;
             return View();
