@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNet.Identity
+@using ArabicTextAnalyzer.Content.Resources
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href=""><i class="fa fa-user-circle"></i> @R.Account : @User.Identity.GetUserName()</a></li>
+        <li><a><span class="breaker">|</span></a></li>
+        <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Manage" && ViewContext.RouteData.Values["Action"].ToString() == "ManageApp" ? "active" : "")"><a href="/Manage/ManageApp" title="View the calls consumption of your current plan"><i class="fa fa-dollar"></i> @R.Consumption</a></li>
+        <li><a><span class="breaker">|</span></a></li>
+        <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Manage" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")"><a href="/Manage" title="Manage this user account"><i class="fa fa-cog"></i> @R.Settings</a></li>
+        <li><a><span class="breaker">|</span></a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()" title="Log out"><i class="fa fa-power-off"></i> @R.LogOut</a></li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="/Account/Register" id="registerLink">@R.Register</a></li>
+        <li><a href="/Account/Login" id="loginLink" title="Log in"><i class="fa fa-sign-in"></i> @R.LogIn</a></li>
+</ul>
+}

@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="AddNewFBPage" xml:space="preserve">
+    <value>Ajout Page Facebook</value>
+  </data>
+  <data name="ConfigFBAlerts" xml:space="preserve">
+    <value>Configurer les Alertes FB</value>
+  </data>
+  <data name="EnterPageName" xml:space="preserve">
+    <value>Entrez le nom de la page : ex : RajaClubAthleticOfficiel</value>
+  </data>
+  <data name="FacebookPages" xml:space="preserve">
+    <value>Importez les commentaires votre Page Facebook</value>
+  </data>
+  <data name="FBPageName" xml:space="preserve">
+    <value>Nom de la Page FB</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Se connecter</value>
+  </data>
+  <data name="LogInGravitasApp" xml:space="preserve">
+    <value>Connectez vous à l'application Gravitas</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="PostDate" xml:space="preserve">
+    <value>Date du Post</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Rester connecté ?</value>
+  </data>
+  <data name="RetrieveNewPosts" xml:space="preserve">
+    <value>Récupérer les nouveaux posts</value>
+  </data>
+  <data name="ShowStatisticsAboutEtc" xml:space="preserve">
+    <value>​Une lecture intuitive de vos principaux indicateurs  ​de contenu</value>
+  </data>
+  <data name="StatsNdReports" xml:space="preserve">
+    <value>Tableaux de bord</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Succès</value>
+  </data>
+  <data name="TranslateArabizi" xml:space="preserve">
+    <value>Convertissez vos textes en Darija</value>
+  </data>
+  <data name="TranslateArabiziToArabicEtc" xml:space="preserve">
+    <value>Transformez la Darija vers un arabe simplifié et en extraire les mots clés</value>
+  </data>
+  <data name="TranslatedPost" xml:space="preserve">
+    <value>Post Traduit</value>
+  </data>
+  <data name="TypeArabiziTextAndClickGo" xml:space="preserve">
+    <value>Entrez du text en Darija, et cliquez sur Go ...</value>
+  </data>
+  <data name="UseALocalAccountToLogIn" xml:space="preserve">
+    <value>Utilisez votre compte local pour vous connecter.</value>
+  </data>
+  <data name="UseFacebookPagesEtc" xml:space="preserve">
+    <value>Convertissez vos textes en Darija. Identifiez les mots clés - Protégez votre réputation</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Attention</value>
+  </data>
+  <data name="Arabizi" xml:space="preserve">
+    <value>Darija</value>
+  </data>
+  <data name="TranslateDisplayFilterEtc" xml:space="preserve">
+    <value>Importez tout texte pour une analyse multi couche: Adaptation arabe, détecteur d'entités</value>
+  </data>
+  <data name="TranslateNerSa" xml:space="preserve">
+    <value>Analyseur de textes</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>Arabe</value>
+  </data>
+  <data name="Entities" xml:space="preserve">
+    <value>Entités</value>
+  </data>
+  <data name="NerTypes" xml:space="preserve">
+    <value>Types Entités</value>
+  </data>
+  <data name="RefreshCharts" xml:space="preserve">
+    <value>Rafraichir les tableaux</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirmez votre mot de passe</value>
+  </data>
+  <data name="CreateANewAccount" xml:space="preserve">
+    <value>Créer votre compte</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>S'enregistrer</value>
+  </data>
+  <data name="RegisterIntoGravitasApp" xml:space="preserve">
+    <value>Enregistrez vous dans l'app Gravitas</value>
+  </data>
+  <data name="CheckYourMailAndConfirmEtc" xml:space="preserve">
+    <value>Prière de vérifier votre mail et de confirmer votre compte, vous devez vous confirmer avant de pouvoir vous connecter.</value>
+  </data>
+  <data name="ClickHereToLogIn" xml:space="preserve">
+    <value>Cliquer ici pour vous connecter</value>
+  </data>
+  <data name="ConfirmedEmail" xml:space="preserve">
+    <value>Email Confirmé</value>
+  </data>
+  <data name="Please" xml:space="preserve">
+    <value>Svp</value>
+  </data>
+  <data name="ThankYouForConfirmingYourEmail" xml:space="preserve">
+    <value>Merci pour la confirmation de votre email</value>
+  </data>
+  <data name="EmailLink" xml:space="preserve">
+    <value>Envoyer Lien</value>
+  </data>
+  <data name="EnterYourEmail" xml:space="preserve">
+    <value>Entrer votre mail.</value>
+  </data>
+  <data name="ForgotPasswordConfirmation" xml:space="preserve">
+    <value>Email de Récupération Envoyé</value>
+  </data>
+  <data name="ForgotYourPassword" xml:space="preserve">
+    <value>Mot de passe oublié ?</value>
+  </data>
+  <data name="InvalidLoginAttempt" xml:space="preserve">
+    <value>Tentative de connection invalide.</value>
+  </data>
+  <data name="PleaseCheckYourEmailToResetEtc" xml:space="preserve">
+    <value>Merci de vérifier votre email pour reinitialiser votre mot de passe</value>
+  </data>
+  <data name="RegisterAsANewUser" xml:space="preserve">
+    <value>S'enregistrer comme nouveau utilisateur</value>
+  </data>
+  <data name="here" xml:space="preserve">
+    <value>ici</value>
+  </data>
+  <data name="PleaseResetYourPasswordByClicking" xml:space="preserve">
+    <value>Veuillez réinitialiser votre mot de passe en cliquant</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Réinitialiser</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Réinitialiser Mot de Passe</value>
+  </data>
+  <data name="ResetPasswordConfirmation" xml:space="preserve">
+    <value>Confirmation de réinitialisation de mot de passe</value>
+  </data>
+  <data name="ResetYourPassword" xml:space="preserve">
+    <value>Réinitialiser votre mot de passe.</value>
+  </data>
+  <data name="YourPasswordHasBeenReset" xml:space="preserve">
+    <value>Votre mot de passe a été réinitialisé</value>
+  </data>
+  <data name="CommaSeparatedTargetEntitiesEtc" xml:space="preserve">
+    <value>Les Entités Cibles séparées par des virgules : coca-cola, fanta, ...</value>
+  </data>
+  <data name="FBPageAlertsSlashFiltersSettings" xml:space="preserve">
+    <value>Paramètres Alertes &amp; Filters Page FaceBook</value>
+  </data>
+  <data name="SaveSettings" xml:space="preserve">
+    <value>Sauvegarder Paramètres</value>
+  </data>
+  <data name="SearchForSocialDataEtc" xml:space="preserve">
+    <value>Filtrez ​et analysez les commentaires de votre page FB</value>
+  </data>
+  <data name="SocialSearch" xml:space="preserve">
+    <value>Recherche</value>
+  </data>
+  <data name="StartStopAutoRetrieveOfEtc" xml:space="preserve">
+    <value>Start/stop collecte auto des posts et commentaires FB</value>
+  </data>
+  <data name="TargetEntities" xml:space="preserve">
+    <value>Entités Cibles</value>
+  </data>
+  <data name="AddNewTheme" xml:space="preserve">
+    <value>Ajouter un nouveau projet</value>
+  </data>
+  <data name="AreYouSureYouWantToDeleteTheTheme" xml:space="preserve">
+    <value>Etes-vous sûr de vouloir supprimer ce projet</value>
+  </data>
+  <data name="ConfirmThemeDeletion" xml:space="preserve">
+    <value>Confirmer la Suppression du Projet</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="EditActiveTheme" xml:space="preserve">
+    <value>Editer le projet actif</value>
+  </data>
+  <data name="EnterNewThemeName" xml:space="preserve">
+    <value>Saisir le nom du projet</value>
+  </data>
+  <data name="EnterThemeNewName" xml:space="preserve">
+    <value>Saisir le nouveau nom du projet</value>
+  </data>
+  <data name="NewThemeToAnalyze" xml:space="preserve">
+    <value>Nouveau Projet d'Analyse</value>
+  </data>
+  <data name="RemoveActiveTheme" xml:space="preserve">
+    <value>Supprimer le projet actif</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Renommer</value>
+  </data>
+  <data name="RenameTheme" xml:space="preserve">
+    <value>Renommer le Projet</value>
+  </data>
+  <data name="ThemeName" xml:space="preserve">
+    <value>Nom du Projet</value>
+  </data>
+  <data name="ThemeNewName" xml:space="preserve">
+    <value>Nouveau Nom du Projet</value>
+  </data>
+  <data name="THEMES" xml:space="preserve">
+    <value>PROJETS</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Compte</value>
+  </data>
+  <data name="Consumption" xml:space="preserve">
+    <value>Consommation</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Se déconnecter</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+</root>

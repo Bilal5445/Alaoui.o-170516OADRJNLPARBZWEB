@@ -1,0 +1,135 @@
+﻿@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+
+.navbar-inverse.adekwasy {
+    background-color: rgba(0,107,133,1);
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #818181;
+}
+
+#vertaccordmenuandbody {
+    /*background-color: rgba(0,107,133,1);*/
+}
+
+#vertaccordmenuandbody #body {
+    /*height: 1000px;*/
+}
+
+.navbar-fixed-top.adekwasy {
+    border-bottom-width: 0;
+}
+
+#vertaccordmenucol {
+    padding-top: 10px;
+    /*height: 1000px;*/
+    background-color: rgba(0,107,133,1);
+}
+html,body { height:100%; }
+
+#vertaccordmenucol > div > p {
+    color: white;
+}
+
+#accordion > div > .panel-heading {
+    background-color: rgba(0,71,88,1);
+}
+
+#accordion tr {
+    background-color: rgba(0,47,58,1);
+}
+
+#accordion tr.activeblack {
+    background-color: black;
+    /*border-top: 1px solid green;
+    border-bottom: 1px solid green;*/
+}
+
+#accordion > .panel-default > .panel-heading {
+    color: white;
+}
+
+#accordion > .panel-default > .panel-heading > h4 > a.bold {
+    font-weight: bold;
+}
+
+#accordion > .panel.panel-default {
+    border: 0;
+}
+
+#accordion tr > td {
+    border: 0;
+}
+
+#accordion .panel-body {
+    border: 0;
+}
+
+#accordion tr > td a, #accordion tr > td span, #accordion tr > td i {
+    color: white;
+}
+
+#trainform {
+    margin-top: 50px;
+}
+
+footer {
+    /*background-color: #262626;*/
+    color: white;
+    /*padding: 50px;*/
+
+    background-image: url(/Content/Images/footer_img_gravitas.png);
+    background-size: 100% auto;
+    height:30px;
+}
+
+.droid-arabic-kufi{font-family: 'Droid Arabic Kufi', serif;}
+
+.bootstrap-tagsinput {
+    direction: rtl;
+    /* line-height: 2 !important; */
+}
+
+.bootstrap-tagsinput span.tag.label {
+    /*font-size: 100%;*/
+    font-family: 'Droid Arabic Kufi', serif;
+}
+
+/* make the controls small buttons more like the overall theme */
+td.controls > a.btn-danger {
+    /* background-color: rgba(217, 83, 79, 0.5);*/
+    background-color: rgba(108,47,58,1);
+}
+td.controls > a.btn-info {
+    /*background-color: rgba(91, 192, 222, 0.5);*/
+    background-color: rgba(0,47,111,1);
+}
+td.controls button.btn-warning {
+    /*background-color: rgba(240, 173, 78, 0.5);*/
+    background-color: rgba(120,86,39,1);
+}
+/* make the button fb alert config like the overall them */
+div.form-group > a.btn-danger {
+    /* background-color: rgba(217, 83, 79, 0.5);*/
+    background-color: rgba(108,47,58,1);
+}
+/* make the button fb translate like overall theme*/
+td.controls a.btn-warning {
+    /*background-color: rgba(240, 173, 78, 0.5);*/
+    background-color: rgba(120,86,39,1);
+}
+
+/* width of search area */
+.dataTables_filter input { width: 150px !important; }
+
+ul.nav.nav-pills {
+    border:1px solid lightgray;
+}
+
+ul.nav.nav-pills > li.mainUL:not(#addFBPage) {
+    border-right:1px solid lightgray;
+}

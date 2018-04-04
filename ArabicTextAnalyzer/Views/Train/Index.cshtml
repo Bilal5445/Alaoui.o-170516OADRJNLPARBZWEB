@@ -1,0 +1,379 @@
+﻿@using ArabicTextAnalyzer.Content.Resources
+@using ArabicTextAnalyzer.Domain.Models
+@model M_ARABIZIENTRY
+@{
+    ViewBag.Title = "Gravitas - " + R.TranslateNerSa;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    //
+    var token = Session["_T0k@n_"];
+    var user = Session["userId"];
+    List<RegisterApp> registerAppList = ViewBag.registerApp;
+    var message = Session["message"];
+    Session["message"] = "";
+    bool showAlertWarning = ViewBag.showAlertWarning;
+    bool showAlertSuccess = ViewBag.showAlertSuccess;
+    String msgAlert = ViewBag.msgAlert;
+}
+
+@section styles {
+
+    @* mandatory : vertical menus, ... *@
+    @Styles.Render("~/Content/css_train")
+
+    @Styles.Render("~/Content/css_train_tagsinput")
+
+    @* datatables.net dependencies *@
+    <link href="https://cdn.datatables.net/select/1.2.3/css/select.dataTables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.dataTables.min.css" />
+
+    @* datepicker *@
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+}
+
+@section scripts {
+
+    <!-- bootstrap 4.x -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>-->
+
+    @* datatables.net dependencies *@
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/mark.js/8.6.0/jquery.mark.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/datatables.mark.js/2.0.0/datatables.mark.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.print.min.js"></script>
+
+    @* localization js *@
+    @* <script type="text/javascript" src="~/Scripts/jquery.i18n.min.js"></script> *@
+
+    @* the scripts that load data into the partial view (using datatables.net) and allow displaying/selecting/filtering *@
+    @Scripts.Render("~/bundles/js_train")
+    @* @Scripts.Render("~/bundles/js_train_keywordfiltering"); *@
+    <script type="text/javascript" src="~/Scripts/mysite_train_keywordfiltering.js"></script>
+    @Scripts.Render("~/bundles/js_train_workingdata")
+
+    @Scripts.Render("~/bundles/js_train_tagsinput");
+
+    @* date picker *@
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+    /*function updateMonitor(status) {
+        $("#monitors").html("Task : " + status);
+    }
+
+    function monitor() {
+        // Init monitors
+        $("#monitors").append($("<p>0</>"));
+        updateMonitor("Started");
+
+        // Periodically update monitors
+        var intervalId = setInterval(function () {
+            console.log("call Data_Upload_Progress");
+            $.post("Train/Data_Upload_Progress", {}, function (progress) {
+                console.log("call Data_Upload_Progress : " + progress);
+                if (progress == -1) {
+                    updateMonitor("Completed");
+                    clearInterval(intervalId);
+                } else {
+                    updateMonitor(progress);
+                }
+            }).fail(function () {
+                console.log("call Data_Upload_Progress - fail");
+            });
+        }, 1000);
+    }*/
+    </script> 
+}
+
+<h2>@ViewBag.Title.</h2>
+<h4>@R.TranslateDisplayFilterEtc</h4>
+<hr />
+
+<!-- theme menu -->
+<div class="container thememenu" style="text-align: center; display: none;">
+    <div class="dropdown div-inline">
+        <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            @foreach (var userXtrctTheme in ViewBag.UserXtrctThemes)
+            {
+                <li class="@userXtrctTheme.CurrentActive"><a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = userXtrctTheme.ThemeName })">@userXtrctTheme.ThemeName</a></li>
+            }
+        </ul>
+    </div>
+    <!-- theme menu : add new theme -->
+    <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#myModal">
+        <span class="glyphicon glyphicon-plus"></span>
+    </button>
+    <!-- theme menu : edit theme -->
+    <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#myModal">
+        <span class="glyphicon glyphicon-edit"></span>
+    </button>
+    <!-- theme menu : remove theme -->
+    <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#myModalRemoveTheme">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+</div>
+
+<!-- modal confirmation remove theme -->
+<div id="myModalRemoveTheme" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="color:darkblue;">@R.ConfirmThemeDeletion</h4>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("XtrctTheme_Delete", "Train", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        <label for="themename">@R.AreYouSureYouWantToDeleteTheTheme</label>
+                        @Html.TextBox("themename", (string)ViewBag.UserActiveXtrctTheme.ThemeName.Trim(), new { @class = "form-control", @required = "required", id = "themename", @readonly = "readonly" })
+                        @Html.Hidden("idXtrctTheme", (Guid)ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME)
+                    </div>
+                    <button type="submit" class="btn btn-default btn-success">@R.Delete</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Theme & keywords wordcloud -->
+<div class="themekeywords card card-inverse card-primary" style="display: none;">
+    <h1><span class="label label-info">@ViewBag.UserActiveXtrctTheme.ThemeName.Trim()</span></h1>
+    <div class="container containerthemekeywords">
+        <div class="row">
+            <div class="col-lg-4">
+                @foreach (var tag in ViewBag.ActiveXtrctThemeNegTags)
+                {
+                    String badgeCounter = tag.Keyword_Count > 1 ? " (" + tag.Keyword_Count + ")" : String.Empty;
+                    if (ViewBag.ActiveXtrctThemeNegTags.IndexOf(tag) % 2 == 0)
+                    {
+                        <span class="label label-danger themekeywords">@tag.Keyword@badgeCounter</span>
+                    }
+                    else
+                    {
+                        <span class="label label-warning themekeywords">@tag.Keyword@badgeCounter</span>
+                    }
+                }
+            </div>
+            <div class="col-lg-4">
+                @foreach (var tag in ViewBag.ActiveXtrctThemeOtherTags)
+                {
+                    String badgeCounter = tag.Keyword_Count > 1 ? " (" + tag.Keyword_Count + ")" : String.Empty;
+                    <span class="label label-default themekeywords">@tag.Keyword@badgeCounter</span>
+                }
+            </div>
+            <div class="col-lg-4">
+                @foreach (var tag in ViewBag.ActiveXtrctThemePosTags)
+                {
+                    String badgeCounter = tag.Keyword_Count > 1 ? " (" + tag.Keyword_Count + ")" : String.Empty;
+                    if (ViewBag.ActiveXtrctThemePosTags.IndexOf(tag) % 2 == 0)
+                    {
+                        <span class="label label-info themekeywords">@tag.Keyword@badgeCounter</span>
+                    }
+                    else
+                    {
+                        <span class="label label-success themekeywords">@tag.Keyword@badgeCounter</span>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <a href="@Url.Action("XtrctTheme_Keywords_Reload", new { themename = @ViewBag.UserActiveXtrctTheme.ThemeName.Trim() })" class="btn btn-outline-primary btn-xs">
+        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+    </a>
+</div>
+
+@if (token == null || string.IsNullOrEmpty(token as string))
+{
+    <!-- token generation -->
+    <div class="row">
+        @using (Html.BeginForm("GenerateToken", "Manage"))
+        {
+            <div class="form-group"></div>
+            <div class="form-group col-lg-12">
+                <div class="col-lg-2"></div>
+                <label class="control-label col-lg-1">My Apps</label>
+                <div class="col-lg-4">
+                    @Html.DropDownList("userId", new SelectList(registerAppList, "UserID", "Name", !string.IsNullOrEmpty(Convert.ToString(token)) ? Convert.ToString(user) : ""), "---Select App---", new { @class = "form-control", @required = "required" })
+                </div>
+                <div class="col-lg-4">
+                    <input type="submit" value="Generate Token" class="btn btn-primary" />
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Warning!</strong> @msgAlert
+                    </div>
+
+                    <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Success!</strong> @msgAlert
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else if (token != null && !string.IsNullOrEmpty(token as string))
+{
+    <!-- aribizi translate std -->
+    using (Html.BeginForm("TrainStepOne", "Train", new { mainEntity = @ViewBag.UserActiveXtrctTheme.ThemeName.Trim() }, FormMethod.Post, new { id = "trainformstd" }))
+    {
+        <div class="panel panel-default active">
+            <div class="panel-heading">@R.Arabizi</div>
+            <div class="panel-body" style="padding: 0;">
+                <div class="input-group">
+                    @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "resize:none", rows = 2, @class = "form-control custom-control", @required = "required", @placeholder = R.TypeArabiziTextAndClickGo })
+                    @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now.ToString("yyyy-MM-dd HH:MM:ss") })
+                    @Html.HiddenFor(m => m.ID_XTRCTTHEME, new { @Value = ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME })
+                    <span class="input-group-addon btn btn-primary" onclick="document.forms['trainformstd'].submit();">Go</span>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- arabizi keying & corpus info & co -->
+    <div id="row-arabizi-input" class="row" style="margin-top: 30px; display: none;">
+        <!-- column 1 : arabizi input -->
+        <div class="col-md-3 col-sm-6">
+            @using (Html.BeginForm("TrainStepOne", "Train", FormMethod.Post))
+                {
+                <div class="panel panel-default active">
+                    <div class="panel-heading">Arabizi</div>
+                    <div class="panel-body" style="padding: 0; height: 150px">
+                        @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "height: 100%; width: 100%", @required = "required" })
+                        @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now.ToString("yyyy-MM-dd HH:MM:ss") })
+                    </div>
+                </div>
+            <!-- button submit -->
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn btn-success btn-md" type="submit" id="train">
+                            Train
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+        <!-- column 2 : Twingly/Corpus Res -->
+        <div class="col-md-2 col-sm-6">
+            @if (String.IsNullOrEmpty(ViewBag.MostPopularVariant) == false)
+                {
+                <div class="panel panel-default active arabic ">
+                    <div class="panel-heading">Most Popular Variant : @ViewBag.MostPopularVariant</div>
+                    <div class="panel-body" style="padding: 0; height: 150px; position:relative;">
+                        <div class="loader"></div>
+                        <textarea style="height: 100%; width: 100%" id="arabic-text">@ViewBag.Post</textarea>
+                    </div>
+                </div>
+            }
+        </div>
+        <!-- column 3 : corpus info -->
+        <div class="col-md-3 col-sm-6">
+            <div class="panel panel-default active arabic ">
+                <div class="panel-heading">Corpus/Bidict Info</div>
+                <div class="panel-body" style="height: 150px; position:relative;">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6"><small>Corpus Lines:</small></div>
+                        <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n0}", @ViewBag.CorpusSize)</small></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6"><small>Bidict Lines:</small></div>
+                        <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n0}", @ViewBag.BidictSize)</small></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6"><small>Arabizi Entries:</small></div>
+                        <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n0}", @ViewBag.ArabiziEntriesCount)</small></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6"><small>Entities Count:</small></div>
+                        <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n0}", @ViewBag.EntitiesCount)</small></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6"><small>Ratio Latin:</small></div>
+                        <div class="col-md-6 col-xs-6"><small>@String.Format("{0:n2}", @ViewBag.RatioLatinWordsOnEntries)</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- column 4 : twingly accounts -->
+        <div class="col-md-4 col-sm-6">
+            <div class="panel panel-default active arabic ">
+                <div class="panel-heading row" style="margin-left: 0px; margin-right: 0px;">
+                    <div class="col-xs-6 col-lg-2">Twingly</div>
+                    <div class="col-xs-6 col-lg-10"><input type="text" name="txtNewTwinglyAccount" class="form-control" value="" placeholder="" id="txtNewTwinglyAccount" style="padding: 0; border: 0; height: 20px;"></div>
+                </div>
+                <div class="panel-body" style="height: 150px; position: relative;">
+                    <div class="form-group">
+                        <div id="myButtons" class="btn-group-vertical btn-group-sm" data-toggle="buttons">
+                            @foreach (var twinglyAccount in @ViewBag.TwinglyAccounts)
+                            {
+                                <label class="btn btn-primary @twinglyAccount.CurrentActive" style="font-family: monospace; text-align: left;" data-toggle='tooltip' title='@twinglyAccount.UserName'>
+                                    @Html.RadioButton("name", "value", true, new { id = "id", style = "width: 80%;" }) @twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper()
+                                    <span class='badge'>@twinglyAccount.calls_free</span>
+                                    <a href="@Url.Action("TwinglySetup_deleteAccount", new { id_twinglyaccount_api_key = twinglyAccount.ID_TWINGLYACCOUNT_API_KEY.ToString().ToUpper() })" style="position: absolute; right: 0; top: 0;"><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
+                                </label>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- upload large file of posts -->
+    <div id="row-bulk-input" class="row" style="margin-top: 15px; display: none;">
+        @using (Html.BeginForm("Data_Upload", "Train", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline" }))
+        {
+            <div class="form-group">
+                <label for="importposts">Bulk Import:</label>
+                <input type="file" name="file" class="form-control" id="importposts" accept=".tsv,.txt,.csv" />
+                <label for="mainEntity">Main Tag:</label>
+                @Html.DropDownList("mainEntity", (IEnumerable<SelectListItem>)ViewBag.XtrctThemesPlain, null, new { @class = "form-control" })
+            </div>
+            <!--<button class="btn btn-success btn-md" type="submit" id="import_posts" onclick="monitor();">-->
+            <button class="btn btn-success btn-md" type="submit" id="import_posts">
+                Import Posts
+            </button>
+            <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Warning!</strong> @msgAlert
+            </div>
+            <div class="alert alert-success alert-dismissable div-inline margin-bottom-0" style="@(showAlertSuccess != true ? "display: none;" : "")">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Success!</strong> @msgAlert
+            </div>
+            if (!string.IsNullOrEmpty(Convert.ToString(message)))
+            {
+                <div class="alert alert-success alert-dismissable div-inline margin-bottom-0">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Success!</strong> @(Convert.ToString(message))
+                </div>
+            }
+        }
+        <div id="monitors"></div>
+    </div>
+
+    <!-- date range filter -->
+    <div class="row">
+        <div class="col-sm-3"><label>Minimum Date: <input name="minpoststable" id="minpoststable" type="search" class="form-control input-sm"></label></div>
+        <div class="col-sm-3"><label>Maximum Date: <input name="maxpoststable" id="maxpoststable" type="search" class="form-control input-sm"></label></div>
+    </div>
+
+    <!-- Place where you will insert your partial -->
+    <input type="hidden" id="hdnToken" value="@token" />
+    <div id="partialPlaceHolder" style="display:inline;"> </div>
+}

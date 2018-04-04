@@ -1,0 +1,84 @@
+﻿@model PagedList.IPagedList<ArabicTextAnalyzer.Models.ExpandedUserDTO>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Gravitas - Users Administration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+
+    @* mandatory : vertical menus, ... *@
+    @Styles.Render("~/Content/css_train")
+}
+
+<h2>@ViewBag.Title.</h2>
+<h4>Manage users</h4>
+<hr />
+
+<p>
+    @Html.ActionLink("Create New User", "Create", null, new { @class = "btn btn-default" })
+    @Html.ActionLink("Edit Roles", "ViewAllRoles", null, new { @class = "btn btn-default" })
+    @Html.ActionLink("Back to Home", "../", "Home", null, new { @class = "btn btn-default" })
+</p>
+<br />
+@using (Html.BeginForm("Index", "Admin", FormMethod.Get))
+{
+    <div class="form-group">
+        Search:&nbsp; @Html.TextBox("searchStringUserNameOrEmail", ViewBag.CurrentFilter as string)
+
+        <input type="submit" value="Search" />
+    </div>
+}
+<br />
+
+@* data table *@
+<table class="table">
+    <tr>
+        <th>Email</th>
+        <th>Locked Out</th>
+        <th>Calls Limit</th>
+        <th>Calls Consumed</th>
+        <th>Last Login</th>
+        <th>Themes Count</th>
+        <th>FB Pages Count</th>
+        <th>Entries Count</th>
+        <th>FB Posts Count</th>
+        <th>FB Comments Count</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+            <td>@Html.DisplayFor(modelItem => item.LockoutEndDateUtc)</td>
+            <td>@Html.DisplayFor(modelItem => item.TotalAppCallLimit)</td>
+            <td>@Html.DisplayFor(modelItem => item.TotalAppCallConsumed)</td>
+            <td>@Html.DisplayFor(modelItem => item.LastLoginTime)</td>
+            <td>@Html.DisplayFor(modelItem => item.ThemesCountPerUser)</td>
+            <td>@Html.DisplayFor(modelItem => item.FBPagesCountPerUser)</td>
+            <td>@Html.DisplayFor(modelItem => item.ArEntriesCountPerUser)</td>
+            <td>@Html.DisplayFor(modelItem => item.FBPostsCountPerUser)</td>
+            <td>@Html.DisplayFor(modelItem => item.FBCommentsCountPerUser)</td>
+            <td>
+                @Html.ActionLink("Edit", "EditUser", new { UserName = item.UserName }) |
+                @if ((item.UserName.ToLower() != this.User.Identity.Name.ToLower()))
+                {
+                    @Html.ActionLink("Delete", "DeleteUser", new { UserName = item.UserName },
+                    new { onclick = "return confirm('Are you sure you wish to delete this user?');" })
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@* pagination *@
+@Html.PagedListPager(Model, page => Url.Action("Index", new
+    {
+        page,
+        searchStringUserNameOrEmail = ViewBag.searchStringUserNameOrEmail,
+        currentFilter = ViewBag.CurrentFilter
+    }))
+<hr />

@@ -1,0 +1,75 @@
+﻿@using ArabicTextAnalyzer.Content.Resources
+@{
+    ViewBag.Title = "Gravitas - " + R.SocialSearch;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+
+    @* mandatory : vertical menus, ... *@
+    @Styles.Render("~/Content/css_train")
+
+    @* datatables.net dependencies *@
+    <link href="https://cdn.datatables.net/select/1.2.3/css/select.dataTables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.dataTables.min.css" />
+
+    @* datepicker *@
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+}
+
+@section scripts {
+
+    @*  datatables.net dependencies *@
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/mark.js/8.6.0/jquery.mark.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/datatables.mark.js/2.0.0/datatables.mark.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.print.min.js"></script>
+
+    @* date picker *@
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    @Scripts.Render("~/bundles/js_train_socialsearch")
+}
+
+<h2>@ViewBag.Title.</h2>
+<h4>@R.SearchForSocialDataEtc</h4>
+<hr />
+
+<!-- date range filter -->
+<table border="0" cellspacing="5" cellpadding="5">
+    <tbody>
+        <tr>
+            <td>Minimum Date:</td>
+            <td><input name="min" id="min" type="text"></td>
+        </tr>
+        <tr>
+            <td>Maximum Date:</td>
+            <td><input name="max" id="max" type="text"></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- table of FB page posts -->
+<table class="posts datatables-table-fbs-all table table-striped table-hover table-bordered">
+    <thead>
+        <tr class="header">
+            <th class="center top col50px">vacd</th>
+            <th class="center top col50px">#</th>
+            @* <th class="center top col110px">Influencer Id</th> *@
+            <th class="center top col50prc">Post</th>
+            <th class="center top col50prc">Translated Post</th>
+            <th class="center top col50px">Likes</th>
+            <th class="center top col75px">Comments</th>
+            <th class="center top col95px">Post Date</th>
+            <th class="center top col75px">Action</th>
+        </tr>
+    </thead>
+</table>

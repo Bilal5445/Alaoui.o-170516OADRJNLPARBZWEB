@@ -1,0 +1,61 @@
+﻿@model PagedList.IPagedList<OADRJNLPCommon.Models.FBPageToThemeToUserViewModel>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Gravitas - Facebook Pages";
+}
+
+@section styles {
+
+    @* mandatory : vertical menus, ... *@
+    @Styles.Render("~/Content/css_train")
+}
+
+<h2>@ViewBag.Title.</h2>
+<h4>All users Facebook pages</h4>
+<hr />
+
+<br />
+@using (Html.BeginForm("IndexFBs", "Admin", FormMethod.Get))
+{
+    <div class="form-group">
+        Search:&nbsp; @Html.TextBox("searchStringUserNameOrEmail", ViewBag.CurrentFilter as string)
+
+        <input type="submit" value="Search" />
+    </div>
+}
+<br />
+
+@* data table *@
+<table class="table">
+    <tr>
+        <th>FB Page Name</th>
+        <th>Alerts On</th>
+        <th>Theme Name</th>
+        <th>Active Theme</th>
+        <th>User Name</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.name)</td>
+            <td>@Html.DisplayFor(modelItem => item.AutoRetrieveFBPostAndComments)</td>
+            <td>@Html.DisplayFor(modelItem => item.ThemeName)</td>
+            <td>@Html.DisplayFor(modelItem => item.CurrentActive)</td>
+            <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+        </tr>
+    }
+</table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+
+@* pagination *@
+@Html.PagedListPager(Model, page => Url.Action("IndexFBs", new
+{
+    page,
+    searchStringUserNameOrEmail = ViewBag.searchStringUserNameOrEmail,
+    currentFilter = ViewBag.CurrentFilter
+}))
+<hr />

@@ -1,0 +1,216 @@
+﻿@using ArabicTextAnalyzer.Domain.Models
+@using OADRJNLPCommon.Models;
+@using ArabicTextAnalyzer.Content.Resources
+@{
+    List<T_FB_INFLUENCER> FbInfluencersVert = ViewBag.AllInfluenceVert;
+    var cntrlr = ViewContext.RouteData.Values["Controller"].ToString();
+    var actn = ViewContext.RouteData.Values["Action"].ToString();
+
+    List<LM_CountPerThemePerUser> cntPrThmPrUsr = ViewBag.EntriesCountsperThemePerUser;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
+    
+    @* awesome fonts *@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    @* vertical load time *@
+    <link rel="stylesheet" type="text/css" href="~/Content/hlpr.vertical-text.css" />
+
+    @* vertical accordion menu *@
+    <style>
+        #accordion .glyphicon { margin-right: 10px; }
+        #accordion i.fa { margin-right: 10px; }
+        .panel-body { padding: 0px; }
+        .panel-body table tr td { padding-left: 15px }
+        .panel-body .table { margin-bottom: 0px; }
+    </style>
+</head>
+<body onload="getPlainLoadTime()">
+    @* logo *@
+    @*<img src="~/Content/Images/logo-gravitas-Analytix.png" class="logogravitas" />*@
+    <img src="~/Content/Images/logo-gravitas-Analytix-textless.png" class="logogravitas" />
+    <!-- top menu -->
+    <div class="navbar navbar-inverse navbar-fixed-top adekwasy">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li><a href="/Help" title="Consult API developer documentation">Gravitas API <i class="fa fa-code"></i></a></li>
+                    }
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <li><a><span class="breaker">|</span></a></li>
+                        <li class="dropdown @(cntrlr == "Admin" && actn.StartsWith("Index") ? "active" : "")">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administration<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="@(cntrlr == "Admin" && actn == "Index" ? "active" : "")"><a href="/Admin">Manage Users</a></li>
+                                <li class="@(cntrlr == "Admin" && actn == "IndexFBs" ? "active" : "")"><a href="/Admin/IndexFBs">FB pages</a></li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <!-- vert menu -->
+    @if (Request.IsAuthenticated)
+    {
+        <div id="vertaccordmenuandbody" class="container adekwasy">
+            <div class="row">
+                <div id="vertaccordmenucol" class="col-sm-2 col-md-3 col-lg-3">
+                    <div id="add-new-theme">
+                        <div class="dropdown div-inline">
+                            <ul class="dropdown-menu">
+                                @foreach (var userXtrctTheme in ViewBag.UserXtrctThemes)
+                                {
+                                    <li class="@userXtrctTheme.CurrentActive"><a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = userXtrctTheme.ThemeName })">@userXtrctTheme.ThemeName</a></li>
+                                }
+                            </ul>
+                            <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" title="Change active theme"><span class="caret"></span></button>
+                        </div>
+                        <p style="font-weight:bold; font-size:16px; display:inline-block;">@R.THEMES</p>
+                        <!-- theme menu : edit theme -->
+                        <button style="margin-right: 2px;"type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModalRenameTheme" title="@R.EditActiveTheme : @ViewBag.UserActiveXtrctTheme.ThemeName"><span class="glyphicon glyphicon-edit"></span></button>
+                        <!-- theme menu : remove theme -->
+                        <button style="margin-right: 2px;" type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModalRemoveTheme" title="@R.RemoveActiveTheme : @ViewBag.UserActiveXtrctTheme.ThemeName"><span class="glyphicon glyphicon-remove"></span></button>
+                        <!-- theme menu : add new theme -->
+                        <button style="margin-right: 2px; float:right;"type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModalAddNewTheme" title="@R.AddNewTheme"><span class="glyphicon glyphicon-plus"></span> </button>
+                    </div>
+                    <!-- themes list accordion -->
+                    <div class="panel-group" id="accordion">
+                        @foreach (M_XTRCTTHEME userXtrctTheme in ViewBag.UserXtrctThemes)
+                        {
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" class="@(userXtrctTheme.CurrentActive == "active" ? "bold" : "")" href="#collapse@(userXtrctTheme.ID_XTRCTTHEME)" title="@(userXtrctTheme.ID_XTRCTTHEME)"><span class="glyphicon glyphicon-folder-close"></span>@userXtrctTheme.ThemeName</a></h4>
+                                </div>
+                            </div>
+                            <div id="collapse@(userXtrctTheme.ID_XTRCTTHEME)" class="panel-collapse collapse @(userXtrctTheme.CurrentActive == "active" ? "in" : "")">
+                                <div class="panel-body">
+                                    <table class="table">
+                                        <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexTranslateArabizi" ? "activeblack" : "")"><td><span class="glyphicon glyphicon-play"></span><a href="/Train/IndexTranslateArabizi" title="Translate Arabizi to Arabic">@R.TranslateArabizi</a></td></tr>
+                                        @{ 
+                                            var bdg = 0;
+                                            if (cntPrThmPrUsr != null && cntPrThmPrUsr.SingleOrDefault(m => m.ID_XTRCTTHEME == userXtrctTheme.ID_XTRCTTHEME) != null)
+                                            {
+                                                bdg = cntPrThmPrUsr.Single(m => m.ID_XTRCTTHEME == userXtrctTheme.ID_XTRCTTHEME).CountPerThemePerUser;
+                                            }
+                                            var htm = "<span class='badge' style='float: right;'>" + bdg + "</span>";
+                                            var htmraw = @Html.Raw(htm);
+                                        }
+                                        <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "activeblack" : "")"><td><span class="glyphicon glyphicon-dashboard"></span><a href="/Train/Index" title="Translate, Display, filter, export, import data and extract insights">@R.TranslateNerSa@(htmraw)</a></td></tr>
+                                        <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexFBs" ? "activeblack" : "")"><td><i class="fa fa-facebook"></i><a href="/Train/IndexFBs?idXtrctTheme=@userXtrctTheme.ID_XTRCTTHEME" title="Use Facebook pages as data source to translate Arabizi and extract entities">Facebook Pages</a></td></tr>
+                                        @foreach (var item in FbInfluencersVert.Where(m => m.fk_theme == userXtrctTheme.ID_XTRCTTHEME.ToString()))
+                                        {
+                                            <tr><td style="padding-left:50px; color:darkgray;"><i class="fa fa-facebook-square" aria-hidden="true"></i>@item.name</td></tr>
+                                        }
+                                        @*<tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexSocialSearch" ? "activeblack" : "")"><td><i class="fa fa-search"></i><a href="/Train/IndexSocialSearch" title="Search over Facebook Moroccan content">Social Search</a></td></tr>*@
+                                        <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexStats" ? "activeblack" : "")"><td><span class="glyphicon glyphicon-stats"></span><a href="/Train/IndexStats" title="Show statistics about extracted entities from your theme's data">@R.StatsNdReports</a></td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <!-- body -->
+                <div id="body" class="col-sm-10 col-md-9 col-lg-9">
+                    <div class="container-fluid body-content">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <!-- body login only -->
+        <div id="body">
+            <div class="container body-content">
+                @RenderBody()
+            </div>
+        </div>
+    }
+    <hr />
+    <footer>
+        <p style="padding:5px;">&copy; @DateTime.Now.Year - Gravitas</p>
+    </footer>
+
+    <!-- VERTICAL LOADTIME -->
+    <div class="rotated-text"><span class="rotated-text__inner"><strong>v0.1712.15.15 - Load Time : </strong><span id="loadTime"></span></span></div>
+    <script type="text/javascript" src="~/Scripts/my.js"></script>
+
+    @if (Request.IsAuthenticated)
+    {
+        <!-- modal new theme dialogbox #myModalAddNewTheme -->
+        <div class="modal fade" id="myModalAddNewTheme" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" style="color:darkblue;">@R.NewThemeToAnalyze</h4>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("XtrctTheme_AddNew", "Train", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                <label for="themename">@R.ThemeName</label>
+                                @Html.TextBox("themename", "", new { @class = "form-control", placeholder = R.EnterNewThemeName, @required = "required", id = "themename" })
+                            </div>
+                            <button type="submit" class="btn btn-default btn-success">@R.Add</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal rename theme dialogbox #myModalRenameTheme -->
+        <div class="modal fade" id="myModalRenameTheme" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" style="color:darkblue;">@R.RenameTheme : @ViewBag.UserActiveXtrctTheme.ThemeName</h4>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("XtrctTheme_EditName", "Train", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                <label for="themename">@R.ThemeNewName</label>
+                                @Html.TextBox("themeNewName", "", new { @class = "form-control", placeholder = R.EnterThemeNewName, @required = "required", id = "themeNewName" })
+                                @Html.Hidden("idXtrctTheme", (Guid)ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME)
+                            </div>
+                            <button type="submit" class="btn btn-default btn-success">@R.Rename</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/custom")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
