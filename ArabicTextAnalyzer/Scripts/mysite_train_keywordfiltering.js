@@ -676,7 +676,7 @@ function postOnCommentsTranslate(translatedCommentId, id) {
 }
 
 // Js for add FB (page) influencer
-function AddInfluencer() {
+function JsAddInfluencer() {
 
     // check before
     if (AddInfluencerIsClicked == true)

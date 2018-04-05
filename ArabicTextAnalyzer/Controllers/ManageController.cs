@@ -15,10 +15,12 @@ using ArabicTextAnalyzer.Business.Provider;
 using ArabicTextAnalyzer.BO;
 using System.Collections.Generic;
 using OADRJNLPCommon.Models;
+using System.Web.SessionState;
 
 namespace ArabicTextAnalyzer.Controllers
 {
     [Authorize]
+    // [SessionState(SessionStateBehavior.Disabled)]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -91,7 +93,14 @@ namespace ArabicTextAnalyzer.Controllers
 
             // needed to not crash vert menu : themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
             var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+            var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
             @ViewBag.UserXtrctThemes = userXtrctThemes;
+            @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
+            @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
+
+            // Fetch the data for fbPages for all themes for that user
+            var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
+            ViewBag.AllInfluenceVert = fbFluencerAsTheme;
 
             //
             return View(model);

@@ -1,4 +1,5 @@
 ﻿using ArabicTextAnalyzer.Content.Resources;
+using BrockAllen.CookieTempData;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -70,6 +71,12 @@ namespace ArabicTextAnalyzer.Controllers
                 culture = cookie.Value;
             }
             return culture;
+        }
+
+        protected override ITempDataProvider CreateTempDataProvider()
+        {
+            // we siwtch from session based tempdate to cookie based tempdata so we can disable session so we can concurrent access in ajax and still keeping our tempdata working
+            return new CookieTempDataProvider();
         }
     }
 

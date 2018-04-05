@@ -24,10 +24,13 @@ using ArabicTextAnalyzer.BO;
 using System.Net.Mail;
 using Newtonsoft.Json.Linq;
 using System.Globalization;
+using System.Web.SessionState;
+using ArabicTextAnalyzer.Content.Resources;
 
 namespace ArabicTextAnalyzer.Controllers
 {
     [Authorize]
+    [SessionState(SessionStateBehavior.ReadOnly)]
     public class TrainController : BaseController
     {
         // global lock to queur concurrent access
@@ -276,7 +279,7 @@ namespace ArabicTextAnalyzer.Controllers
             try
             {
                 var token = Session["_T0k@n_"];
-                if (token != null && !string.IsNullOrEmpty(token as string))
+                // if (token != null && !string.IsNullOrEmpty(token as string))
                 {
                     if (partialViewType == PartialViewType.all || partialViewType == PartialViewType.FBPagesOnly)
                     {
@@ -336,7 +339,7 @@ namespace ArabicTextAnalyzer.Controllers
                         String sessiontoken;
                         String tokenExpiry = ConfigurationManager.AppSettings["TokenExpiry"];
                         var tokenmessage = new AppManager().GetToken(clientkeys, _IAuthenticate, tokenExpiry, out sessiontoken);
-                        Session["_T0k@n_"] = sessiontoken;
+                        //TMP Session["_T0k@n_"] = sessiontoken;
                         token = sessiontoken;
                         if (String.IsNullOrEmpty(sessiontoken))
                             message = tokenmessage; // pass message only if token not generated
@@ -785,8 +788,12 @@ namespace ArabicTextAnalyzer.Controllers
             else
             {
                 status = false;
-                errMessage = result;
-                errMessage += " - " + results.Item2;
+                // errMessage = result;
+                // errMessage += " - " + results.Item2;
+                if (results.Item2 == "NotFound")
+                    errMessage = R.NotFound;
+                else
+                    errMessage = results.Item2;
             }
 
             //
@@ -1675,7 +1682,7 @@ namespace ArabicTextAnalyzer.Controllers
                 }
                 else
                 {
-                    Session["_T0k@n_"] = "";
+                    //TMP Session["_T0k@n_"] = "";
                     TempData["showAlertWarning"] = true;
                     TempData["msgAlert"] = errMessage;  // "Not a valid token";
                 }
@@ -1714,7 +1721,10 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpPost]
         public void Log(String message)
         {
-            Logging.Write(Server, message);
+            /*lock (thisLock)
+            {*/
+                Logging.Write(Server, message);
+            // }
         }
 
         [HttpPost]

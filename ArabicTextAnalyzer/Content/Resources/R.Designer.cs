@@ -376,6 +376,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Manage your account settings.
+        /// </summary>
+        public static string ManageYourAccountSettings {
+            get {
+                return ResourceManager.GetString("ManageYourAccountSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to NER Types.
         /// </summary>
         public static string NerTypes {
@@ -390,6 +399,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string NewThemeToAnalyze {
             get {
                 return ResourceManager.GetString("NewThemeToAnalyze", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page Not Found.
+        /// </summary>
+        public static string NotFound {
+            get {
+                return ResourceManager.GetString("NotFound", resourceCulture);
             }
         }
         
@@ -669,6 +687,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string THEMES {
             get {
                 return ResourceManager.GetString("THEMES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Track your account Consumption.
+        /// </summary>
+        public static string TrackYourAccountConsumption {
+            get {
+                return ResourceManager.GetString("TrackYourAccountConsumption", resourceCulture);
             }
         }
         

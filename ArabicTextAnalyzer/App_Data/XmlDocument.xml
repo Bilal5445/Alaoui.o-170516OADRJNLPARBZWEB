@@ -672,6 +672,11 @@
               Looks up a localized string similar to Log Out.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ManageYourAccountSettings">
+            <summary>
+              Looks up a localized string similar to Manage your account settings.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.NerTypes">
             <summary>
               Looks up a localized string similar to NER Types.
@@ -680,6 +685,11 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.NewThemeToAnalyze">
             <summary>
               Looks up a localized string similar to New Theme to Analyze.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.NotFound">
+            <summary>
+              Looks up a localized string similar to Page Not Found.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.Password">
@@ -835,6 +845,11 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.THEMES">
             <summary>
               Looks up a localized string similar to PROJECTS.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.TrackYourAccountConsumption">
+            <summary>
+              Looks up a localized string similar to Track your account Consumption.
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.TranslateArabizi">
