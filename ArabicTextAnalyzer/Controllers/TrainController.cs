@@ -845,6 +845,9 @@ namespace ArabicTextAnalyzer.Controllers
                     // parse for error message
                     JValue jmessage = (JValue)jObject["message"];
                     errMessage = Convert.ToString(jmessage);
+
+                    // log
+                    Logging.Write(Server, errMessage);
                 }
 
                 return JsonConvert.SerializeObject(new
