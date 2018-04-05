@@ -829,6 +829,8 @@ var FBDataVM = function () {
         if (mute !== true) {
             $(".nav.nav-pills").addClass('loading');
             // show misc area success msg
+            $('#globareaerror').css('display', 'none');
+            $('#globareasuccess').css('display', 'none');
             $('#globareainprogress').css('display', 'block');
             $('#globareainprogress p').html('Le rapatriement des posts et commentaires de la page est en cours ... Prière de patientier quelques minutes, il vous est possible de revenir ultérieurement pour voir les posts rapatriés.');
         }
