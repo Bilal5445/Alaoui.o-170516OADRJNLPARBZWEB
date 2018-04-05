@@ -1,7 +1,8 @@
 ﻿@using ArabicTextAnalyzer.Domain.Models;
+@using ArabicTextAnalyzer.Content.Resources
 @model RegisterApp
 @{
-    ViewBag.Title = "Gravitas - Consumption";
+    ViewBag.Title = R.Consumption;
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     bool existClientKeys = ViewBag.clientExist;
@@ -14,7 +15,7 @@
 
 <h2>@ViewBag.Title.</h2>
 <div class="form-horizontal">
-    <h4>Track your account Consumption</h4>
+    <h4>@R.TrackYourAccountConsumption</h4>
     <hr />
     @if (existClientKeys == false)
     {

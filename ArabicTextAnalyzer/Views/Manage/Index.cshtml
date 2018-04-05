@@ -1,6 +1,7 @@
 ﻿@model ArabicTextAnalyzer.Models.IndexViewModel
+@using ArabicTextAnalyzer.Content.Resources
 @{
-    ViewBag.Title = "Gravitas - Settings";
+    ViewBag.Title = R.Settings;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -12,10 +13,10 @@
 <h2>@ViewBag.Title.</h2>
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <h4>Manage your account settings</h4>
+    <h4>@R.ManageYourAccountSettings</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>Password:</dt>
+        <dt>@R.Password:</dt>
         <dd>
             [
             @if (Model.HasPassword)

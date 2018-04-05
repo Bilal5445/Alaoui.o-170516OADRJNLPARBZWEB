@@ -351,4 +351,13 @@
   <data name="InProgress" xml:space="preserve">
     <value>En Cours</value>
   </data>
+  <data name="ManageYourAccountSettings" xml:space="preserve">
+    <value>Gestion des paramètres de votre compte</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Page Inexistante</value>
+  </data>
+  <data name="TrackYourAccountConsumption" xml:space="preserve">
+    <value>Suivi de la consommation de votre compte</value>
+  </data>
 </root>
