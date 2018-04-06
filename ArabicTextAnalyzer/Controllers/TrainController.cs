@@ -882,7 +882,7 @@ namespace ArabicTextAnalyzer.Controllers
         {
             String result = String.Empty;
 
-            await Task.Delay(60000);
+            await Task.Delay(2*60000);
 
             return JsonConvert.SerializeObject(new
             {

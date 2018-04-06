@@ -232,12 +232,15 @@ function LoadFacebookPosts(influencerId) {
     ViewInfluencerIsClicked = true;
 
     // if the table associated with the fb page has no rows yet, load them from DB (via server side controller action)
+    console.log("InitializeFBPostsDataTables : influencerid : " + influencerId);
     var $checkedBoxes = $('.table_' + influencerId + ' tbody tr');
+    console.log("InitializeFBPostsDataTables : $checkedBoxes.length : " + $checkedBoxes.length);
     if ($checkedBoxes.length == 0) {
         InitializeFBPostsDataTables(influencerId);
     }
 
     //
+    console.log("InitializeFBPostsDataTables : ShowFBPage : " + influencerId);
     ShowFBPage(influencerId);
 
     // reset to not clicked
@@ -311,8 +314,36 @@ function InitializeFBPostsDataTables(fluencerid) {
             "ajax": {
                 "url": "/Train/DataTablesNet_ServerSide_FB_Posts_GetList?fluencerid=" + fluencerid,
                 "dataSrc": function (json) {
+                    console.log(json);
+                    console.log(json.data);
                     return json.data;
-                }
+                },
+                /*"success": function (data, textStatus) {
+                    console.log("success : " + textStatus);
+                },*/
+                /*"success": function (data) {
+                    console.log("success : " + data);
+                    return data;
+                },*/
+                error: function (jqXHR, exception) {
+                    var msg = '';
+                    if (jqXHR.status === 0) {
+                        msg = 'Not connect.\n Verify Network.';
+                    } else if (jqXHR.status == 404) {
+                        msg = 'Requested page not found. [404]';
+                    } else if (jqXHR.status == 500) {
+                        msg = 'Internal Server Error [500].';
+                    } else if (exception === 'parsererror') {
+                        msg = 'Requested JSON parse failed. \n' + +jqXHR.responseText;
+                    } else if (exception === 'timeout') {
+                        msg = 'Time out error.';
+                    } else if (exception === 'abort') {
+                        msg = 'Ajax request aborted.';
+                    } else {
+                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                    }
+                    console.log("error : " + msg);
+                },
             }
         });
     });
@@ -725,7 +756,7 @@ function JsAddInfluencer() {
                 $('#addfbmiscareaerror p').html(msg.message);
             }
         },
-        "error": function () {
+        "error": function (msg) {
 
             AddInfluencerIsClicked = false;
             
@@ -823,7 +854,7 @@ var FBDataVM = function () {
             return;
 
         // DBG
-        console.log("Js Retrieve FBPosts - begin");
+        console.log("Js Retrieve FBPosts - begin : " + influencerurl_name);
 
         // add animation
         if (mute !== true) {
@@ -843,8 +874,8 @@ var FBDataVM = function () {
         $.ajax({
             "dataType": 'json',
             "type": "GET",
-            "url": "/Train/RetrieveFBPosts",
-            // "url": "/Train/TstRetrieveFBPosts",
+            // "url": "/Train/RetrieveFBPosts",
+            "url": "/Train/TstRetrieveFBPosts",
             "data": {
                 "influencerurl_name": influencerurl_name
             },
@@ -872,12 +903,9 @@ var FBDataVM = function () {
                 } else if (msg.status) {
 
                     $('#globareaerror').css('display', 'none');
-                    // $('#globareasuccess').css('display', 'none');
                     $('#globareasuccess').css('display', 'block');
-                    $('#globareasuccess p').html('Il y a eu rapatriement de ' + msg.retrievedPostsCount + ' posts et ' + msg.retrievedCommentsCount + ' commentaires');
-                    // $('#globareainprogress').css('display', 'block');
+                    $('#globareasuccess p').html('Il y a eu rapatriement de ' + msg.retrievedPostsCount + ' posts et ' + msg.retrievedCommentsCount + ' commentaires pour la page FB ' + influencerurl_name);
                     $('#globareainprogress').css('display', 'none');
-                    // $('#globareainprogress p').html('Le rapatriement des posts et commentaires de la page est en cours ... Prière de patientier quelques minutes, il vous est possible de revenir ultérieurement pour voir les posts rapatriés.');
 
                 } else {
 
@@ -1063,6 +1091,7 @@ function JsAddTextEntity(influencerid) {
 function ResetDataTable(influencerid) {
 
     // clean table
+    console.log("clean table : " + influencerid);
     var oTable = $('.table_' + influencerid).dataTable();
     oTable.fnClearTable();
     oTable.fnDestroy();
