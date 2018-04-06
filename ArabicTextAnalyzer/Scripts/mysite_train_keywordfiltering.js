@@ -329,6 +329,9 @@ function InitializeFBPostsDataTables(fluencerid) {
                     var msg = '';
                     if (jqXHR.status === 0) {
                         msg = 'Not connect.\n Verify Network.';
+                    } else if (jqXHR.status == 401) {
+                        msg = 'Unauthorized response. [401]';
+                        window.location.href = "/Train/IndexFBs"; // timeout => reonnect
                     } else if (jqXHR.status == 404) {
                         msg = 'Requested page not found. [404]';
                     } else if (jqXHR.status == 500) {
@@ -863,7 +866,7 @@ var FBDataVM = function () {
             $('#globareaerror').css('display', 'none');
             $('#globareasuccess').css('display', 'none');
             $('#globareainprogress').css('display', 'block');
-            $('#globareainprogress p').html('Le rapatriement des posts et commentaires de la page '+ influencerurl_name + ' est en cours ... Prière de patientier quelques minutes, il vous est possible de revenir ultérieurement pour voir les posts rapatriés.');
+            $('#globareainprogress p').html('Le rapatriement des posts et commentaires de la page <b>'+ influencerurl_name + '</b> est en cours ... Prière de patientier quelques minutes, il vous est possible de revenir ultérieurement pour voir les posts rapatriés.');
         }
 
         // mark as clicked to avoid double processing
@@ -874,8 +877,8 @@ var FBDataVM = function () {
         $.ajax({
             "dataType": 'json',
             "type": "GET",
-            // "url": "/Train/RetrieveFBPosts",
-            "url": "/Train/TstRetrieveFBPosts",
+            "url": "/Train/RetrieveFBPosts",
+            // "url": "/Train/TstRetrieveFBPosts",
             "data": {
                 "influencerurl_name": influencerurl_name
             },

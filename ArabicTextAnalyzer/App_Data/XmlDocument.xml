@@ -4,6 +4,11 @@
         <name>ArabicTextAnalyzer</name>
     </assembly>
     <members>
+        <member name="M:ArabicTextAnalyzer.Startup.IsAjaxRequest(Microsoft.Owin.IOwinRequest)">
+            
+            Detect current request is an AJAX request or not.
+            
+        </member>
         <member name="M:ArabicTextAnalyzer.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
             <summary>
             Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
