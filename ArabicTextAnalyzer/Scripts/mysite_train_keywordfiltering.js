@@ -863,7 +863,7 @@ var FBDataVM = function () {
             $('#globareaerror').css('display', 'none');
             $('#globareasuccess').css('display', 'none');
             $('#globareainprogress').css('display', 'block');
-            $('#globareainprogress p').html('Le rapatriement des posts et commentaires de la page est en cours ... Prière de patientier quelques minutes, il vous est possible de revenir ultérieurement pour voir les posts rapatriés.');
+            $('#globareainprogress p').html('Le rapatriement des posts et commentaires de la page '+ influencerurl_name + ' est en cours ... Prière de patientier quelques minutes, il vous est possible de revenir ultérieurement pour voir les posts rapatriés.');
         }
 
         // mark as clicked to avoid double processing
@@ -950,7 +950,9 @@ var FBDataVM = function () {
                     msg = 'Uncaught Error.\n' + jqXHR.responseText;
                 }
                 console.log("Js Retrieve FBPosts - Error : " + msg);
-                // alert("Error : " + msg);
+
+                // refresh
+                // ResetDataTable(influencerid);
             }
         });
     }
