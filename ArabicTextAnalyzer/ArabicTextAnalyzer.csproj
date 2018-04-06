@@ -257,6 +257,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="BO\Arabizer.cs" />
+    <Compile Include="BO\AuthenticateFilterAttribute.cs" />
     <Compile Include="BO\HtmlHelpers.cs" />
     <Compile Include="BO\LocalizationHelper.cs" />
     <Compile Include="Content\Resources\R.Designer.cs">

@@ -30,6 +30,7 @@ using ArabicTextAnalyzer.Content.Resources;
 namespace ArabicTextAnalyzer.Controllers
 {
     [Authorize]
+    // [AuthenticateFilter]
     [SessionState(SessionStateBehavior.ReadOnly)]
     public class TrainController : BaseController
     {
@@ -882,7 +883,7 @@ namespace ArabicTextAnalyzer.Controllers
         {
             String result = String.Empty;
 
-            await Task.Delay(7*60000);
+            await Task.Delay(2*60000);
 
             return JsonConvert.SerializeObject(new
             {

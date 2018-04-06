@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Threading;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -28,6 +29,16 @@ namespace ArabicTextAnalyzer
             // culture.DateTimeFormat.ShortDatePattern = "dd.MM.yyyy";
             // culture.DateTimeFormat.LongTimePattern = "";
             // Thread.CurrentThread.CurrentCulture = culture;
+        }
+
+        protected void Application_EndRequest(Object sender, EventArgs e)
+        {
+            // handle tell ajax it is 401 unauthrized instead of redirect (thus parseing error) when sessin timeout
+            /*if (Context.Items["AjaxPermissionDenied"] is bool)
+            {
+                Context.Response.StatusCode = 401;
+                Context.Response.End();
+            }*/
         }
 
         void ConfigureApi(HttpConfiguration config)

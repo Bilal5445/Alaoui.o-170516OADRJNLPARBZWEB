@@ -25,15 +25,23 @@ namespace ArabicTextAnalyzer
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                ExpireTimeSpan = TimeSpan.FromMinutes(5),
+                ExpireTimeSpan = TimeSpan.FromMinutes(1),
                 LoginPath = new PathString("/Account/Login"),
                 Provider = new CookieAuthenticationProvider
                 {
                     // Enables the application to validate the security stamp when the user logs in.
                     // This is a security feature which is used when you change a password or add an external login to your account.  
                     OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
-                        validateInterval: TimeSpan.FromMinutes(30),
-                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
+                        validateInterval: TimeSpan.FromMinutes(120),
+                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager)),
+                    OnApplyRedirect = ctx =>
+                    {
+                        // apply redirect only for non-ajax requests.
+                        if (!IsAjaxRequest(ctx.Request))
+                        {
+                            ctx.Response.Redirect(ctx.RedirectUri);
+                        }
+                    }
                 }
             });            
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
@@ -67,6 +75,24 @@ namespace ArabicTextAnalyzer
 
             // Add role manager
             app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
+        }
+
+        /// 
+        /// Detect current request is an AJAX request or not.
+        /// 
+
+        private static bool IsAjaxRequest(IOwinRequest request)
+        {
+            // check http header parameter in request query items collection
+            IReadableStringCollection query = request.Query;
+            if ((query != null) && (query["X-Requested-With"] == "XMLHttpRequest"))
+            {
+                return true;
+            }
+
+            // check http header parameter in http request header items collection
+            IHeaderDictionary headers = request.Headers;
+            return ((headers != null) && (headers["X-Requested-With"] == "XMLHttpRequest"));
         }
     }
 }
