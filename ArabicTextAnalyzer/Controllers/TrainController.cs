@@ -26,6 +26,7 @@ using Newtonsoft.Json.Linq;
 using System.Globalization;
 using System.Web.SessionState;
 using ArabicTextAnalyzer.Content.Resources;
+using MimeKit;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -883,7 +884,7 @@ namespace ArabicTextAnalyzer.Controllers
         {
             String result = String.Empty;
 
-            await Task.Delay(2*60000);
+            await Task.Delay(2 * 60000);
 
             return JsonConvert.SerializeObject(new
             {
@@ -1155,12 +1156,12 @@ namespace ArabicTextAnalyzer.Controllers
                                 {
                                     if (posts.NoOfTimeMailSend == null || posts.NoOfTimeMailSend == 0)  // send mail on first time to the user if there is any negative/expletive words on posts and comments.
                                     {
-                                        status = SendEmail(email, subject, body);
+                                        status = SendEmailImplicitSsl(email, subject, body);
                                         n = 1;
                                     }
                                     else if (posts.LastMailSendOn <= DateTime.Now.AddHours(-6)) // send mail on second time in a day after 6 hours of first mail.
                                     {
-                                        status = SendEmail(email, subject, body);
+                                        status = SendEmailImplicitSsl(email, subject, body);
                                         n = 2;
                                     }
                                     if (status == true)
@@ -1329,14 +1330,119 @@ namespace ArabicTextAnalyzer.Controllers
             msg.Body = body;
 
             SmtpClient smtpClient = new SmtpClient();
-            smtpClient.Host = emailsetting.SMTPServerUrl;
-            smtpClient.Port = emailsetting.SMTPServerPort;
-            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtpClient.EnableSsl = true;
+            // smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            username = "support@gravitas.ma";
+            password = "sympa570*";
+            smtpClient.Credentials = new System.Net.NetworkCredential(username, password);
+            // smtpClient.Host = emailsetting.SMTPServerUrl;
+            smtpClient.Host = "mail.gravitas.ma";
+            // smtpClient.Port = emailsetting.SMTPServerPort;
+            smtpClient.Port = 26;
+            // smtpClient.EnableSsl = true;
+            smtpClient.EnableSsl = false;
             // smtpClient.UseDefaultCredentials = emailsetting.SMTPSecureConnectionRequired;
             smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = new System.Net.NetworkCredential(username, password);
-            smtpClient.Send(msg);
+            try
+            {
+                // smtpClient.Send(msg);
+
+                using (var client = new MailKit.Net.Smtp.SmtpClient())
+                {
+                    var message = new MimeMessage();
+
+                    message.From.Add(new MailboxAddress("Joey Tribbiani", "support@gravitas.ma"));
+                    message.To.Add(new MailboxAddress("Mrs. Chanandler Bong", "yalaoui@mughamrat.com"));
+                    message.Subject = "How you doin'?";
+                    message.Body = new TextPart("plain") { Text = @"Hey" };
+
+                    //
+                    client.Connect("driss.genious.net", 465);
+                    ////Note: only needed if the SMTP server requires authentication
+                    client.Authenticate("support@gravitas.ma", "sympa570*");
+
+                    // use the OAuth2.0 access token obtained above
+                    // var oauth2 = new SaslMechanismOAuth2("mymail@gmail.com", credential.Token.AccessToken);
+                    // client.Authenticate(oauth2);
+
+                    client.Send(message);
+                    client.Disconnect(true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            status = true;
+
+            return status;
+        }
+
+        public static bool SendEmailImplicitSsl(string toEmailAddress, string subject, string body)
+        {
+            bool status = false;
+
+            var emailsetting = UtilityFunctions.GetEmailSetting();
+            var username = emailsetting.SMTPServerLoginName;
+            string password = emailsetting.SMTPServerPassword;
+
+            var msg = new MimeMessage();
+            msg.Subject = subject;
+
+            msg.From.Add(new MailboxAddress("Gravitas Support", emailsetting.NoReplyEmailAddress));
+
+            foreach (var email in toEmailAddress.Split(','))
+            {
+                msg.To.Add(new MailboxAddress("user", email));
+            }
+            /*var bccAddress = ConfigurationManager.AppSettings["BCCEmailAddress"];
+            if (!string.IsNullOrEmpty(bccAddress))
+            {
+                msg.Bcc.Add(new MailAddress(bccAddress));
+            }*/
+
+            // msg.IsBodyHtml = true;
+           //  msg.Body = body;
+            // message.Body = new TextPart("plain") { Text = @"Hey" };
+            msg.Body = new TextPart("html") { Text = body };
+
+           //  SmtpClient smtpClient = new SmtpClient();
+            // smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            // username = "support@gravitas.ma";
+            // password = "sympa570*";
+            // smtpClient.Credentials = new System.Net.NetworkCredential(username, password);
+            // smtpClient.Host = emailsetting.SMTPServerUrl;
+            // smtpClient.Host = "mail.gravitas.ma";
+            // smtpClient.Port = emailsetting.SMTPServerPort;
+            // smtpClient.Port = 26;
+            // smtpClient.EnableSsl = true;
+            // smtpClient.EnableSsl = false;
+            // smtpClient.UseDefaultCredentials = emailsetting.SMTPSecureConnectionRequired;
+            // smtpClient.UseDefaultCredentials = false;
+            try
+            {
+                // smtpClient.Send(msg);
+
+                using (var smtpClient = new MailKit.Net.Smtp.SmtpClient())
+                {
+
+
+                    //
+                    smtpClient.Connect(emailsetting.SMTPServerUrl, emailsetting.SMTPServerPort);
+                    ////Note: only needed if the SMTP server requires authentication
+                    smtpClient.Authenticate(username, password);
+
+                    // use the OAuth2.0 access token obtained above
+                    // var oauth2 = new SaslMechanismOAuth2("mymail@gmail.com", credential.Token.AccessToken);
+                    // client.Authenticate(oauth2);
+
+                    smtpClient.Send(msg);
+                    smtpClient.Disconnect(true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             status = true;
 
             return status;
@@ -1727,7 +1833,7 @@ namespace ArabicTextAnalyzer.Controllers
         {
             /*lock (thisLock)
             {*/
-                Logging.Write(Server, message);
+            Logging.Write(Server, message);
             // }
         }
 

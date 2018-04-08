@@ -38,7 +38,7 @@ namespace ArabicTextAnalyzer
             var destination = message.Destination;
 
             //
-            return TrainController.SendEmail(destination, subject, body);
+            return TrainController.SendEmailImplicitSsl(destination, subject, body);
         }
 
         // Use NuGet to install SendGrid (Basic C# client lib) 
