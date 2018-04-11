@@ -320,8 +320,17 @@ namespace ArabicTextAnalyzer.Controllers
         {
             try
             {
-                //
+                // make sure last day did not exceed 100 calls
                 var userId = User.Identity.GetUserId();
+                var clientKeyToolkit = new ClientKeysConcrete();
+                var clientkeys = clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
+                int nbrOfCallsInTheLast24hour = new Arabizer().getNbrOfCallsInTheLast24hours(clientkeys.RegisterAppId.Value);
+                if (nbrOfCallsInTheLast24hour > 100)
+                {
+                    TempData["showAlertWarning"] = true;
+                    TempData["msgAlert"] = R.DailyConsumptionExceeded;
+                    return RedirectToAction("Index");
+                }
 
                 // token management
                 var token = Session["_T0k@n_"];
@@ -333,8 +342,6 @@ namespace ArabicTextAnalyzer.Controllers
                     // on the fly a new token each time the token is expired
 
                     // generate token (and fill session token)
-                    var clientKeyToolkit = new ClientKeysConcrete();
-                    var clientkeys = clientKeyToolkit.GetGenerateUniqueKeyByUserID(userId);
                     string message = string.Empty;
                     bool isAppValid = clientKeyToolkit.IsAppValid(clientkeys);
                     if (isAppValid == false)
