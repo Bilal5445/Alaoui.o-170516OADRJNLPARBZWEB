@@ -138,6 +138,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [Authorize]
+        [NonAction] // tmp
         public ActionResult IndexStats()
         {
             //
@@ -182,6 +183,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [Authorize]
+        [NonAction] // tmp
         public ActionResult IndexFBs(String idXtrctTheme = null)
         {
             //
@@ -220,6 +222,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [Authorize]
+        [NonAction] // tmp
         public ActionResult IndexSocialSearch()
         {
             //
