@@ -1221,6 +1221,22 @@ namespace ArabicTextAnalyzer.BO
                 return conn.Query<RegisterUser>(qry).ToList();
             }
         }
+
+        public int getNbrOfCallsInTheLast24hours(int registerAppId)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT COUNT(*) "
+                    + "FROM RegisterAppCallingLogs "
+                    + "WHERE datecreatedOn > DATEADD(HOUR, -1, GETDATE()) "
+                    + "AND RegisterAppId = " + registerAppId;
+
+                conn.Open();
+                return conn.QuerySingle<int>(qry);
+            }
+        }
         #endregion
 
         #region BACK YARD BO LOAD FB_PAGES_POSTS_COMMENTS

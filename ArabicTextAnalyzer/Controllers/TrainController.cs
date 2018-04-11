@@ -400,30 +400,24 @@ namespace ArabicTextAnalyzer.Controllers
                     }), "application/json");
                 }
 
-                // consume one call : IsTokenValid check token and consumes one call : means increment registerApp.TotalAppCallConsumed
-                String token, errMessage;
+                // make sure last day did not exceed 100 calls
                 var userId = User.Identity.GetUserId();
                 var clientkeys = new ClientKeysConcrete().GetGenerateUniqueKeyByUserID(userId);
+                int nbrOfCallsInTheLast24hour = new Arabizer().getNbrOfCallsInTheLast24hours(clientkeys.RegisterAppId.Value);
+                if (nbrOfCallsInTheLast24hour > 1)
+                {
+                    return Content(JsonConvert.SerializeObject(new
+                    {
+                        status = false,
+                        message = R.DailyConsumptionExceeded
+                    }), "application/json");
+                }
+
+                // consume one call : IsTokenValid check token and consumes one call : means increment registerApp.TotalAppCallConsumed
+                String token, errMessage;
                 String tokenExpiry = ConfigurationManager.AppSettings["TokenExpiry"];
                 var tokenmessage = new AppManager().GetToken(clientkeys, _IAuthenticate, tokenExpiry, out token);
-                if (_IAuthenticate.IsTokenValid(Convert.ToString(token), "TrainStepOne", out errMessage) == true)
-                {
-                    // Arabizi to arabic script via direct call to perl script
-                    var res = new Arabizer(Server).train(arabiziEntry, mainEntity, thisLock: thisLock);   // count time
-                    if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
-                    {
-                        return Content(JsonConvert.SerializeObject(new
-                        {
-                            status = false,
-                            message = "Text is required."
-                        }), "application/json");
-                    }
-
-                    //
-                    var json = JsonConvert.SerializeObject(res);
-                    return Content(json, "application/json");
-                }
-                else
+                if (_IAuthenticate.IsTokenValid(Convert.ToString(token), "TrainStepOneAjax", out errMessage) == false)
                 {
                     return Content(JsonConvert.SerializeObject(new
                     {
@@ -431,6 +425,21 @@ namespace ArabicTextAnalyzer.Controllers
                         message = errMessage
                     }), "application/json");
                 }
+
+                // Arabizi to arabic script via direct call to perl script
+                var res = new Arabizer(Server).train(arabiziEntry, mainEntity, thisLock: thisLock);   // count time
+                if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
+                {
+                    return Content(JsonConvert.SerializeObject(new
+                    {
+                        status = false,
+                        message = "Text is required."
+                    }), "application/json");
+                }
+
+                //
+                var json = JsonConvert.SerializeObject(res);
+                return Content(json, "application/json");
             }
             catch (Exception ex)
             {
@@ -1423,11 +1432,11 @@ namespace ArabicTextAnalyzer.Controllers
             }*/
 
             // msg.IsBodyHtml = true;
-           //  msg.Body = body;
+            //  msg.Body = body;
             // message.Body = new TextPart("plain") { Text = @"Hey" };
             msg.Body = new TextPart("html") { Text = body };
 
-           //  SmtpClient smtpClient = new SmtpClient();
+            //  SmtpClient smtpClient = new SmtpClient();
             // smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
             // username = "support@gravitas.ma";
             // password = "sympa570*";

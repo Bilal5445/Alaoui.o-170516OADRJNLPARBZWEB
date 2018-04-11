@@ -205,6 +205,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Daily consumption exceeded.
+        /// </summary>
+        public static string DailyConsumptionExceeded {
+            get {
+                return ResourceManager.GetString("DailyConsumptionExceeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {

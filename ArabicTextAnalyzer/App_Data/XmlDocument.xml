@@ -582,6 +582,11 @@
               Looks up a localized string similar to Create your account.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.DailyConsumptionExceeded">
+            <summary>
+              Looks up a localized string similar to Daily consumption exceeded.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.Delete">
             <summary>
               Looks up a localized string similar to Delete.

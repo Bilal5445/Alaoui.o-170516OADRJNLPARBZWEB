@@ -360,4 +360,7 @@
   <data name="TrackYourAccountConsumption" xml:space="preserve">
     <value>Suivi de la consommation de votre compte</value>
   </data>
+  <data name="DailyConsumptionExceeded" xml:space="preserve">
+    <value>Quota quotidien consommé</value>
+  </data>
 </root>
