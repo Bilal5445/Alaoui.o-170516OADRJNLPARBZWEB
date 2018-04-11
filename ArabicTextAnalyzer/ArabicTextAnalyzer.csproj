@@ -572,6 +572,8 @@
     <Content Include="Content\Images\app.jpg" />
     <Content Include="Content\Images\bg_gravitas.jpg" />
     <Content Include="Content\Images\footer_img_gravitas.png" />
+    <Content Include="Content\Images\logo-gravitas-Analytics-blanc.jpg" />
+    <Content Include="Content\Images\logo-gravitas-Analytix-textless.png" />
     <Content Include="Content\Images\logo-gravitas-Analytix.png" />
     <Content Include="Content\Images\searchicon.png" />
     <Content Include="Content\mysite_adekwasy.css" />
