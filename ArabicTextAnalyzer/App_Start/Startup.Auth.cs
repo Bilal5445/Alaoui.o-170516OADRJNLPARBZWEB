@@ -25,7 +25,7 @@ namespace ArabicTextAnalyzer
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                ExpireTimeSpan = TimeSpan.FromMinutes(1),
+                // ExpireTimeSpan = TimeSpan.FromMinutes(1),    // MC110418 temp we disable timeout : because of vso 918 (https://namatedev.visualstudio.com/170105OADRJNLP/_workitems/edit/918)
                 LoginPath = new PathString("/Account/Login"),
                 Provider = new CookieAuthenticationProvider
                 {
