@@ -404,7 +404,7 @@ namespace ArabicTextAnalyzer.Controllers
                 var userId = User.Identity.GetUserId();
                 var clientkeys = new ClientKeysConcrete().GetGenerateUniqueKeyByUserID(userId);
                 int nbrOfCallsInTheLast24hour = new Arabizer().getNbrOfCallsInTheLast24hours(clientkeys.RegisterAppId.Value);
-                if (nbrOfCallsInTheLast24hour > 1)
+                if (nbrOfCallsInTheLast24hour > 100)
                 {
                     return Content(JsonConvert.SerializeObject(new
                     {
