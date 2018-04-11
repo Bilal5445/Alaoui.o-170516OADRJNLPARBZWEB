@@ -363,4 +363,7 @@
   <data name="DailyConsumptionExceeded" xml:space="preserve">
     <value>Daily consumption exceeded</value>
   </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
 </root>

@@ -17,6 +17,8 @@ namespace ArabicTextAnalyzer.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        /*public string FullName { get; set; }*/
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
