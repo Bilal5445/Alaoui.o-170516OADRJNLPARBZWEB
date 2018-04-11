@@ -392,26 +392,45 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 // check before
                 if (arabiziEntry == null || String.IsNullOrWhiteSpace(mainEntity))
+                {
                     return Content(JsonConvert.SerializeObject(new
                     {
                         status = false,
                         message = "Invalid Parameter"
                     }), "application/json");
+                }
 
-                // Arabizi to arabic script via direct call to perl script
-                var res = new Arabizer(Server).train(arabiziEntry, mainEntity, thisLock: thisLock);   // count time
-                if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
+                // consume one call : IsTokenValid check token and consumes one call : means increment registerApp.TotalAppCallConsumed
+                String token, errMessage;
+                var userId = User.Identity.GetUserId();
+                var clientkeys = new ClientKeysConcrete().GetGenerateUniqueKeyByUserID(userId);
+                String tokenExpiry = ConfigurationManager.AppSettings["TokenExpiry"];
+                var tokenmessage = new AppManager().GetToken(clientkeys, _IAuthenticate, tokenExpiry, out token);
+                if (_IAuthenticate.IsTokenValid(Convert.ToString(token), "TrainStepOne", out errMessage) == true)
+                {
+                    // Arabizi to arabic script via direct call to perl script
+                    var res = new Arabizer(Server).train(arabiziEntry, mainEntity, thisLock: thisLock);   // count time
+                    if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
+                    {
+                        return Content(JsonConvert.SerializeObject(new
+                        {
+                            status = false,
+                            message = "Text is required."
+                        }), "application/json");
+                    }
+
+                    //
+                    var json = JsonConvert.SerializeObject(res);
+                    return Content(json, "application/json");
+                }
+                else
                 {
                     return Content(JsonConvert.SerializeObject(new
                     {
                         status = false,
-                        message = "Text is required."
+                        message = errMessage
                     }), "application/json");
                 }
-
-                //
-                var json = JsonConvert.SerializeObject(res);
-                return Content(json, "application/json");
             }
             catch (Exception ex)
             {
