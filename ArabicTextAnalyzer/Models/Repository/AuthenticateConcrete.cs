@@ -153,11 +153,11 @@ namespace ArabicTextAnalyzer.Models.Repository
             // null/empty ?
             if (string.IsNullOrEmpty(token))
             {
-                errMsg = "Token is required.";
+                errMsg = "Token is required."; 
                 return flag;
             }
 
-            // exists or not ?
+            // exists or not in token manager ?
             var tokenExist = _context.TokensManager.Where(c => c.IsDeleted == false).FirstOrDefault(c => c.TokenKey == token);
             if (tokenExist == null)
             {
@@ -175,7 +175,7 @@ namespace ArabicTextAnalyzer.Models.Repository
             }
 
             // exceeded limit ?
-            var registerApp = tokenExist.RegisterApps;
+            var registerApp = _context.RegisterApps.SingleOrDefault(x => x.RegisterAppId == tokenExist.RegisterAppId);
             if (registerApp == null || registerApp.TotalAppCallLimit <= 0)
             {
                 errMsg = "Your call limit is bounced. Please contact to support team.";
