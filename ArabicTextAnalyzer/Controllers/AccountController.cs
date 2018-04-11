@@ -271,24 +271,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                         // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                         // Send an email with this link
-                        /*string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                        var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Host);
-                        var message = "Bonjour, <br><br>"
-+ "Nous vous remercions pour votre enregistrement sur le site web de Gravitas.<br><br>"
-
-+ "Votre nom d'utilisateur est: <a href='mailto:" + user.Email + "' target='_blank'>" + user.Email + "</a>.<br><br>"
-
-+ "Vous pouvez dorénavant vous connecter au site web pour accéder à votre espace personnel.<br><br>"
-
-+ "Veuillez suivre ce lien pour activer votre compte:<br><br>"
-
-                    + callbackUrl + "<br><br> "
-
-                        + "Ce message est envoyé depuis une adresse technique, nous vous remercions de ne pas y répondre. Si vous désirez nous contacter, nous vous invitons à envoyer un mail à support@gravitas.ma.<br><br> "
-+ "Bien Cordialement,<br><br>"
-+ "L'équipe Gravitas";
-                        await UserManager.SendEmailAsync(user.Id, "Confirmer votre compte", message);*/
-                        string callbackUrl = await SendEmailConfirmationTokenAsync(user);
+                         string callbackUrl = await SendEmailConfirmationTokenAsync(user);
 
                         // Uncomment to debug locally 
                         // TempData["ViewBagLink"] = callbackUrl;
@@ -296,49 +279,6 @@ namespace ArabicTextAnalyzer.Controllers
                         ViewBag.Message = R.CheckYourMailAndConfirmEtc;
 
                         return View("Info");
-
-                        /*
-                        // create app to use the arabizi
-                        var userId = user.Id;
-                        var appLimit = Convert.ToInt32(ConfigurationManager.AppSettings["TotalAppCallLimit"]);
-                        var app = new RegisterApp { Name = userId + ".app" };
-                        new AppManager().CreateApp(app, userId, false, new RegisterAppConcrete(), new ClientKeysConcrete(), appLimit);
-
-                        // create registered user
-                        using (var db = new ArabiziDbContext())
-                        {
-                            var userguid = Guid.Parse(userId);
-                            var registeredUser = db.RegisterUsers.SingleOrDefault(m => m.UserGuid == userguid);
-                            if (registeredUser == null)
-                            {
-                                db.RegisterUsers.Add(new RegisterUser
-                                {
-                                    UserGuid = userguid,
-                                    LastLoginTime = DateTime.Now,
-                                    Username = model.Email,
-                                    Password = model.Password,
-                                    CreateOn = DateTime.Now,
-                                    EmailID = model.Email,
-                                });
-                            }
-                            else
-                                registeredUser.LastLoginTime = DateTime.Now;
-
-                            // commit
-                            db.SaveChanges();
-                        }
-
-                        // Create default theme
-                        new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(new M_XTRCTTHEME
-                        {
-                            ID_XTRCTTHEME = Guid.NewGuid(),
-                            CurrentActive = "active",
-                            ThemeName = "Default",
-                            UserID = userId
-                        });
-
-                        //
-                        return RedirectToAction("Index", "Train");*/
                     }
                     AddErrors(result);
                 }
