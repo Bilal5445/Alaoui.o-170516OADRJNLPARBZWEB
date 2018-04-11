@@ -360,4 +360,7 @@
   <data name="TrackYourAccountConsumption" xml:space="preserve">
     <value>Track your account Consumption</value>
   </data>
+  <data name="DailyConsumptionExceeded" xml:space="preserve">
+    <value>Daily consumption exceeded</value>
+  </data>
 </root>
