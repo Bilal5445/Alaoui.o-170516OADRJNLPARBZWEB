@@ -13,3 +13,7 @@ footer {
 hr {
     display: none;
 }
+
+p.loginno {
+    display: none;
+}
