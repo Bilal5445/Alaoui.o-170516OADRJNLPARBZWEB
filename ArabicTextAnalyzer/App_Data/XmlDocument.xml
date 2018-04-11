@@ -652,6 +652,11 @@
               Looks up a localized string similar to Forgot your password?.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.FullName">
+            <summary>
+              Looks up a localized string similar to Full Name.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.here">
             <summary>
               Looks up a localized string similar to here.
