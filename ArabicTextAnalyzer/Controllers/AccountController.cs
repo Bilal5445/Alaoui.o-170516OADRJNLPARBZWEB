@@ -95,8 +95,7 @@ namespace ArabicTextAnalyzer.Controllers
             if (user != null)
             {
                 //
-                string callbackUrl = await SendEmailConfirmationTokenAsync(user);
-
+                // string callbackUrl = await SendEmailConfirmationTokenAsync(user);
                 if (!await UserManager.IsEmailConfirmedAsync(user.Id))
                 {
                     ViewBag.errorMessage = "You must have a confirmed email to log on.";
@@ -737,22 +736,23 @@ namespace ArabicTextAnalyzer.Controllers
         private async Task<string> SendEmailConfirmationTokenAsync(ApplicationUser user)
         {
             string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+
+            //
             var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Host);
             callbackUrl = callbackUrl.Replace(Request.Url.Host + "://", "");    // MC230318 quick & dirty hack to get rid of the port 81
+
+            //
             var message = "Bonjour, <br><br>"
-+ "Nous vous remercions pour votre enregistrement sur le site web de Gravitas.<br><br>"
+                + "Nous vous remercions pour votre enregistrement sur le site web de Gravitas.<br><br>"
+                + "Votre nom d'utilisateur est: <a href='mailto:" + user.Email + "' target='_blank'>" + user.Email + "</a>.<br><br>"
+                + "Vous pouvez dorénavant vous connecter au site web pour accéder à votre espace personnel.<br><br>"
+                + "Veuillez suivre ce lien pour activer votre compte:<br><br>"
+                + callbackUrl + "<br><br> "
+                + "Ce message est envoyé depuis une adresse technique, nous vous remercions de ne pas y répondre. Si vous désirez nous contacter, nous vous invitons à envoyer un mail à support@gravitas.ma.<br><br> "
+                + "Bien Cordialement,<br><br>"
+                + "L'équipe Gravitas";
 
-+ "Votre nom d'utilisateur est: <a href='mailto:" + user.Email + "' target='_blank'>" + user.Email + "</a>.<br><br>"
-
-+ "Vous pouvez dorénavant vous connecter au site web pour accéder à votre espace personnel.<br><br>"
-
-+ "Veuillez suivre ce lien pour activer votre compte:<br><br>"
-
-        + callbackUrl + "<br><br> "
-
-            + "Ce message est envoyé depuis une adresse technique, nous vous remercions de ne pas y répondre. Si vous désirez nous contacter, nous vous invitons à envoyer un mail à support@gravitas.ma.<br><br> "
-+ "Bien Cordialement,<br><br>"
-+ "L'équipe Gravitas";
+            //
             await UserManager.SendEmailAsync(user.Id, "Confirmer votre compte", message);
 
             return callbackUrl;
