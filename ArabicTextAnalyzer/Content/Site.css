@@ -93,3 +93,24 @@ img.logogravitas-not-white {
     /*MC270318 so first menu is far from logo */
     padding-left: 100px;
 }
+
+body:after {
+            content: "beta";
+            position: fixed;
+            width: 80px;
+            height: 25px;
+            background: #FF0000;
+            top: 7px;
+            right: -20px;
+            text-align: center;
+            font-size: 13px;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #fff;
+            line-height: 27px;
+            -ms-transform: rotate(+45deg);
+            -webkit-transform: rotate(+45deg);
+            transform: rotate(+45deg);
+            z-index: 10000;
+        }
