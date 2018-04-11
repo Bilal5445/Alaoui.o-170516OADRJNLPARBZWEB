@@ -278,49 +278,6 @@ namespace ArabicTextAnalyzer.Controllers
                         ViewBag.Message = R.CheckYourMailAndConfirmEtc;
 
                         return View("Info");
-
-                        /*
-                        // create app to use the arabizi
-                        var userId = user.Id;
-                        var appLimit = Convert.ToInt32(ConfigurationManager.AppSettings["TotalAppCallLimit"]);
-                        var app = new RegisterApp { Name = userId + ".app" };
-                        new AppManager().CreateApp(app, userId, false, new RegisterAppConcrete(), new ClientKeysConcrete(), appLimit);
-
-                        // create registered user
-                        using (var db = new ArabiziDbContext())
-                        {
-                            var userguid = Guid.Parse(userId);
-                            var registeredUser = db.RegisterUsers.SingleOrDefault(m => m.UserGuid == userguid);
-                            if (registeredUser == null)
-                            {
-                                db.RegisterUsers.Add(new RegisterUser
-                                {
-                                    UserGuid = userguid,
-                                    LastLoginTime = DateTime.Now,
-                                    Username = model.Email,
-                                    Password = model.Password,
-                                    CreateOn = DateTime.Now,
-                                    EmailID = model.Email,
-                                });
-                            }
-                            else
-                                registeredUser.LastLoginTime = DateTime.Now;
-
-                            // commit
-                            db.SaveChanges();
-                        }
-
-                        // Create default theme
-                        new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(new M_XTRCTTHEME
-                        {
-                            ID_XTRCTTHEME = Guid.NewGuid(),
-                            CurrentActive = "active",
-                            ThemeName = "Default",
-                            UserID = userId
-                        });
-
-                        //
-                        return RedirectToAction("Index", "Train");*/
                     }
                     AddErrors(result);
                 }
@@ -360,6 +317,7 @@ namespace ArabicTextAnalyzer.Controllers
                 return View("Error");
             }
             var result = await UserManager.ConfirmEmailAsync(userId, code);
+
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 
@@ -723,6 +681,7 @@ namespace ArabicTextAnalyzer.Controllers
             //
             var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Host);
             callbackUrl = callbackUrl.Replace(Request.Url.Host + "://", "");    // MC230318 quick & dirty hack to get rid of the port 81
+            callbackUrl = "http://" + callbackUrl;                              // MC110418 another quick & dirty hack to reput http:// at the begineeing of the link
 
             //
             var message = "Bonjour, <br><br>"
