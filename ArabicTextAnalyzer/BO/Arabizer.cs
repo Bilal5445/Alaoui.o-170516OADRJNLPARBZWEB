@@ -1230,7 +1230,7 @@ namespace ArabicTextAnalyzer.BO
             {
                 String qry = "SELECT COUNT(*) "
                     + "FROM RegisterAppCallingLogs "
-                    + "WHERE datecreatedOn > DATEADD(HOUR, -1, GETDATE()) "
+                    + "WHERE datecreatedOn > DATEADD(DAY, -1, GETDATE()) "
                     + "AND RegisterAppId = " + registerAppId;
 
                 conn.Open();
