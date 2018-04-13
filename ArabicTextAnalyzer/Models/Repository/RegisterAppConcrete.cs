@@ -32,9 +32,9 @@ namespace ArabicTextAnalyzer.Models.Repository
                 throw;
             }
         }
-
         public void Add(RegisterApp entity)
         {
+            // verify if the them exist already to db
             _context.RegisterApps.Add(entity);
 
             // save to db
