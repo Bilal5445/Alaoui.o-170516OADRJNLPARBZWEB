@@ -27,6 +27,7 @@ using System.Globalization;
 using System.Web.SessionState;
 using ArabicTextAnalyzer.Content.Resources;
 using MimeKit;
+using System.Dynamic;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -1605,37 +1606,61 @@ namespace ArabicTextAnalyzer.Controllers
         {
             //
             var userId = User.Identity.GetUserId();
-
-            // create the theme
-            var newXtrctTheme = new M_XTRCTTHEME
+            //check before create theme
+            using (var db = new ArabiziDbContext())
             {
-                ID_XTRCTTHEME = Guid.NewGuid(),
-                ThemeName = themename.Trim(),
-                UserID = userId
-            };
+                dynamic expando = new ExpandoObject();
 
-            // Save to Serialization
-            new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(newXtrctTheme);
-
-            // create the associated tags
-            if (themetags != null)
-            {
-                foreach (var themetag in themetags.Split(new char[] { ',' }))
+                //query string with parameter=themename entred by user
+                string return_theme = db.Database.ExecuteSqlCommand("SELECT   FROM  T_XTRCTTHEME WHERE ThemeName = '" + themename + "' ").ToString();
+                // check before : should not be the same 
+                if (return_theme == string.Empty)
                 {
-                    var newXrtctThemeKeyword = new M_XTRCTTHEME_KEYWORD
+                    // Theme not  exists
+                    // create the theme
+                    var newXtrctTheme = new M_XTRCTTHEME
                     {
-                        ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
-                        ID_XTRCTTHEME = newXtrctTheme.ID_XTRCTTHEME,
-                        Keyword = themetag
+                        ID_XTRCTTHEME = Guid.NewGuid(),
+                        ThemeName = themename.Trim(),
+                        UserID = userId
                     };
 
-                    // Save to Serialization to DB
-                    new Arabizer().saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(newXrtctThemeKeyword);
+                    // Save to Serialization
+                    new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(newXtrctTheme);
+
+                    // create the associated tags
+                    if (themetags != null)
+                    {
+                        foreach (var themetag in themetags.Split(new char[] { ',' }))
+                        {
+                            var newXrtctThemeKeyword = new M_XTRCTTHEME_KEYWORD
+                            {
+                                ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
+                                ID_XTRCTTHEME = newXtrctTheme.ID_XTRCTTHEME,
+                                Keyword = themetag
+                            };
+
+                            // Save to Serialization to DB
+                            new Arabizer().saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(newXrtctThemeKeyword);
+                        }
+                    }
                 }
-            }
+                else
+                {
+
+                    expando.Result = false;
+                    expando.ErrMessage = "Can't Add the theme already exist in databse ";
+                    return expando;
+
+                }
+
+
+                }
+
 
             //
             return RedirectToAction("Index");
+
         }
 
         [HttpPost]

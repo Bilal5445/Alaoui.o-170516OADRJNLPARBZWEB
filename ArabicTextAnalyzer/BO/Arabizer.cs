@@ -753,10 +753,12 @@ namespace ArabicTextAnalyzer.BO
         {
             using (var db = new ArabiziDbContext())
             {
-                db.M_XTRCTTHEMEs.Add(m_xtrcttheme);
+                
+                    db.M_XTRCTTHEMEs.Add(m_xtrcttheme);
 
-                // commit
-                db.SaveChanges();
+                    // commit
+                    db.SaveChanges();
+                 
             }
         }
 
@@ -765,7 +767,6 @@ namespace ArabicTextAnalyzer.BO
             using (var db = new ArabiziDbContext())
             {
                 var xtrctThemes = db.M_XTRCTTHEMEs;
-
                 var tobeactiveXtrctTheme = xtrctThemes.Where(m => m.ThemeName == themename && m.UserID == userId).FirstOrDefault<M_XTRCTTHEME>();
                 tobeactiveXtrctTheme.CurrentActive = "active";
 
