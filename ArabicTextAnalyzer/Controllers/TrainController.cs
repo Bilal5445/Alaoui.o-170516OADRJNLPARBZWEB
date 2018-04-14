@@ -1866,6 +1866,7 @@ namespace ArabicTextAnalyzer.Controllers
             return Json(progress);
         }*/
 
+        [AllowAnonymous]
         [HttpPost]
         public void Log(String message)
         {
