@@ -2,6 +2,7 @@
 @using ArabicTextAnalyzer.Content.Resources
 @model LoginViewModel
 @{
+    // ViewBag.Title = "Traitement et Analyse de Contenus";
     ViewBag.Title = R.LogInGravitasApp;
 }
 
@@ -11,6 +12,18 @@
     @Styles.Render("~/Content/css_login")
 }
 
+@*<div class="container">
+    <div class="jumbotron">
+        <h1>Bootstrap Tutorial</h1>
+        <p>
+            Bootstrap is the most popular HTML, CSS, and JS framework for developing
+            responsive, mobile-first projects on the web.
+        </p>
+    </div>
+    <p>This is some text.</p>
+    <p>This is another text.</p>
+</div>*@
+
 <h2>@ViewBag.Title.</h2>
 <div class="row">
     <div class="col-md-12">
@@ -19,6 +32,7 @@
             {
                 @Html.AntiForgeryToken()
                 <h4>@R.UseALocalAccountToLogIn</h4>
+                @*<h4>ARABE DARIJA FRANCAIS</h4>*@
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
@@ -54,6 +68,7 @@
                 <p>
                     @Html.ActionLink(R.ForgotYourPassword, "ForgotPassword")
                 </p>
+                <p style="float:right; text-align: justify;">L'application Gravitas est une solution utilisant des technologies propriétaires, combinées à des algorithmes développés par des leaders de l’industrie pour le traitement et l'analyse de contenus en Arabe, en Darija et en Francais. [<a href="http://www.gravitas.ma">en savoir plus ...</a>]</p>
             }
         </section>
     </div>
