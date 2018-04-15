@@ -507,6 +507,11 @@
               Looks up a localized string similar to Account.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.Activity">
+            <summary>
+              Looks up a localized string similar to Activity.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.Add">
             <summary>
               Looks up a localized string similar to Add.

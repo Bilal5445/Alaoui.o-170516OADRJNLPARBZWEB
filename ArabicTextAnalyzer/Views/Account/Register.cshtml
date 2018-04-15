@@ -31,6 +31,21 @@
         </div>
     </div>
     <div class="form-group">
+        @Html.LabelFor(m => m.fk_activity_id, new { @class = "col-md-4 col-xs-12 control-label" })
+        <div class="col-md-8 col-xs-11">
+            @Html.DropDownListFor(m => m.fk_activity_id, new[]{
+                        new SelectListItem() {Text = "Agence digitale", Value="1"},
+                        new SelectListItem() {Text = "Community Manager", Value="2"},
+                        new SelectListItem() {Text = "Marque", Value="3"},
+                        new SelectListItem() {Text = "Entité publique", Value="4"},
+                        new SelectListItem() {Text = "Enseignement", Value="5"},
+                        new SelectListItem() {Text = "Recherche", Value="6"},
+                        new SelectListItem() {Text = "Veille et Intelligence", Value="7"},
+                        new SelectListItem() {Text = "Autre", Value="0"},
+                        }, "Choisir votre activité", new { @required = "required" })
+        </div>
+    </div>
+    <div class="form-group">
         @Html.LabelFor(m => m.Password, new { @class = "col-md-4 col-xs-12 control-label" })
         <div class="col-md-8 col-xs-11">
             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })

@@ -76,6 +76,10 @@ namespace ArabicTextAnalyzer.Models
         public string Email { get; set; }
 
         [Required]
+        [LocalizedDisplayName("Activity")]
+        public int? fk_activity_id { get; set; }
+
+        [Required]
         [StringLength(100, ErrorMessage = "Le {0} doit etre au moins d'une longueur de {2} caractères.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [LocalizedDisplayName("Password")]

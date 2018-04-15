@@ -366,6 +366,9 @@
   <data name="FullName" xml:space="preserve">
     <value>Full Name</value>
   </data>
+  <data name="Activity" xml:space="preserve">
+    <value>Activity</value>
+  </data>
   <data name="ThePasswordAndConfirmationEtc" xml:space="preserve">
     <value>The password and confirmation password do not match.</value>
   </data>
