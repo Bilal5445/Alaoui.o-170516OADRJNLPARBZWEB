@@ -847,6 +847,11 @@
               Looks up a localized string similar to Thank you for confirming your email.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.The_0_MustBeAtLeast_2_charEtc">
+            <summary>
+              Looks up a localized string similar to The {0} must be at least {2} characters long..
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.ThemeName">
             <summary>
               Looks up a localized string similar to Theme Name.
@@ -860,6 +865,11 @@
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.THEMES">
             <summary>
               Looks up a localized string similar to PROJECTS.
+            </summary>
+        </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ThePasswordAndConfirmationEtc">
+            <summary>
+              Looks up a localized string similar to The password and confirmation password do not match..
             </summary>
         </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.TrackYourAccountConsumption">

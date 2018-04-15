@@ -137,4 +137,17 @@ Update-Database -ConfigurationTypeName Configuration
 
 ---
 
-Manually add FullName in apsnet db
+/*VS > Tools > NuGet Package Manager > Package Manager Console : Default project : ArabicTextAnalyzer
+add-migration InitialCreate_ApplicationDbContext -IgnoreChanges -ConfigurationTypeName ConfigurationApplicationDbContext
+Add-Migration fullName -ConfigurationTypeName ConfigurationApplicationDbContext
+NOT WOKRING :
+
+One or more validation errors were detected during model generation:
+
+ArabicTextAnalyzer.Models.IdentityUserRole: : EntityType 'IdentityUserRole' has no key defined. Define the key for this EntityType.
+ArabicTextAnalyzer.Models.IdentityUserLogin: : EntityType 'IdentityUserLogin' has no key defined. Define the key for this EntityType.
+IdentityUserRoles: EntityType: EntitySet 'IdentityUserRoles' is based on type 'IdentityUserRole' that has no keys defined.
+IdentityUserLogins: EntityType: EntitySet 'IdentityUserLogins' is based on type 'IdentityUserLogin' that has no keys defined.
+*/
+Manually add FullName in apsnet db : nvarchar(256) null in DB aspnet-ArabicTextAnalyzer-20170518103120 in table AspNetUsers
+plus fk_activity bit null, plus City nvarchar(256) null, plkus Country nvarchar(256) null

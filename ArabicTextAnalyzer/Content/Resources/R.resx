@@ -366,4 +366,10 @@
   <data name="FullName" xml:space="preserve">
     <value>Full Name</value>
   </data>
+  <data name="ThePasswordAndConfirmationEtc" xml:space="preserve">
+    <value>The password and confirmation password do not match.</value>
+  </data>
+  <data name="The_0_MustBeAtLeast_2_charEtc" xml:space="preserve">
+    <value>The {0} must be at least {2} characters long.</value>
+  </data>
 </root>

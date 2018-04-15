@@ -18,7 +18,10 @@ namespace ArabicTextAnalyzer.Models
             return userIdentity;
         }
 
-        /*public string FullName { get; set; }*/
+        public string FullName { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public int? fk_activity { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -27,6 +30,11 @@ namespace ArabicTextAnalyzer.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        /*protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("ArabicTextAnalyzer.Models.ApplicationDbContext");
+        }*/
 
         public static ApplicationDbContext Create()
         {

@@ -682,6 +682,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The {0} must be at least {2} characters long..
+        /// </summary>
+        public static string The_0_MustBeAtLeast_2_charEtc {
+            get {
+                return ResourceManager.GetString("The_0_MustBeAtLeast_2_charEtc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Theme Name.
         /// </summary>
         public static string ThemeName {
@@ -705,6 +714,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         public static string THEMES {
             get {
                 return ResourceManager.GetString("THEMES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password and confirmation password do not match..
+        /// </summary>
+        public static string ThePasswordAndConfirmationEtc {
+            get {
+                return ResourceManager.GetString("ThePasswordAndConfirmationEtc", resourceCulture);
             }
         }
         

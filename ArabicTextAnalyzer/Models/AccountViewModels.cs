@@ -66,9 +66,9 @@ namespace ArabicTextAnalyzer.Models
 
     public class RegisterViewModel
     {
-        /*[Required]
+        [Required]
         [LocalizedDisplayName("FullName")]
-        public string FullName { get; set; }*/
+        public string FullName { get; set; }
 
         [Required]
         [EmailAddress]
@@ -76,14 +76,14 @@ namespace ArabicTextAnalyzer.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Le {0} doit etre au moins d'une longueur de {2} caractères.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [LocalizedDisplayName("Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [LocalizedDisplayName("ConfirmPassword")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Le mot de passe et le mot de passe de confirmation ne correspondent pas.")]
         public string ConfirmPassword { get; set; }
     }
 
