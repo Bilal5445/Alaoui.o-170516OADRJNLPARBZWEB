@@ -205,7 +205,7 @@
     <value>Rafraichir les tableaux</value>
   </data>
   <data name="ConfirmPassword" xml:space="preserve">
-    <value>Confirmez votre mot de passe</value>
+    <value>Confirmez mot de passe</value>
   </data>
   <data name="CreateANewAccount" xml:space="preserve">
     <value>Créer votre compte</value>
@@ -365,5 +365,11 @@
   </data>
   <data name="FullName" xml:space="preserve">
     <value>Nom Complet</value>
+  </data>
+  <data name="ThePasswordAndConfirmationEtc" xml:space="preserve">
+    <value>Le mot de passe et le mot de passe de confirmation ne correspondent pas.</value>
+  </data>
+  <data name="The_0_MustBeAtLeast_2_charEtc" xml:space="preserve">
+    <value>Le {0} doit etre au moins d'une longueur de {2} caractères.</value>
   </data>
 </root>

@@ -1,5 +1,12 @@
 ﻿@{
     ViewBag.Title = "Merci pour votre enregistrement";
 }
+
+@section styles {
+
+    @* backgroung visuel *@
+    @Styles.Render("~/Content/css_login")
+}
+
 <h2>@ViewBag.Title.</h2>
 <h4>@ViewBag.Message</h4>
