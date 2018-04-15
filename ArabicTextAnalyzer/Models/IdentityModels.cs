@@ -21,7 +21,7 @@ namespace ArabicTextAnalyzer.Models
         public string FullName { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
-        public int? fk_activity { get; set; }
+        public int? fk_activity_id { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

@@ -124,75 +124,31 @@
 </div>
 
 <!-- modal confirmation remove theme -->
-<div id="myModalRemoveTheme" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" style="color:darkblue;">@R.ConfirmThemeDeletion</h4>
-            </div>
-            <div class="modal-body">
-                @using (Html.BeginForm("XtrctTheme_Delete", "Train", FormMethod.Post))
-                {
-                    <div class="form-group">
-                        <label for="themename">@R.AreYouSureYouWantToDeleteTheTheme</label>
-                        @Html.TextBox("themename", (string)ViewBag.UserActiveXtrctTheme.ThemeName.Trim(), new { @class = "form-control", @required = "required", id = "themename", @readonly = "readonly" })
-                        @Html.Hidden("idXtrctTheme", (Guid)ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME)
-                    </div>
-                    <button type="submit" class="btn btn-default btn-success">@R.Delete</button>
-                }
+@if (ViewBag.UserActiveXtrctTheme != null)
+{
+    <div id="myModalRemoveTheme" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" style="color:darkblue;">@R.ConfirmThemeDeletion</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("XtrctTheme_Delete", "Train", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <label for="themename">@R.AreYouSureYouWantToDeleteTheTheme</label>
+                            @Html.TextBox("themename", (string)ViewBag.UserActiveXtrctTheme.ThemeName.Trim(), new { @class = "form-control", @required = "required", id = "themename", @readonly = "readonly" })
+                            @Html.Hidden("idXtrctTheme", (Guid)ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME)
+                        </div>
+                        <button type="submit" class="btn btn-default btn-success">@R.Delete</button>
+                    }
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<!-- Theme & keywords wordcloud -->
-<div class="themekeywords card card-inverse card-primary" style="display: none;">
-    <h1><span class="label label-info">@ViewBag.UserActiveXtrctTheme.ThemeName.Trim()</span></h1>
-    <div class="container containerthemekeywords">
-        <div class="row">
-            <div class="col-lg-4">
-                @foreach (var tag in ViewBag.ActiveXtrctThemeNegTags)
-                {
-                    String badgeCounter = tag.Keyword_Count > 1 ? " (" + tag.Keyword_Count + ")" : String.Empty;
-                    if (ViewBag.ActiveXtrctThemeNegTags.IndexOf(tag) % 2 == 0)
-                    {
-                        <span class="label label-danger themekeywords">@tag.Keyword@badgeCounter</span>
-                    }
-                    else
-                    {
-                        <span class="label label-warning themekeywords">@tag.Keyword@badgeCounter</span>
-                    }
-                }
-            </div>
-            <div class="col-lg-4">
-                @foreach (var tag in ViewBag.ActiveXtrctThemeOtherTags)
-                {
-                    String badgeCounter = tag.Keyword_Count > 1 ? " (" + tag.Keyword_Count + ")" : String.Empty;
-                    <span class="label label-default themekeywords">@tag.Keyword@badgeCounter</span>
-                }
-            </div>
-            <div class="col-lg-4">
-                @foreach (var tag in ViewBag.ActiveXtrctThemePosTags)
-                {
-                    String badgeCounter = tag.Keyword_Count > 1 ? " (" + tag.Keyword_Count + ")" : String.Empty;
-                    if (ViewBag.ActiveXtrctThemePosTags.IndexOf(tag) % 2 == 0)
-                    {
-                        <span class="label label-info themekeywords">@tag.Keyword@badgeCounter</span>
-                    }
-                    else
-                    {
-                        <span class="label label-success themekeywords">@tag.Keyword@badgeCounter</span>
-                    }
-                }
-            </div>
-        </div>
-    </div>
-    <a href="@Url.Action("XtrctTheme_Keywords_Reload", new { themename = @ViewBag.UserActiveXtrctTheme.ThemeName.Trim() })" class="btn btn-outline-primary btn-xs">
-        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-    </a>
-</div>
+}
 
 @if (token == null || string.IsNullOrEmpty(token as string))
 {
