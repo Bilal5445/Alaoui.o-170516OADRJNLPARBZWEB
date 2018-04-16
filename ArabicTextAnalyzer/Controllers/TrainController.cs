@@ -1613,8 +1613,8 @@ namespace ArabicTextAnalyzer.Controllers
                 {
 
                     // get theme
-                    var xtrctTheme = db.M_XTRCTTHEMEs;
-                    var returnctiveXtrctTheme = xtrctTheme.Where(m => m.ThemeName ==themename).FirstOrDefault<M_XTRCTTHEME>();
+                    var xtrctThemes = db.M_XTRCTTHEMEs;
+                    var returnctiveXtrctTheme = xtrctThemes.Where(m => m.ThemeName ==themename).FirstOrDefault<M_XTRCTTHEME>();
                     if (returnctiveXtrctTheme == null )
                     {
                         // Theme not  exists
@@ -1648,7 +1648,7 @@ namespace ArabicTextAnalyzer.Controllers
                     {
                         TempData["showAlertWarning"] = true;
                         TempData["msgAlert"] = "Can't Add the theme already exist in databse";
-                        //return RedirectToAction("Index");
+                        return RedirectToAction("Index");
                     }
                 }
                 catch (Exception ex)
