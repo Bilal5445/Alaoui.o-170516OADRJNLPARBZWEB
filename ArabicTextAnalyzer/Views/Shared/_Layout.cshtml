@@ -185,11 +185,6 @@
             </div>
         </div>
     }
-    <!-- misc areas to report warnings/errors -->
-    <div id="addthmemiscareaerror" class="alert alert-warning alert-dismissable margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "") margin-top: 10px;">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>@R.Warning!</strong> <p style="display: inline;">@msgAlert</p>
-    </div>
     <hr />
     <footer>
         <p style="padding:5px;">&copy; @DateTime.Now.Year - Gravitas</p>
@@ -226,6 +221,11 @@ Le Partenaire Bêta testeur prendra toutes les mesures nécessaires à la protec
                             </div>
                             <button type="submit" class="btn btn-default btn-success">@R.Add</button>
                         }
+                        <!-- misc areas to report warnings/errors -->
+                        <div id="addthmemiscareaerror" class="alert alert-warning alert-dismissable margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "") margin-top: 10px;">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>@R.Warning!</strong> <p style="display: inline;">@msgAlert</p>
+                        </div>
                         <script>
                             function OnError1()
                             {
