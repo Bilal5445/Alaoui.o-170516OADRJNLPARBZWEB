@@ -195,7 +195,8 @@ Le Progiciel en version Bêta doit être exclusivement utilisé pour des fins pe
 
 Le Partenaire Bêta testeur prendra toutes les mesures nécessaires à la protection des droits de propriété intellectuelle et industrielle portant sur Gravitas Analytix en version Bêta, et s’engage à ne pas y porter atteinte de façon directe ou indirecte. Toute reproduction et/ou représentation de l’application en version Bêta est interdite.
 
- Gravitas NE GARANTIT PAS QUE L’UTILISATION DES SERVICES SERA ININTERROMPUE OU EXEMPTE D’ERREURS.</p>
+ Gravitas NE GARANTIT PAS QUE L’UTILISATION DES SERVICES SERA ININTERROMPUE OU EXEMPTE D’ERREURS.</p><h1>@TempData["msgAlert"]</h1>
+    
 
     <!-- VERTICAL LOADTIME -->
     <div class="rotated-text"><span class="rotated-text__inner"><strong>v0.1712.15.15 - Load Time : </strong><span id="loadTime"></span></span></div>
@@ -215,16 +216,67 @@ Le Partenaire Bêta testeur prendra toutes les mesures nécessaires à la protec
                     <div class="modal-body">
                         @using (Html.BeginForm("XtrctTheme_AddNew", "Train", FormMethod.Post))
                         {
+                            
+
                             <div class="form-group">
                                 <label for="themename">@R.ThemeName</label>
                                 @Html.TextBox("themename", "", new { @class = "form-control", placeholder = R.EnterNewThemeName, @required = "required", id = "themename" })
                             </div>
-                            <button type="submit" class="btn btn-default btn-success">@R.Add</button>
+                           
+                            <button type="submit" class="btn btn-default btn-success"   onclick="return  OnError1();"  >@R.Add</button>                             
                         }
+
+                        <script>
+                        function OnError0()
+                        {
+                            if (IsPost) {
+                                if(@TempData["showAlertWarning"] != null)
+                                {
+                                    alert('@(TempData["msgAlert"])');
+                                    //handle refreshing the view, or redirectto another View
+
+                                }
+                            }
+                        }
+                        </script>
+                        <script>
+                            function OnError1()
+                            {
+                                @{
+                            if (TempData["showAlertWarning"] != null)
+                            {
+                                @:alert("" + @TempData["msgAlert"].ToString())
+                                                                        }
+                        }
+                            }
+                        </script>
+                        <script>
+                        function OnError2()
+                        {
+
+                        if('@TempData["showAlertWarning"]'!= null)
+                        alert('@(TempData["msgAlert"])');
+                        //handle refreshing the view, or redirectto another View
+
+                        }
+                        </script>
+                       
+                        <script>
+                        function AjoutConfirm(){
+                        if (confirm("Are you sure want to Add record"))
+                        return true;
+                        else
+                        return false;
+                        }
+                        </script>
                     </div>
+
+
+
                 </div>
             </div>
         </div>
+
 
         <!-- modal rename theme dialogbox #myModalRenameTheme -->
         <div class="modal fade" id="myModalRenameTheme" role="dialog">

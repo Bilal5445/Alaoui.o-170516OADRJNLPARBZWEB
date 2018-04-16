@@ -35,7 +35,7 @@ namespace ArabicTextAnalyzer.BO
         {
 
         }
-
+        
         #region BACK YARD BO TRAIN
         public dynamic train(M_ARABIZIENTRY arabiziEntry, String mainEntity, Object thisLock = null)
         {

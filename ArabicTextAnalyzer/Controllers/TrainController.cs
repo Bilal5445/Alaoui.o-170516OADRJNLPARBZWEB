@@ -1604,65 +1604,63 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpPost]
         public ActionResult XtrctTheme_AddNew(String themename, String themetags)
         {
-            //
+            //t  
             var userId = User.Identity.GetUserId();
             //check before create theme
             using (var db = new ArabiziDbContext())
             {
-                dynamic expando = new ExpandoObject();
-
-                //query string with parameter=themename entred by user
-                string return_theme = db.Database.ExecuteSqlCommand("SELECT   FROM  T_XTRCTTHEME WHERE ThemeName = '" + themename + "' ").ToString();
-                // check before : should not be the same 
-                if (return_theme == string.Empty)
+                try
                 {
-                    // Theme not  exists
-                    // create the theme
-                    var newXtrctTheme = new M_XTRCTTHEME
-                    {
-                        ID_XTRCTTHEME = Guid.NewGuid(),
-                        ThemeName = themename.Trim(),
-                        UserID = userId
-                    };
 
-                    // Save to Serialization
-                    new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(newXtrctTheme);
-
-                    // create the associated tags
-                    if (themetags != null)
+                    // get theme
+                    var xtrctTheme = db.M_XTRCTTHEMEs;
+                    var returnctiveXtrctTheme = xtrctTheme.Where(m => m.ThemeName ==themename).FirstOrDefault<M_XTRCTTHEME>();
+                    if (returnctiveXtrctTheme == null )
                     {
-                        foreach (var themetag in themetags.Split(new char[] { ',' }))
+                        // Theme not  exists
+                        // create the theme
+                        var newXtrctTheme = new M_XTRCTTHEME
                         {
-                            var newXrtctThemeKeyword = new M_XTRCTTHEME_KEYWORD
+                            ID_XTRCTTHEME = Guid.NewGuid(),
+                            ThemeName = themename.Trim(),
+                            UserID = userId
+                        };
+                        // Save to Serialization  
+                        new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(newXtrctTheme);
+                        // create the associated tags
+                        if (themetags != null)
+                        {
+                            foreach (var themetag in themetags.Split(new char[] { ',' }))
                             {
-                                ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
-                                ID_XTRCTTHEME = newXtrctTheme.ID_XTRCTTHEME,
-                                Keyword = themetag
-                            };
-
-                            // Save to Serialization to DB
-                            new Arabizer().saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(newXrtctThemeKeyword);
+                                var newXrtctThemeKeyword = new M_XTRCTTHEME_KEYWORD
+                                {
+                                    ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
+                                    ID_XTRCTTHEME = newXtrctTheme.ID_XTRCTTHEME,
+                                    Keyword = themetag
+                                };
+                                // Save to Serialization to DB
+                                new Arabizer().saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(newXrtctThemeKeyword);
+                            }
                         }
+
+                    }
+                    else if (returnctiveXtrctTheme != null)
+                    {
+                        TempData["showAlertWarning"] = true;
+                        TempData["msgAlert"] = "Can't Add the theme already exist in databse";
+                        //return RedirectToAction("Index");
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-
-                    expando.Result = false;
-                    expando.ErrMessage = "Can't Add the theme already exist in databse ";
-                    return expando;
-
+                    Logging.Write(Server, ex.Message);
+                    Logging.Write(Server, ex.StackTrace);
+                    throw;
                 }
+                return RedirectToAction("Index");
 
-
-                }
-
-
-            //
-            return RedirectToAction("Index");
-
+            }
         }
-
         [HttpPost]
         public ActionResult XtrctTheme_EditName(Guid idXtrctTheme, String themeNewName)
         {
