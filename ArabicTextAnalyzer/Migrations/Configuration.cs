@@ -9,8 +9,8 @@ namespace ArabicTextAnalyzer.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationDataLossAllowed = false;
             ContextKey = "ArabicTextAnalyzer.Models.ArabiziDbContext";
         }
 

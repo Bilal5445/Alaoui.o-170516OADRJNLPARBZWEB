@@ -15,10 +15,10 @@ namespace ArabicTextAnalyzer.Domain.Models
         {
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        /*protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("ArabicTextAnalyzer.Models.ArabiziDbContext");
-        }
+        }*/
 
         public DbSet<M_ARABICDARIJAENTRY> M_ARABICDARIJAENTRYs { get; set; }
         public DbSet<M_ARABICDARIJAENTRY_LATINWORD> M_ARABICDARIJAENTRY_LATINWORDs { get; set; }
