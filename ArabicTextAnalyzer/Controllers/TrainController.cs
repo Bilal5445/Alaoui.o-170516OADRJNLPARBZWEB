@@ -131,6 +131,14 @@ namespace ArabicTextAnalyzer.Controllers
             var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
             ViewBag.AllInfluenceVert = fbFluencerAsTheme;
 
+            // communication
+            @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
+            @ViewBag.showAlertSuccess = TempData["showAlertSuccess"] != null ? TempData["showAlertSuccess"] : false;
+            @ViewBag.msgAlert = TempData["msgAlert"] != null ? TempData["msgAlert"] : String.Empty;
+            TempData.Remove("showAlertWarning");
+            TempData.Remove("showAlertSuccess");
+            TempData.Remove("msgAlert");
+
             // working data entries count
             List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
             @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
@@ -159,6 +167,14 @@ namespace ArabicTextAnalyzer.Controllers
             // Fetch the data for fbPages for all themes for that user
             var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
             ViewBag.AllInfluenceVert = fbFluencerAsTheme;
+
+            // communication
+            @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
+            @ViewBag.showAlertSuccess = TempData["showAlertSuccess"] != null ? TempData["showAlertSuccess"] : false;
+            @ViewBag.msgAlert = TempData["msgAlert"] != null ? TempData["msgAlert"] : String.Empty;
+            TempData.Remove("showAlertWarning");
+            TempData.Remove("showAlertSuccess");
+            TempData.Remove("msgAlert");
 
             // working data entries count
             List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
@@ -215,6 +231,14 @@ namespace ArabicTextAnalyzer.Controllers
             var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
             ViewBag.AllInfluenceVert = fbFluencerAsTheme;
 
+            // communication
+            @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
+            @ViewBag.showAlertSuccess = TempData["showAlertSuccess"] != null ? TempData["showAlertSuccess"] : false;
+            @ViewBag.msgAlert = TempData["msgAlert"] != null ? TempData["msgAlert"] : String.Empty;
+            TempData.Remove("showAlertWarning");
+            TempData.Remove("showAlertSuccess");
+            TempData.Remove("msgAlert");
+
             // working data entries count
             List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
             @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
@@ -244,6 +268,14 @@ namespace ArabicTextAnalyzer.Controllers
             var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
             ViewBag.AllInfluenceVert = fbFluencerAsTheme;
 
+            // communication
+            @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
+            @ViewBag.showAlertSuccess = TempData["showAlertSuccess"] != null ? TempData["showAlertSuccess"] : false;
+            @ViewBag.msgAlert = TempData["msgAlert"] != null ? TempData["msgAlert"] : String.Empty;
+            TempData.Remove("showAlertWarning");
+            TempData.Remove("showAlertSuccess");
+            TempData.Remove("msgAlert");
+
             // working data entries count
             List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
             @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
@@ -271,6 +303,14 @@ namespace ArabicTextAnalyzer.Controllers
             // Fetch the data for fbPages for all themes for that user
             var fbFluencerAsTheme = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL(userId);
             ViewBag.AllInfluenceVert = fbFluencerAsTheme;
+
+            // communication
+            @ViewBag.showAlertWarning = TempData["showAlertWarning"] != null ? TempData["showAlertWarning"] : false;
+            @ViewBag.showAlertSuccess = TempData["showAlertSuccess"] != null ? TempData["showAlertSuccess"] : false;
+            @ViewBag.msgAlert = TempData["msgAlert"] != null ? TempData["msgAlert"] : String.Empty;
+            TempData.Remove("showAlertWarning");
+            TempData.Remove("showAlertSuccess");
+            TempData.Remove("msgAlert");
 
             // working data entries count
             List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
@@ -1604,50 +1644,21 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpPost]
         public ActionResult XtrctTheme_AddNew(String themename, String themetags)
         {
-            //t  
+            //
             var userId = User.Identity.GetUserId();
-            //check before create theme
+
+            // check before create theme
             using (var db = new ArabiziDbContext())
             {
                 try
                 {
-
                     // get theme
                     var xtrctThemes = db.M_XTRCTTHEMEs;
-                    var returnctiveXtrctTheme = xtrctThemes.Where(m => m.ThemeName ==themename).FirstOrDefault<M_XTRCTTHEME>();
-                    if (returnctiveXtrctTheme == null )
-                    {
-                        // Theme not  exists
-                        // create the theme
-                        var newXtrctTheme = new M_XTRCTTHEME
-                        {
-                            ID_XTRCTTHEME = Guid.NewGuid(),
-                            ThemeName = themename.Trim(),
-                            UserID = userId
-                        };
-                        // Save to Serialization  
-                        new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(newXtrctTheme);
-                        // create the associated tags
-                        if (themetags != null)
-                        {
-                            foreach (var themetag in themetags.Split(new char[] { ',' }))
-                            {
-                                var newXrtctThemeKeyword = new M_XTRCTTHEME_KEYWORD
-                                {
-                                    ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
-                                    ID_XTRCTTHEME = newXtrctTheme.ID_XTRCTTHEME,
-                                    Keyword = themetag
-                                };
-                                // Save to Serialization to DB
-                                new Arabizer().saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(newXrtctThemeKeyword);
-                            }
-                        }
-
-                    }
-                    else if (returnctiveXtrctTheme != null)
+                    var returnctiveXtrctTheme = xtrctThemes.Where(m => m.ThemeName == themename).FirstOrDefault();
+                    if (returnctiveXtrctTheme != null)
                     {
                         TempData["showAlertWarning"] = true;
-                        TempData["msgAlert"] = "Can't Add the theme already exist in databse";
+                        TempData["msgAlert"] = "Cannot create a theme with this name, because it already exists";
                         return RedirectToAction("Index");
                     }
                 }
@@ -1657,10 +1668,41 @@ namespace ArabicTextAnalyzer.Controllers
                     Logging.Write(Server, ex.StackTrace);
                     throw;
                 }
-                return RedirectToAction("Index");
-
             }
+
+            // Theme not  exists
+            // create the theme
+            var newXtrctTheme = new M_XTRCTTHEME
+            {
+                ID_XTRCTTHEME = Guid.NewGuid(),
+                ThemeName = themename.Trim(),
+                UserID = userId
+            };
+
+            // Save to Serialization
+            new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(newXtrctTheme);
+
+            // create the associated tags
+            if (themetags != null)
+            {
+                foreach (var themetag in themetags.Split(new char[] { ',' }))
+                {
+                    var newXrtctThemeKeyword = new M_XTRCTTHEME_KEYWORD
+                    {
+                        ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
+                        ID_XTRCTTHEME = newXtrctTheme.ID_XTRCTTHEME,
+                        Keyword = themetag
+                    };
+
+                    // Save to Serialization to DB
+                    new Arabizer().saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(newXrtctThemeKeyword);
+                }
+            }
+
+            //
+            return RedirectToAction("Index");
         }
+
         [HttpPost]
         public ActionResult XtrctTheme_EditName(Guid idXtrctTheme, String themeNewName)
         {
