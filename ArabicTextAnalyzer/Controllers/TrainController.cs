@@ -105,6 +105,10 @@ namespace ArabicTextAnalyzer.Controllers
             List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
             @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
 
+            // fb pages comments count
+            List<LM_CountPerInfluencer> commentsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Comments_CountPerInfluencer_DAPPERSQL(userId);
+            @ViewBag.CommentsCountsPerInfluencer = commentsCountsPerInfluencer;
+
             //
             return View();
         }
@@ -133,6 +137,10 @@ namespace ArabicTextAnalyzer.Controllers
             // working data entries count
             List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
             @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
+
+            // fb pages comments count
+            List<LM_CountPerInfluencer> commentsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Comments_CountPerInfluencer_DAPPERSQL(userId);
+            @ViewBag.CommentsCountsPerInfluencer = commentsCountsPerInfluencer;
 
             return View();
         }
@@ -163,6 +171,10 @@ namespace ArabicTextAnalyzer.Controllers
             List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
             @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
 
+            // fb pages comments count
+            List<LM_CountPerInfluencer> commentsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Comments_CountPerInfluencer_DAPPERSQL(userId);
+            @ViewBag.CommentsCountsPerInfluencer = commentsCountsPerInfluencer;
+
             // chart.js NER per theme
             var statNerCountPerTheme = new Arabizer().StatNerCountPerTheme(userActiveXtrctTheme.ID_XTRCTTHEME.ToString());
             ViewBag.Data = String.Join(",", statNerCountPerTheme.Select(m => m.CountPerKeyword));
@@ -183,7 +195,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [Authorize]
-        [NonAction] // tmp
+        // [NonAction] // tmp
         public ActionResult IndexFBs(String idXtrctTheme = null)
         {
             //
@@ -218,6 +230,10 @@ namespace ArabicTextAnalyzer.Controllers
             List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
             @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
 
+            // fb pages comments count
+            List<LM_CountPerInfluencer> commentsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Comments_CountPerInfluencer_DAPPERSQL(userId);
+            @ViewBag.CommentsCountsPerInfluencer = commentsCountsPerInfluencer;
+
             return View();
         }
 
@@ -247,6 +263,10 @@ namespace ArabicTextAnalyzer.Controllers
             List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
             @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
 
+            // fb pages comments count
+            List<LM_CountPerInfluencer> commentsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Comments_CountPerInfluencer_DAPPERSQL(userId);
+            @ViewBag.CommentsCountsPerInfluencer = commentsCountsPerInfluencer;
+
             return View();
         }
 
@@ -274,6 +294,10 @@ namespace ArabicTextAnalyzer.Controllers
             // working data entries count
             List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
             @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
+
+            // fb pages comments count
+            List<LM_CountPerInfluencer> commentsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Comments_CountPerInfluencer_DAPPERSQL(userId);
+            @ViewBag.CommentsCountsPerInfluencer = commentsCountsPerInfluencer;
 
             return View();
         }

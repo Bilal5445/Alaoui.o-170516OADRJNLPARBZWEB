@@ -1417,6 +1417,49 @@ namespace ArabicTextAnalyzer.BO
                 return conn.Query<LM_CountPerTheme>(qry0).ToList();
             }
         }
+
+        public List<LM_CountPerInfluencer> loaddeserializeT_FB_Comments_CountPerInfluencer_DAPPERSQL(String userId)
+        {
+            //
+            List<M_XTRCTTHEME> userThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+
+            //
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                List<LM_CountPerInfluencer> userCountsPerInfluencers = new List<LM_CountPerInfluencer>();
+                foreach (var xtrctTheme in userThemes)
+                {
+                    String qry0 = "SELECT id, SUM(NB_Comments) CountPerInfluencer "
+                            + "FROM ( "
+                                + "SELECT I.id, COUNT(*) NB_Comments "
+                                + "FROM FBFeedComments C "
+                                + "INNER JOIN T_FB_POST P ON C.feedId = P.id "
+                                + "INNER JOIN T_FB_INFLUENCER I ON P.fk_influencer = I.id "
+                                + "WHERE I.fk_theme = '" + xtrctTheme.ID_XTRCTTHEME + "' "
+                                + "GROUP BY I.id "
+                                + "UNION "
+                                + "SELECT I.id, COUNT(*) NB_Comments "
+                                + "FROM FBFeedComments C "
+                                + "INNER JOIN T_FB_POST P ON LEFT(C.id, CHARINDEX('_', C.id) - 1) = RIGHT(P.id, CHARINDEX('_', P.id) - 1) "
+                                + "INNER JOIN T_FB_INFLUENCER I ON P.fk_influencer = I.id "
+                                + "WHERE C.feedId IS NULL "
+                                + "AND I.fk_theme = '" + xtrctTheme.ID_XTRCTTHEME + "' "
+                                + "AND CHARINDEX('_', C.id) > 0 "
+                                + "AND CHARINDEX('_', P.id) > 0 "
+                                + "GROUP BY I.id "
+                            + ") A "
+                            + "GROUP BY id "
+                            + "ORDER BY SUM(NB_Comments) DESC ";
+
+                    userCountsPerInfluencers.AddRange(conn.Query<LM_CountPerInfluencer>(qry0).ToList());
+                }
+
+                return userCountsPerInfluencers;
+            }
+        }
         #endregion
 
         #region BACK YARD BO LOAD ARZ_AR_ENTRIES
@@ -1461,7 +1504,7 @@ namespace ArabicTextAnalyzer.BO
                 String qry0 = "SELECT XT.UserID, XT.ID_XTRCTTHEME, COUNT(*) CountPerThemePerUser FROM T_ARABICDARIJAENTRY AR "
                             + "INNER JOIN T_ARABIZIENTRY ARZ ON AR.ID_ARABIZIENTRY = ARZ.ID_ARABIZIENTRY "
                             + "INNER JOIN T_XTRCTTHEME XT ON ARZ.ID_XTRCTTHEME = XT.ID_XTRCTTHEME "
-                            + "WHERE XT.UserID = '" + userId + "' " 
+                            + "WHERE XT.UserID = '" + userId + "' "
                             + "GROUP BY XT.UserID, XT.ID_XTRCTTHEME ";
 
                 conn.Open();

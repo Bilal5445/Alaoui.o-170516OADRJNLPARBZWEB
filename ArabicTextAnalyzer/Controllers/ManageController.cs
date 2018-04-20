@@ -397,6 +397,10 @@ namespace ArabicTextAnalyzer.Controllers
             List<LM_CountPerThemePerUser> entriesCountsperThemePerUser = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_CountPerThemePerUser_DAPPERSQL(userId);
             @ViewBag.EntriesCountsperThemePerUser = entriesCountsperThemePerUser;
 
+            // fb pages comments count
+            List<LM_CountPerInfluencer> commentsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Comments_CountPerInfluencer_DAPPERSQL(userId);
+            @ViewBag.CommentsCountsPerInfluencer = commentsCountsPerInfluencer;
+
             // GET access (ie : check app dashbord)
             if (Request.HttpMethod.ToUpper() == "GET")
                 return View();
