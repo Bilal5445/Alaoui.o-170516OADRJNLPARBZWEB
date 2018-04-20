@@ -298,7 +298,7 @@ function InitializeFBPostsDataTables(fluencerid) {
                 {
                     "data": function (data) {
                         var str = '';
-                        str = str + '<a class="btn btn-warning btn-xs" onclick="' + "JsTranslateFBPost(this)" + '">Traduire</a>';
+                        str = str + '<a class="btn btn-warning btn-xs disabled" onclick="' + "JsTranslateFBPost(this)" + '">Traduire</a>';
                         return str;
                     },
                     "className": "controls center top"
@@ -491,7 +491,7 @@ function ToggleFBCommentsTable(row, tr, img, postId) {
             InitializeFBCommentsForPostDataTables(postId);
 
             // add a global bulk translate button for comments
-            $('#tabledetails_' + postId + '_length').append('<a class="btn btn-info btn-xs" style="margin-left:5px" onclick="GetTranslateComment(' + postId + ')">Bulk Translate</a>')
+            $('#tabledetails_' + postId + '_length').append('<a class="btn btn-info btn-xs disabled" style="margin-left:5px" onclick="GetTranslateComment(' + postId + ')">Bulk Translate</a>')
 
             // add a global bulk check all button for comments
             var commentshtml = `
@@ -579,7 +579,7 @@ function InitializeFBCommentsForPostDataTables(id) {
             {
                 "data": function (data) {
                     var str = '';
-                    str = str + '<a class="btn btn-warning btn-xs" onclick="' + "TranslateComment(this)" + '">Translate</a>';
+                    str = str + '<a class="btn btn-warning btn-xs disabled" onclick="' + "TranslateComment(this)" + '">Translate</a>';
                     return str;
                 }
             },
