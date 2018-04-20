@@ -1705,6 +1705,7 @@ namespace ArabicTextAnalyzer.Controllers
 
         // begin modified from here  17.04.2018  11.05
         // [Authorize]
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult XtrctTheme_AddNewAjax(String themename, String themetags)
         {
