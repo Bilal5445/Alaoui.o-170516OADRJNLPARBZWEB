@@ -12,6 +12,7 @@ var GetCommentsIsClicked = false;
 var GetTranslateCommentIsClicked = false;
 var TranslateCommentIsClicked = false;
 var AddInfluencerIsClicked = false;
+var AddTheme = false;
 var RetrieveFBPostIsClicked = false;
 var AddTextEntityClicked = false;
 
@@ -767,9 +768,192 @@ function JsAddInfluencer() {
             $('#addfbmiscareasuccess').css('display', 'none');
             $('#addfbmiscareaerror').css('display', 'block');
             $('#addfbmiscareaerror p').html(msg.message);
+           
         }
     });
 }
+// begin modified from here 17.04.2018   10:20
+// Js for add ThemeName  a
+
+ 
+ function JsAddTheme() {
+        $("#btn_add_theme").click(function ()
+            // check before
+            //if (AddTheme == true)
+            //return;
+
+            // check on fields
+            //var themename = $('#themename').val();
+            //if (themename.length == 0) {
+            // alert("the field is required.");
+            //return;
+            // }
+
+            // mark as clicked to avoid double processing
+            //AddTheme = true;
+
+            // real work : call on controller Train action XtrctTheme_AddNewAjax
+        {
+            $.ajax({
+                "dataType": 'json',
+                "contentType": "application/json; charset=utf-8",
+                "type": "POST",
+                "url": "/TrainController/XtrctTheme_AddNewAjax",
+                "data": {
+
+                    "themename": themename,
+                    "themetags": themetags,
+
+                },
+                "success": function (msg) {
+
+                    //AddTheme = false;
+                    if (msg.status) {
+
+                        // show misc area success msg
+                        $('#addthmiscareaerror').css('display', 'none');
+                        $('#addthmiscareasuccess').css('display', 'block');
+                        $('#addthmiscareasuccess p').html(msg.message);
+                        //$('#addthmiscareasuccess p').dialog('open');
+                        $.alert({
+                            title: 'Alert!',
+                            content: msg.message,
+                        });
+
+
+
+                    } else {
+
+                        // show misc area error msg
+                        $('#addthmiscareasuccess').css('display', 'none');
+                        $('#addthmiscareaerror').css('display', 'block');
+                        $('#addthmiscareaerror p').html(msg.message);
+                        //$('#addthmiscareaerror p').dialog('open');
+                        $.alert({
+                            title: 'Alert!',
+                            content: msg.message,
+                        });
+                    }
+                },
+                "error": function (msg) {
+
+                    AddTheme = false;
+
+                    // show misc area error msg
+                    $('#addthmiscareasuccess').css('display', 'none');
+                    $('#addthmiscareaerror').css('display', 'block');
+                    $('#addthmiscareaerror p').html(msg.message);
+                    //$('#addthmiscareaerror p').dialog('open');
+                    $.alert({
+                        title: 'Alert!',
+                        content: msg.message,
+                    });
+                }
+            });
+        });
+ 
+        
+// end modified from here 17.04.2018   10:20
+
+function JsAddTheme1() {
+
+    // check before
+    if (AddTheme == true)
+        return;
+
+    // check on fields
+    var themename = $('#themename').val();
+    if (themename.length == 0) {
+        alert("this field is  required.");
+        return;
+    }
+
+    // mark as clicked to avoid double processing
+    AddTheme = true;
+
+    // real work : call on controller Train action AddFBInfluencer
+    $.ajax({
+        "dataType": 'json',
+        "contentType": "application/json; charset=utf-8",
+        "type": "POST",
+        "url": "/TrainController/XtrctTheme_AddNewAjax",
+        "data": {
+            "themename": themename,
+        },
+        "success": function (msg) {
+
+            AddTheme = false;
+            if (msg.status) {
+
+                // show misc area success msg
+                $('#addthmiscareaerror').css('display', 'none');
+                $('#addthmiscareasuccess').css('display', 'block');
+                $('#addthmiscareasuccess p').html(msg.message);
+
+                //
+                window.location = '/TrainController/Index';
+
+            } else {
+
+                // show misc area error msg
+                $('#addthmiscareasuccess').css('display', 'none');
+                $('#addthmiscareaerror').css('display', 'block');
+                $('#addthmiscareaerror p').html(msg.message);
+            }
+        },
+        "error": function (msg) {
+
+            AddInfluencerIsClicked = false;
+
+            // show misc area error msg
+            $('#addthmiscareasuccess').css('display', 'none');
+            $('#addthmiscareaerror').css('display', 'block');
+            $('#addthmiscareaerror p').html(msg.message);
+
+        }
+    });
+}
+
+$(function  JsAddTheme3() {
+    var themename=$('#themename').val();
+    $("#btn_add_theme").click(function (){
+ 
+        $.post("/TrainController/XtrctTheme_AddNewAjax",
+        {
+            themename: themename,
+            themetags: themetags
+        },
+        function(data, status,xhr){
+            console.log("Data: " + data + "\nStatus: " + status);
+            //-----status codes below-----------------------
+            // data - contains the resulting data from the request
+            // status - contains the status of the request ("success", "notmodified", "error", "timeout", or "parsererror")
+            // xhr - contains the XMLHttpRequest object
+            if(status=="success")
+            {
+                $('#addthmiscareaerror').css('display', 'none');
+                $('#addthmiscareasuccess').css('display', 'block');
+                $('#addthmiscareasuccess p').html(msg.message);
+                //$('#addthmiscareasuccess p').dialog('open');
+                console.log(data);//look at the properties on console
+                alert(data.message);
+            }
+            else
+            {
+                
+                // show misc area error msg
+                $('#addthmiscareasuccess').css('display', 'none');
+                $('#addthmiscareaerror').css('display', 'block');
+                $('#addthmiscareaerror p').html(msg.message);
+                console.log('Request Failed');
+                //$('#addthmiscareaerror p').dialog('open');
+                console.log(data);//look at the properties on console
+                alert(data.message);
+             
+            }
+        });
+    });
+});
 
 // Js for Retrieve fb post or refresh button
 function JsRetrieveFBPosts(influencerurl_name, influencerid) {

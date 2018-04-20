@@ -10,8 +10,12 @@
 
     // message passing from controller action
     bool showAlertWarning = ViewBag.showAlertWarning ?? false;
+
     String msgAlert = ViewBag.msgAlert;
+
 }
+
+
 
 <!DOCTYPE html>
 <html>
@@ -125,7 +129,7 @@
                         </div>
                         <p style="font-weight:bold; font-size:16px; display:inline-block;">@R.THEMES</p>
                         <!-- theme menu : edit theme -->
-                        <button style="margin-right: 2px;"type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModalRenameTheme" title="@R.EditActiveTheme : @ViewBag.UserActiveXtrctTheme.ThemeName"><span class="glyphicon glyphicon-edit"></span></button>
+                        <button style="margin-right: 2px;"type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModalRenameTheme" title="@R.EditActiveTheme : @ViewBag.ThemeName"><span class="glyphicon glyphicon-edit"></span></button>
                         <!-- theme menu : remove theme -->
                         <button style="margin-right: 2px;" type="button" class="btn btn-outline-primary btn-xs pull-right" data-toggle="modal" data-target="#myModalRemoveTheme" title="@R.RemoveActiveTheme : @ViewBag.UserActiveXtrctTheme.ThemeName"><span class="glyphicon glyphicon-remove"></span></button>
                         <!-- theme menu : add new theme -->
@@ -185,7 +189,15 @@
             </div>
         </div>
     }
-    <hr />
+    <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>@R.Warning!</strong> @msgAlert
+    </div>
+    <!-- <div class="alert alert-warning alert-dismissable div-inline margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "")">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>@R.Success</strong> @msgAlert
+</div>   -->
+    <hr /> 
     <footer>
         <p style="padding:5px;">&copy; @DateTime.Now.Year - Gravitas</p>
     </footer>
@@ -200,72 +212,56 @@ Le Partenaire Bêta testeur prendra toutes les mesures nécessaires à la protec
     <!-- VERTICAL LOADTIME -->
     <div class="rotated-text"><span class="rotated-text__inner"><strong>v0.1712.15.15 - Load Time : </strong><span id="loadTime"></span></span></div>
     <script type="text/javascript" src="~/Scripts/my.js"></script>
+  
 
-    @if (Request.IsAuthenticated)
-    {
+ 
         <!-- modal new theme dialogbox #myModalAddNewTheme -->
-        <div class="modal fade" id="myModalAddNewTheme" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title" style="color:darkblue;">@R.NewThemeToAnalyze</h4>
-                    </div>
-                    <div class="modal-body">
-                        @using (Html.BeginForm("XtrctTheme_AddNew", "Train", FormMethod.Post))
-                        {
-                            <div class="form-group">
-                                <label for="themename">@R.ThemeName</label>
-                                @Html.TextBox("themename", "", new { @class = "form-control", placeholder = R.EnterNewThemeName, @required = "required", id = "themename" })
-                            </div>
-                            <button type="submit" class="btn btn-default btn-success">@R.Add</button>
-                        }
-                        <!-- misc areas to report warnings/errors -->
-                        <div id="addthmemiscareaerror" class="alert alert-warning alert-dismissable margin-bottom-0" style="@(showAlertWarning != true ? "display: none;" : "") margin-top: 10px;">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>@R.Warning!</strong> <p style="display: inline;">@msgAlert</p>
-                        </div>
-                        <script>
-                            function OnError1()
-                            {
-                                    alert('@TempData["msgAlert"]');
-                            }
-                        </script>
-                    </div>
+    <!-- javascript file that could be referenced from my view pointed to  XtrctTheme_AddNewAjax Action -->
+    <script type="text/javascript" src="~/Scripts/mysite_train_keywordfiltering.js"></script>
+    <div class="modal fade" id="myModalAddNewTheme" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="color:darkblue;">@R.AddNewTheme</h4>
                 </div>
-            </div>
-        </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="themename">@R.ThemeName</label>
+                        <input type="text" class="form-control" placeholder="@R.EnterNewThemeName" required="required" id="themename" name="theme" autofocus />
+                    </div>
+                    <a  href=""class="btn btn-default btn-success" onclick="JsAddTheme()" id="btn_add_theme">@R.Add</a>
 
-        <!-- modal rename theme dialogbox #myModalRenameTheme -->
-        <div class="modal fade" id="myModalRenameTheme" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title" style="color:darkblue;">@R.RenameTheme : @ViewBag.UserActiveXtrctTheme.ThemeName</h4>
+                    <!--<div id="dialog" style="display: none" role="dialog"></div> -->
+                    <!-- misc area to say success -->
+                    <div id="addthmiscareasuccess" class="alert alert-success alert-dismissable" style="display: none; margin-top: 10px;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>@R.Success!</strong> <p style="display: inline;"></p>
                     </div>
-                    <div class="modal-body">
-                        @using (Html.BeginForm("XtrctTheme_EditName", "Train", FormMethod.Post))
-                        {
-                            <div class="form-group">
-                                <label for="themename">@R.ThemeNewName</label>
-                                @Html.TextBox("themeNewName", "", new { @class = "form-control", placeholder = R.EnterThemeNewName, @required = "required", id = "themeNewName" })
-                                @Html.Hidden("idXtrctTheme", (Guid)ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME)
-                            </div>
-                            <button type="submit" class="btn btn-default btn-success">@R.Rename</button>
-                        }
+                    <!-- misc areas to report warnings/errors -->
+                    <div id="addthmiscareaerror" class="alert alert-warning alert-dismissable margin-bottom-0" style="display: none; margin-top: 10px;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>@R.Warning!</strong> <p style="display: inline;"></p>
+                    </div>
+                    <!-- misc areas to report warnings/errors -->
+                    <div id="addthmiscareaerror" class="alert alert-warning alert-dismissable margin-bottom-0" style="display: none; margin-top: 10px;">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>@R.Warning!</strong> <p style="display: inline;"></p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+   
+    <!-- copied from here I was  copied this code  -->
+    <!-- modal rename theme dialogbox #myModalRenameTheme -->
     }
+              
 
-    @*@Scripts.Render("~/bundles/jquery")*@
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/custom")
-    @RenderSection("scripts", required: false)
+                @*@Scripts.Render("~/bundles/jquery")*@
+                @Scripts.Render("~/bundles/bootstrap")
+                @Scripts.Render("~/bundles/custom")
+                @RenderSection("scripts", required: false)
 
 </body>
 </html>
