@@ -713,6 +713,8 @@ function postOnCommentsTranslate(translatedCommentId, id) {
 // Js for add FB (page) influencer
 function JsAddInfluencer() {
 
+    console.log("1");
+
     // check before
     if (AddInfluencerIsClicked == true)
         return;
@@ -776,68 +778,53 @@ function JsAddInfluencer() {
 // Js for add ThemeName  a
 
  
- function JsAddTheme() {
-        $("#btn_add_theme").click(function ()
-            // check before
-            //if (AddTheme == true)
-            //return;
+function JsAddTheme() {
+    $("#btn_add_theme").click(function ()
+        // check before
+        //if (AddTheme == true)
+        //return;
 
-            // check on fields
-            //var themename = $('#themename').val();
-            //if (themename.length == 0) {
-            // alert("the field is required.");
-            //return;
-            // }
+        // check on fields
+        //var themename = $('#themename').val();
+        //if (themename.length == 0) {
+        // alert("the field is required.");
+        //return;
+        // }
 
-            // mark as clicked to avoid double processing
-            //AddTheme = true;
+        // mark as clicked to avoid double processing
+        //AddTheme = true;
 
-            // real work : call on controller Train action XtrctTheme_AddNewAjax
-        {
-            $.ajax({
-                "dataType": 'json',
-                "contentType": "application/json; charset=utf-8",
-                "type": "POST",
-                "url": "/TrainController/XtrctTheme_AddNewAjax",
-                "data": {
+        // real work : call on controller Train action XtrctTheme_AddNewAjax
+    {
+        $.ajax({
+            "dataType": 'json',
+            "contentType": "application/json; charset=utf-8",
+            "type": "POST",
+            "url": "/TrainController/XtrctTheme_AddNewAjax",
+            "data": {
 
-                    "themename": themename,
-                    "themetags": themetags,
+                "themename": themename,
+                "themetags": themetags,
 
-                },
-                "success": function (msg) {
+            },
+            "success": function (msg) {
 
-                    //AddTheme = false;
-                    if (msg.status) {
+                //AddTheme = false;
+                if (msg.status) {
 
-                        // show misc area success msg
-                        $('#addthmiscareaerror').css('display', 'none');
-                        $('#addthmiscareasuccess').css('display', 'block');
-                        $('#addthmiscareasuccess p').html(msg.message);
-                        //$('#addthmiscareasuccess p').dialog('open');
-                        $.alert({
-                            title: 'Alert!',
-                            content: msg.message,
-                        });
+                    // show misc area success msg
+                    $('#addthmiscareaerror').css('display', 'none');
+                    $('#addthmiscareasuccess').css('display', 'block');
+                    $('#addthmiscareasuccess p').html(msg.message);
+                    //$('#addthmiscareasuccess p').dialog('open');
+                    $.alert({
+                        title: 'Alert!',
+                        content: msg.message,
+                    });
 
 
 
-                    } else {
-
-                        // show misc area error msg
-                        $('#addthmiscareasuccess').css('display', 'none');
-                        $('#addthmiscareaerror').css('display', 'block');
-                        $('#addthmiscareaerror p').html(msg.message);
-                        //$('#addthmiscareaerror p').dialog('open');
-                        $.alert({
-                            title: 'Alert!',
-                            content: msg.message,
-                        });
-                    }
-                },
-                "error": function (msg) {
-
-                    AddTheme = false;
+                } else {
 
                     // show misc area error msg
                     $('#addthmiscareasuccess').css('display', 'none');
@@ -849,9 +836,24 @@ function JsAddInfluencer() {
                         content: msg.message,
                     });
                 }
-            });
+            },
+            "error": function (msg) {
+
+                AddTheme = false;
+
+                // show misc area error msg
+                $('#addthmiscareasuccess').css('display', 'none');
+                $('#addthmiscareaerror').css('display', 'block');
+                $('#addthmiscareaerror p').html(msg.message);
+                //$('#addthmiscareaerror p').dialog('open');
+                $.alert({
+                    title: 'Alert!',
+                    content: msg.message,
+                });
+            }
         });
- 
+    });
+}
         
 // end modified from here 17.04.2018   10:20
 
@@ -870,7 +872,9 @@ function JsAddTheme1() {
 
     // mark as clicked to avoid double processing
     AddTheme = true;
-
+    
+    console.log("2");
+    
     // real work : call on controller Train action AddFBInfluencer
     $.ajax({
         "dataType": 'json',
@@ -901,15 +905,32 @@ function JsAddTheme1() {
                 $('#addthmiscareaerror p').html(msg.message);
             }
         },
-        "error": function (msg) {
+        "error": function (jqXHR, exception) {
 
             AddInfluencerIsClicked = false;
+
+            var msg = '';
+            if (jqXHR.status === 0) {
+                msg = 'Not connect.\n Verify Network.';
+            } else if (jqXHR.status == 404) {
+                msg = 'Requested page not found. [404]';
+            } else if (jqXHR.status == 500) {
+                msg = 'Internal Server Error [500].';
+            } else if (exception === 'parsererror') {
+                msg = 'Requested JSON parse failed.';
+            } else if (exception === 'timeout') {
+                msg = 'Time out error.';
+            } else if (exception === 'abort') {
+                msg = 'Ajax request aborted.';
+            } else {
+                msg = 'Uncaught Error.\n' + jqXHR.responseText;
+            }
+            console.log("Js Retrieve FBPosts - Error : " + msg);
 
             // show misc area error msg
             $('#addthmiscareasuccess').css('display', 'none');
             $('#addthmiscareaerror').css('display', 'block');
-            $('#addthmiscareaerror p').html(msg.message);
-
+            $('#addthmiscareaerror p').html(msg);
         }
     });
 }
