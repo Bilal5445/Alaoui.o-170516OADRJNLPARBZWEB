@@ -15,7 +15,7 @@
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>@R.CreateANewAccount</h4>
+    <h4>@R.CreateANewAccount et disposez de 1000 calls pour l'utilisation de l'application en mode beta.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
