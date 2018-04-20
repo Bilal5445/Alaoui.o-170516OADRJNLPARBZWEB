@@ -152,3 +152,11 @@ IdentityUserLogins: EntityType: EntitySet 'IdentityUserLogins' is based on type 
 Manually add FullName in apsnet db : nvarchar(256) null in DB aspnet-ArabicTextAnalyzer-20170518103120 in table AspNetUsers
 plus fk_activity bit null, plus City nvarchar(256) null, plkus Country nvarchar(256) null
 actually fk_activity_id int null, cant drop/change fk_activity col 
+
+// to build an index on fb comments 
+ALTER TABLE FBFeedComments
+ALTER COLUMN feedId varchar(150);
+
+//
+ALTER TABLE T_FB_POST
+ALTER COLUMN fk_influencer varchar(150);
