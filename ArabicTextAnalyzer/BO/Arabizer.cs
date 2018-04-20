@@ -1451,8 +1451,34 @@ namespace ArabicTextAnalyzer.BO
                                 + "AND CHARINDEX('_', P.id) > 0 "
                                 + "GROUP BY I.id "
                             + ") A "
-                            + "GROUP BY id "
-                            + "ORDER BY SUM(NB_Comments) DESC ";
+                            + "GROUP BY id ";
+
+                    userCountsPerInfluencers.AddRange(conn.Query<LM_CountPerInfluencer>(qry0).ToList());
+                }
+
+                return userCountsPerInfluencers;
+            }
+        }
+
+        public List<LM_CountPerInfluencer> loaddeserializeT_FB_Posts_CountPerInfluencer_DAPPERSQL(String userId)
+        {
+            //
+            List<M_XTRCTTHEME> userThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
+
+            //
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                List<LM_CountPerInfluencer> userCountsPerInfluencers = new List<LM_CountPerInfluencer>();
+                foreach (var xtrctTheme in userThemes)
+                {
+                    String qry0 = "SELECT I.id, COUNT(*) CountPerInfluencer "
+                                + "FROM T_FB_POST P "
+                                + "INNER JOIN T_FB_INFLUENCER I ON P.fk_influencer = I.id "
+                                + "WHERE I.fk_theme = '" + xtrctTheme.ID_XTRCTTHEME + "' "
+                                + "GROUP BY I.id ";
 
                     userCountsPerInfluencers.AddRange(conn.Query<LM_CountPerInfluencer>(qry0).ToList());
                 }
