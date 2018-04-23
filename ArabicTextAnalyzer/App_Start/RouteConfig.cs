@@ -26,6 +26,12 @@ namespace ArabicTextAnalyzer
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, lang = "fr-FR" }
             );
+            // 
+            routes.MapRoute(
+                name: "Request",
+                url: "{controller}/{action}/{id}",
+               defaults: new { controller = "Train", action = "XtrctTheme_AddNewAjax", id = UrlParameter.Optional, lang = "fr-FR" }
+      );
 
             // for localization of js
             /*routes.MapRoute(
