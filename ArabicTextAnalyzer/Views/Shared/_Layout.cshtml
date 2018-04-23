@@ -185,26 +185,24 @@
                                         @foreach (var item in FbInfluencersVert.Where(m => m.fk_theme == userXtrctTheme.ID_XTRCTTHEME.ToString()))
                                         {
                                             // comments counts
-                                            var fbcmtbdg = 0;
-                                            if (cmtCntPrInfl != null && cmtCntPrInfl.SingleOrDefault(m => m.id == item.id) != null)
-                                            {
-                                                fbcmtbdg = cmtCntPrInfl.Single(m => m.id == item.id).CountPerInfluencer;
-                                            }
+                                            //var fbcmtbdg = 0;
+                                            //if (cmtCntPrInfl != null && cmtCntPrInfl.SingleOrDefault(m => m.id == item.id) != null)
+                                            //{
+                                            //    fbcmtbdg = cmtCntPrInfl.Single(m => m.id == item.id).CountPerInfluencer;
+                                            //}
 
-                                            // posts counts
-                                            var fbpstbdg = 0;
-                                            // var fbpsthtm = "<span class='badge' style='float: right;'>";
-                                            if (pstCntPrInfl != null && pstCntPrInfl.SingleOrDefault(m => m.id == item.id) != null)
-                                            {
-                                                fbpstbdg = pstCntPrInfl.Single(m => m.id == item.id).CountPerInfluencer;
-                                            }
-                                            /*fbpsthtm = fbpsthtm + fbpstbdg + "</span>";
-                                            var fbpsthtmraw = @Html.Raw(fbpsthtm);*/
+                                            //// posts counts
+                                            //var fbpstbdg = 0;
+                                            //// var fbpsthtm = "<span class='badge' style='float: right;'>";
+                                            //if (pstCntPrInfl != null && pstCntPrInfl.SingleOrDefault(m => m.id == item.id) != null)
+                                            //{
+                                            //    fbpstbdg = pstCntPrInfl.Single(m => m.id == item.id).CountPerInfluencer;
+                                            //}
 
-                                            var fbpstcmthtm = "<span class='badge' style='float: right; font-weight: normal'>" + fbpstbdg + " / " + fbcmtbdg +  "</span>";
-                                            var fbpstcmthtmraw = @Html.Raw(fbpstcmthtm);
+                                            //var fbpstcmthtm = "<span class='badge' style='float: right; font-weight: normal'>" + fbpstbdg + " / " + fbcmtbdg +  "</span>";
+                                            //var fbpstcmthtmraw = @Html.Raw(fbpstcmthtm);
 
-                                            <tr><td style="padding-left:50px; color:darkgray;"><i class="fa fa-facebook-square" aria-hidden="true"></i>@item.name@(fbpstcmthtmraw)</td></tr>
+                                            <tr><td style="padding-left:50px; color:darkgray;"><i class="fa fa-facebook-square" aria-hidden="true"></i>@item.name</td></tr>
                                         }
                                         @*<tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexSocialSearch" ? "activeblack" : "")"><td><i class="fa fa-search"></i><a href="/Train/IndexSocialSearch" title="Search over Facebook Moroccan content">Social Search</a></td></tr>*@
                                         @*<tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexStats" ? "activeblack" : "")"><td><span class="glyphicon glyphicon-stats"></span><a href="/Train/IndexStats" title="Show statistics about extracted entities from your theme's data">@R.StatsNdReports</a></td></tr>*@
