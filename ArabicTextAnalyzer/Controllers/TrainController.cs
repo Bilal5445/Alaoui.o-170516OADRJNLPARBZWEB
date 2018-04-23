@@ -28,6 +28,7 @@ using System.Web.SessionState;
 using ArabicTextAnalyzer.Content.Resources;
 using MimeKit;
 using System.Dynamic;
+// using System.Web.Services;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -200,7 +201,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [Authorize]
-        [NonAction] // tmp
+        // [NonAction] // tmp
         public ActionResult IndexFBs(String idXtrctTheme = null)
         {
             //
@@ -1705,17 +1706,18 @@ namespace ArabicTextAnalyzer.Controllers
 
         // begin modified from here  17.04.2018  11.05
         // [Authorize]
-        [AllowAnonymous]
-        [HttpPost]
+        // [AllowAnonymous]
+        // [HttpPost]
+        [HttpGet]
         public ActionResult XtrctTheme_AddNewAjax(String themename, String themetags)
         {
             try
             {
                  bool status;
-                String message = String.Empty;
+                string errMessage = string.Empty;
 
                 //
-                var userId = User.Identity.GetUserId();
+                //  userId = User.Identity.GetUserId();
 
                 // check before create theme
                 using (var db = new ArabiziDbContext())
@@ -1728,7 +1730,7 @@ namespace ArabicTextAnalyzer.Controllers
                         return Content(JsonConvert.SerializeObject(new
                         {
                             status = true,
-                            message = "Cannot create a theme with this name, because it already exists"
+                            errMessage = "Cannot create a theme with this name, because it already exists"
                         }), "application/json");
                     }
 
@@ -1738,7 +1740,7 @@ namespace ArabicTextAnalyzer.Controllers
                     {
                         ID_XTRCTTHEME = Guid.NewGuid(),
                         ThemeName = themename.Trim(),
-                        UserID = userId
+                       //UserID = userId
                     };
 
                     // Save to Serialization
@@ -1763,13 +1765,13 @@ namespace ArabicTextAnalyzer.Controllers
 
                     // result
                     status = false;
-                    message = "Cannot create a theme with this name, because it already exists";
+                    errMessage = "Cannot create a theme with this name, because it already exists";
 
                     //
                     var json = JsonConvert.SerializeObject(new
                     {
                         status = status,
-                        message = message
+                        message = errMessage,
                     });
                     return Content(json, "application/json");
                     
@@ -1787,6 +1789,8 @@ namespace ArabicTextAnalyzer.Controllers
                     message = ex.Message
                 }), "application/json");
             }
+
+        
         }
         // end modified from here  17.04.2018  11.05
 
