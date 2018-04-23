@@ -964,22 +964,6 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        [HttpGet]
-        public async Task<object> tstRetrieveFBPosts(string influencerurl_name)
-        {
-            String result = String.Empty;
-
-            await Task.Delay(2 * 60000);
-
-            return JsonConvert.SerializeObject(new
-            {
-                status = true,
-                retrievedPostsCount = 1,
-                retrievedCommentsCount = 1,
-                message = "All good"
-            });
-        }
-
         // Method for translate the fb posts
         [HttpGet]
         public async Task<object> TranslateFbPost(String content)
