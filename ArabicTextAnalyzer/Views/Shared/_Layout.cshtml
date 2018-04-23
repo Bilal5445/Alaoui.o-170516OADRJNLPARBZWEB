@@ -181,7 +181,7 @@
                                             var htmraw = @Html.Raw(htm);
                                         }
                                         <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "activeblack" : "")"><td><span class="glyphicon glyphicon-dashboard"></span><a href="/Train/Index" title="Translate, Display, filter, export, import data and extract insights">@R.TranslateNerSa@(htmraw)</a></td></tr>
-                                        <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexFBs" ? "activeblack" : "")"><td><i class="fa fa-facebook"></i><a href="/Train/IndexFBs?idXtrctTheme=@userXtrctTheme.ID_XTRCTTHEME" title="Use Facebook pages as data source to translate Arabizi and extract entities">Facebook Pages</a></td></tr>
+                                        @*<tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexFBs" ? "activeblack" : "")"><td><i class="fa fa-facebook"></i><a href="/Train/IndexFBs?idXtrctTheme=@userXtrctTheme.ID_XTRCTTHEME" title="Use Facebook pages as data source to translate Arabizi and extract entities">Facebook Pages</a></td></tr>
                                         @foreach (var item in FbInfluencersVert.Where(m => m.fk_theme == userXtrctTheme.ID_XTRCTTHEME.ToString()))
                                         {
                                             // comments counts
@@ -198,14 +198,12 @@
                                             {
                                                 fbpstbdg = pstCntPrInfl.Single(m => m.id == item.id).CountPerInfluencer;
                                             }
-                                            /*fbpsthtm = fbpsthtm + fbpstbdg + "</span>";
-                                            var fbpsthtmraw = @Html.Raw(fbpsthtm);*/
 
                                             var fbpstcmthtm = "<span class='badge' style='float: right; font-weight: normal'>" + fbpstbdg + " / " + fbcmtbdg +  "</span>";
                                             var fbpstcmthtmraw = @Html.Raw(fbpstcmthtm);
 
                                             <tr><td style="padding-left:50px; color:darkgray;"><i class="fa fa-facebook-square" aria-hidden="true"></i>@item.name@(fbpstcmthtmraw)</td></tr>
-                                        }
+                                        }*@
                                         @*<tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexSocialSearch" ? "activeblack" : "")"><td><i class="fa fa-search"></i><a href="/Train/IndexSocialSearch" title="Search over Facebook Moroccan content">Social Search</a></td></tr>*@
                                         @*<tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexStats" ? "activeblack" : "")"><td><span class="glyphicon glyphicon-stats"></span><a href="/Train/IndexStats" title="Show statistics about extracted entities from your theme's data">@R.StatsNdReports</a></td></tr>*@
                                     </table>
