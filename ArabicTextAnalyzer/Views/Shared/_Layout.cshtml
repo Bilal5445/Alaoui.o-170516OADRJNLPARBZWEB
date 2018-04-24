@@ -264,14 +264,26 @@
                         <h4 class="modal-title" style="color:darkblue;">@R.NewThemeToAnalyze</h4>
                     </div>
                     <div class="modal-body">
-                        @using (Html.BeginForm("XtrctTheme_AddNew", "Train", FormMethod.Post))
-                        {
-                            <div class="form-group">
-                                <label for="themename">@R.ThemeName</label>
-                                @Html.TextBox("themename", "", new { @class = "form-control", placeholder = R.EnterNewThemeName, @required = "required", id = "themename" })
-                            </div>
-                            <button type="submit" class="btn btn-default btn-success">@R.Add</button>
-                        }
+                        <div class="form-group">
+                            <label for="themename">@R.ThemeName</label>
+                            <input type="text" class="form-control" placeholder="@R.EnterNewThemeName" required="required" id="themename" name="theme" autofocus />
+                        </div>
+                        <a class="btn btn-default btn-success" onclick="JsAddTheme()">@R.Add</a>
+                        <!-- misc area to say success -->
+                        <div id="addthmiscareasuccess" class="alert alert-success alert-dismissable" style="display: none; margin-top: 10px;">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>@R.Success!</strong> <p style="display: inline;"></p>
+                        </div>
+                        <!-- misc areas to report warnings/errors -->
+                        <div id="addthmiscareaerror" class="alert alert-warning alert-dismissable margin-bottom-0" style="display: none; margin-top: 10px;">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>@R.Warning!</strong> <p style="display: inline;"></p>
+                        </div>
+                        <!-- misc areas to report warnings/errors -->
+                        <div id="addthmiscareaerror" class="alert alert-warning alert-dismissable margin-bottom-0" style="display: none; margin-top: 10px;">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>@R.Warning!</strong> <p style="display: inline;"></p>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -252,60 +252,60 @@ namespace ArabicTextAnalyzer.Controllers
 
         //
         // POST: /Account/Register
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FullName = model.FullName, fk_activity_id = model.fk_activity_id };
+          [HttpPost]
+          [AllowAnonymous]
+          [ValidateAntiForgeryToken]
+          public async Task<ActionResult> Register(RegisterViewModel model)
+          {
+              if (ModelState.IsValid)
+              {
+                  var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FullName = model.FullName, fk_activity_id = model.fk_activity_id };
 
-                try
-                {
-                    var result = await UserManager.CreateAsync(user, model.Password);
-                    if (result.Succeeded)
-                    {
-                        // await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                  try
+                  {
+                      var result = await UserManager.CreateAsync(user, model.Password);
+                      if (result.Succeeded)
+                      {
+                          // await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-                        // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                        // Send an email with this link
-                        string callbackUrl = await SendEmailConfirmationTokenAsync(user);
+                          // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                          // Send an email with this link
+                          string callbackUrl = await SendEmailConfirmationTokenAsync(user);
 
-                        // Uncomment to debug locally 
-                        // TempData["ViewBagLink"] = callbackUrl;
+                          // Uncomment to debug locally 
+                          // TempData["ViewBagLink"] = callbackUrl;
 
-                        ViewBag.Message = R.CheckYourMailAndConfirmEtc;
+                          ViewBag.Message = R.CheckYourMailAndConfirmEtc;
 
-                        return View("Info");
-                    }
-                    AddErrors(result);
-                }
-                catch (InvalidApiRequestException ex)
-                {
-                    Logging.Write(Server, ex.GetType().Name);
-                    Logging.Write(Server, ex.Message);
-                    Logging.Write(Server, ex.StackTrace);
+                          return View("Info");
+                      }
+                      AddErrors(result);
+                  }
+                  catch (InvalidApiRequestException ex)
+                  {
+                      Logging.Write(Server, ex.GetType().Name);
+                      Logging.Write(Server, ex.Message);
+                      Logging.Write(Server, ex.StackTrace);
 
-                    // delere user if create
-                    await UserManager.DeleteAsync(user);
+                      // delere user if create
+                      await UserManager.DeleteAsync(user);
 
-                    throw new Exception(ex.Errors[0]);
-                }
-                catch (Exception ex)
-                {
-                    Logging.Write(Server, ex.GetType().Name);
-                    Logging.Write(Server, ex.Message);
-                    Logging.Write(Server, ex.StackTrace);
+                      throw new Exception(ex.Errors[0]);
+                  }
+                  catch (Exception ex)
+                  {
+                      Logging.Write(Server, ex.GetType().Name);
+                      Logging.Write(Server, ex.Message);
+                      Logging.Write(Server, ex.StackTrace);
 
-                    // delere user if create
-                    await UserManager.DeleteAsync(user);
-                }
-            }
+                      // delere user if create
+                      await UserManager.DeleteAsync(user);
+                  }
+              }
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
+              // If we got this far, something failed, redisplay form
+              return View(model);
+          }
 
         //
         // GET: /Account/ConfirmEmail
