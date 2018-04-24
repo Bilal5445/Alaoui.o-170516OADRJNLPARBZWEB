@@ -1168,13 +1168,13 @@ namespace ArabicTextAnalyzer.BO
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                // String qry0 = "SELECT Keyword_Type Keyword, SUM(Keyword_Count) CountPerKeyword FROM T_XTRCTTHEME_KEYWORD "
-                String qry0 = "SELECT Keyword_Type Keyword, Keyword_Count CountPerKeyword FROM T_XTRCTTHEME_KEYWORD "
+                String qry0 = "SELECT Keyword_Type Keyword, SUM(Keyword_Count) CountPerKeyword FROM T_XTRCTTHEME_KEYWORD "
+                // String qry0 = "SELECT Keyword_Type Keyword, Keyword_Count CountPerKeyword FROM T_XTRCTTHEME_KEYWORD "
                             + "WHERE ID_XTRCTTHEME = @ID_XTRCTTHEME "
                             + "AND (keyword_type = 'NEGATIVE' OR keyword_type = 'POSITIVE' OR keyword_type = 'EXPLETIVE' OR keyword_type = 'SUPPORT' OR keyword_type = 'SENSITIVE' OR keyword_type = 'OPPOSE') "
-                            // + "GROUP BY Keyword_Type "
-                            // + "ORDER BY SUM(Keyword_Count) DESC ";
-                            + "ORDER BY Keyword_Count DESC ";
+                            + "GROUP BY Keyword_Type "
+                            + "ORDER BY SUM(Keyword_Count) DESC ";
+                            // + "ORDER BY Keyword_Count DESC ";
 
                 conn.Open();
                 return conn.Query<LM_CountPerKeyword>(qry0, new { ID_XTRCTTHEME = ID_XTRCTTHEME });
