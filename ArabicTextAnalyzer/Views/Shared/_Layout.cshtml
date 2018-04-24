@@ -113,18 +113,18 @@
                 <ul class="nav navbar-nav">
                     @if (Request.IsAuthenticated)
                     {
-                        <li><a href="/Help" title="Consult API developer documentation">Gravitas API <i class="fa fa-code"></i></a></li>
+                    <li><a href="/Help" title="Consult API developer documentation">Gravitas API <i class="fa fa-code"></i></a></li>
                     }
                     @if (User.IsInRole("Administrator"))
                     {
-                        <li><a><span class="breaker">|</span></a></li>
-                        <li class="dropdown @(cntrlr == "Admin" && actn.StartsWith("Index") ? "active" : "")">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administration<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li class="@(cntrlr == "Admin" && actn == "Index" ? "active" : "")"><a href="/Admin">Manage Users</a></li>
-                                <li class="@(cntrlr == "Admin" && actn == "IndexFBs" ? "active" : "")"><a href="/Admin/IndexFBs">FB pages</a></li>
-                            </ul>
-                        </li>
+                    <li><a><span class="breaker">|</span></a></li>
+                    <li class="dropdown @(cntrlr == "Admin" && actn.StartsWith("Index") ? "active" : "")">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administration<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="@(cntrlr == "Admin" && actn == "Index" ? "active" : "")"><a href="/Admin">Manage Users</a></li>
+                            <li class="@(cntrlr == "Admin" && actn == "IndexFBs" ? "active" : "")"><a href="/Admin/IndexFBs">FB pages</a></li>
+                        </ul>
+                    </li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -142,7 +142,7 @@
                             <ul class="dropdown-menu">
                                 @foreach (var userXtrctTheme in ViewBag.UserXtrctThemes)
                                 {
-                                    <li class="@userXtrctTheme.CurrentActive"><a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = userXtrctTheme.ThemeName })">@userXtrctTheme.ThemeName</a></li>
+                                <li class="@userXtrctTheme.CurrentActive"><a href="@Url.Action("XtrctTheme_ApplyNewActive", new { themename = userXtrctTheme.ThemeName })">@userXtrctTheme.ThemeName</a></li>
                                 }
                             </ul>
                             <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown" title="Change active theme"><span class="caret"></span></button>
@@ -209,7 +209,7 @@
                                     </table>
                                 </div>
                             </div>
-                                            }
+                        }
                     </div>
                 </div>
                 <!-- body -->
@@ -220,16 +220,16 @@
                 </div>
             </div>
         </div>
-                                            }
-                                            else
-                                            {
+    }
+    else
+    {
         <!-- body login only -->
-                                                <div id="body">
-                                                    <div class="container body-content">
-                                                        @RenderBody()
-                                                    </div>
-                                                </div>
-                                            }
+        <div id="body">
+            <div class="container body-content">
+                @RenderBody()
+            </div>
+        </div>
+    }
     <hr class="loginno" />
     <footer>
         <p style="padding:5px;">&copy; @DateTime.Now.Year - Gravitas</p>
@@ -238,13 +238,9 @@
     <p class="loginno" style="font-size: 13px; text-align: justify; margin-top: 5px; margin-left: 2px; margin-right: 2px;">
         <b>Conditions d’utilisation :</b> Les services fournis par Gravitas sont des services en mode d’essai utilisateur BETA (Partenaire BETA). Aucune garantie n’est fournie aux utilisateurs et tout utilisateur reconnait avoir été parfaitement informé du caractère expérimental et non définitif de la version Bêta de Gravitas Analytix. Gravitas Analytix BETA est dans un état de développement suffisamment avancé pour être utilisable, mais qui ne présente pas encore les caractéristiques de qualité, de stabilité et de fiabilité nécessaire à une commercialisation à grande échelle. La version Bêta pourra ne pas contenir toutes les fonctionnalités qui figureront dans la version définitive de l’application Gravitas Analytix.
         Gravitas concède, par le présent contrat, au Partenaire Bêta Testeur une licence personnelle version Bêta Test, non exclusive, non cessible et gratuite, autorisant seul le Partenaire Bêta testeur à utiliser l’application en version Bêta à des fins d’évaluation et de démonstrations. Gravitas ne concède aucun droit autre que celui d’un usage personnel et dans aucun cas à des fins commerciales ou de représentation.
-
         Par conséquent, Gravitas interdit au Partenaire Bêta testeur de proposer l’application Gravitas Analytix en version Bêta à un éventuel client à des fins d’évaluation ou de tests, Gravitas déclinant toute responsabilité si le Partenaire Bêta testeur met à la disposition des clients Gravitas Analytix en version Bêta et que ce(s) dernier(s) cause(nt) des éventuels dommages au client.
-
         Le Progiciel en version Bêta doit être exclusivement utilisé pour des fins personnels sans aucune réserve.
-
         Le Partenaire Bêta testeur prendra toutes les mesures nécessaires à la protection des droits de propriété intellectuelle et industrielle portant sur Gravitas Analytix en version Bêta, et s’engage à ne pas y porter atteinte de façon directe ou indirecte. Toute reproduction et/ou représentation de l’application en version Bêta est interdite.
-
         Gravitas NE GARANTIT PAS QUE L’UTILISATION DES SERVICES SERA ININTERROMPUE OU EXEMPTE D’ERREURS. <b>Merci d'envoyer vos erreurs rencontrées à l'adresse électronique support@gravitas.ma</b>
     </p>
 

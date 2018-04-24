@@ -154,7 +154,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [Authorize]
-        [NonAction] // tmp
+        // [NonAction] // tmp
         public ActionResult IndexStats()
         {
             //
