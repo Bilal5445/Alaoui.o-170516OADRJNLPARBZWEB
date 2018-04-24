@@ -1684,7 +1684,95 @@ namespace ArabicTextAnalyzer.Controllers
             //
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        // Begin modified from here 23/04/2018  12:00
+        public ActionResult XtrctTheme_AddNewAjax(String themename, String themetags)
+        {
+            try
+            {
+                bool status;
+                String message = String.Empty;
+                //
+                var userId = User.Identity.GetUserId();
 
+                // check before create theme
+                using (var db = new ArabiziDbContext())
+                {
+
+
+                    // get theme
+                    var xtrctThemes = db.M_XTRCTTHEMEs;
+                    var returnctiveXtrctTheme = xtrctThemes.Where(m => m.ThemeName == themename).FirstOrDefault();
+                    if (returnctiveXtrctTheme != null)
+                    {
+                        return Content(JsonConvert.SerializeObject(new
+                        {
+                            status = false,
+                            errMessage = "Cannot create a theme with this name, because it already exists"
+                        }), "application/json");
+
+                    }
+
+                    // Theme not  exists
+                    // create the theme
+                    var newXtrctTheme = new M_XTRCTTHEME
+                    {
+                        ID_XTRCTTHEME = Guid.NewGuid(),
+                        ThemeName = themename.Trim(),
+                        UserID = userId
+                    };
+
+                    // Save to Serialization
+                    new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(newXtrctTheme);
+
+                    // create the associated tags
+                    if (themetags != null)
+                    {
+                        foreach (var themetag in themetags.Split(new char[] { ',' }))
+                        {
+                            var newXrtctThemeKeyword = new M_XTRCTTHEME_KEYWORD
+                            {
+                                ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
+                                ID_XTRCTTHEME = newXtrctTheme.ID_XTRCTTHEME,
+                                Keyword = themetag
+                            };
+
+                            // Save to Serialization to DB
+                            new Arabizer().saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(newXrtctThemeKeyword);
+                        }
+                    }
+
+                    // result
+                    status = true;
+                    message = "Cannot create a theme with this name, because it already exists";
+
+                    //
+                    var json = JsonConvert.SerializeObject(new
+                    {
+                        status = status,
+                        errMessage = message
+                    });
+                    return Content(json, "application/json");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.Write(Server, ex.GetType().Name);
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                return Content(JsonConvert.SerializeObject(new
+                {
+                    status = false,
+                    message = ex.Message
+                }), "application/json");
+            }
+
+
+        }
+
+        // End modified from here 23/04/2018  12:00
         [HttpPost]
         public ActionResult XtrctTheme_EditName(Guid idXtrctTheme, String themeNewName)
         {
