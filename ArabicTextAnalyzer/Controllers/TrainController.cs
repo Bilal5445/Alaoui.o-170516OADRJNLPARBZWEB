@@ -113,6 +113,10 @@ namespace ArabicTextAnalyzer.Controllers
             List<LM_CountPerInfluencer> postsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Posts_CountPerInfluencer_DAPPERSQL(userId);
             @ViewBag.PostsCountsPerInfluencer = postsCountsPerInfluencer;
 
+            // scocial searc posys count & comment count
+            @ViewBag.PostsCounts = new Arabizer().loaddeserializeT_FB_Posts_Count_DAPPERSQL();
+            @ViewBag.CommentsCounts = new Arabizer().loaddeserializeT_FB_Comments_Count_DAPPERSQL();
+
             // DBG
             ViewBag.UserName = User.Identity.GetUserName();
 
@@ -153,6 +157,10 @@ namespace ArabicTextAnalyzer.Controllers
             List<LM_CountPerInfluencer> postsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Posts_CountPerInfluencer_DAPPERSQL(userId);
             @ViewBag.PostsCountsPerInfluencer = postsCountsPerInfluencer;
 
+            // scocial searc posys count & comment count
+            @ViewBag.PostsCounts = new Arabizer().loaddeserializeT_FB_Posts_Count_DAPPERSQL();
+            @ViewBag.CommentsCounts = new Arabizer().loaddeserializeT_FB_Comments_Count_DAPPERSQL();
+
             // DBG
             ViewBag.UserName = User.Identity.GetUserName();
 
@@ -192,6 +200,10 @@ namespace ArabicTextAnalyzer.Controllers
             // fb pages posts count
             List<LM_CountPerInfluencer> postsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Posts_CountPerInfluencer_DAPPERSQL(userId);
             @ViewBag.PostsCountsPerInfluencer = postsCountsPerInfluencer;
+
+            // scocial searc posys count & comment count
+            @ViewBag.PostsCounts = new Arabizer().loaddeserializeT_FB_Posts_Count_DAPPERSQL();
+            @ViewBag.CommentsCounts = new Arabizer().loaddeserializeT_FB_Comments_Count_DAPPERSQL();
 
             // chart.js NER per theme
             var statNerCountPerTheme = new Arabizer().StatNerCountPerTheme(userActiveXtrctTheme.ID_XTRCTTHEME.ToString());
@@ -258,6 +270,10 @@ namespace ArabicTextAnalyzer.Controllers
             List<LM_CountPerInfluencer> postsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Posts_CountPerInfluencer_DAPPERSQL(userId);
             @ViewBag.PostsCountsPerInfluencer = postsCountsPerInfluencer;
 
+            // scocial searc posys count & comment count
+            @ViewBag.PostsCounts = new Arabizer().loaddeserializeT_FB_Posts_Count_DAPPERSQL();
+            @ViewBag.CommentsCounts = new Arabizer().loaddeserializeT_FB_Comments_Count_DAPPERSQL();
+
             // DBG
             ViewBag.UserName = User.Identity.GetUserName();
 
@@ -298,6 +314,10 @@ namespace ArabicTextAnalyzer.Controllers
             List<LM_CountPerInfluencer> postsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Posts_CountPerInfluencer_DAPPERSQL(userId);
             @ViewBag.PostsCountsPerInfluencer = postsCountsPerInfluencer;
 
+            // scocial searc posys count & comment count
+            @ViewBag.PostsCounts = new Arabizer().loaddeserializeT_FB_Posts_Count_DAPPERSQL();
+            @ViewBag.CommentsCounts = new Arabizer().loaddeserializeT_FB_Comments_Count_DAPPERSQL();
+
             // DBG
             ViewBag.UserName = User.Identity.GetUserName();
 
@@ -336,6 +356,10 @@ namespace ArabicTextAnalyzer.Controllers
             // fb pages posts count
             List<LM_CountPerInfluencer> postsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Posts_CountPerInfluencer_DAPPERSQL(userId);
             @ViewBag.PostsCountsPerInfluencer = postsCountsPerInfluencer;
+
+            // scocial searc posys count & comment count
+            @ViewBag.PostsCounts = new Arabizer().loaddeserializeT_FB_Posts_Count_DAPPERSQL();
+            @ViewBag.CommentsCounts = new Arabizer().loaddeserializeT_FB_Comments_Count_DAPPERSQL();
 
             // DBG
             ViewBag.UserName = User.Identity.GetUserName();
