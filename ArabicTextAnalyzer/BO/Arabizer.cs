@@ -1486,6 +1486,34 @@ namespace ArabicTextAnalyzer.BO
                 return userCountsPerInfluencers;
             }
         }
+
+        public int loaddeserializeT_FB_Posts_Count_DAPPERSQL()
+        {
+            //
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                    String qry0 = "SELECT COUNT(*) "
+                                + "FROM T_FB_POST P ";
+                    return conn.QueryFirstOrDefault<int>(qry0);
+            }
+        }
+
+        public int loaddeserializeT_FB_Comments_Count_DAPPERSQL()
+        {
+            //
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                String qry0 = "SELECT COUNT(*) "
+                            + "FROM FBFeedComments C ";
+                return conn.QueryFirstOrDefault<int>(qry0);
+            }
+        }
         #endregion
 
         #region BACK YARD BO LOAD ARZ_AR_ENTRIES

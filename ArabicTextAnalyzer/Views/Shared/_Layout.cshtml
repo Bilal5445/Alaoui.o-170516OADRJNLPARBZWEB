@@ -6,7 +6,7 @@
     var cntrlr = ViewContext.RouteData.Values["Controller"].ToString();
     var actn = ViewContext.RouteData.Values["Action"].ToString();
 
-    // wroking data cunt
+    // wroking data count
     List<LM_CountPerThemePerUser> cntPrThmPrUsr = ViewBag.EntriesCountsperThemePerUser;
 
     // fb pages counts
@@ -15,6 +15,11 @@
 
     // DBG
     String userName = ViewBag.UserName;
+
+    // social searcg counts
+    int postsCounts = ViewBag.PostsCounts;
+    int commentsCounts = ViewBag.CommentsCounts;
+    var cmntsOnPstsAllBdgs = commentsOnPostsAllBadges(postsCounts, commentsCounts);
 }
 
 @functions {
@@ -29,13 +34,20 @@
 
         // posts counts
         var fbpstbdg = 0;
-        // var fbpsthtm = "<span class='badge' style='float: right;'>";
         if (pstCntPrInfl != null && pstCntPrInfl.SingleOrDefault(m => m.id == item.id) != null)
         {
             fbpstbdg = pstCntPrInfl.Single(m => m.id == item.id).CountPerInfluencer;
         }
 
-        var fbpstcmthtm = "<span class='badge' style='float: right; font-weight: normal'>" + fbpstbdg + " / " + fbcmtbdg + "</span>";
+        var fbpstcmthtm = "<span class='badge' style='float: right; font-weight: normal'>" + string.Format("{0:n0}", fbpstbdg) + " / " + string.Format("{0:n0}", fbcmtbdg) + "</span>";
+        var fbpstcmthtmraw = @Html.Raw(fbpstcmthtm);
+
+        return fbpstcmthtmraw;
+    }
+
+    IHtmlString commentsOnPostsAllBadges(int postsCounts, int commentsCounts)
+    {
+        var fbpstcmthtm = "<span class='badge' style='float: right; font-weight: normal'>" + string.Format("{0:n0}", postsCounts) + " / " + string.Format("{0:n0}", commentsCounts) + "</span>";
         var fbpstcmthtmraw = @Html.Raw(fbpstcmthtm);
 
         return fbpstcmthtmraw;
@@ -204,7 +216,7 @@
                                             {
                                                 bdg = cntPrThmPrUsr.Single(m => m.ID_XTRCTTHEME == userXtrctTheme.ID_XTRCTTHEME).CountPerThemePerUser;
                                             }
-                                            var htm = "<span class='badge' style='float: right;'>" + bdg + "</span>";
+                                            var htm = "<span class='badge' style='float: right;'>" + string.Format("{0:n0}", bdg) + "</span>";
                                             var htmraw = @Html.Raw(htm);
                                         }
                                         <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "activeblack" : "")"><td><span class="glyphicon glyphicon-dashboard"></span><a href="/Train/Index" title="Translate, Display, filter, export, import data and extract insights">@R.TranslateNerSa@(htmraw)</a></td></tr>
@@ -216,7 +228,7 @@
                                                 var fbpstcmthtmraw = commentsOnPostsBadges(cmtCntPrInfl, pstCntPrInfl, item);
                                                 <tr><td style="padding-left:50px; color:darkgray;"><i class="fa fa-facebook-square" aria-hidden="true"></i>@item.name@(fbpstcmthtmraw)</td></tr>
                                             }
-                                            <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexSocialSearch" ? "activeblack" : "")"><td><i class="fa fa-search"></i><a href="/Train/IndexSocialSearch" title="Search over Facebook Moroccan content">Social Search</a></td></tr>
+                                            <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexSocialSearch" ? "activeblack" : "")"><td><i class="fa fa-search"></i><a href="/Train/IndexSocialSearch" title="Search over Facebook Moroccan content">Social Search@(cmntsOnPstsAllBdgs)</a></td></tr>
                                             <tr class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Train" && ViewContext.RouteData.Values["Action"].ToString() == "IndexStats" ? "activeblack" : "")"><td><span class="glyphicon glyphicon-stats"></span><a href="/Train/IndexStats" title="Show statistics about extracted entities from your theme's data">@R.StatsNdReports</a></td></tr>
                                         }
                                     </table>
