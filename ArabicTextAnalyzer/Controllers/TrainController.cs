@@ -113,6 +113,9 @@ namespace ArabicTextAnalyzer.Controllers
             List<LM_CountPerInfluencer> postsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Posts_CountPerInfluencer_DAPPERSQL(userId);
             @ViewBag.PostsCountsPerInfluencer = postsCountsPerInfluencer;
 
+            // DBG
+            ViewBag.UserName = User.Identity.GetUserName();
+
             //
             return View();
         }
@@ -149,6 +152,9 @@ namespace ArabicTextAnalyzer.Controllers
             // fb pages posts count
             List<LM_CountPerInfluencer> postsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Posts_CountPerInfluencer_DAPPERSQL(userId);
             @ViewBag.PostsCountsPerInfluencer = postsCountsPerInfluencer;
+
+            // DBG
+            ViewBag.UserName = User.Identity.GetUserName();
 
             return View();
         }
@@ -202,6 +208,9 @@ namespace ArabicTextAnalyzer.Controllers
             ViewBag.DataSACountPerTheme = String.Join(",", statSACountPerTheme.Select(m => m.CountPerKeyword));
             ViewBag.ObjectNameSACountPerTheme = String.Join(",", statSACountPerTheme.Select(m => "'" + m.Keyword + "'"));
 
+            // DBG
+            ViewBag.UserName = User.Identity.GetUserName();
+
             return View();
         }
 
@@ -249,11 +258,14 @@ namespace ArabicTextAnalyzer.Controllers
             List<LM_CountPerInfluencer> postsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Posts_CountPerInfluencer_DAPPERSQL(userId);
             @ViewBag.PostsCountsPerInfluencer = postsCountsPerInfluencer;
 
+            // DBG
+            ViewBag.UserName = User.Identity.GetUserName();
+
             return View();
         }
 
         [Authorize]
-        [NonAction] // tmp
+        // [NonAction] // tmp
         public ActionResult IndexSocialSearch()
         {
             //
@@ -285,6 +297,9 @@ namespace ArabicTextAnalyzer.Controllers
             // fb pages posts count
             List<LM_CountPerInfluencer> postsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Posts_CountPerInfluencer_DAPPERSQL(userId);
             @ViewBag.PostsCountsPerInfluencer = postsCountsPerInfluencer;
+
+            // DBG
+            ViewBag.UserName = User.Identity.GetUserName();
 
             return View();
         }
@@ -321,6 +336,9 @@ namespace ArabicTextAnalyzer.Controllers
             // fb pages posts count
             List<LM_CountPerInfluencer> postsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Posts_CountPerInfluencer_DAPPERSQL(userId);
             @ViewBag.PostsCountsPerInfluencer = postsCountsPerInfluencer;
+
+            // DBG
+            ViewBag.UserName = User.Identity.GetUserName();
 
             return View();
         }
