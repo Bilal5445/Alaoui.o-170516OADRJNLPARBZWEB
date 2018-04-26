@@ -37,6 +37,7 @@ function InitializeSocialSearchDataTables() {
             { "data": "id", "className": "hide_column" },
             /*{ "data": "fk_i", "className": "arabizi-text top collapsed" },*/
             { "data": "pt", "className": "arabizi-text top" },
+            { "data": "fbPageName", "className": "arabizi-text top" },
             { "data": "tt", "className": "arabic-text top" },
             { "data": "lc", "className": "center top" },
             { "data": "cc", "className": "center top" },

@@ -1364,7 +1364,7 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
-        public List<FB_POST> loaddeserializeT_FB_POST_Filter_DAPPERSQL(String filter)
+        public List<FB_POST> loaddeserializeT_FB_POST_FullText_Filter_DAPPERSQL(String filter)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(ConnectionString))

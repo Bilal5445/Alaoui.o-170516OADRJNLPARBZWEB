@@ -2031,7 +2031,7 @@ namespace ArabicTextAnalyzer.Controllers
             if (wholeWord && !String.IsNullOrEmpty(searchValue))
             {
                 // do it at the level of the query using contains full-text sql index
-                items = new Arabizer().loaddeserializeT_FB_POST_Filter_DAPPERSQL(searchValue).Select(c => new a
+                items = new Arabizer().loaddeserializeT_FB_POST_FullText_Filter_DAPPERSQL(searchValue).Select(c => new a
                 {
                     id = c.id,
                     // fk_i = c.fk_influencer,
@@ -2048,7 +2048,7 @@ namespace ArabicTextAnalyzer.Controllers
                 items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL().Select(c => new a
                 {
                     id = c.id,
-                    // fk_i = c.fk_influencer,
+                    fk_influencer = c.fk_influencer,
                     pt = c.post_text,
                     tt = c.translated_text,
                     lc = c.likes_count,
@@ -2083,16 +2083,35 @@ namespace ArabicTextAnalyzer.Controllers
             // page as per request (index of page and length)
             items = items.Skip(start).Take(itemsPerPage).ToList();
 
+            // join on fb pages names
+            List<T_FB_INFLUENCER> fbPages = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL();
+            var items0 = items.Join(fbPages,
+                i => i.fk_influencer,
+                f => f.id,
+                (i, f) => new
+                {
+                    i.id,
+                    fbPageName = f.name,
+                    i.pt,
+                    i.tt,
+                    i.lc,
+                    i.cc,
+                    i.dp
+                });
+
             // if only one found, return and uncollapse it out
             String extraData = null;
             if (itemsFilteredCount == 1)
+                // extraData = items[0].id;
                 extraData = items[0].id;
+
             //
             return JsonConvert.SerializeObject(new
             {
                 recordsTotal = totalItemsCount.ToString(),
                 recordsFiltered = itemsFilteredCount.ToString(),
-                data = items,
+                // data = items,
+                data = items0,
                 extraData
             });
         }
@@ -2100,6 +2119,7 @@ namespace ArabicTextAnalyzer.Controllers
         class a
         {
             public String id;
+            public String fk_influencer;
             public String pt;
             public String tt;
             public int lc;
