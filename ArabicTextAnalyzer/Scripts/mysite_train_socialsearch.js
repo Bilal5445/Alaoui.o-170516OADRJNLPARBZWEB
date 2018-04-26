@@ -92,4 +92,9 @@ function InitializeSocialSearchDataTables() {
     $('#min, #max').change(function () {
         table.draw();
     });
+
+    // custom search whole word : to trigger change when we check the cehckbox whole word
+    $('div.toolbar > input[type="checkbox"]').change(function () {
+        table.draw();
+    });
 }
