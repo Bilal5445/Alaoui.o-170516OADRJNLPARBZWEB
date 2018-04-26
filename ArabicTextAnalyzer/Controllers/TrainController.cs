@@ -2109,55 +2109,75 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public object DataTablesNet_ServerSide_SocialSearch_GetList()
         {
-            // get from client side, from where we start the paging
             int start = 0;
-            int.TryParse(this.Request.QueryString["start"], out start);            // GET
-
-            // get from client side, to which length the paging goes
             int itemsPerPage = 10;
-            int.TryParse(this.Request.QueryString["length"], out itemsPerPage);    // GET
 
-            // get from client search word
-            string searchValue = this.Request.QueryString["search[value]"]; // GET
+            // from client sides
+            int.TryParse(this.Request.QueryString["start"], out start);            // GET : from where we start the paging
+            int.TryParse(this.Request.QueryString["length"], out itemsPerPage);    // GET : to which length the paging goes
+            string searchValue = this.Request.QueryString["search[value]"];         // GET : search word
+            var wholeWord = Convert.ToBoolean(this.Request.QueryString["wholeWord"]);   // whole word
+            var min = this.Request.QueryString["min"];  // date range
+            var max = this.Request.QueryString["max"];  // date range
+
+            // get from client search word : trim extra tabs, spaces, ...
             if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'', '\t' });
 
-            // get main (whole) data from DB first
-            var items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL().Select(c => new
-            {
-                id = c.id,
-                // fk_i = c.fk_influencer,
-                pt = c.post_text,
-                tt = c.translated_text,
-                lc = c.likes_count,
-                cc = c.comments_count,
-                dp = c.date_publishing.ToString("yy-MM-dd HH:mm")
-            }).ToList();
+            // get the number of all entries (before applyng any filter)
+            var totalItemsCount = new Arabizer().loaddeserializeT_FB_Posts_Count_DAPPERSQL();
 
-            // get the number of entries
-            var itemsCount = items.Count;
+            // get main (whole) data from DB first
+            List<a> items;
+            if (wholeWord && !String.IsNullOrEmpty(searchValue))
+            {
+                // do it at the level of the query using contains full-text sql index
+                items = new Arabizer().loaddeserializeT_FB_POST_Filter_DAPPERSQL(searchValue).Select(c => new a
+                {
+                    id = c.id,
+                    // fk_i = c.fk_influencer,
+                    pt = c.post_text,
+                    tt = c.translated_text,
+                    lc = c.likes_count,
+                    cc = c.comments_count,
+                    dp = c.date_publishing.ToString("yy-MM-dd HH:mm")
+                }).ToList();
+            }
+            else
+            {
+                // items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL().Select(c => new
+                items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL().Select(c => new a
+                {
+                    id = c.id,
+                    // fk_i = c.fk_influencer,
+                    pt = c.post_text,
+                    tt = c.translated_text,
+                    lc = c.likes_count,
+                    cc = c.comments_count,
+                    dp = c.date_publishing.ToString("yy-MM-dd HH:mm")
+                }).ToList();
+
+                if (!String.IsNullOrEmpty(searchValue))
+                    // filter on search term if any
+                    items = items.Where(a => a.pt.ToUpper().Contains(searchValue.ToUpper()) || (a.tt != null && a.tt.ToUpper().Contains(searchValue.ToUpper()))).ToList();
+            }
 
             // adjust itemsPerPage case show all
             if (itemsPerPage == -1)
-                itemsPerPage = itemsCount;
-
-            // filter on search term if any
-            if (!String.IsNullOrEmpty(searchValue))
-                items = items.Where(a => a.pt.ToUpper().Contains(searchValue.ToUpper()) || (a.tt != null && a.tt.ToUpper().Contains(searchValue.ToUpper()))).ToList();
+                itemsPerPage = totalItemsCount;
 
             // filter on date range
-            var min = this.Request.QueryString["min"];
-            var max = this.Request.QueryString["max"];
             if (min != null)
             {
-                var minDate = Convert.ToDateTime(this.Request.QueryString["min"]);
+                var minDate = Convert.ToDateTime(min);
                 items = items.Where(a => DateTime.ParseExact(a.dp, "yy-MM-dd HH:mm", CultureInfo.InvariantCulture) >= minDate).ToList();
             }
             if (max != null)
             {
-                var maxDate = Convert.ToDateTime(this.Request.QueryString["max"]);
+                var maxDate = Convert.ToDateTime(max);
                 items = items.Where(a => DateTime.ParseExact(a.dp, "yy-MM-dd HH:mm", CultureInfo.InvariantCulture) <= maxDate).ToList();
             }
 
+            //
             var itemsFilteredCount = items.Count;
 
             // page as per request (index of page and length)
@@ -2170,11 +2190,21 @@ namespace ArabicTextAnalyzer.Controllers
             //
             return JsonConvert.SerializeObject(new
             {
-                recordsTotal = itemsCount.ToString(),
+                recordsTotal = totalItemsCount.ToString(),
                 recordsFiltered = itemsFilteredCount.ToString(),
                 data = items,
                 extraData
             });
+        }
+
+        class a
+        {
+            public String id;
+            public String pt;
+            public String tt;
+            public int lc;
+            public int cc;
+            public String dp;
         }
 
         [HttpGet]
