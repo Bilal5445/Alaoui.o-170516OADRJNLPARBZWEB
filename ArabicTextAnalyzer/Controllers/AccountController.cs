@@ -86,9 +86,7 @@ namespace ArabicTextAnalyzer.Controllers
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
-            {
                 return View(model);
-            }
 
             // Require the user to have a confirmed email before they can log on.
             var user = await UserManager.FindByNameAsync(model.Email);
@@ -290,7 +288,9 @@ namespace ArabicTextAnalyzer.Controllers
                     // delere user if create
                     await UserManager.DeleteAsync(user);
 
-                    throw new Exception(ex.Errors[0]);
+                    // throw new Exception(ex.Errors[0]);
+                    ViewBag.errorMessage = ex.Errors[0];
+                    return View("Error");
                 }
                 catch (Exception ex)
                 {
@@ -300,6 +300,9 @@ namespace ArabicTextAnalyzer.Controllers
 
                     // delere user if create
                     await UserManager.DeleteAsync(user);
+
+                    ViewBag.errorMessage = ex.Message;
+                    return View("Error");
                 }
             }
 
