@@ -1,5 +1,5 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
-
+@using ArabicTextAnalyzer.Content.Resources
 @{
     ViewBag.Title = "Error";
 }
@@ -20,5 +20,9 @@
     {
         <h4 class="text-danger">@ViewBag.errorMessage</h4>
     }
+    <hr />
+    <p>
+        @Html.ActionLink(R.LogIn, "Login")
+    </p>
 }
 
