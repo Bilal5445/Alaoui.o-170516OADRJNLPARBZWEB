@@ -21,7 +21,8 @@ function InitializeSocialSearchDataTables() {
             ['10', '25', '50', '100', '500', '1000', 'all']
         ],
         // dom just to display the design of the fields : search , page , ...
-        dom: "<'row'<'col-sm-5'B><'col-sm-3'l><'col-sm-4'f>>" +
+        // dom: "<'row'<'col-sm-5'B><'col-sm-3'l><'col-sm-4'f>>" +
+        dom: "<'row'<'col-sm-3'B><'col-sm-3'l><'col-sm-3'f><'toolbar'>>" +
             "<'row'<'col-sm-12'tr>>" +
             "<'row'<'col-sm-5'i><'col-sm-7'p>>",
         buttons: [
@@ -58,11 +59,9 @@ function InitializeSocialSearchDataTables() {
         "serverSide": true,
         "ajax": {
             "url": "/Train/DataTablesNet_ServerSide_SocialSearch_GetList",
-            /*"dataSrc": function (json) {
-                return json.data;
-            },*/
-            // search by date
+            // search by date & with whole word
             "data": function (d) {
+                // custome search by date range
                 var min = $('#min').datepicker("getDate");
                 if (min != null) {
                     var minjson = min.toJSON();
@@ -73,9 +72,19 @@ function InitializeSocialSearchDataTables() {
                     var maxjson = max.toJSON();
                     d.max = maxjson;
                 }
+                // custom search whole word
+                if ($('div.toolbar > input[type="checkbox"]').is(":checked"))
+                {
+                    d.wholeWord = true;
+                } else {
+                    d.wholeWord = false;
+                }
             }
         }
     });
+
+    // add checkbox for wholeword search
+    $("div.toolbar").html('<input type="checkbox" name="vehicle" value="Bike"> Whole word');
 
     // Search by date & Event listener to the two range filtering inputs to redraw on input
     $("#min").datepicker({ onSelect: function () { table.draw(); }, changeMonth: true, changeYear: true });

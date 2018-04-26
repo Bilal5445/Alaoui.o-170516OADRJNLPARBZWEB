@@ -1364,6 +1364,25 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
+        public List<FB_POST> loaddeserializeT_FB_POST_Filter_DAPPERSQL(String filter)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                //
+                String qry0 = "SELECT * "
+                            + "FROM T_FB_POST "
+                            + "WHERE CONTAINS(post_text, '" + filter + "') OR CONTAINS(translated_text, '" + filter + "') ";
+
+                //
+                qry0 += "ORDER BY date_publishing DESC ";
+
+                //
+                conn.Open();
+                return conn.Query<FB_POST>(qry0).ToList();
+            }
+        }
+
         public List<LM_CountPerTheme> loaddeserializeT_FB_POST_CountPerTheme_DAPPERSQL()
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
