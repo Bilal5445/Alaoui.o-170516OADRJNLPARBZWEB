@@ -17,8 +17,8 @@
     String userName = ViewBag.UserName;
 
     // social searcg counts
-    int postsCounts = ViewBag.PostsCounts;
-    int commentsCounts = ViewBag.CommentsCounts;
+    int postsCounts = ViewBag.PostsCounts ?? 0;
+    int commentsCounts = ViewBag.CommentsCounts ?? 0;
     var cmntsOnPstsAllBdgs = commentsOnPostsAllBadges(postsCounts, commentsCounts);
 }
 

@@ -405,6 +405,10 @@ namespace ArabicTextAnalyzer.Controllers
             List<LM_CountPerInfluencer> postsCountsPerInfluencer = new Arabizer().loaddeserializeT_FB_Posts_CountPerInfluencer_DAPPERSQL(userId);
             @ViewBag.PostsCountsPerInfluencer = postsCountsPerInfluencer;
 
+            // scocial searc posys count & comment count
+            @ViewBag.PostsCounts = new Arabizer().loaddeserializeT_FB_Posts_Count_DAPPERSQL();
+            @ViewBag.CommentsCounts = new Arabizer().loaddeserializeT_FB_Comments_Count_DAPPERSQL();
+
             // GET access (ie : check app dashbord)
             if (Request.HttpMethod.ToUpper() == "GET")
                 return View();
