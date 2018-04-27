@@ -2099,7 +2099,7 @@ namespace ArabicTextAnalyzer.Controllers
                     i.dp
                 });
 
-            // if only one found, return and uncollapse it out
+            // for comments, if only one found, return and uncollapse it out
             String extraData = null;
             if (itemsFilteredCount == 1)
                 // extraData = items[0].id;
