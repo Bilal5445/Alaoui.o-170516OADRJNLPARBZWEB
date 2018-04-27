@@ -2034,7 +2034,7 @@ namespace ArabicTextAnalyzer.Controllers
                 items = new Arabizer().loaddeserializeT_FB_POST_FullText_Filter_DAPPERSQL(searchValue).Select(c => new a
                 {
                     id = c.id,
-                    // fk_i = c.fk_influencer,
+                    fk_influencer = c.fk_influencer,
                     pt = c.post_text,
                     tt = c.translated_text,
                     lc = c.likes_count,
@@ -2044,7 +2044,6 @@ namespace ArabicTextAnalyzer.Controllers
             }
             else
             {
-                // items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL().Select(c => new
                 items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL().Select(c => new a
                 {
                     id = c.id,
