@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using static ArabicTextAnalyzer.Business.Provider.RosetteMultiLanguageDetections;
+using static ArabicTextAnalyzer.Controllers.TrainController;
 
 namespace ArabicTextAnalyzer.BO
 {
@@ -1174,7 +1175,7 @@ namespace ArabicTextAnalyzer.BO
                             + "AND (keyword_type = 'NEGATIVE' OR keyword_type = 'POSITIVE' OR keyword_type = 'EXPLETIVE' OR keyword_type = 'SUPPORT' OR keyword_type = 'SENSITIVE' OR keyword_type = 'OPPOSE') "
                             + "GROUP BY Keyword_Type "
                             + "ORDER BY SUM(Keyword_Count) DESC ";
-                            // + "ORDER BY Keyword_Count DESC ";
+                // + "ORDER BY Keyword_Count DESC ";
 
                 conn.Open();
                 return conn.Query<LM_CountPerKeyword>(qry0, new { ID_XTRCTTHEME = ID_XTRCTTHEME });
@@ -1364,6 +1365,36 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
+        public List<FB_POST> loaddeserializeT_FB_POST_JOIN_COMMENT_Like_Filter_DAPPERSQL(String influencerid, String filter)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                /*String qry0 = "SELECT P.* "
+                            + "FROM T_FB_POST P "
+                            + "INNER JOIN FBFeedComments C ON C.feedId = P.id "
+                            + "WHERE P.fk_influencer = '" + influencerid + "' "
+                            + "AND (P.post_text LIKE N'%" + filter + "%' OR P.translated_text LIKE N'%" + filter + "%' OR C.message LIKE N'%" + filter + "%' OR C.translated_message LIKE N'%" + filter + "%') "
+                            + "ORDER BY P.date_publishing DESC ";*/
+
+                String qry0 = "SELECT P.* FROM T_FB_POST P "
+                            + "WHERE P.fk_influencer = '" + influencerid + "' "
+                            + "AND ( "
+                                + "(P.post_text LIKE N'%" + filter + "%' OR P.translated_text LIKE N'%" + filter + "%') "
+                                + "OR "
+                                + "P.id in ( "
+                                    + "SELECT C.feedId FROM FBFeedComments C WHERE C.message LIKE N'%" + filter + "%' OR C.translated_message LIKE N'%" + filter + "%' "
+                                + ") "
+                            + ") "
+                            +"ORDER BY P.date_publishing DESC ";
+
+                //
+                conn.Open();
+                return conn.Query<FB_POST>(qry0).ToList();
+            }
+        }
+
         public List<FB_POST> loaddeserializeT_FB_POST_FullText_Filter_DAPPERSQL(String filter)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
@@ -1391,7 +1422,7 @@ namespace ArabicTextAnalyzer.BO
                 //
                 String qry0 = "SELECT * "
                             + "FROM T_FB_POST "
-                            + "WHERE post_text LIKE '%" + filter + "%' OR translated_text LIKE '%" + filter + "%' ";
+                            + "WHERE post_text LIKE N'%" + filter + "%' OR translated_text LIKE N'%" + filter + "%' ";
 
                 //
                 qry0 += "ORDER BY date_publishing DESC ";
@@ -1533,9 +1564,24 @@ namespace ArabicTextAnalyzer.BO
             {
                 conn.Open();
 
-                    String qry0 = "SELECT COUNT(*) "
-                                + "FROM T_FB_POST P ";
-                    return conn.QueryFirstOrDefault<int>(qry0);
+                String qry0 = "SELECT COUNT(*) "
+                            + "FROM T_FB_POST P ";
+                return conn.QueryFirstOrDefault<int>(qry0);
+            }
+        }
+
+        public int loaddeserializeT_FB_Posts_Count_DAPPERSQL(String influencerid)
+        {
+            //
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                String qry0 = "SELECT COUNT(*) "
+                            + "FROM T_FB_POST P "
+                            + "WHERE P.fk_influencer = '" + influencerid + "' ";
+                return conn.QueryFirstOrDefault<int>(qry0);
             }
         }
 
