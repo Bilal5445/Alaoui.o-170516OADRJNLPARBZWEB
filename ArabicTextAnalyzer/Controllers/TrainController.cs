@@ -2030,7 +2030,7 @@ namespace ArabicTextAnalyzer.Controllers
             List<a> items;
             if (wholeWord && !String.IsNullOrEmpty(searchValue))
             {
-                // do it at the level of the query using contains full-text sql index
+                // load and search items : do it at the level of the query using contains full-text sql index
                 items = new Arabizer().loaddeserializeT_FB_POST_FullText_Filter_DAPPERSQL(searchValue).Select(c => new a
                 {
                     id = c.id,
@@ -2044,7 +2044,18 @@ namespace ArabicTextAnalyzer.Controllers
             }
             else
             {
-                items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL().Select(c => new a
+                // load items
+                /*items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL().Select(c => new a
+                {
+                    id = c.id,
+                    fk_influencer = c.fk_influencer,
+                    pt = c.post_text,
+                    tt = c.translated_text,
+                    lc = c.likes_count,
+                    cc = c.comments_count,
+                    dp = c.date_publishing.ToString("yy-MM-dd HH:mm")
+                }).ToList();*/
+                items = new Arabizer().loaddeserializeT_FB_POST_Like_Filter_DAPPERSQL(searchValue).Select(c => new a
                 {
                     id = c.id,
                     fk_influencer = c.fk_influencer,
@@ -2055,9 +2066,9 @@ namespace ArabicTextAnalyzer.Controllers
                     dp = c.date_publishing.ToString("yy-MM-dd HH:mm")
                 }).ToList();
 
-                if (!String.IsNullOrEmpty(searchValue))
-                    // filter on search term if any
-                    items = items.Where(a => a.pt.ToUpper().Contains(searchValue.ToUpper()) || (a.tt != null && a.tt.ToUpper().Contains(searchValue.ToUpper()))).ToList();
+                // filter on search term if any
+                /*if (!String.IsNullOrEmpty(searchValue))
+                    items = items.Where(a => a.pt.ToUpper().Contains(searchValue.ToUpper()) || (a.tt != null && a.tt.ToUpper().Contains(searchValue.ToUpper()))).ToList();*/
             }
 
             // adjust itemsPerPage case show all
