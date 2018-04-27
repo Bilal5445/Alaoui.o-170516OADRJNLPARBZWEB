@@ -27,6 +27,7 @@ using System.Globalization;
 using System.Web.SessionState;
 using ArabicTextAnalyzer.Content.Resources;
 using MimeKit;
+using System.Text.RegularExpressions;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -2059,7 +2060,8 @@ namespace ArabicTextAnalyzer.Controllers
                 {
                     id = c.id,
                     fk_influencer = c.fk_influencer,
-                    pt = c.post_text,
+                    pt = String.IsNullOrWhiteSpace(searchValue) ? c.post_text : truncateBySent(c.post_text, searchValue, sentPrepend: 0, sentAppend: 0, viewMoreTag: "[...]", startTruncTag: "[...]", returnSourceIfKeywordNotFound: true),
+                    // pt = c.post_text,
                     tt = c.translated_text,
                     lc = c.likes_count,
                     cc = c.comments_count,
@@ -2124,6 +2126,88 @@ namespace ArabicTextAnalyzer.Controllers
                 data = items0,
                 extraData
             });
+        }
+
+        /*private static string TruncateAtWord(this string input, int length)
+        {
+            if (input == null || input.Length < length)
+                return input;
+            int iNextSpace = input.LastIndexOf(" ", length, StringComparison.Ordinal);
+            return string.Format("{0}...", input.Substring(0, (iNextSpace > 0) ? iNextSpace : length).Trim());
+        }*/
+
+        public static string truncateBySent(string source, string searchWord, int sentPrepend = 1, int sentAppend = 1, bool onlyShowFirst = true, string viewMoreTag = "", bool alwaysShowViewMoreTag = false, string startTruncTag = "", bool returnSourceIfKeywordNotFound = false, string returnNotFound = "")
+        {
+            // going to be the final string
+            string truncated = "";
+
+            // parse source sentences
+            string[] sents = Regex.Split(source, @"(?<=[.?!;])\s+(?=\p{Lu})");
+
+            // create some search start & end holders
+            int i = 0;
+            int ssent = -1;
+            int esent = 0;
+
+            // find start / end
+            foreach (string sent in sents)
+            {
+                // search using regex for word boundaries \b
+                // if (Regex.IsMatch(sent, "\\b" + searchWord + "\\b", RegexOptions.IgnoreCase))
+                if (Regex.IsMatch(sent, searchWord, RegexOptions.IgnoreCase))
+                {
+                    if (ssent == -1)
+                        ssent = i;
+                    else
+                        esent = i;
+                }
+
+                i++;
+            }
+
+            // make final string:
+            if (esent == 0 || onlyShowFirst == true) esent = ssent;
+
+            i = 0;
+
+            foreach (string sent in sents)
+            {
+                if (i == ssent - sentPrepend || i == ssent || i == esent + sentAppend || (i >= ssent - sentPrepend && i <= esent + sentAppend))
+                {
+                    truncated = truncated + sent + " ";
+                }
+
+                i++;
+            }
+
+            // add view more
+            if (esent + sentAppend + 1 < sents.Count() || alwaysShowViewMoreTag == true)
+            {
+                truncated = truncated + viewMoreTag;
+            }
+
+            // add beginning tag
+            if (ssent - sentPrepend > 0)
+            {
+                truncated = startTruncTag + truncated;
+            }
+
+            // check if anything was even found:
+            if (ssent == -1)
+            {
+                if (returnSourceIfKeywordNotFound)
+                {
+                    truncated = source;
+                }
+                else
+                {
+                    truncated = returnNotFound;
+                }
+            }
+
+            // and now return the final string - do a trim and remove double spaces.
+            // did i ever mention how much i despise double spaces?
+            return truncated.Trim().Replace("  ", " ");
         }
 
         class a
