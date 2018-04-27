@@ -1965,8 +1965,21 @@ namespace ArabicTextAnalyzer.Controllers
             string searchValue = this.Request.QueryString["search[value]"]; // GET
             if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'', '\t' });
 
-            // get main (whole) data from DB first
-            var items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL(fluencerid).Select(c => new
+            // get the number of all entries (before applyng any filter)
+            var totalItemsCount = new Arabizer().loaddeserializeT_FB_Posts_Count_DAPPERSQL(fluencerid);
+
+            // get main (whole) data from DB first while filtering on search term if any
+            /*var items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL(fluencerid).Select(c => new
+            {
+                id = c.id,
+                // fk_i = c.fk_influencer,
+                pt = c.post_text,
+                tt = c.translated_text,
+                lc = c.likes_count,
+                cc = c.comments_count,
+                dp = c.date_publishing.ToString("yy-MM-dd HH:mm")
+            }).ToList();*/
+            var items = new Arabizer().loaddeserializeT_FB_POST_JOIN_COMMENT_Like_Filter_DAPPERSQL(fluencerid, searchValue).Select(c => new
             {
                 id = c.id,
                 // fk_i = c.fk_influencer,
@@ -1978,15 +1991,15 @@ namespace ArabicTextAnalyzer.Controllers
             }).ToList();
 
             // get the number of entries
-            var itemsCount = items.Count;
+            // var totalItemsCount = items.Count;
 
             // adjust itemsPerPage case show all
             if (itemsPerPage == -1)
-                itemsPerPage = itemsCount;
+                itemsPerPage = totalItemsCount;
 
             // filter on search term if any
-            if (!String.IsNullOrEmpty(searchValue))
-                items = items.Where(a => a.pt.ToUpper().Contains(searchValue.ToUpper()) || (a.tt != null && a.tt.ToUpper().Contains(searchValue.ToUpper()))).ToList();
+            /*if (!String.IsNullOrEmpty(searchValue))
+                items = items.Where(a => a.pt.ToUpper().Contains(searchValue.ToUpper()) || (a.tt != null && a.tt.ToUpper().Contains(searchValue.ToUpper()))).ToList();*/
 
             var itemsFilteredCount = items.Count;
 
@@ -2000,7 +2013,7 @@ namespace ArabicTextAnalyzer.Controllers
             //
             return JsonConvert.SerializeObject(new
             {
-                recordsTotal = itemsCount.ToString(),
+                recordsTotal = totalItemsCount.ToString(),
                 recordsFiltered = itemsFilteredCount.ToString(),
                 data = items,
                 extraData
@@ -2027,7 +2040,7 @@ namespace ArabicTextAnalyzer.Controllers
             // get the number of all entries (before applyng any filter)
             var totalItemsCount = new Arabizer().loaddeserializeT_FB_Posts_Count_DAPPERSQL();
 
-            // get main (whole) data from DB first
+            // get main (whole) data from DB first while filtering on search term if any
             List<a> items;
             if (wholeWord && !String.IsNullOrEmpty(searchValue))
             {
@@ -2210,7 +2223,7 @@ namespace ArabicTextAnalyzer.Controllers
             return truncated.Trim().Replace("  ", " ");
         }
 
-        class a
+        public class a
         {
             public String id;
             public String fk_influencer;
