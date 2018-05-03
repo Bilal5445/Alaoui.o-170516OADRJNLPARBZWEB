@@ -28,7 +28,6 @@ using System.Web.SessionState;
 using ArabicTextAnalyzer.Content.Resources;
 using MimeKit;
 using System.Data.Entity;
- 
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -913,58 +912,58 @@ namespace ArabicTextAnalyzer.Controllers
             using (var db = new ArabiziDbContext())
             {
                 // get theme
-                     var xtrctThemes = db.M_XTRCTTHEMEs;
-                     var returnctiveXtrctTheme = xtrctThemes.Where(m => m.ThemeName == themename).FirstOrDefault();
-                    //  if (!String.IsNullOrEmpty(returnctiveXtrctTheme.ToString()))
-                    if (returnctiveXtrctTheme.ToString()!=string.Empty)
+                var xtrctThemes = db.M_XTRCTTHEMEs;
+                var returnctiveXtrctTheme = xtrctThemes.Where(m => m.ThemeName == themename).FirstOrDefault();
+                //  if (!String.IsNullOrEmpty(returnctiveXtrctTheme.ToString()))
+                if (returnctiveXtrctTheme.ToString() != string.Empty)
+                {
+                    // Theme not  exists
+                    // create the theme
+                    var newXtrctTheme = new M_XTRCTTHEME
                     {
-                        // Theme not  exists
-                        // create the theme
-                        var newXtrctTheme = new M_XTRCTTHEME
-                        {
-                            ID_XTRCTTHEME = Guid.NewGuid(),
-                            ThemeName = themename.Trim(),
-                            UserID = userId
-                        };
+                        ID_XTRCTTHEME = Guid.NewGuid(),
+                        ThemeName = themename.Trim(),
+                        UserID = userId
+                    };
 
-                        // Save to Serialization
-                        new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(newXtrctTheme);
+                    // Save to Serialization
+                    new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(newXtrctTheme);
 
-                        // create the associated tags
-                        if (themetags != null)
+                    // create the associated tags
+                    if (themetags != null)
+                    {
+                        foreach (var themetag in themetags.Split(new char[] { ',' }))
                         {
-                            foreach (var themetag in themetags.Split(new char[] { ',' }))
+                            var newXrtctThemeKeyword = new M_XTRCTTHEME_KEYWORD
                             {
-                                var newXrtctThemeKeyword = new M_XTRCTTHEME_KEYWORD
-                                {
-                                    ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
-                                    ID_XTRCTTHEME = newXtrctTheme.ID_XTRCTTHEME,
-                                    Keyword = themetag
-                                };
+                                ID_XTRCTTHEME_KEYWORD = Guid.NewGuid(),
+                                ID_XTRCTTHEME = newXtrctTheme.ID_XTRCTTHEME,
+                                Keyword = themetag
+                            };
 
-                                // Save to Serialization to DB
-                                new Arabizer().saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(newXrtctThemeKeyword);
-                            }
+                            // Save to Serialization to DB
+                            new Arabizer().saveserializeM_XTRCTTHEME_KEYWORDs_EFSQL(newXrtctThemeKeyword);
                         }
+                    }
 
-                        return Json(new { success = true, responseText = "The themename added success !!!!" }, JsonRequestBehavior.AllowGet);
-                    }
-                    else  
-                    {
-                        return Json(new { success = false, responseText = "themename already exist in database !!!!" }, JsonRequestBehavior.AllowGet);
-                    }
+                    return Json(new { success = true, responseText = "The themename added success !!!!" }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { success = false, responseText = "themename already exist in database !!!!" }, JsonRequestBehavior.AllowGet);
+                }
             }
         }
 
         // Eegin essay another code from here  40/04/2018
         // just for test 
-        [HttpPost]
+        [HttpGet]
         [AllowAnonymous]
         // Begin modified from here 23/04/2018  12:00
-         public JsonResult XtrctTheme_AddNewAjax(string themename)
+        public JsonResult XtrctTheme_AddNewAjax(String themename)
         {
             //
-           var userId = User.Identity.GetUserId();
+            var userId = User.Identity.GetUserId();
             bool success;
             String responseText = String.Empty;
             // name = "FADOUA";
@@ -974,7 +973,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                string   result = "SELECT TOP(1) ThemeName FROM T_XTRCTTHEME WHERE UserID = '" + userId + "' AND  ThemeName = '" + themename + "' ORDER BY ThemeName ";
+                string result = "SELECT TOP(1) ThemeName FROM T_XTRCTTHEME WHERE UserID = '" + userId + "' AND  ThemeName = '" + themename + "' ORDER BY ThemeName ";
 
                 // get theme
                 //var xtrctThemes = db.M_XTRCTTHEMEs;
@@ -996,11 +995,11 @@ namespace ArabicTextAnalyzer.Controllers
 
                     return Json(new { success = true, responseText = themename }, JsonRequestBehavior.DenyGet);
                 }
-                else  
+                else
                 {
                     return Json(new { success = false, responseText = "themename already exist in database !!!!" }, JsonRequestBehavior.DenyGet);
                 }
-                
+
             }
         }
 
@@ -1130,7 +1129,7 @@ namespace ArabicTextAnalyzer.Controllers
                 message = errMessage
             });
         }
-    
+
         [HttpGet]
         public async Task<object> TranslateFbComments(string ids)
         {
@@ -1796,7 +1795,7 @@ namespace ArabicTextAnalyzer.Controllers
             //
             return RedirectToAction("Index");
         }
-    
+
 
         // End modified from here 23/04/2018  12:00
         [HttpPost]
