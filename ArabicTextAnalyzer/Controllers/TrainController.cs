@@ -576,6 +576,88 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpPost]
         public ActionResult TrainStepOneAjaxFree(M_ARABIZIENTRY arabiziEntry)
         {
+#if false
+            /*HttpCookie cookie = new HttpCookie("mybigcookie");
+            cookie.Values.Add("name", name);
+            cookie.Values.Add("address", address);
+
+            //get the values out
+            string name = Request.Cookies["mybigcookie"]["name"];
+            string address = Request.Cookies["mybigcookie"]["address"];*/
+            // store info in cookie
+            /*Console.WriteLine(Request.Cookies["CKFRANNMSID"]);
+            Console.WriteLine(Request.Cookies["CKFRANNMSID"]["anonid"]);
+            Response.Cookies["CKFRANNMSID"]["anonid"] = Request.AnonymousID;
+            Response.Cookies["CKFRANNMSID"]["usdclls"] = "1";*/
+            if (Request.Cookies["CKFRANNMSID"]["anonid"] == null)
+            {
+                HttpCookie aCookie = new HttpCookie("CKFRANNMSID");
+                aCookie.Values.Add("anonid", Request.AnonymousID);
+                aCookie.Values.Add("usdclls", "1");
+                Response.Cookies.Add(aCookie);
+            }
+            else if (Request.Cookies["CKFRANNMSID"]["anonid"] == Request.AnonymousID)
+            {
+                Response.Cookies["CKFRANNMSID"]["usdclls"] = (Convert.ToInt32(Request.Cookies["CKFRANNMSID"]["usdclls"]) + 1).ToString();
+            }
+            else
+            {
+                Response.Cookies.Remove("CKFRANNMSID");
+                HttpCookie aCookie = new HttpCookie("CKFRANNMSID");
+                aCookie.Values.Add("anonid", Request.AnonymousID);
+                aCookie.Values.Add("usdclls", "1");
+                Response.Cookies.Add(aCookie);
+            }
+
+            /*aCookie.Value = Request.AnonymousID;
+            if (Response.Cookies["CKFRANNMSID"] == null)
+                Response.Cookies.Add(aCookie);
+            else
+            {
+                if (Response.Cookies["CKFRANNMSID"] == 
+            }
+            if (Response.Cookies["CKFRANNMSID"] != null)
+            {
+                Request.AnonymousID;
+                Console.WriteLine(Response.Cookies.Count);
+            }*/
+            /*Response.Cookies["userName"].Value = "patrick";
+            Response.Cookies["userName"].Expires = DateTime.Now.AddDays(1);
+            HttpCookie aCookie = new HttpCookie("lastVisit");
+            aCookie.Value = DateTime.Now.ToString();
+            aCookie.Expires = DateTime.Now.AddDays(1);
+            Response.Cookies.Add(aCookie);*/
+
+            // test on 2 calls max then request to register
+            if (Convert.ToInt32(Request.Cookies["CKFRANNMSID"]["usdclls"]) > 2)
+            {
+                return Content(JsonConvert.SerializeObject(new
+                {
+                    status = false,
+                    message = "Free quota used, please register"
+                }), "application/json");
+            }
+
+#endif
+            if (Request.Cookies["hasUsed"] != null && Convert.ToInt32(Request.Cookies["hasUsed"].Value) > 2)
+                return Content(JsonConvert.SerializeObject(new
+                {
+                    status = false,
+                    message = "Free quota used, please register."
+                }), "application/json");
+            else
+            {
+                if (Request.Cookies["hasUsed"] == null)
+                {
+                    HttpCookie hasUsed = new HttpCookie("hasUsed", 1.ToString());
+                    Response.Cookies.Add(hasUsed);
+                } else
+                {
+                    HttpCookie hasUsed = new HttpCookie("hasUsed", (Convert.ToInt32(Request.Cookies["hasUsed"].Value) + 1).ToString());
+                    Response.Cookies.Add(hasUsed);
+                }
+            }
+
             // since it i as free test for anybody, passe the user id as admin : Get Admin Account
             string AdminUserName = ConfigurationManager.AppSettings["AdminUserName"];
             string AdminPassword = ConfigurationManager.AppSettings["AdminPassword"];
@@ -912,9 +994,9 @@ namespace ArabicTextAnalyzer.Controllers
             TempData["msgAlert"] = "'" + mainEntity + "' is now MAIN ENTITY for the post";
             return RedirectToAction("Index");
         }
-        #endregion
+#endregion
 
-        #region FRONT YARD ACTIONS TRAIN USER CONTRIB
+#region FRONT YARD ACTIONS TRAIN USER CONTRIB
         [Authorize]
         [HttpPost]
         public ActionResult SaveTranslationContributionAjax(String idarabicdarijaentry, String contrib)
@@ -973,9 +1055,9 @@ namespace ArabicTextAnalyzer.Controllers
                 }), "application/json");
             }
         }
-        #endregion
+#endregion
 
-        #region FRONT YARD ACTIONS FB
+#region FRONT YARD ACTIONS FB
         [HttpGet]
         public async Task<object> AddFBInfluencer(String url_name, String pro_or_anti)
         {
@@ -1342,9 +1424,9 @@ namespace ArabicTextAnalyzer.Controllers
                 return null;
             }
         }
-        #endregion
+#endregion
 
-        #region BACK YARD ACTIONS FB
+#region BACK YARD ACTIONS FB
         private void SendingMailAboutNegativeNERs(String influencerid, ref bool status, ref String errMessage)
         {
             // sending mail about negative NERs
@@ -1561,9 +1643,9 @@ namespace ArabicTextAnalyzer.Controllers
 
             return status;
         }
-        #endregion
+#endregion
 
-        #region FRONT YARD ACTIONS TWINGLY
+#region FRONT YARD ACTIONS TWINGLY
         [HttpGet]
         public ActionResult TwinglySetup()
         {
@@ -1673,9 +1755,9 @@ namespace ArabicTextAnalyzer.Controllers
             //
             return RedirectToAction("Index");
         }
-        #endregion
+#endregion
 
-        #region FRONT YARD ACTIONS THEME
+#region FRONT YARD ACTIONS THEME
         [HttpPost]
         public ActionResult XtrctTheme_AddNew(String themename, String themetags)
         {
@@ -1802,7 +1884,7 @@ namespace ArabicTextAnalyzer.Controllers
             //
             return RedirectToAction("Index");
         }
-        #endregion
+#endregion
 
         //
         private static IDictionary<Guid, int> indexForUploadInProgress = new Dictionary<Guid, int>();
@@ -2375,7 +2457,7 @@ namespace ArabicTextAnalyzer.Controllers
             });
         }
 
-        #region FRONT YARD ACTIONS SETUP DB
+#region FRONT YARD ACTIONS SETUP DB
         [HttpGet]
         public void SetupCreateFillDBFromXML()
         {
@@ -2417,9 +2499,9 @@ namespace ArabicTextAnalyzer.Controllers
                 db.Database.Delete();
             }
         }
-        #endregion
+#endregion
 
-        #region BACK YARD BO LOAD
+#region BACK YARD BO LOAD
         private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY(AccessMode accessMode)
         {
             /*if (accessMode == AccessMode.xml)
@@ -2866,9 +2948,9 @@ namespace ArabicTextAnalyzer.Controllers
                 return conn.QueryFirst<int>(qry);
             }
         }
-        #endregion
+#endregion
 
-        #region BACK YARD BO HELPERS
+#region BACK YARD BO HELPERS
         public static IEnumerable<TSource> DistinctBy<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
         {
             HashSet<TKey> seenKeys = new HashSet<TKey>();
@@ -2880,9 +2962,9 @@ namespace ArabicTextAnalyzer.Controllers
                 }
             }
         }
-        #endregion
+#endregion
 
-        #region BACK YARD BO TOKEN MGT
+#region BACK YARD BO TOKEN MGT
         private void ManageToken(string userId)
         {
             var token = Session["_T0k@n_"];
@@ -2921,7 +3003,7 @@ namespace ArabicTextAnalyzer.Controllers
                     Session["userId"] = clientkeys.UserID;
             }
         }
-        #endregion
+#endregion
     }
 
     // Class for return the method call after translate Fb Posts and comments
