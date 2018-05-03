@@ -1,9 +1,10 @@
-﻿@using ArabicTextAnalyzer.Domain.Models
+﻿
+@using ArabicTextAnalyzer.Domain.Models
 @using ArabicTextAnalyzer.Content.Resources
 @model M_ARABIZIENTRY
 @{
     ViewBag.Title = R.TranslateArabizi;
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutFree.cshtml";
 }
 
 @section styles {
@@ -42,7 +43,7 @@
 <hr />
 
 <!-- aribizi translate single -->
-@using (Html.BeginForm("TrainStepOneAjax", "Train", new { mainEntity = @ViewBag.UserActiveXtrctTheme.ThemeName.Trim() }, FormMethod.Post, new { id = "trainform" }))
+@using (Html.BeginForm("TrainStepOneAjaxFree", "Train", null, FormMethod.Post, new { id = "trainform" }))
 {
     <!-- textarea input text & button go -->
     <div class="panel panel-default active">
@@ -51,7 +52,6 @@
             <div class="input-group">
                 @Html.TextAreaFor(m => m.ArabiziText, new { id = "SentenceIn", style = "resize:none", rows = 2, @class = "form-control custom-control", @required = "required", @placeholder = R.TypeArabiziTextAndClickGo })
                 @Html.HiddenFor(m => m.ArabiziEntryDate, new { @Value = System.DateTime.Now.ToString("yyyy-MM-dd HH:MM:ss") })
-                @Html.HiddenFor(m => m.ID_XTRCTTHEME, new { @Value = ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME })
                 <span class="input-group-addon btn btn-primary" onclick="document.forms['trainform'].dispatchEvent(new Event('submit'));">Go</span>
             </div>
         </div>
@@ -108,3 +108,4 @@
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>@R.Warning!</strong> <p style="display: inline;"></p>
 </div>
+

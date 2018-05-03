@@ -28,6 +28,7 @@ using System.Web.SessionState;
 using ArabicTextAnalyzer.Content.Resources;
 using MimeKit;
 using System.Text.RegularExpressions;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -165,6 +166,12 @@ namespace ArabicTextAnalyzer.Controllers
             // DBG
             ViewBag.UserName = User.Identity.GetUserName();
 
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult IndexTranslateArabiziFree()
+        {
             return View();
         }
 
@@ -499,6 +506,101 @@ namespace ArabicTextAnalyzer.Controllers
 
                 // make sure last day did not exceed 100 calls
                 var userId = User.Identity.GetUserId();
+                var clientkeys = new ClientKeysConcrete().GetGenerateUniqueKeyByUserID(userId);
+                int nbrOfCallsInTheLast24hour = new Arabizer().getNbrOfCallsInTheLast24hours(clientkeys.RegisterAppId.Value);
+                if (nbrOfCallsInTheLast24hour > 100)
+                {
+                    return Content(JsonConvert.SerializeObject(new
+                    {
+                        status = false,
+                        message = R.DailyConsumptionExceeded
+                    }), "application/json");
+                }
+
+                // consume one call : IsTokenValid check token and consumes one call : means increment registerApp.TotalAppCallConsumed
+                String token, errMessage;
+                String tokenExpiry = ConfigurationManager.AppSettings["TokenExpiry"];
+                var tokenmessage = new AppManager().GetToken(clientkeys, _IAuthenticate, tokenExpiry, out token);
+                if (_IAuthenticate.IsTokenValid(Convert.ToString(token), "TrainStepOneAjax", out errMessage) == false)
+                {
+                    return Content(JsonConvert.SerializeObject(new
+                    {
+                        status = false,
+                        message = errMessage
+                    }), "application/json");
+                }
+
+                // Arabizi to arabic script via direct call to perl script
+                var res = new Arabizer(Server).train(arabiziEntry, mainEntity, thisLock: thisLock);   // count time
+                if (res.M_ARABICDARIJAENTRY.ID_ARABICDARIJAENTRY == Guid.Empty)
+                {
+                    return Content(JsonConvert.SerializeObject(new
+                    {
+                        status = false,
+                        message = "Text is required."
+                    }), "application/json");
+                }
+
+                //
+                var json = JsonConvert.SerializeObject(res);
+                return Content(json, "application/json");
+            }
+            catch (Exception ex)
+            {
+                Logging.Write(Server, ex.GetType().Name);
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                return Content(JsonConvert.SerializeObject(new
+                {
+                    status = false,
+                    message = ex.Message
+                }), "application/json");
+            }
+        }
+
+        private ApplicationUserManager _userManager;
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult TrainStepOneAjaxFree(M_ARABIZIENTRY arabiziEntry)
+        {
+            // since it i as free test for anybody, passe the user id as admin : Get Admin Account
+            string AdminUserName = ConfigurationManager.AppSettings["AdminUserName"];
+            string AdminPassword = ConfigurationManager.AppSettings["AdminPassword"];
+            var objAdminUser = UserManager.FindByEmail(AdminUserName);
+            var userId = objAdminUser.Id;
+
+            // since it i as free test for anybody, passe the user id as admin and pass the theme id as admin active theme
+            var adminActiveTheme = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+            String mainEntity = adminActiveTheme.ThemeName;
+            arabiziEntry.ID_XTRCTTHEME = adminActiveTheme.ID_XTRCTTHEME;
+
+            try
+            {
+                // check before
+                if (arabiziEntry == null || String.IsNullOrWhiteSpace(mainEntity))
+                {
+                    return Content(JsonConvert.SerializeObject(new
+                    {
+                        status = false,
+                        message = "Invalid Parameter"
+                    }), "application/json");
+                }
+
+                // make sure last day did not exceed 100 calls
+                // var userId = User.Identity.GetUserId();
                 var clientkeys = new ClientKeysConcrete().GetGenerateUniqueKeyByUserID(userId);
                 int nbrOfCallsInTheLast24hour = new Arabizer().getNbrOfCallsInTheLast24hours(clientkeys.RegisterAppId.Value);
                 if (nbrOfCallsInTheLast24hour > 100)
@@ -2059,16 +2161,6 @@ namespace ArabicTextAnalyzer.Controllers
             else
             {
                 // load items
-                /*items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL().Select(c => new a
-                {
-                    id = c.id,
-                    fk_influencer = c.fk_influencer,
-                    pt = c.post_text,
-                    tt = c.translated_text,
-                    lc = c.likes_count,
-                    cc = c.comments_count,
-                    dp = c.date_publishing.ToString("yy-MM-dd HH:mm")
-                }).ToList();*/
                 items = new Arabizer().loaddeserializeT_FB_POST_Like_Filter_DAPPERSQL(searchValue).Select(c => new a
                 {
                     id = c.id,
@@ -2080,10 +2172,6 @@ namespace ArabicTextAnalyzer.Controllers
                     cc = c.comments_count,
                     dp = c.date_publishing.ToString("yy-MM-dd HH:mm")
                 }).ToList();
-
-                // filter on search term if any
-                /*if (!String.IsNullOrEmpty(searchValue))
-                    items = items.Where(a => a.pt.ToUpper().Contains(searchValue.ToUpper()) || (a.tt != null && a.tt.ToUpper().Contains(searchValue.ToUpper()))).ToList();*/
             }
 
             // adjust itemsPerPage case show all

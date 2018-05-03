@@ -759,6 +759,8 @@
     <Content Include="Views\Admin\IndexFBs.cshtml" />
     <Content Include="Views\Shared\Info.cshtml" />
     <Content Include="Views\Train\IndexSplash.cshtml" />
+    <Content Include="Views\Train\IndexTranslateArabiziFree.cshtml" />
+    <Content Include="Views\Shared\_LayoutFree.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />
