@@ -748,7 +748,7 @@ function JsAddInfluencer() {
                 $('#addfbmiscareaerror').css('display', 'none');
                 $('#addfbmiscareasuccess').css('display', 'block');
                 $('#addfbmiscareasuccess p').html(msg.message);
-                
+
                 //
                 window.location = '/Train/IndexFBs';
 
@@ -763,7 +763,7 @@ function JsAddInfluencer() {
         "error": function (msg) {
 
             AddInfluencerIsClicked = false;
-            
+
             // show misc area error msg
             $('#addfbmiscareasuccess').css('display', 'none');
             $('#addfbmiscareaerror').css('display', 'block');
@@ -774,12 +774,14 @@ function JsAddInfluencer() {
 // Begin modified from here 23/04/2018  12:00
 
 function JsAddTheme() {
+
     // check before
     if (AddTheme == true)
         return;
 
     // check on fields
     var themename = $('#themename').val();
+    console.log("themename : " + themename);
     if (themename.length == 0) {
         alert("this field is  required.");
         return;
@@ -791,28 +793,28 @@ function JsAddTheme() {
     // var UserData = { "name": themename }
     // console.log("2");
     // test JSONstring = JSON.stringify(themenameP);
-    $.post({
+    console.log("themename 2 : " + themename);
+    $.ajax({
         "dataType": 'json',
         "contentType": "application/json; charset=utf-8",
+        "type": 'GET',
         "url": "/Train/XtrctTheme_AddNewAjax",
-         // url: "http://localhost:81/Train/XtrctTheme_AddNewAjax",
-        "type": 'POST',
+        "data": { "themename": themename },
+        // url: "http://localhost:81/Train/XtrctTheme_AddNewAjax",
         // test data: JSON.stringify({ "themename": $('#themename').val() }),
         // test data: '{ themename:  "' + $("#themename").val() + '" }',
         // test 'data': { themename : $('#themename').val()},
-        // "data": { "themename": themename },
         //  test data: "{'themename':'" + themename + "'}",
         // test data: { themename: JSONstring },
-        data: { "name": "", "themename": themename },
-        
+        // data: { "name": "", "themename": themename },
         //data: { themename },
         // data: { name: $('#themename').val() },
-        contentType: false,
-        processData: false,
-        async: true,
+        // contentType: false,
+        // processData: false,
+        // async: true,
         success: function (response) {
             if (response.success) {
-                 $('#addthmiscareaerror').css('display', 'none');
+                $('#addthmiscareaerror').css('display', 'none');
                 $('#addthmiscareasuccess').css('display', 'block');
                 $('#addthmiscareasuccess p').html(response.responseText);
                 alert(response.responseText);
@@ -820,21 +822,21 @@ function JsAddTheme() {
                 //
                 window.location = '/Train/Index';
                 // $('#themename').val('');
-                
-               
-            } else  {
-                 
+
+
+            } else {
+
                 // show misc area error msg
-                
+
                 $('#addthmiscareasuccess').css('display', 'none');
                 $('#addthmiscareaerror').css('display', 'block');
                 $('#addthmiscareaerror p').html(response.responseText);
                 alert(response.responseText);
                 // $('#themename').val('');
             }
-        } ,
+        },
         error: function (jqXHR, exception) {
-             var msg = '';
+            var msg = '';
             if (jqXHR.status === 0) {
                 msg = 'Not connect.\n Verify Network.';
             } else if (jqXHR.status == 404) {
@@ -957,7 +959,7 @@ var FBDataVM = function () {
             $('#globareaerror').css('display', 'none');
             $('#globareasuccess').css('display', 'none');
             $('#globareainprogress').css('display', 'block');
-            $('#globareainprogress p').html('Le rapatriement des posts et commentaires de la page <b>'+ influencerurl_name + '</b> est en cours ... Prière de patientier quelques minutes, il vous est possible de revenir ultérieurement pour voir les posts rapatriés.');
+            $('#globareainprogress p').html('Le rapatriement des posts et commentaires de la page <b>' + influencerurl_name + '</b> est en cours ... Prière de patientier quelques minutes, il vous est possible de revenir ultérieurement pour voir les posts rapatriés.');
         }
 
         // mark as clicked to avoid double processing
