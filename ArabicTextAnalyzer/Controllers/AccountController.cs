@@ -657,6 +657,7 @@ namespace ArabicTextAnalyzer.Controllers
             // Get Admin Account
             string AdminUserName = ConfigurationManager.AppSettings["AdminUserName"];
             string AdminPassword = ConfigurationManager.AppSettings["AdminPassword"];
+
             // See if Admin exists
             var objAdminUser = UserManager.FindByEmail(AdminUserName);
             if (objAdminUser == null)
