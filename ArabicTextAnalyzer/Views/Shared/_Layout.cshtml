@@ -1,6 +1,7 @@
 ﻿@using ArabicTextAnalyzer.Domain.Models
 @using OADRJNLPCommon.Models;
 @using ArabicTextAnalyzer.Content.Resources
+@using ArabicTextAnalyzer.Domain.Models;
 @{
     List<T_FB_INFLUENCER> FbInfluencersVert = ViewBag.AllInfluenceVert;
     var cntrlr = ViewContext.RouteData.Values["Controller"].ToString();
@@ -251,24 +252,26 @@
     <!-- VERTICAL LOADTIME -->
     <div class="rotated-text"><span class="rotated-text__inner"><strong>v1.1804.16.1 - Load Time : </strong><span id="loadTime"></span></span></div>
     <script type="text/javascript" src="~/Scripts/my.js"></script>
+    <script type="text/javascript" src="~/Scripts/mysite_train_keywordfiltering.js"></script>
 
-    @if (Request.IsAuthenticated)
-    {
+ 
         <!-- modal new theme dialogbox #myModalAddNewTheme -->
-        <div class="modal fade" id="myModalAddNewTheme" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title" style="color:darkblue;">@R.NewThemeToAnalyze</h4>
-                    </div>
+    
+    <div class="modal fade" id="myModalAddNewTheme" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="color:darkblue;">@R.NewThemeToAnalyze</h4>
+                </div>
+
+                <div class="modal-body">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="themename">@R.ThemeName</label>
-                            <input type="text" class="form-control" placeholder="@R.EnterNewThemeName" required="required" id="themename" name="theme" autofocus />
+                            <input type="text"   id="themename" name="themename"  class="form-control" placeholder="@R.EnterNewThemeName" required="required" autofocus />
                         </div>
-                        <a class="btn btn-default btn-success" onclick="JsAddTheme()">@R.Add</a>
+                        <a class="btn btn-default btn-success"  onclick="JsAddTheme()">@R.Add</a>
                         <!-- misc area to say success -->
                         <div id="addthmiscareasuccess" class="alert alert-success alert-dismissable" style="display: none; margin-top: 10px;">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -286,8 +289,12 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
+    </div>
+
 
         <!-- modal rename theme dialogbox #myModalRenameTheme -->
         if (ViewBag.UserActiveXtrctTheme != null)
@@ -315,7 +322,7 @@
                 </div>
             </div>
         }
-    }
+    
 
     @*@Scripts.Render("~/bundles/jquery")*@
     @Scripts.Render("~/bundles/bootstrap")

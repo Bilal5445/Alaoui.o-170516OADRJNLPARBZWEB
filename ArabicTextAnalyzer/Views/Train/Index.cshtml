@@ -298,8 +298,10 @@ else if (token != null && !string.IsNullOrEmpty(token as string))
                 <label for="importposts">Bulk Import:</label>
                 <input type="file" name="file" class="form-control" id="importposts" accept=".tsv,.txt,.csv" />
                 <label for="mainEntity">Main Tag:</label>
+
                 @Html.DropDownList("mainEntity", (IEnumerable<SelectListItem>)ViewBag.XtrctThemesPlain, null, new { @class = "form-control" })
-            </div>
+                
+             </div>
             <!--<button class="btn btn-success btn-md" type="submit" id="import_posts" onclick="monitor();">-->
             <button class="btn btn-success btn-md" type="submit" id="import_posts">
                 Import Posts

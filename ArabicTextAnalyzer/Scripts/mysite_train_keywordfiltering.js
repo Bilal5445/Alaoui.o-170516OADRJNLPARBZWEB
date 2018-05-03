@@ -12,6 +12,7 @@ var GetCommentsIsClicked = false;
 var GetTranslateCommentIsClicked = false;
 var TranslateCommentIsClicked = false;
 var AddInfluencerIsClicked = false;
+var AddTheme = false;
 var RetrieveFBPostIsClicked = false;
 var AddTextEntityClicked = false;
 
@@ -747,7 +748,7 @@ function JsAddInfluencer() {
                 $('#addfbmiscareaerror').css('display', 'none');
                 $('#addfbmiscareasuccess').css('display', 'block');
                 $('#addfbmiscareasuccess p').html(msg.message);
-
+                
                 //
                 window.location = '/Train/IndexFBs';
 
@@ -772,9 +773,7 @@ function JsAddInfluencer() {
 }
 // Begin modified from here 23/04/2018  12:00
 
-
 function JsAddTheme() {
-
     // check before
     if (AddTheme == true)
         return;
@@ -788,44 +787,54 @@ function JsAddTheme() {
 
     // mark as clicked to avoid double processing
     AddTheme = true;
-
-    console.log("2");
-
-    // real work : call on controller Train action AddFBInfluencer
-    $.ajax({
+    // test var requestData = { themename: $.trim($('#themename').val()) };
+    // var UserData = { "name": themename }
+    // console.log("2");
+    // test JSONstring = JSON.stringify(themenameP);
+    $.post({
         "dataType": 'json',
         "contentType": "application/json; charset=utf-8",
-        "type": "POST",
         "url": "/Train/XtrctTheme_AddNewAjax",
-        "data": {
-            "themename": themename,
-        },
-        "success": function (data, textStatus, XMLHttpRequest) {
-
-            AddTheme = false;
-            if (msg.status) {
-
-                // show misc area success msg
-                $('#addthmiscareaerror').css('display', 'none');
+         // url: "http://localhost:81/Train/XtrctTheme_AddNewAjax",
+        "type": 'POST',
+        // test data: JSON.stringify({ "themename": $('#themename').val() }),
+        // test data: '{ themename:  "' + $("#themename").val() + '" }',
+        // test 'data': { themename : $('#themename').val()},
+        // "data": { "themename": themename },
+        //  test data: "{'themename':'" + themename + "'}",
+        // test data: { themename: JSONstring },
+        data: { "name": "", "themename": themename },
+        
+        //data: { themename },
+        // data: { name: $('#themename').val() },
+        contentType: false,
+        processData: false,
+        async: true,
+        success: function (response) {
+            if (response.success) {
+                 $('#addthmiscareaerror').css('display', 'none');
                 $('#addthmiscareasuccess').css('display', 'block');
-                $('#addthmiscareasuccess p').html(msg.message);
-
+                $('#addthmiscareasuccess p').html(response.responseText);
+                alert(response.responseText);
+                // alert($('#themename').val());
                 //
                 window.location = '/Train/Index';
-
-            } else {
-
+                // $('#themename').val('');
+                
+               
+            } else  {
+                 
                 // show misc area error msg
+                
                 $('#addthmiscareasuccess').css('display', 'none');
                 $('#addthmiscareaerror').css('display', 'block');
-                $('#addthmiscareaerror p').html(msg.message);
+                $('#addthmiscareaerror p').html(response.responseText);
+                alert(response.responseText);
+                // $('#themename').val('');
             }
-        },
-        "error": function (jqXHR, exception) {
-
-            AddInfluencerIsClicked = false;
-
-            var msg = '';
+        } ,
+        error: function (jqXHR, exception) {
+             var msg = '';
             if (jqXHR.status === 0) {
                 msg = 'Not connect.\n Verify Network.';
             } else if (jqXHR.status == 404) {
@@ -850,7 +859,6 @@ function JsAddTheme() {
         }
     });
 }
-
 
 // End modified from here 23/04/2018  12:00
 

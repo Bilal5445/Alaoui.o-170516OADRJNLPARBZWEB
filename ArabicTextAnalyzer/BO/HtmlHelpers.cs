@@ -191,6 +191,11 @@ namespace ArabicTextAnalyzer.BO
             return new Tuple<String, String>(result, message);
         }
 
+        // begin modified from here 27/04/2018  12:04
+
+
+        // End modified from here 27/04/2018  12:04
+
         public static string MakeHttpClientRequest(string requestUrl, Dictionary<string, string> requestContent, HttpMethod verb)
         {
             string result = string.Empty;
