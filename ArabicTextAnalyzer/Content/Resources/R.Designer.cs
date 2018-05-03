@@ -437,7 +437,14 @@ namespace ArabicTextAnalyzer.Content.Resources {
                 return ResourceManager.GetString("NotFound", resourceCulture);
             }
         }
-        
+        public static string Found
+        {
+            get
+            {
+                return ResourceManager.GetString("Found", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>

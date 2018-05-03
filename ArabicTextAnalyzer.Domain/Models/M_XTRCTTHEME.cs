@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ArabicTextAnalyzer.Domain.Models
 {
     [Table("T_XTRCTTHEME")]
-    public class M_XTRCTTHEME
+     public class M_XTRCTTHEME
     {
         [Key]
         public Guid ID_XTRCTTHEME { get; set; }    // PK
