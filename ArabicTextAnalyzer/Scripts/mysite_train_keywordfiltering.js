@@ -762,7 +762,7 @@ function JsAddInfluencer() {
         "error": function (msg) {
 
             AddInfluencerIsClicked = false;
-            
+
             // show misc area error msg
             $('#addfbmiscareasuccess').css('display', 'none');
             $('#addfbmiscareaerror').css('display', 'block');
@@ -866,7 +866,7 @@ var FBDataVM = function () {
             $('#globareaerror').css('display', 'none');
             $('#globareasuccess').css('display', 'none');
             $('#globareainprogress').css('display', 'block');
-            $('#globareainprogress p').html('Le rapatriement des posts et commentaires de la page <b>'+ influencerurl_name + '</b> est en cours ... Prière de patientier quelques minutes, il vous est possible de revenir ultérieurement pour voir les posts rapatriés.');
+            $('#globareainprogress p').html('Le rapatriement des posts et commentaires de la page <b>' + influencerurl_name + '</b> est en cours ... Prière de patientier quelques minutes, il vous est possible de revenir ultérieurement pour voir les posts rapatriés.');
         }
 
         // mark as clicked to avoid double processing
