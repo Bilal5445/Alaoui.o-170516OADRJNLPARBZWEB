@@ -52,7 +52,7 @@ namespace ArabicTextAnalyzer.Controllers
         // AccessMode _accessMode = AccessMode.dappersql;
 
         // GET: Train
-        [Authorize]
+       [Authorize]
         public ActionResult Index()
         {
             //
@@ -82,7 +82,7 @@ namespace ArabicTextAnalyzer.Controllers
             // themes : deserialize/send list of themes, plus send active theme, plus send list of tags/keywords
             var userXtrctThemes = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
             List<M_XTRCTTHEME_KEYWORD> xtrctThemesKeywords = new Arabizer().loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(userId);
-            var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active");
+            var userActiveXtrctTheme = userXtrctThemes.Find(m => m.CurrentActive == "active" );
             @ViewBag.UserXtrctThemes = userXtrctThemes;
             @ViewBag.XtrctThemesPlain = userXtrctThemes.Select(m => new SelectListItem { Text = m.ThemeName.Trim(), Selected = m.ThemeName.Trim() == userActiveXtrctTheme.ThemeName.Trim() ? true : false });
             @ViewBag.UserActiveXtrctTheme = userActiveXtrctTheme;
@@ -117,7 +117,7 @@ namespace ArabicTextAnalyzer.Controllers
             //
             return View();
         }
-
+        
         [Authorize]
         public ActionResult IndexTranslateArabizi()
         {
@@ -153,7 +153,6 @@ namespace ArabicTextAnalyzer.Controllers
 
             return View();
         }
-
         [Authorize]
         [NonAction] // tmp
         public ActionResult IndexStats()
@@ -205,7 +204,6 @@ namespace ArabicTextAnalyzer.Controllers
 
             return View();
         }
-
         [Authorize]
         // [NonAction] // tmp
         public ActionResult IndexFBs(String idXtrctTheme = null)
@@ -252,7 +250,6 @@ namespace ArabicTextAnalyzer.Controllers
 
             return View();
         }
-
         [Authorize]
         [NonAction] // tmp
         public ActionResult IndexSocialSearch()
@@ -289,8 +286,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             return View();
         }
-
-        [Authorize]
+         [Authorize]
         public ActionResult IndexSplash()
         {
             //
@@ -955,7 +951,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        // Eegin essay another code from here  40/04/2018
+        // End essay another code from here  /04/2018
         // just for test 
         [HttpGet]
         [AllowAnonymous]
@@ -983,21 +979,24 @@ namespace ArabicTextAnalyzer.Controllers
                 {
                     // Theme not  exists
                     // create the theme
+                    
                     var newXtrctTheme = new M_XTRCTTHEME
                     {
+                         
                         ID_XTRCTTHEME = Guid.NewGuid(),
                         ThemeName = themename.Trim(),
                         UserID = userId
+                       
                     };
-
+                     
                     // Save to Serialization
                     new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(newXtrctTheme);
 
-                    return Json(new { success = true, responseText = themename }, JsonRequestBehavior.DenyGet);
+                    return Json(new { success = true, responseText = themename  }, JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
-                    return Json(new { success = false, responseText = "themename already exist in database !!!!" }, JsonRequestBehavior.DenyGet);
+                    return Json(new { success = false, responseText = "themename already exist in database !!!!" }, JsonRequestBehavior.AllowGet);
                 }
 
             }
