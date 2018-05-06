@@ -651,7 +651,8 @@ namespace ArabicTextAnalyzer.Controllers
                 {
                     HttpCookie hasUsed = new HttpCookie("hasUsed", 1.ToString());
                     Response.Cookies.Add(hasUsed);
-                } else
+                }
+                else
                 {
                     HttpCookie hasUsed = new HttpCookie("hasUsed", (Convert.ToInt32(Request.Cookies["hasUsed"].Value) + 1).ToString());
                     Response.Cookies.Add(hasUsed);
@@ -994,9 +995,9 @@ namespace ArabicTextAnalyzer.Controllers
             TempData["msgAlert"] = "'" + mainEntity + "' is now MAIN ENTITY for the post";
             return RedirectToAction("Index");
         }
-#endregion
+        #endregion
 
-#region FRONT YARD ACTIONS TRAIN USER CONTRIB
+        #region FRONT YARD ACTIONS TRAIN USER CONTRIB
         [Authorize]
         [HttpPost]
         public ActionResult SaveTranslationContributionAjax(String idarabicdarijaentry, String contrib)
@@ -1055,9 +1056,9 @@ namespace ArabicTextAnalyzer.Controllers
                 }), "application/json");
             }
         }
-#endregion
+        #endregion
 
-#region FRONT YARD ACTIONS FB
+        #region FRONT YARD ACTIONS FB
         [HttpGet]
         public async Task<object> AddFBInfluencer(String url_name, String pro_or_anti)
         {
@@ -1424,9 +1425,9 @@ namespace ArabicTextAnalyzer.Controllers
                 return null;
             }
         }
-#endregion
+        #endregion
 
-#region BACK YARD ACTIONS FB
+        #region BACK YARD ACTIONS FB
         private void SendingMailAboutNegativeNERs(String influencerid, ref bool status, ref String errMessage)
         {
             // sending mail about negative NERs
@@ -1643,9 +1644,9 @@ namespace ArabicTextAnalyzer.Controllers
 
             return status;
         }
-#endregion
+        #endregion
 
-#region FRONT YARD ACTIONS TWINGLY
+        #region FRONT YARD ACTIONS TWINGLY
         [HttpGet]
         public ActionResult TwinglySetup()
         {
@@ -1755,9 +1756,9 @@ namespace ArabicTextAnalyzer.Controllers
             //
             return RedirectToAction("Index");
         }
-#endregion
+        #endregion
 
-#region FRONT YARD ACTIONS THEME
+        #region FRONT YARD ACTIONS THEME
         [HttpPost]
         public ActionResult XtrctTheme_AddNew(String themename, String themetags)
         {
@@ -1794,6 +1795,40 @@ namespace ArabicTextAnalyzer.Controllers
 
             //
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public JsonResult XtrctTheme_AddNewAjax(String themename)
+        {
+            //
+            var userId = User.Identity.GetUserId();
+
+            // check before create theme
+            var themeWithSameName = new Arabizer().loadDeserializeM_XTRCTTHEME_DAPPERSQL(userId, themename.Trim());
+            if (themeWithSameName != null)
+                return Json(new
+                {
+                    success = false,
+                    responseText = "Theme name already exists in database !!!!"
+                }, JsonRequestBehavior.AllowGet);
+
+            // create the theme
+            var newXtrctTheme = new M_XTRCTTHEME
+            {
+                ID_XTRCTTHEME = Guid.NewGuid(),
+                ThemeName = themename.Trim(),
+                UserID = userId
+            };
+
+            // Save to Serialization
+            new Arabizer().saveserializeM_XTRCTTHEME_EFSQL(newXtrctTheme);
+
+            // return success
+            return Json(new
+            {
+                success = true,
+                responseText = themename.Trim()
+            }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -1884,7 +1919,7 @@ namespace ArabicTextAnalyzer.Controllers
             //
             return RedirectToAction("Index");
         }
-#endregion
+        #endregion
 
         //
         private static IDictionary<Guid, int> indexForUploadInProgress = new Dictionary<Guid, int>();
@@ -2457,7 +2492,7 @@ namespace ArabicTextAnalyzer.Controllers
             });
         }
 
-#region FRONT YARD ACTIONS SETUP DB
+        #region FRONT YARD ACTIONS SETUP DB
         [HttpGet]
         public void SetupCreateFillDBFromXML()
         {
@@ -2499,9 +2534,9 @@ namespace ArabicTextAnalyzer.Controllers
                 db.Database.Delete();
             }
         }
-#endregion
+        #endregion
 
-#region BACK YARD BO LOAD
+        #region BACK YARD BO LOAD
         private List<M_ARABICDARIJAENTRY> loaddeserializeM_ARABICDARIJAENTRY(AccessMode accessMode)
         {
             /*if (accessMode == AccessMode.xml)
@@ -2948,9 +2983,9 @@ namespace ArabicTextAnalyzer.Controllers
                 return conn.QueryFirst<int>(qry);
             }
         }
-#endregion
+        #endregion
 
-#region BACK YARD BO HELPERS
+        #region BACK YARD BO HELPERS
         public static IEnumerable<TSource> DistinctBy<TSource, TKey>(IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
         {
             HashSet<TKey> seenKeys = new HashSet<TKey>();
@@ -2962,9 +2997,9 @@ namespace ArabicTextAnalyzer.Controllers
                 }
             }
         }
-#endregion
+        #endregion
 
-#region BACK YARD BO TOKEN MGT
+        #region BACK YARD BO TOKEN MGT
         private void ManageToken(string userId)
         {
             var token = Session["_T0k@n_"];
@@ -3003,7 +3038,7 @@ namespace ArabicTextAnalyzer.Controllers
                     Session["userId"] = clientkeys.UserID;
             }
         }
-#endregion
+        #endregion
     }
 
     // Class for return the method call after translate Fb Posts and comments
