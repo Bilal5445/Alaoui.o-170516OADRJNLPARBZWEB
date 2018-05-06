@@ -27,6 +27,16 @@ namespace ArabicTextAnalyzer
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, lang = "fr-FR" }
             );
 
+           /* routes.MapRoute(
+               name: "Default1",
+               url: "{controller}/{action}",
+               defaults: new { controller = "Account", action = "Login" }
+           );*/
+
+
+
+
+
             // Begin modified from here 27/04/2018 13:24
             // for localization of js mysite_train_keywordfiltering.js
             /*routes.MapRoute(
