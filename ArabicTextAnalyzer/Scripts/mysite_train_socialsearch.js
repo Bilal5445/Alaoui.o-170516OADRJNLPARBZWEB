@@ -9,6 +9,16 @@ function InitializeSocialSearchDataTables() {
 
     // Initialize DataTables
     var table = $('.datatables-table-fbs-all').DataTable({
+        /*"language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/French.json",
+            buttons: {
+                copyTitle: 'Ajouté au presse-papiers',
+                copySuccess: {
+                    _: '%d lignes copiées',
+                    1: '1 ligne copiée'
+                }
+            }
+        },*/
         // Enable mark.js search term highlighting
         mark: {
             element: 'span',
@@ -45,7 +55,7 @@ function InitializeSocialSearchDataTables() {
             {
                 "data": function (data) {
                     var str = '';
-                    str = str + '<a class="btn btn-warning btn-xs" onclick="' + "JsTranslateFBPost(this)" + '">Translate</a>';
+                    str = str + '<a class="btn btn-warning btn-xs disabled" onclick="' + "JsTranslateFBPost(this)" + '">Traduire</a>';
                     return str;
                 },
                 "className": "controls center top"
@@ -85,7 +95,7 @@ function InitializeSocialSearchDataTables() {
     });
 
     // add checkbox for wholeword search
-    $("div.toolbar").html('<input type="checkbox" name="vehicle" value="Bike"> Whole word');
+    $("div.toolbar").html('<input type="checkbox" name="vehicle" value="Bike"> par mot complet');
 
     // Search by date & Event listener to the two range filtering inputs to redraw on input
     $("#min").datepicker({ onSelect: function () { table.draw(); }, changeMonth: true, changeYear: true });

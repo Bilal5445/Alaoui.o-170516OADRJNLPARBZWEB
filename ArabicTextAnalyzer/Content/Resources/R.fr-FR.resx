@@ -283,10 +283,10 @@
     <value>Sauvegarder Paramètres</value>
   </data>
   <data name="SearchForSocialDataEtc" xml:space="preserve">
-    <value>Filtrez ​et analysez les commentaires de votre page FB</value>
+    <value>Recherchez, filtrez ​et analysez les posts et commentaires des pages FB marocaines</value>
   </data>
   <data name="SocialSearch" xml:space="preserve">
-    <value>Recherche</value>
+    <value>Recherche dans Facebook</value>
   </data>
   <data name="StartStopAutoRetrieveOfEtc" xml:space="preserve">
     <value>Start/stop collecte auto des posts et commentaires FB</value>
