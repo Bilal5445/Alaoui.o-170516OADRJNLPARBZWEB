@@ -17,6 +17,7 @@
 /// <reference path="mysite_train.js" />
 /// <reference path="mysite_train_fbs.js" />
 /// <reference path="mysite_train_keywordfiltering.js" />
+/// <reference path="mysite_train_layout.js" />
 /// <reference path="mysite_train_socialsearch.js" />
 /// <reference path="mysite_train_translate_single.js" />
 /// <reference path="mysite_train_workingdata.js" />

@@ -1092,6 +1092,19 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
+        public M_XTRCTTHEME loadDeserializeM_XTRCTTHEME_DAPPERSQL(String userId, String themeName)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_XTRCTTHEME WHERE UserID = '" + userId + "' AND ThemeName = '" + themeName + "' ";
+
+                conn.Open();
+                return conn.QueryFirstOrDefault<M_XTRCTTHEME>(qry);
+            }
+        }
+
         public List<M_XTRCTTHEME_KEYWORD> loaddeserializeM_XTRCTTHEME_KEYWORD_DAPPERSQL()
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;

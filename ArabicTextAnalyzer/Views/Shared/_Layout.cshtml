@@ -83,13 +83,13 @@
             padding: 0px;
         }
 
-            .panel-body table tr td {
-                padding-left: 15px;
-            }
+        .panel-body table tr td {
+            padding-left: 15px;
+        }
 
-            .panel-body .table {
-                margin-bottom: 0px;
-            }
+        .panel-body .table {
+            margin-bottom: 0px;
+        }
     </style>
 
     @Scripts.Render("~/bundles/jquery")
@@ -169,6 +169,7 @@
             </div>
         </div>
     </div>
+
     <!-- vert menu -->
     @if (Request.IsAuthenticated)
     {
@@ -272,6 +273,9 @@
     <div class="rotated-text"><span class="rotated-text__inner"><strong>v1.1804.16.1 - Load Time : </strong><span id="loadTime"></span></span></div>
     <script type="text/javascript" src="~/Scripts/my.js"></script>
 
+    <!-- js add theme -->
+    <script type="text/javascript" src="~/Scripts/mysite_train_layout.js"></script>
+
     @if (Request.IsAuthenticated)
     {
         <!-- modal new theme dialogbox #myModalAddNewTheme -->
@@ -288,9 +292,21 @@
                         {
                             <div class="form-group">
                                 <label for="themename">@R.ThemeName</label>
-                                @Html.TextBox("themename", "", new { @class = "form-control", placeholder = R.EnterNewThemeName, @required = "required", id = "themename" })
+                                @Html.TextBox("themename", "", new { @class = "form-control", placeholder = R.EnterNewThemeName, @required = "required", id = "themenameforadd" })
                             </div>
-                            <button type="submit" class="btn btn-default btn-success">@R.Add</button>
+                            @*<button type="submit" class="btn btn-default btn-success">@R.Add</button>*@
+                            <a class="btn btn-default btn-success" onclick="JsAddTheme()">@R.Add</a>
+
+                            <!-- misc area to say success -->
+                            <div id="addthmiscareasuccess" class="alert alert-success alert-dismissable" style="display: none; margin-top: 10px;">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>@R.Success!</strong> <p style="display: inline;"></p>
+                            </div>
+                            <!-- misc areas to report warnings/errors -->
+                            <div id="addthmiscareaerror" class="alert alert-warning alert-dismissable margin-bottom-0" style="display: none; margin-top: 10px;">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>@R.Warning!</strong> <p style="display: inline;"></p>
+                            </div>
                         }
                     </div>
                 </div>
