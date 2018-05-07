@@ -80,6 +80,16 @@ function JsAddTheme() {
     });
 }
 
+// event on close add new theme : reset
+// $('#myModalAddNewTheme').on('hidden', function () {
+$('#myModalAddNewTheme').on('hidden.bs.modal', function () {
+    
+    // hide misc area error msg
+    console.log("myModalAddNewTheme : close");
+    $('#addthmiscareasuccess').css('display', 'none');
+    $('#addthmiscareaerror').css('display', 'none');
+})
+
 function JsRenameTheme() {
 
     // check before
@@ -158,3 +168,13 @@ function JsRenameTheme() {
         }
     });
 }
+
+// event on close rename theme : reset
+// $('#myModalRenameTheme').on('hidden', function () {
+$('#myModalRenameTheme').on('hidden.bs.modal', function () {
+
+    // hide misc area error msg
+    console.log("myModalRenameTheme : close");
+    $('#addrnthmiscareasuccess').css('display', 'none');
+    $('#addrnthmiscareaerror').css('display', 'none');
+})
