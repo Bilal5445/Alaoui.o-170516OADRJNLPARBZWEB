@@ -273,9 +273,6 @@
     <div class="rotated-text"><span class="rotated-text__inner"><strong>v1.1804.16.1 - Load Time : </strong><span id="loadTime"></span></span></div>
     <script type="text/javascript" src="~/Scripts/my.js"></script>
 
-    <!-- js add theme -->
-    <script type="text/javascript" src="~/Scripts/mysite_train_layout.js"></script>
-
     @if (Request.IsAuthenticated && ViewBag.Title != null && ViewBag.Title != "Error")
     {
         <!-- modal new theme dialogbox #myModalAddNewTheme -->
@@ -351,6 +348,9 @@
                 </div>
             </div>
         }
+
+        <!-- js add theme : need to be below modals, otherwise hidden.bs.modal events wont be called -->
+        <script type="text/javascript" src="~/Scripts/mysite_train_layout.js"></script>
     }
 
     @Scripts.Render("~/bundles/bootstrap")
