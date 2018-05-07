@@ -795,6 +795,7 @@
     <EmbeddedResource Include="Content\Resources\R.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>R.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710270934303_InitialCreate.resx">
       <DependentUpon>201710270934303_InitialCreate.cs</DependentUpon>
