@@ -1831,14 +1831,33 @@ namespace ArabicTextAnalyzer.Controllers
             }, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        // [HttpPost]
+        [HttpGet]
         public ActionResult XtrctTheme_EditName(Guid idXtrctTheme, String themeNewName)
         {
+            //
+            var userId = User.Identity.GetUserId();
+
+            // check before rename theme
+            var themeWithSameName = new Arabizer().loadDeserializeM_XTRCTTHEME_DAPPERSQL(userId, themeNewName.Trim());
+            if (themeWithSameName != null)
+                return Json(new
+                {
+                    success = false,
+                    responseText = "Theme name already exists in database !!!!"
+                }, JsonRequestBehavior.AllowGet);
+
             // Save to Serialization
             new Arabizer().saveserializeM_XTRCTTHEME_EFSQL_Rename(idXtrctTheme, themeNewName);
 
             //
-            return RedirectToAction("Index");
+            // return RedirectToAction("Index");
+            // return success
+            return Json(new
+            {
+                success = true,
+                // responseText = themename.Trim()
+            }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
