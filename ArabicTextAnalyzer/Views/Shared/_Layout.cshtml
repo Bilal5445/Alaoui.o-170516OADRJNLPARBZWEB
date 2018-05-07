@@ -171,7 +171,7 @@
     </div>
 
     <!-- vert menu -->
-    @if (Request.IsAuthenticated)
+    @if (Request.IsAuthenticated && ViewBag.Title != null && ViewBag.Title != "Error")
     {
         <div id="vertaccordmenuandbody" class="container adekwasy">
             <div class="row">
@@ -276,7 +276,7 @@
     <!-- js add theme -->
     <script type="text/javascript" src="~/Scripts/mysite_train_layout.js"></script>
 
-    @if (Request.IsAuthenticated)
+    @if (Request.IsAuthenticated && ViewBag.Title != null && ViewBag.Title != "Error")
     {
         <!-- modal new theme dialogbox #myModalAddNewTheme -->
         <div class="modal fade" id="myModalAddNewTheme" role="dialog">
@@ -330,9 +330,21 @@
                                 <div class="form-group">
                                     <label for="themename">@R.ThemeNewName</label>
                                     @Html.TextBox("themeNewName", "", new { @class = "form-control", placeholder = R.EnterThemeNewName, @required = "required", id = "themeNewName" })
-                                    @Html.Hidden("idXtrctTheme", (Guid)ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME)
+                                    @Html.Hidden("idXtrctTheme", (Guid)ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME, new { id = "idXtrctThemeToRename" })
                                 </div>
-                                <button type="submit" class="btn btn-default btn-success">@R.Rename</button>
+                                @*<button type="submit" class="btn btn-default btn-success">@R.Rename</button>*@
+                                <a class="btn btn-default btn-success" onclick="JsRenameTheme()">@R.Rename</a>
+
+                                <!-- misc area to say success -->
+                                <div id="addrnthmiscareasuccess" class="alert alert-success alert-dismissable" style="display: none; margin-top: 10px;">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>@R.Success!</strong> <p style="display: inline;"></p>
+                                </div>
+                                <!-- misc areas to report warnings/errors -->
+                                <div id="addrnthmiscareaerror" class="alert alert-warning alert-dismissable margin-bottom-0" style="display: none; margin-top: 10px;">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>@R.Warning!</strong> <p style="display: inline;"></p>
+                                </div>
                             }
                         </div>
                     </div>
