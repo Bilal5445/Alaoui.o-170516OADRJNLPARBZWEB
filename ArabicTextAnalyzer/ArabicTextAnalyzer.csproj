@@ -695,6 +695,7 @@
     <Content Include="Scripts\mysite_train.js" />
     <Content Include="Scripts\mysite_train_fbs.js" />
     <Content Include="Scripts\mysite_train_keywordfiltering.js" />
+    <Content Include="Scripts\mysite_train_rename_theme_layout.js" />
     <Content Include="Scripts\mysite_train_socialsearch.js" />
     <Content Include="Scripts\mysite_train_translate_single.js" />
     <Content Include="Scripts\mysite_train_workingdata.js" />

@@ -797,11 +797,27 @@ namespace ArabicTextAnalyzer.BO
 
                 var tobeactiveXtrctTheme = xtrctThemes.Where(m => m.ID_XTRCTTHEME == idXtrctTheme).FirstOrDefault<M_XTRCTTHEME>();
                 tobeactiveXtrctTheme.ThemeName = themeNewName;
+                
 
                 // commit
                 db.SaveChanges();
             }
         }
+
+        public M_XTRCTTHEME saveserializeM_XTRCTTHEME_EFSQL_RenameAjax(Guid idXtrctTheme, String themeNewName)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+
+                String qry = "SELECT * FROM T_XTRCTTHEME WHERE ID_XTRCTTHEME = '" + idXtrctTheme + "' AND ThemeName = '" + themeNewName + "' ";
+
+                conn.Open();
+                return conn.QueryFirstOrDefault<M_XTRCTTHEME>(qry);
+            }
+        }
+
 
         public void saveserializeM_XTRCTTHEME_EFSQL_Deactivate(String userId)
         {

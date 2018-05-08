@@ -275,7 +275,8 @@
 
     <!-- js add theme -->
     <script type="text/javascript" src="~/Scripts/mysite_train_layout.js"></script>
-
+    <!-- js rename theme -->
+    <script type="text/javascript" src="~/Scripts/mysite_train_rename_theme_layout.js"></script>
     @if (Request.IsAuthenticated)
     {
         <!-- modal new theme dialogbox #myModalAddNewTheme -->
@@ -332,7 +333,17 @@
                                     @Html.TextBox("themeNewName", "", new { @class = "form-control", placeholder = R.EnterThemeNewName, @required = "required", id = "themeNewName" })
                                     @Html.Hidden("idXtrctTheme", (Guid)ViewBag.UserActiveXtrctTheme.ID_XTRCTTHEME)
                                 </div>
-                                <button type="submit" class="btn btn-default btn-success">@R.Rename</button>
+                                <a class="btn btn-default btn-success" onclick="JsRenameTheme()">@R.Rename</a>
+                                 <!-- misc area to say success -->
+                                <div id="renamethmiscareasuccess" class="alert alert-success alert-dismissable" style="display: none; margin-top: 10px;">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>@R.Success!</strong> <p style="display: inline;"></p>
+                                </div>
+                               <!-- misc areas to report warnings/errors -->
+                                <div id="renamethmiscareaerror" class="alert alert-warning alert-dismissable margin-bottom-0" style="display: none; margin-top: 10px;">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>@R.Warning!</strong> <p style="display: inline;"></p>
+                                </div>
                             }
                         </div>
                     </div>

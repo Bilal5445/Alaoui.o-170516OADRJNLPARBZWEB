@@ -738,6 +738,7 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [HttpGet]
+
         public ActionResult Train_AddToCorpus(String arabiziWord, Guid arabiziWordGuid)
         {
             var textConverter = new TextConverter();
@@ -1839,6 +1840,32 @@ namespace ArabicTextAnalyzer.Controllers
 
             //
             return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public JsonResult XtrctTheme_EditNameAjax(Guid idXtrctTheme, String themeNewName)
+        {
+            //
+            var userId = User.Identity.GetUserId();
+             
+            // check before create theme
+            var themeRenameWithSameName = new Arabizer().saveserializeM_XTRCTTHEME_EFSQL_RenameAjax(idXtrctTheme, themeNewName.Trim());
+            if (themeRenameWithSameName != null)
+                return Json(new
+                {
+                    success = false,
+                    responseText = "Theme name already exists in database please choose another Name !!!!"
+                }, JsonRequestBehavior.AllowGet);
+
+           
+            //  update Save to Serialization
+            new Arabizer().saveserializeM_XTRCTTHEME_EFSQL_Rename(idXtrctTheme, themeNewName);
+           
+            // return success
+            return Json(new
+            {
+                success = true,
+                responseText = "Theme name Update successfully in database !!!!",
+            }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
