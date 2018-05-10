@@ -59,6 +59,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("styles", required: false)
@@ -93,6 +94,29 @@
     </style>
 
     @Scripts.Render("~/bundles/jquery")
+    @*script to add Zedesk : chatbox for support right page NB: Free trial just 30 days 
+    <script type="text/javascript">
+      window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+       d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+        _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+        $.src="https://v2.zopim.com/?5gsb2olFDEoamfmtnC2CdEPDATS3Hjom";z.t=+new Date;$.
+       type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+     </script>*@
+
+   @*script to add supporti Free : chatbox for support right page*@
+    <script type='text/javascript'>
+    (function() {
+    var s = document.createElement('script');s.type='text/javascript';s.async=true;s.id='lsInitScript';
+    s.src='https://livesupporti.com/Scripts/clientAsync.js?acc=3685fe20-b661-43e5-9252-9bd8f3155c3e&skin=Classic';
+    var scr=document.getElementsByTagName('script')[0];scr.parentNode.appendChild(s, scr);
+    })();
+    </script>
+
+    @*script to add LiveChat Free : chatbox for support right page
+    <script type="text/javascript">
+        function add_chatinline() { var hccid = 79809732; var nt = document.createElement("script"); nt.async = true; nt.src = "https://mylivechat.com/chatinline.aspx?hccid=" + hccid; var ct = document.getElementsByTagName("script")[0]; ct.parentNode.insertBefore(nt, ct); }
+        add_chatinline(); </script>*@
+
     @*script to track and canel all ajax calls when unloading page*@
     <script>
         // Automatically cancel unfinished ajax requests
