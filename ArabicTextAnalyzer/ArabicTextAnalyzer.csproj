@@ -64,6 +64,14 @@
       <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MailKit, Version=2.0.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
       <HintPath>..\packages\MailKit.2.0.2\lib\net45\MailKit.dll</HintPath>
       <Private>True</Private>
@@ -189,12 +197,6 @@
     </Reference>
     <Reference Include="System.Web.Http.WebHost">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -778,6 +780,10 @@
     <ProjectReference Include="..\..\170215OADRJNLPMLDC\OADRJNLPCommon\OADRJNLPCommon\OADRJNLPCommon.csproj">
       <Project>{5b4657a7-6add-4e83-965d-c5a8b7c9b321}</Project>
       <Name>OADRJNLPCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\170215OADRJNLPMLDC\ScrapyWeb\ScrapyWeb.csproj">
+      <Project>{B8E8B778-A1DB-4A27-883B-C2F9B7AAC842}</Project>
+      <Name>ScrapyWeb</Name>
     </ProjectReference>
     <ProjectReference Include="..\ArabicTextAnalyzer.Business\ArabicTextAnalyzer.Business.csproj">
       <Project>{95e08859-199a-486a-88d5-6c1a5300f7d2}</Project>

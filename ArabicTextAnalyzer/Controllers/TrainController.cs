@@ -1061,7 +1061,7 @@ namespace ArabicTextAnalyzer.Controllers
 
         #region FRONT YARD ACTIONS FB
         [HttpGet]
-        public async Task<object> AddFBInfluencer(String url_name, String pro_or_anti)
+        public async Task<object> AddFBInfluencerOld(String url_name, String pro_or_anti)
         {
             //
             var userId = User.Identity.GetUserId();
@@ -1119,6 +1119,90 @@ namespace ArabicTextAnalyzer.Controllers
                 recordsFiltered = translatedString,
                 message = errMessage
             });
+        }
+
+        [HttpGet]
+        public async Task<object> AddFBInfluencer(String url_name, String pro_or_anti)
+        {
+            // this test  hiden all others test maybe making a test from js
+             /* if (!String.IsNullOrWhiteSpace(url_name))
+               {
+                   return Json(new
+                   {
+                       success = false,
+                       responseText = "White space not allowed  !!!!"
+                   }, JsonRequestBehavior.AllowGet);
+            }*/
+            
+            var userId = User.Identity.GetUserId();
+
+            //
+            String errMessage = string.Empty;
+            String responseText = string.Empty;
+            bool success = false;
+            String translatedString = String.Empty;
+            String result = null;
+
+            //
+            M_XTRCTTHEME activeTheme = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
+            activeTheme = (activeTheme != null) ? activeTheme : new M_XTRCTTHEME();
+
+            //
+            Tuple<String, String> results = new Tuple<string, string>(String.Empty, String.Empty);
+
+            //
+            if (activeTheme.ID_XTRCTTHEME != null)
+            {
+                // Check/Clean before
+                if (url_name.StartsWith("https://www.facebook.com/"))
+                    url_name = url_name.Substring("https://www.facebook.com/".Length);
+
+                // check if the url_name contains whitespace
+             
+                // real work
+                var themeid = activeTheme.ID_XTRCTTHEME;
+                var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "AccountPanel/AddFBInfluencer?url_name=" + url_name + "&pro_or_anti=" + pro_or_anti + "&id=1&themeid=" + themeid + "&CallFrom=AddFBInfluencer";
+                // ex : url : http://localhost:8081/AccountPanel/AddFBInfluencer?url_name=telquelofficiel&pro_or_anti=Anti&id=1&themeid=fd6590b9-dbd1-4341-9329-4a9cae8047eb&CallFrom=AddFBInfluencer
+                results = await HtmlHelpers.PostAPIRequest_message(url, String.Empty, type: "POST");
+                result = results.Item1;
+            }
+            else
+                // result = "No theme id can get. ";
+
+                return Json(new
+                {
+
+                    success = false,
+                    responseText = result
+                }, JsonRequestBehavior.AllowGet);
+
+            if (result.ToLower().Contains("true"))
+            {
+                return Json(new
+                {
+                    success = true,
+                    responseText = "page Added"
+                }, JsonRequestBehavior.AllowGet);
+
+            }
+            else
+            {
+                success = false;
+                // errMessage = result;
+                // errMessage += " - " + results.Item2;
+                if (results.Item2 == "NotFound")
+                    errMessage = R.NotFound;
+                else
+                    errMessage = results.Item2;
+            }
+
+
+            return Json(new
+            {
+                success = false,
+                responseText = errMessage
+            }, JsonRequestBehavior.AllowGet);
+            //
         }
 
         /// <summary>

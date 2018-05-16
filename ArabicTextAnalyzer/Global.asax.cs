@@ -1,10 +1,14 @@
-﻿using System;
+﻿using ScrapyWeb.Models;
+using System;
+using System.Data.Entity;
 using System.Globalization;
 using System.Threading;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using ArabicTextAnalyzer.Domain.Models;
+
 
 namespace ArabicTextAnalyzer
 {
@@ -20,6 +24,10 @@ namespace ArabicTextAnalyzer
 
             // limit response to json only
             ConfigureApi(GlobalConfiguration.Configuration);
+            // Maybe this line can resolve this error : The model backing the ‘MyContext’ context has changed since the database was created. 
+            //Database.SetInitializer<ArabiziDbContext>(null);
+            // Database.SetInitializer<ScrapyWebEntities>(null);
+          
         }
 
         protected void Application_BeginRequest()

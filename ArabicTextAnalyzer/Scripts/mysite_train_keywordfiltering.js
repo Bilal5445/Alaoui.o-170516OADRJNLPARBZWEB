@@ -716,16 +716,34 @@ function JsAddInfluencer() {
     if (AddInfluencerIsClicked == true)
         return;
 
-    // check on fields
+    // check on fields 
     var urlname = $('#txtUrlName').val();
     var pro_or_anti = $('#ddlPro_or_anti').val();
-    if (urlname.length == 0 || pro_or_anti.length == 0) {
-        alert("All the fields are required.");
+    if (urlname.length == 0 || pro_or_anti.length == 0 /* || !urlname || /^\s*$/.test(urlname)*/ ) {
+        // show misc area error msg
+        AddInfluencerIsClicked = false;
+        $('#addfbmiscareasuccess').css('display', 'none');
+        $('#addfbmiscareaerror').css('display', 'block');
+        $('#addfbmiscareaerror p').html(" the field is required and whitespace not allowed");
+        // alert("All the fields are required.");
         return;
     }
-
+   
+        // check if string contains white spaces 
+   else if (/^\s*$/.test($('#txtUrlName').val())) {
+            // It has only whitespace
+       // show misc area error msg
+       AddInfluencerIsClicked = false;
+              $('#addfbmiscareasuccess').css('display', 'none');
+              $('#addfbmiscareaerror').css('display', 'block');
+             $('#addfbmiscareaerror p').html("whitespace not Allowed here from js ");
+              alert("whitespace not Allowed here .");
+             $('#txtUrlName').val().replace(/\s+/g, '');
+              
+        }
     // mark as clicked to avoid double processing
     AddInfluencerIsClicked = true;
+   
 
     // real work : call on controller Train action AddFBInfluencer
     $.ajax({
@@ -738,15 +756,15 @@ function JsAddInfluencer() {
             "url_name": urlname,
             "pro_or_anti": pro_or_anti,
         },
-        "success": function (msg) {
-
-            AddInfluencerIsClicked = false;
-            if (msg.status) {
+        success: function (response) {
+            if (response.success) {
 
                 // show misc area success msg
                 $('#addfbmiscareaerror').css('display', 'none');
                 $('#addfbmiscareasuccess').css('display', 'block');
-                $('#addfbmiscareasuccess p').html(msg.message);
+                $('#addfbmiscareasuccess p').html(response.responseText);
+                console.log("url_name  : " + url_name);
+                console.log("pro_or_anti   : " + pro_or_anti);
 
                 //
                 window.location = '/Train/IndexFBs';
@@ -756,10 +774,10 @@ function JsAddInfluencer() {
                 // show misc area error msg
                 $('#addfbmiscareasuccess').css('display', 'none');
                 $('#addfbmiscareaerror').css('display', 'block');
-                $('#addfbmiscareaerror p').html(msg.message);
+                $('#addfbmiscareaerror p').html(response.responseText);
             }
         },
-        "error": function (msg) {
+        error: function (msg) {
 
             AddInfluencerIsClicked = false;
 
