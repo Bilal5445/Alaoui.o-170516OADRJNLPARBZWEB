@@ -2322,7 +2322,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
             if (max != null)
             {
-                var maxDate = Convert.ToDateTime(max);
+                var maxDate = Convert.ToDateTime(max).AddDays(1);
                 items = items.Where(a => DateTime.ParseExact(a.dp, "yy-MM-dd HH:mm", CultureInfo.InvariantCulture) <= maxDate).ToList();
             }
 
