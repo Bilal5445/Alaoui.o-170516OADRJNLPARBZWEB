@@ -1311,6 +1311,22 @@ namespace ArabicTextAnalyzer.BO
                 conn.Open();
 
                 String qry = "SELECT * FROM T_FB_INFLUENCER";
+
+                return conn.Query<T_FB_INFLUENCER>(qry).ToList();
+            }
+        }
+
+        public List<T_FB_INFLUENCER> loadDeserializeT_FB_INFLUENCERs_NODUPL_DAPPERSQL()
+        {
+            //
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                // String qry = "SELECT * FROM T_FB_INFLUENCER";
+                String qry = "SELECT id, name FROM T_FB_INFLUENCER "
+                    + "GROUP BY id, name "; // group by to remove duplicates
                 return conn.Query<T_FB_INFLUENCER>(qry).ToList();
             }
         }
