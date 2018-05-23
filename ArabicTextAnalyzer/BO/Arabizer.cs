@@ -339,7 +339,7 @@ namespace ArabicTextAnalyzer.BO
             return arabicText;
         }
 
-        private /*static*/ string train_binggoogle(String arabicText)
+        private String train_binggoogle(String arabicText)
         {
             // first pass : correct/translate the original arabizi into msa arabic using big/google apis (to take care of french/english segments in codeswitch arabizi posts)
             return new TranslationTools(Server).CorrectTranslate(arabicText);
@@ -546,10 +546,14 @@ namespace ArabicTextAnalyzer.BO
             saveserializeM_ARABICDARIJAENTRY_LATINWORD_XML(sentiment);
         }*/
 
-        private List<M_ARABICDARIJAENTRY_TEXTENTITY> train_savener(string arabicText, Guid id_ARABICDARIJAENTRY, AccessMode accessMode)
+        private List<M_ARABICDARIJAENTRY_TEXTENTITY> train_savener(string arabicText, Guid id_ARABICDARIJAENTRY, AccessMode accessMode, bool skipRosette = false)
         {
-            // Entity extraction from rosette (https://api.rosette.com/rest/v1/)
-            var entities = new TextEntityExtraction().GetEntities(arabicText);
+            IEnumerable<TextEntity> entities = new List<TextEntity>();
+            if (skipRosette == false)
+            {
+                // Entity extraction from rosette (https://api.rosette.com/rest/v1/)
+                entities = new TextEntityExtraction().GetEntities(arabicText);
+            }
 
             // NER manual extraction
             return new TextEntityExtraction().NerManualExtraction(arabicText, entities, id_ARABICDARIJAENTRY, saveserializeM_ARABICDARIJAENTRY_TEXTENTITY, accessMode);
@@ -564,6 +568,17 @@ namespace ArabicTextAnalyzer.BO
             return new TextEntityExtraction().NerManualExtraction_uow(arabicText, entities, id_ARABICDARIJAENTRY, saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL_uow, db, isEndOfScope);
         }
         #endregion
+
+        /*public void trainSocialSerach(String larabicText)
+        {
+            larabicText = new TextConverter().Preprocess_upstream(larabicText);
+
+            larabicText = train_bidict(larabicText);
+
+            larabicText = train_perl(watch, larabicText);
+
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = train_savener(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql, skipRosette: true);
+        }*/
 
         #region BACK YARD BO SAVE / DELETE
         private void saveserializeM_ARABIZIENTRY_EFSQL(M_ARABIZIENTRY arabiziEntry)
