@@ -27,16 +27,16 @@
     {
         // comments counts
         var fbcmtbdg = 0;
-        if (cmtCntPrInfl != null && cmtCntPrInfl.SingleOrDefault(m => m.id == item.id) != null)
+        if (cmtCntPrInfl != null && cmtCntPrInfl.FirstOrDefault(m => m.id == item.id) != null)
         {
-            fbcmtbdg = cmtCntPrInfl.Single(m => m.id == item.id).CountPerInfluencer;
+            fbcmtbdg = cmtCntPrInfl.First(m => m.id == item.id).CountPerInfluencer;
         }
 
         // posts counts
         var fbpstbdg = 0;
-        if (pstCntPrInfl != null && pstCntPrInfl.SingleOrDefault(m => m.id == item.id) != null)
+        if (pstCntPrInfl != null && pstCntPrInfl.FirstOrDefault(m => m.id == item.id) != null)
         {
-            fbpstbdg = pstCntPrInfl.Single(m => m.id == item.id).CountPerInfluencer;
+            fbpstbdg = pstCntPrInfl.First(m => m.id == item.id).CountPerInfluencer;
         }
 
         var fbpstcmthtm = "<span class='badge' style='float: right; font-weight: normal'>" + string.Format("{0:n0}", fbpstbdg) + " / " + string.Format("{0:n0}", fbcmtbdg) + "</span>";

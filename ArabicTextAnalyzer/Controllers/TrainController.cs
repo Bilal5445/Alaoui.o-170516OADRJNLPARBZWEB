@@ -1082,6 +1082,8 @@ namespace ArabicTextAnalyzer.Controllers
             if (activeTheme.ID_XTRCTTHEME != null)
             {
                 // Check/Clean before
+                url_name = url_name.Trim();
+                url_name = url_name.TrimEnd(new[] { '/' });
                 if (url_name.StartsWith("https://www.facebook.com/"))
                     url_name = url_name.Substring("https://www.facebook.com/".Length);
 
@@ -2207,16 +2209,6 @@ namespace ArabicTextAnalyzer.Controllers
             var totalItemsCount = new Arabizer().loaddeserializeT_FB_Posts_Count_DAPPERSQL(fluencerid);
 
             // get main (whole) data from DB first while filtering on search term if any
-            /*var items = new Arabizer().loaddeserializeT_FB_POST_DAPPERSQL(fluencerid).Select(c => new
-            {
-                id = c.id,
-                // fk_i = c.fk_influencer,
-                pt = c.post_text,
-                tt = c.translated_text,
-                lc = c.likes_count,
-                cc = c.comments_count,
-                dp = c.date_publishing.ToString("yy-MM-dd HH:mm")
-            }).ToList();*/
             var items = new Arabizer().loaddeserializeT_FB_POST_JOIN_COMMENT_Like_Filter_DAPPERSQL(fluencerid, searchValue).Select(c => new
             {
                 id = c.id,
@@ -2228,17 +2220,11 @@ namespace ArabicTextAnalyzer.Controllers
                 dp = c.date_publishing.ToString("yy-MM-dd HH:mm")
             }).ToList();
 
-            // get the number of entries
-            // var totalItemsCount = items.Count;
-
             // adjust itemsPerPage case show all
             if (itemsPerPage == -1)
                 itemsPerPage = totalItemsCount;
 
-            // filter on search term if any
-            /*if (!String.IsNullOrEmpty(searchValue))
-                items = items.Where(a => a.pt.ToUpper().Contains(searchValue.ToUpper()) || (a.tt != null && a.tt.ToUpper().Contains(searchValue.ToUpper()))).ToList();*/
-
+            //
             var itemsFilteredCount = items.Count;
 
             // page as per request (index of page and length)
