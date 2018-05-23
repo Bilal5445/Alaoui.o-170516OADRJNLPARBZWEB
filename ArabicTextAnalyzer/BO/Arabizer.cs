@@ -8,6 +8,7 @@ using OADRJNLPCommon.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Dynamic;
@@ -21,15 +22,27 @@ namespace ArabicTextAnalyzer.BO
 {
     public class Arabizer : IDisposable
     {
+        //
+        String ScrapyWebEntitiesConnectionString;
+
         public HttpServerUtilityBase Server { get; set; }
 
         public Arabizer()
         {
+            ScrapyWebEntitiesConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
         }
 
         public Arabizer(HttpServerUtilityBase server)
         {
             Server = server;
+
+            ScrapyWebEntitiesConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+        }
+
+        // for UT only
+        public Arabizer(String ScrapyWebEntitiesConnectionString)
+        {
+            this.ScrapyWebEntitiesConnectionString = ScrapyWebEntitiesConnectionString;
         }
 
         public void Dispose()
@@ -559,6 +572,42 @@ namespace ArabicTextAnalyzer.BO
             return new TextEntityExtraction().NerManualExtraction(arabicText, entities, id_ARABICDARIJAENTRY, saveserializeM_ARABICDARIJAENTRY_TEXTENTITY, accessMode);
         }
 
+        private List<M_ARABICDARIJAENTRY_TEXTENTITY> train_savener_woRosette(string arabicText, String entryId, int entryType)
+        {
+            IEnumerable<TextEntity> entities = new List<TextEntity>();
+
+            // NER manual extraction
+            var textEntities = new TextEntityExtraction().NerManualExtraction_nosave(arabicText, entities);
+            return NerManualExtraction_save(textEntities, entryId, entryType);
+        }
+
+        List<M_ARABICDARIJAENTRY_TEXTENTITY> NerManualExtraction_save(List<TextEntity> lentities, String entryId, int entryType)
+        {
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
+
+            // Saving
+            foreach (var entity in lentities)
+            {
+                M_ARABICDARIJAENTRY_TEXTENTITY textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
+                {
+                    ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
+                    ID_ARABICDARIJAENTRY = Guid.Empty,
+                    TextEntity = entity,
+                    FK_ENTRY = entryId,
+                    ENTRY_type = entryType
+                };
+
+                //
+                textEntities.Add(textEntity);
+
+                // Save to Serialization
+                saveserializeM_ARABICDARIJAENTRY_TEXTENTITY(textEntity, AccessMode.efsql);
+            }
+
+            //
+            return textEntities;
+        }
+
         private List<M_ARABICDARIJAENTRY_TEXTENTITY> train_savener_uow(string arabicText, Guid id_ARABICDARIJAENTRY, ArabiziDbContext db, bool isEndOfScope = false)
         {
             // Entity extraction from rosette (https://api.rosette.com/rest/v1/)
@@ -569,16 +618,51 @@ namespace ArabicTextAnalyzer.BO
         }
         #endregion
 
-        /*public void trainSocialSerach(String larabicText)
+        public dynamic train_woBingGoogleRosette(String entryText, String entryId, int entryType)
         {
-            larabicText = new TextConverter().Preprocess_upstream(larabicText);
+            dynamic expando = new ExpandoObject();
+            expando.ENTRY_Text = entryText;
 
-            larabicText = train_bidict(larabicText);
+            // Arabizi to arabic from perl script
+            if (String.IsNullOrWhiteSpace(entryText))
+            {
+                expando.status = false;
+                return expando;
+            }
 
-            larabicText = train_perl(watch, larabicText);
+            //
+            var watch = Stopwatch.StartNew();
 
-            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = train_savener(arabicText, id_ARABICDARIJAENTRY, AccessMode.efsql, skipRosette: true);
-        }*/
+            //
+            var frMode = false;
+            String larabicText = entryText;
+
+            //
+            if (frMode == false)
+                larabicText = new TextConverter().Preprocess_upstream(larabicText);
+
+            // mark as ignore : url 
+            larabicText = train_markAsIgnore(larabicText);
+
+            if (frMode == false)
+                larabicText = train_bidict(larabicText);
+
+            if (frMode == false)
+                larabicText = train_perl(watch, larabicText);
+
+            //
+            expando.ArabicDarijaText = larabicText;
+
+            //
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = train_savener_woRosette(larabicText, entryId, entryType);
+            expando.M_ARABICDARIJAENTRY_TEXTENTITYs = textEntities;
+
+            // all is good so far
+            expando.status = true;
+
+            //
+            return expando;
+        }
 
         #region BACK YARD BO SAVE / DELETE
         private void saveserializeM_ARABIZIENTRY_EFSQL(M_ARABIZIENTRY arabiziEntry)
@@ -1431,7 +1515,7 @@ namespace ArabicTextAnalyzer.BO
                                     + "SELECT C.feedId FROM FBFeedComments C WHERE C.message LIKE N'%" + filter + "%' OR C.translated_message LIKE N'%" + filter + "%' "
                                 + ") "
                             + ") "
-                            +"ORDER BY P.date_publishing DESC ";
+                            + "ORDER BY P.date_publishing DESC ";
 
                 //
                 conn.Open();
@@ -1508,6 +1592,27 @@ namespace ArabicTextAnalyzer.BO
 
                 //
                 qry += "ORDER BY created_time DESC ";
+
+                conn.Open();
+                return conn.Query<FBFeedComment>(qry).ToList();
+            }
+        }
+
+        public List<FBFeedComment> loaddeserializeT_FB_Comments_By_Ids_DAPPERSQL(string commentsIds)
+        {
+            // String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(this.ScrapyWebEntitiesConnectionString))
+            {
+                //
+                String qry = "SELECT * FROM FBFeedComments ";
+
+                //
+                qry += "WHERE translated_message IS NULL ";
+
+                //
+                if (!string.IsNullOrEmpty(commentsIds))
+                    qry += "AND id IN (" + commentsIds + ") ";
 
                 conn.Open();
                 return conn.Query<FBFeedComment>(qry).ToList();
@@ -1644,6 +1749,32 @@ namespace ArabicTextAnalyzer.BO
         }
         #endregion
 
+        #region BACK YARD SAVE FB_COMMENTS
+        public void SaveTranslatedComments(string commentid, string translatedText)
+        {
+            // Check before
+            if (string.IsNullOrEmpty(commentid) || string.IsNullOrEmpty(translatedText))
+                return;
+
+            // clean 
+            translatedText = translatedText.Replace("'", "''");
+
+            //
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "UPDATE FBFeedComments SET translated_message = N'" + translatedText + "' WHERE id = '" + commentid + "'";
+                using (SqlCommand cmd = new SqlCommand(qry, conn))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+        #endregion
+
         #region BACK YARD BO LOAD ARZ_AR_ENTRIES
         public List<LM_CountPerUser> loaddeserializeM_ARABICDARIJAENTRY_CountPerUser_DAPPERSQL()
         {
@@ -1710,5 +1841,13 @@ namespace ArabicTextAnalyzer.BO
             }
         }
         #endregion
+
+        public enum EntryType
+        {
+            darija = 0,
+            post = 1,
+            comment,
+            arabizi
+        }
     }
 }

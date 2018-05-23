@@ -632,6 +632,11 @@
               Looks up a localized string similar to Entities.
             </summary>
         </member>
+        <member name="P:ArabicTextAnalyzer.Content.Resources.R.ExtractEntities">
+            <summary>
+              Looks up a localized string similar to Extract Entities.
+            </summary>
+        </member>
         <member name="P:ArabicTextAnalyzer.Content.Resources.R.FacebookPages">
             <summary>
               Looks up a localized string similar to Facebook Pages.

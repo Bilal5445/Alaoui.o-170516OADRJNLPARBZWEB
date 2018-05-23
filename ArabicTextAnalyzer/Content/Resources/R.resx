@@ -375,4 +375,7 @@
   <data name="The_0_MustBeAtLeast_2_charEtc" xml:space="preserve">
     <value>The {0} must be at least {2} characters long.</value>
   </data>
+  <data name="ExtractEntities" xml:space="preserve">
+    <value>Extract Entities</value>
+  </data>
 </root>

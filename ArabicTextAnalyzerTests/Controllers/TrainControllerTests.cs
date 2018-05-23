@@ -18,6 +18,8 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Microsoft.CSharp;
+using ArabicTextAnalyzer.BO;
+using static ArabicTextAnalyzer.BO.Arabizer;
 
 namespace ArabicTextAnalyzer.Controllers.Tests
 {
@@ -1031,5 +1033,58 @@ namespace ArabicTextAnalyzer.Controllers.Tests
             arabizi = new BingSpellCheckerApiTools().bingSpellcheckApi(arabizi, BingSpellcheckAPIKey);
             Assert.AreEqual(expected, arabizi);
         }
+
+#if false
+        [TestMethod()]
+        public void ut_180523_test_extract_from_20_comments()
+        {
+            // Id message
+            // 2195511010686419_2195728087331378 ياك انتا السي كبور داير فيها الكوبل هههه
+            // 2195511010686419_2195718037332383 موقاااااااااااطعووووووون
+            // 2195511010686419_2195713473999506   😂😂😂😂😂😂😂😂منيييتكوم ماعارت باش تاتفسدكوم وييلي علا قلت مايظار
+            // 2195511010686419_2195679240669596 كبور هو المستفيد الوحيد من القناة ادا تطلبنا بمقاطعتك لانه حقا عين الصواب عيينا من هد كبور
+            // 2195511010686419_2195675124003341   🦍🦍🦍 ناري على جيل ديال
+            // 2195511010686419_2195673627336824 وحدة من جوج يالأخت خدامة ف 2M أو شي حد من العائلة، أو الأخت تعاني من أعراض الإستحمار المزمن🤣. عشنا حتى شفنا الغوغاء و الجهال تعطي دروس فالوطنية 😂
+            // 2195511010686419_2195661134004740 لا لي دوزيم في رمضان
+            // 2195511010686419_2195659540671566 انا دوزيم كنشد فيها غير حي البهجة و ولاد علي هدو لي فيها زوونين.....الاولى حسن منها
+            // 2195511010686419_2195659327338254 الزبالة هذه
+            // 2195511010686419_2195659127338274 خصنا نديرو مقاطعة المسلسلات التركية في دوزيم حيت لا علاقة 1000حلقة وقصة لا علاقة غير زعت وصافي
+            String commentsIds = "'2195511010686419_2195728087331378',"
+                + "'2195511010686419_2195718037332383'";
+                // + "2195511010686419_2195718037332383,"
+                /*+ "2195511010686419_2195713473999506,"
+                + "2195511010686419_2195679240669596,"
+                + "2195511010686419_2195675124003341,"
+                + "2195511010686419_2195673627336824,"
+                + "2195511010686419_2195661134004740,"
+                + "2195511010686419_2195659540671566,"
+                + "2195511010686419_2195659327338254,"
+                + "2195511010686419_2195659127338274"*/;
+            String ScrapyWebEntitiesConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=ScrapyWeb;Integrated Security=True";
+            // new TrainController().Train_FB_Comments_woBingGoogleRosette(commentsIds);
+            // get list of not yet translated comments with the specified ids (can be one comment to translate or can be many checked)
+            var arabizer = new Arabizer(ScrapyWebEntitiesConnectionString);
+            List<FBFeedComment> comments = arabizer.loaddeserializeT_FB_Comments_By_Ids_DAPPERSQL(commentsIds);
+            foreach (var comment in comments)
+            {
+                // in FB, some posts text can be empty (image, ...)
+                if (String.IsNullOrWhiteSpace(comment.message))
+                    continue;
+
+                // MC081217 translate via train to populate NER, analysis data, ...
+                // Arabizi to arabic script via direct call to perl script
+                var res = arabizer.train_woBingGoogleRosette(comment.message.Trim(), comment.Id, (int)EntryType.comment);
+                if (res.status == false)
+                {
+                    Assert.Fail();
+                }
+
+                //
+                string translatedstring = res.ArabicDarijaText;
+                arabizer.SaveTranslatedComments(comment.Id, translatedstring);
+            }
+        }
+#endif
+
     }
 }
