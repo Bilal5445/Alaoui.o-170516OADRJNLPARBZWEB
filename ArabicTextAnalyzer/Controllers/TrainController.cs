@@ -2319,7 +2319,7 @@ namespace ArabicTextAnalyzer.Controllers
             items = items.Skip(start).Take(itemsPerPage).ToList();
 
             // join on fb pages names
-            List<T_FB_INFLUENCER> fbPages = new Arabizer().loadDeserializeT_FB_INFLUENCERs_DAPPERSQL();
+            List<T_FB_INFLUENCER> fbPages = new Arabizer().loadDeserializeT_FB_INFLUENCERs_NODUPL_DAPPERSQL();
             var items0 = items.Join(fbPages,
                 i => i.fk_influencer,
                 f => f.id,
