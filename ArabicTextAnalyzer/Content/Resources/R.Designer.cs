@@ -295,6 +295,15 @@ namespace ArabicTextAnalyzer.Content.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Extract Entities.
+        /// </summary>
+        public static string ExtractEntities {
+            get {
+                return ResourceManager.GetString("ExtractEntities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Facebook Pages.
         /// </summary>
         public static string FacebookPages {

@@ -29,6 +29,7 @@ using ArabicTextAnalyzer.Content.Resources;
 using MimeKit;
 using System.Text.RegularExpressions;
 using Microsoft.AspNet.Identity.Owin;
+using static ArabicTextAnalyzer.BO.Arabizer;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -576,69 +577,6 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpPost]
         public ActionResult TrainStepOneAjaxFree(M_ARABIZIENTRY arabiziEntry)
         {
-#if false
-            /*HttpCookie cookie = new HttpCookie("mybigcookie");
-            cookie.Values.Add("name", name);
-            cookie.Values.Add("address", address);
-
-            //get the values out
-            string name = Request.Cookies["mybigcookie"]["name"];
-            string address = Request.Cookies["mybigcookie"]["address"];*/
-            // store info in cookie
-            /*Console.WriteLine(Request.Cookies["CKFRANNMSID"]);
-            Console.WriteLine(Request.Cookies["CKFRANNMSID"]["anonid"]);
-            Response.Cookies["CKFRANNMSID"]["anonid"] = Request.AnonymousID;
-            Response.Cookies["CKFRANNMSID"]["usdclls"] = "1";*/
-            if (Request.Cookies["CKFRANNMSID"]["anonid"] == null)
-            {
-                HttpCookie aCookie = new HttpCookie("CKFRANNMSID");
-                aCookie.Values.Add("anonid", Request.AnonymousID);
-                aCookie.Values.Add("usdclls", "1");
-                Response.Cookies.Add(aCookie);
-            }
-            else if (Request.Cookies["CKFRANNMSID"]["anonid"] == Request.AnonymousID)
-            {
-                Response.Cookies["CKFRANNMSID"]["usdclls"] = (Convert.ToInt32(Request.Cookies["CKFRANNMSID"]["usdclls"]) + 1).ToString();
-            }
-            else
-            {
-                Response.Cookies.Remove("CKFRANNMSID");
-                HttpCookie aCookie = new HttpCookie("CKFRANNMSID");
-                aCookie.Values.Add("anonid", Request.AnonymousID);
-                aCookie.Values.Add("usdclls", "1");
-                Response.Cookies.Add(aCookie);
-            }
-
-            /*aCookie.Value = Request.AnonymousID;
-            if (Response.Cookies["CKFRANNMSID"] == null)
-                Response.Cookies.Add(aCookie);
-            else
-            {
-                if (Response.Cookies["CKFRANNMSID"] == 
-            }
-            if (Response.Cookies["CKFRANNMSID"] != null)
-            {
-                Request.AnonymousID;
-                Console.WriteLine(Response.Cookies.Count);
-            }*/
-            /*Response.Cookies["userName"].Value = "patrick";
-            Response.Cookies["userName"].Expires = DateTime.Now.AddDays(1);
-            HttpCookie aCookie = new HttpCookie("lastVisit");
-            aCookie.Value = DateTime.Now.ToString();
-            aCookie.Expires = DateTime.Now.AddDays(1);
-            Response.Cookies.Add(aCookie);*/
-
-            // test on 2 calls max then request to register
-            if (Convert.ToInt32(Request.Cookies["CKFRANNMSID"]["usdclls"]) > 2)
-            {
-                return Content(JsonConvert.SerializeObject(new
-                {
-                    status = false,
-                    message = "Free quota used, please register"
-                }), "application/json");
-            }
-
-#endif
             if (Request.Cookies["hasUsed"] != null && Convert.ToInt32(Request.Cookies["hasUsed"].Value) > 2)
                 return Content(JsonConvert.SerializeObject(new
                 {
@@ -1249,7 +1187,7 @@ namespace ArabicTextAnalyzer.Controllers
                 if (!string.IsNullOrEmpty(ids))
                 {
                     // get list of not yet translated comments with the specified ids (can be one comment to translate or can be many checked)
-                    List<FBFeedComment> allComments = GetComments(ids);
+                    List<FBFeedComment> allComments = new Arabizer().loaddeserializeT_FB_Comments_By_Ids_DAPPERSQL(ids);
 
                     //
                     if (allComments != null && allComments.Count > 0)
@@ -1273,7 +1211,7 @@ namespace ArabicTextAnalyzer.Controllers
                             {
                                 status = true;
                                 translatedstring = res.M_ARABICDARIJAENTRY.ArabicDarijaText;
-                                SaveTranslatedComments(item.Id, translatedstring);
+                                new Arabizer().SaveTranslatedComments(item.Id, translatedstring);
                             }
                             else
                                 errMessage = "Text is required.";
@@ -1297,6 +1235,77 @@ namespace ArabicTextAnalyzer.Controllers
                 Logging.Write(Server, ex.StackTrace);
 
                 return null;
+            }
+        }
+
+        [HttpGet]
+        public async Task<object> Train_FB_Comments_woBingGoogleRosette(string commentsIds)
+        {
+            // Check before
+            if (string.IsNullOrEmpty(commentsIds))
+            {
+                return JsonConvert.SerializeObject(new
+                {
+                    status = false,
+                    message = "Error. Please check your parameters"
+                });
+            }
+
+            try
+            {
+                // get list of not yet translated comments with the specified ids (can be one comment to translate or can be many checked)
+                List<FBFeedComment> comments = new Arabizer().loaddeserializeT_FB_Comments_By_Ids_DAPPERSQL(commentsIds);
+
+                // check before
+                if (comments == null || comments.Count == 0)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        status = false,
+                        message = "All selected comments are already translated."
+                    });
+                }
+
+                //
+                foreach (var comment in comments)
+                {
+                    // in FB, some posts text can be empty (image, ...)
+                    if (String.IsNullOrWhiteSpace(comment.message))
+                        continue;
+
+                    // MC081217 translate via train to populate NER, analysis data, ...
+                    // Arabizi to arabic script via direct call to perl script
+                    var res = new Arabizer().train_woBingGoogleRosette(comment.message.Trim(), comment.Id, (int)EntryType.comment);
+                    if (res.status == false)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            status = false,
+                            message = "Error during the extraction."
+                        });
+                    }
+
+                    //
+                    string translatedstring = res.ArabicDarijaText;
+                    new Arabizer().SaveTranslatedComments(comment.Id, translatedstring);
+                }
+
+                //
+                return JsonConvert.SerializeObject(new
+                {
+                    status = true,
+                });
+            }
+            catch (Exception ex)
+            {
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                return JsonConvert.SerializeObject(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
             }
         }
 
@@ -1500,7 +1509,7 @@ namespace ArabicTextAnalyzer.Controllers
                 if (!string.IsNullOrEmpty(postId))
                     SaveTranslatedPost(postId, translatedstring);
                 else if (!string.IsNullOrEmpty(commentId))
-                    SaveTranslatedComments(commentId, translatedstring);
+                    new Arabizer().SaveTranslatedComments(commentId, translatedstring);
             }
             else
                 errMessage = "Text is required.";
@@ -2794,7 +2803,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private List<FBFeedComment> GetComments(string ids)
+        /*ivate List<FBFeedComment> GetComments(string ids)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
 
@@ -2809,7 +2818,7 @@ namespace ArabicTextAnalyzer.Controllers
                 conn.Open();
                 return conn.Query<FBFeedComment>(qry).ToList();
             }
-        }
+        }*/
 
         private void SaveTranslatedPost(string postid, string translatedText)
         {
@@ -2835,7 +2844,7 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
 
-        private void SaveTranslatedComments(string commentid, string translatedText)
+        /*private void SaveTranslatedComments(string commentid, string translatedText)
         {
             // Check before
             if (string.IsNullOrEmpty(commentid) || string.IsNullOrEmpty(translatedText))
@@ -2857,7 +2866,7 @@ namespace ArabicTextAnalyzer.Controllers
                     conn.Close();
                 }
             }
-        }
+        }*/
 
         private void updateFb_PostMailBody(string postid, string mailBody = "", int? noOfTimeMailSend = 0)
         {

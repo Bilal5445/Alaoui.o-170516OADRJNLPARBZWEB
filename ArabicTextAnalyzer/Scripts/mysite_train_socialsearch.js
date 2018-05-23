@@ -84,8 +84,7 @@ function InitializeSocialSearchDataTables() {
                     d.max = maxjson;
                 }
                 // custom search whole word
-                if ($('div.toolbar > input[type="checkbox"]').is(":checked"))
-                {
+                if ($('div.toolbar > input[type="checkbox"]').is(":checked")) {
                     d.wholeWord = true;
                 } else {
                     d.wholeWord = false;
@@ -107,5 +106,51 @@ function InitializeSocialSearchDataTables() {
     // custom search whole word : to trigger change when we check the cehckbox whole word
     $('div.toolbar > input[type="checkbox"]').change(function () {
         table.draw();
+    });
+}
+
+// events variables
+var btnExtractEntitiesClicked = false;
+
+function JsExtractEntities() {
+
+    // check before
+    if (btnExtractEntitiesClicked == true)
+        return;
+
+    // mark as clicked to avoid double processing
+    btnExtractEntitiesClicked = true;
+
+    //
+    // var commentsIds = "'2195511010686419_2195728087331378','2195511010686419_2195718037332383'";
+    var commentsIds = "'2195511010686419_2195713473999506'";
+
+    $.ajax({
+        "dataType": 'json',
+        "type": "GET",
+        "url": "/Train/Train_FB_Comments_woBingGoogleRosette",
+        "data": {
+            "commentsIds": commentsIds
+        },
+        "success": function (msg) {
+            console.log(msg);
+
+            // reset to not clicked
+            btnExtractEntitiesClicked = false;
+
+            if (msg.status) {
+                alert("Success");
+            } else {
+                alert(msg.message);
+            }
+        },
+        "error": function () {
+            
+            // reset to not clicked
+            btnExtractEntitiesClicked = false;
+
+            //
+            alert("Error");
+        }
     });
 }

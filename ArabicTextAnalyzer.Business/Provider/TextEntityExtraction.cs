@@ -183,8 +183,8 @@ namespace ArabicTextAnalyzer.Business.Provider
         }
 
         public List<M_ARABICDARIJAENTRY_TEXTENTITY> NerManualExtraction(
-            String arabicText, 
-            IEnumerable<TextEntity> entities, 
+            String arabicText,
+            IEnumerable<TextEntity> entities,
             Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY,
             Action<M_ARABICDARIJAENTRY_TEXTENTITY, AccessMode> saveserializeM_ARABICDARIJAENTRY_TEXTENTITY,
             AccessMode accessMode
@@ -212,7 +212,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             // Saving
             foreach (var entity in lentities)
             {
-                var textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
+                M_ARABICDARIJAENTRY_TEXTENTITY textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
                 {
                     ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
                     ID_ARABICDARIJAENTRY = arabicDarijaEntry_ID_ARABICDARIJAENTRY,
@@ -229,6 +229,56 @@ namespace ArabicTextAnalyzer.Business.Provider
             //
             return textEntities;
         }
+
+        public List<TextEntity> NerManualExtraction_nosave(
+            String arabicText,
+            IEnumerable<TextEntity> entities
+            )
+        {
+            // clean post-rosette
+            var lentities = NerRosetteClean(entities);
+
+            // NER manual extraction
+            new TextFrequency().GetManualEntities(arabicText, lentities);
+
+            // clean 3 post rosette & manual ners : drop self containing
+            foreach (var entity in lentities)
+            {
+                var entitiesToDrop = entities.ToList().FindAll(m => m.Mention != entity.Mention && m.Mention.Contains(entity.Mention));
+                foreach (var entityToDrop in entitiesToDrop)
+                {
+                    entityToDrop.Type = "TODROP";
+                }
+            }
+            lentities.RemoveAll(m => m.Type == "TODROP");
+
+            return lentities;
+        }
+
+        /*List<M_ARABICDARIJAENTRY_TEXTENTITY> NerManualExtraction_save(List<TextEntity> lentities)
+        {
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
+
+            // Saving
+            foreach (var entity in lentities)
+            {
+                M_ARABICDARIJAENTRY_TEXTENTITY textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
+                {
+                    ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
+                    ID_ARABICDARIJAENTRY = arabicDarijaEntry_ID_ARABICDARIJAENTRY,
+                    TextEntity = entity
+                };
+
+                //
+                textEntities.Add(textEntity);
+
+                // Save to Serialization
+                saveserializeM_ARABICDARIJAENTRY_TEXTENTITY(textEntity, accessMode);
+            }
+
+            //
+            return textEntities;
+        }*/
 
         public List<M_ARABICDARIJAENTRY_TEXTENTITY> NerManualExtraction_uow(String arabicText, IEnumerable<TextEntity> entities, Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY,
             Action<M_ARABICDARIJAENTRY_TEXTENTITY, ArabiziDbContext, bool> saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL_uow,
