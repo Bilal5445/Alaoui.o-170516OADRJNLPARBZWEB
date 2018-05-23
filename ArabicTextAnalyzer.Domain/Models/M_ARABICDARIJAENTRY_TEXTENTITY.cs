@@ -16,6 +16,10 @@ namespace ArabicTextAnalyzer.Domain.Models
         public Guid ID_ARABICDARIJAENTRY { get; set; }              // FK one-to-many
         public TextEntity TextEntity { get; set; }
         public int IsDeleted { get; set; }
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(150)]
+        public string FK_ENTRY { get; set; }
+        public int ENTRY_type { get; set; }
     }
 
     [Table("T_ARABICDARIJAENTRY_TEXTENTITY")]
@@ -29,5 +33,10 @@ namespace ArabicTextAnalyzer.Domain.Models
         public string TextEntity_Mention { get; set; }
         public string TextEntity_Normalized { get; set; }
         public string TextEntity_Type { get; set; }
+        public int IsDeleted { get; set; }
+        [Column(TypeName = "VARCHAR")]
+        [StringLength(150)]
+        public string FK_ENTRY { get; set; }
+        public int ENTRY_type { get; set; }
     }
 }
