@@ -509,12 +509,11 @@ function ToggleFBCommentsTable(row, tr, img, postId) {
 }
 
 // method used by ShowFBComments above to get table up to theader
-function CommentTable(id) {
+function CommentTable(postId) {
 
     // build the html table up to the header (the content is brought vis server side controller)
-    // var html = '<table id="tabledetails_' + id + '" class="table table-striped table-hover table-bordered"><thead class="header"><tr><th></th><th class="center top col50px">ID</th><th class="center top col50prc">Message</th><th class="center top col50prc">Translated Message</th><th class="center top col130px">Created Time</th><th class="center top col75px">Action</th></tr></thead></table>'
     var html = `
-        <table id="tabledetails_${id}" class ="posts table table-striped table-hover table-bordered">
+        <table id="tabledetails_${postId}" class ="posts table table-striped table-hover table-bordered">
             <thead class="header">
                 <tr>
                     <th class ="center top col50px"></th>
@@ -527,7 +526,6 @@ function CommentTable(id) {
             </thead>
         </table>
     `;
-    console.log(html);
 
     return html;
 }
