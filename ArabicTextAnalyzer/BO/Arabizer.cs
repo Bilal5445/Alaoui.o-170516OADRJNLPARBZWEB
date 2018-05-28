@@ -1217,6 +1217,19 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
+        public IEnumerable<LM_CountPerKeyword> loaddeserializeM_XTRCTTHEME_KEYWORD_StatAllNersCounts_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT Keyword, SUM(Keyword_Count) CountPerKeyword FROM T_XTRCTTHEME_KEYWORD GROUP BY Keyword ORDER BY SUM(Keyword_Count) DESC";
+
+                conn.Open();
+                return conn.Query<LM_CountPerKeyword>(qry);
+            }
+        }
+
         public List<M_XTRCTTHEME_KEYWORD> loaddeserializeM_XTRCTTHEME_KEYWORD_Active_DAPPERSQL(String userId)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
