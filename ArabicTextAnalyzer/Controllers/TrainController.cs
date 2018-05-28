@@ -120,6 +120,9 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.PostsCounts = new Arabizer().loaddeserializeT_FB_Posts_Count_DAPPERSQL();
             @ViewBag.CommentsCounts = new Arabizer().loaddeserializeT_FB_Comments_Count_DAPPERSQL();
 
+            //
+            @ViewBag.NersWithCounts = new Arabizer().loaddeserializeM_XTRCTTHEME_KEYWORD_StatAllNersCounts_DAPPERSQL();
+
             // DBG
             ViewBag.UserName = User.Identity.GetUserName();
 
@@ -2181,6 +2184,19 @@ namespace ArabicTextAnalyzer.Controllers
                     s.FormattedEntities = TextTools.DisplayEntities(s.ID_ARABICDARIJAENTRY, textEntities);
                     s.FormattedRemoveAndApplyTagCol = TextTools.DisplayRemoveAndApplyTagCol(s.ID_ARABIZIENTRY, s.ID_ARABICDARIJAENTRY, mainEntities);
                 });
+
+                // final filtering (ners, ...)
+                // get ners
+                var nersjson = this.Request.Form["ners"];
+                if (!String.IsNullOrWhiteSpace(nersjson))
+                {
+                    JArray a = JArray.Parse(nersjson);
+                    foreach (var item in a)
+                    {
+                        Console.WriteLine(item);
+                        items = items.Where(c => c.FormattedEntities != null && c.FormattedEntities.Contains((String)item)).ToList();
+                    }
+                }
 
                 //
                 return JsonConvert.SerializeObject(new

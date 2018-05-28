@@ -82,8 +82,8 @@ function InitializeDataTables(adminModeShowAll) {
             "ajax": {
                 "url": "/Train/DataTablesNet_ServerSide_GetList",
                 "type": "POST",
-                // "data": { "adminModeShowAll": adminModeShowAll }
                 "data": function (d) {
+                    // pass min max date to server
                     var min = $('#minpoststable').datepicker("getDate");
                     if (min != null) {
                         var minjson = min.toJSON();
@@ -93,6 +93,13 @@ function InitializeDataTables(adminModeShowAll) {
                     if (max != null) {
                         var maxjson = max.toJSON();
                         d.max = maxjson;
+                    }
+
+                    // pass filtered ners to server
+                    var ners = $('.selectpicker').val();
+                    if (ners != null && ners.length > 0) {
+                        d.ners = JSON.stringify(ners);
+                        // d.ners = ners;
                     }
 
                     //
@@ -180,6 +187,16 @@ function InitializeDataTables(adminModeShowAll) {
         $('#minpoststable, #maxpoststable').change(function () {
             poststable.draw();
         });
+
+        // select option trigger
+        $('.selectpicker').change(function () {
+            poststable.draw();
+            // alert($(this).val());
+        });
+
+        /*$('select').on('change', function () {
+            alert(this.value);
+        })*/
     });
 }
 
