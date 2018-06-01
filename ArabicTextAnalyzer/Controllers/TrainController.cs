@@ -330,6 +330,9 @@ namespace ArabicTextAnalyzer.Controllers
             @ViewBag.PostsCounts = new Arabizer().loaddeserializeT_FB_Posts_Count_DAPPERSQL();
             @ViewBag.CommentsCounts = new Arabizer().loaddeserializeT_FB_Comments_Count_DAPPERSQL();
 
+            //
+            @ViewBag.NersWithCounts = new Arabizer().loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_StatAllNersCounts_SocialSearch_DAPPERSQL();
+
             // DBG
             ViewBag.UserName = User.Identity.GetUserName();
 
@@ -903,11 +906,11 @@ namespace ArabicTextAnalyzer.Controllers
 
             // MC111217 since we may have in the DB cases where there are more than one main entities for the same post (due to previous bug in code), we need to 
             // find them and to clean them (delete the extra main entities)
-            var arabicDarijaEntryOtherMainEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL().FindAll(m => m.ID_ARABICDARIJAENTRY == idArabicDarijaEntry && m.TextEntity.Mention != activeTheme && m.TextEntity.Type == "MAIN ENTITY");
+            var arabicDarijaEntryOtherMainEntities = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL().FindAll(m => m.ID_ARABICDARIJAENTRY == idArabicDarijaEntry && m.TextEntity.Mention != activeTheme && m.TextEntity.Type == "MAIN ENTITY");
             new Arabizer().serialize_Delete_M_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(arabicDarijaEntryOtherMainEntities);
 
             // load M_ARABICDARIJAENTRY_TEXTENTITY
-            List<M_ARABICDARIJAENTRY_TEXTENTITY> arabicDarijaEntryTextEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> arabicDarijaEntryTextEntities = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
 
             // Check before if this entry has already a main entity
             if (arabicDarijaEntryTextEntities.Find(m => m.ID_ARABICDARIJAENTRY == idArabicDarijaEntry && m.TextEntity.Mention == mainEntity && m.TextEntity.Type == "MAIN ENTITY") != null)
@@ -1927,7 +1930,7 @@ namespace ArabicTextAnalyzer.Controllers
             var userId = User.Identity.GetUserId();
 
             //
-            List<THEMETAGSCOUNT> tagscounts = loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(themename, userId);
+            List<THEMETAGSCOUNT> tagscounts = new Arabizer().loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(themename, userId);
 
             //
             var userActiveXtrctTheme = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
@@ -2164,7 +2167,7 @@ namespace ArabicTextAnalyzer.Controllers
 
                 // get other helper data from DB
                 List<M_ARABICDARIJAENTRY_LATINWORD> arabicDarijaEntryLatinWords = loaddeserializeM_ARABICDARIJAENTRY_LATINWORD_DAPPERSQL();
-                List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
+                List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
                 List<M_XTRCTTHEME> mainEntities = new Arabizer().loaddeserializeM_XTRCTTHEME_DAPPERSQL(userId);
 
                 // excludes POS NER (PRONOMS, PREPOSITIONS, ...), plus also MAIN
@@ -2179,7 +2182,6 @@ namespace ArabicTextAnalyzer.Controllers
                 {
                     s.PositionHash = s.Rank;
                     s.FormattedArabiziEntryDate = s.ArabiziEntryDate.ToString("yy-MM-dd HH:mm");
-                    // s.ArabiziText = "<span style='direction: rtl;'>" + s.ArabiziText + "</span>";
                     s.FormattedArabicDarijaText = TextTools.HighlightExtractedLatinWords(s.ArabicDarijaText, s.ID_ARABICDARIJAENTRY, arabicDarijaEntryLatinWords);
                     s.FormattedEntitiesTypes = TextTools.DisplayEntitiesType(s.ID_ARABICDARIJAENTRY, textEntities);
                     s.FormattedEntities = TextTools.DisplayEntities(s.ID_ARABICDARIJAENTRY, textEntities);
@@ -2219,16 +2221,15 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpGet]
         public object DataTablesNet_ServerSide_FB_Posts_GetList(string fluencerid)
         {
-            // get from client side, from where we start the paging
             int start = 0;
-            int.TryParse(this.Request.QueryString["start"], out start);            // GET
-
-            // get from client side, to which length the paging goes
             int itemsPerPage = 10;
-            int.TryParse(this.Request.QueryString["length"], out itemsPerPage);    // GET
 
-            // get from client search word
-            string searchValue = this.Request.QueryString["search[value]"]; // GET
+            // get from client side
+            int.TryParse(this.Request.QueryString["start"], out start);            // GET : from where we start the paging
+            int.TryParse(this.Request.QueryString["length"], out itemsPerPage);    // GET : to which length the paging goes
+            string searchValue = this.Request.QueryString["search[value]"]; // GET : search word
+
+            // get from client search word : trim extra tabs, spaces, ...
             if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'', '\t' });
 
             // get the number of all entries (before applyng any filter)
@@ -2287,7 +2288,7 @@ namespace ArabicTextAnalyzer.Controllers
             // get from client search word : trim extra tabs, spaces, ...
             if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'', '\t' });
 
-            // get the number of all entries (before applyng any filter)
+            // get the number of all entries (before applyng any filter) : fast because we query only count
             var totalItemsCount = new Arabizer().loaddeserializeT_FB_Posts_Count_DAPPERSQL();
 
             // get main (whole) data from DB first while filtering on search term if any
@@ -2309,7 +2310,8 @@ namespace ArabicTextAnalyzer.Controllers
             else
             {
                 // load items
-                items = new Arabizer().loaddeserializeT_FB_POST_Like_Filter_DAPPERSQL(searchValue).Select(c => new a
+                items = new Arabizer().loaddeserializeT_FB_POST_JOIN_COMMENT_Like_Filter_DAPPERSQL(searchValue).Select(c => new a
+                // items = new Arabizer().loaddeserializeT_FB_POST_Like_Filter_DAPPERSQL(searchValue).Select(c => new a
                 {
                     id = c.id,
                     fk_influencer = c.fk_influencer,
@@ -2599,99 +2601,6 @@ namespace ArabicTextAnalyzer.Controllers
 
                 conn.Open();
                 return conn.Query<M_ARABICDARIJAENTRY>(qry).ToList();
-            }
-        }
-
-        private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY(AccessMode accessMode)
-        {
-            /*if (accessMode == AccessMode.xml)
-                return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY();
-            else*/
-            if (accessMode == AccessMode.efsql)
-                return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB();
-            else if (accessMode == AccessMode.dappersql)
-                return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
-
-            return null;
-        }
-
-        private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB()
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                return db.M_ARABICDARIJAENTRY_TEXTENTITYs.ToList();
-            }
-        }
-
-        private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL()
-        {
-            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                String qry = "SELECT * FROM T_ARABICDARIJAENTRY_TEXTENTITY";
-
-                conn.Open();
-
-                // special case, our initial class was complex (deep TextEntity), DB table created from initial class by EF is somehow flat
-                // so at loading, we need to convert back from flat to complex deep
-                var flats = conn.Query<M_ARABICDARIJAENTRY_TEXTENTITY_FLAT>(qry);
-
-                //
-                List<M_ARABICDARIJAENTRY_TEXTENTITY> unflats = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
-                foreach (var flat in flats)
-                {
-                    M_ARABICDARIJAENTRY_TEXTENTITY unflat = new M_ARABICDARIJAENTRY_TEXTENTITY
-                    {
-                        ID_ARABICDARIJAENTRY = flat.ID_ARABICDARIJAENTRY,
-                        ID_ARABICDARIJAENTRY_TEXTENTITY = flat.ID_ARABICDARIJAENTRY_TEXTENTITY,
-                        TextEntity = new TextEntity
-                        {
-                            Count = flat.TextEntity_Count,
-                            EntityId = flat.TextEntity_EntityId,
-                            Mention = flat.TextEntity_Mention,
-                            Normalized = flat.TextEntity_Normalized,
-                            Type = flat.TextEntity_Type
-
-                        }
-                    };
-                    unflats.Add(unflat);
-                }
-
-                return unflats;
-                // return conn.Query<M_ARABICDARIJAENTRY_TEXTENTITY>(qry).ToList();
-            }
-        }
-
-        private List<THEMETAGSCOUNT> loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(String themename, String userId)
-        {
-            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
-
-            // anti sql injection
-            themename = themename.Replace("'", "''").Trim();
-
-            //
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                String qry0 = "SELECT "
-                                + "ARTE.TextEntity_Mention, "
-                                + "SUM(ARTE.TextEntity_Count) SUM_TextEntity_Count, "
-                                + "ARTE.TextEntity_Type "
-                            + "FROM T_ARABICDARIJAENTRY_TEXTENTITY ARTE "
-                            + "INNER JOIN T_ARABICDARIJAENTRY ARDE ON ARTE.ID_ARABICDARIJAENTRY = ARDE.ID_ARABICDARIJAENTRY "
-                            + "INNER JOIN T_ARABIZIENTRY ARBZ ON ARDE.ID_ARABIZIENTRY = ARBZ.ID_ARABIZIENTRY "
-                            + "INNER JOIN T_XTRCTTHEME XT ON ARBZ.ID_XTRCTTHEME = XT.ID_XTRCTTHEME "
-                            + "WHERE XT.ThemeName = '" + themename + "' "
-                            + "AND XT.UserID = '" + userId + "' "
-                            + "AND ARTE.TextEntity_Type != 'MAIN ENTITY' "
-                            + "AND ARTE.TextEntity_Type != 'PREPOSITION' "
-                            + "AND ARTE.TextEntity_Type != 'PRONOUN' "
-                            + "AND ARTE.TextEntity_Type != 'CONJUNCTION' "
-                            + "AND ARTE.TextEntity_Type != 'ADVERB' "
-                            + "GROUP BY ARTE.TextEntity_Mention, ARTE.TextEntity_Type ";
-
-                conn.Open();
-                return conn.Query<THEMETAGSCOUNT>(qry0).ToList();
             }
         }
 

@@ -79,7 +79,7 @@ function InitializeDataTables(adminModeShowAll) {
             }],
             "rowCallback": function( row, data ) {
                 if (IsRandALCat(data.ArabiziText.charCodeAt(0))) {
-                    $('td:eq(2)', row).css('direction', 'rtl');
+                    $('td:eq(2)', row).css('direction', 'rtl'); // '2' being the column 'ArabiziText'
                 }
             },
             // server side
@@ -194,7 +194,7 @@ function InitializeDataTables(adminModeShowAll) {
             poststable.draw();
         });
 
-        // select option trigger
+        // search by NER select option trigger
         $('.selectpicker').change(function () {
             poststable.draw();
         });
