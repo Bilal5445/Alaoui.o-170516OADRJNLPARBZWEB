@@ -74,6 +74,7 @@ function InitializeSocialSearchDataTables() {
             "url": "/Train/DataTablesNet_ServerSide_SocialSearch_GetList",
             // search by date & with whole word
             "data": function (d) {
+
                 // custome search by date range
                 var min = $('#min').datepicker("getDate");
                 if (min != null) {
@@ -85,6 +86,13 @@ function InitializeSocialSearchDataTables() {
                     var maxjson = max.toJSON();
                     d.max = maxjson;
                 }
+
+                // pass filtered ners to server
+                var ners = $('.selectpicker').val();
+                if (ners != null && ners.length > 0) {
+                    d.ners = JSON.stringify(ners);
+                }
+
                 // custom search whole word
                 if ($('div.toolbar > input[type="checkbox"]').is(":checked")) {
                     d.wholeWord = true;
@@ -103,6 +111,11 @@ function InitializeSocialSearchDataTables() {
     $("#max").datepicker({ onSelect: function () { socialsearchtable.draw(); }, changeMonth: true, changeYear: true });
     $('#min, #max').change(function () {
         socialsearchtable.draw();
+    });
+
+    // search by NER select option trigger
+    $('.selectpicker').change(function () {
+        poststable.draw();
     });
 
     // custom search whole word : to trigger change when we check the cehckbox whole word

@@ -1226,10 +1226,13 @@ namespace ArabicTextAnalyzer.BO
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "SELECT Keyword, SUM(Keyword_Count) CountPerKeyword FROM T_XTRCTTHEME_KEYWORD GROUP BY Keyword ORDER BY SUM(Keyword_Count) DESC";
+                String qry0 = "SELECT Keyword, SUM(Keyword_Count) CountPerKeyword "
+                            + "FROM T_XTRCTTHEME_KEYWORD "
+                            + "GROUP BY Keyword "
+                            + "ORDER BY SUM(Keyword_Count) DESC";
 
                 conn.Open();
-                return conn.Query<LM_CountPerKeyword>(qry);
+                return conn.Query<LM_CountPerKeyword>(qry0);
             }
         }
 
@@ -1515,13 +1518,6 @@ namespace ArabicTextAnalyzer.BO
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                /*String qry0 = "SELECT P.* "
-                            + "FROM T_FB_POST P "
-                            + "INNER JOIN FBFeedComments C ON C.feedId = P.id "
-                            + "WHERE P.fk_influencer = '" + influencerid + "' "
-                            + "AND (P.post_text LIKE N'%" + filter + "%' OR P.translated_text LIKE N'%" + filter + "%' OR C.message LIKE N'%" + filter + "%' OR C.translated_message LIKE N'%" + filter + "%') "
-                            + "ORDER BY P.date_publishing DESC ";*/
-
                 String qry0 = "SELECT P.* FROM T_FB_POST P "
                             + "WHERE P.fk_influencer = '" + influencerid + "' "
                             + "AND ( "
@@ -1531,6 +1527,37 @@ namespace ArabicTextAnalyzer.BO
                                     + "SELECT C.feedId FROM FBFeedComments C WHERE C.message LIKE N'%" + filter + "%' OR C.translated_message LIKE N'%" + filter + "%' "
                                 + ") "
                             + ") "
+                            + "ORDER BY P.date_publishing DESC ";
+
+                //
+                conn.Open();
+                return conn.Query<FB_POST>(qry0).ToList();
+            }
+        }
+
+        public List<FB_POST> loaddeserializeT_FB_POST_JOIN_COMMENT_Like_Filter_DAPPERSQL(String filter)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                /*String qry0 = "SELECT P.* FROM T_FB_POST P "
+                            + "WHERE ( "
+                                + "(P.post_text LIKE N'%" + filter + "%' OR P.translated_text LIKE N'%" + filter + "%') "
+                                + "OR "
+                                + "P.id IN ( "
+                                    + "SELECT C.feedId FROM FBFeedComments C WHERE C.feedId IS NOT NULL AND (C.message LIKE N'%" + filter + "%' OR C.translated_message LIKE N'%" + filter + "%') "
+                                + ") "
+                            + ") "
+                            + "ORDER BY P.date_publishing DESC ";*/
+
+                // rewrite qry to avoid timeout (from 1:45 to 15sec)
+                String qry0 = "SELECT P.* FROM T_FB_POST P "
+                            + "WHERE P.post_text LIKE N'%" + filter + "%' OR P.translated_text LIKE N'%" + filter + "%' "
+                            + "UNION "
+                            + "SELECT P.* FROM T_FB_POST P "
+                            + "INNER JOIN FBFeedComments C ON C.feedId IS NOT NULL AND P.id = C.feedId "
+                            + "AND (C.message LIKE N'%" + filter + "%' OR C.translated_message LIKE N'%" + filter + "%') "
                             + "ORDER BY P.date_publishing DESC ";
 
                 //
@@ -1765,6 +1792,118 @@ namespace ArabicTextAnalyzer.BO
         }
         #endregion
 
+        #region BACK YARD BO LOAD TEXTENTITY
+        private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY(AccessMode accessMode)
+        {
+            /*if (accessMode == AccessMode.xml)
+                return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY();
+            else*/
+            if (accessMode == AccessMode.efsql)
+                return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB();
+            else if (accessMode == AccessMode.dappersql)
+                return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
+
+            return null;
+        }
+
+        private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB()
+        {
+            using (var db = new ArabiziDbContext())
+            {
+                return db.M_ARABICDARIJAENTRY_TEXTENTITYs.ToList();
+            }
+        }
+
+        public List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "SELECT * FROM T_ARABICDARIJAENTRY_TEXTENTITY";
+
+                conn.Open();
+
+                // special case, our initial class was complex (deep TextEntity), DB table created from initial class by EF is somehow flat
+                // so at loading, we need to convert back from flat to complex deep
+                var flats = conn.Query<M_ARABICDARIJAENTRY_TEXTENTITY_FLAT>(qry);
+
+                //
+                List<M_ARABICDARIJAENTRY_TEXTENTITY> unflats = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
+                foreach (var flat in flats)
+                {
+                    M_ARABICDARIJAENTRY_TEXTENTITY unflat = new M_ARABICDARIJAENTRY_TEXTENTITY
+                    {
+                        ID_ARABICDARIJAENTRY = flat.ID_ARABICDARIJAENTRY,
+                        ID_ARABICDARIJAENTRY_TEXTENTITY = flat.ID_ARABICDARIJAENTRY_TEXTENTITY,
+                        TextEntity = new TextEntity
+                        {
+                            Count = flat.TextEntity_Count,
+                            EntityId = flat.TextEntity_EntityId,
+                            Mention = flat.TextEntity_Mention,
+                            Normalized = flat.TextEntity_Normalized,
+                            Type = flat.TextEntity_Type
+
+                        }
+                    };
+                    unflats.Add(unflat);
+                }
+
+                return unflats;
+                // return conn.Query<M_ARABICDARIJAENTRY_TEXTENTITY>(qry).ToList();
+            }
+        }
+
+        public List<THEMETAGSCOUNT> loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_THEMETAGSCOUNT_DAPPERSQL(String themename, String userId)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            // anti sql injection
+            themename = themename.Replace("'", "''").Trim();
+
+            //
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry0 = "SELECT "
+                                + "ARTE.TextEntity_Mention, "
+                                + "SUM(ARTE.TextEntity_Count) SUM_TextEntity_Count, "
+                                + "ARTE.TextEntity_Type "
+                            + "FROM T_ARABICDARIJAENTRY_TEXTENTITY ARTE "
+                            + "INNER JOIN T_ARABICDARIJAENTRY ARDE ON ARTE.ID_ARABICDARIJAENTRY = ARDE.ID_ARABICDARIJAENTRY "
+                            + "INNER JOIN T_ARABIZIENTRY ARBZ ON ARDE.ID_ARABIZIENTRY = ARBZ.ID_ARABIZIENTRY "
+                            + "INNER JOIN T_XTRCTTHEME XT ON ARBZ.ID_XTRCTTHEME = XT.ID_XTRCTTHEME "
+                            + "WHERE XT.ThemeName = '" + themename + "' "
+                            + "AND XT.UserID = '" + userId + "' "
+                            + "AND ARTE.TextEntity_Type != 'MAIN ENTITY' "
+                            + "AND ARTE.TextEntity_Type != 'PREPOSITION' "
+                            + "AND ARTE.TextEntity_Type != 'PRONOUN' "
+                            + "AND ARTE.TextEntity_Type != 'CONJUNCTION' "
+                            + "AND ARTE.TextEntity_Type != 'ADVERB' "
+                            + "GROUP BY ARTE.TextEntity_Mention, ARTE.TextEntity_Type ";
+
+                conn.Open();
+                return conn.Query<THEMETAGSCOUNT>(qry0).ToList();
+            }
+        }
+
+        public IEnumerable<LM_CountPerKeyword> loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_StatAllNersCounts_SocialSearch_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry0 = "SELECT TextEntity_Mention Keyword, SUM(TextEntity_Count) CountPerKeyword "
+                            + "FROM T_ARABICDARIJAENTRY_TEXTENTITY "
+                            + "WHERE ID_ARABICDARIJAENTRY = '00000000-0000-0000-0000-000000000000' "
+                            + "GROUP BY TextEntity_Mention "
+                            + "ORDER BY SUM(TextEntity_Count) DESC";
+
+                conn.Open();
+                return conn.Query<LM_CountPerKeyword>(qry0);
+            }
+        }
+        #endregion
+        
         #region BACK YARD SAVE FB_COMMENTS
         public void SaveTranslatedComments(string commentid, string translatedText)
         {
