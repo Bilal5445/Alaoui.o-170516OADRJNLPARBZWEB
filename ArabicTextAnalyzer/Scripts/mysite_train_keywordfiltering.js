@@ -66,7 +66,6 @@ function InitializeDataTables(adminModeShowAll) {
             "columns": [
                     { "data": "PositionHash", "className": "center top" },
                     { "data": "FormattedArabiziEntryDate", "className": "arabizi-text top" },
-                    /*{ "data": "ArabiziText", "className": "arabizi-text top" },*/
                     { "data": "ArabiziText", "className": "top" },
                     { "data": "FormattedEntitiesTypes", "className": "arabic-text top entitiestype" },
                     { "data": "FormattedEntities", "className": "arabic-text top entities" },
