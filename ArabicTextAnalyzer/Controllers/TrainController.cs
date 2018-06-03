@@ -2311,7 +2311,6 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 // load items
                 items = new Arabizer().loaddeserializeT_FB_POST_JOIN_COMMENT_Like_Filter_DAPPERSQL(searchValue).Select(c => new a
-                // items = new Arabizer().loaddeserializeT_FB_POST_Like_Filter_DAPPERSQL(searchValue).Select(c => new a
                 {
                     id = c.id,
                     fk_influencer = c.fk_influencer,
@@ -2367,6 +2366,12 @@ namespace ArabicTextAnalyzer.Controllers
             if (itemsFilteredCount == 1)
                 // extraData = items[0].id;
                 extraData = items[0].id;
+
+            // Visual formatting before sending back
+            /*items.ForEach(s =>
+            {
+                s.FormattedEntities = TextTools.DisplayEntities(s.ID_ARABICDARIJAENTRY, textEntities);
+            });*/
 
             //
             return JsonConvert.SerializeObject(new
