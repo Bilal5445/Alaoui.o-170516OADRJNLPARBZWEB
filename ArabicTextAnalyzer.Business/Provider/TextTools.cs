@@ -337,6 +337,28 @@ namespace ArabicTextAnalyzer.Business.Provider
             return entitiesString;
         }
 
+        public static String DisplayEntities(String FK_ENTRY, List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities)
+        {
+            // limit to concerned text entities
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = TextEntities.FindAll(m => m.FK_ENTRY == FK_ENTRY);
+
+            String entitiesString = String.Empty;
+            foreach (var textEntity in textEntities)
+            {
+                String badgeCounter = textEntity.TextEntity.Count > 1 ? "(" + textEntity.TextEntity.Count + ")" : String.Empty;
+                if (textEntities.IndexOf(textEntity) % 4 == 0)
+                    entitiesString += "<span class=\"label label-primary\" style='font-size: 13px; font-weight: 400;'>" + textEntity.TextEntity.Mention + " " + badgeCounter + "</span> ";
+                else if (textEntities.IndexOf(textEntity) % 4 == 1)
+                    entitiesString += "<span class=\"label label-default\" style='font-size: 13px; font-weight: 400;'>" + textEntity.TextEntity.Mention + " " + badgeCounter + "</span> ";
+                else if (textEntities.IndexOf(textEntity) % 4 == 2)
+                    entitiesString += "<span class=\"label label-success\" style='font-size: 13px; font-weight: 400;'>" + textEntity.TextEntity.Mention + " " + badgeCounter + "</span> ";
+                else
+                    entitiesString += "<span class=\"label label-info\" style='font-size: 13px; font-weight: 400;'>" + textEntity.TextEntity.Mention + " " + badgeCounter + "</span> ";
+            }
+
+            return entitiesString;
+        }
+
         public static String DisplayEntitiesType(List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities)
         {
             String entitiesString = String.Empty;

@@ -1245,6 +1245,77 @@ namespace ArabicTextAnalyzer.Controllers
         }
 
         [HttpGet]
+        public async Task<object> Train_FB_Posts_woBingGoogleRosette(string postsIds)
+        {
+            // Check before
+            if (string.IsNullOrEmpty(postsIds))
+            {
+                return JsonConvert.SerializeObject(new
+                {
+                    status = false,
+                    message = "Error. Please check your parameters"
+                });
+            }
+
+            try
+            {
+                // get list of not yet translated comments with the specified ids (can be one comment to translate or can be many checked)
+                List<FB_POST> posts = new Arabizer().loaddeserializeT_FB_POSTs_By_Ids_DAPPERSQL(postsIds);
+
+                // check before
+                if (posts == null || posts.Count == 0)
+                {
+                    return JsonConvert.SerializeObject(new
+                    {
+                        status = false,
+                        message = "All selected posts are already translated."
+                    });
+                }
+
+                //
+                foreach (var post in posts)
+                {
+                    // in FB, some posts text can be empty (image, ...)
+                    if (String.IsNullOrWhiteSpace(post.post_text))
+                        continue;
+
+                    // MC081217 translate via train to populate NER, analysis data, ...
+                    // Arabizi to arabic script via direct call to perl script
+                    var res = new Arabizer().train_woBingGoogleRosette(post.post_text.Trim(), post.id, (int)EntryType.post);
+                    if (res.status == false)
+                    {
+                        return JsonConvert.SerializeObject(new
+                        {
+                            status = false,
+                            message = "Error during the extraction."
+                        });
+                    }
+
+                    //
+                    string translatedstring = res.ArabicDarijaText;
+                    new Arabizer().SaveTranslatedPosts(post.id, translatedstring);
+                }
+
+                //
+                return JsonConvert.SerializeObject(new
+                {
+                    status = true,
+                });
+            }
+            catch (Exception ex)
+            {
+                Logging.Write(Server, ex.Message);
+                Logging.Write(Server, ex.StackTrace);
+
+                return JsonConvert.SerializeObject(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+        [HttpGet]
         public async Task<object> Train_FB_Comments_woBingGoogleRosette(string commentsIds)
         {
             // Check before
@@ -2188,15 +2259,13 @@ namespace ArabicTextAnalyzer.Controllers
                     s.FormattedRemoveAndApplyTagCol = TextTools.DisplayRemoveAndApplyTagCol(s.ID_ARABIZIENTRY, s.ID_ARABICDARIJAENTRY, mainEntities);
                 });
 
-                // final filtering (ners, ...)
-                // get ners
+                // final filtering (ners, ...) : get ners
                 var nersjson = this.Request.Form["ners"];
                 if (!String.IsNullOrWhiteSpace(nersjson))
                 {
                     JArray a = JArray.Parse(nersjson);
                     foreach (var item in a)
                     {
-                        Console.WriteLine(item);
                         items = items.Where(c => c.FormattedEntities != null && c.FormattedEntities.Contains((String)item)).ToList();
                     }
                 }
@@ -2315,7 +2384,6 @@ namespace ArabicTextAnalyzer.Controllers
                     id = c.id,
                     fk_influencer = c.fk_influencer,
                     pt = String.IsNullOrWhiteSpace(searchValue) ? c.post_text : truncateBySent(c.post_text, searchValue, sentPrepend: 0, sentAppend: 0, viewMoreTag: "[...]", startTruncTag: "[...]", returnSourceIfKeywordNotFound: true),
-                    // pt = c.post_text,
                     tt = c.translated_text,
                     lc = c.likes_count,
                     cc = c.comments_count,
@@ -2367,11 +2435,24 @@ namespace ArabicTextAnalyzer.Controllers
                 // extraData = items[0].id;
                 extraData = items[0].id;
 
-            // Visual formatting before sending back
-            /*items.ForEach(s =>
-            {
-                s.FormattedEntities = TextTools.DisplayEntities(s.ID_ARABICDARIJAENTRY, textEntities);
-            });*/
+            // get other helper data from DB
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> ners = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_SocialSearch_DAPPERSQL();
+
+            // join : Visual formatting before sending back
+            var items1 = items0.Join(ners,
+                p => p.id,
+                n => n.FK_ENTRY,
+                (p, n) => new
+                {
+                    p.id,
+                    p.dp,
+                    p.pt,
+                    p.fbPageName,
+                    FormattedEntities = TextTools.DisplayEntities(n.FK_ENTRY, ners),
+                    p.tt,
+                    p.lc,
+                    p.cc
+                });
 
             //
             return JsonConvert.SerializeObject(new
@@ -2379,7 +2460,8 @@ namespace ArabicTextAnalyzer.Controllers
                 recordsTotal = totalItemsCount.ToString(),
                 recordsFiltered = itemsFilteredCount.ToString(),
                 // data = items,
-                data = items0,
+                // data = items0,
+                data = items1,
                 extraData
             });
         }
