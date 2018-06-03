@@ -1541,16 +1541,6 @@ namespace ArabicTextAnalyzer.BO
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                /*String qry0 = "SELECT P.* FROM T_FB_POST P "
-                            + "WHERE ( "
-                                + "(P.post_text LIKE N'%" + filter + "%' OR P.translated_text LIKE N'%" + filter + "%') "
-                                + "OR "
-                                + "P.id IN ( "
-                                    + "SELECT C.feedId FROM FBFeedComments C WHERE C.feedId IS NOT NULL AND (C.message LIKE N'%" + filter + "%' OR C.translated_message LIKE N'%" + filter + "%') "
-                                + ") "
-                            + ") "
-                            + "ORDER BY P.date_publishing DESC ";*/
-
                 // rewrite qry to avoid timeout (from 1:45 to 15sec)
                 String qry0 = "SELECT P.* FROM T_FB_POST P "
                             + "WHERE P.post_text LIKE N'%" + filter + "%' OR P.translated_text LIKE N'%" + filter + "%' "
