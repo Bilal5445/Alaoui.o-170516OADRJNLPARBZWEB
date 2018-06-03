@@ -1,4 +1,15 @@
-﻿var socialsearchtable;
+﻿// datatables jquery table for social serach
+var socialsearchtable;
+
+// events variables
+var btnExtractEntitiesClicked = false;
+var btnShowSocialSearchFBPostCommentsClicked = false;
+
+// names of cols (so we can be indpendendant from index)
+var columnNames = [];
+$('.posts').find('th').each(function () {
+    columnNames.push($(this).text().trim());
+});
 
 // initial load fct
 $(document).ready(function () {
@@ -33,7 +44,6 @@ function InitializeSocialSearchDataTables() {
             ['10', '25', '50', '100', '500', '1000', 'all']
         ],
         // dom just to display the design of the fields : search , page , ...
-        // dom: "<'row'<'col-sm-5'B><'col-sm-3'l><'col-sm-4'f>>" +
         dom: "<'row'<'col-sm-3'B><'col-sm-3'l><'col-sm-3'f><'toolbar'>>" +
             "<'row'<'col-sm-12'tr>>" +
             "<'row'<'col-sm-5'i><'col-sm-7'p>>",
@@ -70,10 +80,10 @@ function InitializeSocialSearchDataTables() {
         }],
         "rowCallback": function (row, data) {
             if (IsRandALCat(data.pt.charCodeAt(0))) {
-                $('td:eq(2)', row).css('direction', 'rtl'); // '2' being the column 'pt'
+                $('td:eq(' + columnNames.indexOf("Post") + ')', row).css('direction', 'rtl'); // '2' being the column 'pt' = Post
             }
             if (IsRandALCat(data.fbPageName.charCodeAt(0))) {
-                $('td:eq(3)', row).css('direction', 'rtl'); // '3' being the column 'fbPageName'
+                $('td:eq(' + columnNames.indexOf("Page") + ')', row).css('direction', 'rtl'); // '3' being the column 'fbPageName' = Page
             }
         },
         // server side
@@ -259,10 +269,6 @@ function IsRandALCat(c) {
     return hasRandALCat == 1 ? true : false;
 }
 
-// events variables
-var btnExtractEntitiesClicked = false;
-var btnShowSocialSearchFBPostCommentsClicked = false;
-
 function JsExtractEntities() {
 
     // check before
@@ -318,7 +324,7 @@ function JsShowSocialSearchFBPostComments(thisimg) {
     // get dataTables.net row for the tr
     var dataTablesNetRow = socialsearchtable.row(tr);
 
-    //
+    // full post id retrived from FB contains 2 parts : first being the fb page id, and second being the specific id of this post
     var shortPostId = fullpostId.split('_')[1];
 
     // check before
