@@ -16,3 +16,8 @@ packages
 ArabiziWebAPI/bin
 ArabiziWebAPI/obj
 ArabicTextAnalyzer/App_Data/uploads
+Peersahb
+py_predict
+py_gender_predictor
+ArabicTextAnalyzer/App_Data/log*.txt
+ArabicTextAnalyzer/App_Data
