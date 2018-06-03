@@ -316,13 +316,18 @@ function JsExtractEntities() {
 function JsShowSocialSearchFBPostComments(thisimg) {
 
     // image => parent td => next (hidden) td => td content = post id
-    var fullpostId = $(thisimg).parent().next().html();
+    var parentTd = $(thisimg).parent();
+    var parentTr = parentTd.parent();
+    // var fullpostId = parentTd.next().html();
+    // var fullpostId = parentTd.siblings().eq(columnNames.indexOf("Post Id")).html();
+    var fullpostId = parentTr.children().eq(columnNames.indexOf("Post Id")).html();
 
     // image => parent td => parent tr
-    var tr = $(thisimg).parent().parent();
+    // var tr = parentTd.parent();
 
     // get dataTables.net row for the tr
-    var dataTablesNetRow = socialsearchtable.row(tr);
+    // var dataTablesNetRow = socialsearchtable.row(tr);
+    var dataTablesNetRow = socialsearchtable.row(parentTr);
 
     // full post id retrived from FB contains 2 parts : first being the fb page id, and second being the specific id of this post
     var shortPostId = fullpostId.split('_')[1];
@@ -335,7 +340,8 @@ function JsShowSocialSearchFBPostComments(thisimg) {
     btnShowSocialSearchFBPostCommentsClicked = true;
 
     //
-    ToggleSocialSearchFBPostCommentsTable(dataTablesNetRow, tr, thisimg, shortPostId);
+    // ToggleSocialSearchFBPostCommentsTable(dataTablesNetRow, tr, thisimg, shortPostId);
+    ToggleSocialSearchFBPostCommentsTable(dataTablesNetRow, parentTr, thisimg, shortPostId);
 
     //
     btnShowSocialSearchFBPostCommentsClicked = false;
