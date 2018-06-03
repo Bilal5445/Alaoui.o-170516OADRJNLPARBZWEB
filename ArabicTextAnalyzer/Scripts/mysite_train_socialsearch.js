@@ -57,14 +57,13 @@ function InitializeSocialSearchDataTables() {
                 "defaultContent": '<img src="http://i.imgur.com/SD7Dz.png" class="imagetag" onclick="' + "JsShowSocialSearchFBPostComments(this)" + '">'
             },
             { "data": "id", "className": "hide_column" },
-            /*{ "data": "fk_i", "className": "arabizi-text top collapsed" },*/
+            { "data": "dp", "className": "arabizi-text top" },
             { "data": "pt", "className": "top" },
             { "data": "fbPageName", "className": "arabizi-text top" },
-            // { "data": "FormattedEntities", "className": "arabic-text top entities" },
+            { "data": "FormattedEntities", "className": "arabic-text top entities" },
             { "data": "tt", "className": "arabic-text top" },
             { "data": "lc", "className": "center top" },
             { "data": "cc", "className": "center top" },
-            { "data": "dp", "className": "arabizi-text top" },
             {
                 "data": function (data) {
                     var str = '';
@@ -280,14 +279,19 @@ function JsExtractEntities() {
 
     //
     // var commentsIds = "'2195511010686419_2195728087331378','2195511010686419_2195718037332383'";
-    var commentsIds = "'2195511010686419_2195713473999506'";
+    // var commentsIds = "'2195511010686419_2195713473999506'";
+    var postsIds = "'1425749764329218_2195511010686419'"
 
     $.ajax({
         "dataType": 'json',
         "type": "GET",
-        "url": "/Train/Train_FB_Comments_woBingGoogleRosette",
+        /*"url": "/Train/Train_FB_Comments_woBingGoogleRosette",
         "data": {
             "commentsIds": commentsIds
+        },*/
+        "url": "/Train/Train_FB_Posts_woBingGoogleRosette",
+        "data": {
+            "postsIds": postsIds
         },
         "success": function (msg) {
             console.log(msg);
@@ -318,9 +322,7 @@ function JsShowSocialSearchFBPostComments(thisimg) {
     // image => parent td => next (hidden) td => td content = post id
     var parentTd = $(thisimg).parent();
     var parentTr = parentTd.parent();
-    // var fullpostId = parentTd.next().html();
-    // var fullpostId = parentTd.siblings().eq(columnNames.indexOf("Post Id")).html();
-    var fullpostId = parentTr.children().eq(columnNames.indexOf("Post Id")).html();
+    var fullpostId = parentTr.children().eq(columnNames.indexOf("PostId")).html();
 
     // image => parent td => parent tr
     // var tr = parentTd.parent();

@@ -1488,6 +1488,25 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
+        public List<FB_POST> loaddeserializeT_FB_POSTs_By_Ids_DAPPERSQL(string postsIds)
+        {
+            using (SqlConnection conn = new SqlConnection(this.ScrapyWebEntitiesConnectionString))
+            {
+                //
+                String qry = "SELECT * FROM T_FB_POST ";
+
+                //
+                qry += "WHERE translated_text IS NULL ";
+
+                //
+                if (!string.IsNullOrEmpty(postsIds))
+                    qry += "AND id IN (" + postsIds + ") ";
+
+                conn.Open();
+                return conn.Query<FB_POST>(qry).ToList();
+            }
+        }
+
         public List<FB_POST> loaddeserializeT_FB_POST_DAPPERSQL(string influencerid, bool isForSendMail = false)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
@@ -1783,34 +1802,13 @@ namespace ArabicTextAnalyzer.BO
         #endregion
 
         #region BACK YARD BO LOAD TEXTENTITY
-        private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY(AccessMode accessMode)
-        {
-            /*if (accessMode == AccessMode.xml)
-                return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY();
-            else*/
-            if (accessMode == AccessMode.efsql)
-                return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB();
-            else if (accessMode == AccessMode.dappersql)
-                return loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL();
-
-            return null;
-        }
-
-        private List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DB()
-        {
-            using (var db = new ArabiziDbContext())
-            {
-                return db.M_ARABICDARIJAENTRY_TEXTENTITYs.ToList();
-            }
-        }
-
         public List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_DAPPERSQL()
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
-                String qry = "SELECT * FROM T_ARABICDARIJAENTRY_TEXTENTITY";
+                String qry = "SELECT * FROM T_ARABICDARIJAENTRY_TEXTENTITY ";
 
                 conn.Open();
 
@@ -1840,7 +1838,47 @@ namespace ArabicTextAnalyzer.BO
                 }
 
                 return unflats;
-                // return conn.Query<M_ARABICDARIJAENTRY_TEXTENTITY>(qry).ToList();
+            }
+        }
+
+        public List<M_ARABICDARIJAENTRY_TEXTENTITY> loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_SocialSearch_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ConnLocalDBArabizi"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry0 = "SELECT * FROM T_ARABICDARIJAENTRY_TEXTENTITY "
+                            + "WHERE ID_ARABICDARIJAENTRY = '00000000-0000-0000-0000-000000000000' ";
+
+                conn.Open();
+
+                // special case, our initial class was complex (deep TextEntity), DB table created from initial class by EF is somehow flat
+                // so at loading, we need to convert back from flat to complex deep
+                var flats = conn.Query<M_ARABICDARIJAENTRY_TEXTENTITY_FLAT>(qry0);
+
+                //
+                List<M_ARABICDARIJAENTRY_TEXTENTITY> unflats = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
+                foreach (var flat in flats)
+                {
+                    M_ARABICDARIJAENTRY_TEXTENTITY unflat = new M_ARABICDARIJAENTRY_TEXTENTITY
+                    {
+                        ID_ARABICDARIJAENTRY = flat.ID_ARABICDARIJAENTRY,
+                        ID_ARABICDARIJAENTRY_TEXTENTITY = flat.ID_ARABICDARIJAENTRY_TEXTENTITY,
+                        TextEntity = new TextEntity
+                        {
+                            Count = flat.TextEntity_Count,
+                            EntityId = flat.TextEntity_EntityId,
+                            Mention = flat.TextEntity_Mention,
+                            Normalized = flat.TextEntity_Normalized,
+                            Type = flat.TextEntity_Type
+                        },
+                        FK_ENTRY = flat.FK_ENTRY,
+                        ENTRY_type = flat.ENTRY_type
+                    };
+                    unflats.Add(unflat);
+                }
+
+                return unflats;
             }
         }
 
@@ -1886,15 +1924,39 @@ namespace ArabicTextAnalyzer.BO
                             + "FROM T_ARABICDARIJAENTRY_TEXTENTITY "
                             + "WHERE ID_ARABICDARIJAENTRY = '00000000-0000-0000-0000-000000000000' "
                             + "GROUP BY TextEntity_Mention "
-                            + "ORDER BY SUM(TextEntity_Count) DESC";
+                            + "ORDER BY SUM(TextEntity_Count) DESC ";
 
                 conn.Open();
                 return conn.Query<LM_CountPerKeyword>(qry0);
             }
         }
         #endregion
-        
+
         #region BACK YARD SAVE FB_COMMENTS
+        public void SaveTranslatedPosts(string postid, string translatedText)
+        {
+            // Check before
+            if (string.IsNullOrEmpty(postid) || string.IsNullOrEmpty(translatedText))
+                return;
+
+            // clean 
+            translatedText = translatedText.Replace("'", "''");
+
+            //
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry = "UPDATE T_FB_POST SET translated_text = N'" + translatedText + "' WHERE id = '" + postid + "'";
+                using (SqlCommand cmd = new SqlCommand(qry, conn))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+
         public void SaveTranslatedComments(string commentid, string translatedText)
         {
             // Check before
