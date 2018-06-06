@@ -2181,26 +2181,27 @@ namespace ArabicTextAnalyzer.Controllers
         {
             try
             {
+                int start = 0;
+                int itemsPerPage = 10;
+
                 //
                 var userId = User.Identity.GetUserId();
 
-                // get from client side, from where we start the paging
-                int start = 0;
-                int.TryParse(this.Request.Form["start"], out start);            // POST
+                // from client side
+                int.TryParse(this.Request.Form["start"], out start);            // POST : from where we start the paging
+                int.TryParse(this.Request.Form["length"], out itemsPerPage);    // POST : to which length the paging goes
+                string searchValue = this.Request.Form["search[value]"];        // POST : search word
+                var min = this.Request.Form["min"];  // date range
+                var max = this.Request.Form["max"];  // date range
 
-                // get from client side, to which length the paging goes
-                int itemsPerPage = 10;
-                int.TryParse(this.Request.Form["length"], out itemsPerPage);    // POST
-
-                // get from client search word
-                string searchValue = this.Request.Form["search[value]"];        // POST
+                // get from client search word : trim extra tabs, spaces, ...
                 if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'', '\t' });
 
                 // POST
-                string searchAccount = this.Request.Form["columns[0][search][value]"];
+                /*string searchAccount = this.Request.Form["columns[0][search][value]"];
                 string searchSource = this.Request.Form["columns[1][search][value]"];
                 string searchEntity = this.Request.Form["columns[2][search][value]"];
-                string searchName = this.Request.Form["columns[3][search][value]"];
+                string searchName = this.Request.Form["columns[3][search][value]"];*/
 
                 // get main (whole) data from DB first
                 List<ArabiziToArabicViewModel> items = loadArabiziToArabicViewModel_DAPPERSQL(activeThemeOnly: true, userId: userId, adminModeShowAll: adminModeShowAll);
@@ -2217,8 +2218,6 @@ namespace ArabicTextAnalyzer.Controllers
                     items = items.Where(a => a.ArabiziText.ToUpper().Contains(searchValue.ToUpper()) || a.ArabicDarijaText.ToUpper().Contains(searchValue.ToUpper())).ToList();
 
                 // filter on date range
-                var min = this.Request.Form["min"];
-                var max = this.Request.Form["max"];
                 if (min != null)
                 {
                     var minDate = Convert.ToDateTime(min);
