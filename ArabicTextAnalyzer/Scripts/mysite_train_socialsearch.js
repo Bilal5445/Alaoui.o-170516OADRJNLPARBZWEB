@@ -3,6 +3,7 @@ var socialsearchtable;
 
 // events variables
 var btnExtractEntitiesClicked = false;
+var btnExtractPostsEntitiesClicked = false;
 var btnShowSocialSearchFBPostCommentsClicked = false;
 
 // names of cols (so we can be indpendendant from index)
@@ -67,8 +68,7 @@ function InitializeSocialSearchPostsDataTables() {
             {
                 "data": function (data) {
                     var str = '';
-                    // str = str + '<a class="btn btn-warning btn-xs disabled" onclick="' + "JsTranslateFBPost(this)" + '">Traduire</a>';
-                    str = str + '<a class="btn btn-info btn-xs small disabled" onclick="' + "JsTranslateFBPost(this)" + '"><span class="glyphicon glyphicon-refresh small" aria-hidden="true" title="Reprocess text"></span></a>';
+                    str = str + '<a class="btn btn-info btn-xs small" onclick="' + "JsExtractPostsEntities(this)" + '"><span class="glyphicon glyphicon-refresh small" aria-hidden="true" title="Reprocess text"></span></a>';
                     return str;
                 },
                 "className": "controls center top"
@@ -324,6 +324,56 @@ function JsExtractEntities() {
             
             // reset to not clicked
             btnExtractEntitiesClicked = false;
+
+            //
+            alert("Error");
+        }
+    });
+}
+
+function JsExtractPostsEntities(thisa) {
+
+    // a => parent td => next (hidden) td => td content = post id
+    var parentTd = $(thisa).parent();
+    var parentTr = parentTd.parent();
+    var fullpostId = parentTr.children().eq(columnNamesPosts.indexOf("PostId")).html();
+
+    // check before
+    if (btnExtractPostsEntitiesClicked == true)
+        return;
+
+    // mark as clicked to avoid double processing
+    btnExtractPostsEntitiesClicked = true;
+
+    //
+    // var postsIds = "'1425749764329218_2195511010686419'"
+    var postsIds = "'" + fullpostId + "'";
+
+    $.ajax({
+        "dataType": 'json',
+        "type": "GET",
+        "url": "/Train/Train_FB_Posts_woBingGoogleRosette",
+        "data": {
+            "postsIds": postsIds
+        },
+        "success": function (msg) {
+            console.log(msg);
+
+            // reset to not clicked
+            btnExtractPostsEntitiesClicked = false;
+
+            if (msg.status) {
+                // alert("Success");
+                // reload
+                window.location = '/Train/IndexSocialSearch';
+            } else {
+                alert(msg.message);
+            }
+        },
+        "error": function () {
+
+            // reset to not clicked
+            btnExtractPostsEntitiesClicked = false;
 
             //
             alert("Error");

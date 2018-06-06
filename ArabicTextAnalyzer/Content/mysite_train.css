@@ -157,6 +157,7 @@ td.controls {
 
 .center {
     text-align: center;
+    text-align: -webkit-center;
 }
 
 .top {
