@@ -2293,9 +2293,9 @@ namespace ArabicTextAnalyzer.Controllers
             int itemsPerPage = 10;
 
             // get from client side
-            int.TryParse(this.Request.QueryString["start"], out start);            // GET : from where we start the paging
-            int.TryParse(this.Request.QueryString["length"], out itemsPerPage);    // GET : to which length the paging goes
-            string searchValue = this.Request.QueryString["search[value]"]; // GET : search word
+            int.TryParse(this.Request.QueryString["start"], out start);         // GET : from where we start the paging
+            int.TryParse(this.Request.QueryString["length"], out itemsPerPage); // GET : to which length the paging goes
+            string searchValue = this.Request.QueryString["search[value]"];     // GET : search word
 
             // get from client search word : trim extra tabs, spaces, ...
             if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'', '\t' });
@@ -2326,16 +2326,17 @@ namespace ArabicTextAnalyzer.Controllers
             items = items.Skip(start).Take(itemsPerPage).ToList();
 
             // if only one found, return and uncollapse it out
-            String extraData = null;
+            /*String extraData = null;
             if (itemsFilteredCount == 1)
-                extraData = items[0].id;
+                extraData = items[0].id;*/
+
             //
             return JsonConvert.SerializeObject(new
             {
                 recordsTotal = totalItemsCount.ToString(),
                 recordsFiltered = itemsFilteredCount.ToString(),
                 data = items,
-                extraData
+                // extraData
             });
         }
 
@@ -2346,9 +2347,9 @@ namespace ArabicTextAnalyzer.Controllers
             int itemsPerPage = 10;
 
             // from client sides
-            int.TryParse(this.Request.QueryString["start"], out start);            // GET : from where we start the paging
-            int.TryParse(this.Request.QueryString["length"], out itemsPerPage);    // GET : to which length the paging goes
-            string searchValue = this.Request.QueryString["search[value]"];         // GET : search word
+            int.TryParse(this.Request.QueryString["start"], out start);                 // GET : from where we start the paging
+            int.TryParse(this.Request.QueryString["length"], out itemsPerPage);         // GET : to which length the paging goes
+            string searchValue = this.Request.QueryString["search[value]"];             // GET : search word
             var wholeWord = Convert.ToBoolean(this.Request.QueryString["wholeWord"]);   // whole word
             var min = this.Request.QueryString["min"];  // date range
             var max = this.Request.QueryString["max"];  // date range
@@ -2437,8 +2438,8 @@ namespace ArabicTextAnalyzer.Controllers
             // get other helper data from DB
             List<M_ARABICDARIJAENTRY_TEXTENTITY> ners = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_SocialSearch_DAPPERSQL();
 
-            // join : Visual formatting before sending back
-            var items1 = items0.Join(ners,
+            // left join : Visual formatting before sending back
+            var items1 /*= items0.Join(ners,
                 p => p.id,
                 n => n.FK_ENTRY,
                 (p, n) => new
@@ -2447,11 +2448,48 @@ namespace ArabicTextAnalyzer.Controllers
                     p.dp,
                     p.pt,
                     p.fbPageName,
-                    FormattedEntities = TextTools.DisplayEntities(n.FK_ENTRY, ners),
+                    FormattedEntities = n != null ? TextTools.DisplayEntities(n.FK_ENTRY, ners) : String.Empty,
                     p.tt,
                     p.lc,
                     p.cc
                 });
+            items1*/ = items0.LeftJoin(ners,
+                p => p.id,
+                n => n.FK_ENTRY,
+                (p, n) => new
+                {
+                    p.id,
+                    p.dp,
+                    p.pt,
+                    p.fbPageName,
+                    FormattedEntities = n != null ? TextTools.DisplayEntities(n.FK_ENTRY, ners) : String.Empty,
+                    p.tt,
+                    p.lc,
+                    p.cc
+                });
+            /*items0.GroupJoin(ners,
+                p => p.id,
+                n => n.FK_ENTRY,
+                (p, nrows ) => new { p, nrows.DefaultIfEmpty() }
+                )
+                .SelectMany( z => z.nrows.Select ()*/
+            /*var*/ /*items1 = items0.GroupJoin(ners,
+                p => p.id,
+                n => n.FK_ENTRY,
+                (p, n) => new
+                {
+                    p.id,
+                    p.dp,
+                    p.pt,
+                    p.fbPageName,
+                    // FormattedEntities = TextTools.DisplayEntities(n.FK_ENTRY, ners),
+                    FormattedEntities = n.DefaultIfEmpty(),
+                    p.tt,
+                    p.lc,
+                    p.cc
+                    // ms = ms.DefaultIfEmpty()
+                }).SelectMany(z => z..ms.Select(m => new { p = z.p, m }))*/
+            ;
 
             //
             return JsonConvert.SerializeObject(new
@@ -3065,6 +3103,23 @@ namespace ArabicTextAnalyzer.Controllers
             }
         }
         #endregion
+    }
+
+    public static class JoinHelper
+    {
+        public static IEnumerable<TResult> LeftJoin<TOuter, TInner, TKey, TResult>(this IEnumerable<TOuter> outer,
+        IEnumerable<TInner> inner, Func<TOuter, TKey> outerKeySelector, Func<TInner, TKey> innerKeySelector,
+        Func<TOuter, TInner, TResult> resultSelector)
+        {
+            return outer
+                .GroupJoin(inner, outerKeySelector, innerKeySelector, (outerObj, inners) =>
+                new
+                {
+                    outerObj,
+                    inners = inners.DefaultIfEmpty()
+                })
+            .SelectMany(a => a.inners.Select(innerObj => resultSelector(a.outerObj, innerObj)));
+        }
     }
 
     // Class for return the method call after translate Fb Posts and comments

@@ -339,10 +339,15 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public static String DisplayEntities(String FK_ENTRY, List<M_ARABICDARIJAENTRY_TEXTENTITY> TextEntities)
         {
+            String entitiesString = String.Empty;
+
+            // check before
+            if (String.IsNullOrWhiteSpace(FK_ENTRY))
+                return entitiesString;
+
             // limit to concerned text entities
             List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = TextEntities.FindAll(m => m.FK_ENTRY == FK_ENTRY);
 
-            String entitiesString = String.Empty;
             foreach (var textEntity in textEntities)
             {
                 String badgeCounter = textEntity.TextEntity.Count > 1 ? "(" + textEntity.TextEntity.Count + ")" : String.Empty;
