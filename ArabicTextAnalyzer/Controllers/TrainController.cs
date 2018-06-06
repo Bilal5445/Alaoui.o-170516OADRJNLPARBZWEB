@@ -2439,22 +2439,15 @@ namespace ArabicTextAnalyzer.Controllers
                 // extraData = items[0].id;
                 extraData = items[0].id;*/
 
+            // excludes POS NER (PRONOMS, PREPOSITIONS, ...), plus also MAIN
+            ners.RemoveAll(m => m.TextEntity.Type == "PREPOSITION"
+                                || m.TextEntity.Type == "PRONOUN"
+                                || m.TextEntity.Type == "ADVERB"
+                                || m.TextEntity.Type == "CONJUNCTION"
+                                || m.TextEntity.Type == "MAIN ENTITY");
+
             // left join : Visual formatting before sending back
             var items1 = items0.ToList();
-            /*var items1 = items0.LeftJoin(ners,
-                p => p.id,
-                n => n.FK_ENTRY,
-                (p, n) => new
-                {
-                    p.id,
-                    p.dp,
-                    p.pt,
-                    p.fbPageName,
-                    FormattedEntities = n != null ? TextTools.DisplayEntities(n.FK_ENTRY, ners) : String.Empty,
-                    p.tt,
-                    p.lc,
-                    p.cc
-                });*/
             items1.ForEach(s =>
             {
                 s.FormattedEntities = TextTools.DisplayEntities(s.id, ners);
