@@ -67,7 +67,8 @@ function InitializeSocialSearchPostsDataTables() {
             {
                 "data": function (data) {
                     var str = '';
-                    str = str + '<a class="btn btn-warning btn-xs disabled" onclick="' + "JsTranslateFBPost(this)" + '">Traduire</a>';
+                    // str = str + '<a class="btn btn-warning btn-xs disabled" onclick="' + "JsTranslateFBPost(this)" + '">Traduire</a>';
+                    str = str + '<a class="btn btn-info btn-xs small disabled" onclick="' + "JsTranslateFBPost(this)" + '"><span class="glyphicon glyphicon-refresh small" aria-hidden="true" title="Reprocess text"></span></a>';
                     return str;
                 },
                 "className": "controls center top"
@@ -421,7 +422,7 @@ function SocialSearchCommentTable(postId) {
                     <th class="center top col95px">Created Time</th>
                     <th class="center top col50prc">Comment</th>
                     <th class="center top col50prc">Translated Comment</th>
-                    <th class="center top col75px">Action</th>
+                    <th class="center top col75px"><i class="fa fa-cogs" aria-hidden="true"></i></th>
                 </tr>
             </thead>
         </table>

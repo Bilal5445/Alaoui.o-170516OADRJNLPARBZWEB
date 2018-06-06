@@ -455,7 +455,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             String newhtml1 = $@"<a href='/Train/Train_DeleteEntry/?arabiziWordGuid={ID_ARABIZIENTRY}' class='btn btn-danger btn-xs small'><span class='glyphicon glyphicon-remove small' aria-hidden='true'></span></a>";
 
             // refresh button
-            String newhtml11 = $@"<a href='/Train/Train_RefreshEntry/?arabiziWordGuid={ID_ARABIZIENTRY}' class='btn btn-info btn-xs small'><span class='glyphicon glyphicon-refresh small' aria-hidden='true'></span></a>";
+            String newhtml11 = $@"<a href='/Train/Train_RefreshEntry/?arabiziWordGuid={ID_ARABIZIENTRY}' class='btn btn-info btn-xs small'><span class='glyphicon glyphicon-refresh small' aria-hidden='true' title='Reprocess text'></span></a>";
 
             // dropdown tags
             String newhtml2 = $@"<div class='dropdown'>
