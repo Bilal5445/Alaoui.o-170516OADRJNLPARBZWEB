@@ -6,19 +6,19 @@ var btnExtractEntitiesClicked = false;
 var btnShowSocialSearchFBPostCommentsClicked = false;
 
 // names of cols (so we can be indpendendant from index)
-var columnNames = [];
-$('.posts').find('th').each(function () {
-    columnNames.push($(this).text().trim());
+var columnNamesPosts = [];
+$('.datatables-table-fbs-all').find('th').each(function () {
+    columnNamesPosts.push($(this).text().trim());
 });
 
 // initial load fct
 $(document).ready(function () {
 
-    InitializeSocialSearchDataTables();
+    InitializeSocialSearchPostsDataTables();
 });
 
 // table for FB post table
-function InitializeSocialSearchDataTables() {
+function InitializeSocialSearchPostsDataTables() {
 
     // Initialize DataTables
     socialsearchtable = $('.datatables-table-fbs-all').DataTable({
@@ -79,10 +79,10 @@ function InitializeSocialSearchDataTables() {
         }],
         "rowCallback": function (row, data) {
             if (IsRandALCat(data.pt.charCodeAt(0))) {
-                $('td:eq(' + columnNames.indexOf("Post") + ')', row).css('direction', 'rtl'); // '2' being the column 'pt' = Post
+                $('td:eq(' + columnNamesPosts.indexOf("Post") + ')', row).css('direction', 'rtl'); // '2' being the column 'pt' = Post
             }
             if (IsRandALCat(data.fbPageName.charCodeAt(0))) {
-                $('td:eq(' + columnNames.indexOf("Page") + ')', row).css('direction', 'rtl'); // '3' being the column 'fbPageName' = Page
+                $('td:eq(' + columnNamesPosts.indexOf("Page") + ')', row).css('direction', 'rtl'); // '3' being the column 'fbPageName' = Page
             }
         },
         // server side
@@ -168,8 +168,8 @@ function InitializeSocialSearchCommentsForPostDataTables(id) {
                 "className": "details-control center top"
             },
             { "data": "Id", "className": "hide_column" },
-            { "data": "message", "className": "arabizi-text top" },
-            { "data": "translated_message", "className": "arabizi-text top" },
+            { "data": "message", "className": "top" },
+            { "data": "translated_message", "className": "top" },
             { "data": "created_time", "className": "arabizi-text top" },
             {
                 "data": function (data) {
@@ -183,10 +183,24 @@ function InitializeSocialSearchCommentsForPostDataTables(id) {
             "defaultContent": "-",
             "targets": "_all"
         }],
+        "rowCallback": function (row, data) {
+            if (IsRandALCat(data.message.charCodeAt(0))) {
+                $('td:eq(' + columnNamesComments.indexOf("Comment") + ')', row).css('direction', 'rtl');
+            }
+            if (data.translated_message != null && IsRandALCat(data.translated_message.charCodeAt(0))) {
+                $('td:eq(' + columnNamesComments.indexOf("Translated Comment") + ')', row).css('direction', 'rtl');
+            }
+        },
         // server side
         "processing": true,
         "serverSide": true,
         "ajax": "/Train/DataTablesNet_ServerSide_FB_Comments_GetList?id=" + id
+    });
+
+    // names of comments cols (filled at fly)
+    var columnNamesComments = [];
+    $('table[id^=socialsearchtabledetails_]').find('th').each(function () {
+        columnNamesComments.push($(this).text().trim());
     });
 }
 
@@ -321,14 +335,14 @@ function JsShowSocialSearchFBPostComments(thisimg) {
 
     // image => parent td => next (hidden) td => td content = post id
     var parentTd = $(thisimg).parent();
-    var parentTr = parentTd.parent();
-    var fullpostId = parentTr.children().eq(columnNames.indexOf("PostId")).html();
 
     // image => parent td => parent tr
-    // var tr = parentTd.parent();
+    var parentTr = parentTd.parent();
+
+    //
+    var fullpostId = parentTr.children().eq(columnNamesPosts.indexOf("PostId")).html();
 
     // get dataTables.net row for the tr
-    // var dataTablesNetRow = socialsearchtable.row(tr);
     var dataTablesNetRow = socialsearchtable.row(parentTr);
 
     // full post id retrived from FB contains 2 parts : first being the fb page id, and second being the specific id of this post
