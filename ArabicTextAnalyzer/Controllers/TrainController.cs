@@ -1263,14 +1263,14 @@ namespace ArabicTextAnalyzer.Controllers
                 List<FB_POST> posts = new Arabizer().loaddeserializeT_FB_POSTs_By_Ids_DAPPERSQL(postsIds);
 
                 // check before
-                if (posts == null || posts.Count == 0)
+                /*if (posts == null || posts.Count == 0)
                 {
                     return JsonConvert.SerializeObject(new
                     {
                         status = false,
                         message = "All selected posts are already translated."
                     });
-                }
+                }*/
 
                 //
                 foreach (var post in posts)
@@ -1291,7 +1291,7 @@ namespace ArabicTextAnalyzer.Controllers
                         });
                     }
 
-                    //
+                    // save translated posts
                     string translatedstring = res.ArabicDarijaText;
                     new Arabizer().SaveTranslatedPosts(post.id, translatedstring);
                 }

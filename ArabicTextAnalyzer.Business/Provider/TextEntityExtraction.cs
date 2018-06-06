@@ -186,8 +186,9 @@ namespace ArabicTextAnalyzer.Business.Provider
             String arabicText,
             IEnumerable<TextEntity> entities,
             Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY,
-            Action<M_ARABICDARIJAENTRY_TEXTENTITY, AccessMode> saveserializeM_ARABICDARIJAENTRY_TEXTENTITY,
-            AccessMode accessMode
+            // Action<M_ARABICDARIJAENTRY_TEXTENTITY, AccessMode> saveserializeM_ARABICDARIJAENTRY_TEXTENTITY,
+            Action<M_ARABICDARIJAENTRY_TEXTENTITY> saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL//,
+            // AccessMode accessMode
             )
         {
             List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
@@ -223,17 +224,15 @@ namespace ArabicTextAnalyzer.Business.Provider
                 textEntities.Add(textEntity);
 
                 // Save to Serialization
-                saveserializeM_ARABICDARIJAENTRY_TEXTENTITY(textEntity, accessMode);
+                // saveserializeM_ARABICDARIJAENTRY_TEXTENTITY(textEntity, accessMode);
+                saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL(textEntity);
             }
 
             //
             return textEntities;
         }
 
-        public List<TextEntity> NerManualExtraction_nosave(
-            String arabicText,
-            IEnumerable<TextEntity> entities
-            )
+        public List<TextEntity> NerManualExtraction_nosave(String arabicText, IEnumerable<TextEntity> entities)
         {
             // clean post-rosette
             var lentities = NerRosetteClean(entities);

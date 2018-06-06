@@ -96,19 +96,19 @@ function InitializeSocialSearchPostsDataTables() {
 
                 // custome search by date range
                 var min = $('#min').datepicker("getDate");
-                if (min != null) {
+                if (min !== null) {
                     var minjson = min.toJSON();
                     d.min = minjson;
                 }
                 var max = $('#max').datepicker("getDate");
-                if (max != null) {
+                if (max !== null) {
                     var maxjson = max.toJSON();
                     d.max = maxjson;
                 }
 
                 // pass filtered ners to server
                 var ners = $('.selectpicker').val();
-                if (ners != null && ners.length > 0) {
+                if (ners !== null && ners.length > 0) {
                     d.ners = JSON.stringify(ners);
                 }
 
@@ -188,7 +188,7 @@ function InitializeSocialSearchCommentsForPostDataTables(id) {
             if (IsRandALCat(data.message.charCodeAt(0))) {
                 $('td:eq(' + columnNamesComments.indexOf("Comment") + ')', row).css('direction', 'rtl');
             }
-            if (data.translated_message != null && IsRandALCat(data.translated_message.charCodeAt(0))) {
+            if (data.translated_message !== null && IsRandALCat(data.translated_message.charCodeAt(0))) {
                 $('td:eq(' + columnNamesComments.indexOf("Translated Comment") + ')', row).css('direction', 'rtl');
             }
         },
@@ -209,44 +209,44 @@ function IsRandALCat(c) {
     var hasRandALCat = 0;
     if (c >= 0x5BE && c <= 0x10B7F) {
         if (c <= 0x85E) {
-            if (c == 0x5BE) hasRandALCat = 1;
-            else if (c == 0x5C0) hasRandALCat = 1;
-            else if (c == 0x5C3) hasRandALCat = 1;
-            else if (c == 0x5C6) hasRandALCat = 1;
+            if (c === 0x5BE) hasRandALCat = 1;
+            else if (c === 0x5C0) hasRandALCat = 1;
+            else if (c === 0x5C3) hasRandALCat = 1;
+            else if (c === 0x5C6) hasRandALCat = 1;
             else if (0x5D0 <= c && c <= 0x5EA) hasRandALCat = 1;
             else if (0x5F0 <= c && c <= 0x5F4) hasRandALCat = 1;
-            else if (c == 0x608) hasRandALCat = 1;
-            else if (c == 0x60B) hasRandALCat = 1;
-            else if (c == 0x60D) hasRandALCat = 1;
-            else if (c == 0x61B) hasRandALCat = 1;
+            else if (c === 0x608) hasRandALCat = 1;
+            else if (c === 0x60B) hasRandALCat = 1;
+            else if (c === 0x60D) hasRandALCat = 1;
+            else if (c === 0x61B) hasRandALCat = 1;
             else if (0x61E <= c && c <= 0x64A) hasRandALCat = 1;
             else if (0x66D <= c && c <= 0x66F) hasRandALCat = 1;
             else if (0x671 <= c && c <= 0x6D5) hasRandALCat = 1;
             else if (0x6E5 <= c && c <= 0x6E6) hasRandALCat = 1;
             else if (0x6EE <= c && c <= 0x6EF) hasRandALCat = 1;
             else if (0x6FA <= c && c <= 0x70D) hasRandALCat = 1;
-            else if (c == 0x710) hasRandALCat = 1;
+            else if (c === 0x710) hasRandALCat = 1;
             else if (0x712 <= c && c <= 0x72F) hasRandALCat = 1;
             else if (0x74D <= c && c <= 0x7A5) hasRandALCat = 1;
-            else if (c == 0x7B1) hasRandALCat = 1;
+            else if (c === 0x7B1) hasRandALCat = 1;
             else if (0x7C0 <= c && c <= 0x7EA) hasRandALCat = 1;
             else if (0x7F4 <= c && c <= 0x7F5) hasRandALCat = 1;
-            else if (c == 0x7FA) hasRandALCat = 1;
+            else if (c === 0x7FA) hasRandALCat = 1;
             else if (0x800 <= c && c <= 0x815) hasRandALCat = 1;
-            else if (c == 0x81A) hasRandALCat = 1;
-            else if (c == 0x824) hasRandALCat = 1;
-            else if (c == 0x828) hasRandALCat = 1;
+            else if (c === 0x81A) hasRandALCat = 1;
+            else if (c === 0x824) hasRandALCat = 1;
+            else if (c === 0x828) hasRandALCat = 1;
             else if (0x830 <= c && c <= 0x83E) hasRandALCat = 1;
             else if (0x840 <= c && c <= 0x858) hasRandALCat = 1;
-            else if (c == 0x85E) hasRandALCat = 1;
+            else if (c === 0x85E) hasRandALCat = 1;
         }
-        else if (c == 0x200F) hasRandALCat = 1;
+        else if (c === 0x200F) hasRandALCat = 1;
         else if (c >= 0xFB1D) {
-            if (c == 0xFB1D) hasRandALCat = 1;
+            if (c === 0xFB1D) hasRandALCat = 1;
             else if (0xFB1F <= c && c <= 0xFB28) hasRandALCat = 1;
             else if (0xFB2A <= c && c <= 0xFB36) hasRandALCat = 1;
             else if (0xFB38 <= c && c <= 0xFB3C) hasRandALCat = 1;
-            else if (c == 0xFB3E) hasRandALCat = 1;
+            else if (c === 0xFB3E) hasRandALCat = 1;
             else if (0xFB40 <= c && c <= 0xFB41) hasRandALCat = 1;
             else if (0xFB43 <= c && c <= 0xFB44) hasRandALCat = 1;
             else if (0xFB46 <= c && c <= 0xFBC1) hasRandALCat = 1;
@@ -257,16 +257,16 @@ function IsRandALCat(c) {
             else if (0xFE70 <= c && c <= 0xFE74) hasRandALCat = 1;
             else if (0xFE76 <= c && c <= 0xFEFC) hasRandALCat = 1;
             else if (0x10800 <= c && c <= 0x10805) hasRandALCat = 1;
-            else if (c == 0x10808) hasRandALCat = 1;
+            else if (c === 0x10808) hasRandALCat = 1;
             else if (0x1080A <= c && c <= 0x10835) hasRandALCat = 1;
             else if (0x10837 <= c && c <= 0x10838) hasRandALCat = 1;
-            else if (c == 0x1083C) hasRandALCat = 1;
+            else if (c === 0x1083C) hasRandALCat = 1;
             else if (0x1083F <= c && c <= 0x10855) hasRandALCat = 1;
             else if (0x10857 <= c && c <= 0x1085F) hasRandALCat = 1;
             else if (0x10900 <= c && c <= 0x1091B) hasRandALCat = 1;
             else if (0x10920 <= c && c <= 0x10939) hasRandALCat = 1;
-            else if (c == 0x1093F) hasRandALCat = 1;
-            else if (c == 0x10A00) hasRandALCat = 1;
+            else if (c === 0x1093F) hasRandALCat = 1;
+            else if (c === 0x10A00) hasRandALCat = 1;
             else if (0x10A10 <= c && c <= 0x10A13) hasRandALCat = 1;
             else if (0x10A15 <= c && c <= 0x10A17) hasRandALCat = 1;
             else if (0x10A19 <= c && c <= 0x10A33) hasRandALCat = 1;
@@ -280,13 +280,13 @@ function IsRandALCat(c) {
         }
     }
 
-    return hasRandALCat == 1 ? true : false;
+    return hasRandALCat === 1 ? true : false;
 }
 
 function JsExtractEntities() {
 
     // check before
-    if (btnExtractEntitiesClicked == true)
+    if (btnExtractEntitiesClicked === true)
         return;
 
     // mark as clicked to avoid double processing
@@ -339,7 +339,7 @@ function JsExtractPostsEntities(thisa) {
     var fullpostId = parentTr.children().eq(columnNamesPosts.indexOf("PostId")).html();
 
     // check before
-    if (btnExtractPostsEntitiesClicked == true)
+    if (btnExtractPostsEntitiesClicked === true)
         return;
 
     // mark as clicked to avoid double processing
@@ -400,14 +400,13 @@ function JsShowSocialSearchFBPostComments(thisimg) {
     var shortPostId = fullpostId.split('_')[1];
 
     // check before
-    if (btnShowSocialSearchFBPostCommentsClicked == true)
+    if (btnShowSocialSearchFBPostCommentsClicked === true)
         return;
 
     // mark as clicked to avoid double processing
     btnShowSocialSearchFBPostCommentsClicked = true;
 
     //
-    // ToggleSocialSearchFBPostCommentsTable(dataTablesNetRow, tr, thisimg, shortPostId);
     ToggleSocialSearchFBPostCommentsTable(dataTablesNetRow, parentTr, thisimg, shortPostId);
 
     //

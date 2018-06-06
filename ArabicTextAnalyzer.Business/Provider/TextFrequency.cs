@@ -169,6 +169,15 @@ namespace ArabicTextAnalyzer.Business.Provider
             return arabiziText;
         }
 
+        public String MarkAsIgnore_Hashtag(String arabiziText)
+        {
+            var pattern = @"(#(?<=#)\w+)";
+
+            arabiziText = Regex.Replace(arabiziText, pattern, "<span class='notranslate'>$1</span>", RegexOptions.IgnoreCase);
+
+            return arabiziText;
+        }
+
         public bool NERContainsWord_brands(string domain)
         {
             // make it one line
