@@ -2413,33 +2413,35 @@ namespace ArabicTextAnalyzer.Controllers
             // page as per request (index of page and length)
             items = items.Skip(start).Take(itemsPerPage).ToList();
 
-            // join on fb pages names
+            // get other helper data from DB
+            List<M_ARABICDARIJAENTRY_TEXTENTITY> ners = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_SocialSearch_DAPPERSQL();
+
+            // join on fb pages names && have placeholder entity col
             List<T_FB_INFLUENCER> fbPages = new Arabizer().loadDeserializeT_FB_INFLUENCERs_NODUPL_DAPPERSQL();
             var items0 = items.Join(fbPages,
                 i => i.fk_influencer,
                 f => f.id,
-                (i, f) => new
+                (i, f) => new b
                 {
-                    i.id,
+                    id = i.id,
                     fbPageName = f.name,
-                    i.pt,
-                    i.tt,
-                    i.lc,
-                    i.cc,
-                    i.dp
+                    FormattedEntities = String.Empty,
+                    pt = i.pt,
+                    tt = i.tt,
+                    lc = i.lc,
+                    cc = i.cc,
+                    dp = i.dp
                 });
 
             // for comments, if only one found, return and uncollapse it out
-            String extraData = null;
+            /*String extraData = null;
             if (itemsFilteredCount == 1)
                 // extraData = items[0].id;
-                extraData = items[0].id;
-
-            // get other helper data from DB
-            List<M_ARABICDARIJAENTRY_TEXTENTITY> ners = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_SocialSearch_DAPPERSQL();
+                extraData = items[0].id;*/
 
             // left join : Visual formatting before sending back
-            var items1 = items0.LeftJoin(ners,
+            var items1 = items0.ToList();
+            /*var items1 = items0.LeftJoin(ners,
                 p => p.id,
                 n => n.FK_ENTRY,
                 (p, n) => new
@@ -2452,7 +2454,11 @@ namespace ArabicTextAnalyzer.Controllers
                     p.tt,
                     p.lc,
                     p.cc
-                });
+                });*/
+            items1.ForEach(s =>
+            {
+                s.FormattedEntities = TextTools.DisplayEntities(s.id, ners);
+            });
 
             //
             return JsonConvert.SerializeObject(new
@@ -2462,7 +2468,7 @@ namespace ArabicTextAnalyzer.Controllers
                 // data = items,
                 // data = items0,
                 data = items1,
-                extraData
+                // extraData
             });
         }
 
@@ -2553,6 +2559,19 @@ namespace ArabicTextAnalyzer.Controllers
             public String id;
             public String fk_influencer;
             public String pt;
+            public String tt;
+            public int lc;
+            public int cc;
+            public String dp;
+        }
+
+        public class b
+        {
+            public String id;
+            public String fk_influencer;
+            public String pt;
+            public String fbPageName;
+            public String FormattedEntities;
             public String tt;
             public int lc;
             public int cc;
