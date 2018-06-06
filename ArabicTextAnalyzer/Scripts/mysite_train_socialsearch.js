@@ -57,11 +57,11 @@ function InitializeSocialSearchPostsDataTables() {
                 "defaultContent": '<img src="http://i.imgur.com/SD7Dz.png" class="imagetag" onclick="' + "JsShowSocialSearchFBPostComments(this)" + '">'
             },
             { "data": "id", "className": "hide_column" },
-            { "data": "dp", "className": "arabizi-text top" },
-            { "data": "pt", "className": "top" },
+            { "data": "dp", "className": "arabizi-text top" },  // date post
+            { "data": "pt", "className": "top" },               // post text
             { "data": "fbPageName", "className": "arabizi-text top" },
             { "data": "FormattedEntities", "className": "arabic-text top entities" },
-            { "data": "tt", "className": "arabic-text top" },
+            { "data": "tt", "className": "arabic-text top" },   // translation text
             { "data": "lc", "className": "center top" },
             { "data": "cc", "className": "center top" },
             {
@@ -168,9 +168,9 @@ function InitializeSocialSearchCommentsForPostDataTables(id) {
                 "className": "details-control center top"
             },
             { "data": "Id", "className": "hide_column" },
+            { "data": "created_time", "className": "arabizi-text top" },
             { "data": "message", "className": "top" },
             { "data": "translated_message", "className": "top" },
-            { "data": "created_time", "className": "arabizi-text top" },
             {
                 "data": function (data) {
                     var str = '';
@@ -416,11 +416,11 @@ function SocialSearchCommentTable(postId) {
         <table id="socialsearchtabledetails_${postId}" class ="posts table table-striped table-hover table-bordered">
             <thead class="header">
                 <tr>
-                    <th class ="center top col50px"></th>
+                    <th class="center top col50px"></th>
                     <th class="center top col50px">ID</th>
-                    <th class="center top col50prc">Comment</th>
-                    <th class ="center top col50prc">Translated Comment</th>
                     <th class="center top col95px">Created Time</th>
+                    <th class="center top col50prc">Comment</th>
+                    <th class="center top col50prc">Translated Comment</th>
                     <th class="center top col75px">Action</th>
                 </tr>
             </thead>
