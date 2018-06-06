@@ -2439,7 +2439,7 @@ namespace ArabicTextAnalyzer.Controllers
             List<M_ARABICDARIJAENTRY_TEXTENTITY> ners = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_SocialSearch_DAPPERSQL();
 
             // left join : Visual formatting before sending back
-            var items1 /*= items0.Join(ners,
+            var items1 = items0.LeftJoin(ners,
                 p => p.id,
                 n => n.FK_ENTRY,
                 (p, n) => new
@@ -2453,43 +2453,6 @@ namespace ArabicTextAnalyzer.Controllers
                     p.lc,
                     p.cc
                 });
-            items1*/ = items0.LeftJoin(ners,
-                p => p.id,
-                n => n.FK_ENTRY,
-                (p, n) => new
-                {
-                    p.id,
-                    p.dp,
-                    p.pt,
-                    p.fbPageName,
-                    FormattedEntities = n != null ? TextTools.DisplayEntities(n.FK_ENTRY, ners) : String.Empty,
-                    p.tt,
-                    p.lc,
-                    p.cc
-                });
-            /*items0.GroupJoin(ners,
-                p => p.id,
-                n => n.FK_ENTRY,
-                (p, nrows ) => new { p, nrows.DefaultIfEmpty() }
-                )
-                .SelectMany( z => z.nrows.Select ()*/
-            /*var*/ /*items1 = items0.GroupJoin(ners,
-                p => p.id,
-                n => n.FK_ENTRY,
-                (p, n) => new
-                {
-                    p.id,
-                    p.dp,
-                    p.pt,
-                    p.fbPageName,
-                    // FormattedEntities = TextTools.DisplayEntities(n.FK_ENTRY, ners),
-                    FormattedEntities = n.DefaultIfEmpty(),
-                    p.tt,
-                    p.lc,
-                    p.cc
-                    // ms = ms.DefaultIfEmpty()
-                }).SelectMany(z => z..ms.Select(m => new { p = z.p, m }))*/
-            ;
 
             //
             return JsonConvert.SerializeObject(new
