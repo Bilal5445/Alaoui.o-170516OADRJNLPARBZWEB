@@ -95,14 +95,14 @@ function InitializeDataTables(adminModeShowAll) {
                         d.min = minjson;
                     }
                     var max = $('#maxpoststable').datepicker("getDate");
-                    if (max != null) {
+                    if (max !== null) {
                         var maxjson = max.toJSON();
                         d.max = maxjson;
                     }
 
                     // pass filtered ners to server
                     var ners = $('.selectpicker').val();
-                    if (ners != null && ners.length > 0) {
+                    if (ners !== null && ners.length > 0) {
                         d.ners = JSON.stringify(ners);
                     }
 
@@ -949,7 +949,7 @@ var FBDataVM = function () {
         var currentInstance = this;
 
         // Chek before
-        if ((currentInstance.RetrieveFBPostIsClicked != false || currentInstance.CallMethod != false) && intervalFlag != true)
+        if ((currentInstance.RetrieveFBPostIsClicked !== false || currentInstance.CallMethod !== false) && intervalFlag !== true)
             return;
 
         // DBG
@@ -1123,7 +1123,7 @@ function RefreshFBPostsAndComments() {
             }
 
             console.log(influencerUrl + "\n" + influencerid);
-            if (influencerUrl != null && influencerUrl != undefined && influencerid != null && influencerid != undefined) {
+            if (influencerUrl !== null && influencerUrl !== undefined && influencerid !== null && influencerid !== undefined) {
                 model.init(influencerUrl, influencerid, isAutoRetrieveFBPostAndComments);
             }
         }
