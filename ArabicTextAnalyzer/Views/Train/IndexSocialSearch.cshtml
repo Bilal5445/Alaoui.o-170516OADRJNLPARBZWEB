@@ -49,8 +49,12 @@
 
 @functions {
 
-    Boolean IsRandALCat(Int32 c)
+    Boolean IsRandALCat(Int32 c, Int32 c2)
     {
+        // case # (0x0023)
+        if (c == 0x23)
+            c = c2;
+
         int hasRandALCat = 0;
         if (c >= 0x5BE && c <= 0x10B7F)
         {
@@ -143,7 +147,7 @@
     <a class="btn btn-outline-primary btn-xs" id="import_posts" onclick="JsExtractEntities()">@R.ExtractEntities <span class="glyphicon glyphicon-star-empty"></span></a>
 </div>
 
-<!-- date range filter -->
+<!-- date range filter  & NER filter -->
 <div class="row">
     <!-- date range filter -->
     <div class="col-sm-3"><label>Minimum Date: <input name="min" id="min" type="search" class="form-control input-sm"></label></div>
@@ -169,7 +173,7 @@
             <select class="selectpicker" data-live-search="true" tabindex="-98" multiple title="Choose one of the following...">
                 @foreach (var ner in nersWithCounts)
                 {
-                    if (IsRandALCat(ner.Keyword[0]))
+                    if (IsRandALCat(ner.Keyword[0], ner.Keyword[1]))
                     {
                         <option style="direction: rtl;" value="@ner.Keyword">@ner.Keyword (@ner.CountPerKeyword)</option>
                     }
@@ -194,9 +198,7 @@
             <th class="center top col75px">Page</th>
             <th class="center top col130px">@R.Entities</th>
             <th class="center top col50prc">@R.TranslatedPost</th>
-            @*<th class="center top col50px">Likes</th>*@
             <th class="center top col50px"><i class="fa fa-thumbs-o-up" title="Likes"></i></th>
-            @*<th class="center top col75px">Comments</th>*@
             <th class="center top col50px"><i class="fa fa-comments-o" title="Comments"></i></th>
             <th class="center top col50px"><i class="fa fa-cogs" aria-hidden="true"></i></th>
         </tr>
