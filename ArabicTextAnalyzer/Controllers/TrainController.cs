@@ -2353,6 +2353,7 @@ namespace ArabicTextAnalyzer.Controllers
             var wholeWord = Convert.ToBoolean(this.Request.QueryString["wholeWord"]);   // whole word
             var min = this.Request.QueryString["min"];  // date range
             var max = this.Request.QueryString["max"];  // date range
+            var nersjson = this.Request.QueryString["ners"];    // final filtering (ners, ...) : get ners
 
             // get from client search word : trim extra tabs, spaces, ...
             if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'', '\t' });
@@ -2452,6 +2453,16 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 s.FormattedEntities = TextTools.DisplayEntities(s.id, ners);
             });
+
+            // final filtering (ners, ...) : get ners
+            if (!String.IsNullOrWhiteSpace(nersjson))
+            {
+                JArray a = JArray.Parse(nersjson);
+                foreach (var item in a)
+                {
+                    items1 = items1.Where(c => c.FormattedEntities != null && c.FormattedEntities.Contains((String)item)).ToList();
+                }
+            }
 
             //
             return JsonConvert.SerializeObject(new
