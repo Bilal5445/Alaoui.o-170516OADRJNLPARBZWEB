@@ -134,7 +134,7 @@ function InitializeSocialSearchPostsDataTables() {
 
     // search by NER select option trigger
     $('.selectpicker').change(function () {
-        poststable.draw();
+        socialsearchtable.draw();
     });
 
     // custom search whole word : to trigger change when we check the cehckbox whole word

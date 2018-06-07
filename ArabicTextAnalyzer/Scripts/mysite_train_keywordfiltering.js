@@ -90,7 +90,7 @@ function InitializeDataTables(adminModeShowAll) {
                 "data": function (d) {
                     // pass min max date to server
                     var min = $('#minpoststable').datepicker("getDate");
-                    if (min != null) {
+                    if (min !== null) {
                         var minjson = min.toJSON();
                         d.min = minjson;
                     }
@@ -104,7 +104,6 @@ function InitializeDataTables(adminModeShowAll) {
                     var ners = $('.selectpicker').val();
                     if (ners != null && ners.length > 0) {
                         d.ners = JSON.stringify(ners);
-                        // d.ners = ners;
                     }
 
                     //
@@ -207,45 +206,45 @@ function IsRandALCat(c)
     {
         if (c <= 0x85E)
         {
-            if (c == 0x5BE) hasRandALCat = 1;
-            else if (c == 0x5C0) hasRandALCat = 1;
-            else if (c == 0x5C3) hasRandALCat = 1;
-            else if (c == 0x5C6) hasRandALCat = 1;
+            if (c === 0x5BE) hasRandALCat = 1;
+            else if (c === 0x5C0) hasRandALCat = 1;
+            else if (c === 0x5C3) hasRandALCat = 1;
+            else if (c === 0x5C6) hasRandALCat = 1;
             else if (0x5D0 <= c && c <= 0x5EA) hasRandALCat = 1;
             else if (0x5F0 <= c && c <= 0x5F4) hasRandALCat = 1;
-            else if (c == 0x608) hasRandALCat = 1;
-            else if (c == 0x60B) hasRandALCat = 1;
-            else if (c == 0x60D) hasRandALCat = 1;
-            else if (c == 0x61B) hasRandALCat = 1;
+            else if (c === 0x608) hasRandALCat = 1;
+            else if (c === 0x60B) hasRandALCat = 1;
+            else if (c === 0x60D) hasRandALCat = 1;
+            else if (c === 0x61B) hasRandALCat = 1;
             else if (0x61E <= c && c <= 0x64A) hasRandALCat = 1;
             else if (0x66D <= c && c <= 0x66F) hasRandALCat = 1;
             else if (0x671 <= c && c <= 0x6D5) hasRandALCat = 1;
             else if (0x6E5 <= c && c <= 0x6E6) hasRandALCat = 1;
             else if (0x6EE <= c && c <= 0x6EF) hasRandALCat = 1;
             else if (0x6FA <= c && c <= 0x70D) hasRandALCat = 1;
-            else if (c == 0x710) hasRandALCat = 1;
+            else if (c === 0x710) hasRandALCat = 1;
             else if (0x712 <= c && c <= 0x72F) hasRandALCat = 1;
             else if (0x74D <= c && c <= 0x7A5) hasRandALCat = 1;
-            else if (c == 0x7B1) hasRandALCat = 1;
+            else if (c === 0x7B1) hasRandALCat = 1;
             else if (0x7C0 <= c && c <= 0x7EA) hasRandALCat = 1;
             else if (0x7F4 <= c && c <= 0x7F5) hasRandALCat = 1;
-            else if (c == 0x7FA) hasRandALCat = 1;
+            else if (c === 0x7FA) hasRandALCat = 1;
             else if (0x800 <= c && c <= 0x815) hasRandALCat = 1;
-            else if (c == 0x81A) hasRandALCat = 1;
-            else if (c == 0x824) hasRandALCat = 1;
-            else if (c == 0x828) hasRandALCat = 1;
+            else if (c === 0x81A) hasRandALCat = 1;
+            else if (c === 0x824) hasRandALCat = 1;
+            else if (c === 0x828) hasRandALCat = 1;
             else if (0x830 <= c && c <= 0x83E) hasRandALCat = 1;
             else if (0x840 <= c && c <= 0x858) hasRandALCat = 1;
-            else if (c == 0x85E) hasRandALCat = 1;
+            else if (c === 0x85E) hasRandALCat = 1;
         }
-        else if (c == 0x200F) hasRandALCat = 1;
+        else if (c === 0x200F) hasRandALCat = 1;
         else if (c >= 0xFB1D)
         {
-            if (c == 0xFB1D) hasRandALCat = 1;
+            if (c === 0xFB1D) hasRandALCat = 1;
             else if (0xFB1F <= c && c <= 0xFB28) hasRandALCat = 1;
             else if (0xFB2A <= c && c <= 0xFB36) hasRandALCat = 1;
             else if (0xFB38 <= c && c <= 0xFB3C) hasRandALCat = 1;
-            else if (c == 0xFB3E) hasRandALCat = 1;
+            else if (c === 0xFB3E) hasRandALCat = 1;
             else if (0xFB40 <= c && c <= 0xFB41) hasRandALCat = 1;
             else if (0xFB43 <= c && c <= 0xFB44) hasRandALCat = 1;
             else if (0xFB46 <= c && c <= 0xFBC1) hasRandALCat = 1;
@@ -256,16 +255,16 @@ function IsRandALCat(c)
             else if (0xFE70 <= c && c <= 0xFE74) hasRandALCat = 1;
             else if (0xFE76 <= c && c <= 0xFEFC) hasRandALCat = 1;
             else if (0x10800 <= c && c <= 0x10805) hasRandALCat = 1;
-            else if (c == 0x10808) hasRandALCat = 1;
+            else if (c === 0x10808) hasRandALCat = 1;
             else if (0x1080A <= c && c <= 0x10835) hasRandALCat = 1;
             else if (0x10837 <= c && c <= 0x10838) hasRandALCat = 1;
-            else if (c == 0x1083C) hasRandALCat = 1;
+            else if (c === 0x1083C) hasRandALCat = 1;
             else if (0x1083F <= c && c <= 0x10855) hasRandALCat = 1;
             else if (0x10857 <= c && c <= 0x1085F) hasRandALCat = 1;
             else if (0x10900 <= c && c <= 0x1091B) hasRandALCat = 1;
             else if (0x10920 <= c && c <= 0x10939) hasRandALCat = 1;
-            else if (c == 0x1093F) hasRandALCat = 1;
-            else if (c == 0x10A00) hasRandALCat = 1;
+            else if (c === 0x1093F) hasRandALCat = 1;
+            else if (c === 0x10A00) hasRandALCat = 1;
             else if (0x10A10 <= c && c <= 0x10A13) hasRandALCat = 1;
             else if (0x10A15 <= c && c <= 0x10A17) hasRandALCat = 1;
             else if (0x10A19 <= c && c <= 0x10A33) hasRandALCat = 1;
@@ -279,7 +278,7 @@ function IsRandALCat(c)
         }
     }
 
-    return hasRandALCat == 1 ? true : false;
+    return hasRandALCat === 1 ? true : false;
 }
 
 function BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds) {
@@ -303,7 +302,7 @@ function BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds) {
             refreshButton.attr("href", newrefreshhref);
         });
 
-    } else if (selectedControlsTds.length == 1) {
+    } else if (selectedControlsTds.length === 1) {
 
         // new value href
         var arabiziWordGuid = selectedArabiziIds.join();
@@ -324,7 +323,7 @@ function BuildMulipleIdsForDeleteAndRefreshButton(selectedControlsTds) {
 function LoadFacebookPosts(influencerId) {
 
     // check before
-    if (ViewInfluencerIsClicked == true)
+    if (ViewInfluencerIsClicked === true)
         return;
 
     // mark as clicked to avoid double processing
@@ -334,7 +333,7 @@ function LoadFacebookPosts(influencerId) {
     console.log("InitializeFBPostsDataTables : influencerid : " + influencerId);
     var $checkedBoxes = $('.table_' + influencerId + ' tbody tr');
     console.log("InitializeFBPostsDataTables : $checkedBoxes.length : " + $checkedBoxes.length);
-    if ($checkedBoxes.length == 0) {
+    if ($checkedBoxes.length === 0) {
         InitializeFBPostsDataTables(influencerId);
     }
 
@@ -428,12 +427,12 @@ function InitializeFBPostsDataTables(fluencerid) {
                     var msg = '';
                     if (jqXHR.status === 0) {
                         msg = 'Not connect.\n Verify Network.';
-                    } else if (jqXHR.status == 401) {
+                    } else if (jqXHR.status === 401) {
                         msg = 'Unauthorized response. [401]';
                         window.location.href = "/Train/IndexFBs"; // timeout => reonnect
-                    } else if (jqXHR.status == 404) {
+                    } else if (jqXHR.status === 404) {
                         msg = 'Requested page not found. [404]';
-                    } else if (jqXHR.status == 500) {
+                    } else if (jqXHR.status === 500) {
                         msg = 'Internal Server Error [500].';
                     } else if (exception === 'parsererror') {
                         msg = 'Requested JSON parse failed. \n' + +jqXHR.responseText;
@@ -477,7 +476,7 @@ function ShowFBPage(id) {
 function JsTranslateFBPost(obj) {
 
     // check before
-    if (TranslateContentIsClicked == true)
+    if (TranslateContentIsClicked === true)
         return;
 
     // mark as clicked to avoid double processing
@@ -519,7 +518,7 @@ function JsTranslateFBPost(obj) {
 
             if (msg.status) {
 
-                if (translatedText.length == 0) {
+                if (translatedText.length === 0) {
                     // if succesfully translated, remplace translatedText column by result text
                     $(translatedTextTd).html(msg.recordsFiltered)
                 }
@@ -539,7 +538,7 @@ function ShowFBComments(img) {
     // img = img.imagetag
 
     // check before
-    if (GetCommentsIsClicked == true)
+    if (GetCommentsIsClicked === true)
         return;
 
     // mark as clicked to avoid double processing
@@ -696,7 +695,7 @@ function InitializeFBCommentsForPostDataTables(id) {
 function GetTranslateComment(postid) {
 
     // check before
-    if (GetTranslateCommentIsClicked == true)
+    if (GetTranslateCommentIsClicked === true)
         return;
 
     // mark as clicked to avoid double processing
@@ -731,10 +730,10 @@ function CheckUnCheckAllComments(postid) {
     // loop on all comments row and check (or uncheck) each one
     var firstIsChecked = false;
     $('.cbxComment_' + postid).each(function (index, value) {
-        if (index == 0 && $(this).is(':checked'))
+        if (index === 0 && $(this).is(':checked'))
             firstIsChecked = true;
 
-        if (firstIsChecked == true)
+        if (firstIsChecked === true)
             $(this).prop('checked', false);
         else
             $(this).prop('checked', true);
@@ -743,7 +742,7 @@ function CheckUnCheckAllComments(postid) {
 
 // method for translate the comments when clicking on translate button of comment
 function TranslateComment(obj) {
-    if (TranslateCommentIsClicked == false) {
+    if (TranslateCommentIsClicked === false) {
 
         //
         TranslateCommentIsClicked = true;
@@ -810,13 +809,13 @@ function postOnCommentsTranslate(translatedCommentId, id) {
 function JsAddInfluencer() {
 
     // check before
-    if (AddInfluencerIsClicked == true)
+    if (AddInfluencerIsClicked === true)
         return;
 
     // check on fields
     var urlname = $('#txtUrlName').val();
     var pro_or_anti = $('#ddlPro_or_anti').val();
-    if (urlname.length == 0 || pro_or_anti.length == 0) {
+    if (urlname.length === 0 || pro_or_anti.length === 0) {
         alert("All the fields are required.");
         return;
     }
@@ -896,7 +895,7 @@ var FBDataVM = function () {
 
         var currentInstance = this;
         var intervalFlag = true;
-        if (currentInstance.CallMethod == false) {
+        if (currentInstance.CallMethod === false) {
 
             //
             currentInstance.CallMethod = true;
@@ -915,7 +914,7 @@ var FBDataVM = function () {
 
         var currentInstance = this;
         // alert(influencerid);
-        if (currentInstance.CallTranslateMethod == false) {
+        if (currentInstance.CallTranslateMethod === false) {
             currentInstance.CallTranslateMethod = true;
 
             //
@@ -995,7 +994,7 @@ var FBDataVM = function () {
                 currentInstance.RetrieveFBPostIsClicked = false;
                 currentInstance.CallMethod = false;
 
-                if (intervalFlag == true) {
+                if (intervalFlag === true) {
 
                     if ($('#' + influencerid).hasClass('active')) {
                     }
@@ -1036,9 +1035,9 @@ var FBDataVM = function () {
                 var msg = '';
                 if (jqXHR.status === 0) {
                     msg = 'Not connect.\n Verify Network.';
-                } else if (jqXHR.status == 404) {
+                } else if (jqXHR.status === 404) {
                     msg = 'Requested page not found. [404]';
-                } else if (jqXHR.status == 500) {
+                } else if (jqXHR.status === 500) {
                     msg = 'Internal Server Error [500].';
                 } else if (exception === 'parsererror') {
                     msg = 'Requested JSON parse failed.';
@@ -1075,7 +1074,7 @@ var FBDataVM = function () {
                 currentInstance.isAutoRetrieveFBPostAndComments = false;
             }
 
-            if (currentInstance.isAutoRetrieveFBPostAndComments == true) {
+            if (currentInstance.isAutoRetrieveFBPostAndComments === true) {
                 currentInstance.GetFBPostsAndComments(influencerUrl, influencerid);
             }
 
@@ -1091,7 +1090,7 @@ var FBDataVM = function () {
                 currentInstance.isAutoRetrieveFBPostAndComments = false;
             }
 
-            if (currentInstance.isAutoRetrieveFBPostAndComments == true) {
+            if (currentInstance.isAutoRetrieveFBPostAndComments === true) {
                 currentInstance.TranslateFBPostsAndComments(influencerid);
             }
 
@@ -1134,7 +1133,7 @@ function RefreshFBPostsAndComments() {
 // Js fct to add per user influencer the target entities that are used to cross-match against with the Negative/Explative NER in the FB filter module
 function JsAddTextEntity(influencerid) {
 
-    if (AddTextEntityClicked == false) {
+    if (AddTextEntityClicked === false) {
 
         var targetText = $('#txtTxetEntity_' + influencerid).val();
         var isAutoRetrieveFBPostandComments = false;
