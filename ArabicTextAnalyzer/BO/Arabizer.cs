@@ -1639,24 +1639,68 @@ namespace ArabicTextAnalyzer.BO
             }
         }
 
-        public List<FB_POST> loaddeserializeT_FB_POST_JOIN_COMMENT_Like_Filter_DAPPERSQL(String filter)
+        public List<b> loaddeserializeT_FB_POST_JOIN_COMMENT_Like_Filter_DAPPERSQL(String filter, DateTime? minDate, DateTime? maxDate, String[] fbpgs)
         {
             String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+            String extraFilter = String.Empty;
+
+            if (minDate != null)
+                extraFilter += "AND P.date_publishing >= " + minDate.Value.ToString("yyyy-MM-dd HH:mm:ss.fff") + " ";
+
+            if (maxDate != null)
+                extraFilter += "AND P.date_publishing <= " + maxDate.Value.ToString("yyyy-MM-dd HH:mm:ss.fff") + " ";
+
+            if (fbpgs != null && fbpgs.Length > 0)
+            {
+                extraFilter += "AND P.fk_influencer IN (";
+                foreach(String fbpg in fbpgs)
+                {
+                    extraFilter += "'" + fbpg + "',";
+                }
+                extraFilter = extraFilter.TrimEnd(',');
+                extraFilter += ") ";
+            }
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 // rewrite qry to avoid timeout (from 1:45 to 15sec)
-                String qry0 = "SELECT P.* FROM T_FB_POST P "
-                            + "WHERE P.post_text LIKE N'%" + filter + "%' OR P.translated_text LIKE N'%" + filter + "%' "
+                String qry0 = "SELECT "
+                                + "P.id, "
+                                + "P.fk_influencer, "
+                                + "P.post_text pt, "
+                                + "FBPG.name fbPageName, "
+                                + "'' FormattedEntities, "
+                                + "P.translated_text tt, "
+                                + "P.likes_count lc, "
+                                + "P.comments_count cc, "
+                                + "P.date_publishing dp "
+                            + "FROM T_FB_POST P "
+                            + "INNER JOIN T_FB_INFLUENCER FBPG ON P.fk_influencer = FBPG.id "
+                            + "WHERE (P.post_text LIKE N'%" + filter + "%' OR P.translated_text LIKE N'%" + filter + "%') "
+                            + extraFilter
                             + "UNION "
-                            + "SELECT P.* FROM T_FB_POST P "
+                            + "SELECT "
+                                + "P.id, "
+                                + "P.fk_influencer, "
+                                + "P.post_text pt, "
+                                + "FBPG.name fbPageName, "
+                                + "'' FormattedEntities, "
+                                + "P.translated_text tt, "
+                                + "P.likes_count lc, "
+                                + "P.comments_count cc, "
+                                + "P.date_publishing dp "
+                            + "FROM T_FB_POST P "
                             + "INNER JOIN FBFeedComments C ON C.feedId IS NOT NULL AND P.id = C.feedId "
+                            + "INNER JOIN T_FB_INFLUENCER FBPG ON P.fk_influencer = FBPG.id "
                             + "AND (C.message LIKE N'%" + filter + "%' OR C.translated_message LIKE N'%" + filter + "%') "
+                            + "WHERE 1 = 1 "
+                            + extraFilter
                             + "ORDER BY P.date_publishing DESC ";
 
                 //
                 conn.Open();
-                return conn.Query<FB_POST>(qry0).ToList();
+                return conn.Query<b>(qry0).ToList();
             }
         }
 
