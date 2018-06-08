@@ -2353,9 +2353,9 @@ namespace ArabicTextAnalyzer.Controllers
             string searchValue = this.Request.QueryString["search[value]"];             // GET : search word
             var wholeWord = Convert.ToBoolean(this.Request.QueryString["wholeWord"]);   // whole word
             var min = this.Request.QueryString["min"];  // date range
-            DateTime? minDate = min == null ? (DateTime?) null : Convert.ToDateTime(min);
+            DateTime? minDate = min == null ? (DateTime?)null : Convert.ToDateTime(min);
             var max = this.Request.QueryString["max"];  // date range
-            DateTime? maxDate = max == null ? (DateTime?) null : Convert.ToDateTime(max).AddDays(1);
+            DateTime? maxDate = max == null ? (DateTime?)null : Convert.ToDateTime(max).AddDays(1);
             var nersjson = this.Request.QueryString["ners"];    // final filtering (ners, ...) : get ners
             var nersa = nersjson == null ? null : JArray.Parse(nersjson).ToObject<String[]>();
             var fbpgsjson = this.Request.QueryString["fbpgs"];    // final filtering (fb pages, ...) : get fbpgs
@@ -2370,36 +2370,24 @@ namespace ArabicTextAnalyzer.Controllers
             // get main (whole) data from DB first while filtering on search term if any
             // List<a> items;
             List<b> items;
-            /*if (wholeWord && !String.IsNullOrEmpty(searchValue))
+            if (wholeWord && !String.IsNullOrEmpty(searchValue))
             {
                 // load and search items : do it at the level of the query using contains full-text sql index
-                items = new Arabizer().loaddeserializeT_FB_POST_FullText_Filter_DAPPERSQL(searchValue).Select(c => new a
-                {
-                    id = c.id,
-                    fk_influencer = c.fk_influencer,
-                    pt = c.post_text,
-                    tt = c.translated_text,
-                    lc = c.likes_count,
-                    cc = c.comments_count,
-                    dp = c.date_publishing.ToString("yy-MM-dd HH:mm")
-                }).ToList();
+                items = new Arabizer().loaddeserializeT_FB_POST_JOIN_COMMENT_FullText_Filter_DAPPERSQL(searchValue, minDate, maxDate, fbpgs)
+                    .Select(c => new b
+                    {
+                        id = c.id,
+                        fbPageName = c.fbPageName,
+                        pt = String.IsNullOrWhiteSpace(searchValue) ? c.pt.TruncateTo(400) : truncateBySent(c.pt, searchValue, sentPrepend: 0, sentAppend: 0, viewMoreTag: "[...]", startTruncTag: "[...]", returnSourceIfKeywordNotFound: true),
+                        tt = c.tt,
+                        lc = c.lc,
+                        cc = c.cc,
+                        dp = Convert.ToDateTime(c.dp).ToString("yy-MM-dd HH:mm")
+                    }).ToList();
             }
-            else*/
+            else
             {
                 // load items
-                /*items = new Arabizer().loaddeserializeT_FB_POST_JOIN_COMMENT_Like_Filter_DAPPERSQL(searchValue, minDate, maxDate, nersa, fbpgs)
-                    .Select(c => new a
-                {
-                    id = c.id,
-                    fk_influencer = c.fk_influencer,
-                    pt = String.IsNullOrWhiteSpace(searchValue) ?
-                        c.post_text.TruncateTo(400) :
-                        truncateBySent(c.post_text, searchValue, sentPrepend: 0, sentAppend: 0, viewMoreTag: "[...]", startTruncTag: "[...]", returnSourceIfKeywordNotFound: true),
-                    tt = c.translated_text,
-                    lc = c.likes_count,
-                    cc = c.comments_count,
-                    dp = c.date_publishing.ToString("yy-MM-dd HH:mm")
-                }).ToList();*/
                 items = new Arabizer().loaddeserializeT_FB_POST_JOIN_COMMENT_Like_Filter_DAPPERSQL(searchValue, minDate, maxDate, fbpgs)
                     .Select(c => new b
                     {
@@ -2417,18 +2405,6 @@ namespace ArabicTextAnalyzer.Controllers
             if (itemsPerPage == -1)
                 itemsPerPage = totalItemsCount;
 
-            // filter on date range
-            /*if (min != null)
-            {
-                // var minDate = Convert.ToDateTime(min);
-                items = items.Where(a => DateTime.ParseExact(a.dp, "yy-MM-dd HH:mm", CultureInfo.InvariantCulture) >= minDate).ToList();
-            }
-            if (max != null)
-            {
-                var maxDate = Convert.ToDateTime(max).AddDays(1);
-                items = items.Where(a => DateTime.ParseExact(a.dp, "yy-MM-dd HH:mm", CultureInfo.InvariantCulture) <= maxDate).ToList();
-            }*/
-
             //
             var itemsFilteredCount = items.Count;
 
@@ -2437,23 +2413,6 @@ namespace ArabicTextAnalyzer.Controllers
 
             // get other helper data from DB
             List<M_ARABICDARIJAENTRY_TEXTENTITY> ners = new Arabizer().loaddeserializeM_ARABICDARIJAENTRY_TEXTENTITY_SocialSearch_DAPPERSQL();
-
-            // join on fb pages names && have placeholder entity col
-            /*List<T_FB_INFLUENCER> fbPages = new Arabizer().loadDeserializeT_FB_INFLUENCERs_NODUPL_DAPPERSQL();
-            var items0 = items.Join(fbPages,
-                i => i.fk_influencer,
-                f => f.id,
-                (i, f) => new b
-                {
-                    id = i.id,
-                    fbPageName = f.name,
-                    FormattedEntities = String.Empty,
-                    pt = i.pt,
-                    tt = i.tt,
-                    lc = i.lc,
-                    cc = i.cc,
-                    dp = i.dp
-                });*/
 
             // for comments, if only one found, return and uncollapse it out
             /*String extraData = null;
@@ -2486,16 +2445,6 @@ namespace ArabicTextAnalyzer.Controllers
                 }
             }
 
-            // final filtering (fbpgs, ...) : get fbpgs
-            /*if (!String.IsNullOrWhiteSpace(fbpgsjson))
-            {
-                JArray a = JArray.Parse(fbpgsjson);
-                foreach (var item in a)
-                {
-                    items1 = items1.Where(c => c.fk_influencer == (String)item).ToList();
-                }
-            }*/
-            
             //
             return JsonConvert.SerializeObject(new
             {
@@ -2590,7 +2539,7 @@ namespace ArabicTextAnalyzer.Controllers
             return truncated.Trim().Replace("  ", " ");
         }
 
-        public class a
+        /*public class a
         {
             public String id;
             public String fk_influencer;
@@ -2599,7 +2548,7 @@ namespace ArabicTextAnalyzer.Controllers
             public int lc;
             public int cc;
             public String dp;
-        }
+        }*/
 
         public class b
         {
