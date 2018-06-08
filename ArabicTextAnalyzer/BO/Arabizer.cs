@@ -1670,7 +1670,7 @@ namespace ArabicTextAnalyzer.BO
                                 + "P.fk_influencer, "
                                 + "P.post_text pt, "
                                 + "FBPG.name fbPageName, "
-                                + "'' FormattedEntities, "
+                                + "'' FormattedEntities, "  // have placeholder entity col
                                 + "P.translated_text tt, "
                                 + "P.likes_count lc, "
                                 + "P.comments_count cc, "
@@ -1685,7 +1685,7 @@ namespace ArabicTextAnalyzer.BO
                                 + "P.fk_influencer, "
                                 + "P.post_text pt, "
                                 + "FBPG.name fbPageName, "
-                                + "'' FormattedEntities, "
+                                + "'' FormattedEntities, "  // have placeholder entity col
                                 + "P.translated_text tt, "
                                 + "P.likes_count lc, "
                                 + "P.comments_count cc, "
@@ -1694,6 +1694,71 @@ namespace ArabicTextAnalyzer.BO
                             + "INNER JOIN FBFeedComments C ON C.feedId IS NOT NULL AND P.id = C.feedId "
                             + "INNER JOIN T_FB_INFLUENCER FBPG ON P.fk_influencer = FBPG.id "
                             + "AND (C.message LIKE N'%" + filter + "%' OR C.translated_message LIKE N'%" + filter + "%') "
+                            + "WHERE 1 = 1 "
+                            + extraFilter
+                            + "ORDER BY P.date_publishing DESC ";
+
+                //
+                conn.Open();
+                return conn.Query<b>(qry0).ToList();
+            }
+        }
+
+        public List<b> loaddeserializeT_FB_POST_JOIN_COMMENT_FullText_Filter_DAPPERSQL(String filter, DateTime? minDate, DateTime? maxDate, String[] fbpgs)
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+            String extraFilter = String.Empty;
+
+            if (minDate != null)
+                extraFilter += "AND P.date_publishing >= " + minDate.Value.ToString("yyyy-MM-dd HH:mm:ss.fff") + " ";
+
+            if (maxDate != null)
+                extraFilter += "AND P.date_publishing <= " + maxDate.Value.ToString("yyyy-MM-dd HH:mm:ss.fff") + " ";
+
+            if (fbpgs != null && fbpgs.Length > 0)
+            {
+                extraFilter += "AND P.fk_influencer IN (";
+                foreach (String fbpg in fbpgs)
+                {
+                    extraFilter += "'" + fbpg + "',";
+                }
+                extraFilter = extraFilter.TrimEnd(',');
+                extraFilter += ") ";
+            }
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                // rewrite qry to avoid timeout (from 1:45 to 15sec)
+                String qry0 = "SELECT "
+                                + "P.id, "
+                                + "P.fk_influencer, "
+                                + "P.post_text pt, "
+                                + "FBPG.name fbPageName, "
+                                + "'' FormattedEntities, "  // have placeholder entity col
+                                + "P.translated_text tt, "
+                                + "P.likes_count lc, "
+                                + "P.comments_count cc, "
+                                + "P.date_publishing dp "
+                            + "FROM T_FB_POST P "
+                            + "INNER JOIN T_FB_INFLUENCER FBPG ON P.fk_influencer = FBPG.id "
+                            + "WHERE (CONTAINS(P.post_text, '" + filter + "') OR CONTAINS(P.translated_text, '" + filter + "')) "
+                            + extraFilter
+                            + "UNION "
+                            + "SELECT "
+                                + "P.id, "
+                                + "P.fk_influencer, "
+                                + "P.post_text pt, "
+                                + "FBPG.name fbPageName, "
+                                + "'' FormattedEntities, "  // have placeholder entity col
+                                + "P.translated_text tt, "
+                                + "P.likes_count lc, "
+                                + "P.comments_count cc, "
+                                + "P.date_publishing dp "
+                            + "FROM T_FB_POST P "
+                            + "INNER JOIN FBFeedComments C ON C.feedId IS NOT NULL AND P.id = C.feedId "
+                            + "INNER JOIN T_FB_INFLUENCER FBPG ON P.fk_influencer = FBPG.id "
+                            + "AND (CONTAINS(C.message, '" + filter + "') OR CONTAINS(C.translated_message, '" + filter + "')) "
                             + "WHERE 1 = 1 "
                             + extraFilter
                             + "ORDER BY P.date_publishing DESC ";
