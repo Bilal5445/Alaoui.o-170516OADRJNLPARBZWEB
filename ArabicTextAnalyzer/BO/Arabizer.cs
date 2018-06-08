@@ -1460,10 +1460,10 @@ namespace ArabicTextAnalyzer.BO
             {
                 conn.Open();
 
-                // String qry = "SELECT * FROM T_FB_INFLUENCER";
-                String qry = "SELECT id, name FROM T_FB_INFLUENCER "
-                    + "GROUP BY id, name "; // group by to remove duplicates
-                return conn.Query<T_FB_INFLUENCER>(qry).ToList();
+                String qry0 = "SELECT id, name "
+                            + "FROM T_FB_INFLUENCER "
+                            + "GROUP BY id, name "; // group by to remove duplicates
+                return conn.Query<T_FB_INFLUENCER>(qry0).ToList();
             }
         }
 
@@ -1500,6 +1500,39 @@ namespace ArabicTextAnalyzer.BO
 
                 conn.Open();
                 return conn.Query<LM_CountPerTheme>(qry).ToList();
+            }
+        }
+
+        public List<LM_CountPerNamedInfluencer> loaddeserializeT_FB_INFLUENCER_CommentsCount_DAPPERSQL()
+        {
+            String ConnectionString = ConfigurationManager.ConnectionStrings["ScrapyWebEntities"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                String qry0 = @"SELECT id, FB_Page name, SUM(NB_Comments) CountPerInfluencer 
+                                FROM (
+	                                SELECT I.id, I.name FB_Page, COUNT(*) NB_Comments FROM FBFeedComments C
+	                                INNER JOIN T_FB_POST P ON C.feedId = P.id
+	                                INNER JOIN T_FB_INFLUENCER I ON P.fk_influencer = I.id
+	                                GROUP BY I.id, I.name
+
+	                                UNION
+
+	                                SELECT I.id, I.name FB_Page, COUNT(*) NB_Comments FROM FBFeedComments C
+	                                INNER JOIN T_FB_POST P ON LEFT(C.id, CHARINDEX('_', C.id) - 1) = RIGHT(P.id, CHARINDEX('_', P.id) - 1)
+	                                INNER JOIN T_FB_INFLUENCER I ON P.fk_influencer = I.id
+	                                WHERE C.feedId IS NULL
+	                                AND CHARINDEX('_', C.id) > 0
+	                                AND CHARINDEX('_', P.id) > 0
+	                                GROUP BY I.id, I.name
+                                ) A
+                                GROUP BY id, FB_Page
+                                ORDER BY SUM(NB_Comments) DESC
+
+                                ";
+
+                conn.Open();
+                return conn.Query<LM_CountPerNamedInfluencer>(qry0).ToList();
             }
         }
 

@@ -6,6 +6,7 @@
 
     //
     IEnumerable<LM_CountPerKeyword> nersWithCounts = ViewBag.NersWithCounts ?? new LM_CountPerKeyword();
+    IEnumerable<LM_CountPerNamedInfluencer> fbPagesWithCommentsCounts = ViewBag.FBPagesWithCommentsCounts ?? new LM_CountPerNamedInfluencer();
 }
 
 @section styles {
@@ -150,8 +151,8 @@
 <!-- date range filter  & NER filter -->
 <div class="row">
     <!-- date range filter -->
-    <div class="col-sm-3"><label>Minimum Date: <input name="min" id="min" type="search" class="form-control input-sm"></label></div>
-    <div class="col-sm-3"><label>Maximum Date: <input name="max" id="max" type="search" class="form-control input-sm"></label></div>
+    <div class="col-sm-2"><label>Minimum Date: <input name="min" id="min" type="search" class="form-control input-sm"></label></div>
+    <div class="col-sm-2"><label>Maximum Date: <input name="max" id="max" type="search" class="form-control input-sm"></label></div>
     <!-- NER filter -->
     <div class="col-sm-3">
         <label>
@@ -170,7 +171,7 @@
                     }
                 </ul>
             </div>
-            <select class="selectpicker" data-live-search="true" tabindex="-98" multiple title="Choose one of the following...">
+            <select class="selectpicker" id="selectnerspicker" data-live-search="true" tabindex="-98" multiple title="Choose one of the following...">
                 @foreach (var ner in nersWithCounts)
                 {
                     if (IsRandALCat(ner.Keyword[0], ner.Keyword[1]))
@@ -180,6 +181,39 @@
                     else
                     {
                         <option style="direction: ltr;" value="@ner.Keyword">@ner.Keyword (@ner.CountPerKeyword)</option>
+                    }
+                }
+            </select>
+        </label>
+    </div>
+    <!-- Page filter -->
+    <div class="col-sm-3">
+        <label>
+            Filter by Page:
+            <div class="dropdown-menu open" role="combobox" style="max-height: 144px; overflow: hidden; min-height: 42px;">
+                <div class="bs-searchbox"><input type="text" class="form-control" autocomplete="off" role="textbox" aria-label="Search"></div>
+                <ul class="dropdown-menu inner" role="listbox" aria-expanded="true" style="max-height: 90px; overflow-y: auto; min-height: 0px;">
+                    @foreach (var fbpg in fbPagesWithCommentsCounts)
+                    {
+                        <li>
+                            <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                <span class="text">@fbpg.name (@fbpg.CountPerInfluencer)</span>
+                                <span class="glyphicon glyphicon-ok check-mark"></span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <select class="selectpicker" id="selectfbpagespicker" data-live-search="true" tabindex="-98" multiple title="Choose one of the following...">
+                @foreach (var fbpg in fbPagesWithCommentsCounts)
+                {
+                    if (IsRandALCat(fbpg.name[0], fbpg.name[1]))
+                    {
+                        <option style="direction: rtl;" value="@fbpg.id">@fbpg.name (@fbpg.CountPerInfluencer)</option>
+                    }
+                    else
+                    {
+                        <option style="direction: ltr;" value="@fbpg.id">@fbpg.name (@fbpg.CountPerInfluencer)</option>
                     }
                 }
             </select>

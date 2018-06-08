@@ -289,7 +289,7 @@ namespace ArabicTextAnalyzer.Controllers
         /// Obtain the data source for the NER Count Per Theme query
         /// </summary>
         /// <param name="ID_XTRCTTHEME">The client theme id</param>
-        [HttpGet]
+        /*[HttpGet]
         public IHttpActionResult StatNerCountPerTheme(string ID_XTRCTTHEME)
         {
             try
@@ -312,19 +312,14 @@ namespace ArabicTextAnalyzer.Controllers
                 Logging.Write(Server, ex.Message);
                 Logging.Write(Server, ex.StackTrace);
 
-                /*return Ok(JsonConvert.SerializeObject(new
-                {
-                    status = false,
-                    message = ex.Message
-                }));*/
                 return InternalServerError(ex);
             }
-        }
+        }*/
 
         /// <summary>
         /// Obtain the data source for the NER Count For All Themes query
         /// </summary>
-        [HttpGet]
+        /*[HttpGet]
         public IHttpActionResult StatNerCountPerThemes()
         {
             // TODO : needs authprization
@@ -361,13 +356,8 @@ namespace ArabicTextAnalyzer.Controllers
                 Logging.Write(Server, ex.Message);
                 Logging.Write(Server, ex.StackTrace);
 
-                /*return Ok(JsonConvert.SerializeObject(new
-                {
-                    status = false,
-                    message = ex.Message
-                }));*/
                 return InternalServerError(ex);
             }
-        }
+        }*/
     }
 }

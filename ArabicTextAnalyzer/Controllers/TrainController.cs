@@ -332,6 +332,7 @@ namespace ArabicTextAnalyzer.Controllers
 
             //
             @ViewBag.NersWithCounts = new Arabizer().loadDeserializeM_ARABICDARIJAENTRY_TEXTENTITY_StatAllNersCounts_SocialSearch_DAPPERSQL();
+            @ViewBag.FBPagesWithCommentsCounts = new Arabizer().loaddeserializeT_FB_INFLUENCER_CommentsCount_DAPPERSQL();
 
             // DBG
             ViewBag.UserName = User.Identity.GetUserName();
@@ -2354,6 +2355,7 @@ namespace ArabicTextAnalyzer.Controllers
             var min = this.Request.QueryString["min"];  // date range
             var max = this.Request.QueryString["max"];  // date range
             var nersjson = this.Request.QueryString["ners"];    // final filtering (ners, ...) : get ners
+            var fbpgsjson = this.Request.QueryString["fbpgs"];    // final filtering (fb pages, ...) : get fbpgs
 
             // get from client search word : trim extra tabs, spaces, ...
             if (String.IsNullOrEmpty(searchValue) == false) searchValue = searchValue.Trim(new char[] { ' ', '\'', '\t' });
@@ -2466,6 +2468,16 @@ namespace ArabicTextAnalyzer.Controllers
                 }
             }
 
+            // final filtering (fbpgs, ...) : get fbpgs
+            if (!String.IsNullOrWhiteSpace(fbpgsjson))
+            {
+                JArray a = JArray.Parse(fbpgsjson);
+                foreach (var item in a)
+                {
+                    items1 = items1.Where(c => c.fk_influencer == (String)item).ToList();
+                }
+            }
+            
             //
             return JsonConvert.SerializeObject(new
             {
