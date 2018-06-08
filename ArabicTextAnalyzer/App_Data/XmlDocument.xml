@@ -965,17 +965,6 @@
             <param name="clientId">The client id : available in the dashboard</param>
             <param name="clientSecret">The client secret : available in the dashboard</param>
         </member>
-        <member name="M:ArabicTextAnalyzer.Controllers.ArabiziController.StatNerCountPerTheme(System.String)">
-            <summary>
-            Obtain the data source for the NER Count Per Theme query
-            </summary>
-            <param name="ID_XTRCTTHEME">The client theme id</param>
-        </member>
-        <member name="M:ArabicTextAnalyzer.Controllers.ArabiziController.StatNerCountPerThemes">
-            <summary>
-            Obtain the data source for the NER Count For All Themes query
-            </summary>
-        </member>
         <member name="M:ArabicTextAnalyzer.Controllers.AuthenticateController.Authenticate(System.String,System.String)">
             <summary>
             Obtain the authentication token to use the Arabizi api.

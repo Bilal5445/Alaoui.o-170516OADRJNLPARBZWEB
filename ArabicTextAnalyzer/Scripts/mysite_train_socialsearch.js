@@ -107,9 +107,15 @@ function InitializeSocialSearchPostsDataTables() {
                 }
 
                 // pass filtered ners to server
-                var ners = $('.selectpicker').val();
+                var ners = $('#selectnerspicker').val();
                 if (ners !== null && ners.length > 0) {
                     d.ners = JSON.stringify(ners);
+                }
+
+                // pass filtered fb pages to server
+                var fbpgs = $('#selectfbpagespicker').val();
+                if (fbpgs !== null && fbpgs.length > 0) {
+                    d.fbpgs = JSON.stringify(fbpgs);
                 }
 
                 // custom search whole word
@@ -132,8 +138,13 @@ function InitializeSocialSearchPostsDataTables() {
         socialsearchtable.draw();
     });
 
-    // search by NER select option trigger
-    $('.selectpicker').change(function () {
+    // search by NERs select option trigger
+    $('#selectnerspicker').change(function () {
+        socialsearchtable.draw();
+    });
+
+    // search by FB Pages select option trigger
+    $('#selectfbpagespicker').change(function () {
         socialsearchtable.draw();
     });
 
