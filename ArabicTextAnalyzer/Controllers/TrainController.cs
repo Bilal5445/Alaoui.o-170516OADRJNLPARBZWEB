@@ -1083,7 +1083,7 @@ namespace ArabicTextAnalyzer.Controllers
                 int retrievedCommentsCount = -1;
 
                 var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchFBInfluencerPosts?CallFrom=" + influencerurl_name;
-                // ex : url : http://localhost:8081//Data/FetchFBInfluencerPosts?...
+                // ex : url : http://localhost:8081/Data/FetchFBInfluencerPosts?...
                 result = await HtmlHelpers.PostAPIRequest_result(url, "");
 
                 // parse result
@@ -1250,28 +1250,12 @@ namespace ArabicTextAnalyzer.Controllers
         {
             // Check before
             if (string.IsNullOrEmpty(postsIds))
-            {
-                return JsonConvert.SerializeObject(new
-                {
-                    status = false,
-                    message = "Error. Please check your parameters"
-                });
-            }
+                return JsonConvert.SerializeObject(new { status = false, message = "Error. Please check your parameters" });
 
             try
             {
                 // get list of not yet translated comments with the specified ids (can be one comment to translate or can be many checked)
                 List<FB_POST> posts = new Arabizer().loaddeserializeT_FB_POSTs_By_Ids_DAPPERSQL(postsIds);
-
-                // check before
-                /*if (posts == null || posts.Count == 0)
-                {
-                    return JsonConvert.SerializeObject(new
-                    {
-                        status = false,
-                        message = "All selected posts are already translated."
-                    });
-                }*/
 
                 //
                 foreach (var post in posts)
@@ -1279,6 +1263,9 @@ namespace ArabicTextAnalyzer.Controllers
                     // in FB, some posts text can be empty (image, ...)
                     if (String.IsNullOrWhiteSpace(post.post_text))
                         continue;
+
+                    // btw, refresh comments for the post
+                    // TODO post.id
 
                     // MC081217 translate via train to populate NER, analysis data, ...
                     // Arabizi to arabic script via direct call to perl script
@@ -2538,17 +2525,6 @@ namespace ArabicTextAnalyzer.Controllers
             // did i ever mention how much i despise double spaces?
             return truncated.Trim().Replace("  ", " ");
         }
-
-        /*public class a
-        {
-            public String id;
-            public String fk_influencer;
-            public String pt;
-            public String tt;
-            public int lc;
-            public int cc;
-            public String dp;
-        }*/
 
         public class b
         {
