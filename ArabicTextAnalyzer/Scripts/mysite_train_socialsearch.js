@@ -67,9 +67,7 @@ function InitializeSocialSearchPostsDataTables() {
             { "data": "cc", "className": "center top" },
             {
                 "data": function (data) {
-                    var str = '';
-                    str = str + '<a class="btn btn-info btn-xs small" onclick="' + "JsExtractPostsEntities(this)" + '"><span class="glyphicon glyphicon-refresh small" aria-hidden="true" title="Reprocess text"></span></a>';
-                    return str;
+                    return '<a class="btn btn-info btn-xs small" onclick="' + "JsExtractPostsEntities(this)" + '"><span class="glyphicon glyphicon-refresh small" aria-hidden="true" title="Reprocess text"></span></a>';
                 },
                 "className": "controls center top"
             },
