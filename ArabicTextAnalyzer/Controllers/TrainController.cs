@@ -584,33 +584,34 @@ namespace ArabicTextAnalyzer.Controllers
         [HttpPost]
         public ActionResult TrainStepOneAjaxFree(M_ARABIZIENTRY arabiziEntry)
         {
-            if (Request.Cookies["hasUsed"] != null && Convert.ToInt32(Request.Cookies["hasUsed"].Value) > 2)
+            var hasUsedCookie = Request.Cookies["hasUsed"];
+            if (hasUsedCookie == null)
+            {
+                // never used, create cookie and set its value to 1
+                Response.Cookies.Add(new HttpCookie("hasUsed", 1.ToString()));
+            }
+            else if (Convert.ToInt32(hasUsedCookie.Value) > 2)
+            {
+                // cookie value more than 2, then returns saying quota consumed
                 return Content(JsonConvert.SerializeObject(new
                 {
                     status = false,
                     message = "Free quota used, please register."
                 }), "application/json");
+            }
             else
             {
-                if (Request.Cookies["hasUsed"] == null)
-                {
-                    HttpCookie hasUsed = new HttpCookie("hasUsed", 1.ToString());
-                    Response.Cookies.Add(hasUsed);
-                }
-                else
-                {
-                    HttpCookie hasUsed = new HttpCookie("hasUsed", (Convert.ToInt32(Request.Cookies["hasUsed"].Value) + 1).ToString());
-                    Response.Cookies.Add(hasUsed);
-                }
+                // cookie value less than or equal to 2, increase cookie value
+                Response.Cookies.Add(new HttpCookie("hasUsed", (Convert.ToInt32(hasUsedCookie.Value) + 1).ToString()));
             }
 
-            // since it i as free test for anybody, passe the user id as admin : Get Admin Account
+            // since it is a free test for anybody, pass the user id as admin : Get Admin Account
             string AdminUserName = ConfigurationManager.AppSettings["AdminUserName"];
             string AdminPassword = ConfigurationManager.AppSettings["AdminPassword"];
             var objAdminUser = UserManager.FindByEmail(AdminUserName);
             var userId = objAdminUser.Id;
 
-            // since it i as free test for anybody, passe the user id as admin and pass the theme id as admin active theme
+            // since it is a free test for anybody, passe the user id as admin and pass the theme id as admin active theme
             var adminActiveTheme = new Arabizer().loadDeserializeM_XTRCTTHEME_Active_DAPPERSQL(userId);
             String mainEntity = adminActiveTheme.ThemeName;
             arabiziEntry.ID_XTRCTTHEME = adminActiveTheme.ID_XTRCTTHEME;
@@ -628,7 +629,6 @@ namespace ArabicTextAnalyzer.Controllers
                 }
 
                 // make sure last day did not exceed 100 calls
-                // var userId = User.Identity.GetUserId();
                 var clientkeys = new ClientKeysConcrete().GetGenerateUniqueKeyByUserID(userId);
                 int nbrOfCallsInTheLast24hour = new Arabizer().getNbrOfCallsInTheLast24hours(clientkeys.RegisterAppId.Value);
                 if (nbrOfCallsInTheLast24hour > 100)
