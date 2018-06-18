@@ -27,6 +27,7 @@ namespace ArabicTextAnalyzer.Domain.Models
         public DbSet<M_TWINGLYACCOUNT> M_TWINGLYACCOUNTs { get; set; }
         public DbSet<M_XTRCTTHEME> M_XTRCTTHEMEs { get; set; }
         public DbSet<M_XTRCTTHEME_KEYWORD> M_XTRCTTHEME_KEYWORDs { get; set; }
+        public DbSet<M_XTRCTTHEME_CONFIG_KEYWORD> M_XTRCTTHEME_CONFIG_KEYWORDs { get; set; }
 
         // authentication entities
         public DbSet<RegisterUser> RegisterUsers { get; set; }

@@ -58,6 +58,7 @@
     <Compile Include="Models\M_ARABICDARIJAENTRY_LATINWORD.cs" />
     <Compile Include="Models\M_ARABIZIENTRY.cs" />
     <Compile Include="Models\M_TWINGLYACCOUNT.cs" />
+    <Compile Include="Models\M_XTRCTHEME_CONFIG_KEYWORD.cs" />
     <Compile Include="Models\M_XTRCTTHEME.cs" />
     <Compile Include="Models\M_XTRCTTHEME_KEYWORD.cs" />
     <Compile Include="Models\RegisterApp.cs" />

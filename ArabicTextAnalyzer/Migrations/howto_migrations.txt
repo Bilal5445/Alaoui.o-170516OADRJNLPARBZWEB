@@ -171,3 +171,9 @@ Add-Migration fbNERs_ArabiziDbContext -ConfigurationTypeName Configuration
 => PB : MoveTable(name: "[ArabicTextAnalyzer.Models.ArabiziDbContext].ClientKeys", newSchema: "dbo"); ???!!!
 => SOL : I have commentted the MoveTable but kept AddColumn FK_ENTRY & ENTRY_type
 Update-Database -ConfigurationTypeName Configuration
+
+---
+
+VS > Tools > NuGet Package Manager > Package Manager Console : Default project : ArabicTextAnalyzer
+Add-Migration configKeywords_ArabiziDbContext -ConfigurationTypeName Configuration
+Update-Database -ConfigurationTypeName Configuration
