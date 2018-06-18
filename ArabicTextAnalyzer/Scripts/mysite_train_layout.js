@@ -81,7 +81,6 @@ function JsAddTheme() {
 }
 
 // event on close add new theme : reset
-// $('#myModalAddNewTheme').on('hidden', function () {
 $('#myModalAddNewTheme').on('hidden.bs.modal', function () {
     
     // hide misc area error msg
