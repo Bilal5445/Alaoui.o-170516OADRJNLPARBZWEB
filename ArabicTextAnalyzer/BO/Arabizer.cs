@@ -1648,10 +1648,10 @@ namespace ArabicTextAnalyzer.BO
             String extraFilter = String.Empty;
 
             if (minDate != null)
-                extraFilter += "AND P.date_publishing >= " + minDate.Value.ToString("yyyy-MM-dd HH:mm:ss.fff") + " ";
+                extraFilter += "AND P.date_publishing >= '" + minDate.Value.ToString("yyyy-MM-dd HH:mm:ss.fff") + "' ";
 
             if (maxDate != null)
-                extraFilter += "AND P.date_publishing <= " + maxDate.Value.ToString("yyyy-MM-dd HH:mm:ss.fff") + " ";
+                extraFilter += "AND P.date_publishing <= '" + maxDate.Value.ToString("yyyy-MM-dd HH:mm:ss.fff") + "' ";
 
             if (fbpgs != null && fbpgs.Length > 0)
             {
