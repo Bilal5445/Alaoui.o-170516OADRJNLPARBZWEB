@@ -16,7 +16,7 @@ namespace ArabicTextAnalyzer.Business.Provider
 {
     public class TextEntityExtraction : ITextEntityExtraction
     {
-        private readonly RestClient client;
+        private readonly RestClient _rosetteRestClient;
 
         private const string endpoint = "https://api.rosette.com/rest/v1/";
         private const string rosetteApiKey = "ce51b85cd7c17f407f2ab16799896808";
@@ -26,7 +26,7 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public TextEntityExtraction()
         {
-            client = new RestClient(endpoint);
+            _rosetteRestClient = new RestClient(endpoint);
         }
 
         public List<LanguageRange> GetLanguagesRanges(String source)
@@ -65,7 +65,7 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             request.AddParameter("application/json", content, ParameterType.RequestBody);
 
-            var response = client.Execute(request);
+            var response = _rosetteRestClient.Execute(request);
 
             //
             var ranges = new List<String>();
@@ -122,7 +122,41 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             request.AddParameter("application/json", content, ParameterType.RequestBody);
 
-            var response = client.Execute(request);
+            var response = _rosetteRestClient.Execute(request);
+
+            //
+            var ranges = new List<String>();
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                RosetteMultiLanguageDetections responseObject = new JavaScriptSerializer().Deserialize<RosetteMultiLanguageDetections>(response.Content);
+
+                return responseObject.languageDetections[0];
+            }
+
+            return null;
+        }
+
+        public LanguageDetection GetLanguageForRange_ownapi(String source)
+        {
+            string endpoint = "http://app.gravitasanalytix.com:82/api/Language/Detect";
+            var ownApiDetectLangClient = new RestClient(endpoint);
+
+            //
+            var request = new RestRequest("language", Method.GET);
+
+            // request.AddHeader("X-RosetteAPI-Key", rosetteApiKey);
+            request.AddHeader("Accept", "application/json");
+
+            var content = new JavaScriptSerializer().Serialize(
+                    new
+                    {
+                        Mytext = source,
+                    });
+
+            request.AddParameter("application/json", content, ParameterType.QueryString);
+
+            var response = ownApiDetectLangClient.Execute(request);
 
             //
             var ranges = new List<String>();
@@ -158,7 +192,7 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             request.AddParameter("application/json", content, ParameterType.RequestBody);
 
-            var response = client.Execute(request);
+            var response = _rosetteRestClient.Execute(request);
 
             // MC301117 rosette can return badrequest if it does not recognize the language : {"code":"unsupportedLanguage","message":"Language swe not supported"}
             // It happenned with "macharmla"
@@ -186,9 +220,7 @@ namespace ArabicTextAnalyzer.Business.Provider
             String arabicText,
             IEnumerable<TextEntity> entities,
             Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY,
-            // Action<M_ARABICDARIJAENTRY_TEXTENTITY, AccessMode> saveserializeM_ARABICDARIJAENTRY_TEXTENTITY,
-            Action<M_ARABICDARIJAENTRY_TEXTENTITY> saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL//,
-            // AccessMode accessMode
+            Action<M_ARABICDARIJAENTRY_TEXTENTITY> saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL
             )
         {
             List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
@@ -253,31 +285,6 @@ namespace ArabicTextAnalyzer.Business.Provider
 
             return lentities;
         }
-
-        /*List<M_ARABICDARIJAENTRY_TEXTENTITY> NerManualExtraction_save(List<TextEntity> lentities)
-        {
-            List<M_ARABICDARIJAENTRY_TEXTENTITY> textEntities = new List<M_ARABICDARIJAENTRY_TEXTENTITY>();
-
-            // Saving
-            foreach (var entity in lentities)
-            {
-                M_ARABICDARIJAENTRY_TEXTENTITY textEntity = new M_ARABICDARIJAENTRY_TEXTENTITY
-                {
-                    ID_ARABICDARIJAENTRY_TEXTENTITY = Guid.NewGuid(),
-                    ID_ARABICDARIJAENTRY = arabicDarijaEntry_ID_ARABICDARIJAENTRY,
-                    TextEntity = entity
-                };
-
-                //
-                textEntities.Add(textEntity);
-
-                // Save to Serialization
-                saveserializeM_ARABICDARIJAENTRY_TEXTENTITY(textEntity, accessMode);
-            }
-
-            //
-            return textEntities;
-        }*/
 
         public List<M_ARABICDARIJAENTRY_TEXTENTITY> NerManualExtraction_uow(String arabicText, IEnumerable<TextEntity> entities, Guid arabicDarijaEntry_ID_ARABICDARIJAENTRY,
             Action<M_ARABICDARIJAENTRY_TEXTENTITY, ArabiziDbContext, bool> saveserializeM_ARABICDARIJAENTRY_TEXTENTITY_EFSQL_uow,
