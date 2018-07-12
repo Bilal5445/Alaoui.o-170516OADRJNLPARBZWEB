@@ -1745,7 +1745,8 @@ namespace ArabicTextAnalyzer.BO
                                 + "P.comments_count cc, "
                                 + "P.date_publishing dp "
                             + "FROM T_FB_POST P "
-                            + "INNER JOIN T_FB_INFLUENCER FBPG ON P.fk_influencer = FBPG.id "
+                            // + "INNER JOIN T_FB_INFLUENCER FBPG ON P.fk_influencer = FBPG.id "
+                            + "INNER JOIN (SELECT id, MAX(name) name FROM T_FB_INFLUENCER GROUP BY id) FBPG ON P.fk_influencer = FBPG.id "
                             + "WHERE (CONTAINS(P.post_text, '" + filter + "') OR CONTAINS(P.translated_text, '" + filter + "')) "
                             + extraFilter
                             + "UNION "
@@ -1761,7 +1762,8 @@ namespace ArabicTextAnalyzer.BO
                                 + "P.date_publishing dp "
                             + "FROM T_FB_POST P "
                             + "INNER JOIN FBFeedComments C ON C.feedId IS NOT NULL AND P.id = C.feedId "
-                            + "INNER JOIN T_FB_INFLUENCER FBPG ON P.fk_influencer = FBPG.id "
+                            // + "INNER JOIN T_FB_INFLUENCER FBPG ON P.fk_influencer = FBPG.id "
+                            + "INNER JOIN (SELECT id, MAX(name) name FROM T_FB_INFLUENCER GROUP BY id) FBPG ON P.fk_influencer = FBPG.id "
                             + "AND (CONTAINS(C.message, '" + filter + "') OR CONTAINS(C.translated_message, '" + filter + "')) "
                             + "WHERE 1 = 1 "
                             + extraFilter
