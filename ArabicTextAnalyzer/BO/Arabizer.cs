@@ -79,6 +79,8 @@ namespace ArabicTextAnalyzer.BO
             String arabicText = train_savearabizi(arabiziEntry);
 
             // Detecte ranges of language with new rosette API 1.9
+            // var ownapires = new TextEntityExtraction().GetLanguageForRange_ownapi(arabicText);
+            // Console.WriteLine(ownapires);
             List<LanguageRange> languagesRanges = new TextEntityExtraction().GetLanguagesRanges(arabicText);
             if (languagesRanges.Count > 1)
             {
@@ -1513,14 +1515,14 @@ namespace ArabicTextAnalyzer.BO
                                 FROM (
 	                                SELECT I.id, I.name FB_Page, COUNT(*) NB_Comments FROM FBFeedComments C
 	                                INNER JOIN T_FB_POST P ON C.feedId = P.id
-	                                INNER JOIN T_FB_INFLUENCER I ON P.fk_influencer = I.id
-	                                GROUP BY I.id, I.name
+	                                INNER JOIN (SELECT id, MAX(name)name FROM T_FB_INFLUENCER GROUP BY id) I ON P.fk_influencer = I.id
+                                    GROUP BY I.id, I.name
 
 	                                UNION
 
 	                                SELECT I.id, I.name FB_Page, COUNT(*) NB_Comments FROM FBFeedComments C
 	                                INNER JOIN T_FB_POST P ON LEFT(C.id, CHARINDEX('_', C.id) - 1) = RIGHT(P.id, CHARINDEX('_', P.id) - 1)
-	                                INNER JOIN T_FB_INFLUENCER I ON P.fk_influencer = I.id
+	                                INNER JOIN (SELECT id, MAX(name)name FROM T_FB_INFLUENCER GROUP BY id) I ON P.fk_influencer = I.id
 	                                WHERE C.feedId IS NULL
 	                                AND CHARINDEX('_', C.id) > 0
 	                                AND CHARINDEX('_', P.id) > 0
@@ -1676,7 +1678,8 @@ namespace ArabicTextAnalyzer.BO
                                 + "P.comments_count cc, "
                                 + "P.date_publishing dp "
                             + "FROM T_FB_POST P "
-                            + "INNER JOIN T_FB_INFLUENCER FBPG ON P.fk_influencer = FBPG.id "
+                            // + "INNER JOIN T_FB_INFLUENCER FBPG ON P.fk_influencer = FBPG.id "
+                            + "INNER JOIN (SELECT id, MAX(name) name FROM T_FB_INFLUENCER GROUP BY id) FBPG ON P.fk_influencer = FBPG.id "
                             + "WHERE (P.post_text LIKE N'%" + filter + "%' OR P.translated_text LIKE N'%" + filter + "%') "
                             + extraFilter
                             + "UNION "
@@ -1692,7 +1695,8 @@ namespace ArabicTextAnalyzer.BO
                                 + "P.date_publishing dp "
                             + "FROM T_FB_POST P "
                             + "INNER JOIN FBFeedComments C ON C.feedId IS NOT NULL AND P.id = C.feedId "
-                            + "INNER JOIN T_FB_INFLUENCER FBPG ON P.fk_influencer = FBPG.id "
+                            // + "INNER JOIN T_FB_INFLUENCER FBPG ON P.fk_influencer = FBPG.id "
+                            + "INNER JOIN (SELECT id, MAX(name) name FROM T_FB_INFLUENCER GROUP BY id) FBPG ON P.fk_influencer = FBPG.id "
                             + "AND (C.message LIKE N'%" + filter + "%' OR C.translated_message LIKE N'%" + filter + "%') "
                             + "WHERE 1 = 1 "
                             + extraFilter
