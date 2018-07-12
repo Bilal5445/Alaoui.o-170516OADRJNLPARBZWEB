@@ -30,6 +30,7 @@ using MimeKit;
 using System.Text.RegularExpressions;
 using Microsoft.AspNet.Identity.Owin;
 using static ArabicTextAnalyzer.BO.Arabizer;
+using ScrapyWeb.Business;
 
 namespace ArabicTextAnalyzer.Controllers
 {
@@ -1256,6 +1257,11 @@ namespace ArabicTextAnalyzer.Controllers
             {
                 // get list of not yet translated comments with the specified ids (can be one comment to translate or can be many checked)
                 List<FB_POST> posts = new Arabizer().loaddeserializeT_FB_POSTs_By_Ids_DAPPERSQL(postsIds);
+
+                // btw, refresh post (nbr of likes, nbr of comments, ...)
+                // TODO : do it for all posts not only first
+                var url = ConfigurationManager.AppSettings["FBWorkingAPI"] + "/" + "Data/FetchPost?postsId=" + posts[0].id;
+                await HtmlHelpers.PostAPIRequest_result(url, "");
 
                 //
                 foreach (var post in posts)
