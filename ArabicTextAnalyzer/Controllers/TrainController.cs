@@ -30,7 +30,7 @@ using MimeKit;
 using System.Text.RegularExpressions;
 using Microsoft.AspNet.Identity.Owin;
 using static ArabicTextAnalyzer.BO.Arabizer;
-using ScrapyWeb.Business;
+// using ScrapyWeb.Business;
 
 namespace ArabicTextAnalyzer.Controllers
 {
