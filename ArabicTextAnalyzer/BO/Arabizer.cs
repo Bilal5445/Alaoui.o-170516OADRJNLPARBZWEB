@@ -1653,6 +1653,7 @@ namespace ArabicTextAnalyzer.BO
             if (maxDate != null)
                 extraFilter += "AND P.date_publishing <= '" + maxDate.Value.ToString("yyyy-MM-dd HH:mm:ss.fff") + "' ";
 
+            //
             if (fbpgs != null && fbpgs.Length > 0)
             {
                 extraFilter += "AND P.fk_influencer IN (";
