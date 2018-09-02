@@ -65,6 +65,9 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public string getArabicTranslatedWord(string correctedWord, string format = null)
         {
+            // see 1079 : codeswitch>google-translate : disable google-translate api from google because of cost passive consumption and trial expiration
+            return correctedWord;
+
             string translateApiUrl = "https://translation.googleapis.com/language/translate/v2?key=" + translationApiKey;
             translateApiUrl += "&target=" + "AR";
             translateApiUrl += "&source=" + "FR";
@@ -103,6 +106,9 @@ namespace ArabicTextAnalyzer.Business.Provider
 
         public string bingSpellcheckApi(String arabiziWord, string apiKey)
         {
+            // see 1078 : codeswitch>bing : disable Bing Checkspell api from azure because of cost passive consumption
+            return arabiziWord;
+
             String spellCheckAPi = "https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?text=";
 
             // clean
